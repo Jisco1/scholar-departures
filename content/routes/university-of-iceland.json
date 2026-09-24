@@ -1,0 +1,31 @@
+{
+  "summary": "Iceland's public universities used to charge every student only a registration fee. That is ending for bachelor's and master's students from outside the EEA: from autumn 2027 they will pay tuition. Doctoral programmes are exempt, so the University of Iceland stays on the board as a tuition-free route for PhD candidates.",
+  "covers": [
+    "No tuition for doctoral programmes — PhD programmes are exempt from the new non-EEA fees.",
+    "The annual registration fee all students pay: ISK 100,000 for 2026–27 (ISK 75,000 if you start in the spring semester).",
+    "Non-EEA applicants also pay a one-time handling fee of ISK 20,000 (about €135) when they apply.",
+    "Living costs are not covered by the university. PhD funding usually comes from research grants attached to an advertised project, or from doctoral grants such as those of the University of Iceland Research Fund."
+  ],
+  "eligibility": [
+    "PhD applicants with a relevant master's degree and a supervisor at the University of Iceland willing to take them on.",
+    "Bachelor's and master's applicants from outside the EEA/EFTA who start in autumn 2027 or later will pay tuition; the amounts had not been set when we last checked, and may differ by programme.",
+    "Students from the Faroe Islands, Greenland and Switzerland, and non-EEA citizens with permanent residence in Iceland, are exempt from the new fees."
+  ],
+  "how_to_apply": [
+    "Find a supervisor and a research topic — most funded PhD places are tied to a specific project, so watch for advertised positions.",
+    "Apply to the doctoral programme through the University of Iceland's online application system, with a research proposal agreed with your supervisor.",
+    "Pay the non-EEA handling fee with the application and the registration fee once admitted.",
+    "Apply for your Icelandic residence permit as soon as you are admitted — processing can take months."
+  ],
+  "watch_out": [
+    "Many websites still describe Iceland as tuition-free for everyone. For non-EEA bachelor's and master's students starting from autumn 2027, that is no longer true.",
+    "The University of Iceland says its fee information is subject to change pending final decisions by the Icelandic authorities — check its fees page before you apply.",
+    "Reykjavík is expensive; a PhD without a grant or salary is rarely sustainable."
+  ],
+  "related": ["norwegian-phd-fellowships", "university-of-helsinki-scholarships", "ghent-university-doctoral-scholarships", "swiss-government-excellence-scholarships"],
+  "sources": [
+    {"title": "University of Iceland — University fees", "url": "https://english.hi.is/study/apply/university-fees"},
+    {"title": "University of Iceland — Higher registration fees next academic year", "url": "https://english.hi.is/news/higher-registration-fees-university-iceland-next-academic-year"}
+  ],
+  "reviewed": "2026-09-24"
+}

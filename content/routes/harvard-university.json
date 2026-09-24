@@ -1,0 +1,46 @@
+{
+  "summary": "Harvard admits every applicant — including international students — without looking at whether they need financial aid, and then meets 100% of demonstrated need with grants, not loans. Since 2025–26, families with typical assets earning $100,000 or less pay nothing at all.",
+  "covers": [
+    "Need-blind admission for all applicants, whatever their citizenship: asking for aid does not affect your chances.",
+    "100% of demonstrated financial need met with grants — no loans in the aid package.",
+    "Families earning $100,000 or less (with typical assets) have an expected parent contribution of zero, covering tuition, housing, food and health insurance, plus a $2,000 start-up grant in the first year and a $2,000 launch grant in the junior year.",
+    "Families earning up to $200,000 pay no tuition.",
+    "The application fee is waived if it would be a hardship — request it in the Common Application."
+  ],
+  "eligibility": [
+    "First-year applicants from any country applying to Harvard College (undergraduate).",
+    "Aid is based on your family's income and assets, which Harvard assesses the same way for international families."
+  ],
+  "how_to_apply": [
+    "Apply through the Common Application with Harvard's supplement, school report, teacher recommendations and transcripts.",
+    "Choose Restrictive Early Action (1 November) or Regular Decision (1 January).",
+    "Submit the financial aid application (the CSS Profile and any documents Harvard requests) by its stated deadline.",
+    "Use Harvard's net price calculator first to see what your family would be expected to pay."
+  ],
+  "watch_out": [
+    "Restrictive Early Action limits where else you can apply early — read the rules before choosing it.",
+    "Missing aid documents delay your aid offer, even though they never affect the admission decision.",
+    "Admission is extremely competitive. Apply to a balanced list; see our guide to [how US financial aid works for international students]({{root}}guides/us-financial-aid-international/)."
+  ],
+  "related": [
+    "mit",
+    "yale-university",
+    "princeton-university",
+    "amherst-college"
+  ],
+  "sources": [
+    {
+      "title": "Harvard College — International applicants",
+      "url": "https://college.harvard.edu/admissions/apply/international-applicants"
+    },
+    {
+      "title": "Harvard College — Financial aid",
+      "url": "https://college.harvard.edu/financial-aid"
+    },
+    {
+      "title": "Harvard Gazette — Harvard expands financial aid (March 2025)",
+      "url": "https://news.harvard.edu/gazette/story/2025/03/harvard-expands-financial-aid"
+    }
+  ],
+  "reviewed": "2026-09-24"
+}

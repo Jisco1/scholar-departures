@@ -1,0 +1,32 @@
+{
+  "summary": "Europe's oldest university is also one of the most accessible for international students with limited means. Through the Emilia-Romagna region's ER.GO agency, students whose family income falls below set thresholds can study with no tuition and receive a yearly grant of up to about €7,000.",
+  "covers": [
+    "A total exemption from university fees for students who qualify for, and apply for, the ER.GO scholarship.",
+    "A yearly ER.GO scholarship that depends on family income and where you live: up to €7,171.11 for students living away from home (the 2026–27 rate for the lowest income band).",
+    "Access to ER.GO accommodation through its ranking list, for students who apply for it.",
+    "Separately, the university offers a reduced fixed fee to students from certain developing and non-OECD countries."
+  ],
+  "eligibility": [
+    "Students enrolling in a bachelor's, master's or single-cycle degree at the University of Bologna, including international students.",
+    "Family economic indicators below the thresholds: ISEE up to €25,000 and ISPE up to €50,000 for 2026–27. Students with family income abroad calculate these using documents from their home country.",
+    "For the higher 'non-resident' amount, you must live more than 90 minutes by public transport from your campus at home, and rent in the university city for at least ten months."
+  ],
+  "how_to_apply": [
+    "Apply for admission to your degree programme at the University of Bologna.",
+    "Collect your family's income and asset documents from your home country early — they usually need official translation and legalisation or an apostille.",
+    "Apply to ER.GO online during its window: for 2026–27 it ran from 23 June to 24 August 2026 (until 4 pm on the last day), for both the scholarship and the fee exemption.",
+    "Complete enrolment by the university's deadline to keep your eligibility; rankings are published afterwards."
+  ],
+  "watch_out": [
+    "The ER.GO window closes in late August — before many international students have arrived. Start the income paperwork in spring.",
+    "This is need-based: applicants from higher-income families do not qualify, however strong their grades.",
+    "Late applications are not accepted, and missing documents are a common reason for exclusion."
+  ],
+  "related": ["politecnico-di-milano-merit-scholarships", "charles-university", "university-of-vienna", "stipendium-hungaricum"],
+  "sources": [
+    {"title": "ER.GO — Guide to the application announcement, a.y. 2026/2027 (PDF)", "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/guide-to-application-announcement-a-y-2025_26/@@download/file"},
+    {"title": "University of Bologna — Study grants and subsidies", "url": "https://www.unibo.it/en/study/study-grants-and-subsidies"},
+    {"title": "University of Bologna — Fees and exemptions", "url": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions"}
+  ],
+  "reviewed": "2026-09-24"
+}

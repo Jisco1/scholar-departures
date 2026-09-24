@@ -1,0 +1,32 @@
+{
+  "summary": "Austria's largest university charges non-EU students €726.72 per semester — a fraction of what comparable universities charge elsewhere. And citizens of about 50 of the world's least developed countries pay no tuition at all, only the €26.20 students' union fee.",
+  "covers": [
+    "Non-EU/EEA students pay a tuition fee of €726.72 plus the students' union (ÖH) fee of €26.20 — €752.92 per semester in total.",
+    "Tuition exemption for citizens of countries on Austria's list of least developed countries (the list runs from Afghanistan, Angola, Bangladesh, Benin and Bhutan to around 45 more). Exempt students pay only the ÖH fee.",
+    "Non-EU citizens who hold certain non-student Austrian residence permits can be treated like EU students and pay only the ÖH fee.",
+    "No living allowance: you need your own funds for Vienna's living costs and for the residence permit."
+  ],
+  "eligibility": [
+    "Open to all nationalities with a school-leaving certificate (bachelor's) or degree (master's) recognised as equivalent.",
+    "Most bachelor's programmes are taught in German; you need German at the level the programme sets before admission (a preparatory programme exists for those still learning). Several master's programmes are taught in English.",
+    "Some programmes have entrance exams or a selection procedure with their own, earlier application windows."
+  ],
+  "how_to_apply": [
+    "Check your programme's page for its language of instruction and whether it has an entrance exam or selection procedure.",
+    "Apply online through u:space and upload your documents, including certified copies and translations where required.",
+    "Non-EU applicants: for winter semester 2026/27 the application period ran 22 June – 3 August 2026; for summer semester 2027 it runs 16 November 2026 – 7 January 2027.",
+    "Master's programmes with a selection procedure take applications only once a year — 2 March to 7 April 2026 for 2026/27 — and bachelor's programmes with an entrance exam from 2 March to 4 May 2026.",
+    "After admission, enrol and pay the semester fee before the admission period ends."
+  ],
+  "watch_out": [
+    "Non-EU applicants face earlier deadlines than EU applicants — dates such as 5 September that circulate online are EU deadlines.",
+    "Selective master's programmes and entrance-exam bachelor's programmes have one application window per year, in spring. Miss it and you wait a year.",
+    "If you are from a least-developed country, check the annex list carefully — the exemption is worth over €1,400 a year."
+  ],
+  "related": ["tu-wien", "universitat-hamburg", "charles-university", "freie-universitat-berlin"],
+  "sources": [
+    {"title": "University of Vienna — Application and admission periods", "url": "https://studieren.univie.ac.at/en/admission/application-and-admission-periods/"},
+    {"title": "University of Vienna — Amount of the tuition fee / Students' Union fee", "url": "https://studieren.univie.ac.at/en/tuition-fee/amount-tuition-fee/"}
+  ],
+  "reviewed": "2026-09-24"
+}

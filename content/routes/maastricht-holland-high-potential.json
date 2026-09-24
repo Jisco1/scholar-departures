@@ -1,0 +1,31 @@
+{
+  "summary": "Maastricht University's NL-High Potential scholarship offers 18 full scholarships for 2027–28 to talented students from outside the EU/EEA on selected master's programmes. It covers tuition, living expenses, insurance and visa costs.",
+  "covers": [
+    "Tuition fees in full.",
+    "Living expenses: €15,925 for a 13-month programme or €30,625 for a 25-month programme.",
+    "Health and liability insurance (€700), visa application costs, and pre-academic training costs."
+  ],
+  "eligibility": [
+    "Nationality of a country outside the EU/EEA, Switzerland and Suriname, and eligibility for a Dutch entry visa and residence permit.",
+    "Aged 35 or younger on 1 September 2027.",
+    "Excellent results: a GPA of at least 7.5 out of 10 (or equivalent) on your latest transcript.",
+    "A complete application to a participating full-time master's programme — only programmes on the scholarship's list qualify."
+  ],
+  "how_to_apply": [
+    "Check the list of participating master's programmes for 2027–28.",
+    "Submit a complete master's application, meeting all admission requirements, by 10 December 2026.",
+    "Apply for the scholarship between 1 October 2026 and 1 February 2027 (23:59).",
+    "Make your motivation specific to Maastricht's problem-based learning and your programme."
+  ],
+  "watch_out": [
+    "Two deadlines: the master's application (10 December) comes well before the scholarship deadline (1 February). Missing the first rules you out.",
+    "Only certain programmes take part; check the list before you choose.",
+    "Eighteen awards across all eligible countries makes this very competitive — apply for other scholarships in parallel."
+  ],
+  "related": ["tu-delft-van-effen-excellence", "university-of-helsinki-scholarships", "master-mind-scholarships-flanders", "erasmus-mundus-joint-masters"],
+  "sources": [
+    {"title": "Maastricht University — NL-High Potential scholarship", "url": "https://www.maastrichtuniversity.nl/studeren/toelating-inschrijving/financing-your-studies/scholarships/maastricht-university-nl-high"},
+    {"title": "Maastricht University — Participating programmes 2027–2028 (PDF)", "url": "https://www.maastrichtuniversity.nl/file/um-hhpstudieprogrammas-2027-2028pdf-0"}
+  ],
+  "reviewed": "2026-09-24"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "ETH Zürich's Excellence Scholarship & Opportunity Programme (ESOP) funds about 60 outstanding master's students a year at one of the world's leading science and engineering universities. It pays living costs and waives tuition for the whole master's.",
+  "covers": [
+    "A living allowance of CHF 13,500 per semester for students starting in autumn 2027 (CHF 12,000 before then).",
+    "A full tuition-fee waiver for the standard length of the master's (three or four semesters).",
+    "About 60 scholarships were available for students starting in 2027/28."
+  ],
+  "eligibility": [
+    "Applicants to an ETH master's programme, from any university in the world.",
+    "Outstanding bachelor's results — ETH asks for the top 10% of your cohort (grade A).",
+    "You must not already be enrolled in, or hold, a master's degree."
+  ],
+  "how_to_apply": [
+    "Apply for your master's programme and ESOP together through ETH's eApply portal.",
+    "Upload a pre-proposal for your master's thesis research as part of the scholarship application.",
+    "Name two professors as referees if your programme does not already require recommendation letters; they submit letters directly.",
+    "Submit between 1 and 30 November 2026 (11:59 pm Swiss time) for a start in autumn 2027. Decisions are communicated by the end of March."
+  ],
+  "watch_out": [
+    "The ESOP window closes on 30 November — two weeks before ETH's regular master's deadline of mid-December. Apply in November to be considered for the scholarship.",
+    "Being in the top 10% is necessary but not sufficient; the thesis pre-proposal and references carry real weight.",
+    "Zürich is among the most expensive cities in Europe; the allowance is set to cover a modest student budget there, not luxuries."
+  ],
+  "related": ["swiss-government-excellence-scholarships", "tu-delft-van-effen-excellence", "rwth-aachen-university", "knight-hennessy-scholars"],
+  "sources": [
+    {"title": "ETH Zürich — Excellence Scholarship & Opportunity Programme", "url": "https://ethz.ch/en/studies/financial/scholarships/excellencescholarship.html"}
+  ],
+  "reviewed": "2026-09-24"
+}

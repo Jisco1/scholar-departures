@@ -1,0 +1,32 @@
+{
+  "summary": "Hungary's government scholarship funds thousands of international students each year at bachelor's, master's and doctoral level. Tuition is free, housing is provided or subsidised, and there is a monthly stipend — although at bachelor's and master's level it is only a contribution to living costs.",
+  "covers": [
+    "Tuition-free study at a Hungarian university.",
+    "A monthly stipend of HUF 43,700 (about €110) for bachelor's, master's and one-tier master's students, paid 12 months a year.",
+    "Doctoral students receive HUF 140,000 a month (about €355) in the first four semesters and HUF 180,000 (about €460) in the last four.",
+    "A free dormitory place, or HUF 40,000 a month towards rent.",
+    "Medical insurance under Hungarian rules plus supplementary cover of up to HUF 65,000 a year."
+  ],
+  "eligibility": [
+    "Citizens of countries with an educational cooperation agreement with Hungary. Your country's 'sending partner' (usually a ministry) must nominate you.",
+    "Each sending partner sets its own rules — such as age limits, eligible levels and fields — so read your country's page on the Stipendium Hungaricum site.",
+    "Applicants must meet the entrance requirements of the programmes they choose; many are taught in English."
+  ],
+  "how_to_apply": [
+    "Between November and December, choose up to two programmes and read your sending partner's requirements.",
+    "Submit the online application by the deadline — for 2026/27 it was 15 January 2026 at 2 pm CET — and apply through your sending partner if it runs its own process.",
+    "In February, sending partners nominate candidates; between March and May, universities hold entrance exams or interviews.",
+    "Results are announced in June for a September start."
+  ],
+  "watch_out": [
+    "The stipend is deliberately described as only a contribution to living expenses. At about €110 a month, you will need savings or support to live comfortably.",
+    "Some sending partners have their own earlier deadlines or extra forms. Missing their step disqualifies you even if the main form is submitted.",
+    "Nomination by your sending partner does not guarantee a place; the university's entrance exam decides."
+  ],
+  "related": ["turkiye-burslari", "romanian-government-scholarship", "charles-university", "erasmus-mundus-joint-masters"],
+  "sources": [
+    {"title": "Stipendium Hungaricum — About the scholarship", "url": "https://stipendiumhungaricum.hu/about/"},
+    {"title": "Stipendium Hungaricum — How to apply", "url": "https://stipendiumhungaricum.hu/apply/"}
+  ],
+  "reviewed": "2026-09-24"
+}

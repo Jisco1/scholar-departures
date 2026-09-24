@@ -1,0 +1,31 @@
+{
+  "summary": "Finland charges non-EU/EEA students tuition for English-taught degrees, but the University of Helsinki — Finland's largest and highest-ranked university — waives half or all of it for excellent applicants. Each master's programme can also award one Finland Scholarship.",
+  "covers": [
+    "A tuition-fee waiver of 50% or 100%. Master's fees are €13,000, €15,000 or €18,000 a year depending on the programme, so the waiver is worth up to €36,000 over two years.",
+    "Most awards are 50% waivers; full waivers are few.",
+    "One Finland Scholarship per master's programme for a newly admitted student, which adds a €5,000 grant to the waiver in the first year.",
+    "Waivers run for two years if you make full-time progress (at least 55 ECTS credits a year). They do not pay living costs."
+  ],
+  "eligibility": [
+    "Citizens of non-EU/EEA countries who are liable for tuition fees (those without permanent EU/EEA residence).",
+    "Excellent results in previous studies — the scholarship is merit-based and decided by each programme.",
+    "Admission to an English-taught master's programme at the University of Helsinki."
+  ],
+  "how_to_apply": [
+    "Choose up to the permitted number of master's programmes and check each one's entry requirements.",
+    "Apply for the programme and the scholarship on the same online application form — tick the scholarship option.",
+    "Upload your degree certificates, transcripts, language certificate and any programme-specific documents by the application deadline (the main round closes in early January).",
+    "Scholarship decisions arrive with, or shortly after, the admission results in spring."
+  ],
+  "watch_out": [
+    "Plan your budget around a 50% waiver unless you are told otherwise — a full waiver is the exception.",
+    "Finnish residence permits require proof of funds for living costs, separate from tuition.",
+    "You must keep a full-time pace (55 ECTS a year) or you lose the waiver in year two."
+  ],
+  "related": ["swedish-institute-scholarships", "tu-delft-van-effen-excellence", "maastricht-holland-high-potential", "erasmus-mundus-joint-masters"],
+  "sources": [
+    {"title": "University of Helsinki — Tuition fees and scholarship programme", "url": "https://www.helsinki.fi/en/admissions-and-education/apply-bachelors-and-masters-programmes/tuition-fees-and-scholarship-programme"},
+    {"title": "University of Helsinki — Cost of living and financial matters", "url": "https://www.helsinki.fi/en/admissions-and-education/international-students/student-life-helsinki/cost-living-and-financial-matters"}
+  ],
+  "reviewed": "2026-09-24"
+}

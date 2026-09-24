@@ -1,0 +1,45 @@
+{
+  "name": "Switzerland",
+  "flag": "🇨🇭",
+  "title": "Switzerland: world-class universities, and two ways to have them paid for",
+  "lede": "Swiss federal institutes of technology charge modest fees by international standards, but Switzerland is expensive to live in. The funded routes are ETH Zürich's ESOP for master's students and the Swiss Government Excellence Scholarships for researchers.",
+  "description": "Tuition, living costs and the funded routes for international students in Switzerland: ETH Zürich's ESOP and the Swiss Government Excellence Scholarships.",
+  "card": "ETH and EPFL charge foreign students CHF 2,190 a semester; ESOP and federal scholarships cover the costs.",
+  "sections": [
+    {
+      "h": "Tuition",
+      "html": "<p>From autumn 2025, <strong>ETH Zürich and EPFL</strong> tripled tuition for students who come to Switzerland to study, from CHF 730 to <strong>CHF 2,190 per semester</strong> (CHF 4,380 a year). That is still low compared with private or UK universities. Cantonal universities set their own fees, often with a surcharge for international students.</p>"
+    },
+    {
+      "h": "The real cost is living in Switzerland",
+      "html": "<p>Zürich, Geneva and Lausanne are among the most expensive cities in Europe. Rent, health insurance (compulsory for residents) and food add up quickly, and your residence permit will require proof that you can pay for them. That is why the funded routes below matter more than the tuition figure.</p>"
+    },
+    {
+      "h": "For master's students: ETH's ESOP",
+      "html": "<p>The <a href=\"{{root}}routes/eth-zurich-excellence-scholarship/\">Excellence Scholarship &amp; Opportunity Programme</a> pays <strong>CHF 13,500 per semester</strong> (from autumn 2027) and waives tuition, for about 60 master's students a year who were in the top 10% of their bachelor's cohort. The application window is <strong>1–30 November</strong>, earlier than ETH's regular master's deadline.</p>"
+    },
+    {
+      "h": "For researchers: the Swiss Government Excellence Scholarships",
+      "html": "<p>The <a href=\"{{root}}routes/swiss-government-excellence-scholarships/\">federal scholarships</a> fund doctoral and postdoctoral research at Swiss universities for researchers from about 180 countries, with a monthly stipend of CHF 2,450 plus fees, insurance and housing support. You apply through the Swiss embassy in your country, which sets its own deadline, and you need a Swiss professor to host you.</p>"
+    }
+  ],
+  "sources": [
+    {
+      "title": "ETH Zürich — Tuition fees",
+      "url": "https://ethz.ch/students/en/studies/financial/tuition-fees.html"
+    },
+    {
+      "title": "ETH Zürich — Three times the fees for foreign students: implementation approved",
+      "url": "https://ethz.ch/staffnet/en/news-and-events/internal-news/archive/2024/12/three-times-the-fees-for-foreign-students-implementation-approved.html"
+    },
+    {
+      "title": "ETH Zürich — Excellence Scholarship & Opportunity Programme",
+      "url": "https://ethz.ch/en/studies/financial/scholarships/excellencescholarship.html"
+    },
+    {
+      "title": "SERI — Swiss Government Excellence Scholarships",
+      "url": "https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html"
+    }
+  ],
+  "reviewed": "2026-09-24"
+}

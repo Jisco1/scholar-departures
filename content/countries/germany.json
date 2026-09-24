@@ -1,0 +1,53 @@
+{
+  "name": "Germany",
+  "flag": "🇩🇪",
+  "title": "Studying in Germany for free: what international students really pay",
+  "lede": "Most German public universities charge no tuition to anyone, at any level. The real costs are the semester contribution, living expenses and the proof of funds you need for a visa — and scholarships such as DAAD can cover those.",
+  "description": "How free tuition works in Germany for international students: semester contributions, the €11,904 proof of funds, the exceptions that do charge fees, and the funded routes to apply for.",
+  "card": "No tuition at most public universities — you pay a semester contribution and prove €11,904 a year for your visa.",
+  "sections": [
+    {
+      "h": "Tuition: free almost everywhere",
+      "html": "<p>Public universities in Germany do not charge tuition for bachelor's, master's or doctoral degrees, whatever your nationality. There are two exceptions worth knowing. The state of <strong>Baden-Württemberg</strong> charges non-EU students €1,500 per semester, and the <strong>Technical University of Munich</strong> has charged non-EU students tuition since winter 2024. Some continuing-education master's programmes also charge fees everywhere. Check before you apply.</p>"
+    },
+    {
+      "h": "The semester contribution",
+      "html": "<p>Every student pays a semester contribution, usually a few hundred euros each semester. It funds student services and often includes the <strong>Deutschlandsemesterticket</strong> for local and regional public transport across Germany. For 2026–27 it was €376.80 at Freie Universität Berlin, €402 at Universität Hamburg and about €350 at RWTH Aachen.</p>"
+    },
+    {
+      "h": "Proof of funds for your visa",
+      "html": "<p>To get a student visa you must show that you can support yourself: <strong>€992 a month, or €11,904 a year</strong>, the amount in force since January 2025. Most students do this with a blocked account (<em>Sperrkonto</em>): you deposit a year's money, and €992 is released to you each month. A scholarship award letter, or a formal declaration from a sponsor living in Germany, can also count. Use only a regulated blocked-account provider — see our <a href=\"{{root}}guides/scholarship-scams/\">scam guide</a>.</p>"
+    },
+    {
+      "h": "Deadlines for international applicants",
+      "html": "<p>Non-EU applicants often face earlier deadlines than EU applicants. At RWTH Aachen, for example, non-EU master's applicants to open-admission programmes must apply by <strong>1 March</strong> for the winter semester, while 15 July applies only to restricted programmes. Many universities also require a preliminary review of foreign certificates through <strong>uni-assist</strong>, which takes weeks. Plan your applications at least nine months ahead.</p>"
+    },
+    {
+      "h": "Language",
+      "html": "<p>Most bachelor's programmes are taught in German and ask for German at C1 level (TestDaF or DSH). Hundreds of master's programmes are taught in English. Even on an English-taught programme, learning German helps with part-time work, housing and life after graduation.</p>"
+    },
+    {
+      "h": "Paying for living costs",
+      "html": "<p>Because tuition is free, a stipend is effectively a full scholarship in Germany. The <a href=\"{{root}}routes/daad-scholarships/\">DAAD</a> pays €992 a month to master's students and €1,300 to doctoral candidates, plus insurance and travel. International students may also work part-time within legal limits — but you cannot count on work income for your visa.</p>"
+    }
+  ],
+  "sources": [
+    {
+      "title": "DAAD — Requirements for studying in Germany",
+      "url": "https://www.daad.de/en/studying-in-germany/requirements/overview/"
+    },
+    {
+      "title": "DAAD — Scholarships overview",
+      "url": "https://www.daad.de/en/studying-in-germany/scholarships/daad-scholarships/"
+    },
+    {
+      "title": "RWTH Aachen — Master's application for international applicants",
+      "url": "https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/bewerbung-um-einen-studienplatz/master-bewerbung/~dqml/bewerbung-master-internationale/?lidx=1"
+    },
+    {
+      "title": "Freie Universität Berlin — Fees",
+      "url": "https://www.fu-berlin.de/studium/studieren/studienorganisation/gebuehren/index.html"
+    }
+  ],
+  "reviewed": "2026-09-24"
+}

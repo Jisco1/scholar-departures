@@ -1,0 +1,33 @@
+{
+  "summary": "Chevening is the UK government's global scholarship for future leaders, funded by the Foreign, Commonwealth and Development Office and partners. It pays for a one-year master's degree at any UK university for citizens of more than 160 countries and territories.",
+  "covers": [
+    "Full tuition fees for an eligible one-year taught master's at any UK university.",
+    "A monthly living allowance (stipend) for the year.",
+    "Return economy travel to the UK, arrival and departure allowances, and the cost of one visa application.",
+    "Access to Chevening's events and alumni network during and after your year."
+  ],
+  "eligibility": [
+    "Citizenship of a Chevening-eligible country or territory, and a commitment to return there for at least two years after the award ends.",
+    "An undergraduate degree that qualifies you for a UK master's.",
+    "At least two years (2,800 hours) of work experience gained after your first degree.",
+    "Applications to three different eligible UK master's courses, and an unconditional offer from one of them by the July deadline."
+  ],
+  "how_to_apply": [
+    "Shortlist three one-year master's courses at UK universities and check they are Chevening-eligible.",
+    "Complete the online application, including four essays: leadership, networking, studying in the UK, and your career plan.",
+    "Submit between 4 August and 6 October 2026 (11:00 UTC) for 2027–28 study.",
+    "If shortlisted, interview at the British embassy or high commission (March–April), then secure an unconditional course offer by early July."
+  ],
+  "watch_out": [
+    "The 2027–28 deadline is 6 October 2026 at 11:00 UTC — earlier than the early-November dates used in some past cycles.",
+    "Essays decide who gets an interview. Specific examples of leadership and a concrete post-study plan beat general statements.",
+    "Chevening never charges a fee to apply. Beware of social-media pages claiming to 'process' applications — see our [scam guide]({{root}}guides/scholarship-scams/)."
+  ],
+  "related": ["commonwealth-masters-scholarships", "gates-cambridge-scholarship", "rhodes-scholarship", "mastercard-foundation-scholars-cambridge"],
+  "sources": [
+    {"title": "Chevening — Application timeline", "url": "https://www.chevening.org/scholarships/application-timeline/"},
+    {"title": "GOV.UK — Applications open for 2027 to 2028 Chevening Scholarships", "url": "https://www.gov.uk/government/news/applications-open-for-2027-to-2028-chevening-scholarships-to-study-in-the-uk"},
+    {"title": "Chevening — Who can apply", "url": "https://www.chevening.org/scholarships/who-can-apply/"}
+  ],
+  "reviewed": "2026-09-24"
+}

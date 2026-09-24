@@ -1,0 +1,45 @@
+{
+  "name": "Austria",
+  "flag": "🇦🇹",
+  "title": "Austria: low tuition, and none at all for students from the least developed countries",
+  "lede": "Austrian public universities charge non-EU students €726.72 a semester — far below most of Europe — and waive tuition entirely for citizens of the world's least developed countries.",
+  "description": "Tuition, exemptions and deadlines for international students at Austrian public universities, including the University of Vienna and TU Wien.",
+  "card": "€726.72 a semester for non-EU students — and no tuition at all for citizens of about 45 least-developed countries.",
+  "sections": [
+    {
+      "h": "What non-EU students pay",
+      "html": "<p>At public universities such as the University of Vienna and TU Wien, students from outside the EU/EEA pay a tuition fee of <strong>€726.72 per semester</strong> from their first semester, plus the students' union (ÖH) fee — €26.20 at the University of Vienna. That is about €1,500 a year, a fraction of tuition in the UK, the Netherlands or North America.</p>"
+    },
+    {
+      "h": "The least-developed-country exemption",
+      "html": "<p>Citizens of countries on Austria's list of <strong>least developed countries</strong> — about 45 countries, including Afghanistan, Angola, Bangladesh, Benin, Bhutan, Nepal, Yemen and Zambia — are exempt from tuition and pay only the ÖH fee for their whole degree. If you are from one of these countries, Austria is one of the most affordable places in Europe to earn a degree.</p><p>Some non-EU citizens with certain Austrian residence permits are also treated like EU students.</p>"
+    },
+    {
+      "h": "Deadlines come earlier for non-EU applicants",
+      "html": "<p>Austrian universities set special, earlier deadlines for applicants from outside the EU. At TU Wien the non-EU deadline is <strong>15 July</strong> for the winter semester and <strong>15 January</strong> for the summer semester. At the University of Vienna, non-EU applications for winter 2026–27 closed on <strong>3 August</strong>. Programmes with entrance exams or selection procedures take applications only once a year, in spring.</p>"
+    },
+    {
+      "h": "Language and living costs",
+      "html": "<p>Most bachelor's programmes are taught in German; many master's programmes, especially in engineering and science, are taught in English. Vienna is consistently rated one of the world's most liveable cities, but rents have risen — budget carefully, and remember the residence permit requires proof of funds.</p>"
+    }
+  ],
+  "sources": [
+    {
+      "title": "University of Vienna — Amount of the tuition fee",
+      "url": "https://studieren.univie.ac.at/en/tuition-fee/amount-tuition-fee/"
+    },
+    {
+      "title": "University of Vienna — Application and admission periods",
+      "url": "https://studieren.univie.ac.at/en/admission/application-and-admission-periods/"
+    },
+    {
+      "title": "TU Wien — Tuition fee",
+      "url": "https://www.tuwien.at/en/studies/admission/students-union-fee-and-tuition-fee/tuition-fee"
+    },
+    {
+      "title": "TU Wien — Academic calendar",
+      "url": "https://www.tuwien.at/en/studies/admission/academic-calendar"
+    }
+  ],
+  "reviewed": "2026-09-24"
+}

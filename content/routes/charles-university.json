@@ -1,0 +1,30 @@
+{
+  "summary": "Czech law makes study at public universities free in the Czech language, whatever your nationality. At Charles University — founded in 1348 and Central Europe's oldest — that means a tuition-free degree if you are willing to learn Czech first.",
+  "covers": [
+    "No tuition for degree programmes taught in Czech, for the standard length of study plus one year.",
+    "English-taught programmes are not free — they charge tuition set by each faculty.",
+    "No living allowance from the university. The separate Czech Government Scholarship (applications for 2027–28 ran 21 August – 30 September 2026) is the main funded route for students from eligible developing countries."
+  ],
+  "eligibility": [
+    "Any nationality, with a secondary-school certificate (for a bachelor's) or degree (for a master's) recognised in the Czech Republic.",
+    "Czech at the level your faculty requires — usually tested in the entrance exam or by a language certificate.",
+    "Each of Charles University's 17 faculties sets its own entrance exams and requirements."
+  ],
+  "how_to_apply": [
+    "Decide on a Czech-taught programme and check the faculty's admission requirements.",
+    "Learn Czech — many international students take a one-year preparatory course at the university's Institute for Language and Preparatory Studies (these courses charge fees).",
+    "Apply online to the faculty by its deadline and pay the application fee; most faculties close applications between February and March for an autumn start.",
+    "Start the recognition of your foreign diploma early — it must be completed by enrolment."
+  ],
+  "watch_out": [
+    "'Free' applies only to Czech-taught study. Budget a year and course fees for learning Czech first.",
+    "Deadlines are set faculty by faculty — there is no single university deadline.",
+    "Diploma recognition (nostrification) can take months and sometimes requires exams."
+  ],
+  "related": ["university-of-vienna", "stipendium-hungaricum", "romanian-government-scholarship", "freie-universitat-berlin"],
+  "sources": [
+    {"title": "Charles University — How to apply", "url": "https://cuni.cz/uken-329.html"},
+    {"title": "Charles University — Fact sheet 2026/2027", "url": "https://cuni.cz/UKEN-344.html"}
+  ],
+  "reviewed": "2026-09-24"
+}

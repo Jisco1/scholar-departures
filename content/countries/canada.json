@@ -1,0 +1,45 @@
+{
+  "name": "Canada",
+  "flag": "🇨🇦",
+  "title": "Canada: the full scholarships worth applying for, and the new rules",
+  "lede": "Canadian universities charge international students substantial fees, and the government now caps study permits and requires more proof of funds. The routes that pay are a few prestigious entrance awards, the Mastercard Foundation programme at McGill and federal doctoral scholarships.",
+  "description": "Full scholarships for international students in Canada — Pearson at U of T, UBC's International Scholars, McGill's Mastercard Foundation programme and federal doctoral awards — plus 2026 study-permit rules.",
+  "card": "Nomination-based entrance awards at U of T and UBC, Mastercard at McGill, and federal PhD awards.",
+  "sections": [
+    {
+      "h": "Undergraduate: apply early, with your school's help",
+      "html": "<p>Canada's biggest undergraduate awards need your secondary school's involvement and deadlines far earlier than normal admissions. The <a href=\"{{root}}routes/university-of-toronto-pearson-scholarship/\">Lester B. Pearson Scholarship</a> at the University of Toronto requires a school nomination by <strong>9 October 2026</strong>. UBC's <a href=\"{{root}}routes/ubc-international-scholars/\">International Scholars Program</a> needs a nominator and an application by <strong>15 November 2026</strong>.</p>"
+    },
+    {
+      "h": "Master's: Mastercard Foundation at McGill",
+      "html": "<p>The <a href=\"{{root}}routes/mastercard-foundation-scholars-mcgill/\">Mastercard Foundation Scholars Program at McGill</a> funds master's degrees for citizens living in African countries who have not yet started a master's. The autumn 2027 cohort has closed; the next cycle is expected to be announced in spring 2027.</p>"
+    },
+    {
+      "h": "Doctoral: the end of Vanier",
+      "html": "<p>The Vanier scholarship has been folded into the <a href=\"{{root}}routes/canada-graduate-research-scholarships-doctoral/\">Canada Graduate Research Scholarship – Doctoral</a>, worth $40,000 a year for three years. International students can compete, but only once they are enrolled in a PhD at a Canadian university.</p>"
+    },
+    {
+      "h": "Study permits and proof of funds",
+      "html": "<p>Canada caps the number of study permits it issues. For applications from <strong>1 September 2026</strong>, a single applicant must show <strong>CAD 23,448</strong> for living costs, in addition to tuition and travel. Master's and doctoral students at public institutions no longer need a provincial attestation letter. Rules change often — check Immigration, Refugees and Citizenship Canada before you apply.</p>"
+    }
+  ],
+  "sources": [
+    {
+      "title": "University of Toronto — Lester B. Pearson International Scholarship",
+      "url": "https://future.utoronto.ca/pearson/"
+    },
+    {
+      "title": "UBC — International Scholars Program",
+      "url": "https://you.ubc.ca/financial-planning/scholarships-awards-international-students/international-scholars/"
+    },
+    {
+      "title": "UBC Graduate School — Vanier Scholarship (discontinued)",
+      "url": "https://www.grad.ubc.ca/awards/vanier-scholarship"
+    },
+    {
+      "title": "Moving2Canada — Proof-of-funds requirement increasing from 1 September 2026",
+      "url": "https://moving2canada.com/2026/08/proof-of-funds-requirement-for-canadian-study-permit-increasing/"
+    }
+  ],
+  "reviewed": "2026-09-24"
+}

@@ -1,0 +1,41 @@
+{
+  "name": "Netherlands",
+  "flag": "🇳🇱",
+  "title": "The Netherlands: high non-EU fees, and the scholarships that cover them",
+  "lede": "Dutch universities teach hundreds of programmes in English, but students from outside the EU/EEA pay institutional fees that are often €12,000–€30,000 a year. The funded routes are university scholarships such as TU Delft's Van Effen and Maastricht's NL-High Potential.",
+  "description": "Tuition fees for non-EU students in the Netherlands and the full scholarships at TU Delft and Maastricht University that cover tuition and living costs.",
+  "card": "Non-EU master's fees often €12,000–€30,000 — full awards at TU Delft and Maastricht cover them.",
+  "sections": [
+    {
+      "h": "Statutory and institutional fees",
+      "html": "<p>EU/EEA students pay the Dutch <strong>statutory fee</strong> (€2,694 for 2026–27). Students from outside the EU/EEA pay an <strong>institutional fee</strong> set by each university — for master's programmes usually somewhere between about <strong>€12,000 and €30,000 a year</strong>, depending on the university and subject.</p>"
+    },
+    {
+      "h": "Full scholarships",
+      "html": "<p>Two routes on this board cover tuition and living costs:</p><ul><li><a href=\"{{root}}routes/tu-delft-van-effen-excellence/\">TU Delft's Justus &amp; Louise van Effen Excellence Scholarship</a> — about 16 awards across two-year MSc programmes; apply with a complete MSc application by <strong>1 December</strong>.</li><li><a href=\"{{root}}routes/maastricht-holland-high-potential/\">Maastricht University's NL-High Potential Scholarship</a> — 18 awards for 2027–28 covering tuition, living expenses (€15,925 for a 13-month programme), insurance and visa costs; master's application by <strong>10 December</strong>, scholarship by <strong>1 February</strong>.</li></ul>"
+    },
+    {
+      "h": "Apply early",
+      "html": "<p>Dutch scholarship deadlines fall months before regular admission deadlines, and you normally need a complete admission application first. For a September start, have your transcripts, English test and references ready by November of the previous year.</p>"
+    },
+    {
+      "h": "Housing",
+      "html": "<p>Student housing is scarce in Delft, Amsterdam, Utrecht and other university cities. Look as soon as you are admitted, and be wary of listings that ask for payment before you have seen a contract.</p>"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Study in NL — Tuition fees",
+      "url": "https://www.studyinnl.org/finances/tuition-fees"
+    },
+    {
+      "title": "TU Delft — Scholarships",
+      "url": "https://www.tudelft.nl/en/education/practical-matters/scholarships"
+    },
+    {
+      "title": "Maastricht University — NL-High Potential scholarship",
+      "url": "https://www.maastrichtuniversity.nl/studeren/toelating-inschrijving/financing-your-studies/scholarships/maastricht-university-nl-high"
+    }
+  ],
+  "reviewed": "2026-09-24"
+}

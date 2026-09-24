@@ -1,0 +1,36 @@
+{
+  "summary": "One of Germany's leading technical universities, RWTH Aachen charges no tuition to any student, German or international. What you pay is a semester contribution of roughly €350, most of which buys the Deutschlandsemesterticket for local and regional transport across Germany.",
+  "covers": [
+    "No tuition fees for any nationality, at bachelor's, master's or doctoral level.",
+    "A semester contribution is due every semester — about €350 in 2026/27, and the figure changes slightly each semester. It funds student services and includes the Deutschlandsemesterticket (the mobility component alone is €234.57 for winter 2026/27).",
+    "RWTH does not pay living costs. For a German student visa you normally have to show €11,904 for your first year (€992 a month), usually through a blocked account.",
+    "To cover living costs as well, pair admission with a scholarship such as the [DAAD scholarships]({{root}}routes/daad-scholarships/)."
+  ],
+  "eligibility": [
+    "Open to every nationality. Admission is competitive and set programme by programme.",
+    "Master's applicants need a relevant first degree; RWTH checks your transcript and module descriptions against each programme's entry requirements.",
+    "Many master's programmes are taught in English and ask for proof of English. Most bachelor's programmes are taught in German, so plan for German at C1 level (for example TestDaF or DSH).",
+    "Some programmes ask for extra evidence such as GRE or TestAS results — the programme page says which."
+  ],
+  "how_to_apply": [
+    "Choose your programme and read its admission requirements on RWTH's course pages.",
+    "Create an account and apply online through RWTHonline (online.rwth-aachen.de). Everything is uploaded as PDF; nothing is posted.",
+    "Upload your transcript or diploma supplement, module descriptions, a CV in table form and any programme-specific documents.",
+    "Submit by the non-EU deadline: 1 March for the winter semester or 1 September for the summer semester for open-admission master's programmes. Restricted-admission (NC) programmes use 15 July and 15 January.",
+    "Once admitted, book your visa appointment straight away — waiting times at German missions can run to several months."
+  ],
+  "watch_out": [
+    "Non-EU deadlines come months before the EU ones. The widely quoted 15 July date applies only to restricted-admission programmes, so most international master's applicants who aim for July are too late.",
+    "The application window for a summer-semester start opens around 1 June of the year before.",
+    "Tuition-free is not cost-free: budget for the €11,904 proof of funds, health insurance, rent and the semester contribution.",
+    "Aachen's student housing fills quickly before the winter semester — apply for a residence as soon as you are admitted."
+  ],
+  "related": ["freie-universitat-berlin", "universitat-hamburg", "daad-scholarships", "tu-wien"],
+  "sources": [
+    {"title": "RWTH Aachen — Master's application for international applicants", "url": "https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/bewerbung-um-einen-studienplatz/master-bewerbung/~dqml/bewerbung-master-internationale/?lidx=1"},
+    {"title": "RWTH Aachen — Costs for international students", "url": "https://www.rwth-aachen.de/cms/root/studium/Vor-dem-Studium/Internationale-Studierende/Organisation-des-Studienaufenthaltes/Internationale-Studierende/~bqmo/Kosten/?mobile=1&lidx=1"},
+    {"title": "AStA RWTH — Semester ticket amounts and refunds", "url": "https://www.asta.rwth-aachen.de/en/reimbursement/"},
+    {"title": "DAAD — Requirements for studying in Germany (proof of finances)", "url": "https://www.daad.de/en/studying-in-germany/requirements/overview/"}
+  ],
+  "reviewed": "2026-09-24"
+}

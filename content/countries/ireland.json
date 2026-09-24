@@ -1,0 +1,41 @@
+{
+  "name": "Ireland",
+  "flag": "🇮🇪",
+  "title": "Ireland: government scholarships for international postgraduates",
+  "lede": "Ireland is English-speaking, research-intensive and part of the EU. Its government funds international postgraduates through the GOI-IES scholarships and, for researchers, Research Ireland's postgraduate awards.",
+  "description": "Funded postgraduate study in Ireland for international students: Government of Ireland International Education Scholarships, Research Ireland awards, proof of funds and work rules.",
+  "card": "GOI-IES pays €10,000 plus a fee waiver; Research Ireland has funded research degrees — check the 2027 call.",
+  "sections": [
+    {
+      "h": "Funded routes",
+      "html": "<ul><li><a href=\"{{root}}routes/government-of-ireland-international-education-scholarships/\">Government of Ireland International Education Scholarships</a>: 60 awards a year, each with a €10,000 stipend and a full fee waiver for one year of master's or PhD study, for students domiciled outside the EU/EEA, Switzerland and the UK. The 2026 call closed on 12 March.</li><li><a href=\"{{root}}routes/research-ireland-postgraduate-scholarships/\">Research Ireland postgraduate scholarships</a>: a €25,000 stipend plus fees and research costs for research master's and PhD students of any nationality. No 2027 call had been announced when we last checked.</li></ul>"
+    },
+    {
+      "h": "Proof of funds and fees for your visa",
+      "html": "<p>Students from visa-required countries must show access to at least <strong>€10,000</strong> for living costs for each year of study. Since 30 June 2025 you must also have paid at least <strong>€6,000</strong> of your tuition (or the full fee if it is lower) before a visa is granted. A scholarship covering these costs usually counts — keep your award letter ready.</p>"
+    },
+    {
+      "h": "Working while you study",
+      "html": "<p>Non-EU students with Stamp 2 permission can work up to <strong>20 hours a week</strong> during term and up to 40 hours a week in the holidays (June to September, and 15 December to 15 January). Hours cannot be averaged across weeks.</p>"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Higher Education Authority — GOI-IES",
+      "url": "https://hea.ie/policy/internationalisation/goi-ies/"
+    },
+    {
+      "title": "Research Ireland — Government of Ireland Postgraduate Scholarship Programme",
+      "url": "https://www.researchireland.ie/funding/government-ireland-postgraduate/"
+    },
+    {
+      "title": "Citizens Information — Student visas to study in Ireland",
+      "url": "https://www.citizensinformation.ie/en/moving-country/visas-for-ireland/student-visas/"
+    },
+    {
+      "title": "Citizens Information — Immigration rules for full-time non-EEA students",
+      "url": "https://www.citizensinformation.ie/en/moving-country/moving-to-ireland/studying-in-ireland/immigration-nonEEA-students/"
+    }
+  ],
+  "reviewed": "2026-09-24"
+}

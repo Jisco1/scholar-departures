@@ -1,0 +1,30 @@
+{
+  "summary": "The Swiss Confederation funds early-career researchers from about 180 countries to do doctoral or postdoctoral research at a Swiss university or federal institute of technology. Applications go through the Swiss embassy in your country, and each country sets its own deadline.",
+  "covers": [
+    "A monthly stipend of CHF 2,450 for research scholarships.",
+    "Tuition fees, health insurance and a housing allowance, as set out in the call.",
+    "Research scholarships last up to 12 months for a research stay, or up to three years for a PhD in Switzerland."
+  ],
+  "eligibility": [
+    "A completed master's degree (or equivalent) and early-career researcher status.",
+    "A maximum age of 35, as set in the call.",
+    "Citizenship of one of the roughly 180 eligible countries — check whether your country's call is open for research scholarships.",
+    "A supervising professor at a Swiss university, ETH Zürich, EPFL or an ETH-domain research centre who confirms they will host you. Taught master's degrees are not funded (art scholarships for master's exist only for selected countries)."
+  ],
+  "how_to_apply": [
+    "Contact a potential supervisor in Switzerland with a clear research idea and secure a letter of support.",
+    "Download the call and application forms for your country from the Swiss embassy's page or the federal scholarship site.",
+    "Submit your application to the Swiss representation in your country. The 2027–28 call opened on 20 August 2026; country deadlines usually fall between September and December.",
+    "Shortlisted candidates may be interviewed; the Federal Commission for Scholarships announces decisions by the end of May."
+  ],
+  "watch_out": [
+    "Your deadline is set by the Swiss embassy in your country, not a single global date — check it the day the call opens.",
+    "The research proposal and the host's support letter decide most applications. Start the supervisor conversation months ahead.",
+    "The scholarship is for research; it will not fund a taught master's programme."
+  ],
+  "related": ["eth-zurich-excellence-scholarship", "daad-scholarships", "ghent-university-doctoral-scholarships", "norwegian-phd-fellowships"],
+  "sources": [
+    {"title": "State Secretariat for Education, Research and Innovation — Swiss Government Excellence Scholarships", "url": "https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html"}
+  ],
+  "reviewed": "2026-09-24"
+}

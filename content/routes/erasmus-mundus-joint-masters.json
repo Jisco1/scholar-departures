@@ -1,0 +1,32 @@
+{
+  "summary": "Erasmus Mundus Joint Masters are one- or two-year master's degrees run by consortia of universities, usually in two or three European countries. The EU funds full scholarships for the best-ranked applicants from anywhere in the world, worth €1,400 a month for the length of the programme.",
+  "covers": [
+    "A scholarship calculated at €1,400 per month for the full programme duration (12, 18 or 24 months), meant for travel, visa, installation and living costs.",
+    "Participation costs (tuition, insurance and other mandatory fees) are covered for scholarship holders.",
+    "A joint or multiple degree from the universities in the consortium, with study periods in at least two countries."
+  ],
+  "eligibility": [
+    "Open to students of any nationality with a bachelor's degree — or in the final year of one, graduating before the master's starts.",
+    "Each programme sets its own academic, subject and language requirements.",
+    "Anyone who has already held an Erasmus Mundus Joint Master scholarship cannot receive a second one.",
+    "Consortia must keep their scholarship holders geographically balanced — no more than 10% from a single nationality — so strong applicants from under-represented countries are not disadvantaged."
+  ],
+  "how_to_apply": [
+    "Browse the Erasmus Mundus catalogue on the EACEA website and shortlist programmes that fit your background.",
+    "Apply directly to each programme through its own website — there is no central application.",
+    "Most programmes take applications between October and January for the following September, and scholarship applications usually close with the programme's first deadline.",
+    "Prepare a motivation letter tailored to that programme, references, transcripts and language certificates; some programmes also interview."
+  ],
+  "watch_out": [
+    "Every consortium has its own deadline and document list. Keep a spreadsheet — applicants often apply to three or four programmes.",
+    "The scholarship is competitive and ranked; programmes also admit self-funded students, so an offer of admission is not an offer of a scholarship.",
+    "You will move between countries, so budget time for more than one residence permit."
+  ],
+  "related": ["daad-scholarships", "eiffel-excellence-scholarship", "swedish-institute-scholarships", "chevening-scholarships"],
+  "sources": [
+    {"title": "EACEA — Erasmus Mundus catalogue", "url": "https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en"},
+    {"title": "Erasmus+ — Erasmus Mundus Joint Masters scholarships", "url": "https://erasmus-plus.ec.europa.eu/opportunities/individuals/students/erasmus-mundus-joint-masters-scholarships"},
+    {"title": "Erasmus+ Programme Guide — Erasmus Mundus action", "url": "https://erasmus-plus.ec.europa.eu/programme-guide/part-b/key-action-2/erasmus-mundus-action"}
+  ],
+  "reviewed": "2026-09-24"
+}

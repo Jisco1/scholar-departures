@@ -1,0 +1,133 @@
+<script type="application/json" id="sd-config">{{CONFIG_JSON}}</script>
+
+<!-- ——— Preloader ——— -->
+<div id="preloader" aria-hidden="true">
+  <div id="preBoard"></div>
+  <div id="preLine"></div>
+  <div id="preTag">Boarding</div>
+</div>
+
+<div id="progress" aria-hidden="true"></div>
+
+<!-- ——— Hero ——— -->
+<section class="hero">
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="inner">
+    <div class="seal">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path class="draw" pathLength="1" d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+        <path class="draw" pathLength="1" d="M6 12v5c3 3 9 3 12 0v-5"/>
+      </svg>
+    </div>
+    <div class="eyebrow">Europe · USA · Canada — verified funding</div>
+    <h1 id="title">Scholar Departures</h1>
+    <p class="sub" id="subline">{{N_ROUTES}} universities and programmes where tuition is free, fully funded, or fee-waived for international students. Every route has a plain-English page, and every button goes to the official source.</p>
+    <div class="stats">
+      <div class="stat"><b data-count id="statRoutes">{{N_ROUTES}}</b><span>Funded routes</span></div>
+      <div class="stat"><b data-count id="statCountries">{{N_COUNTRIES}}</b><span>Countries</span></div>
+      <div class="stat hot"><b data-count id="statApproaching">–</b><span>Approaching</span></div>
+      <div class="stat"><b data-count id="statSchools">{{N_SCHOOLS}}</b><span>Schools indexed</span></div>
+    </div>
+    <div class="heronav"><a href="#controls">Funded routes</a><a href="deadlines/">Deadlines</a><a href="#directory">Schools directory</a></div>
+    <div class="cue"><span>Scroll</span><i></i></div>
+  </div>
+</section>
+
+<!-- ——— Departures board ——— -->
+<section class="depart wrap" aria-label="Approaching deadlines">
+  <div class="depart-head">
+    <h2 class="depart-title"><span class="dot"></span> Departures — closing soon</h2>
+    <div id="clock"></div>
+  </div>
+  <div class="board">
+    <div class="board-inner">
+      <div class="brow h"><span>Route</span><span>Country</span><span>Closes</span><span>Days</span></div>
+      <div id="boardBody"></div>
+    </div>
+  </div>
+  <div class="board-note">Live · recalculated against today · tap a row to find it below</div>
+</section>
+
+<div class="wrap">
+  <h2 class="section-tag">All funded routes</h2>
+
+  <div class="fieldbar" id="fieldbar">
+    <div class="fieldbar-lab">Study field</div>
+    <div class="fieldchips" id="fieldChips"></div>
+  </div>
+
+  <div class="controls" id="controls">
+    <div class="row1">
+      <div class="searchbox">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="q" type="search" placeholder="Search a school, country, or keyword…" autocomplete="off" aria-label="Search routes" maxlength="80" />
+      </div>
+      <div class="seg" id="regionSeg"></div>
+      <select id="levelSel" aria-label="Study level"></select>
+      <div class="seg" id="kindSeg"></div>
+    </div>
+    <div class="row2">
+      <div class="seg small" id="deadlineSeg"></div>
+      <button class="savedbtn" id="savedBtn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
+        <span id="savedLabel">Saved</span>
+      </button>
+      <button class="savedbtn" id="btnCompare" title="Compare your saved routes side by side">Compare</button>
+      <button class="savedbtn" id="btnCalendar" title="Download all saved deadlines as a calendar file with reminders">Calendar</button>
+      <span class="divider"></span>
+      <span id="typePills" style="display:contents"></span>
+    </div>
+  </div>
+
+  <div class="countline">
+    <span id="count"></span>
+    <button class="clear" id="clearBtn" hidden>Clear filters</button>
+  </div>
+
+  <div class="grid" id="grid">{{GRID}}</div>
+</div>
+
+<!-- ——— How it works: plain text, so the ad bay below never sits against a control ——— -->
+<section class="wrap howto" aria-labelledby="howto-h">
+  <h2 id="howto-h" class="section-tag">How to use this board</h2>
+  <div class="howto-cols">
+    <div><h3>1 · Find routes you qualify for</h3><p>Filter by region, level and field. A <b>university</b> route means the school itself waives tuition or funds you; a <b>programme</b> is an award you win first and take to a school that admits you.</p></div>
+    <div><h3>2 · Read the route page</h3><p>Every card links to its own page: what the money covers, who can apply, the steps, and the traps people miss — each checked against the official source and dated.</p></div>
+    <div><h3>3 · Plan backwards from the deadline</h3><p>Save routes to your shortlist, compare them side by side, and export deadlines or a week-by-week plan to your calendar. Submit early — portals slow down on the last day.</p></div>
+  </div>
+</section>
+
+{{AD_HOME}}
+
+<!-- ——— Start here: guides ——— -->
+<section class="wrap startguides" aria-labelledby="guides-h">
+  <h2 id="guides-h" class="section-tag">Start here</h2>
+  <div class="tiles three">{{GUIDE_TILES}}</div>
+  <p class="country-strip">Country guides: {{COUNTRY_LINKS}} · <a href="countries/">all countries →</a></p>
+</section>
+
+<!-- ——— Schools directory ——— -->
+<div class="wrap directory" id="directory">
+  <h2 class="section-tag">Schools directory</h2>
+  <p class="dir-intro">Every school below links straight to its <b>official website</b> so you can apply directly — whether or not it offers funding. Schools tagged <b style="color:var(--brass)">Funded</b> also have a verified route above; tap the tag to jump to it.</p>
+  <div class="dir-head">
+    <div class="searchbox">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="dirQ" type="search" placeholder="Search a school, city, or country…" autocomplete="off" aria-label="Search schools" maxlength="80" />
+    </div>
+    <div class="seg" id="dirRegionSeg"></div>
+  </div>
+  <div class="dir-list" id="dirList">{{DIR_ROWS}}</div>
+  <div class="countline"><span id="dirCount"></span></div>
+</div>
+
+<div class="modal-back" id="modalBack"><div class="modal" id="modalBox" role="dialog" aria-modal="true"></div></div>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<section class="wrap home-notes" aria-label="How to read the board">
+  <p>Deadlines shown are each programme's typical annual window — always confirm on the official page, since cycles shift slightly every year. Data last checked {{LAST_CHECK}}; read <a href="editorial-policy/">how we verify</a>.</p>
+  <p>Deadline status is computed live against today's date: <span class="a">Approaching</span> means the next typical deadline falls within 120 days; <span class="c">Closed</span> means this cycle's window has passed (or hasn't opened yet) and shows when it next comes around. A ≈ marks programmes whose exact date varies by course or country; <span style="color:#7FD1AE">Rolling</span> means positions open year-round with no fixed close date.</p>
+  <p>Your bookmarked shortlist is stored only in this browser, so it's still here when you come back — nothing is sent to us.</p>
+  <p><b>All fields</b> on a card means the route accepts any discipline — the fields listed are simply where that school or programme is strongest. <b>Specific fields</b> means eligibility genuinely narrows to those areas; when you filter by field, those specialists are listed first.</p>
+  <p>Deliberately left out as tuition-free: Norway's public universities (non-EU/EEA tuition since 2023 — though from 2026–27 each Norwegian university may set its own fee policy, so check yours), TU Munich (non-EU fees since winter 2024) Baden-Württemberg's state universities (€1,500 per semester for non-EU students) and, from autumn 2027, bachelor's and master's study in Iceland for non-EEA students — the most common "free tuition in Europe" myths still circulating.</p>
+</section>

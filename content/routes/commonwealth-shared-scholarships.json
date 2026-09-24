@@ -1,0 +1,39 @@
+{
+  "summary": "Commonwealth Shared Scholarships are jointly funded by the Commonwealth Scholarship Commission and UK universities for students from lower-income Commonwealth countries who could not otherwise afford to study in the UK. They fund selected one-year master's courses.",
+  "covers": [
+    "Full tuition fees.",
+    "Approved return airfare.",
+    "A monthly stipend (£1,452, or £1,781 in London, at the most recently published rates).",
+    "Thesis and study travel grants, and child allowances for eligible single parents."
+  ],
+  "eligibility": [
+    "Citizens of one of the 44 eligible Commonwealth countries.",
+    "Proof that you cannot afford to study in the UK without the scholarship.",
+    "No more than one academic year of study or work in a high-income country.",
+    "A 2:1 first degree, or a 2:2 plus a relevant postgraduate qualification. There is no age limit."
+  ],
+  "how_to_apply": [
+    "Find the participating UK universities and the specific master's courses they offer under the scheme.",
+    "Apply for admission and for the scholarship directly to the university, by its own deadline.",
+    "Universities select candidates and nominate them to the CSC in March.",
+    "Results follow in the late spring or summer."
+  ],
+  "watch_out": [
+    "Only selected courses are eligible, and each university sets its own deadline.",
+    "The financial-need test is central — explain clearly why you cannot study in the UK without it.",
+    "Applying to the university for admission alone is not enough; you must also complete its Shared Scholarship application."
+  ],
+  "related": [
+    "commonwealth-masters-scholarships",
+    "chevening-scholarships",
+    "mastercard-foundation-scholars-cambridge",
+    "stipendium-hungaricum"
+  ],
+  "sources": [
+    {
+      "title": "Commonwealth Scholarship Commission — Commonwealth Shared Scholarships",
+      "url": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-shared-scholarships/"
+    }
+  ],
+  "reviewed": "2026-09-24"
+}

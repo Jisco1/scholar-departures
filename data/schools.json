@@ -1,0 +1,1037 @@
+[
+  {
+    "name": "Harvard University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Cambridge, MA",
+    "link": "https://harvard.edu",
+    "atlasName": "Harvard University"
+  },
+  {
+    "name": "MIT",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Cambridge, MA",
+    "link": "https://mit.edu",
+    "atlasName": "MIT"
+  },
+  {
+    "name": "Stanford University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Stanford, CA",
+    "link": "https://stanford.edu"
+  },
+  {
+    "name": "Yale University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "New Haven, CT",
+    "link": "https://yale.edu",
+    "atlasName": "Yale University"
+  },
+  {
+    "name": "Princeton University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Princeton, NJ",
+    "link": "https://princeton.edu",
+    "atlasName": "Princeton University"
+  },
+  {
+    "name": "Columbia University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "New York, NY",
+    "link": "https://columbia.edu"
+  },
+  {
+    "name": "University of Chicago",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Chicago, IL",
+    "link": "https://uchicago.edu"
+  },
+  {
+    "name": "University of Pennsylvania",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Philadelphia, PA",
+    "link": "https://upenn.edu"
+  },
+  {
+    "name": "Cornell University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Ithaca, NY",
+    "link": "https://cornell.edu"
+  },
+  {
+    "name": "Brown University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Providence, RI",
+    "link": "https://brown.edu",
+    "atlasName": "Brown University"
+  },
+  {
+    "name": "Dartmouth College",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Hanover, NH",
+    "link": "https://dartmouth.edu",
+    "atlasName": "Dartmouth College"
+  },
+  {
+    "name": "Duke University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Durham, NC",
+    "link": "https://duke.edu",
+    "atlasName": "Duke University"
+  },
+  {
+    "name": "Northwestern University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Evanston, IL",
+    "link": "https://northwestern.edu"
+  },
+  {
+    "name": "Johns Hopkins University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Baltimore, MD",
+    "link": "https://jhu.edu"
+  },
+  {
+    "name": "Caltech",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Pasadena, CA",
+    "link": "https://caltech.edu"
+  },
+  {
+    "name": "UC Berkeley",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Berkeley, CA",
+    "link": "https://berkeley.edu"
+  },
+  {
+    "name": "UCLA",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Los Angeles, CA",
+    "link": "https://ucla.edu"
+  },
+  {
+    "name": "University of Michigan",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Ann Arbor, MI",
+    "link": "https://umich.edu"
+  },
+  {
+    "name": "New York University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "New York, NY",
+    "link": "https://nyu.edu"
+  },
+  {
+    "name": "Georgia Tech",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Atlanta, GA",
+    "link": "https://gatech.edu"
+  },
+  {
+    "name": "UT Austin",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Austin, TX",
+    "link": "https://utexas.edu"
+  },
+  {
+    "name": "University of Illinois Urbana-Champaign",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Urbana, IL",
+    "link": "https://illinois.edu"
+  },
+  {
+    "name": "Purdue University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "West Lafayette, IN",
+    "link": "https://purdue.edu"
+  },
+  {
+    "name": "University of Washington",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Seattle, WA",
+    "link": "https://washington.edu"
+  },
+  {
+    "name": "Carnegie Mellon University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Pittsburgh, PA",
+    "link": "https://cmu.edu"
+  },
+  {
+    "name": "University of Southern California",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Los Angeles, CA",
+    "link": "https://usc.edu"
+  },
+  {
+    "name": "Vanderbilt University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Nashville, TN",
+    "link": "https://vanderbilt.edu",
+    "atlasName": "Vanderbilt University"
+  },
+  {
+    "name": "Rice University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Houston, TX",
+    "link": "https://rice.edu"
+  },
+  {
+    "name": "Boston University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Boston, MA",
+    "link": "https://bu.edu"
+  },
+  {
+    "name": "Northeastern University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Boston, MA",
+    "link": "https://northeastern.edu"
+  },
+  {
+    "name": "Arizona State University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Tempe, AZ",
+    "link": "https://asu.edu"
+  },
+  {
+    "name": "Penn State",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "University Park, PA",
+    "link": "https://psu.edu"
+  },
+  {
+    "name": "Amherst College",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Amherst, MA",
+    "link": "https://amherst.edu",
+    "atlasName": "Amherst College"
+  },
+  {
+    "name": "Colby College",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Waterville, ME",
+    "link": "https://colby.edu",
+    "atlasName": "Colby College"
+  },
+  {
+    "name": "Berea College",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "city": "Berea, KY",
+    "link": "https://berea.edu",
+    "atlasName": "Berea College"
+  },
+  {
+    "name": "University of Toronto",
+    "flag": "🇨🇦",
+    "country": "Canada",
+    "region": "Canada",
+    "city": "Toronto, ON",
+    "link": "https://utoronto.ca",
+    "atlasName": "University of Toronto — Pearson Scholarship"
+  },
+  {
+    "name": "University of British Columbia",
+    "flag": "🇨🇦",
+    "country": "Canada",
+    "region": "Canada",
+    "city": "Vancouver, BC",
+    "link": "https://ubc.ca",
+    "atlasName": "University of British Columbia — International Scholars"
+  },
+  {
+    "name": "McGill University",
+    "flag": "🇨🇦",
+    "country": "Canada",
+    "region": "Canada",
+    "city": "Montréal, QC",
+    "link": "https://mcgill.ca"
+  },
+  {
+    "name": "University of Waterloo",
+    "flag": "🇨🇦",
+    "country": "Canada",
+    "region": "Canada",
+    "city": "Waterloo, ON",
+    "link": "https://uwaterloo.ca"
+  },
+  {
+    "name": "McMaster University",
+    "flag": "🇨🇦",
+    "country": "Canada",
+    "region": "Canada",
+    "city": "Hamilton, ON",
+    "link": "https://mcmaster.ca"
+  },
+  {
+    "name": "University of Alberta",
+    "flag": "🇨🇦",
+    "country": "Canada",
+    "region": "Canada",
+    "city": "Edmonton, AB",
+    "link": "https://ualberta.ca"
+  },
+  {
+    "name": "Université de Montréal",
+    "flag": "🇨🇦",
+    "country": "Canada",
+    "region": "Canada",
+    "city": "Montréal, QC",
+    "link": "https://umontreal.ca"
+  },
+  {
+    "name": "Queen's University",
+    "flag": "🇨🇦",
+    "country": "Canada",
+    "region": "Canada",
+    "city": "Kingston, ON",
+    "link": "https://queensu.ca"
+  },
+  {
+    "name": "Western University",
+    "flag": "🇨🇦",
+    "country": "Canada",
+    "region": "Canada",
+    "city": "London, ON",
+    "link": "https://uwo.ca"
+  },
+  {
+    "name": "University of Calgary",
+    "flag": "🇨🇦",
+    "country": "Canada",
+    "region": "Canada",
+    "city": "Calgary, AB",
+    "link": "https://ucalgary.ca"
+  },
+  {
+    "name": "University of Ottawa",
+    "flag": "🇨🇦",
+    "country": "Canada",
+    "region": "Canada",
+    "city": "Ottawa, ON",
+    "link": "https://uottawa.ca"
+  },
+  {
+    "name": "Simon Fraser University",
+    "flag": "🇨🇦",
+    "country": "Canada",
+    "region": "Canada",
+    "city": "Burnaby, BC",
+    "link": "https://sfu.ca"
+  },
+  {
+    "name": "University of Oxford",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "city": "Oxford",
+    "link": "https://ox.ac.uk"
+  },
+  {
+    "name": "University of Cambridge",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "city": "Cambridge",
+    "link": "https://cam.ac.uk"
+  },
+  {
+    "name": "Imperial College London",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "city": "London",
+    "link": "https://imperial.ac.uk"
+  },
+  {
+    "name": "UCL",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "city": "London",
+    "link": "https://ucl.ac.uk"
+  },
+  {
+    "name": "LSE",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "city": "London",
+    "link": "https://lse.ac.uk"
+  },
+  {
+    "name": "University of Edinburgh",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "city": "Edinburgh",
+    "link": "https://www.ed.ac.uk"
+  },
+  {
+    "name": "University of Manchester",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "city": "Manchester",
+    "link": "https://manchester.ac.uk"
+  },
+  {
+    "name": "King's College London",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "city": "London",
+    "link": "https://kcl.ac.uk"
+  },
+  {
+    "name": "University of Warwick",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "city": "Coventry",
+    "link": "https://warwick.ac.uk"
+  },
+  {
+    "name": "University of Bristol",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "city": "Bristol",
+    "link": "https://bristol.ac.uk"
+  },
+  {
+    "name": "Technical University of Munich",
+    "flag": "🇩🇪",
+    "country": "Germany",
+    "region": "Europe",
+    "city": "Munich",
+    "link": "https://tum.de"
+  },
+  {
+    "name": "LMU Munich",
+    "flag": "🇩🇪",
+    "country": "Germany",
+    "region": "Europe",
+    "city": "Munich",
+    "link": "https://lmu.de"
+  },
+  {
+    "name": "Heidelberg University",
+    "flag": "🇩🇪",
+    "country": "Germany",
+    "region": "Europe",
+    "city": "Heidelberg",
+    "link": "https://uni-heidelberg.de"
+  },
+  {
+    "name": "RWTH Aachen University",
+    "flag": "🇩🇪",
+    "country": "Germany",
+    "region": "Europe",
+    "city": "Aachen",
+    "link": "https://rwth-aachen.de",
+    "atlasName": "RWTH Aachen University"
+  },
+  {
+    "name": "Freie Universität Berlin",
+    "flag": "🇩🇪",
+    "country": "Germany",
+    "region": "Europe",
+    "city": "Berlin",
+    "link": "https://fu-berlin.de",
+    "atlasName": "Freie Universität Berlin"
+  },
+  {
+    "name": "Humboldt-Universität zu Berlin",
+    "flag": "🇩🇪",
+    "country": "Germany",
+    "region": "Europe",
+    "city": "Berlin",
+    "link": "https://hu-berlin.de"
+  },
+  {
+    "name": "Universität Hamburg",
+    "flag": "🇩🇪",
+    "country": "Germany",
+    "region": "Europe",
+    "city": "Hamburg",
+    "link": "https://uni-hamburg.de",
+    "atlasName": "Universität Hamburg"
+  },
+  {
+    "name": "Karlsruhe Institute of Technology",
+    "flag": "🇩🇪",
+    "country": "Germany",
+    "region": "Europe",
+    "city": "Karlsruhe",
+    "link": "https://kit.edu"
+  },
+  {
+    "name": "TU Berlin",
+    "flag": "🇩🇪",
+    "country": "Germany",
+    "region": "Europe",
+    "city": "Berlin",
+    "link": "https://tu.berlin"
+  },
+  {
+    "name": "Sorbonne Université",
+    "flag": "🇫🇷",
+    "country": "France",
+    "region": "Europe",
+    "city": "Paris",
+    "link": "https://sorbonne-universite.fr"
+  },
+  {
+    "name": "Université PSL",
+    "flag": "🇫🇷",
+    "country": "France",
+    "region": "Europe",
+    "city": "Paris",
+    "link": "https://psl.eu"
+  },
+  {
+    "name": "École Polytechnique",
+    "flag": "🇫🇷",
+    "country": "France",
+    "region": "Europe",
+    "city": "Palaiseau",
+    "link": "https://polytechnique.edu"
+  },
+  {
+    "name": "Sciences Po",
+    "flag": "🇫🇷",
+    "country": "France",
+    "region": "Europe",
+    "city": "Paris",
+    "link": "https://sciencespo.fr"
+  },
+  {
+    "name": "Université Paris-Saclay",
+    "flag": "🇫🇷",
+    "country": "France",
+    "region": "Europe",
+    "city": "Gif-sur-Yvette",
+    "link": "https://universite-paris-saclay.fr"
+  },
+  {
+    "name": "TU Delft",
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "city": "Delft",
+    "link": "https://tudelft.nl",
+    "atlasName": "TU Delft — Van Effen Excellence"
+  },
+  {
+    "name": "University of Amsterdam",
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "city": "Amsterdam",
+    "link": "https://uva.nl"
+  },
+  {
+    "name": "Eindhoven University of Technology",
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "city": "Eindhoven",
+    "link": "https://tue.nl"
+  },
+  {
+    "name": "Leiden University",
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "city": "Leiden",
+    "link": "https://universiteitleiden.nl"
+  },
+  {
+    "name": "Utrecht University",
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "city": "Utrecht",
+    "link": "https://uu.nl"
+  },
+  {
+    "name": "University of Groningen",
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "city": "Groningen",
+    "link": "https://rug.nl"
+  },
+  {
+    "name": "Maastricht University",
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "city": "Maastricht",
+    "link": "https://maastrichtuniversity.nl",
+    "atlasName": "Maastricht University — Holland-High Potential"
+  },
+  {
+    "name": "ETH Zürich",
+    "flag": "🇨🇭",
+    "country": "Switzerland",
+    "region": "Europe",
+    "city": "Zürich",
+    "link": "https://ethz.ch",
+    "atlasName": "ETH Zürich — Excellence Scholarship"
+  },
+  {
+    "name": "EPFL",
+    "flag": "🇨🇭",
+    "country": "Switzerland",
+    "region": "Europe",
+    "city": "Lausanne",
+    "link": "https://epfl.ch"
+  },
+  {
+    "name": "University of Zurich",
+    "flag": "🇨🇭",
+    "country": "Switzerland",
+    "region": "Europe",
+    "city": "Zürich",
+    "link": "https://uzh.ch"
+  },
+  {
+    "name": "University of Geneva",
+    "flag": "🇨🇭",
+    "country": "Switzerland",
+    "region": "Europe",
+    "city": "Geneva",
+    "link": "https://unige.ch"
+  },
+  {
+    "name": "KTH Royal Institute of Technology",
+    "flag": "🇸🇪",
+    "country": "Sweden",
+    "region": "Europe",
+    "city": "Stockholm",
+    "link": "https://kth.se"
+  },
+  {
+    "name": "Lund University",
+    "flag": "🇸🇪",
+    "country": "Sweden",
+    "region": "Europe",
+    "city": "Lund",
+    "link": "https://lunduniversity.lu.se"
+  },
+  {
+    "name": "Uppsala University",
+    "flag": "🇸🇪",
+    "country": "Sweden",
+    "region": "Europe",
+    "city": "Uppsala",
+    "link": "https://uu.se"
+  },
+  {
+    "name": "Stockholm University",
+    "flag": "🇸🇪",
+    "country": "Sweden",
+    "region": "Europe",
+    "city": "Stockholm",
+    "link": "https://su.se"
+  },
+  {
+    "name": "Aalto University",
+    "flag": "🇫🇮",
+    "country": "Finland",
+    "region": "Europe",
+    "city": "Espoo",
+    "link": "https://aalto.fi"
+  },
+  {
+    "name": "University of Helsinki",
+    "flag": "🇫🇮",
+    "country": "Finland",
+    "region": "Europe",
+    "city": "Helsinki",
+    "link": "https://helsinki.fi",
+    "atlasName": "University of Helsinki"
+  },
+  {
+    "name": "Technical University of Denmark",
+    "flag": "🇩🇰",
+    "country": "Denmark",
+    "region": "Europe",
+    "city": "Lyngby",
+    "link": "https://dtu.dk"
+  },
+  {
+    "name": "University of Copenhagen",
+    "flag": "🇩🇰",
+    "country": "Denmark",
+    "region": "Europe",
+    "city": "Copenhagen",
+    "link": "https://ku.dk"
+  },
+  {
+    "name": "Aarhus University",
+    "flag": "🇩🇰",
+    "country": "Denmark",
+    "region": "Europe",
+    "city": "Aarhus",
+    "link": "https://au.dk"
+  },
+  {
+    "name": "NTNU",
+    "flag": "🇳🇴",
+    "country": "Norway",
+    "region": "Europe",
+    "city": "Trondheim",
+    "link": "https://ntnu.edu"
+  },
+  {
+    "name": "University of Oslo",
+    "flag": "🇳🇴",
+    "country": "Norway",
+    "region": "Europe",
+    "city": "Oslo",
+    "link": "https://uio.no"
+  },
+  {
+    "name": "Politecnico di Milano",
+    "flag": "🇮🇹",
+    "country": "Italy",
+    "region": "Europe",
+    "city": "Milan",
+    "link": "https://polimi.it",
+    "atlasName": "Politecnico di Milano"
+  },
+  {
+    "name": "University of Bologna",
+    "flag": "🇮🇹",
+    "country": "Italy",
+    "region": "Europe",
+    "city": "Bologna",
+    "link": "https://unibo.it",
+    "atlasName": "University of Bologna"
+  },
+  {
+    "name": "Sapienza University of Rome",
+    "flag": "🇮🇹",
+    "country": "Italy",
+    "region": "Europe",
+    "city": "Rome",
+    "link": "https://www.uniroma1.it"
+  },
+  {
+    "name": "Politecnico di Torino",
+    "flag": "🇮🇹",
+    "country": "Italy",
+    "region": "Europe",
+    "city": "Turin",
+    "link": "https://www.polito.it"
+  },
+  {
+    "name": "University of Barcelona",
+    "flag": "🇪🇸",
+    "country": "Spain",
+    "region": "Europe",
+    "city": "Barcelona",
+    "link": "https://ub.edu"
+  },
+  {
+    "name": "Autonomous University of Madrid",
+    "flag": "🇪🇸",
+    "country": "Spain",
+    "region": "Europe",
+    "city": "Madrid",
+    "link": "https://uam.es"
+  },
+  {
+    "name": "UPC BarcelonaTech",
+    "flag": "🇪🇸",
+    "country": "Spain",
+    "region": "Europe",
+    "city": "Barcelona",
+    "link": "https://upc.edu"
+  },
+  {
+    "name": "KU Leuven",
+    "flag": "🇧🇪",
+    "country": "Belgium",
+    "region": "Europe",
+    "city": "Leuven",
+    "link": "https://kuleuven.be"
+  },
+  {
+    "name": "Ghent University",
+    "flag": "🇧🇪",
+    "country": "Belgium",
+    "region": "Europe",
+    "city": "Ghent",
+    "link": "https://ugent.be",
+    "atlasName": "Ghent University — Doctoral Scholarships (Global South)"
+  },
+  {
+    "name": "UCLouvain",
+    "flag": "🇧🇪",
+    "country": "Belgium",
+    "region": "Europe",
+    "city": "Louvain-la-Neuve",
+    "link": "https://uclouvain.be"
+  },
+  {
+    "name": "University of Vienna",
+    "flag": "🇦🇹",
+    "country": "Austria",
+    "region": "Europe",
+    "city": "Vienna",
+    "link": "https://univie.ac.at",
+    "atlasName": "University of Vienna"
+  },
+  {
+    "name": "TU Wien",
+    "flag": "🇦🇹",
+    "country": "Austria",
+    "region": "Europe",
+    "city": "Vienna",
+    "link": "https://tuwien.at",
+    "atlasName": "TU Wien"
+  },
+  {
+    "name": "Trinity College Dublin",
+    "flag": "🇮🇪",
+    "country": "Ireland",
+    "region": "Europe",
+    "city": "Dublin",
+    "link": "https://tcd.ie"
+  },
+  {
+    "name": "University College Dublin",
+    "flag": "🇮🇪",
+    "country": "Ireland",
+    "region": "Europe",
+    "city": "Dublin",
+    "link": "https://ucd.ie"
+  },
+  {
+    "name": "University of Lisbon",
+    "flag": "🇵🇹",
+    "country": "Portugal",
+    "region": "Europe",
+    "city": "Lisbon",
+    "link": "https://ulisboa.pt"
+  },
+  {
+    "name": "University of Porto",
+    "flag": "🇵🇹",
+    "country": "Portugal",
+    "region": "Europe",
+    "city": "Porto",
+    "link": "https://up.pt"
+  },
+  {
+    "name": "Charles University",
+    "flag": "🇨🇿",
+    "country": "Czechia",
+    "region": "Europe",
+    "city": "Prague",
+    "link": "https://cuni.cz",
+    "atlasName": "Charles University (Czech-taught)"
+  },
+  {
+    "name": "Czech Technical University",
+    "flag": "🇨🇿",
+    "country": "Czechia",
+    "region": "Europe",
+    "city": "Prague",
+    "link": "https://cvut.cz"
+  },
+  {
+    "name": "University of Iceland",
+    "flag": "🇮🇸",
+    "country": "Iceland",
+    "region": "Europe",
+    "city": "Reykjavík",
+    "link": "https://hi.is",
+    "atlasName": "University of Iceland — doctoral study"
+  },
+  {
+    "name": "University of Warsaw",
+    "flag": "🇵🇱",
+    "country": "Poland",
+    "region": "Europe",
+    "city": "Warsaw",
+    "link": "https://uw.edu.pl"
+  },
+  {
+    "name": "University of Tartu",
+    "flag": "🇪🇪",
+    "country": "Estonia",
+    "region": "Europe",
+    "city": "Tartu",
+    "link": "https://ut.ee"
+  },
+  {
+    "name": "University College Cork",
+    "flag": "🇮🇪",
+    "country": "Ireland",
+    "region": "Europe",
+    "city": "Cork",
+    "link": "https://ucc.ie"
+  },
+  {
+    "name": "University of Galway",
+    "flag": "🇮🇪",
+    "country": "Ireland",
+    "region": "Europe",
+    "city": "Galway",
+    "link": "https://universityofgalway.ie"
+  },
+  {
+    "name": "Dublin City University",
+    "flag": "🇮🇪",
+    "country": "Ireland",
+    "region": "Europe",
+    "city": "Dublin",
+    "link": "https://dcu.ie"
+  },
+  {
+    "name": "University of Bergen",
+    "flag": "🇳🇴",
+    "country": "Norway",
+    "region": "Europe",
+    "city": "Bergen",
+    "link": "https://uib.no"
+  },
+  {
+    "name": "UiT The Arctic University",
+    "flag": "🇳🇴",
+    "country": "Norway",
+    "region": "Europe",
+    "city": "Tromsø",
+    "link": "https://uit.no"
+  },
+  {
+    "name": "Vrije Universiteit Brussel",
+    "flag": "🇧🇪",
+    "country": "Belgium",
+    "region": "Europe",
+    "city": "Brussels",
+    "link": "https://vub.be"
+  },
+  {
+    "name": "University of Antwerp",
+    "flag": "🇧🇪",
+    "country": "Belgium",
+    "region": "Europe",
+    "city": "Antwerp",
+    "link": "https://uantwerpen.be"
+  },
+  {
+    "name": "Université libre de Bruxelles",
+    "flag": "🇧🇪",
+    "country": "Belgium",
+    "region": "Europe",
+    "city": "Brussels",
+    "link": "https://ulb.be"
+  },
+  {
+    "name": "Wageningen University",
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "city": "Wageningen",
+    "link": "https://wur.nl"
+  },
+  {
+    "name": "Radboud University",
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "city": "Nijmegen",
+    "link": "https://ru.nl"
+  },
+  {
+    "name": "Erasmus University Rotterdam",
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "city": "Rotterdam",
+    "link": "https://eur.nl"
+  },
+  {
+    "name": "University of Twente",
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "city": "Enschede",
+    "link": "https://utwente.nl"
+  }
+]

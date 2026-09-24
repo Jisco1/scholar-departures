@@ -1,0 +1,31 @@
+{
+  "summary": "Created by the Bill & Melinda Gates Foundation, Gates Cambridge funds outstanding applicants from outside the UK to take a full-time postgraduate degree in any subject at the University of Cambridge. It covers fees, a maintenance allowance, flights and visa costs.",
+  "covers": [
+    "The University Composition Fee at the appropriate rate.",
+    "A maintenance allowance of £22,050 for 12 months (the 2025–26 rate), pro rata for shorter courses and for up to four years for a PhD.",
+    "One economy airfare at the start and end of the course, plus inbound visa costs and the Immigration Health Surcharge.",
+    "Discretionary extra funding, such as for academic development or family costs, may be available."
+  ],
+  "eligibility": [
+    "Citizens of any country outside the UK.",
+    "Applying for a full-time postgraduate degree at Cambridge — for example a PhD, MPhil, MSc or MLitt. Check Gates Cambridge's list of eligible courses.",
+    "Selection is on outstanding intellectual ability, leadership potential, commitment to improving the lives of others, and a good fit between you and your course."
+  ],
+  "how_to_apply": [
+    "Apply for your course through the University of Cambridge's graduate application portal.",
+    "In the funding section, select Gates Cambridge and write the Gates statement explaining how you meet its criteria.",
+    "Make sure at least one referee comments on your fit with the Gates criteria.",
+    "Deadlines for 2027 entry: 14 October 2026 for US citizens resident in the US; 8 December 2026 or 6 January 2027 for everyone else, depending on the course."
+  ],
+  "watch_out": [
+    "Your Gates deadline is your course's funding deadline — check the course directory to see whether it is 8 December or 6 January.",
+    "Being admitted to Cambridge is a separate decision from winning Gates; many admitted students are unfunded.",
+    "About 80 scholarships are awarded each year across all countries, so apply for other funding in parallel."
+  ],
+  "related": ["rhodes-scholarship", "chevening-scholarships", "mastercard-foundation-scholars-cambridge", "knight-hennessy-scholars"],
+  "sources": [
+    {"title": "Gates Cambridge — Application timeline and deadlines", "url": "https://www.gatescambridge.org/apply/timeline/"},
+    {"title": "Gates Cambridge", "url": "https://www.gatescambridge.org/"}
+  ],
+  "reviewed": "2026-09-24"
+}

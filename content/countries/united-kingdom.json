@@ -1,0 +1,45 @@
+{
+  "name": "United Kingdom",
+  "flag": "🇬🇧",
+  "title": "Fully funded master's and PhDs in the UK: the scholarships that pay for everything",
+  "lede": "UK tuition for international students is high, so the UK is a country you reach through a scholarship. Luckily it has some of the world's best-known full awards — Chevening, Commonwealth, Gates Cambridge, Rhodes and the Mastercard Foundation programme at Cambridge.",
+  "description": "How international students can study in the UK for free: Chevening, Commonwealth, Gates Cambridge, Rhodes and Mastercard Foundation scholarships, plus visa costs and proof-of-funds rules.",
+  "card": "High fees, but the strongest line-up of full scholarships anywhere — Chevening, Commonwealth, Gates, Rhodes.",
+  "sections": [
+    {
+      "h": "Why the UK needs a scholarship",
+      "html": "<p>International students pay international tuition at UK universities, often well above £20,000 a year for a master's, and more for laboratory subjects. UK master's degrees are usually just <strong>one year</strong>, though, so a single award can fund a complete degree — which is exactly what the major scholarships do.</p>"
+    },
+    {
+      "h": "The big full awards compared",
+      "html": "<div class=\"table-wrap\"><table><tr><th>Scholarship</th><th>Level</th><th>Who</th><th>Deadline</th></tr><tr><td><a href=\"{{root}}routes/chevening-scholarships/\">Chevening</a></td><td>One-year master's</td><td>160+ countries, 2 years' work experience</td><td>6 Oct 2026</td></tr><tr><td><a href=\"{{root}}routes/commonwealth-masters-scholarships/\">Commonwealth Master's</a></td><td>One-year master's</td><td>Eligible Commonwealth countries, via national nominating agency</td><td>20 Oct 2026</td></tr><tr><td><a href=\"{{root}}routes/commonwealth-shared-scholarships/\">Commonwealth Shared</a></td><td>Selected master's</td><td>Lower-income Commonwealth countries, via UK universities</td><td>Set by each university</td></tr><tr><td><a href=\"{{root}}routes/gates-cambridge-scholarship/\">Gates Cambridge</a></td><td>Any Cambridge postgraduate degree</td><td>Any country outside the UK</td><td>8 Dec 2026 or 6 Jan 2027</td></tr><tr><td><a href=\"{{root}}routes/rhodes-scholarship/\">Rhodes</a></td><td>Oxford postgraduate</td><td>By constituency</td><td>Jun–Oct, by constituency</td></tr><tr><td><a href=\"{{root}}routes/mastercard-foundation-scholars-cambridge/\">Mastercard Foundation at Cambridge</a></td><td>One-year master's</td><td>Young Africans</td><td>5 Jan 2027</td></tr></table></div>"
+    },
+    {
+      "h": "Visa costs and proof of funds",
+      "html": "<p>A UK Student visa requires you to show money for living costs for up to nine months: <strong>£1,529 a month in London or £1,171 a month elsewhere</strong> for applications from 11 November 2025. You also pay the <strong>Immigration Health Surcharge</strong> (£776 a year for students) and the visa fee. Full scholarships such as Chevening and Commonwealth normally cover these or count as your financial evidence — check your award letter.</p>"
+    },
+    {
+      "h": "Return commitments",
+      "html": "<p>Chevening and Commonwealth scholars must return to their home country after the award (two years for Chevening), and Commonwealth scholars cannot switch to the Graduate visa. If staying to work in the UK matters to you, Gates Cambridge and Rhodes have no such rule — read each award's terms before applying.</p>"
+    }
+  ],
+  "sources": [
+    {
+      "title": "GOV.UK — Applications open for 2027 to 2028 Chevening Scholarships",
+      "url": "https://www.gov.uk/government/news/applications-open-for-2027-to-2028-chevening-scholarships-to-study-in-the-uk"
+    },
+    {
+      "title": "Commonwealth Scholarship Commission — Commonwealth Master's Scholarships",
+      "url": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-masters-scholarships/"
+    },
+    {
+      "title": "Gates Cambridge — Application timeline",
+      "url": "https://www.gatescambridge.org/apply/timeline/"
+    },
+    {
+      "title": "UKCISA — Changes to the Student and Graduate rules",
+      "url": "https://www.ukcisa.org.uk/news/student-update-changes-to-the-student-and-graduate-rules/"
+    }
+  ],
+  "reviewed": "2026-09-24"
+}

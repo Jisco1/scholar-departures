@@ -1,0 +1,37 @@
+{
+  "summary": "The Mastercard Foundation Scholars Program is the largest scholarship initiative for young Africans. It works through dozens of partner universities in Africa and around the world, each running its own application — this page explains how it works and where to start.",
+  "covers": [
+    "Comprehensive support that typically includes tuition, accommodation, a living stipend, books and a laptop, insurance and travel, varying by partner.",
+    "Mentoring, leadership development and support moving into work after graduation.",
+    "Application fees are reimbursed if you are selected, according to the Foundation."
+  ],
+  "eligibility": [
+    "Young people from African countries, with a focus on those who face financial barriers to education.",
+    "Many partners set age limits (often 28 or under, higher for refugees and applicants with disabilities) — each partner's rules apply.",
+    "Levels vary: some partners fund bachelor's degrees, others master's or both."
+  ],
+  "how_to_apply": [
+    "Open the Foundation's 'where to apply' page and choose a partner institution that offers your level and field.",
+    "Apply directly to that partner, following its own process and deadline.",
+    "Prepare evidence of financial need, academic records, essays and references.",
+    "Selected scholars join the partner's cohort and the wider Scholars network."
+  ],
+  "watch_out": [
+    "There is no central application. Every partner — in Africa, the UK, the USA, Canada and elsewhere — sets its own deadline.",
+    "The Foundation warns that Facebook posts asking for an application fee are fraudulent. Read our guide to [scholarship scams]({{root}}guides/scholarship-scams/).",
+    "See the individual partner pages on this board: Cambridge, UC Berkeley, Arizona State and McGill."
+  ],
+  "related": [
+    "mastercard-foundation-scholars-cambridge",
+    "mastercard-foundation-scholars-uc-berkeley",
+    "mastercard-foundation-scholars-asu",
+    "mastercard-foundation-scholars-mcgill"
+  ],
+  "sources": [
+    {
+      "title": "Mastercard Foundation — Where to apply",
+      "url": "https://mastercardfdn.org/en/what-we-do/our-programs/mastercard-foundation-scholars-program/where-to-apply/"
+    }
+  ],
+  "reviewed": "2026-09-24"
+}

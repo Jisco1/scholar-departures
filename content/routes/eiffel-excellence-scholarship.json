@@ -1,0 +1,32 @@
+{
+  "summary": "France's flagship scholarship for international master's and PhD students, funded by the Ministry for Europe and Foreign Affairs. It pays a monthly allowance plus travel, insurance and housing help — and because public-university tuition in France is modest, it can fund an entire degree.",
+  "covers": [
+    "A monthly allowance of €1,200 at master's level and €2,100 at PhD level (rates from January 2026).",
+    "Additional services: international and national travel, health insurance, help finding housing and cultural activities.",
+    "Master's awards run for the length of the programme (up to 24 months); doctoral awards run for 12 to 36 months."
+  ],
+  "eligibility": [
+    "Non-French nationals applying to a master's or PhD at a French higher-education institution.",
+    "Age guidance: up to 29 at master's level and up to 35 at PhD level.",
+    "Priority is given to applicants who are likely to become future decision-makers, in the programme's priority fields.",
+    "You cannot apply yourself: only French institutions can submit candidates to Campus France."
+  ],
+  "how_to_apply": [
+    "Apply for admission to your chosen master's or PhD at a French institution, and ask its international office whether it nominates Eiffel candidates.",
+    "Meet the institution's internal Eiffel deadline — usually October or November, well before Campus France's.",
+    "The institution selects candidates and submits their files to Campus France. For the 2026 campaign, the call opened on 1 October 2025 and files were due by 8 January 2026.",
+    "Results are published from late March."
+  ],
+  "watch_out": [
+    "Your real deadline is your university's internal one, often two months before the Campus France date.",
+    "The institution decides whom to nominate, so a strong admission file and early contact with the programme matter most.",
+    "The ages are guidance the programme 'encourages', but applicants well above them are rarely nominated."
+  ],
+  "related": ["erasmus-mundus-joint-masters", "swiss-government-excellence-scholarships", "daad-scholarships", "chevening-scholarships"],
+  "sources": [
+    {"title": "Campus France — France Excellence Eiffel scholarship programme", "url": "https://www.campusfrance.org/en/france-excellence-eiffel-scholarship-program"},
+    {"title": "Campus France — Eiffel scholarship programme of excellence", "url": "https://www.campusfrance.org/en/eiffel-scholarship-program-of-excellence"},
+    {"title": "Université Paris-Saclay — France Excellence Eiffel scholarship (current rates)", "url": "https://www.universite-paris-saclay.fr/en/admission/bourses-et-aides-financieres/france-excellence-eiffel-scholarship"}
+  ],
+  "reviewed": "2026-09-24"
+}

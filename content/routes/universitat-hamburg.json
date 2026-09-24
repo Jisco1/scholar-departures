@@ -1,0 +1,31 @@
+{
+  "summary": "Universität Hamburg, one of Germany's largest universities, charges no tuition to international degree students. The only regular cost is the semester contribution, which rose to €402 for winter 2026/27 and includes a public-transport ticket.",
+  "covers": [
+    "No tuition fees for international students on degree programmes.",
+    "A semester contribution of €402 for winter 2026/27, which includes the Studierendenwerk contribution and the semester transport ticket.",
+    "No living allowance from the university; for a visa, plan to prove €11,904 for your first year."
+  ],
+  "eligibility": [
+    "Open to all nationalities with qualifications recognised for the level you apply to.",
+    "Most bachelor's programmes are taught in German. Master's programmes vary — several are in English, each with its own language requirements.",
+    "Master's applicants must meet the programme's subject requirements, which are checked against your transcript."
+  ],
+  "how_to_apply": [
+    "Pick a programme and read its entry requirements and language rules.",
+    "Apply online through the university's application platform (STiNE). Upload documents only when asked; posted paper documents are discarded.",
+    "Winter-semester windows for 2026/27 were: master's 1 May – 15 June; bachelor's 1 June – 15 July. For a summer-semester bachelor's start, the window is 1 December – 15 January.",
+    "Check your programme page: some master's programmes set earlier deadlines for non-EU applicants (31 December in some cases)."
+  ],
+  "watch_out": [
+    "Master's deadlines (mid-June) come a month before bachelor's deadlines — don't assume one date fits all.",
+    "Individual programmes can override the general dates. The programme page always wins.",
+    "Hamburg housing is expensive and competitive; start looking as soon as you apply."
+  ],
+  "related": ["rwth-aachen-university", "freie-universitat-berlin", "daad-scholarships", "university-of-vienna"],
+  "sources": [
+    {"title": "Universität Hamburg — Applying", "url": "https://www.uni-hamburg.de/en/campuscenter/bewerbung.html"},
+    {"title": "Universität Hamburg — Semester contribution winter 2026/27", "url": "https://www.uni-hamburg.de/campuscenter/aktuelles/2026-07-23-semesterbeitrag-wise-2026.html"},
+    {"title": "Universität Hamburg — Semester contribution", "url": "https://www.uni-hamburg.de/en/campuscenter/studienorganisation/studienverlauf/beitraege-gebuehren/semesterbeitrag.html"}
+  ],
+  "reviewed": "2026-09-24"
+}

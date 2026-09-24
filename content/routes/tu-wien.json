@@ -1,0 +1,31 @@
+{
+  "summary": "TU Wien, Austria's leading technical university, charges non-EU students €726.72 per semester in tuition — and waives it entirely for citizens of the world's least developed countries. For engineers and computer scientists that makes a well-regarded European degree unusually affordable.",
+  "covers": [
+    "Non-EU students pay €726.72 tuition per semester from their first semester, plus the ÖH students' union fee each semester.",
+    "Citizens of about 45 least-developed countries (the list in Annex 1 of the tuition-fee decree, including Afghanistan, Angola, Bangladesh, Nepal, Yemen and Zambia) have a general exemption and pay only the ÖH fee for their whole degree.",
+    "No living allowance: budget for Vienna's living costs and the residence permit's proof of funds yourself."
+  ],
+  "eligibility": [
+    "Open to all nationalities; for a master's you need a relevant bachelor's degree that TU Wien accepts as equivalent to its own.",
+    "Most bachelor's programmes are taught in German. A number of master's programmes are taught fully in English and set their own English requirement.",
+    "Admission to a master's is decided on your previous degree's content, so module descriptions matter."
+  ],
+  "how_to_apply": [
+    "Choose your programme and check its language and admission requirements.",
+    "Register in TISS and submit the application with all documents and certifications.",
+    "Non-EU/EEA citizens must submit a complete application within the special deadline: 16 January – 15 July 2026 for winter semester 2026/27, and 16 July 2026 – 15 January 2027 for summer semester 2027.",
+    "Once admitted, enrol in person at the Admissions Office (Karlsplatz 13) by 31 October (winter) or 31 March (summer) and pay the semester fee."
+  ],
+  "watch_out": [
+    "The non-EU deadline (15 July / 15 January) is months earlier than TU Wien's general admission periods — the general dates do not apply to you.",
+    "Assessment of a foreign bachelor's degree can take around three months, so apply early in the window, not near its end.",
+    "Enrolment is completed in person in Vienna, so plan your visa and arrival before the enrolment cut-off."
+  ],
+  "related": ["university-of-vienna", "rwth-aachen-university", "eth-zurich-excellence-scholarship", "charles-university"],
+  "sources": [
+    {"title": "TU Wien — Tuition fee", "url": "https://www.tuwien.at/en/studies/admission/students-union-fee-and-tuition-fee/tuition-fee"},
+    {"title": "TU Wien — Academic calendar and non-EU deadlines", "url": "https://www.tuwien.at/en/studies/admission/academic-calendar"},
+    {"title": "TU Wien — Master's programmes admission", "url": "https://www.tuwien.at/en/studies/admission/masters-programmes"}
+  ],
+  "reviewed": "2026-09-24"
+}

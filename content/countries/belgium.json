@@ -1,0 +1,41 @@
+{
+  "name": "Belgium",
+  "flag": "🇧🇪",
+  "title": "Belgium (Flanders): moderate fees and two government-backed routes",
+  "lede": "Flemish universities such as KU Leuven and Ghent charge non-EU students several thousand euros a year — moderate by Western European standards. Funded routes include the Flemish government's Master Mind Scholarships and Ghent University's doctoral scholarships for the Global South.",
+  "description": "Tuition for non-EU students at Flemish universities and the funded routes: Master Mind Scholarships and Ghent University's BOF doctoral scholarships.",
+  "card": "Non-EU fees of a few thousand euros a year; Master Mind and Ghent's doctoral scholarships fund the rest.",
+  "sections": [
+    {
+      "h": "What non-EU students pay",
+      "html": "<p>Flemish universities publish their own fees for students from outside the EU/EEA. For 2026–27, KU Leuven's standard non-EEA fee was <strong>€9,493.90</strong> for a full-time year of 60 credits; other Flemish universities charge from a few thousand euros upwards, and fees have been rising. Always check your specific programme.</p>"
+    },
+    {
+      "h": "Master Mind Scholarships",
+      "html": "<p>The Flemish government's <a href=\"{{root}}routes/master-mind-scholarships-flanders/\">Master Mind Scholarships</a> paid €10,225 a year plus a near-total tuition waiver in 2026–27. The scheme is under review for 2027–28, and recent places focused on priority countries (Japan, Mexico, Palestine and the United States), so check the current call before planning around it.</p>"
+    },
+    {
+      "h": "Doctoral scholarships at Ghent",
+      "html": "<p><a href=\"{{root}}routes/ghent-university-doctoral-scholarships/\">Ghent University's BOF scholarships</a> fund 24 months of a PhD in Ghent for candidates from Global South countries, with the rest of the PhD funded by a partner institution at home. You need a Ghent professor as supervisor; the 2026 call closed on 17 February.</p>"
+    },
+    {
+      "h": "Language",
+      "html": "<p>Flanders is Dutch-speaking, but its universities offer many master's and doctoral programmes in English. Brussels is officially bilingual (French and Dutch).</p>"
+    }
+  ],
+  "sources": [
+    {
+      "title": "KU Leuven — Tuition fee regulations 2026–2027",
+      "url": "https://www.kuleuven.be/english/education/student/fees/regulation"
+    },
+    {
+      "title": "Study in Flanders — Master Mind Scholarships",
+      "url": "https://www.studyinflanders.be/scholarships/master-mind-scholarships"
+    },
+    {
+      "title": "Ghent University — Doctoral scholarships for the Global South",
+      "url": "https://www.ugent.be/en/research/funding/bof/dos"
+    }
+  ],
+  "reviewed": "2026-09-24"
+}

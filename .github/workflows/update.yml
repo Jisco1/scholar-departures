@@ -1,0 +1,78 @@
+name: Data refresh
+
+# Re-checks every route's official page and looks for new routes, using the
+# Anthropic API (ANTHROPIC_API_KEY repository secret). It costs a little money
+# per run, so it runs only when started by hand from the Actions tab.
+# To run it every Monday, add under "on:":
+#   schedule:
+#     - cron: "0 6 * * 1"
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - name: Stop if no API key is set
+        if: env.ANTHROPIC_API_KEY == ''
+        run: |
+          echo "::error::Add the ANTHROPIC_API_KEY repository secret before running the data refresh."
+          exit 1
+
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests==2.32.3 beautifulsoup4==4.12.3
+
+      - name: Re-check official pages
+        run: python updater/update_data.py
+
+      - name: Discover new routes (queued for approval, never auto-published)
+        run: |
+          python updater/discover.py
+          python - <<'EOF' >> $GITHUB_STEP_SUMMARY
+          import json, pathlib
+          p = pathlib.Path("data/candidates.json")
+          cands = [c for c in (json.loads(p.read_text()) if p.exists() else []) if c.get("status") == "pending"]
+          if cands:
+              print(f"## {len(cands)} candidate route(s) awaiting approval\n")
+              for c in cands:
+                  print(f"- **{c['name']}** ({c['country']}) — {c['funding']} → {c['link']}")
+              print("\nApprove locally with `python updater/approve.py --list`.")
+          else:
+              print("## No new candidates this run.")
+          EOF
+
+      - name: Validate before committing
+        run: python build.py
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name "scholar-departures-bot"
+          git config user.email "actions@github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No data changes."
+          else
+            git commit -m "Refresh route data ($(date -u +%F))"
+            git push
+          fi
+
+  deploy:
+    needs: refresh
+    uses: ./.github/workflows/pages.yml
+    permissions:
+      contents: read
+      pages: write
+      id-token: write

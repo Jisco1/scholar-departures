@@ -1,0 +1,1967 @@
+[
+  {
+    "name": "RWTH Aachen University",
+    "flag": "🇩🇪",
+    "country": "Germany",
+    "region": "Europe",
+    "types": [
+      "Tuition-Free"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's",
+      "PhD"
+    ],
+    "funding": "No tuition for any nationality at one of Europe's top engineering schools — only a semester contribution of about €350 that includes a Germany-wide transit pass.",
+    "deadline": "Non-EU master's: Mar 1 (winter) · Sep 1 (summer); NC programmes Jul 15 / Jan 15",
+    "deadlines": [
+      {
+        "m": 3,
+        "d": 1
+      },
+      {
+        "m": 9,
+        "d": 1
+      }
+    ],
+    "link": "https://www.rwth-aachen.de",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences"
+    ],
+    "slug": "rwth-aachen-university",
+    "approx": true
+  },
+  {
+    "name": "Freie Universität Berlin",
+    "flag": "🇩🇪",
+    "country": "Germany",
+    "region": "Europe",
+    "types": [
+      "Tuition-Free"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's",
+      "PhD"
+    ],
+    "funding": "Berlin charges zero tuition at its public universities; you pay only the €376.80 semester contribution, transit pass included.",
+    "deadline": "Capped master's May 31 · capped bachelor's Jul 15 · open programmes Aug 15 / Sep 1 (winter)",
+    "deadlines": [
+      {
+        "m": 5,
+        "d": 31
+      },
+      {
+        "m": 7,
+        "d": 15
+      },
+      {
+        "m": 1,
+        "d": 15
+      }
+    ],
+    "link": "https://www.fu-berlin.de/en/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Natural Sciences"
+    ],
+    "slug": "freie-universitat-berlin",
+    "approx": true
+  },
+  {
+    "name": "Universität Hamburg",
+    "flag": "🇩🇪",
+    "country": "Germany",
+    "region": "Europe",
+    "types": [
+      "Tuition-Free"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's",
+      "PhD"
+    ],
+    "funding": "Tuition-free for all international degree students; the €402 semester contribution includes city transit.",
+    "deadline": "Master's Jun 15 · bachelor's Jul 15 (winter) · bachelor's Jan 15 (summer)",
+    "deadlines": [
+      {
+        "m": 6,
+        "d": 15
+      },
+      {
+        "m": 7,
+        "d": 15
+      },
+      {
+        "m": 1,
+        "d": 15
+      }
+    ],
+    "link": "https://www.uni-hamburg.de/en.html",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "universitat-hamburg",
+    "approx": true
+  },
+  {
+    "name": "DAAD Scholarships (nationwide)",
+    "flag": "🇩🇪",
+    "country": "Germany",
+    "region": "Europe",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "funding": "Germany's national funding body — Study Scholarships, EPOS and doctoral grants pay €992 a month (€1,300 for doctoral candidates) plus insurance and travel.",
+    "deadline": "Varies by programme and country (most close Aug–Nov for the following October)",
+    "deadlines": [
+      {
+        "m": 10,
+        "d": 1
+      }
+    ],
+    "approx": true,
+    "link": "https://www.daad.de/en/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Social Sciences & Law",
+      "Agriculture & Environment",
+      "Medicine & Health"
+    ],
+    "slug": "daad-scholarships"
+  },
+  {
+    "name": "University of Vienna",
+    "flag": "🇦🇹",
+    "country": "Austria",
+    "region": "Europe",
+    "types": [
+      "Low Tuition"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's",
+      "PhD"
+    ],
+    "funding": "Non-EU students pay €726.72 a semester at Austria's largest university — and citizens of the least developed countries pay no tuition at all.",
+    "deadline": "Non-EU: Aug 3 (winter) · Jan 7 (summer); selective master's Apr 7",
+    "deadlines": [
+      {
+        "m": 8,
+        "d": 3
+      },
+      {
+        "m": 1,
+        "d": 7
+      },
+      {
+        "m": 4,
+        "d": 7
+      }
+    ],
+    "link": "https://www.univie.ac.at/en/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Natural Sciences"
+    ],
+    "slug": "university-of-vienna",
+    "approx": true
+  },
+  {
+    "name": "TU Wien",
+    "flag": "🇦🇹",
+    "country": "Austria",
+    "region": "Europe",
+    "types": [
+      "Low Tuition"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's",
+      "PhD"
+    ],
+    "funding": "Austria's top technical university charges non-EU students €726.72 a semester — waived entirely for citizens of the least developed countries.",
+    "deadline": "Non-EU: Jul 15 (winter) · Jan 15 (summer)",
+    "deadlines": [
+      {
+        "m": 7,
+        "d": 15
+      },
+      {
+        "m": 1,
+        "d": 15
+      }
+    ],
+    "link": "https://www.tuwien.at/en/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences"
+    ],
+    "slug": "tu-wien",
+    "approx": false
+  },
+  {
+    "name": "Erasmus Mundus Joint Masters",
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "Study in two or three European countries on one degree: participation costs covered plus €1,400 a month for the whole programme.",
+    "deadline": "Oct–Jan, set by each programme (many close in Jan)",
+    "deadlines": [
+      {
+        "m": 1,
+        "d": 15
+      }
+    ],
+    "approx": true,
+    "link": "https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "erasmus-mundus-joint-masters"
+  },
+  {
+    "name": "Eiffel Excellence Scholarship",
+    "flag": "🇫🇷",
+    "country": "France",
+    "region": "Europe",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "funding": "France's flagship award pays €1,200 a month for master's (€2,100 for PhD) plus travel and insurance; public-university tuition there is already modest.",
+    "deadline": "University internal deadlines Oct–Nov · Campus France early Jan",
+    "deadlines": [
+      {
+        "m": 11,
+        "d": 1
+      }
+    ],
+    "approx": true,
+    "link": "https://www.campusfrance.org/en/eiffel-scholarship-program-of-excellence",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "program",
+    "scope": "limited",
+    "fields": [
+      "Engineering & Tech",
+      "Natural Sciences",
+      "Social Sciences & Law",
+      "Business & Economics"
+    ],
+    "slug": "eiffel-excellence-scholarship"
+  },
+  {
+    "name": "Swedish Institute Scholarships (SISGP)",
+    "flag": "🇸🇪",
+    "country": "Sweden",
+    "region": "Europe",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "Full tuition, SEK 12,000 a month, a travel grant and insurance for early-career professionals from SI's list of eligible countries.",
+    "deadline": "University round mid-Jan · SI scholarship window in Feb",
+    "deadlines": [
+      {
+        "m": 1,
+        "d": 15
+      },
+      {
+        "m": 2,
+        "d": 20
+      }
+    ],
+    "approx": true,
+    "link": "https://si.se/en/apply/scholarships/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Social Sciences & Law",
+      "Agriculture & Environment",
+      "Engineering & Tech",
+      "Medicine & Health"
+    ],
+    "slug": "swedish-institute-scholarships"
+  },
+  {
+    "name": "Stipendium Hungaricum",
+    "flag": "🇭🇺",
+    "country": "Hungary",
+    "region": "Europe",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's",
+      "PhD"
+    ],
+    "funding": "The Hungarian state covers tuition, a monthly stipend, a dorm place or housing contribution and insurance across thousands of places each year.",
+    "deadline": "Jan 15 (online application, 2 pm CET)",
+    "deadlines": [
+      {
+        "m": 1,
+        "d": 15
+      }
+    ],
+    "approx": false,
+    "link": "https://stipendiumhungaricum.hu/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "stipendium-hungaricum"
+  },
+  {
+    "name": "Romanian Government Scholarship",
+    "flag": "🇷🇴",
+    "country": "Romania",
+    "region": "Europe",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's",
+      "PhD"
+    ],
+    "funding": "Fee-free study, a monthly scholarship and dorm accommodation for non-EU citizens; bachelor's and master's are taught in Romanian after a language year.",
+    "deadline": "Application window mid-Feb – Mar 31",
+    "deadlines": [
+      {
+        "m": 3,
+        "d": 31
+      }
+    ],
+    "approx": true,
+    "link": "https://studyinromania.gov.ro/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "romanian-government-scholarship"
+  },
+  {
+    "name": "University of Iceland — doctoral study",
+    "flag": "🇮🇸",
+    "country": "Iceland",
+    "region": "Europe",
+    "types": [
+      "Tuition-Free"
+    ],
+    "levels": [
+      "PhD"
+    ],
+    "funding": "PhD programmes stay tuition-free — only the ISK 100,000 annual registration fee — after non-EEA bachelor's and master's students start paying tuition in autumn 2027.",
+    "deadline": "Varies — PhD places are usually tied to advertised research projects",
+    "link": "https://english.hi.is/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Natural Sciences",
+      "Agriculture & Environment",
+      "Social Sciences & Law",
+      "Arts & Humanities"
+    ],
+    "slug": "university-of-iceland",
+    "rolling": true
+  },
+  {
+    "name": "University of Helsinki",
+    "flag": "🇫🇮",
+    "country": "Finland",
+    "region": "Europe",
+    "types": [
+      "Merit"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "50% or 100% tuition waivers on €13,000–18,000 fees for excellent non-EU master's admits, plus one €5,000 Finland Scholarship per programme.",
+    "deadline": "Master's application round closes early Jan",
+    "deadlines": [
+      {
+        "m": 1,
+        "d": 8
+      }
+    ],
+    "approx": true,
+    "link": "https://www.helsinki.fi/en",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Natural Sciences",
+      "Medicine & Health",
+      "Social Sciences & Law",
+      "Agriculture & Environment"
+    ],
+    "slug": "university-of-helsinki-scholarships"
+  },
+  {
+    "name": "ETH Zürich — Excellence Scholarship",
+    "flag": "🇨🇭",
+    "country": "Switzerland",
+    "region": "Europe",
+    "types": [
+      "Full Scholarship",
+      "Merit"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "ESOP pays CHF 13,500 a semester and waives tuition for about 60 master's students a year at a world top-10 science and engineering school.",
+    "deadline": "ESOP window Nov 1–30 (regular master's deadline Dec 15)",
+    "deadlines": [
+      {
+        "m": 11,
+        "d": 30
+      }
+    ],
+    "link": "https://ethz.ch/en.html",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences"
+    ],
+    "slug": "eth-zurich-excellence-scholarship",
+    "approx": false
+  },
+  {
+    "name": "Swiss Government Excellence Scholarships",
+    "flag": "🇨🇭",
+    "country": "Switzerland",
+    "region": "Europe",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "PhD"
+    ],
+    "funding": "Federal research scholarships for PhD and postdoctoral researchers: CHF 2,450 a month plus fees, insurance and a housing allowance (taught master's not covered).",
+    "deadline": "Set by the Swiss embassy in your country — call opens Aug 20, most close Sep–Dec",
+    "deadlines": [
+      {
+        "m": 10,
+        "d": 31
+      }
+    ],
+    "approx": true,
+    "link": "https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health"
+    ],
+    "slug": "swiss-government-excellence-scholarships"
+  },
+  {
+    "name": "Chevening Scholarships",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "The UK government funds a one-year master's at any UK university: full tuition, a monthly stipend, flights and visa costs.",
+    "deadline": "Opens Aug 4 · closes Oct 6, 11:00 UTC (2027–28 cycle)",
+    "deadlines": [
+      {
+        "m": 10,
+        "d": 6
+      }
+    ],
+    "approx": false,
+    "link": "https://www.chevening.org/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "chevening-scholarships"
+  },
+  {
+    "name": "Gates Cambridge Scholarship",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "funding": "Covers Cambridge fees, a £22,050-a-year maintenance allowance, flights and visa costs for postgraduate study in any subject.",
+    "deadline": "Oct 14 (US round) · Dec 8 or Jan 6 (international, by course)",
+    "deadlines": [
+      {
+        "m": 10,
+        "d": 14
+      },
+      {
+        "m": 12,
+        "d": 8
+      },
+      {
+        "m": 1,
+        "d": 6
+      }
+    ],
+    "approx": true,
+    "link": "https://www.gatescambridge.org/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "gates-cambridge-scholarship"
+  },
+  {
+    "name": "Rhodes Scholarships (Oxford)",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "funding": "All Oxford fees plus a £20,400-a-year stipend, flights and visa costs; constituencies cover most of the world, with a Global scholarship for the rest.",
+    "deadline": "Jun–Oct depending on your constituency",
+    "deadlines": [
+      {
+        "m": 10,
+        "d": 1
+      }
+    ],
+    "approx": true,
+    "link": "https://www.rhodeshouse.ox.ac.uk/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "rhodes-scholarship"
+  },
+  {
+    "name": "Politecnico di Milano",
+    "flag": "🇮🇹",
+    "country": "Italy",
+    "region": "Europe",
+    "types": [
+      "Merit"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "Merit awards waive tuition in full for top international master's applicants; the highest tiers add up to €10,000 a year.",
+    "deadline": "Apply in the Early Bird window, Oct 1 – Dec 1",
+    "deadlines": [
+      {
+        "m": 12,
+        "d": 1
+      }
+    ],
+    "approx": true,
+    "link": "https://www.polimi.it/en",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Arts & Humanities"
+    ],
+    "slug": "politecnico-di-milano-merit-scholarships"
+  },
+  {
+    "name": "University of Bologna",
+    "flag": "🇮🇹",
+    "country": "Italy",
+    "region": "Europe",
+    "types": [
+      "Tuition-Free",
+      "Need-Based Aid"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's",
+      "PhD"
+    ],
+    "funding": "Regional ER.GO grants give lower-income students a full fee exemption plus up to about €7,000 a year, with access to student housing.",
+    "deadline": "ER.GO window late Jun – Aug 24 (2026)",
+    "deadlines": [
+      {
+        "m": 8,
+        "d": 24
+      }
+    ],
+    "approx": true,
+    "link": "https://www.unibo.it/en",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "university-of-bologna"
+  },
+  {
+    "name": "TU Delft — Van Effen Excellence",
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "types": [
+      "Full Scholarship",
+      "Merit"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "The Justus & Louise van Effen scholarship covers full tuition plus a living contribution for about 16 excellent international MSc students a year.",
+    "deadline": "Dec 1 (MSc application + scholarship form)",
+    "deadlines": [
+      {
+        "m": 12,
+        "d": 1
+      }
+    ],
+    "approx": false,
+    "link": "https://www.tudelft.nl/en/education/practical-matters/scholarships",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences"
+    ],
+    "slug": "tu-delft-van-effen-excellence"
+  },
+  {
+    "name": "Maastricht University — Holland-High Potential",
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "types": [
+      "Full Scholarship",
+      "Merit"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "18 full scholarships for non-EU/EEA master's students: tuition, living costs (€15,925 for a 13-month programme), insurance and visa costs.",
+    "deadline": "Master's application Dec 10 · scholarship Feb 1",
+    "deadlines": [
+      {
+        "m": 12,
+        "d": 10
+      },
+      {
+        "m": 2,
+        "d": 1
+      }
+    ],
+    "approx": false,
+    "link": "https://www.maastrichtuniversity.nl/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Medicine & Health"
+    ],
+    "slug": "maastricht-holland-high-potential"
+  },
+  {
+    "name": "Master Mind Scholarships (Flanders)",
+    "flag": "🇧🇪",
+    "country": "Belgium",
+    "region": "Europe",
+    "types": [
+      "Merit"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "€10,225 a year plus a tuition waiver for master's study in Flanders — scheme under review for 2027–28, with recent places focused on priority countries.",
+    "deadline": "2027–28 call not yet announced (scheme under review)",
+    "link": "https://www.studyinflanders.be/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "master-mind-scholarships-flanders",
+    "tbc": true
+  },
+  {
+    "name": "Charles University (Czech-taught)",
+    "flag": "🇨🇿",
+    "country": "Czechia",
+    "region": "Europe",
+    "types": [
+      "Tuition-Free"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's",
+      "PhD"
+    ],
+    "funding": "Czech public universities charge no tuition for degrees taught in Czech — any nationality. Most internationals first take a paid Czech preparatory year; English-taught programmes charge fees.",
+    "deadline": "Set by each faculty — most close Feb–Mar",
+    "deadlines": [
+      {
+        "m": 3,
+        "d": 1
+      }
+    ],
+    "approx": true,
+    "link": "https://cuni.cz/UKEN-1.html",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Medicine & Health",
+      "Natural Sciences",
+      "Social Sciences & Law",
+      "Arts & Humanities"
+    ],
+    "slug": "charles-university"
+  },
+  {
+    "name": "Türkiye Bursları",
+    "flag": "🇹🇷",
+    "country": "Türkiye",
+    "region": "Europe",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's",
+      "PhD"
+    ],
+    "funding": "Tuition, a monthly stipend, dorm housing, flights, insurance and a Turkish language year — one of the broadest full awards anywhere.",
+    "deadline": "Jan 10 – Feb 20 (one window a year)",
+    "deadlines": [
+      {
+        "m": 2,
+        "d": 20
+      }
+    ],
+    "approx": false,
+    "link": "https://www.turkiyeburslari.gov.tr/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "turkiye-burslari"
+  },
+  {
+    "name": "Harvard University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "types": [
+      "Need-Based Aid",
+      "Fee Waiver"
+    ],
+    "levels": [
+      "Bachelor's"
+    ],
+    "funding": "Need-blind for international applicants and full need met with grants: families under $100k pay nothing, under $200k pay no tuition.",
+    "deadline": "Nov 1 (Restrictive Early Action) · Jan 1 (Regular)",
+    "deadlines": [
+      {
+        "m": 11,
+        "d": 1
+      },
+      {
+        "m": 1,
+        "d": 1
+      }
+    ],
+    "link": "https://college.harvard.edu/admissions",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "harvard-university",
+    "approx": false
+  },
+  {
+    "name": "MIT",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "types": [
+      "Need-Based Aid",
+      "Fee Waiver"
+    ],
+    "levels": [
+      "Bachelor's"
+    ],
+    "funding": "Need-blind for every applicant on earth and meets 100% of need; families under $200k pay no tuition, under $100k pay nothing.",
+    "deadline": "Nov 1 (Early Action) · early Jan (Regular Action)",
+    "deadlines": [
+      {
+        "m": 11,
+        "d": 1
+      },
+      {
+        "m": 1,
+        "d": 4
+      }
+    ],
+    "link": "https://mitadmissions.org/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Business & Economics"
+    ],
+    "slug": "mit",
+    "approx": true
+  },
+  {
+    "name": "Yale University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "types": [
+      "Need-Based Aid",
+      "Fee Waiver"
+    ],
+    "levels": [
+      "Bachelor's"
+    ],
+    "funding": "Need-blind for internationals with full need met and no loans; from 2026–27, families under $200k pay no tuition and under $100k pay nothing.",
+    "deadline": "Nov 1 (Single-Choice Early Action) · Jan 2 (Regular)",
+    "deadlines": [
+      {
+        "m": 11,
+        "d": 1
+      },
+      {
+        "m": 1,
+        "d": 2
+      }
+    ],
+    "link": "https://admissions.yale.edu/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "yale-university",
+    "approx": false
+  },
+  {
+    "name": "Princeton University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "types": [
+      "Need-Based Aid",
+      "Fee Waiver"
+    ],
+    "levels": [
+      "Bachelor's"
+    ],
+    "funding": "Need-blind, no-loan aid: most families under $150k pay nothing, and most under $250k pay no tuition.",
+    "deadline": "Nov 1 (Single-Choice Early Action) · Jan 1 (Regular)",
+    "deadlines": [
+      {
+        "m": 11,
+        "d": 1
+      },
+      {
+        "m": 1,
+        "d": 1
+      }
+    ],
+    "link": "https://admission.princeton.edu/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Natural Sciences",
+      "Social Sciences & Law",
+      "Arts & Humanities"
+    ],
+    "slug": "princeton-university",
+    "approx": false
+  },
+  {
+    "name": "Amherst College",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "types": [
+      "Need-Based Aid",
+      "Fee Waiver"
+    ],
+    "levels": [
+      "Bachelor's"
+    ],
+    "funding": "One of very few liberal-arts colleges need-blind for internationals — full need met, and aid never includes loans.",
+    "deadline": "Nov 9 (Early Decision) · Jan 5 (Regular)",
+    "deadlines": [
+      {
+        "m": 11,
+        "d": 9
+      },
+      {
+        "m": 1,
+        "d": 5
+      }
+    ],
+    "link": "https://www.amherst.edu/admission",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Arts & Humanities",
+      "Social Sciences & Law",
+      "Natural Sciences"
+    ],
+    "slug": "amherst-college",
+    "approx": false
+  },
+  {
+    "name": "Dartmouth College",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "types": [
+      "Need-Based Aid"
+    ],
+    "levels": [
+      "Bachelor's"
+    ],
+    "funding": "Need-blind for international applicants since the Class of 2026; full need met with no loans, and families under $125k pay nothing.",
+    "deadline": "Nov 1 (Early Decision) · Jan 2 (Regular)",
+    "deadlines": [
+      {
+        "m": 11,
+        "d": 1
+      },
+      {
+        "m": 1,
+        "d": 2
+      }
+    ],
+    "link": "https://admissions.dartmouth.edu/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Natural Sciences",
+      "Engineering & Tech"
+    ],
+    "slug": "dartmouth-college",
+    "approx": false
+  },
+  {
+    "name": "Brown University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "types": [
+      "Need-Based Aid"
+    ],
+    "levels": [
+      "Bachelor's"
+    ],
+    "funding": "Need-blind for international undergraduates from the Class of 2029, with full need met and no loans under the Brown Promise.",
+    "deadline": "Nov 1 (Early Decision) · Jan 5 (Regular)",
+    "deadlines": [
+      {
+        "m": 11,
+        "d": 1
+      },
+      {
+        "m": 1,
+        "d": 5
+      }
+    ],
+    "link": "https://admission.brown.edu/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "brown-university",
+    "approx": false
+  },
+  {
+    "name": "Berea College",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "types": [
+      "Tuition-Free"
+    ],
+    "levels": [
+      "Bachelor's"
+    ],
+    "funding": "Aid covers 100% of tuition, housing, food and fees for admitted international students; a campus job pays for personal costs.",
+    "deadline": "Nov 30 (international applicants)",
+    "deadlines": [
+      {
+        "m": 11,
+        "d": 30
+      }
+    ],
+    "approx": false,
+    "link": "https://www.berea.edu/admissions",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "berea-college"
+  },
+  {
+    "name": "Duke University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "types": [
+      "Need-Based Aid",
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Bachelor's"
+    ],
+    "funding": "Meets 100% of need for admitted internationals; the Karsh International Scholarship adds full cost of attendance plus three funded summers.",
+    "deadline": "Early Nov (Early Decision) · early Jan (Regular)",
+    "deadlines": [
+      {
+        "m": 11,
+        "d": 4
+      },
+      {
+        "m": 1,
+        "d": 4
+      }
+    ],
+    "approx": true,
+    "link": "https://admissions.duke.edu/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Medicine & Health",
+      "Engineering & Tech",
+      "Social Sciences & Law",
+      "Business & Economics"
+    ],
+    "slug": "duke-university"
+  },
+  {
+    "name": "Vanderbilt University",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "types": [
+      "Merit"
+    ],
+    "levels": [
+      "Bachelor's"
+    ],
+    "funding": "The Ingram and Cornelius Vanderbilt scholarships pay full tuition plus funded summers — and international applicants are eligible.",
+    "deadline": "Dec 1 (merit scholarship application) · Jan 1 (Regular)",
+    "deadlines": [
+      {
+        "m": 12,
+        "d": 1
+      },
+      {
+        "m": 1,
+        "d": 1
+      }
+    ],
+    "link": "https://admissions.vanderbilt.edu/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Medicine & Health",
+      "Engineering & Tech",
+      "Social Sciences & Law",
+      "Arts & Humanities"
+    ],
+    "slug": "vanderbilt-university",
+    "approx": false
+  },
+  {
+    "name": "Colby College",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "types": [
+      "Fee Waiver",
+      "Need-Based Aid"
+    ],
+    "levels": [
+      "Bachelor's"
+    ],
+    "funding": "No application fee for anyone, and 100% of demonstrated need met for every admitted student, including internationals.",
+    "deadline": "Nov 15 (Early Decision I) · Jan 4 (ED II and Regular)",
+    "deadlines": [
+      {
+        "m": 11,
+        "d": 15
+      },
+      {
+        "m": 1,
+        "d": 4
+      }
+    ],
+    "link": "https://www.colby.edu/admission/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Arts & Humanities",
+      "Social Sciences & Law",
+      "Natural Sciences",
+      "Agriculture & Environment"
+    ],
+    "slug": "colby-college",
+    "approx": false
+  },
+  {
+    "name": "Knight-Hennessy Scholars (Stanford)",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "funding": "Up to three years of any Stanford graduate degree — full tuition, a living stipend and travel — for scholars from anywhere in the world.",
+    "deadline": "Oct 6, 1 pm Pacific (Stanford programme application by Dec 1)",
+    "deadlines": [
+      {
+        "m": 10,
+        "d": 6
+      }
+    ],
+    "approx": false,
+    "link": "https://knight-hennessy.stanford.edu/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "knight-hennessy-scholars"
+  },
+  {
+    "name": "Fulbright Foreign Student Program",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "funding": "The US government's flagship for international graduate students: stipend, health insurance, travel and tuition support — apply through the Fulbright Commission or US Embassy at home.",
+    "deadline": "Set by each country (often Feb–Oct)",
+    "deadlines": [
+      {
+        "m": 4,
+        "d": 30
+      }
+    ],
+    "approx": true,
+    "link": "https://foreign.fulbrightonline.org/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "fulbright-foreign-student-program"
+  },
+  {
+    "name": "University of Toronto — Pearson Scholarship",
+    "flag": "🇨🇦",
+    "country": "Canada",
+    "region": "Canada",
+    "kind": "school",
+    "types": [
+      "Full Scholarship",
+      "Merit"
+    ],
+    "levels": [
+      "Bachelor's"
+    ],
+    "funding": "Canada's flagship undergraduate award: tuition, books, fees and four years of residence at U of T for about 37 scholars — your school must nominate you.",
+    "deadline": "School nomination Oct 9 · U of T application Oct 16 · scholarship Nov 6 (2026)",
+    "deadlines": [
+      {
+        "m": 10,
+        "d": 9
+      },
+      {
+        "m": 11,
+        "d": 6
+      }
+    ],
+    "approx": false,
+    "link": "https://future.utoronto.ca/pearson/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "university-of-toronto-pearson-scholarship"
+  },
+  {
+    "name": "University of British Columbia — International Scholars",
+    "flag": "🇨🇦",
+    "country": "Canada",
+    "region": "Canada",
+    "kind": "school",
+    "types": [
+      "Full Scholarship",
+      "Need-Based Aid"
+    ],
+    "levels": [
+      "Bachelor's"
+    ],
+    "funding": "Need-based awards up to the full cost of tuition and living for four years — including the Karen McKellin International Leader of Tomorrow Award.",
+    "deadline": "Scholars application Nov 15 (UBC admission application due earlier)",
+    "deadlines": [
+      {
+        "m": 11,
+        "d": 15
+      }
+    ],
+    "approx": false,
+    "link": "https://you.ubc.ca/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "ubc-international-scholars"
+  },
+  {
+    "name": "Canada Graduate Research Scholarships — Doctoral (formerly Vanier)",
+    "flag": "🇨🇦",
+    "country": "Canada",
+    "region": "Canada",
+    "kind": "program",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "PhD"
+    ],
+    "funding": "$40,000 a year for three years for doctoral students of any citizenship already registered in a PhD at a Canadian university — Vanier's successor.",
+    "deadline": "University internal deadlines Sep–Oct",
+    "deadlines": [
+      {
+        "m": 9,
+        "d": 30
+      }
+    ],
+    "approx": true,
+    "link": "https://nserc-crsng.canada.ca/en/canada-graduate-research-scholarship-doctoral-or-canada-postdoctoral-research-award-programs",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "scope": "limited",
+    "fields": [
+      "Medicine & Health",
+      "Natural Sciences",
+      "Engineering & Tech",
+      "Social Sciences & Law"
+    ],
+    "slug": "canada-graduate-research-scholarships-doctoral"
+  },
+  {
+    "name": "Government of Ireland — International Education Scholarships",
+    "flag": "🇮🇪",
+    "country": "Ireland",
+    "region": "Europe",
+    "kind": "program",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "funding": "60 awards a year: a full tuition-fee waiver plus a €10,000 stipend for one year of master's or PhD study, for students domiciled outside the EU/EEA, Switzerland and the UK.",
+    "deadline": "Call usually opens in Jan · closed Mar 12 in 2026",
+    "deadlines": [
+      {
+        "m": 3,
+        "d": 12
+      }
+    ],
+    "approx": true,
+    "link": "https://hea.ie/policy/internationalisation/goi-ies/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "government-of-ireland-international-education-scholarships"
+  },
+  {
+    "name": "Research Ireland — Postgraduate Scholarships",
+    "flag": "🇮🇪",
+    "country": "Ireland",
+    "region": "Europe",
+    "kind": "program",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "funding": "Ireland's national research postgraduate award: a €25,000 stipend plus fees and research costs, open to all nationalities — no 2027 call announced yet.",
+    "deadline": "2027 call not yet announced (2026 call closed Oct 23, 2025)",
+    "link": "https://www.researchireland.ie/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "scope": "all",
+    "fields": [
+      "Natural Sciences",
+      "Engineering & Tech",
+      "Social Sciences & Law",
+      "Arts & Humanities"
+    ],
+    "slug": "research-ireland-postgraduate-scholarships",
+    "tbc": true
+  },
+  {
+    "name": "Norwegian PhD Fellowships (salaried)",
+    "flag": "🇳🇴",
+    "country": "Norway",
+    "region": "Europe",
+    "kind": "program",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "PhD"
+    ],
+    "funding": "In Norway a PhD is a salaried job: NOK 550,800–595,000 a year with pension and employee rights, no tuition, open to any nationality.",
+    "deadline": "Rolling — positions posted year-round on Jobbnorge",
+    "deadlines": [],
+    "approx": false,
+    "rolling": true,
+    "link": "https://www.jobbnorge.no/en",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health"
+    ],
+    "slug": "norwegian-phd-fellowships"
+  },
+  {
+    "name": "Ghent University — Doctoral Scholarships (Global South)",
+    "flag": "🇧🇪",
+    "country": "Belgium",
+    "region": "Europe",
+    "kind": "school",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "PhD"
+    ],
+    "funding": "BOF 'sandwich' PhD scholarships for Global South candidates: Ghent funds 24 months in Ghent; a home institution must fund the other 24.",
+    "deadline": "Annual call closes mid-Feb (Feb 17 in 2026)",
+    "deadlines": [
+      {
+        "m": 2,
+        "d": 17
+      }
+    ],
+    "approx": true,
+    "link": "https://www.ugent.be/en/research/funding/bof/dos",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "scope": "all",
+    "fields": [
+      "Agriculture & Environment",
+      "Medicine & Health",
+      "Natural Sciences",
+      "Engineering & Tech"
+    ],
+    "slug": "ghent-university-doctoral-scholarships"
+  },
+  {
+    "name": "Mastercard Foundation Scholars Program",
+    "flag": "🌍",
+    "country": "62+ partners worldwide",
+    "region": "Global",
+    "kind": "program",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's",
+      "PhD"
+    ],
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "funding": "The largest scholarship initiative for young Africans: tuition, housing, stipend, travel and leadership support through dozens of partner universities, each with its own application.",
+    "deadline": "Varies — each partner university sets its own",
+    "deadlines": [],
+    "approx": false,
+    "rolling": true,
+    "link": "https://mastercardfdn.org/en/what-we-do/our-programs/mastercard-foundation-scholars-program/where-to-apply/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "mastercard-foundation-scholars-program"
+  },
+  {
+    "name": "Mastercard Foundation Scholars — Cambridge",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "kind": "school",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "scope": "all",
+    "fields": [
+      "Agriculture & Environment",
+      "Natural Sciences",
+      "Social Sciences & Law",
+      "Engineering & Tech"
+    ],
+    "funding": "A fully funded one-year master's at Cambridge for young Africans, with leadership training and fee waivers for eligible applicants.",
+    "deadline": "Closes Jan 5 · fee-waiver request by Nov 18",
+    "deadlines": [
+      {
+        "m": 11,
+        "d": 18
+      },
+      {
+        "m": 1,
+        "d": 5
+      }
+    ],
+    "approx": false,
+    "link": "https://www.mastercardfoundation.fund.cam.ac.uk/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "mastercard-foundation-scholars-cambridge"
+  },
+  {
+    "name": "Mastercard Foundation Scholars — UC Berkeley",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "kind": "school",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "funding": "A ten-year partnership funding 201 master's students from African countries at Berkeley, especially encouraging women, applicants with disabilities and refugees.",
+    "deadline": "Tied to your Berkeley programme — many close early Dec",
+    "deadlines": [
+      {
+        "m": 12,
+        "d": 1
+      }
+    ],
+    "approx": true,
+    "link": "https://mcfscholarsprogram.berkeley.edu/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "mastercard-foundation-scholars-uc-berkeley"
+  },
+  {
+    "name": "Mastercard Foundation Scholars — ASU",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "kind": "school",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's"
+    ],
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Business & Economics",
+      "Natural Sciences"
+    ],
+    "funding": "ASU's Phase III (2024–2030) supports 600 young Africans in in-person and online degrees and certificates focused on innovation and technology.",
+    "deadline": "Most recent call closed Mar 29 — check the current cycle",
+    "deadlines": [
+      {
+        "m": 3,
+        "d": 29
+      }
+    ],
+    "approx": true,
+    "link": "https://mcfscholars.asu.edu/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "mastercard-foundation-scholars-asu"
+  },
+  {
+    "name": "Mastercard Foundation Scholars — McGill",
+    "flag": "🇨🇦",
+    "country": "Canada",
+    "region": "Canada",
+    "kind": "school",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "funding": "Master's funding at McGill for citizens living in African countries who have never registered for a master's degree.",
+    "deadline": "Autumn 2027 cohort closed — next call expected spring 2027",
+    "deadlines": [
+      {
+        "m": 4,
+        "d": 1
+      }
+    ],
+    "approx": true,
+    "link": "https://www.mcgill.ca/mastercardfdn-scholars/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "mastercard-foundation-scholars-mcgill"
+  },
+  {
+    "name": "Commonwealth Master's Scholarships",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "kind": "program",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "funding": "UK government funding for a one-year master's for candidates from eligible Commonwealth countries: tuition, airfare and £1,712 a month (£2,000 in London).",
+    "deadline": "Oct 20, 16:00 BST (via your national nominating agency)",
+    "deadlines": [
+      {
+        "m": 10,
+        "d": 20
+      }
+    ],
+    "approx": false,
+    "link": "https://cscuk.fcdo.gov.uk/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "commonwealth-masters-scholarships"
+  },
+  {
+    "name": "Commonwealth Shared Scholarships",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "kind": "program",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "funding": "Jointly funded by the CSC and UK universities for students from lower-income Commonwealth countries: tuition, airfare and a living allowance on selected master's courses.",
+    "deadline": "Set by each participating university (nominations to the CSC in March)",
+    "deadlines": [
+      {
+        "m": 12,
+        "d": 15
+      }
+    ],
+    "approx": true,
+    "link": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-shared-scholarships/",
+    "last_verified": "2026-09-24",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "commonwealth-shared-scholarships"
+  }
+]

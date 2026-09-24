@@ -1,0 +1,23 @@
+{
+  "name": "Scholar Departures",
+  "tagline": "Tuition-free and fully funded study routes in Europe, the USA and Canada",
+  "base_url": "https://scholardepartures.com",
+  "contact_email": "hello@scholardepartures.com",
+  "repo_url": "https://github.com/Jisco1/scholar-departures",
+
+  "adsense": {
+    "_help": "Leave client empty until AdSense gives you a publisher ID (ca-pub-...). With a client set, the build adds the AdSense tag, the site-verification meta tag and ads.txt. Slots are the numeric ad-unit IDs you create in AdSense > Ads > By ad unit; a bay whose slot is empty is not rendered.",
+    "client": "",
+    "slots": {
+      "between": "",
+      "article": "",
+      "rail": ""
+    }
+  },
+
+  "premium": {
+    "_help": "Leave gumroad_product_id empty and the calendar, compare and planner tools are free for everyone. Fill both fields to put them behind a Gumroad license key.",
+    "gumroad_product_id": "",
+    "purchase_url": ""
+  }
+}

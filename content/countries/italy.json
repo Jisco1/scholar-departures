@@ -1,0 +1,41 @@
+{
+  "name": "Italy",
+  "flag": "🇮🇹",
+  "title": "Italy: income-based fees and regional grants that make study nearly free",
+  "lede": "Italian public universities set tuition by family income, and regional student-aid agencies give grants, fee exemptions and housing to students with limited means — including international students. Merit scholarships add another route.",
+  "description": "How international students can study in Italy for little or nothing: income-based fees, regional DSU grants such as ER.GO in Bologna, and merit awards at Politecnico di Milano.",
+  "card": "Fees scale with family income, and regional DSU grants can waive them and add up to about €7,000 a year.",
+  "sections": [
+    {
+      "h": "Fees depend on family income",
+      "html": "<p>Italian public universities calculate most students' fees from family income and assets, using an indicator called the <strong>ISEE</strong> (for families abroad, an equivalent calculated from home-country documents). Students from lower-income families pay little or nothing, and some universities offer reduced flat fees to students from developing countries.</p>"
+    },
+    {
+      "h": "Regional grants (DSU)",
+      "html": "<p>Each Italian region funds a student-aid agency that awards the <em>diritto allo studio</em> (DSU) scholarship. In Emilia-Romagna, where the <a href=\"{{root}}routes/university-of-bologna/\">University of Bologna</a> is, the agency is ER.GO. For 2026–27 it offered a full fee exemption plus a grant of up to <strong>€7,171.11 a year</strong> for students living away from home, with access to student housing, for families with an ISEE of up to €25,000 and an ISPE of up to €50,000. Applications ran from late June to <strong>24 August 2026</strong>.</p>"
+    },
+    {
+      "h": "Merit scholarships",
+      "html": "<p>Some universities reward strong international applicants directly. <a href=\"{{root}}routes/politecnico-di-milano-merit-scholarships/\">Politecnico di Milano</a> waives tuition for top applicants to its English-taught master's programmes, and adds up to €10,000 a year for the highest-ranked — but only for applicants who apply in its Early Bird window (1 October to 1 December).</p>"
+    },
+    {
+      "h": "Paperwork is the hard part",
+      "html": "<p>Income-based aid needs official documents about your family's income and property from your home country, usually translated and legalised. Start collecting them in spring: DSU windows close in late summer, often before international students arrive.</p>"
+    }
+  ],
+  "sources": [
+    {
+      "title": "ER.GO — Guide to the application announcement 2026/2027",
+      "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/guide-to-application-announcement-a-y-2025_26/@@download/file"
+    },
+    {
+      "title": "University of Bologna — Study grants and subsidies",
+      "url": "https://www.unibo.it/en/study/study-grants-and-subsidies"
+    },
+    {
+      "title": "Politecnico di Milano — Scholarships",
+      "url": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/scholarships"
+    }
+  ],
+  "reviewed": "2026-09-24"
+}

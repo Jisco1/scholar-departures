@@ -1,0 +1,53 @@
+{
+  "name": "United States",
+  "flag": "🇺🇸",
+  "title": "Free college in the USA for international students: need-blind schools and full scholarships",
+  "lede": "American sticker prices are the highest in the world, but a small group of colleges admit international students without looking at their finances and then pay whatever the family cannot. Add Berea's no-tuition model and a few flagship graduate awards, and the USA becomes one of the most generous places to study.",
+  "description": "How international students can study in the USA for free: need-blind colleges that meet full need, Berea College, merit scholarships, Knight-Hennessy, Fulbright and Mastercard Foundation programmes.",
+  "card": "A handful of colleges are need-blind for internationals and pay full need; graduate awards cover the rest.",
+  "sections": [
+    {
+      "h": "Need-blind and full need, explained",
+      "html": "<p><strong>Need-blind</strong> means a college decides whether to admit you without considering whether you can pay. <strong>Meeting full need</strong> means that, once admitted, the college gives you enough grant aid to cover the gap between the cost of attendance and what your family can afford. Colleges that do both for international students are rare — and they are the best route to a free US degree. Read our full guide to <a href=\"{{root}}guides/us-financial-aid-international/\">US financial aid for international students</a>.</p>"
+    },
+    {
+      "h": "Need-blind for international students",
+      "html": "<p>On this board: <a href=\"{{root}}routes/harvard-university/\">Harvard</a>, <a href=\"{{root}}routes/mit/\">MIT</a>, <a href=\"{{root}}routes/yale-university/\">Yale</a>, <a href=\"{{root}}routes/princeton-university/\">Princeton</a>, <a href=\"{{root}}routes/amherst-college/\">Amherst</a>, <a href=\"{{root}}routes/dartmouth-college/\">Dartmouth</a> and <a href=\"{{root}}routes/brown-university/\">Brown</a>. Several now publish income thresholds below which families pay nothing — under $100,000 at Harvard, MIT and Yale, and up to $150,000 for most families at Princeton.</p>"
+    },
+    {
+      "h": "Full need, but need-aware",
+      "html": "<p><a href=\"{{root}}routes/duke-university/\">Duke</a> and <a href=\"{{root}}routes/colby-college/\">Colby</a> meet the full need of the international students they admit, but consider financial need in admission. <a href=\"{{root}}routes/vanderbilt-university/\">Vanderbilt</a> offers full-tuition merit scholarships that international applicants can win, with a separate application due 1 December.</p>"
+    },
+    {
+      "h": "No tuition: Berea College",
+      "html": "<p><a href=\"{{root}}routes/berea-college/\">Berea College</a> in Kentucky has charged no tuition since 1892. For admitted international students, aid covers 100% of tuition, housing, food and fees, and a compulsory campus job pays for personal costs. The international deadline is 30 November.</p>"
+    },
+    {
+      "h": "Graduate study",
+      "html": "<p>For master's and doctoral study, look at <a href=\"{{root}}routes/knight-hennessy-scholars/\">Knight-Hennessy Scholars</a> at Stanford (deadline 6 October 2026), the <a href=\"{{root}}routes/fulbright-foreign-student-program/\">Fulbright Foreign Student Program</a> (apply in your home country), and, for young Africans, the Mastercard Foundation programmes at <a href=\"{{root}}routes/mastercard-foundation-scholars-uc-berkeley/\">UC Berkeley</a> and <a href=\"{{root}}routes/mastercard-foundation-scholars-asu/\">Arizona State</a>. Many US PhD programmes also fund admitted students through assistantships.</p>"
+    },
+    {
+      "h": "Timeline",
+      "html": "<p>Undergraduate early deadlines fall on or around <strong>1 November</strong> and regular deadlines in the first week of January. You will need school reports, teacher recommendations, essays, English-test results where required and financial aid forms such as the CSS Profile. Start a year ahead.</p>"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Harvard Gazette — Harvard expands financial aid",
+      "url": "https://news.harvard.edu/gazette/story/2025/03/harvard-expands-financial-aid"
+    },
+    {
+      "title": "MIT Admissions — Tuition-free for families below $200,000",
+      "url": "https://mitadmissions.org/blogs/entry/fyi-undergraduates-with-family-income-below-200000-can-expect-to-attend-mit-tuition-free-starting-in-2025/"
+    },
+    {
+      "title": "Brown University — Need-blind admission for international undergraduates",
+      "url": "https://president.brown.edu/president/need-blind-admission-international-undergraduates"
+    },
+    {
+      "title": "Berea College — International applicant information",
+      "url": "https://www.berea.edu/admissions/admission-information/apply/checklist-items/international-faqs"
+    }
+  ],
+  "reviewed": "2026-09-24"
+}
