@@ -138,6 +138,37 @@ class BuiltSite(unittest.TestCase):
         self.assertRegex(coarse, r"\.searchbox input, select \{ font-size: 16px; \}")
         self.assertIn("min-height: 44px", coarse)
 
+    def test_one_menu_on_every_page(self):
+        for path, html in self.pages.items():
+            name = path.relative_to(self.site).as_posix()
+            self.assertEqual(html.count('<details class="menu">'), 1, f"{name}: needs exactly one Menu button")
+            self.assertNotIn('class="nav"', html, f"{name}: the old link bar is back")
+            menu = html[html.index('<details class="menu">'):html.index("</header>")]
+            for target in ("routes/", "deadlines/", "countries/", "guides/", "about/", "#directory"):
+                self.assertRegex(menu, r'href="(?:(?:\.\./)*|https://[^"/]+/)' + re.escape(target) + '"', f"{name}: menu lacks {target}")
+            self.assertEqual(menu.count('<details class="menu-sub"'), 3, f"{name}: Countries, Guides and About drop-downs")
+            self.assertIn('data-theme-choice="light"', menu, f"{name}: no theme switch")
+        home = (self.site / "index.html").read_text(encoding="utf-8")
+        self.assertNotIn("startguides", home)
+        self.assertNotIn("country-strip", home)
+
+    def test_light_theme_covers_every_colour(self):
+        css = (ROOT / "src" / "assets" / "site.css").read_text(encoding="utf-8")
+        dark = css[css.index(":root {"):css.index("}", css.index(":root {"))]
+        light = css[css.index(':root[data-theme="light"] {'):]
+        light = light[:light.index("}")]
+        colours = {n for n, v in re.findall(r"(--[\w-]+):\s*([^;]+);", dark) if n not in ("--serif", "--sans", "--mono")}
+        missing = colours - set(re.findall(r"(--[\w-]+):", light))
+        self.assertFalse(missing, f"light theme lacks {sorted(missing)}")
+        # outside the two token blocks, colours come from tokens, so a new rule cannot stay dark in the light theme
+        rest = css.replace(dark, "").replace(light, "") + (ROOT / "src" / "assets" / "app.css").read_text(encoding="utf-8")
+        rest = re.sub(r'url\("data:[^"]*"\)', "", rest)
+        stray = set(re.findall(r"#[0-9A-Fa-f]{6}\b|rgba\((?!215,169,76)[^)]*\)", rest)) - {"#000"}
+        self.assertFalse(stray, f"hard-coded colours outside the theme tokens: {sorted(stray)}")
+        # the saved theme is applied before first paint, by a nonced script
+        home = (self.site / "index.html").read_text(encoding="utf-8")
+        self.assertRegex(home, r'<script nonce="[^"]+">try\{var t=localStorage\.getItem\(.sd-theme.\)')
+
     def test_sitemap_lists_routes(self):
         sitemap = (self.site / "sitemap.xml").read_text(encoding="utf-8")
         self.assertIn("/routes/chevening-scholarships/", sitemap)

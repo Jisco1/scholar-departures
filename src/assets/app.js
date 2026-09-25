@@ -264,16 +264,24 @@
     }
     function ease(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
 
+    // night sky by default; a pale morning sky when the reader picks the light theme
+    var SKY = {
+      dark: { glow: "rgba(21,35,61,0.9)", glowEnd: "rgba(11,19,34,0)", star: "164,180,204", route: "215,169,76",
+              dest: "rgba(126,184,232,0.8)", hub: "rgba(215,169,76,0.95)", label: "rgba(110,128,160,0.9)", plane: "#D7A94C" },
+      light: { glow: "rgba(215,169,76,0.14)", glowEnd: "rgba(243,245,249,0)", star: "94,110,135", route: "140,100,20",
+               dest: "rgba(46,110,170,0.8)", hub: "rgba(140,100,20,0.95)", label: "rgba(94,110,135,0.95)", plane: "#8C6414" }
+    };
     function draw(t) {
+      var C = SKY[document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark"];
       ctx.clearRect(0, 0, W, H);
       // glow wash
       var g = ctx.createRadialGradient(W / 2, -H * 0.1, 0, W / 2, -H * 0.1, H * 1.1);
-      g.addColorStop(0, "rgba(21,35,61,0.9)"); g.addColorStop(1, "rgba(11,19,34,0)");
+      g.addColorStop(0, C.glow); g.addColorStop(1, C.glowEnd);
       ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
       // stars
       stars.forEach(function (s) {
         var a = 0.25 + 0.45 * (0.5 + 0.5 * Math.sin(t * 0.001 * s.sp + s.ph));
-        ctx.fillStyle = "rgba(164,180,204," + a.toFixed(3) + ")";
+        ctx.fillStyle = "rgba(" + C.star + "," + a.toFixed(3) + ")";
         ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 7); ctx.fill();
       });
       var hub = pt(HUB);
@@ -281,26 +289,26 @@
       dashShift -= 0.25;
       DESTS.forEach(function (D, i) {
         var d = pt(D), c = ctrl(hub, d);
-        ctx.strokeStyle = i === routeIdx ? "rgba(215,169,76,0.5)" : "rgba(215,169,76,0.16)";
+        ctx.strokeStyle = "rgba(" + C.route + (i === routeIdx ? ",0.5)" : ",0.16)");
         ctx.lineWidth = 1;
         ctx.setLineDash([3, 7]); ctx.lineDashOffset = dashShift;
         ctx.beginPath(); ctx.moveTo(hub.x, hub.y);
         ctx.quadraticCurveTo(c.x, c.y, d.x, d.y); ctx.stroke();
         ctx.setLineDash([]);
         // destination marker
-        ctx.fillStyle = "rgba(126,184,232,0.8)";
+        ctx.fillStyle = C.dest;
         ctx.beginPath(); ctx.arc(d.x, d.y, 2.4, 0, 7); ctx.fill();
         if (i === routeIdx && pulse > 0) {
-          ctx.strokeStyle = "rgba(215,169,76," + (pulse * 0.6).toFixed(3) + ")";
+          ctx.strokeStyle = "rgba(" + C.route + "," + (pulse * 0.6).toFixed(3) + ")";
           ctx.beginPath(); ctx.arc(d.x, d.y, 4 + (1 - pulse) * 16, 0, 7); ctx.stroke();
         }
       });
       if (pulse > 0) pulse -= 0.025;
       // hub
-      ctx.fillStyle = "rgba(215,169,76,0.95)";
+      ctx.fillStyle = C.hub;
       ctx.beginPath(); ctx.arc(hub.x, hub.y, 3.2, 0, 7); ctx.fill();
       ctx.font = "9px ui-monospace, Menlo, monospace";
-      ctx.fillStyle = "rgba(110,128,160,0.9)";
+      ctx.fillStyle = C.label;
       ctx.fillText("GLOBAL", hub.x + 8, hub.y + 3);
       // plane along current route
       var D2 = pt(DESTS[routeIdx]), c2 = ctrl(hub, D2);
@@ -313,12 +321,12 @@
       // trail
       for (var k = 1; k <= 9; k++) {
         var tp = bez(hub, c2, D2, Math.max(te - k * 0.012, 0));
-        ctx.fillStyle = "rgba(215,169,76," + (0.32 - k * 0.033).toFixed(3) + ")";
+        ctx.fillStyle = "rgba(" + C.route + "," + (0.32 - k * 0.033).toFixed(3) + ")";
         ctx.beginPath(); ctx.arc(tp.x, tp.y, 1.4, 0, 7); ctx.fill();
       }
       // paper plane
       ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(ang);
-      ctx.fillStyle = "#D7A94C";
+      ctx.fillStyle = C.plane;
       ctx.beginPath(); ctx.moveTo(7, 0); ctx.lineTo(-5, 4); ctx.lineTo(-2, 0); ctx.lineTo(-5, -4); ctx.closePath(); ctx.fill();
       ctx.restore();
     }
@@ -329,6 +337,7 @@
     }
     resize();
     window.addEventListener("resize", resize, { passive: true });
+    document.addEventListener("sd-theme", function () { if (!running) draw(0); });
     if (RM) { draw(0); return; }  // static frame only
     new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }).observe(canvas);
     running = true; requestAnimationFrame(frame);

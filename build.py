@@ -252,7 +252,37 @@ def asset(root, name):
     return f"{root}assets/{name}?v={ASSET_VERSIONS.get(name, '0')}"
 
 
-NAV = [("routes/", "Routes"), ("deadlines/", "Deadlines"), ("countries/", "Countries"), ("guides/", "Guides"), ("about/", "About")]
+MENU_GUIDES = []     # filled in main(): the featured guides, shown in the menu under short labels
+MENU_COUNTRIES = []  # filled in main(): (slug, name) for every country guide
+MENU_ICON = '<span class="menu-icon" aria-hidden="true"><i></i><i></i><i></i></span>'
+THEME_SWITCH = ('<div class="menu-theme" hidden><span>Theme</span><div class="theme-seg" role="group" aria-label="Colour theme">'
+                '<button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button>'
+                '<button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div></div>')
+# runs before the first paint so a saved light theme never flashes dark
+THEME_BOOT = ("try{var t=localStorage.getItem('sd-theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');"
+              "document.querySelector('meta[name=theme-color]').setAttribute('content','#F3F5F9')}}catch(e){}")
+
+
+def menu_html(root, here):
+    """The single Menu button and its panel: one short list, with Countries, Guides and About as drop-downs."""
+    def link(href, label):
+        cur = ' aria-current="page"' if href == here else ""
+        return f'<li><a href="{root + href if href else root or "./"}"{cur}>{e(label)}</a></li>'
+
+    def drop(label, items):
+        opened = " open" if any(h == here for h, _ in items) or any(here.startswith(h) for h, _ in items[-1:]) else ""
+        return (f'<li><details class="menu-sub"{opened}><summary>{label}</summary><ul>'
+                + "".join(link(h, t) for h, t in items) + "</ul></details></li>")
+
+    countries = [(f"countries/{slug}/", name) for slug, name in MENU_COUNTRIES] + [("countries/", "All countries \u2192")]
+    guides = [(f"guides/{g['slug']}/", g.get("menu") or g["title"]) for g in MENU_GUIDES] + [("guides/", "All guides \u2192")]
+    about = [("about/", "About us"), ("editorial-policy/", "How we verify"), ("contact/", "Contact")]
+    return ('<details class="menu"><summary class="menu-btn">' + MENU_ICON + '<span class="menu-label">Menu</span></summary>'
+            '<div class="menu-panel"><nav aria-label="Main"><ul class="menu-list">'
+            + link("", "Live board") + link("routes/", "Funded routes") + link("deadlines/", "Deadlines")
+            + link("#directory", "Schools directory")
+            + drop("Countries", countries) + drop("Guides", guides) + drop("About", about)
+            + "</ul></nav>" + THEME_SWITCH + "</div></details>")
 
 SEAL = ('<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
         'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/>'
@@ -302,9 +332,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
     ld = ""
     for block in (jsonld or []):
         ld += '<script type="application/ld+json">' + json.dumps(block, ensure_ascii=False).replace("</", "<\\/") + "</script>\n"
-    current = ' aria-current="page"'
-    nav_html = "".join(
-        f'<a href="{root}{href}"{current if nav == href else ""}>{label}</a>' for href, label in NAV)
+    nav_html = menu_html(root, path)
     privacy_btn = ('<li><button type="button" class="linkish" data-privacy-choices hidden>Privacy choices</button></li>'
                    if adsense_client() else "")
     script_tags = "".join(f'<script nonce="{NONCE}" src="{src}"></script>\n' for src in
@@ -321,6 +349,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
 <link rel="canonical" href="{e(canonical)}">
 {'<meta name="robots" content="noindex">' if noindex else ''}
 <meta name="theme-color" content="#0B1322">
+<script nonce="{NONCE}">{THEME_BOOT}</script>
 <meta property="og:site_name" content="{e(SITE)}">
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(description)}">
@@ -337,7 +366,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
 <a class="skip" href="#main">Skip to content</a>
 <header class="topbar"><div class="wrap">
   <a class="brand" href="{root or './'}" aria-label="{e(SITE)} home"><span class="brand-mark">{SEAL}</span><span class="brand-name">Scholar <b>Departures</b></span></a>
-  <nav class="nav" aria-label="Main">{nav_html}</nav>
+  {nav_html}
 </div></header>
 <main id="main">
 {body}
@@ -387,7 +416,7 @@ def breadcrumb_ld(items):
 
 def tags_html(types):
     return '<div class="tags">' + "".join(
-        f'<span class="tag" style="color:{TYPE_COLORS[t]};border-color:{TYPE_COLORS[t]}">{e(t)}</span>' for t in types) + "</div>"
+        f'<span class="tag" style="--tc:{TYPE_COLORS[t]}">{e(t)}</span>' for t in types) + "</div>"
 
 
 def route_row(r, root):
@@ -424,16 +453,9 @@ def build_home(routes, schools, guides, countries):
         f'<span class="dact"><a class="dvisit" href="{e(s["link"])}" target="_blank" rel="noopener noreferrer" aria-label="Visit site: {e(s["name"])}">'
         f'<span class="vtxt">Visit site</span> {EXT}</a></span></div>'
         for s in dsorted[:PER_PAGE_DIR])
-    featured = [g for g in guides if g.get("featured")][:6] or guides[:6]
-    guide_tiles = "".join(
-        f'<a class="tile" href="guides/{g["slug"]}/"><span class="tile-kicker">{e(g.get("kicker", "Guide"))}</span><h3>{e(g["title"])}</h3>'
-        f'<span class="more">Read →</span></a>' for g in featured)
-    country_links = " · ".join(f'<a href="countries/{slug}/">{e(c["name"])}</a>' for slug, c in countries)
     body = (tpl.replace("{{CONFIG_JSON}}", config_json)
             .replace("{{GRID}}", grid)
             .replace("{{DIR_ROWS}}", dir_rows)
-            .replace("{{GUIDE_TILES}}", guide_tiles)
-            .replace("{{COUNTRY_LINKS}}", country_links)
             .replace("{{AD_HOME}}", ad_bay("between", wide=True))
             .replace("{{N_ROUTES}}", str(len(routes)))
             .replace("{{N_SCHOOLS}}", str(len(schools)))
@@ -815,6 +837,8 @@ def main():
     countries = sorted(countries_raw.items(), key=lambda kv: kv[1]["name"])
     guides = sorted(load_html_docs("guides"), key=lambda g: g.get("order", 99))
     static_pages = load_html_docs("pages")
+    MENU_GUIDES[:] = [g for g in guides if g.get("featured")][:6] or guides[:6]
+    MENU_COUNTRIES[:] = [(slug, c["name"]) for slug, c in countries]
     if ERRORS:
         return report()
 

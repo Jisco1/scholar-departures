@@ -79,6 +79,41 @@
     }
   }
 
+  /* ---- menu: close on a tap outside it, on Escape, or once a link is chosen ---- */
+  var menu = document.querySelector("details.menu");
+  if (menu) {
+    var summary = menu.querySelector("summary");
+    document.addEventListener("click", function (e) { if (menu.open && !menu.contains(e.target)) menu.open = false; });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.open) { menu.open = false; summary.focus(); }
+    });
+    menu.addEventListener("click", function (e) { if (e.target.closest(".menu-panel a")) menu.open = false; });
+
+    // Dark / Light, remembered on this device (the choice is applied before first paint by the head script)
+    var themeBox = menu.querySelector(".menu-theme");
+    var themeMeta = document.querySelector('meta[name="theme-color"]');
+    var paintTheme = function (theme) {
+      if (theme === "light") document.documentElement.setAttribute("data-theme", "light");
+      else document.documentElement.removeAttribute("data-theme");
+      if (themeMeta) themeMeta.setAttribute("content", theme === "light" ? "#F3F5F9" : "#0B1322");
+      themeBox.querySelectorAll("[data-theme-choice]").forEach(function (b) {
+        b.setAttribute("aria-pressed", b.getAttribute("data-theme-choice") === theme ? "true" : "false");
+      });
+    };
+    if (themeBox) {
+      themeBox.hidden = false;
+      paintTheme(document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark");
+      themeBox.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-theme-choice]");
+        if (!b) return;
+        var theme = b.getAttribute("data-theme-choice");
+        paintTheme(theme);
+        try { localStorage.setItem("sd-theme", theme); } catch (err) {}
+        try { document.dispatchEvent(new CustomEvent("sd-theme", { detail: theme })); } catch (err) {}
+      });
+    }
+  }
+
   /* ---- 3. privacy choices (Google's consent message, EEA/UK/CH visitors) ---- */
   var choices = document.querySelector("[data-privacy-choices]");
   if (choices) {
