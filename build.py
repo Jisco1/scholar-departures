@@ -46,6 +46,8 @@ FIELDS = ["Engineering & Tech", "Computer Science", "Natural Sciences", "Medicin
 MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August",
           "September", "October", "November", "December"]
 HORIZON_DAYS = 120
+PER_PAGE_ALL = 6    # must match PER_PAGE_ALL in src/assets/app.js
+PER_PAGE_DIR = 10   # must match PER_PAGE_DIR in src/assets/app.js
 PAST_CLASS = ' class="past"'
 URL_RE = re.compile(r"^https://[^\s\"'<>]+$")
 
@@ -417,13 +419,18 @@ def build_home(routes, schools, guides, countries):
 
     uni = [r for r in routes if r["kind"] != "program"]
     prog = [r for r in routes if r["kind"] == "program"]
-    grid = ('<div class="grid-sep">Universities — funding from the school itself</div>' + "".join(map(card, uni)) +
-            '<div class="grid-sep">Funding programmes — awards you take to a school</div>' + "".join(map(card, prog)))
+    first = (uni + prog)[:PER_PAGE_ALL]  # the board's first page; the rest arrive through the pager
+    grid = ""
+    for kind, label in (("school", "Universities — funding from the school itself"),
+                        ("program", "Funding programmes — awards you take to a school")):
+        cards = [r for r in first if (r["kind"] == "program") == (kind == "program")]
+        if cards:
+            grid += f'<div class="grid-sep">{label}</div>' + "".join(map(card, cards))
     dsorted = sorted(schools, key=lambda s: (s["country"], s["name"]))
     dir_rows = "".join(
         f'<div class="dir-row in"><span class="dname">{e(s["flag"])} {e(s["name"])}</span><span class="dloc">{e(s["city"])} · {e(s["country"])}</span>'
         f'<span class="dact"><a class="dvisit" href="{e(s["link"])}" target="_blank" rel="noopener noreferrer">Visit site {EXT}</a></span></div>'
-        for s in dsorted)
+        for s in dsorted[:PER_PAGE_DIR])
     featured = [g for g in guides if g.get("featured")][:6] or guides[:6]
     guide_tiles = "".join(
         f'<a class="tile" href="guides/{g["slug"]}/"><span class="tile-kicker">{e(g.get("kicker", "Guide"))}</span><h3>{e(g["title"])}</h3>'

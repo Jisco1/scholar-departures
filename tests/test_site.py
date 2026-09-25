@@ -105,6 +105,15 @@ class BuiltSite(unittest.TestCase):
             self.assertNotIn("adsbygoogle", html, path)
         self.assertFalse((self.site / "ads.txt").exists())
 
+    def test_home_prerenders_first_page_only(self):
+        # the static page must match what the script shows first, or the page jumps on load
+        html = (self.site / "index.html").read_text(encoding="utf-8")
+        self.assertEqual(html.count('class="card in ready"'), 6)
+        self.assertEqual(html.count('class="dir-row in"'), 10)
+        self.assertIn('id="gridPager"', html)
+        self.assertIn('id="dirPager"', html)
+        self.assertIn('href="routes/"', html)  # without JavaScript, every route is still one click away
+
     def test_sitemap_lists_routes(self):
         sitemap = (self.site / "sitemap.xml").read_text(encoding="utf-8")
         self.assertIn("/routes/chevening-scholarships/", sitemap)
@@ -163,6 +172,46 @@ const cases = {"https://ok.example/a": true, "javascript:alert(1)": false, "JAVA
 for (const [u, ok] of Object.entries(cases)) {
   if ((safeUrl(u) !== "#") !== ok) { console.error("wrong for " + u); process.exit(1); }
 }"""
+        r = subprocess.run([node, "-e", script], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stderr)
+
+    def test_pagination(self):
+        node = shutil.which("node")
+        if not node:
+            self.skipTest("node not installed")
+        src = (ROOT / "src" / "assets" / "app.js").read_text(encoding="utf-8")
+        per = {k: int(v) for k, v in re.findall(r"var (PER_PAGE_\w+) = (\d+);", src)}
+        self.assertEqual(per, {"PER_PAGE_ALL": 6, "PER_PAGE_FILTERED": 3, "PER_PAGE_DIR": 10})
+        build_src = (ROOT / "build.py").read_text(encoding="utf-8")
+        self.assertIn("PER_PAGE_ALL = 6", build_src)
+        self.assertIn("PER_PAGE_DIR = 10", build_src)
+        fns = [re.search(r"function %s\(.*?\n  \}" % name, src, re.S) for name in ("paginate", "pageList")]
+        self.assertTrue(all(fns), "paginate/pageList missing from app.js")
+        script = "\n".join(f.group(0) for f in fns) + r"""
+const eq = (a, b, what) => { if (JSON.stringify(a) !== JSON.stringify(b)) { console.error(what, JSON.stringify(a), "!=", JSON.stringify(b)); process.exit(1); } };
+// 52 routes, 6 per page: 9 pages, the last one holds 4
+eq(paginate(52, 1, 6), {page: 1, pages: 9, start: 0, end: 6}, "first page");
+eq(paginate(52, 9, 6), {page: 9, pages: 9, start: 48, end: 52}, "last page");
+// out-of-range pages are pulled back in (e.g. after unsaving the last card on a page)
+eq(paginate(52, 40, 6).page, 9, "too high");
+eq(paginate(52, 0, 6).page, 1, "too low");
+eq(paginate(3, 2, 3), {page: 1, pages: 1, start: 0, end: 3}, "clamp after shrink");
+eq(paginate(0, 1, 3), {page: 1, pages: 1, start: 0, end: 0}, "empty");
+// every item appears exactly once across the pages
+for (const [total, per] of [[52, 6], [52, 3], [126, 10], [4, 3], [10, 10], [11, 10]]) {
+  const seen = [];
+  const pages = paginate(total, 1, per).pages;
+  for (let p = 1; p <= pages; p++) { const g = paginate(total, p, per); for (let i = g.start; i < g.end; i++) seen.push(i); }
+  eq(seen, Array.from({length: total}, (_, i) => i), "coverage " + total + "/" + per);
+}
+// page buttons: first, last, neighbours; a single skipped page is shown, longer runs become a gap
+eq(pageList(1, 9), [1, 2, "gap", 9], "start");
+eq(pageList(5, 9), [1, "gap", 4, 5, 6, "gap", 9], "middle");
+eq(pageList(3, 9), [1, 2, 3, 4, "gap", 9], "near start");
+eq(pageList(9, 9), [1, "gap", 8, 9], "end");
+eq(pageList(1, 1), [1], "single");
+eq(pageList(2, 3), [1, 2, 3], "short");
+"""
         r = subprocess.run([node, "-e", script], capture_output=True, text=True)
         self.assertEqual(r.returncode, 0, r.stderr)
 

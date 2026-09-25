@@ -7,6 +7,9 @@
   var SCHOOLS = window.SCHOLAR_DATA || [];
   var DIR = window.SCHOLAR_SCHOOLS || [];
   var HORIZON_DAYS = 120;
+  var PER_PAGE_ALL = 6;       // routes per page with no filter on
+  var PER_PAGE_FILTERED = 3;  // routes per page once any filter is on
+  var PER_PAGE_DIR = 10;      // schools per page in the directory
   var STORAGE_KEY = "scholar-departures:saved";
 
   /* Premium settings come from site.json at build time. With no Gumroad
@@ -67,9 +70,10 @@
   /* ============ state ============ */
   var state = {
     q: "", region: "All", level: "All levels", type: "All funding",
-    dstatus: "All deadlines", kind: "All kinds", field: "", savedOnly: false, saved: loadSaved()
+    dstatus: "All deadlines", kind: "All kinds", field: "", savedOnly: false, saved: loadSaved(), page: 1
   };
   var lastToggled = null;
+  var lastFilterKey = "";
 
   function loadSaved() {
     try {
@@ -91,6 +95,28 @@
   /* Only https links may reach an href: the data file is updated by a bot. */
   function safeUrl(u) {
     return /^https:\/\/[^\s"'<>]+$/i.test(String(u || "")) ? String(u) : "#";
+  }
+  /* Which slice of a list a page shows; an out-of-range page is pulled back in. */
+  function paginate(total, page, perPage) {
+    var pages = Math.max(1, Math.ceil(total / perPage));
+    var p = Math.min(Math.max(1, page | 0), pages);
+    var start = (p - 1) * perPage;
+    return { page: p, pages: pages, start: start, end: Math.min(start + perPage, total) };
+  }
+  /* Page buttons to draw: first, last and the current page's neighbours, with
+     "gap" where pages are skipped (a single skipped page is shown instead). */
+  function pageList(page, pages) {
+    var want = [1, page - 1, page, page + 1, pages].filter(function (n, i, a) {
+      return n >= 1 && n <= pages && a.indexOf(n) === i;
+    }).sort(function (a, b) { return a - b; });
+    var out = [];
+    want.forEach(function (n, i) {
+      var prev = want[i - 1];
+      if (i && n - prev === 2) out.push(n - 1);
+      else if (i && n - prev > 2) out.push("gap");
+      out.push(n);
+    });
+    return out;
   }
   function fmtDate(d, withYear) {
     var opts = { month: "short", day: "numeric" };
@@ -512,6 +538,21 @@
       out.sort(function (a, b) { return a.daysUntil - b.daysUntil; });
     }
 
+    var hasFilters = state.q || state.region !== "All" || state.level !== "All levels" ||
+      state.type !== "All funding" || state.dstatus !== "All deadlines" || state.kind !== "All kinds" || state.field || state.savedOnly;
+    var grouped = state.kind === "All kinds" && state.dstatus === "All deadlines" && !state.field;
+    if (grouped) {
+      out = out.filter(function (s) { return s.kind !== "program"; })
+               .concat(out.filter(function (s) { return s.kind === "program"; }));
+    }
+    // a new filter starts again at page 1; saving or unsaving a route keeps your page
+    var filterKey = [state.q.trim().toLowerCase(), state.region, state.level, state.type,
+                     state.dstatus, state.kind, state.field, state.savedOnly].join("|");
+    if (filterKey !== lastFilterKey) { state.page = 1; lastFilterKey = filterKey; }
+    var pg = paginate(out.length, state.page, hasFilters ? PER_PAGE_FILTERED : PER_PAGE_ALL);
+    state.page = pg.page;
+    var shown = out.slice(pg.start, pg.end);
+
     var grid = document.getElementById("grid");
     if (out.length === 0) {
       var msg = (state.savedOnly && state.saved.size === 0)
@@ -520,24 +561,25 @@
       grid.innerHTML = '<div class="empty"><p>' + msg + '</p><button id="emptyClear">Clear all filters</button></div>';
       document.getElementById("emptyClear").addEventListener("click", clearAll);
     } else {
-      if (state.kind === "All kinds" && state.dstatus === "All deadlines" && !state.field) {
-        var schools = out.filter(function (s) { return s.kind !== "program"; });
-        var programs = out.filter(function (s) { return s.kind === "program"; });
-        var html = "", gi = 0;
-        if (schools.length) {
-          html += '<div class="grid-sep">Universities — funding from the school itself</div>';
-          html += schools.map(function (s) { return cardHTML(s, gi++); }).join("");
+      var html = "", group = null;
+      shown.forEach(function (s, i) {
+        var g = s.kind === "program" ? "program" : "school";
+        if (grouped && g !== group) {
+          html += g === "school"
+            ? '<div class="grid-sep">Universities — funding from the school itself</div>'
+            : '<div class="grid-sep">Funding programmes — awards you take to a school</div>';
+          group = g;
         }
-        if (programs.length) {
-          html += '<div class="grid-sep">Funding programmes — awards you take to a school</div>';
-          html += programs.map(function (s) { return cardHTML(s, gi++); }).join("");
-        }
-        grid.innerHTML = html;
-      } else {
-        grid.innerHTML = out.map(cardHTML).join("");
-      }
+        html += cardHTML(s, i);
+      });
+      grid.innerHTML = html;
       grid.querySelectorAll(".card").forEach(function (c) { revealIO.observe(c); });
     }
+    renderPager(document.getElementById("gridPager"), pg, function (p) {
+      state.page = p;
+      render();
+      afterPageTurn("gridPager", document.getElementById("count"));
+    });
     lastToggled = null;
 
     grid.querySelectorAll("[data-save]").forEach(function (btn) {
@@ -549,13 +591,14 @@
       });
     });
 
+    var range = out.length ? (pg.start + 1) + "\u2013" + pg.end : "0";
     document.getElementById("count").innerHTML =
-      "Showing " + out.length + " of " + SCHOOLS.length + " funded routes · " + countriesN + " countries · " +
+      (hasFilters
+        ? "Showing " + range + " of " + out.length + " matching · " + SCHOOLS.length + " funded routes · "
+        : "Showing " + range + " of " + SCHOOLS.length + " funded routes · ") + countriesN + " countries · " +
       '<span class="approaching-count">' + approaching.length + " approaching</span>" +
       (state.field ? ' · <span style="color:var(--brass)">' + out.filter(function (x) { return x.scope === "limited"; }).length + " field-specific</span>" : "");
 
-    var hasFilters = state.q || state.region !== "All" || state.level !== "All levels" ||
-      state.type !== "All funding" || state.dstatus !== "All deadlines" || state.kind !== "All kinds" || state.field || state.savedOnly;
     document.getElementById("clearBtn").hidden = !hasFilters;
 
     document.querySelectorAll("#regionSeg button").forEach(function (b) { b.classList.toggle("active", b.textContent === state.region); });
@@ -575,6 +618,34 @@
     var sb = document.getElementById("savedBtn");
     sb.classList.toggle("active", state.savedOnly);
     document.getElementById("savedLabel").textContent = "Saved" + (state.saved.size ? " (" + state.saved.size + ")" : "");
+  }
+
+  /* ============ pager ============ */
+  function renderPager(el, pg, onGo) {
+    if (!el) return;
+    if (pg.pages <= 1) { el.innerHTML = ""; el.hidden = true; return; }
+    el.hidden = false;
+    var html = '<button type="button" class="pg-step" data-go="' + (pg.page - 1) + '"' + (pg.page === 1 ? " disabled" : "") +
+      ' aria-label="Previous page">\u2039<span class="pg-word"> Prev</span></button>';
+    pageList(pg.page, pg.pages).forEach(function (n) {
+      html += n === "gap"
+        ? '<span class="pg-gap" aria-hidden="true">\u2026</span>'
+        : '<button type="button" class="pg-num" data-go="' + n + '"' + (n === pg.page ? ' aria-current="page"' : "") +
+          ' aria-label="Page ' + n + '">' + pad2(n) + "</button>";
+    });
+    html += '<button type="button" class="pg-step" data-go="' + (pg.page + 1) + '"' + (pg.page === pg.pages ? " disabled" : "") +
+      ' aria-label="Next page"><span class="pg-word">Next </span>\u203A</button>' +
+      '<span class="pg-status">Page ' + pad2(pg.page) + " of " + pad2(pg.pages) + "</span>";
+    el.innerHTML = html;
+    el.querySelectorAll("[data-go]").forEach(function (b) {
+      b.addEventListener("click", function () { onGo(+b.getAttribute("data-go")); });
+    });
+  }
+  /* After a page turn: bring the top of the list into view and keep keyboard focus on the pager. */
+  function afterPageTurn(pagerId, anchor) {
+    var cur = document.querySelector("#" + pagerId + " [aria-current]");
+    if (cur) cur.focus({ preventScroll: true });
+    if (anchor) anchor.scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "start" });
   }
 
   /* ============ 3D tilt + glare + magnetic (fine pointers only) ============ */
@@ -621,7 +692,8 @@
     render();
     document.getElementById("controls").scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "start" });
   }
-  var dirState = { q: "", region: "All" };
+  var dirState = { q: "", region: "All", page: 1 };
+  var lastDirKey = "";
   var dirSorted = DIR.slice().sort(function (a, b) {
     return a.country === b.country ? a.name.localeCompare(b.name) : a.country.localeCompare(b.country);
   });
@@ -658,16 +730,27 @@
       }
       return true;
     });
+    var dirKey = dirState.region + "|" + needle;
+    if (dirKey !== lastDirKey) { dirState.page = 1; lastDirKey = dirKey; }
+    var pg = paginate(out.length, dirState.page, PER_PAGE_DIR);
+    dirState.page = pg.page;
     var list = document.getElementById("dirList");
     list.innerHTML = out.length
-      ? out.map(dirRowHTML).join("")
+      ? out.slice(pg.start, pg.end).map(dirRowHTML).join("")
       : '<div class="dir-empty">No schools match — try a country name like \u201CCanada\u201D.</div>';
     list.querySelectorAll(".dir-row").forEach(function (r) { revealIO.observe(r); });
     list.querySelectorAll("[data-atlas]").forEach(function (b) {
       b.addEventListener("click", function () { atlasJump(b.getAttribute("data-atlas")); });
     });
-    document.getElementById("dirCount").textContent =
-      "Showing " + out.length + " of " + DIR.length + " schools \u00B7 " + dirCountries + " countries";
+    var range = out.length ? (pg.start + 1) + "\u2013" + pg.end : "0";
+    document.getElementById("dirCount").textContent = (needle || dirState.region !== "All")
+      ? "Showing " + range + " of " + out.length + " matching \u00B7 " + DIR.length + " schools in the directory"
+      : "Showing " + range + " of " + DIR.length + " schools \u00B7 " + dirCountries + " countries";
+    renderPager(document.getElementById("dirPager"), pg, function (p) {
+      dirState.page = p;
+      renderDir();
+      afterPageTurn("dirPager", document.querySelector("#directory .dir-head"));
+    });
     document.querySelectorAll("#dirRegionSeg button").forEach(function (b) {
       b.classList.toggle("active", b.textContent === dirState.region);
     });
