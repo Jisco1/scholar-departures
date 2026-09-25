@@ -317,3 +317,22 @@ img, svg { max-width: 100%; }
 /* funding-type tags carry their colour in --tc; the light theme deepens it so it stays readable */
 .tag[style*="--tc"] { color: var(--tc); }
 :root[data-theme="light"] .tag[style*="--tc"] { color: color-mix(in srgb, var(--tc) 48%, #000); }
+
+/* ——— Share: one button; phones get their own share sheet, others a short list ——— */
+.share { position: relative; display: inline-block; }
+.share > summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px;
+  border: 1px solid var(--line); border-radius: 8px; font-size: 15px; font-weight: 600; color: var(--text); user-select: none; -webkit-user-select: none;
+  transition: border-color .15s, color .15s; }
+.share > summary::-webkit-details-marker { display: none; }
+.share > summary:hover, .share[open] > summary { border-color: var(--brass); color: var(--brass); }
+.share-panel { position: absolute; left: 0; top: calc(100% + 8px); z-index: 40; width: 230px; background: var(--card); border: 1px solid var(--line);
+  border-radius: 14px; padding: 8px; box-shadow: 0 24px 60px -24px var(--shadow); animation: menu-in .18s ease; }
+.share-h { font-family: var(--mono); font-size: 9.5px; letter-spacing: .26em; text-transform: uppercase; color: var(--faint); padding: 6px 12px 4px; }
+.share-panel ul { list-style: none; }
+.share-panel a, .share-panel button { display: flex; align-items: center; width: 100%; min-height: 42px; padding: 8px 12px; border-radius: 8px;
+  color: var(--text); text-decoration: none; font-size: 15px; text-align: left; }
+.share-panel a:hover, .share-panel button:hover { background: var(--wash); color: var(--brass); }
+.share-panel button[hidden] { display: none; }
+.head-share { margin-top: 18px; }
+@media (max-width: 640px) { .share-panel { width: min(260px, calc(100vw - 32px)); } }
+@media (prefers-reduced-motion: reduce) { .share-panel { animation: none; } }

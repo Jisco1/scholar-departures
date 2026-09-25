@@ -56,12 +56,15 @@
     m.classList.toggle("now", +m.getAttribute("data-month") === month);
   });
 
-  /* ---- 2. ads: request each bay's ad when it comes near the viewport ---- */
-  var slots = Array.prototype.slice.call(document.querySelectorAll("ins.adsbygoogle"));
+  /* ---- 2. ads: request each bay's ad when it comes near the viewport ----
+     Each push() fills the first ins.adsbygoogle that Google has not seen, whichever bay asked.
+     So bays are built without that class and receive it only at their own turn; otherwise the
+     rail's request would fill the in-article bay far below it and leave the rail empty. */
+  var slots = Array.prototype.slice.call(document.querySelectorAll("ins[data-sd-ad]"));
   if (slots.length) {
     var pushAd = function (ins) {
-      if (ins.getAttribute("data-sd-pushed")) return;
-      ins.setAttribute("data-sd-pushed", "1");
+      if (ins.classList.contains("adsbygoogle")) return;
+      ins.classList.add("adsbygoogle");
       try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
     };
     if ("IntersectionObserver" in window) {
@@ -113,6 +116,34 @@
       });
     }
   }
+
+  /* ---- share: the phone's own share sheet where there is one, otherwise the short list ---- */
+  var touch = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+  document.querySelectorAll("details[data-share]").forEach(function (box) {
+    var url = box.getAttribute("data-url"), summary = box.querySelector("summary");
+    if (touch && navigator.share) {
+      summary.addEventListener("click", function (e) {
+        e.preventDefault();
+        navigator.share({ title: box.getAttribute("data-title"), text: box.getAttribute("data-text"), url: url })
+          .catch(function (err) { if (!err || err.name !== "AbortError") box.open = true; });  // no sheet: show the list
+      });
+    }
+    var copy = box.querySelector("[data-share-copy]");
+    if (copy && navigator.clipboard && window.isSecureContext) {
+      copy.hidden = false;
+      copy.addEventListener("click", function () {
+        navigator.clipboard.writeText(url).then(function () {
+          copy.textContent = "Link copied";
+          setTimeout(function () { copy.textContent = "Copy link"; box.open = false; }, 1400);
+        }, function () { copy.textContent = "Copy failed"; });
+      });
+    }
+    document.addEventListener("click", function (e) { if (box.open && !box.contains(e.target)) box.open = false; });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && box.open) { box.open = false; summary.focus(); }
+    });
+    box.addEventListener("click", function (e) { if (e.target.closest(".share-panel a")) box.open = false; });
+  });
 
   /* ---- 3. privacy choices (Google's consent message, EEA/UK/CH visitors) ---- */
   var choices = document.querySelector("[data-privacy-choices]");

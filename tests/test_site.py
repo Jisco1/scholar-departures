@@ -6,6 +6,7 @@ Each test builds the site (or a poisoned copy of it) and inspects the output,
 so a regression in the builder, the data or the page scripts fails here
 instead of on the live site.
 """
+import html as html_mod
 import json
 import re
 import shutil
@@ -145,7 +146,7 @@ class BuiltSite(unittest.TestCase):
             self.assertNotIn('class="nav"', html, f"{name}: the old link bar is back")
             menu = html[html.index('<details class="menu">'):html.index("</header>")]
             for target in ("routes/", "deadlines/", "countries/", "guides/", "about/", "#directory"):
-                self.assertRegex(menu, r'href="(?:(?:\.\./)*|https://[^"/]+/)' + re.escape(target) + '"', f"{name}: menu lacks {target}")
+                self.assertRegex(menu, r'href="(?:(?:\.\./)*|https://[^"]+/)' + re.escape(target) + '"', f"{name}: menu lacks {target}")
             self.assertEqual(menu.count('<details class="menu-sub"'), 3, f"{name}: Countries, Guides and About drop-downs")
             self.assertIn('data-theme-choice="light"', menu, f"{name}: no theme switch")
         home = (self.site / "index.html").read_text(encoding="utf-8")
@@ -169,11 +170,89 @@ class BuiltSite(unittest.TestCase):
         home = (self.site / "index.html").read_text(encoding="utf-8")
         self.assertRegex(home, r'<script nonce="[^"]+">try\{var t=localStorage\.getItem\(.sd-theme.\)')
 
+    def test_share_on_every_route_and_guide(self):
+        from urllib.parse import parse_qs, urlsplit
+        shared = [p for p in self.pages if p.parent.parent.name in ("routes", "guides")]
+        self.assertGreaterEqual(len(shared), 60)
+        for path in shared:
+            html = self.pages[path]
+            name = path.relative_to(self.site).as_posix()
+            self.assertEqual(html.count('<details class="share"'), 1, f"{name}: needs one Share button")
+            canonical = re.search(r'<link rel="canonical" href="([^"]+)"', html).group(1)
+            box = html[html.index('<details class="share"'):]
+            box = box[:box.index("</details>")]
+            self.assertIn(f'data-url="{canonical}"', box, f"{name}: shares a different address than the page")
+            hrefs = [x.replace("&amp;", "&") for x in re.findall(r'href="([^"]+)"', box)]
+            self.assertEqual(len(hrefs), 6, name)
+            for h in hrefs:
+                self.assertRegex(h, r"^(https://|mailto:\?)", f"{name}: odd share link {h}")
+            wa = parse_qs(urlsplit(hrefs[0]).query)["text"][0]
+            self.assertTrue(wa.endswith(canonical), f"{name}: WhatsApp message lacks the link")
+            h1 = re.search(r"<h1>(.*?)</h1>", html).group(1)
+            self.assertIn(html_mod.unescape(h1).split(":")[0], wa, f"{name}: WhatsApp message lacks the title")
+
     def test_sitemap_lists_routes(self):
         sitemap = (self.site / "sitemap.xml").read_text(encoding="utf-8")
         self.assertIn("/routes/chevening-scholarships/", sitemap)
         self.assertIn("/guides/scholarship-scams/", sitemap)
         self.assertNotIn("404", sitemap)
+
+
+class AdsWired(unittest.TestCase):
+    """With a publisher ID and ad units in site.json, every ad bay, the tag and ads.txt appear."""
+    CLIENT, SLOTS = "ca-pub-1234567890123456", {"between": "1111111111", "article": "2222222222", "rail": "3333333333"}
+
+    @classmethod
+    def setUpClass(cls):
+        cls.dir = make_copy()
+        cfg_path = cls.dir / "site.json"
+        cfg = json.loads(cfg_path.read_text(encoding="utf-8"))
+        cfg["adsense"]["client"], cfg["adsense"]["slots"] = cls.CLIENT, dict(cls.SLOTS)
+        cfg_path.write_text(json.dumps(cfg), encoding="utf-8")
+        cls.result = build(cls.dir)
+        cls.site = cls.dir / "_site"
+
+    @classmethod
+    def tearDownClass(cls):
+        shutil.rmtree(cls.dir, ignore_errors=True)
+
+    def html(self, rel):
+        return (self.site / rel / "index.html").read_text(encoding="utf-8")
+
+    def slots(self, html):
+        return sorted(re.findall(r'<ins class="ad-fill" data-sd-ad[^>]*data-ad-slot="(\d+)"', html))
+
+    def test_build_passes(self):
+        self.assertEqual(self.result.returncode, 0, self.result.stderr + self.result.stdout)
+
+    def test_tag_and_verification_meta(self):
+        home = self.html(".")
+        self.assertIn(f'<meta name="google-adsense-account" content="{self.CLIENT}">', home)
+        self.assertRegex(home, r'<script async nonce="[^"]+" crossorigin="anonymous" src="https://pagead2\.googlesyndication\.com/'
+                               r'pagead/js/adsbygoogle\.js\?client=' + self.CLIENT + '"></script>')
+        self.assertIn("data-privacy-choices", home)
+
+    def test_each_page_type_gets_its_bays(self):
+        between, article, rail = self.SLOTS["between"], self.SLOTS["article"], self.SLOTS["rail"]
+        self.assertEqual(self.slots(self.html(".")), [between])
+        self.assertEqual(self.slots(self.html("routes/chevening-scholarships")), sorted([article, rail]))
+        self.assertEqual(self.slots(self.html("routes")), [between])
+        self.assertEqual(self.slots(self.html("guides/scholarship-scams")), sorted([article, rail]))
+        self.assertIn(between, self.slots(self.html("deadlines")))
+        self.assertEqual(self.slots(self.html("privacy")), [], "legal pages carry no ads")
+
+    def test_ads_txt(self):
+        self.assertEqual((self.site / "ads.txt").read_text(encoding="utf-8"),
+                         "google.com, pub-1234567890123456, DIRECT, f08c47fec0942fa0\n")
+
+    def test_lazy_loader_ships(self):
+        js = (self.site / "assets" / "site.js").read_text(encoding="utf-8")
+        self.assertIn('querySelectorAll("ins[data-sd-ad]")', js)
+        # a bay becomes visible to Google only at its own turn, the moment before its push
+        self.assertRegex(js, r'ins\.classList\.add\("adsbygoogle"\);\s*try \{ \(window\.adsbygoogle = window\.adsbygoogle \|\| \[\]\)\.push\(\{\}\)')
+        for path in self.site.rglob("*.html"):
+            self.assertNotRegex(path.read_text(encoding="utf-8"), r'<ins[^>]*class="[^"]*\badsbygoogle\b',
+                                f"{path.name}: a bay built as ins.adsbygoogle can be filled by another bay's request")
 
 
 class PoisonedData(unittest.TestCase):

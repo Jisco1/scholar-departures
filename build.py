@@ -23,7 +23,7 @@ import secrets
 import shutil
 import sys
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import quote, urlsplit
 
 ROOT = Path(__file__).resolve().parent
 SRC = ROOT / "src"
@@ -287,6 +287,36 @@ def menu_html(root, here):
 SEAL = ('<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
         'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/>'
         '<path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>')
+NL = "\n"
+SHARE_ICON = ('<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
+              'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/>'
+              '<circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>')
+
+
+def share_box(path, title, text, noun="page"):
+    """One Share button: the phone's own share sheet where there is one (site.js), otherwise a short list.
+    The links are plain share URLs, so no third-party script ever loads."""
+    url = BASE + path
+    q = lambda s: quote(s, safe="")
+    body = text + NL + NL + url
+    links = [("WhatsApp", f"https://wa.me/?text={q(text + NL + url)}"),
+             ("Facebook", f"https://www.facebook.com/sharer/sharer.php?u={q(url)}"),
+             ("X", f"https://x.com/intent/post?text={q(text)}&url={q(url)}"),
+             ("LinkedIn", f"https://www.linkedin.com/sharing/share-offsite/?url={q(url)}"),
+             ("Telegram", f"https://t.me/share/url?url={q(url)}&text={q(text)}")]
+    items = "".join(f'<li><a href="{e(h)}" target="_blank" rel="noopener noreferrer">{label}</a></li>' for label, h in links)
+    items += f'<li><a href="{e("mailto:?subject=" + q(title) + "&body=" + q(body))}">Email</a></li>'
+    items += '<li><button type="button" data-share-copy hidden>Copy link</button></li>'
+    return (f'<details class="share" data-share data-url="{e(url)}" data-title="{e(title)}" data-text="{e(text)}">'
+            f'<summary class="share-btn">{SHARE_ICON}<span>Share</span></summary>'
+            f'<div class="share-panel"><p class="share-h">Share this {noun}</p><ul>{items}</ul></div></details>')
+
+
+def and_list(items):
+    items = list(items)
+    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
+
+
 EXT = ('<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
        'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>')
 
@@ -310,7 +340,7 @@ def ad_bay(kind, wide=False):
             return ""
         fmt = 'data-ad-format="auto" data-full-width-responsive="true"' if kind != "rail" else 'data-ad-format="vertical"'
         return (f'<aside class="{cls}" aria-label="Advertisements"><div class="ad-label">Advertisements</div>'
-                f'<ins class="adsbygoogle ad-fill" style="display:block" data-ad-client="{e(client)}" '
+                f'<ins class="ad-fill" data-sd-ad style="display:block" data-ad-client="{e(client)}" '
                 f'data-ad-slot="{e(slot)}" {fmt}></ins></aside>')
     if ARGS.preview_ads:
         size = "300 × 600 · desktop only, scrolls with the page" if kind == "rail" else "responsive · holds its height, collapses if unfilled"
@@ -498,6 +528,11 @@ def build_route_pages(routes, notes, country_pages):
         next_text = ("Positions open year-round" if status == "rolling"
                      else "Not yet announced" if status == "tbc"
                      else f"{'≈ ' if r.get('approx') else ''}{fmt_date(nd)}")
+        # one short line each, the way it reads in a WhatsApp chat; the link goes underneath
+        share_when = ("Applications open year-round" if status == "rolling"
+                      else "Next call not yet announced" if status == "tbc"
+                      else f"Next deadline: {'around ' if r.get('approx') else ''}{fmt_date(nd)}")
+        share_text = NL.join([f"\U0001F393 {r['name']}", f"{r['country']} · {and_list(r['types'])} · {and_list(r['levels'])}", share_when])
         glance = f"""<section class="glance" aria-label="At a glance">
 <dl class="glance-grid">
   <div><dt>Funding</dt><dd>{tags_html(r["types"])}</dd></div>
@@ -508,6 +543,7 @@ def build_route_pages(routes, notes, country_pages):
   <div><dt>Who pays</dt><dd>{e(kind_text)}</dd></div>
 </dl>
 <div class="glance-cta"><a class="btn btn-primary" href="{e(r["link"])}" target="_blank" rel="noopener noreferrer">Official page on {e(domain(r["link"])).replace(".", ".<wbr>")} {EXT}</a>
+{share_box(f"routes/{r['slug']}/", r["name"], share_text, "opportunity")}
 <small>Last verified {e(fmt_date(dt.date.fromisoformat(r["last_verified"])) if r.get("last_verified") else "—")}. Cycles shift each year — confirm dates on the official page.</small></div>
 </section>"""
 
@@ -675,7 +711,8 @@ def build_guides(guides, routes):
             f'<h3>{e(x["title"])}</h3><p>{e(x["description"])}</p></a>' for x in others) + "</div>"
         html_body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("guides/", "Guides"), ("", g["title"])])}
 <div class="eyebrow-s">{e(g.get("kicker", "Guide"))}</div><h1>{e(g["title"])}</h1><p class="lede">{e(g["description"])}</p>
-<div class="byline"><span>By the <b>{e(SITE)} editors</b></span><span>Updated {e(fmt_date(dt.date.fromisoformat(g["updated"])))}</span><span>{mins} min read</span></div></div>
+<div class="byline"><span>By the <b>{e(SITE)} editors</b></span><span>Updated {e(fmt_date(dt.date.fromisoformat(g["updated"])))}</span><span>{mins} min read</span></div>
+<div class="head-share">{share_box(f"guides/{g['slug']}/", g["title"], g["title"], "guide")}</div></div>
 <div class="layout has-rail"><div><article class="prose">{toc_html}{body}</article>
 <div class="prose" style="margin-top:8px">{more}</div></div><aside class="rail" aria-label="Advertisements">{ad_bay("rail")}</aside></div></div>"""
         ld = [breadcrumb_ld([("", "Home"), ("guides/", "Guides"), (f"guides/{g['slug']}/", g["title"])]),
