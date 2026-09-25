@@ -12,7 +12,7 @@
   "how_to_apply": [
     "Apply through one of the application platforms Princeton accepts (such as the Common Application or QuestBridge) with Princeton's supplement.",
     "Choose Single-Choice Early Action (1 November) or Regular Decision (1 January).",
-    "Submit the CSS Profile and Princeton's aid documents by the stated deadlines.",
+    "Submit the free Princeton Financial Aid Application (PFAA) and your parents' tax documents by the aid deadline — Princeton does not use the CSS Profile.",
     "Ask for an application fee waiver if needed."
   ],
   "watch_out": [
@@ -34,7 +34,77 @@
     {
       "title": "Princeton Admission — Financial aid numbers",
       "url": "https://admission.princeton.edu/financial-aid-numbers"
+    },
+    {
+      "title": "Princeton Admission — International students",
+      "url": "https://admission.princeton.edu/apply/international-students"
+    },
+    {
+      "title": "Princeton Admission — Standardized testing",
+      "url": "https://admission.princeton.edu/apply/standardized-testing"
+    },
+    {
+      "title": "Princeton Financial Aid — Apply for aid: prospective students",
+      "url": "https://finaid.princeton.edu/apply-aid-prospective-students"
+    },
+    {
+      "title": "Princeton Financial Aid — The student budget 2026–27",
+      "url": "https://finaid.princeton.edu/how-aid-works/student-budget"
+    },
+    {
+      "title": "U.S. Immigration and Customs Enforcement — I-901 SEVIS fee",
+      "url": "https://www.ice.gov/sevis/i901"
+    },
+    {
+      "title": "Boston University ISSO — Visa integrity fee (with the $185 visa fee)",
+      "url": "https://www.bu.edu/isso/2026/05/19/visa-integrity-fee/"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Tuition, housing, food and fees ($68,140 + $13,010 + $9,110 + $314 in 2026–27)",
+      "Princeton grants, up to your full need — no loans in any aid package since 2001"
+    ],
+    [
+      "Books ($1,050) and personal expenses ($3,000)",
+      "Included in the student budget your aid is based on"
+    ],
+    [
+      "Travel ($50–$5,000 a year, depending on where home is)",
+      "Counted as a variable cost in your student budget"
+    ],
+    [
+      "Application fee",
+      "You, or request a fee waiver — international students are eligible"
+    ],
+    [
+      "Financial aid application (PFAA)",
+      "Free — Princeton does not use the CSS Profile or IDOC"
+    ],
+    [
+      "US student visa: $185 application fee and $350 SEVIS fee, plus a new $250 visa integrity fee that some embassies now charge",
+      "You, before you travel"
+    ]
+  ],
+  "documents": [
+    "SAT or ACT only if you want them considered for fall 2027 entry — scores are required again from fall 2028 entry",
+    "An English test if English is not your native language and you have not spent three years at a secondary school taught in English: TOEFL, IELTS Academic, Duolingo or PTE Academic",
+    "The Princeton Financial Aid Application by 1 November (Single-Choice Early Action) or 1 February (Regular Decision)",
+    "Your parents' tax return covering most of 2025 — the original plus a certified English translation — or a non-filer statement if they do not file"
+  ],
+  "faq": [
+    {
+      "q": "Do I need the CSS Profile for Princeton?",
+      "a": "No. Princeton uses its own free form, the PFAA, and does not use the CSS Profile, IDOC or other College Board documents — so there is no card payment to make."
+    },
+    {
+      "q": "Will applying for aid affect my admission?",
+      "a": "No. Princeton is need-blind for international applicants too, meets the full need of every admitted student, and gives grants instead of loans."
+    },
+    {
+      "q": "Is the SAT or ACT required?",
+      "a": "Not for students entering in fall 2027 — Princeton is test-optional for that cycle. From fall 2028 entry, first-year applicants must submit the SAT or ACT."
+    }
+  ]
 }

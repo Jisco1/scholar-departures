@@ -31,7 +31,65 @@
     {
       "title": "UC Berkeley — Mastercard Foundation Scholars Program",
       "url": "https://mcfscholarsprogram.berkeley.edu/"
+    },
+    {
+      "title": "UC Berkeley Mastercard Foundation Scholars Program — Am I eligible?",
+      "url": "https://mcfscholarsprogram.berkeley.edu/am-i-eligible-scholarship"
+    },
+    {
+      "title": "UC Berkeley Mastercard Foundation Scholars Program — Apply",
+      "url": "https://mcfscholarsprogram.berkeley.edu/apply-be-mastercard-foundation-scholar-uc-berkeley"
+    },
+    {
+      "title": "UC Berkeley Mastercard Foundation Scholars Program — FAQ",
+      "url": "https://mcfscholarsprogram.berkeley.edu/faq-page"
+    },
+    {
+      "title": "UC Berkeley Graduate Division — Admissions",
+      "url": "https://grad.berkeley.edu/admissions/"
+    },
+    {
+      "title": "UC Berkeley Plant and Microbial Biology — Application requirements (fee and English tests)",
+      "url": "https://plantandmicrobiology.berkeley.edu/graduate-programs/application-requirements"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Tuition, Berkeley student fees, housing, food and living expenses",
+      "The scholarship"
+    ],
+    [
+      "Travel, visa and SEVIS fees",
+      "The scholarship"
+    ],
+    [
+      "Graduate application fee ($155 for international applicants)",
+      "You — Berkeley's graduate fee waivers are not open to international applicants"
+    ],
+    [
+      "TOEFL or IELTS test, if you need one",
+      "You"
+    ]
+  ],
+  "documents": [
+    "Your application to an eligible Berkeley master's programme through the Graduate Division — in the programme's first admission round",
+    "An English test if your undergraduate degree was not taught in English: at least TOEFL iBT 90 or IELTS Academic 7",
+    "The statements, transcripts and recommendation letters your department asks for",
+    "Evidence of what the scholarship selects for: leadership, the barriers you have overcome, and your plan to return home and give back"
+  ],
+  "faq": [
+    {
+      "q": "Is there a separate scholarship application?",
+      "a": "No. You apply to an eligible master's programme, and admitted applicants can be nominated for the Scholars Program. If your programme has several admission rounds, apply in the first round — later rounds are not considered."
+    },
+    {
+      "q": "Do I have to return to Africa?",
+      "a": "That is the aim. Scholars are expected to return home after graduating and after any optional practical training their visa allows; some go on to work in another African country in their field."
+    },
+    {
+      "q": "How long will Berkeley keep recruiting?",
+      "a": "The programme says it will recruit Mastercard Foundation Scholars through the fall of 2028."
+    }
+  ]
 }

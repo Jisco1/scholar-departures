@@ -1274,20 +1274,20 @@
       "Bachelor's"
     ],
     "funding": "Meets 100% of need for admitted internationals; the Karsh International Scholarship adds full cost of attendance plus three funded summers.",
-    "deadline": "Early Nov (Early Decision) · early Jan (Regular)",
+    "deadline": "Nov 2 (Early Decision) · Jan 4 (Regular)",
     "deadlines": [
       {
         "m": 11,
-        "d": 4
+        "d": 2
       },
       {
         "m": 1,
         "d": 4
       }
     ],
-    "approx": true,
+    "approx": false,
     "link": "https://admissions.duke.edu/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-09-25",
     "content_hash": null,
     "needs_review": false,
     "kind": "school",
@@ -1825,7 +1825,6 @@
       "Full Scholarship"
     ],
     "levels": [
-      "Bachelor's",
       "Master's"
     ],
     "scope": "all",
@@ -1835,17 +1834,17 @@
       "Business & Economics",
       "Natural Sciences"
     ],
-    "funding": "ASU's Phase III (2024–2030) supports 600 young Africans in in-person and online degrees and certificates focused on innovation and technology.",
-    "deadline": "Most recent call closed Mar 29 — check the current cycle",
+    "funding": "30 fully funded master's scholarships in technology and innovation for young Africans starting in 2027 — tuition, housing, books, visa, airfare and medical costs.",
+    "deadline": "Sep 27, 2026, 23:59 GMT (2027–28 cohort)",
     "deadlines": [
       {
-        "m": 3,
-        "d": 29
+        "m": 9,
+        "d": 27
       }
     ],
-    "approx": true,
-    "link": "https://mcfscholars.asu.edu/",
-    "last_verified": "2026-09-24",
+    "approx": false,
+    "link": "https://mcfscholars.asu.edu/phase-three-innovation-and-technology",
+    "last_verified": "2026-09-25",
     "content_hash": null,
     "needs_review": false,
     "slug": "mastercard-foundation-scholars-asu"

@@ -38,7 +38,81 @@
     {
       "title": "MIT Admissions — Access and affordability",
       "url": "https://mitadmissions.org/afford/cost-aid-basics/access-affordability/"
+    },
+    {
+      "title": "MIT Admissions — International applicants",
+      "url": "https://mitadmissions.org/apply/firstyear/international/"
+    },
+    {
+      "title": "MIT Admissions — How do I request a fee waiver?",
+      "url": "https://mitadmissions.org/help/faq/application-fee-fee-waiver/"
+    },
+    {
+      "title": "MIT Student Financial Services — International students",
+      "url": "https://sfs.mit.edu/undergraduate-students/apply-for-aid/international/"
+    },
+    {
+      "title": "MIT Student Financial Services — Aid deadlines and process",
+      "url": "https://sfs.mit.edu/undergraduate-students/apply-for-aid/deadlines/"
+    },
+    {
+      "title": "MIT Student Financial Services — Cost of attendance",
+      "url": "https://sfs.mit.edu/undergraduate-students/the-cost-of-attendance/coa/"
+    },
+    {
+      "title": "College Board — What does the CSS Profile cost?",
+      "url": "https://cssprofile.collegeboard.org/help-center/what-cost-css-profile-and-what-payment-methods-are-accepted"
+    },
+    {
+      "title": "U.S. Immigration and Customs Enforcement — I-901 SEVIS fee",
+      "url": "https://www.ice.gov/sevis/i901"
+    },
+    {
+      "title": "Boston University ISSO — Visa integrity fee (with the $185 visa fee)",
+      "url": "https://www.bu.edu/isso/2026/05/19/visa-integrity-fee/"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Tuition ($66,720), housing, food, books and personal costs — $92,760 in 2026–27",
+      "MIT Scholarship, up to your full demonstrated need"
+    ],
+    [
+      "Travel between home and MIT",
+      "MIT adds a travel allowance to your cost of attendance, based on where you live"
+    ],
+    [
+      "Application fee",
+      "You, or request a fee waiver in the application — international applicants can, and it does not affect your chances"
+    ],
+    [
+      "CSS Profile ($25 for the first college, $16 for each extra one)",
+      "You"
+    ],
+    [
+      "US student visa: $185 application fee and $350 SEVIS fee, plus a new $250 visa integrity fee that some embassies now charge",
+      "You, before you travel"
+    ]
+  ],
+  "documents": [
+    "SAT or ACT — required for every first-year applicant, including international students",
+    "An English test, strongly recommended if you have used English for fewer than five years: IELTS Academic, TOEFL iBT, Duolingo or Cambridge C1 Advanced / C2 Proficiency (official scores)",
+    "CSS Profile (MIT code 3514)",
+    "Your parents' tax return from their country, with an English translation — or other income documents — uploaded through IDOC by 30 November (Early Action) or 15 February (Regular Action)"
+  ],
+  "faq": [
+    {
+      "q": "Can international applicants get an application fee waiver?",
+      "a": "Yes. Fee waivers are open to domestic and international applicants — request one in the application. Because MIT is need-blind, asking has no effect on your chances."
+    },
+    {
+      "q": "Is the SAT or ACT required for international students?",
+      "a": "Yes. MIT requires the SAT or ACT from every first-year and transfer applicant."
+    },
+    {
+      "q": "When will I hear about my aid?",
+      "a": "If you apply Early Action and send all aid documents by 30 November, MIT aims to send your aid offer by mid-January, soon after your admission decision."
+    }
+  ]
 }

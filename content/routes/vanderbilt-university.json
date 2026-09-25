@@ -37,7 +37,82 @@
     {
       "title": "Vanderbilt University — Ingram Scholars Program",
       "url": "https://www.vanderbilt.edu/scholarships/ingram/"
+    },
+    {
+      "title": "Vanderbilt — Application process for first-year students",
+      "url": "https://admissions.vanderbilt.edu/apply/first-year-process/"
+    },
+    {
+      "title": "Vanderbilt — Dates and deadlines",
+      "url": "https://admissions.vanderbilt.edu/apply/"
+    },
+    {
+      "title": "Vanderbilt — Testing policies",
+      "url": "https://admissions.vanderbilt.edu/apply/testing-policies/"
+    },
+    {
+      "title": "Vanderbilt — International costs and finances",
+      "url": "https://admissions.vanderbilt.edu/affordability/international-costs-and-finances/"
+    },
+    {
+      "title": "Vanderbilt Student Accounts — Undergraduate tuition and fees 2026–27",
+      "url": "https://www.vanderbilt.edu/stuaccts/fees/tuition_fees_2026-27_ugrd/"
+    },
+    {
+      "title": "College Board — What does the CSS Profile cost?",
+      "url": "https://cssprofile.collegeboard.org/help-center/what-cost-css-profile-and-what-payment-methods-are-accepted"
+    },
+    {
+      "title": "U.S. Immigration and Customs Enforcement — I-901 SEVIS fee",
+      "url": "https://www.ice.gov/sevis/i901"
+    },
+    {
+      "title": "Boston University ISSO — Visa integrity fee (with the $185 visa fee)",
+      "url": "https://www.bu.edu/isso/2026/05/19/visa-integrity-fee/"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Tuition ($69,822 in 2026–27)",
+      "Covered in full by an Ingram or Cornelius Vanderbilt Scholarship"
+    ],
+    [
+      "Housing, meals and the student support fee ($15,170 + $8,520 + $3,384 for first-years in 2026–27)",
+      "You — unless you are also awarded need-based aid, which is limited for international students"
+    ],
+    [
+      "Application fee ($50)",
+      "You, unless you qualify for a fee waiver"
+    ],
+    [
+      "CSS Profile ($25 for the first college, $16 for each extra one) — only if you apply for need-based aid",
+      "You — or file the free ISFAA instead"
+    ],
+    [
+      "US student visa: $185 application fee and $350 SEVIS fee, plus a new $250 visa integrity fee that some embassies now charge",
+      "You, before you travel"
+    ]
+  ],
+  "documents": [
+    "Common Application, Coalition (Scoir) or QuestBridge application — only one of them",
+    "SAT or ACT only if you want them considered — optional for fall 2027 and 2028 entry, required again for fall 2029",
+    "Proof of English proficiency — required for international students",
+    "The merit scholarship application in your MyAppVU portal by 1 December 2026",
+    "For need-based aid: the CSS Profile or ISFAA by 1 November 2026 (ED I), 1 January 2027 (ED II) or 1 February 2027 (Regular Decision)"
+  ],
+  "faq": [
+    {
+      "q": "How many international students get money from Vanderbilt?",
+      "a": "For fall 2026, Vanderbilt offered need-based aid or merit scholarships to 89 international students from 54 countries, worth $16,815 to $99,998 a year for four years."
+    },
+    {
+      "q": "Does asking for need-based aid affect my admission?",
+      "a": "Yes. For international applicants who ask for need-based aid, the decision is need-aware: you compete with other international aid applicants for a limited budget. Merit scholarships are open to all international applicants."
+    },
+    {
+      "q": "I live in Ghana or Nigeria and cannot pay the CSS Profile fee by card. What now?",
+      "a": "Vanderbilt notes that the College Board does not accept credit cards from Benin, Cameroon, Ghana, Nigeria and Togo. Contact the Vanderbilt admissions counsellor for your region, or use the ISFAA, which has no fee."
+    }
+  ]
 }

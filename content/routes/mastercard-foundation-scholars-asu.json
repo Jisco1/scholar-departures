@@ -1,25 +1,26 @@
 {
-  "summary": "Arizona State University's Mastercard Foundation Scholars Program (Phase III, 2024–2030) supports 600 young Africans through in-person and online degrees and certificates focused on innovation and technology.",
+  "summary": "Arizona State University's Mastercard Foundation Scholars Program offers 30 fully funded master's scholarships in technology and innovation to young Africans starting in 2027. Applications for this cohort close on Sunday 27 September 2026 at 23:59 GMT.",
   "covers": [
-    "Full scholarships for selected in-person and online degree and certificate pathways.",
-    "Leadership, career and entrepreneurship support focused on innovation and technology.",
-    "600 scholars across the programme's current phase."
+    "Full tuition and fees for an on-campus master's degree at ASU.",
+    "On-campus housing and books, plus visa, airfare and medical expenses.",
+    "Leadership development, academic advising and a two-month internship between the first and second years."
   ],
   "eligibility": [
-    "Young people from African countries who meet the pathway's academic and financial-need criteria.",
-    "Pathways differ, and some carry specific conditions — recent Innovation and Technology cohorts included a residency requirement in Rwanda.",
-    "Read the current call for age limits and level (bachelor's, master's or certificate)."
+    "Young Africans aged 18 to 33 when they apply.",
+    "A bachelor's degree or equivalent, conferred by July 2027 — a Higher National Diploma alone does not qualify.",
+    "No master's degree started or completed anywhere.",
+    "Women, refugees and displaced people, and people with disabilities are strongly encouraged to apply."
   ],
   "how_to_apply": [
-    "Read the current call on the ASU Mastercard Foundation Scholars website and pick a pathway.",
-    "Apply through the programme's application portal before the call's deadline (the most recent call closed on 29 March).",
-    "Prepare academic records, essays and evidence of financial need.",
-    "Shortlisted applicants may be interviewed."
+    "Choose one of the nine eligible programmes: MS Global Technology and Development, Information Technology, Human Systems Engineering (Intelligent Systems), Computer Science, Data Science, Analytics and Engineering, Robotics and Autonomous Systems, Civil, Environmental and Sustainable Engineering, Clean Energy Systems, or Modern Energy Production and Sustainable Use.",
+    "Submit the scholarship application online — or email the PDF version if your internet is limited — by Sunday 27 September 2026, 23:59 GMT.",
+    "Shortlisted applicants are interviewed, then guided to apply for ASU admission with an application fee waiver.",
+    "Scholarship decisions are made in early 2027."
   ],
   "watch_out": [
-    "Online and in-person pathways have different conditions — know which you are applying for.",
-    "Pathway rules change between cohorts; do not rely on last year's requirements.",
-    "Apply only through the official ASU site."
+    "Apply for the scholarship first. Do not pay ASU's application fee or an English test yourself — waivers come if you reach the interview stage, and earlier payments are not refunded.",
+    "You can choose only one programme, and you cannot change it after you submit.",
+    "Scholars are strongly encouraged to return home after graduating — it is central to the Foundation's mission."
   ],
   "related": [
     "mastercard-foundation-scholars-program",
@@ -31,7 +32,55 @@
     {
       "title": "Arizona State University — Mastercard Foundation Scholars Program",
       "url": "https://mcfscholars.asu.edu/"
+    },
+    {
+      "title": "ASU Mastercard Foundation Scholars Program — Phase III: Innovation and Technology (2027–28 call)",
+      "url": "https://mcfscholars.asu.edu/phase-three-innovation-and-technology"
+    },
+    {
+      "title": "ASU Mastercard Foundation Scholars Program — 2027 scholarship FAQ (PDF)",
+      "url": "https://drive.google.com/file/d/1DnQRt3oAiY61zp3NyuGYhx264t8VOHP4/view"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Tuition, fees, on-campus housing and books",
+      "The scholarship"
+    ],
+    [
+      "Visa, airfare and medical expenses",
+      "The scholarship"
+    ],
+    [
+      "ASU graduate application fee",
+      "Waived — but only once you reach the interview stage"
+    ],
+    [
+      "Duolingo English Test, if you need one",
+      "Waived by the programme after you advance — do not pay for a test in advance"
+    ]
+  ],
+  "documents": [
+    "The scholarship application form, with answers in English",
+    "Your essay responses and a résumé/CV",
+    "One signed recommendation letter as a PDF, written within the past three years — it can be non-academic",
+    "An unofficial or official transcript — French is accepted at this stage",
+    "Optional: proof of English. It is not required to apply",
+    "Every file as a PDF, with your name in the file name"
+  ],
+  "faq": [
+    {
+      "q": "Do I need to apply to ASU first?",
+      "a": "No. Apply for the scholarship first. Only applicants selected for an interview are guided to apply for ASU admission, with the fee waived."
+    },
+    {
+      "q": "Can my documents be in French?",
+      "a": "Yes. Write the online form in English, but your letter, CV and transcripts can be in French; the team has French-speaking staff. An official translation is needed only if you become a finalist."
+    },
+    {
+      "q": "Can I work in the US or stay after graduating?",
+      "a": "You may work within F-1 student visa rules and ASU policies. After graduation the scholarship strongly encourages you to return home."
+    }
+  ]
 }

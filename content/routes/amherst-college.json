@@ -34,7 +34,90 @@
     {
       "title": "Amherst College — Calendar and deadlines for first-year applicants",
       "url": "https://www.amherst.edu/admission/apply/firstyear/calendar_deadlines"
+    },
+    {
+      "title": "Amherst College — International applicants",
+      "url": "https://www.amherst.edu/admission/apply/international"
+    },
+    {
+      "title": "Amherst College — Standardized testing policy",
+      "url": "https://www.amherst.edu/admission/apply/firstyear/testing"
+    },
+    {
+      "title": "Amherst College — Applying for financial aid as an international student",
+      "url": "https://www.amherst.edu/offices/financialaid/international_students/appleton"
+    },
+    {
+      "title": "Amherst College — Costs for international students 2026–27",
+      "url": "https://www.amherst.edu/offices/financialaid/international_students/costs_amherst"
+    },
+    {
+      "title": "Amherst College — Fees for the 2026–27 academic year",
+      "url": "https://www.amherst.edu/offices/financialaid/forms_links/fees_2026-2027_academic_year"
+    },
+    {
+      "title": "College Board — What does the CSS Profile cost?",
+      "url": "https://cssprofile.collegeboard.org/help-center/what-cost-css-profile-and-what-payment-methods-are-accepted"
+    },
+    {
+      "title": "U.S. Immigration and Customs Enforcement — I-901 SEVIS fee",
+      "url": "https://www.ice.gov/sevis/i901"
+    },
+    {
+      "title": "Boston University ISSO — Visa integrity fee (with the $185 visa fee)",
+      "url": "https://www.bu.edu/isso/2026/05/19/visa-integrity-fee/"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Tuition, housing, meals and fees ($75,330 + $10,980 + $9,340 + $710 in 2026–27)",
+      "Amherst scholarships and a campus job, up to your full calculated need — no loans in your offer"
+    ],
+    [
+      "Books and course materials",
+      "Included in the comprehensive fee for every student"
+    ],
+    [
+      "Health insurance ($3,627 a year, required unless you have comparable cover)",
+      "Aided students can request a Health Insurance Scholarship to pay for it"
+    ],
+    [
+      "One round trip home a year",
+      "Counted in your aid budget, but you book and pay for the tickets yourself"
+    ],
+    [
+      "Application fee ($75)",
+      "You, unless you request a fee waiver"
+    ],
+    [
+      "CSS Profile ($25 for the first college, $16 for each extra one)",
+      "You — or ask to file the free ISFAA if the fee is a serious hardship"
+    ],
+    [
+      "US student visa: $185 application fee and $350 SEVIS fee, plus a new $250 visa integrity fee that some embassies now charge",
+      "You, before you travel"
+    ]
+  ],
+  "documents": [
+    "Common Application or QuestBridge application",
+    "SAT or ACT only if you want them considered — tests are optional for all applicants, including international students",
+    "An English test unless your last two years of secondary school were taught in English: TOEFL iBT (or Home Edition), IELTS Academic or Duolingo. Amherst strongly recommends a TOEFL of 100 (5.5 on the scale used from 21 January 2026). Self-reported scores are fine until you enrol",
+    "CSS Profile, filled in using your home currency (Amherst code 3003) — or the ISFAA — by 13 November 2026 for Early Decision or 15 January 2027 for Regular Decision",
+    "Your parents' most recent income tax returns (and yours, if you file), with every schedule, notated or translated into English"
+  ],
+  "faq": [
+    {
+      "q": "Will asking for aid affect my chances?",
+      "a": "No. Amherst is need-blind for international applicants, meets 100% of calculated need, and its aid offers contain no loans."
+    },
+    {
+      "q": "Do I need the SAT or ACT?",
+      "a": "No. Test scores are optional for every applicant, including international students."
+    },
+    {
+      "q": "Is health insurance covered?",
+      "a": "Not at first — it is outside the initial aid budget. But if you receive Amherst aid and use the college's health plan, the $3,627 cost is added to your budget and covered by a Health Insurance Scholarship."
+    }
+  ]
 }

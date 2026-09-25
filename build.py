@@ -525,6 +525,7 @@ def build_route_pages(routes, notes, country_pages):
                      if r["kind"] == "school" else
                      "An external award — you win the scholarship and take it to a university that admits you.")
         scope_text = ("Any discipline may apply" if r["scope"] == "all" else "Only certain fields are eligible")
+        fields_sub = "" if r["scope"] == "all" else f'<span class="sub">Eligible: {e(", ".join(r["fields"]))}</span>'
         next_text = ("Positions open year-round" if status == "rolling"
                      else "Not yet announced" if status == "tbc"
                      else f"{'≈ ' if r.get('approx') else ''}{fmt_date(nd)}")
@@ -539,7 +540,7 @@ def build_route_pages(routes, notes, country_pages):
   <div><dt>Status</dt><dd>{status_chip(r)}</dd></div>
   <div><dt>Typical deadline</dt><dd>{e(r["deadline"])}<span class="sub">Next: <span data-next>{e(next_text)}</span>{' · varies by course or country' if r.get('approx') else ''}</span></dd></div>
   <div><dt>Study levels</dt><dd>{e(" · ".join(r["levels"]))}</dd></div>
-  <div><dt>Fields</dt><dd>{e(scope_text)}<span class="sub">{"Strongest in" if r["scope"] == "all" else "Eligible"}: {e(", ".join(r["fields"]))}</span></dd></div>
+  <div><dt>Fields</dt><dd>{e(scope_text)}{fields_sub}</dd></div>
   <div><dt>Who pays</dt><dd>{e(kind_text)}</dd></div>
 </dl>
 <div class="glance-cta"><a class="btn btn-primary" href="{e(r["link"])}" target="_blank" rel="noopener noreferrer">Official page on {e(domain(r["link"])).replace(".", ".<wbr>")} {EXT}</a>
@@ -552,6 +553,26 @@ def build_route_pages(routes, notes, country_pages):
                 return ""
             tag = "ol" if ordered else "ul"
             return f"<h2>{e(title)}</h2><{tag}>" + "".join(f"<li>{inline(x, root)}</li>" for x in items) + f"</{tag}>"
+
+        costs = n.get("costs") or []
+        if not all(isinstance(c, list) and len(c) == 2 and all(isinstance(x, str) and x.strip() for x in c) for c in costs):
+            fail(f"{r['slug']}: costs must be [what, who pays] pairs of text")
+            costs = []
+        costs_html = ('<h2>What you will still pay</h2><div class="table-wrap"><table><tr><th>Cost</th><th>Who pays</th></tr>'
+                      + "".join(f"<tr><td>{inline(a, root)}</td><td>{inline(b, root)}</td></tr>" for a, b in costs)
+                      + "</table></div>") if costs else ""
+        docs = n.get("documents") or []
+        if not all(isinstance(x, str) and x.strip() for x in docs):
+            fail(f"{r['slug']}: documents must be a list of text")
+            docs = []
+        docs_html = ('<h2>Documents you will need</h2><ul class="checklist">'
+                     + "".join(f"<li>{inline(x, root)}</li>" for x in docs) + "</ul>") if docs else ""
+        faq = n.get("faq") or []
+        if not all(isinstance(x, dict) and isinstance(x.get("q"), str) and isinstance(x.get("a"), str) and x["q"].strip() and x["a"].strip() for x in faq):
+            fail(f"{r['slug']}: faq entries need a question (q) and an answer (a)")
+            faq = []
+        faq_html = ('<h2>Common questions</h2><div class="faq">' + "".join(
+            f'<details><summary>{e(x["q"])}</summary><p>{inline(x["a"], root)}</p></details>' for x in faq) + "</div>") if faq else ""
 
         plan_html = ""
         if nd:
@@ -597,10 +618,13 @@ def build_route_pages(routes, notes, country_pages):
 {glance}
 <article class="prose">
 {section("What the funding covers", n.get("covers"))}
+{costs_html}
 {section("Who can apply", n.get("eligibility"))}
 {ad_bay("article")}
+{docs_html}
 {section("How to apply", n.get("how_to_apply"), ordered=True)}
 {section("Before you apply: things to know", n.get("watch_out"))}
+{faq_html}
 {plan_html}
 {related_html}
 {sources_html}

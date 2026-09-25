@@ -12,8 +12,8 @@
   ],
   "how_to_apply": [
     "Apply to Duke through the Common Application or QuestBridge.",
-    "Request financial aid and submit the CSS Profile and required documents — there is no separate Karsh application.",
-    "Choose binding Early Decision (early November; 4 November in the 2026 cycle) or Regular Decision (early January).",
+    "Tick the financial aid interest box and submit the CSS Profile — there is no separate Karsh application.",
+    "Choose binding Early Decision (2 November) or Regular Decision (4 January).",
     "Karsh finalists are identified from the admission and aid files."
   ],
   "watch_out": [
@@ -35,7 +35,77 @@
     {
       "title": "Duke Undergraduate Admissions",
       "url": "https://admissions.duke.edu/"
+    },
+    {
+      "title": "Duke Undergraduate Admissions — Apply",
+      "url": "https://admissions.duke.edu/apply/"
+    },
+    {
+      "title": "Duke Karsh Office of Undergraduate Financial Support — Apply for aid",
+      "url": "https://financialaid.duke.edu/apply-aid/"
+    },
+    {
+      "title": "Duke Karsh Office — International students",
+      "url": "https://financialaid.duke.edu/international-students/"
+    },
+    {
+      "title": "Duke Karsh Office — Cost of attendance",
+      "url": "https://financialaid.duke.edu/how-aid-calculated/cost-attendance/"
+    },
+    {
+      "title": "College Board — What does the CSS Profile cost?",
+      "url": "https://cssprofile.collegeboard.org/help-center/what-cost-css-profile-and-what-payment-methods-are-accepted"
+    },
+    {
+      "title": "U.S. Immigration and Customs Enforcement — I-901 SEVIS fee",
+      "url": "https://www.ice.gov/sevis/i901"
+    },
+    {
+      "title": "Boston University ISSO — Visa integrity fee (with the $185 visa fee)",
+      "url": "https://www.bu.edu/isso/2026/05/19/visa-integrity-fee/"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Tuition, fees, housing and food ($96,597 in 2026–27, of which tuition is $73,740)",
+      "Duke aid, up to your full demonstrated need — Karsh International Scholars have the full cost covered"
+    ],
+    [
+      "Books, travel and personal costs (total cost of attendance $101,828–$102,623)",
+      "Counted in the cost of attendance your aid is based on"
+    ],
+    [
+      "Application fee ($85)",
+      "You, unless your school counsellor endorses a fee waiver request"
+    ],
+    [
+      "CSS Profile ($25 for the first college, $16 for each extra one)",
+      "You"
+    ],
+    [
+      "US student visa: $185 application fee and $350 SEVIS fee, plus a new $250 visa integrity fee that some embassies now charge",
+      "You, before you travel"
+    ]
+  ],
+  "documents": [
+    "Common Application or QuestBridge application",
+    "SAT or ACT only if you want them considered — Duke is test-optional in the 2026–27 cycle",
+    "An English test is recommended, not required, if English is not your first language or your school does not teach in English: TOEFL, IELTS, Duolingo, Cambridge or PTE Academic. Duolingo results can be sent officially for free; others can be self-reported",
+    "The CSS Profile by 3 November (Early Decision) or 1 February (Regular Decision), plus any documents your applicant portal asks for"
+  ],
+  "faq": [
+    {
+      "q": "What if I don't ask for aid when I apply?",
+      "a": "Then you can never get Duke aid. International students admitted without ticking the financial aid interest box are ineligible for aid for all their undergraduate years."
+    },
+    {
+      "q": "Do I have to reapply for aid every year?",
+      "a": "No. Duke gives international students four-year aid awards, which renew automatically once your first-year award is complete."
+    },
+    {
+      "q": "Do I need the SAT, ACT or an English test?",
+      "a": "No. Duke is test-optional in the 2026–27 cycle, including for merit scholarship consideration, and English tests are recommended rather than required."
+    }
+  ]
 }

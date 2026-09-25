@@ -12,7 +12,7 @@
   "how_to_apply": [
     "Apply through one of the platforms Yale accepts, such as the Common Application or QuestBridge.",
     "Choose Single-Choice Early Action (1 November) or Regular Decision (2 January).",
-    "Submit Yale's financial aid application materials (including the CSS Profile) by the aid deadlines.",
+    "Submit Yale's financial aid forms by the aid deadline — Yale's aid office emails you the exact list after you apply.",
     "Request an application fee waiver if the fee is a hardship."
   ],
   "watch_out": [
@@ -34,7 +34,72 @@
     {
       "title": "Yale College Undergraduate Admissions",
       "url": "https://admissions.yale.edu/"
+    },
+    {
+      "title": "Yale News — Undergraduate admissions updates testing policy (May 2026)",
+      "url": "https://news.yale.edu/2026/05/27/undergraduate-admissions-updates-testing-policy"
+    },
+    {
+      "title": "Yale Admissions — Standardized testing",
+      "url": "https://admissions.yale.edu/standardized-testing"
+    },
+    {
+      "title": "Yale Admissions — Is an English proficiency test required?",
+      "url": "https://admissions.yale.edu/english-proficiency-test-required"
+    },
+    {
+      "title": "Yale Undergraduate Financial Aid — Prospective students",
+      "url": "https://finaid.yale.edu/apply/prospective"
+    },
+    {
+      "title": "Yale College — Financial services (2026–27 charges)",
+      "url": "https://catalog.yale.edu/undergraduate-regulations/regulations/financial-services/"
+    },
+    {
+      "title": "U.S. Immigration and Customs Enforcement — I-901 SEVIS fee",
+      "url": "https://www.ice.gov/sevis/i901"
+    },
+    {
+      "title": "Boston University ISSO — Visa integrity fee (with the $185 visa fee)",
+      "url": "https://www.bu.edu/isso/2026/05/19/visa-integrity-fee/"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Tuition, housing and meals ($72,500 + $12,080 + $9,520 = $94,100 in 2026–27)",
+      "Yale Scholarship, up to your full demonstrated need — no loans required"
+    ],
+    [
+      "Books, travel and personal expenses",
+      "Part of the cost of attendance Yale uses to set your aid"
+    ],
+    [
+      "Application fee",
+      "You, or request a waiver through the Common App or Coalition — a supporting statement from a school official qualifies"
+    ],
+    [
+      "US student visa: $185 application fee and $350 SEVIS fee, plus a new $250 visa integrity fee that some embassies now charge",
+      "You, before you travel"
+    ]
+  ],
+  "documents": [
+    "SAT or ACT — required again from the 2026–27 cycle. AP and IB scores can be added, but no longer replace them",
+    "An English test if you are not a native speaker and have not had two years at a school taught in English: TOEFL, IELTS or Duolingo. Yale's most competitive applicants score 100+ on the TOEFL (5+ on tests from 21 January 2026), 7+ on IELTS or 120+ on Duolingo",
+    "Yale's financial aid forms by 1 December 2026 (international Single-Choice Early Action) or 15 February 2027 (Regular Decision)"
+  ],
+  "faq": [
+    {
+      "q": "Can AP or IB scores replace the SAT or ACT?",
+      "a": "Not any more. From the 2026–27 cycle Yale requires the SAT or ACT. You can still add AP or IB scores, but they no longer meet the requirement on their own."
+    },
+    {
+      "q": "Is the aid deadline the same as the application deadline?",
+      "a": "No. International early applicants have until 1 December 2026 to send aid forms — a month after the 1 November application deadline. Regular Decision aid forms are due 15 February 2027."
+    },
+    {
+      "q": "Can I use the ISFAA instead of Yale's forms?",
+      "a": "No. Yale College does not accept the International Student Financial Aid Application in place of its own required aid forms."
+    }
+  ]
 }

@@ -38,7 +38,74 @@
     {
       "title": "Colby College — Cost and aid",
       "url": "https://afa.colby.edu/cost-and-aid/"
+    },
+    {
+      "title": "Colby College — Tuition and fees 2026–27",
+      "url": "https://afa.colby.edu/cost-and-aid/tuition-and-fees/"
+    },
+    {
+      "title": "Colby College — Application requirements",
+      "url": "https://afa.colby.edu/apply/requirements/"
+    },
+    {
+      "title": "College Board — What does the CSS Profile cost?",
+      "url": "https://cssprofile.collegeboard.org/help-center/what-cost-css-profile-and-what-payment-methods-are-accepted"
+    },
+    {
+      "title": "U.S. Immigration and Customs Enforcement — I-901 SEVIS fee",
+      "url": "https://www.ice.gov/sevis/i901"
+    },
+    {
+      "title": "Boston University ISSO — Visa integrity fee (with the $185 visa fee)",
+      "url": "https://www.bu.edu/isso/2026/05/19/visa-integrity-fee/"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Tuition, fees, food and housing ($75,790 + $19,480 in 2026–27)",
+      "Colby grants and a campus job, up to your full demonstrated need"
+    ],
+    [
+      "Books and personal costs ($1,700) and travel ($50–$1,300 depending on where home is)",
+      "Counted in the cost of attendance your aid is built on"
+    ],
+    [
+      "First-year outdoor orientation trip ($500)",
+      "Billed to every new first-year student"
+    ],
+    [
+      "Application fee",
+      "None — Colby charges no application fee"
+    ],
+    [
+      "CSS Profile ($25 for the first college, $16 for each extra one)",
+      "You — Colby offers a CSS fee waiver if the fee is a burden"
+    ],
+    [
+      "US student visa: $185 application fee and $350 SEVIS fee, plus a new $250 visa integrity fee that some embassies now charge",
+      "You, before you travel"
+    ]
+  ],
+  "documents": [
+    "Common Application or QuestBridge application — every document in English",
+    "SAT or ACT only if you want them considered — tests are optional at Colby",
+    "An English test if English is neither your first language nor your language of instruction: TOEFL iBT (or Home Edition), IELTS Academic or Duolingo. You can self-report scores, and Colby superscores the TOEFL",
+    "CSS Profile — plus the non-custodial parent CSS Profile if your parents are separated — by 15 November (ED I), 4 January (ED II) or 15 January (Regular Decision)",
+    "Optional: a video interview through Duolingo, Vericant or InitialView"
+  ],
+  "faq": [
+    {
+      "q": "Can I apply for aid after I am admitted?",
+      "a": "Don't wait. If you do not complete Colby's aid application before admission, you cannot receive Colby grants for two years, unless your family's finances change in a way nobody could have expected."
+    },
+    {
+      "q": "Do I have to send SAT or ACT scores?",
+      "a": "No. Colby lists test scores among its optional materials."
+    },
+    {
+      "q": "Will my aid include loans?",
+      "a": "No. Colby meets 100% of demonstrated need with grants and a campus job. Some families choose to borrow towards their own contribution, but that is their choice."
+    }
+  ]
 }

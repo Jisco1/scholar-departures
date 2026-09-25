@@ -30,7 +30,58 @@
     {
       "title": "McGill University — Mastercard Foundation Scholars Program",
       "url": "https://www.mcgill.ca/mastercardfdn-scholars/"
+    },
+    {
+      "title": "McGill Mastercard Foundation Scholars Program — Apply",
+      "url": "https://www.mcgill.ca/mastercardfdn-scholars/apply"
+    },
+    {
+      "title": "McGill Mastercard Foundation Scholars Program — Eligibility",
+      "url": "https://www.mcgill.ca/mastercardfdn-scholars/apply/eligibility"
+    },
+    {
+      "title": "McGill Mastercard Foundation Scholars Program — FAQ",
+      "url": "https://www.mcgill.ca/mastercardfdn-scholars/apply/faq"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Full international tuition",
+      "The scholarship"
+    ],
+    [
+      "On-campus housing and a personal monthly stipend",
+      "The scholarship"
+    ],
+    [
+      "Academic tools, plus pre-arrival and immigration support",
+      "The scholarship"
+    ],
+    [
+      "McGill application fee",
+      "Waived for applicants who pass the scholarship's pre-screening"
+    ]
+  ],
+  "documents": [
+    "Attend a programme information session to receive the application link — the scholarship application comes first, before any McGill application",
+    "Proof that you are a citizen of, and live in, an African country, and a valid passport",
+    "A bachelor's degree closely related to your chosen programme — First Class Honours or equivalent strengthens your case",
+    "Evidence of leadership and service, and of how financial constraints have limited your education",
+    "Pre-screening documents when asked. If you pass, you receive a fee waiver and instructions to apply to McGill"
+  ],
+  "faq": [
+    {
+      "q": "Is there an age limit?",
+      "a": "Yes. You must be 35 or younger when you apply."
+    },
+    {
+      "q": "I have already started a master's degree. Can I apply?",
+      "a": "No. Applicants must never have registered for, or completed, a master's degree."
+    },
+    {
+      "q": "When is the next chance to apply?",
+      "a": "The fall 2027 cohort has closed; McGill says to check back in spring 2027 for the next cycle. The programme runs from 2024 to 2034 across 13 master's programmes (11 non-thesis, 2 thesis)."
+    }
+  ]
 }

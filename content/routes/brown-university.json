@@ -38,7 +38,82 @@
     {
       "title": "Brown University — Application checklist for first-year applicants",
       "url": "https://admission.brown.edu/first-year/application-checklist"
+    },
+    {
+      "title": "Brown University — How to apply (application fee and fee waivers)",
+      "url": "https://admission.brown.edu/apply/how-apply"
+    },
+    {
+      "title": "Brown University — Standardized tests for first-year applicants",
+      "url": "https://admission.brown.edu/first-year/standardized-tests"
+    },
+    {
+      "title": "Brown University — English proficiency",
+      "url": "https://admission.brown.edu/international/english-proficiency"
+    },
+    {
+      "title": "Brown University — Financial aid for first-year international applicants",
+      "url": "https://finaid.brown.edu/apply/first-year-international"
+    },
+    {
+      "title": "Brown University — FY27 tuition and fees",
+      "url": "https://www.brown.edu/news/2026-02-09/fy27-tuition-fees-salaries"
+    },
+    {
+      "title": "College Board — What does the CSS Profile cost?",
+      "url": "https://cssprofile.collegeboard.org/help-center/what-cost-css-profile-and-what-payment-methods-are-accepted"
+    },
+    {
+      "title": "U.S. Immigration and Customs Enforcement — I-901 SEVIS fee",
+      "url": "https://www.ice.gov/sevis/i901"
+    },
+    {
+      "title": "Boston University ISSO — Visa integrity fee (with the $185 visa fee)",
+      "url": "https://www.bu.edu/isso/2026/05/19/visa-integrity-fee/"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Tuition, room and meals ($74,568 + $10,710 + $8,754 in 2026–27)",
+      "Brown's aid, up to your full demonstrated need — if you apply for aid when you apply for admission"
+    ],
+    [
+      "Travel, books and personal expenses",
+      "Aid helps with these; holiday and summer costs are not covered"
+    ],
+    [
+      "Application fee ($80)",
+      "You, unless a fee waiver is accepted — a counsellor's letter, or a College Board or NACAC waiver"
+    ],
+    [
+      "CSS Profile ($25 for the first college, $16 for each extra one)",
+      "You — Brown does not waive it"
+    ],
+    [
+      "US student visa: $185 application fee and $350 SEVIS fee, plus a new $250 visa integrity fee that some embassies now charge",
+      "You, before you travel"
+    ]
+  ],
+  "documents": [
+    "Common Application with Brown's supplement, school report and teacher recommendations",
+    "SAT or ACT scores — required again since the 2024–25 cycle, with no minimum score",
+    "An English test if English is not your first language or the language of your schooling. Brown's minimums: TOEFL iBT 105 (5.5 on the scale used from January 2026), IELTS 8.0, Duolingo 130, PTE 75 or Cambridge 191",
+    "CSS Profile by 2 November 2026 (Early Decision) or 1 February 2027 (Regular Decision)",
+    "If College Board's IDOC asks: your parents' 2025 tax returns (or non-filer statements) and employer statements of 2024 earnings"
+  ],
+  "faq": [
+    {
+      "q": "Will asking for financial aid hurt my chances?",
+      "a": "No. Since the Class of 2029, Brown decides on international first-year applicants without looking at whether they need aid, then meets 100% of demonstrated need. The condition is timing: apply for aid at the same time as you apply for admission."
+    },
+    {
+      "q": "Do I need the SAT or ACT?",
+      "a": "Yes. Brown brought back its test requirement for first-year applicants from the 2024–25 cycle. It superscores the SAT and ACT and sets no minimum score."
+    },
+    {
+      "q": "Does Brown give merit scholarships?",
+      "a": "No. All Brown aid is based on need — there are no merit awards."
+    }
+  ]
 }

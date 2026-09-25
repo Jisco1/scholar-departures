@@ -34,7 +34,93 @@
     {
       "title": "Dartmouth Financial Aid — International students",
       "url": "https://financialaid.dartmouth.edu/apply-aid/international-students"
+    },
+    {
+      "title": "Dartmouth Admissions — Apply to Dartmouth",
+      "url": "https://admissions.dartmouth.edu/apply-dartmouth"
+    },
+    {
+      "title": "Dartmouth Admissions — Application fee",
+      "url": "https://admissions.dartmouth.edu/glossary-term/application-fee"
+    },
+    {
+      "title": "Dartmouth Admissions — Testing for students at schools outside the US",
+      "url": "https://admissions.dartmouth.edu/glossary-question/i-attend-school-outside-us-do-i-have-submit-act-or-sat"
+    },
+    {
+      "title": "Dartmouth Admissions — English proficiency tests",
+      "url": "https://admissions.dartmouth.edu/glossary-question/if-english-not-my-first-language-am-i-required-submit-language-proficiency-test"
+    },
+    {
+      "title": "Dartmouth Admissions — If the CSS Profile fee is a hardship (ISFAA)",
+      "url": "https://admissions.dartmouth.edu/glossary-question/what-if-im-international-student-who-cant-afford-css-profile-application-fee"
+    },
+    {
+      "title": "Dartmouth Admissions — Cost of attendance 2026–27",
+      "url": "https://admissions.dartmouth.edu/estimate-your-cost/cost-attendance"
+    },
+    {
+      "title": "Dartmouth — Dartmouth eliminates student loans for undergraduates",
+      "url": "https://admissions.dartmouth.edu/news/2022/06/dartmouth-eliminates-student-loans-undergraduates-0"
+    },
+    {
+      "title": "Dartmouth Admissions — Will my financial aid cover study abroad?",
+      "url": "https://admissions.dartmouth.edu/glossary-question/will-my-financial-aid-cover-study-abroad"
+    },
+    {
+      "title": "U.S. Immigration and Customs Enforcement — I-901 SEVIS fee",
+      "url": "https://www.ice.gov/sevis/i901"
+    },
+    {
+      "title": "Boston University ISSO — Visa integrity fee (with the $185 visa fee)",
+      "url": "https://www.bu.edu/isso/2026/05/19/visa-integrity-fee/"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Tuition, fees, housing and food ($71,697 + $2,426 + $13,032 + $8,746 in 2026–27)",
+      "Dartmouth scholarships, up to your full demonstrated need — no loans"
+    ],
+    [
+      "Travel to the US",
+      "Aid includes a travel allowance for international students"
+    ],
+    [
+      "Work and summer earnings",
+      "You: about $2,450 a year from a term-time job; no summer earnings in year one, then $1,500 a year (students from outside the US and Canada)"
+    ],
+    [
+      "Application fee ($85)",
+      "You, unless a fee waiver is approved"
+    ],
+    [
+      "CSS Profile ($25 for the first college, $16 for each extra one)",
+      "You — or file the free ISFAA instead if the fee is a real hardship"
+    ],
+    [
+      "US student visa: $185 application fee and $350 SEVIS fee, plus a new $250 visa integrity fee that some embassies now charge",
+      "You, before you travel"
+    ]
+  ],
+  "documents": [
+    "Common Application or QuestBridge application with Dartmouth's supplement",
+    "SAT or ACT — or, if your school is outside the US, three AP exam results, or predicted or final IB, A-level or equivalent national exam results",
+    "An English test if English is not your first language and your lessons have not been in English for at least two years: TOEFL, IELTS, Duolingo or Cambridge. There is no minimum, but most successful applicants score above 7 (IELTS), 135 (Duolingo), 185 (Cambridge) or 100 (TOEFL taken before 21 January 2026)",
+    "CSS Profile (or ISFAA) and your parents' income statements by 1 November for Early Decision or 1 February for Regular Decision"
+  ],
+  "faq": [
+    {
+      "q": "My school is outside the US. Do I need the SAT or ACT?",
+      "a": "Not necessarily. Dartmouth accepts the SAT or ACT, three AP exams, or predicted or final results from the IB, British A-levels or an equivalent national exam."
+    },
+    {
+      "q": "Will I have to take out loans?",
+      "a": "No. Since summer 2022 Dartmouth has removed loans from all undergraduate aid packages. Your need is met with scholarships plus a term-time job."
+    },
+    {
+      "q": "Does my aid follow me if I study abroad?",
+      "a": "Yes, on Dartmouth's own off-campus programmes. Tuition and your expected family contribution are the same as for a term on campus."
+    }
+  ]
 }

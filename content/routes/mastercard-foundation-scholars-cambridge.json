@@ -31,7 +31,58 @@
     {
       "title": "Mastercard Foundation Scholars Program at the University of Cambridge",
       "url": "https://www.mastercardfoundation.fund.cam.ac.uk/"
+    },
+    {
+      "title": "Cambridge Mastercard Foundation Scholars Program — Eligibility",
+      "url": "https://www.mastercardfoundation.fund.cam.ac.uk/apply/eligibility"
+    },
+    {
+      "title": "Cambridge Mastercard Foundation Scholars Program — How to apply",
+      "url": "https://www.mastercardfoundation.fund.cam.ac.uk/apply/how-apply"
+    },
+    {
+      "title": "Cambridge Mastercard Foundation Scholars Program — FAQ",
+      "url": "https://www.mastercardfoundation.fund.cam.ac.uk/faq"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Course fee, living (maintenance) allowance and a laptop",
+      "The scholarship"
+    ],
+    [
+      "Student visa, UK immigration health surcharge, flights and a taxi into Cambridge",
+      "The scholarship"
+    ],
+    [
+      "Application fee for one course",
+      "Waived for all programme applicants — automatically for 30 African countries, by form for the rest; a second course costs you the normal fee"
+    ],
+    [
+      "Travel or visas for a spouse or children",
+      "Not covered — one-year master's students cannot bring dependants on a UK student visa (since January 2024)"
+    ]
+  ],
+  "documents": [
+    "Your course application in Cambridge's postgraduate portal, with 'opt in for funding' ticked and the scholarship statement: career history, leadership, goals and how you will contribute to Africa",
+    "Academic transcript and passport",
+    "An English test if your course requires one — typically IELTS 7.0 or 7.5 overall, depending on the course",
+    "The application-fee-waiver form by 18 November 2026, with copies of your transcript and passport, if your country is not on the automatic waiver list",
+    "Any outstanding documents by 31 July before you start"
+  ],
+  "faq": [
+    {
+      "q": "Is there an age limit?",
+      "a": "No. There is no upper age limit for the Mastercard Foundation Scholars Program at Cambridge."
+    },
+    {
+      "q": "Can I bring my family?",
+      "a": "Not on a one-year master's. Since January 2024 the UK Home Office does not let one-year master's students bring a spouse or children on their visa, so the programme cannot pay for their travel."
+    },
+    {
+      "q": "When will I know if I have the scholarship?",
+      "a": "Departments make course offers on a rolling basis between December and February. The scholarship team then reviews applicants who have a place, and scholarship offers go out in late March or early April."
+    }
+  ]
 }

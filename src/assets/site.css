@@ -339,3 +339,19 @@ img, svg { max-width: 100%; }
 .head-share { margin-top: 18px; }
 @media (max-width: 640px) { .share-panel { width: min(260px, calc(100vw - 32px)); } }
 @media (prefers-reduced-motion: reduce) { .share-panel { animation: none; } }
+
+/* ——— Route pages: compact extras (checklist, questions that stay closed until tapped) ——— */
+.prose ul.checklist { list-style: none; padding-left: 0; }
+.prose ul.checklist li { position: relative; padding-left: 30px; }
+.prose ul.checklist li::before { content: ""; position: absolute; left: 2px; top: .42em; width: 14px; height: 14px;
+  border: 1.5px solid var(--brass); border-radius: 4px; }
+.faq { border-top: 1px solid var(--line); margin-top: 14px; }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  min-height: 48px; padding: 12px 2px; font-weight: 600; color: var(--text); line-height: 1.45; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; flex: none; font-family: var(--mono); font-size: 22px; line-height: 1; color: var(--brass); transition: transform .2s; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq summary:hover { color: var(--brass); }
+.faq details p { margin: 0 0 16px; }
+@media (prefers-reduced-motion: reduce) { .faq summary::after { transition: none; } }
