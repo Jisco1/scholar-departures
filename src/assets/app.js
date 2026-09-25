@@ -103,6 +103,11 @@
     var start = (p - 1) * perPage;
     return { page: p, pages: pages, start: start, end: Math.min(start + perPage, total) };
   }
+  /* "7–12", or just "13" when a page holds one item, or "0" when nothing matches. */
+  function rangeText(pg) {
+    if (pg.end === 0) return "0";
+    return pg.end - pg.start === 1 ? String(pg.end) : (pg.start + 1) + "–" + pg.end;
+  }
   /* Page buttons to draw: first, last and the current page's neighbours, with
      "gap" where pages are skipped (a single skipped page is shown instead). */
   function pageList(page, pages) {
@@ -591,9 +596,11 @@
       });
     });
 
-    var range = out.length ? (pg.start + 1) + "\u2013" + pg.end : "0";
+    var range = rangeText(pg);
     document.getElementById("count").innerHTML =
-      (hasFilters
+      (!out.length
+        ? "No matching routes · " + SCHOOLS.length + " funded routes · "
+        : hasFilters
         ? "Showing " + range + " of " + out.length + " matching · " + SCHOOLS.length + " funded routes · "
         : "Showing " + range + " of " + SCHOOLS.length + " funded routes · ") + countriesN + " countries · " +
       '<span class="approaching-count">' + approaching.length + " approaching</span>" +
@@ -742,8 +749,10 @@
     list.querySelectorAll("[data-atlas]").forEach(function (b) {
       b.addEventListener("click", function () { atlasJump(b.getAttribute("data-atlas")); });
     });
-    var range = out.length ? (pg.start + 1) + "\u2013" + pg.end : "0";
-    document.getElementById("dirCount").textContent = (needle || dirState.region !== "All")
+    var range = rangeText(pg);
+    document.getElementById("dirCount").textContent = !out.length
+      ? "No matching schools \u00B7 " + DIR.length + " schools in the directory"
+      : (needle || dirState.region !== "All")
       ? "Showing " + range + " of " + out.length + " matching \u00B7 " + DIR.length + " schools in the directory"
       : "Showing " + range + " of " + DIR.length + " schools \u00B7 " + dirCountries + " countries";
     renderPager(document.getElementById("dirPager"), pg, function (p) {

@@ -185,8 +185,8 @@ for (const [u, ok] of Object.entries(cases)) {
         build_src = (ROOT / "build.py").read_text(encoding="utf-8")
         self.assertIn("PER_PAGE_ALL = 6", build_src)
         self.assertIn("PER_PAGE_DIR = 10", build_src)
-        fns = [re.search(r"function %s\(.*?\n  \}" % name, src, re.S) for name in ("paginate", "pageList")]
-        self.assertTrue(all(fns), "paginate/pageList missing from app.js")
+        fns = [re.search(r"function %s\(.*?\n  \}" % name, src, re.S) for name in ("paginate", "pageList", "rangeText")]
+        self.assertTrue(all(fns), "paginate/pageList/rangeText missing from app.js")
         script = "\n".join(f.group(0) for f in fns) + r"""
 const eq = (a, b, what) => { if (JSON.stringify(a) !== JSON.stringify(b)) { console.error(what, JSON.stringify(a), "!=", JSON.stringify(b)); process.exit(1); } };
 // 52 routes, 6 per page: 9 pages, the last one holds 4
@@ -211,6 +211,10 @@ eq(pageList(3, 9), [1, 2, 3, 4, "gap", 9], "near start");
 eq(pageList(9, 9), [1, "gap", 8, 9], "end");
 eq(pageList(1, 1), [1], "single");
 eq(pageList(2, 3), [1, 2, 3], "short");
+// the count line: a range, a single number for a one-item page, 0 when nothing matches
+eq(rangeText(paginate(52, 2, 6)), "7–12", "range");
+eq(rangeText(paginate(4, 2, 3)), "4", "single item");
+eq(rangeText(paginate(0, 1, 3)), "0", "none");
 """
         r = subprocess.run([node, "-e", script], capture_output=True, text=True)
         self.assertEqual(r.returncode, 0, r.stderr)
