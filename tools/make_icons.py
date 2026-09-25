@@ -58,10 +58,10 @@ for i in range(0, W, 48):  # faint route lines
     d.line([(i, H), (i + 380, 0)], fill="#0F1A2E", width=1)
 mono_s, mono_m, serif_l = font("consola.ttf", 22), font("consolab.ttf", 30), font("georgia.ttf", 76)
 mortarboard(d, 108, 118, 3.2, BRASS, 6)
-d.text((160, 100), "D E G R E E S T E P   ·   F U N D E D   S T U D Y   A B R O A D", font=mono_s, fill=BRASS)
-d.text((80, 190), "Tuition-free & fully funded", font=serif_l, fill=TEXT)
-d.text((80, 280), "study routes, checked at source", font=serif_l, fill=TEXT)
-d.text((82, 382), "Europe · USA · Canada — live deadlines · official links only", font=font("segoeui.ttf", 30), fill=DIM)
+d.text((160, 100), "D E G R E E S T E P", font=mono_s, fill=BRASS)
+d.text((80, 190), "The world\u2019s scholarships,", font=serif_l, fill=TEXT)
+d.text((80, 280), "one step away", font=font("georgiai.ttf", 76), fill=BRASS)
+d.text((82, 382), "Tuition-free & fully funded study abroad · official links only", font=font("segoeui.ttf", 30), fill=DIM)
 # a departures-board strip
 y0 = 460
 d.rounded_rectangle([80, y0, W - 80, y0 + 110], radius=14, fill=CARD, outline=LINE, width=2)
