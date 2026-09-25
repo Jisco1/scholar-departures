@@ -21,7 +21,6 @@
     </div>
     <div class="eyebrow">Europe · USA · Canada — verified funding</div>
     <h1 id="title">Scholar Departures</h1>
-    <p class="sub" id="subline">{{N_ROUTES}} universities and programmes where tuition is free, fully funded, or fee-waived for international students. Every route has a plain-English page, and every button goes to the official source.</p>
     <div class="stats">
       <div class="stat"><b data-count id="statRoutes">{{N_ROUTES}}</b><span>Funded routes</span></div>
       <div class="stat"><b data-count id="statCountries">{{N_COUNTRIES}}</b><span>Countries</span></div>
@@ -45,7 +44,6 @@
       <div id="boardBody"></div>
     </div>
   </div>
-  <div class="board-note">Live · recalculated against today · tap a row to find it below</div>
   <button type="button" class="board-more" id="boardMore" aria-expanded="false" hidden></button>
 </section>
 
@@ -99,15 +97,6 @@
   <nav class="pager" id="gridPager" aria-label="Route pages"><a class="pager-all" href="routes/">See all {{N_ROUTES}} funded routes by country &rarr;</a></nav>
 </div>
 
-<!-- ——— How it works: plain text, so the ad bay below never sits against a control ——— -->
-<section class="wrap howto" aria-labelledby="howto-h">
-  <h2 id="howto-h" class="section-tag">How to use this board</h2>
-  <div class="howto-cols">
-    <div><h3>1 · Find routes you qualify for</h3><p>Filter by region, level and field. A <b>university</b> route means the school itself waives tuition or funds you; a <b>programme</b> is an award you win first and take to a school that admits you.</p></div>
-    <div><h3>2 · Read the route page</h3><p>Every card links to its own page: what the money covers, who can apply, the steps, and the traps people miss — each checked against the official source and dated.</p></div>
-    <div><h3>3 · Plan backwards from the deadline</h3><p>Save routes to your shortlist, compare them side by side, and export deadlines or a week-by-week plan to your calendar. Submit early — portals slow down on the last day.</p></div>
-  </div>
-</section>
 
 {{AD_HOME}}
 
@@ -121,7 +110,6 @@
 <!-- ——— Schools directory ——— -->
 <div class="wrap directory" id="directory">
   <h2 class="section-tag">Schools directory</h2>
-  <p class="dir-intro">Every school below links straight to its <b>official website</b> so you can apply directly — whether or not it offers funding. Schools tagged <b style="color:var(--brass)">Funded</b> also have a verified route above; tap the tag to jump to it.</p>
   <div class="dir-head">
     <div class="searchbox">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -137,10 +125,3 @@
 <div class="modal-back" id="modalBack"><div class="modal" id="modalBox" role="dialog" aria-modal="true"></div></div>
 <div id="toast" role="status" aria-live="polite"></div>
 
-<section class="wrap home-notes" aria-label="How to read the board">
-  <p>Deadlines shown are each programme's typical annual window — always confirm on the official page, since cycles shift slightly every year. Data last checked {{LAST_CHECK}}; read <a href="editorial-policy/">how we verify</a>.</p>
-  <p>Deadline status is computed live against today's date: <span class="a">Approaching</span> means the next typical deadline falls within 120 days; <span class="c">Closed</span> means this cycle's window has passed (or hasn't opened yet) and shows when it next comes around. A ≈ marks programmes whose exact date varies by course or country; <span style="color:#7FD1AE">Rolling</span> means positions open year-round with no fixed close date.</p>
-  <p>Your bookmarked shortlist is stored only in this browser, so it's still here when you come back — nothing is sent to us.</p>
-  <p><b>All fields</b> on a card means the route accepts any discipline — the fields listed are simply where that school or programme is strongest. <b>Specific fields</b> means eligibility genuinely narrows to those areas; when you filter by field, those specialists are listed first.</p>
-  <p>Deliberately left out as tuition-free: Norway's public universities (non-EU/EEA tuition since 2023 — though from 2026–27 each Norwegian university may set its own fee policy, so check yours), TU Munich (non-EU fees since winter 2024) Baden-Württemberg's state universities (€1,500 per semester for non-EU students) and, from autumn 2027, bachelor's and master's study in Iceland for non-EEA students — the most common "free tuition in Europe" myths still circulating.</p>
-</section>

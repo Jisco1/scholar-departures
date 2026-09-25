@@ -7,7 +7,8 @@
      filter panel and a shorter intro. Rotating the phone re-checks it. */
   var PHONE_MQ = window.matchMedia("(max-width: 640px)");
   var PHONE = PHONE_MQ.matches;
-  var BOARD_PHONE_ROWS = 5;
+  var BOARD_PHONE_ROWS = 5;    // must match the nth-child(n+6) rule in app.css
+  var BOARD_DESKTOP_ROWS = 8;  // must match the nth-child(n+9) rule in app.css
 
   var SCHOOLS = window.SCHOLAR_DATA || [];
   var DIR = window.SCHOLAR_SCHOOLS || [];
@@ -376,21 +377,12 @@
       return [];
     }
     return boardData.map(function (s) {
-      var row = document.createElement("div");
+      var row = document.createElement("a");
       row.className = "brow r";
-      row.setAttribute("role", "button");
-      row.setAttribute("tabindex", "0");
+      row.href = "routes/" + s.slug + "/";
       ["route", "country", "closes", "days"].forEach(function (cls) {
         var c = document.createElement("span"); c.className = cls; row.appendChild(c);
       });
-      function go() {
-        state.q = s.name;
-        document.getElementById("q").value = s.name;
-        render();
-        document.getElementById("controls").scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "start" });
-      }
-      row.addEventListener("click", go);
-      row.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
       boardBody.appendChild(row);
       return { row: row, s: s };
     });
@@ -417,18 +409,22 @@
     boardFlipped = true;
     boardRows.forEach(function (item, r) { paintBoardRow(item, r * (PHONE ? 90 : 130)); });
   }
-  /* On a phone the board shows the soonest few; the rest are one tap away. */
+  /* The board shows the soonest few (8, or 5 on a phone); the rest are one tap away. */
+  var boardMoreUpdate = function () {};
   (function boardMoreButton() {
     var board = document.querySelector(".board");
     var more = document.getElementById("boardMore");
-    if (!board || !more || boardRows.length <= BOARD_PHONE_ROWS) return;
+    if (!board || !more) return;
     function setOpen(open) {
       board.classList.toggle("expanded", open);
       more.setAttribute("aria-expanded", String(open));
       more.textContent = open ? "Show fewer departures" : "Show all " + boardRows.length + " departures";
     }
+    boardMoreUpdate = function () {
+      more.hidden = boardRows.length <= (PHONE ? BOARD_PHONE_ROWS : BOARD_DESKTOP_ROWS);
+    };
     setOpen(false);
-    more.hidden = false;
+    boardMoreUpdate();
     more.addEventListener("click", function () {
       var open = !board.classList.contains("expanded");
       setOpen(open);
@@ -452,7 +448,7 @@
     });
   }, { threshold: 0.12, rootMargin: "0px 0px -4% 0px" });
 
-  [".depart-head", ".board", ".section-tag", ".fieldbar", ".controls", ".home-notes"].forEach(function (sel) {
+  [".depart-head", ".board", ".section-tag", ".fieldbar", ".controls"].forEach(function (sel) {
     document.querySelectorAll(sel).forEach(function (el) { revealIO.observe(el); });
   });
 
@@ -519,6 +515,7 @@
     PHONE = PHONE_MQ.matches;
     if (boardFlipped) boardRows.forEach(function (item) { paintBoardRow(item, 0); });
     if (!PHONE) setFiltersOpen(false);
+    boardMoreUpdate();
   }
   if (PHONE_MQ.addEventListener) PHONE_MQ.addEventListener("change", onPhoneChange);
   else if (PHONE_MQ.addListener) PHONE_MQ.addListener(onPhoneChange);
@@ -531,46 +528,19 @@
     render();
   }
 
-  document.getElementById("subline").textContent =
-    SCHOOLS.length + " universities and programmes where tuition is free, fully funded, or fee-waived for international students. Every route has a plain-English page, and every button goes to the official source.";
 
   /* ============ cards ============ */
   function cardHTML(s, idx) {
     var isSaved = state.saved.has(s.name);
-    var chipText = s.tbc
-      ? "Next call not yet announced"
-      : s.status === "rolling"
-      ? "Rolling · open year-round"
-      : s.status === "approaching"
-      ? "Due " + (s.approx ? "≈ " : "") + "in " + s.daysUntil + " day" + (s.daysUntil === 1 ? "" : "s")
-      : "Closed · next " + (s.approx ? "≈ " : "") + (s.nextDate ? fmtDate(s.nextDate, true) : "—");
-    var stamps = (s.types || []).map(function (t, i) {
-      var col = TYPE_COLORS[t] || "#D7A94C";
-      var rot = (i % 2 ? 1.6 : -1.6) + "deg";
-      return '<span class="stamp" style="color:' + col + ";border-color:" + col + ";--rot:" + rot + ";--si:" + i + '">' + esc(t) + "</span>";
-    }).join("");
     var d = Math.min(idx, 9) * 45;
     var pop = lastToggled === s.name ? " pop" : "";
-    return '<article class="card' + (isSaved ? " saved" : "") + '" style="--d:' + d + 'ms" data-name="' + esc(s.name) + '">' +
-      '<div class="card-top"><div class="country">' + esc(s.flag) + " " + esc(s.country) + " · " + (s.kind === "program" ? "PROGRAMME" : "UNIVERSITY") + "</div>" +
-      '<div class="stamps">' + stamps + "</div></div>" +
+    return '<article class="card slim' + (isSaved ? " saved" : "") + '" style="--d:' + d + 'ms" data-name="' + esc(s.name) + '">' +
+      '<div class="country">' + esc(s.flag) + " " + esc(s.country) + "</div>" +
       '<h3><a class="card-title" href="routes/' + esc(s.slug) + '/">' + esc(s.name) + "</a></h3>" +
-      '<p class="funding">' + esc(s.funding) + "</p>" +
-      '<a class="more-link" href="routes/' + esc(s.slug) + '/">Eligibility, costs &amp; how to apply <span aria-hidden="true">\u2192</span></a>' +
-      '<div class="card-bottom"><div class="meta">' +
-      '<span class="chip ' + s.status + '">' + esc(chipText) + "</span>" +
-      '<span class="line">' + I.cal + " " + esc(s.deadline) + "</span>" +
-      '<span class="line">' + I.cap + " " + esc((s.levels || []).join(" · ")) + "</span>" +
-      '<span class="line fieldline"><span class="fscope' + (s.scope === "limited" ? " lim" : "") + '">' +
-        (s.scope === "limited" ? "Specific fields" : "All fields") + "</span> " +
-        esc((s.fields || []).slice(0, 3).map(function (f) { return f.split(" ")[0].replace("&", ""); }).join(" · ")) + "</span>" +
-      (s.last_verified ? '<span class="line">' + I.check + " Verified " + esc(fmtVerified(s.last_verified)) + "</span>" : "") +
-      "</div>" +
-      '<div class="actions">' +
-      '<button class="planbtn" data-plan="' + esc(s.name) + '" title="Generate an application timeline" aria-label="Application plan">' + I.calplus + '<span class="lockdot">' + I.lock + "</span></button>" +
-      '<button class="bookmark' + (isSaved ? " saved" : "") + pop + '" data-save="' + esc(s.name) + '" aria-label="' + (isSaved ? "Remove from shortlist" : "Save to shortlist") + '">' + (isSaved ? I.bmFill : I.bm) + "</button>" +
-      '<a class="apply" href="' + esc(safeUrl(s.link)) + '" target="_blank" rel="noopener noreferrer">Official page ' + I.ext + "</a>" +
-      "</div></div></article>";
+      '<span class="card-go" aria-hidden="true">\u2192</span>' +
+      '<button class="bookmark' + (isSaved ? " saved" : "") + pop + '" data-save="' + esc(s.name) + '" aria-label="' +
+        (isSaved ? "Remove from shortlist" : "Save to shortlist") + '">' + (isSaved ? I.bmFill : I.bm) + "</button>" +
+      "</article>";
   }
 
   /* ============ render ============ */
@@ -627,8 +597,8 @@
         var g = s.kind === "program" ? "program" : "school";
         if (grouped && g !== group) {
           html += g === "school"
-            ? '<div class="grid-sep">Universities — funding from the school itself</div>'
-            : '<div class="grid-sep">Funding programmes — awards you take to a school</div>';
+            ? '<div class="grid-sep">Universities</div>'
+            : '<div class="grid-sep">Scholarship programmes</div>';
           group = g;
         }
         html += cardHTML(s, i);
@@ -653,14 +623,8 @@
     });
 
     var range = rangeText(pg);
-    document.getElementById("count").innerHTML =
-      (!out.length
-        ? "No matching routes · " + SCHOOLS.length + " funded routes · "
-        : hasFilters
-        ? "Showing " + range + " of " + out.length + " matching · " + SCHOOLS.length + " funded routes · "
-        : "Showing " + range + " of " + SCHOOLS.length + " funded routes · ") + countriesN + " countries · " +
-      '<span class="approaching-count">' + approaching.length + " approaching</span>" +
-      (state.field ? ' · <span style="color:var(--brass)">' + out.filter(function (x) { return x.scope === "limited"; }).length + " field-specific</span>" : "");
+    document.getElementById("count").textContent = !out.length ? "No matching routes"
+      : hasFilters ? range + " of " + out.length + " matching" : range + " of " + SCHOOLS.length + " routes";
 
     document.getElementById("clearBtn").hidden = !hasFilters;
     var panelCount = [state.region !== "All", state.level !== "All levels", state.kind !== "All kinds",
@@ -757,12 +721,8 @@
   }
 
   /* ============ schools directory ============ */
-  function atlasJump(name) {
-    state.q = name;
-    document.getElementById("q").value = name;
-    render();
-    document.getElementById("controls").scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "start" });
-  }
+  var SLUG_BY_NAME = {};
+  SCHOOLS.forEach(function (s) { SLUG_BY_NAME[s.name] = s.slug; });
   var dirState = { q: "", region: "All", page: 1 };
   var lastDirKey = "";
   var dirSorted = DIR.slice().sort(function (a, b) {
@@ -782,9 +742,8 @@
     document.getElementById("dirQ").addEventListener("input", function (e) { dirState.q = e.target.value; renderDir(); });
   })();
   function dirRowHTML(s, i) {
-    var chip = s.atlasName
-      ? '<button class="dchip" data-atlas="' + esc(s.atlasName) + '" title="This school has a verified funded route in the atlas above">Funded</button>'
-      : "";
+    var slug = s.atlasName && SLUG_BY_NAME[s.atlasName];
+    var chip = slug ? '<a class="dchip" href="routes/' + esc(slug) + '/" title="Open this school\u2019s funded route">Funded</a>' : "";
     return '<div class="dir-row" style="--d:' + (i % 14) * 25 + 'ms">' +
       '<span class="dname">' + esc(s.flag) + " " + esc(s.name) + "</span>" +
       '<span class="dloc">' + esc(s.city) + " \u00B7 " + esc(s.country) + "</span>" +
@@ -811,15 +770,9 @@
       ? out.slice(pg.start, pg.end).map(dirRowHTML).join("")
       : '<div class="dir-empty">No schools match — try a country name like \u201CCanada\u201D.</div>';
     list.querySelectorAll(".dir-row").forEach(function (r) { revealIO.observe(r); });
-    list.querySelectorAll("[data-atlas]").forEach(function (b) {
-      b.addEventListener("click", function () { atlasJump(b.getAttribute("data-atlas")); });
-    });
     var range = rangeText(pg);
-    document.getElementById("dirCount").textContent = !out.length
-      ? "No matching schools \u00B7 " + DIR.length + " schools in the directory"
-      : (needle || dirState.region !== "All")
-      ? "Showing " + range + " of " + out.length + " matching \u00B7 " + DIR.length + " schools in the directory"
-      : "Showing " + range + " of " + DIR.length + " schools \u00B7 " + dirCountries + " countries";
+    document.getElementById("dirCount").textContent = !out.length ? "No matching schools"
+      : (needle || dirState.region !== "All") ? range + " of " + out.length + " matching" : range + " of " + DIR.length + " schools";
     renderPager(document.getElementById("dirPager"), pg, function (p) {
       dirState.page = p;
       renderDir();

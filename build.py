@@ -406,23 +406,15 @@ def build_home(routes, schools, guides, countries):
         "purchaseUrl": (CONFIG.get("premium") or {}).get("purchase_url", "")}}).replace("</", "<\\/")
 
     def card(r):
-        nd, days, status = next_deadline(r)
-        stamps = "".join(f'<span class="stamp" style="color:{TYPE_COLORS[t]};border-color:{TYPE_COLORS[t]};--rot:{"1.6deg" if i % 2 else "-1.6deg"};--si:{i}">{e(t)}</span>'
-                         for i, t in enumerate(r["types"]))
-        return (f'<article class="card in ready"><div class="card-top"><div class="country">{e(r["flag"])} {e(r["country"])} · '
-                f'{"PROGRAMME" if r["kind"] == "program" else "UNIVERSITY"}</div><div class="stamps">{stamps}</div></div>'
-                f'<h3><a class="card-title" href="routes/{r["slug"]}/">{e(r["name"])}</a></h3><p class="funding">{e(r["funding"])}</p>'
-                f'<a class="more-link" href="routes/{r["slug"]}/">Eligibility, costs &amp; how to apply <span aria-hidden="true">→</span></a>'
-                f'<div class="card-bottom"><div class="meta">{status_chip(r)}<span class="line">{e(r["deadline"])}</span>'
-                f'<span class="line">{e(" · ".join(r["levels"]))}</span></div>'
-                f'<div class="actions"><a class="apply" href="{e(r["link"])}" target="_blank" rel="noopener noreferrer">Official page {EXT}</a></div></div></article>')
+        return (f'<article class="card slim in ready"><div class="country">{e(r["flag"])} {e(r["country"])}</div>'
+                f'<h3><a class="card-title" href="routes/{r["slug"]}/">{e(r["name"])}</a></h3>'
+                f'<span class="card-go" aria-hidden="true">→</span></article>')
 
     uni = [r for r in routes if r["kind"] != "program"]
     prog = [r for r in routes if r["kind"] == "program"]
     first = (uni + prog)[:PER_PAGE_ALL]  # the board's first page; the rest arrive through the pager
     grid = ""
-    for kind, label in (("school", "Universities — funding from the school itself"),
-                        ("program", "Funding programmes — awards you take to a school")):
+    for kind, label in (("school", "Universities"), ("program", "Scholarship programmes")):
         cards = [r for r in first if (r["kind"] == "program") == (kind == "program")]
         if cards:
             grid += f'<div class="grid-sep">{label}</div>' + "".join(map(card, cards))
@@ -435,7 +427,7 @@ def build_home(routes, schools, guides, countries):
     featured = [g for g in guides if g.get("featured")][:6] or guides[:6]
     guide_tiles = "".join(
         f'<a class="tile" href="guides/{g["slug"]}/"><span class="tile-kicker">{e(g.get("kicker", "Guide"))}</span><h3>{e(g["title"])}</h3>'
-        f'<p>{e(g["description"])}</p><span class="more">Read the guide →</span></a>' for g in featured)
+        f'<span class="more">Read →</span></a>' for g in featured)
     country_links = " · ".join(f'<a href="countries/{slug}/">{e(c["name"])}</a>' for slug, c in countries)
     body = (tpl.replace("{{CONFIG_JSON}}", config_json)
             .replace("{{GRID}}", grid)

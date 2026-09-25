@@ -108,7 +108,7 @@ class BuiltSite(unittest.TestCase):
     def test_home_prerenders_first_page_only(self):
         # the static page must match what the script shows first, or the page jumps on load
         html = (self.site / "index.html").read_text(encoding="utf-8")
-        self.assertEqual(html.count('class="card in ready"'), 6)
+        self.assertEqual(html.count('class="card slim in ready"'), 6)
         self.assertEqual(html.count('class="dir-row in"'), 10)
         self.assertIn('id="gridPager"', html)
         self.assertIn('id="dirPager"', html)
@@ -126,7 +126,12 @@ class BuiltSite(unittest.TestCase):
         self.assertIsNotNone(js_bp, "phone breakpoint missing from app.js")
         self.assertIn(f"@media (max-width: {js_bp.group(1)}px) {{\n  /* hero", css, "app.js and app.css disagree on the phone breakpoint")
         # phone-only controls stay out of the desktop layout
-        self.assertIn(".filtersbtn, .flabel, .panelfoot, .board-more { display: none; }", css)
+        self.assertIn(".filtersbtn, .flabel, .panelfoot { display: none; }", css)
+        # the board's row limits in the script match the stylesheet (8 on desktop, 5 on phones)
+        rows = {k: int(v) for k, v in re.findall(r"var (BOARD_\w+_ROWS) = (\d+);", js)}
+        self.assertEqual(rows, {"BOARD_PHONE_ROWS": 5, "BOARD_DESKTOP_ROWS": 8})
+        self.assertIn("#boardBody > .brow.r:nth-child(n+%d)" % (rows["BOARD_DESKTOP_ROWS"] + 1), css)
+        self.assertIn("#boardBody > .brow.r:nth-child(n+%d)" % (rows["BOARD_PHONE_ROWS"] + 1), css)
         # 16px text in fields on touch screens, or iPhones zoom the page when you tap them
         coarse = css[css.index("@media (pointer: coarse) {"):]
         coarse = coarse[:coarse.index("\n}\n")]

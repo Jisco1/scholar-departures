@@ -383,9 +383,15 @@ body.premium .lockdot { display: none; }
 @media (max-width: 360px) { .pager { gap: 3px; } .pager button { min-width: 29px; padding: 0 5px; font-size: 11px; } .pager .pg-gap { padding: 0; } }
 
 /* ——— Phones and touch screens ———
-   Everything below applies only to narrow or touch screens; the desktop layout is unchanged. */
+   Everything below applies only to narrow or touch screens, except the board's "Show all" button. */
 #typePills { display: contents; }
-.filtersbtn, .flabel, .panelfoot, .board-more { display: none; }
+.filtersbtn, .flabel, .panelfoot { display: none; }
+/* the board shows the soonest eight (five on phones); the rest are one tap away */
+.board:not(.expanded) #boardBody > .brow.r:nth-child(n+9) { display: none; }
+.board-more { display: block; width: 100%; margin-top: 10px; min-height: 44px; border: 1px solid var(--line); border-radius: 10px;
+  background: var(--card); color: var(--brass); font-size: 14px; font-weight: 600; transition: border-color .15s; }
+.board-more:hover { border-color: var(--brass); }
+.board-more[hidden] { display: none; }
 .filtersbtn { align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 0 14px;
   border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--text); font-size: 14px; font-weight: 600; }
 .filtersbtn .fcount { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; padding: 0 6px;
@@ -435,9 +441,6 @@ body.premium .lockdot { display: none; }
   .brow .closes { display: none; }
   .brow .days { grid-area: days; font-size: 14px; }
   .board:not(.expanded) #boardBody > .brow.r:nth-child(n+6) { display: none; }
-  .board-more { display: block; width: 100%; margin-top: 10px; min-height: 44px; border: 1px solid var(--line); border-radius: 10px;
-    background: var(--card); color: var(--brass); font-size: 14px; font-weight: 600; }
-  .board-more[hidden] { display: none; }
   .board-note { text-align: left; letter-spacing: .16em; }
 
   /* board rows read as sentences, not the desktop's capitals */
@@ -499,3 +502,18 @@ body.premium .lockdot { display: none; }
   .licrow { flex-direction: column; }
   #toast { bottom: calc(22px + env(safe-area-inset-bottom)); max-width: calc(100% - 32px); }
 }
+
+/* ——— Slim route cards: the school only; the whole card opens its page ——— */
+.card.slim { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "country save" "title go";
+  align-items: center; gap: 6px 12px; padding: 18px 20px; }
+.card.slim .country { grid-area: country; padding-top: 0; }
+.card.slim h3 { grid-area: title; font-size: 20px; line-height: 1.3; }
+.card.slim .card-title { color: inherit; text-decoration: none; }
+.card.slim .card-title::after { content: ""; position: absolute; inset: 0; border-radius: 12px; z-index: 1; }
+.card.slim .card-title:focus-visible { outline: none; }
+.card.slim:has(.card-title:focus-visible) { outline: 2px solid var(--brass); outline-offset: 2px; }
+.card.slim .card-go { grid-area: go; justify-self: end; color: var(--brass); font-size: 18px; transition: transform .2s; }
+.card.slim:hover .card-go { transform: translateX(4px); }
+.card.slim:hover h3 { color: var(--brass); }
+.card.slim .bookmark { grid-area: save; justify-self: end; position: relative; z-index: 2; padding: 6px; }
+.brow.r { color: inherit; text-decoration: none; }
