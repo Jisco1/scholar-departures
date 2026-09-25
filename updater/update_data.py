@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Scholar Departures — automatic data updater.
+DegreeStep — automatic data updater.
 
 What it does, in order, for every route in data/data.json:
   1. Fetches the official page (the route's `check_url`, falling back to `link`).
@@ -54,7 +54,7 @@ CONFIDENCE_THRESHOLD = 0.8
 FETCH_TIMEOUT = 25
 MAX_PAGE_CHARS = 12000
 USER_AGENT = (
-    "Mozilla/5.0 (compatible; ScholarDeparturesBot/1.0; +https://scholardepartures.com/editorial-policy/; "
+    "Mozilla/5.0 (compatible; DegreeStepBot/1.0; +https://degreestep.com/editorial-policy/; "
     "+deadline verification for a free scholarship directory)"
 )
 

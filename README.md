@@ -1,6 +1,6 @@
-# Scholar Departures
+# DegreeStep
 
-Source for [scholardepartures.com](https://scholardepartures.com): tuition-free universities and
+Source for [degreestep.com](https://degreestep.com): tuition-free universities and
 fully funded scholarships for international students in Europe, the USA and Canada, with a live
 deadline board, a page for every route, country guides and application guides.
 

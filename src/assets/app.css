@@ -346,7 +346,7 @@ body.premium .lockdot { display: none; }
   .seal, .eyebrow, .sub, .stats, .cue, h1 .l, .card, .stamp, .controls, .board, .depart-head, .section-tag, .home-notes, .empty, .dir-row, .heronav, .fieldbar { opacity: 1 !important; transform: none !important; }
 }
 
-/* ——— Additions for Scholar Departures ——— */
+/* ——— Additions for DegreeStep ——— */
 .section-tag, .depart-title { font-weight: 400; }
 .card h3 .card-title { color: inherit; text-decoration: none; }
 .card h3 .card-title:hover { color: var(--brass); }

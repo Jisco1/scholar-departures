@@ -211,7 +211,7 @@
     if (pre) pre.remove();
     document.body.classList.add("loaded");
   } else {
-    flap(document.getElementById("preBoard"), "SCHOLAR DEPARTURES", PHONE ? 60 : 120);
+    flap(document.getElementById("preBoard"), "DEGREESTEP", PHONE ? 60 : 120);
     setTimeout(liftPreloader, PHONE ? 1000 : 1650);
     pre.addEventListener("click", liftPreloader);
   }
@@ -832,7 +832,7 @@
   }
   function unlockModal(prefillMsg) {
     openModal(
-      mhead("Scholar Departures Premium") +
+      mhead("DegreeStep Premium") +
       '<p class="msub">One license, three power tools for serious applicants:</p>' +
       '<div class="featlist">' +
       '<div>' + I.calplus + '<span><b>Calendar sync</b> \u2014 every saved deadline as a calendar file with 30 / 14 / 7 / 1-day reminder alarms built in. One tap into Google Calendar or your phone.</span></div>' +
@@ -841,7 +841,7 @@
       "</div>" +
       '<div class="licrow"><input id="licInput" type="text" placeholder="Paste your license key" autocomplete="off" maxlength="80" /><button class="btn-brass" id="licGo">Unlock</button></div>' +
       '<div class="licstatus" id="licStatus">' + esc(prefillMsg || "") + "</div>" +
-      '<p class="getkey">No key yet? <a href="' + esc(safeUrl(PREMIUM.purchaseUrl)) + '" target="_blank" rel="noopener noreferrer">Get Scholar Departures Premium \u2192</a></p>'
+      '<p class="getkey">No key yet? <a href="' + esc(safeUrl(PREMIUM.purchaseUrl)) + '" target="_blank" rel="noopener noreferrer">Get DegreeStep Premium \u2192</a></p>'
     );
     var input = modalBox.querySelector("#licInput");
     var status = modalBox.querySelector("#licStatus");
@@ -896,10 +896,10 @@
     var stamp = new Date();
     var dtstamp = stamp.getUTCFullYear() + pad2(stamp.getUTCMonth() + 1) + pad2(stamp.getUTCDate()) +
       "T" + pad2(stamp.getUTCHours()) + pad2(stamp.getUTCMinutes()) + pad2(stamp.getUTCSeconds()) + "Z";
-    var lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Scholar Departures//EN", "CALSCALE:GREGORIAN"];
+    var lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//DegreeStep//EN", "CALSCALE:GREGORIAN"];
     events.forEach(function (ev, i) {
       lines.push("BEGIN:VEVENT",
-        "UID:sd-" + Date.now() + "-" + i + "@scholardepartures.com",
+        "UID:sd-" + Date.now() + "-" + i + "@degreestep.com",
         "DTSTAMP:" + dtstamp,
         "DTSTART;VALUE=DATE:" + icsDate(ev.date),
         "SUMMARY:" + icsEsc(ev.title),
@@ -928,7 +928,7 @@
       return { date: s.nextDate, title: "Deadline: " + s.name,
                desc: s.funding + " \u2014 " + s.deadline + (s.approx ? " (date varies \u2014 confirm on the official page)" : ""),
                url: s.link, alarms: [30, 14, 7, 1] };
-    }), "scholar-departures-deadlines.ics");
+    }), "degreestep-deadlines.ics");
     toast(picked.length + " deadline" + (picked.length === 1 ? "" : "s") + " exported with reminders.");
   }
 

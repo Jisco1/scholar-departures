@@ -59,7 +59,7 @@ jobs:
 
       - name: Commit refreshed data
         run: |
-          git config user.name "scholar-departures-bot"
+          git config user.name "degreestep-bot"
           git config user.email "actions@github.com"
           git add data/
           if git diff --cached --quiet; then

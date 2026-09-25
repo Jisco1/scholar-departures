@@ -15,7 +15,7 @@ from pathlib import Path
 
 SITE = Path(sys.argv[1] if len(sys.argv) > 1 else Path(__file__).resolve().parent.parent / "_site")
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140 Safari/537.36"
-SKIP = ("https://scholardepartures.com", "https://www.google.com/settings", "https://adssettings.google.com")
+SKIP = ("https://degreestep.com", "https://jisco1.github.io/scholar-departures", "https://www.google.com/settings", "https://adssettings.google.com")
 
 pages = defaultdict(set)
 for f in SITE.rglob("*.html"):

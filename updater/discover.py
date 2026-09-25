@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Scholar Departures — discovery agent. Finds NEW funded routes, not just fresh
+DegreeStep — discovery agent. Finds NEW funded routes, not just fresh
 deadlines for existing ones.
 
 How it works each run:
@@ -100,7 +100,7 @@ ROTATING_QUERIES = [
     "Commonwealth scholarship developing countries fully funded UK masters",
 ]
 
-DISCOVERY_PROMPT = """You are the research agent for "Scholar Departures", a curated directory of funded study routes in Europe, the USA and Canada for international students. Search the web on this theme and find programmes that are NOT in the directory yet.
+DISCOVERY_PROMPT = """You are the research agent for "DegreeStep", a curated directory of funded study routes in Europe, the USA and Canada for international students. Search the web on this theme and find programmes that are NOT in the directory yet.
 
 Theme: {query}
 

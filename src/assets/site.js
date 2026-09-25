@@ -1,4 +1,4 @@
-/* Scholar Departures — shared behaviour for every page.
+/* DegreeStep — shared behaviour for every page.
    1. Live deadline chips and timelines: pages are built with today's status
       baked in; this recomputes it against the visitor's own date.
    2. Ads: each labelled bay asks AdSense for its ad only when the reader

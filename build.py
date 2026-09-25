@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Build the Scholar Departures website into _site/.
+Build the DegreeStep website into _site/.
 
 Standard library only, so it runs the same on a laptop and in GitHub Actions:
 
@@ -395,7 +395,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
 <body class="{body_class}">
 <a class="skip" href="#main">Skip to content</a>
 <header class="topbar"><div class="wrap">
-  <a class="brand" href="{root or './'}" aria-label="{e(SITE)} home"><span class="brand-mark">{SEAL}</span><span class="brand-name">Scholar <b>Departures</b></span></a>
+  <a class="brand" href="{root or './'}" aria-label="{e(SITE)} home"><span class="brand-mark">{SEAL}</span><span class="brand-name">Degree<b>Step</b></span></a>
   {nav_html}
 </div></header>
 <main id="main">
@@ -404,7 +404,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
 <footer class="sitefoot"><div class="wrap">
   <div class="foot-grid">
     <div class="foot-brand">
-      <a class="brand" href="{root or './'}"><span class="brand-mark">{SEAL}</span><span class="brand-name">Scholar <b>Departures</b></span></a>
+      <a class="brand" href="{root or './'}"><span class="brand-mark">{SEAL}</span><span class="brand-name">Degree<b>Step</b></span></a>
       <p>Free, independent listings of tuition-free universities and fully funded scholarships, each checked against its official page. We are not affiliated with any university or scholarship provider.</p>
     </div>
     <div><h2>Explore</h2><ul>
@@ -495,7 +495,7 @@ def build_home(routes, schools, guides, countries):
                "description": CONFIG["tagline"]},
               {"@context": "https://schema.org", "@type": "Organization", "name": SITE, "url": BASE,
                "logo": BASE + "assets/apple-touch-icon.png", "email": CONFIG["contact_email"]}]
-    title = f"{SITE} — Tuition-Free & Fully Funded Universities in Europe, the USA and Canada"
+    title = f"{SITE} — Tuition-Free & Fully Funded Study Abroad"
     desc = (f"{len(routes)} tuition-free universities and fully funded scholarships for international students in Europe, "
             f"the USA and Canada — live deadline countdowns, plain-English eligibility and links to the official pages.")
     write("", page("", title, desc, body, root=root, body_class="home", jsonld=jsonld,
@@ -794,7 +794,7 @@ def build_404():
 <p class="lede" style="margin:14px auto 28px">The page may have moved when a route was renamed. Try the full list or the live board.</p>
 <p><a class="btn btn-primary" href="{BASE}routes/">All funded routes</a> <a class="btn btn-line" href="{BASE}">Live board</a></p></div>"""
     # served at any depth, so links and assets are absolute
-    text = page("404.html", "Page not found", "The page you were looking for isn't on Scholar Departures — try the full list of funded routes or the live deadline board.",
+    text = page("404.html", "Page not found", "The page you were looking for isn't on DegreeStep — try the full list of funded routes or the live deadline board.",
                 body, root=BASE, noindex=True, ads=False)
     write("404.html", text)
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Scholar Departures — candidate approval CLI.
+DegreeStep — candidate approval CLI.
 
   python updater/approve.py --list           show pending candidates
   python updater/approve.py --approve 1,3    publish candidates #1 and #3
