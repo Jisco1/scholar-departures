@@ -181,19 +181,32 @@
   /* ============ kinetic headline ============ */
   (function splitTitle() {
     var h = document.getElementById("title");
-    var words = h.textContent.split(" ");
-    h.textContent = "";
+    h.setAttribute("aria-label", h.textContent.replace(/\s+/g, " ").trim());
     var idx = 0;
-    words.forEach(function (word, wi) {
-      var w = document.createElement("span"); w.className = "w";
-      word.split("").forEach(function (ch) {
-        var l = document.createElement("span"); l.className = "l";
-        l.style.setProperty("--i", idx++);
-        l.textContent = ch;
-        w.appendChild(l);
+    function split(text, into) {
+      text.split(/(\s+)/).forEach(function (part) {
+        if (!part) return;
+        if (/^\s+$/.test(part)) { into.appendChild(document.createTextNode(" ")); return; }
+        var w = document.createElement("span"); w.className = "w"; w.setAttribute("aria-hidden", "true");
+        part.split("").forEach(function (ch) {
+          var l = document.createElement("span"); l.className = "l";
+          l.style.setProperty("--i", idx++);
+          l.textContent = ch;
+          w.appendChild(l);
+        });
+        into.appendChild(w);
       });
-      h.appendChild(w);
-      if (wi < words.length - 1) h.appendChild(document.createTextNode(" "));
+    }
+    Array.prototype.slice.call(h.childNodes).forEach(function (node) {
+      if (node.nodeType === 3) {
+        var frag = document.createDocumentFragment();
+        split(node.textContent, frag);
+        h.replaceChild(frag, node);
+      } else if (node.nodeType === 1 && node.tagName !== "BR") {  // the gold <em>: split inside it
+        var text = node.textContent;
+        node.textContent = "";
+        split(text, node);
+      }
     });
   })();
 
