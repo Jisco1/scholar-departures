@@ -7,7 +7,7 @@
 
   "adsense": {
     "_help": "Leave client empty until AdSense gives you a publisher ID (ca-pub-...). With a client set, the build adds the AdSense tag, the site-verification meta tag and ads.txt. Slots are the numeric ad-unit IDs you create in AdSense > Ads > By ad unit; a bay whose slot is empty is not rendered.",
-    "client": "",
+    "client": "ca-pub-6851724780839114",
     "slots": {
       "between": "",
       "article": "",
