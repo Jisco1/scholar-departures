@@ -227,6 +227,9 @@ img, svg { max-width: 100%; }
 .rail .ad-bay { margin: 0; }
 .rail .ad-fill { min-height: 600px; }
 .ad-bay:has(ins[data-ad-status="unfilled"]) { display: none; }
+/* ads blocked (see site.js): no empty boxes, and the article takes the rail's width back */
+.ads-off .ad-bay, .ads-off .rail { display: none !important; }
+.ads-off .layout.has-rail { display: block; }
 .ad-bay.preview .ad-fill { display: grid; place-items: center; border-radius: 6px; background: repeating-linear-gradient(135deg, var(--tint) 0 10px, transparent 10px 20px); color: var(--faint); font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; text-align: center; padding: 16px; }
 @media print { .ad-bay, .rail { display: none !important; } }
 

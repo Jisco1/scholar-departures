@@ -80,6 +80,19 @@
     } else {
       slots.forEach(pushAd);
     }
+    // With an ad blocker, adsbygoogle.js never runs and the bays would stay as labelled blanks.
+    // Fold them away after 8 s; unfold if the script turns up late on a slow connection.
+    var root = document.documentElement, waited = 0;
+    var watch = setInterval(function () {
+      waited += 500;
+      if (window.adsbygoogle && window.adsbygoogle.loaded) {
+        root.classList.remove("ads-off");
+        clearInterval(watch);
+        return;
+      }
+      if (waited >= 8000) root.classList.add("ads-off");
+      if (waited >= 30000) clearInterval(watch);
+    }, 500);
   }
 
   /* ---- menu: close on a tap outside it, on Escape, or once a link is chosen ---- */

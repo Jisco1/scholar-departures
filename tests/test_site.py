@@ -250,6 +250,11 @@ class AdsWired(unittest.TestCase):
         self.assertIn('querySelectorAll("ins[data-sd-ad]")', js)
         # a bay becomes visible to Google only at its own turn, the moment before its push
         self.assertRegex(js, r'ins\.classList\.add\("adsbygoogle"\);\s*try \{ \(window\.adsbygoogle = window\.adsbygoogle \|\| \[\]\)\.push\(\{\}\)')
+        # an ad blocker must not leave labelled empty boxes behind
+        self.assertIn("window.adsbygoogle.loaded", js)
+        self.assertIn('root.classList.add("ads-off")', js)
+        css = (self.site / "assets" / "site.css").read_text(encoding="utf-8")
+        self.assertIn(".ads-off .ad-bay, .ads-off .rail { display: none !important; }", css)
         for path in self.site.rglob("*.html"):
             self.assertNotRegex(path.read_text(encoding="utf-8"), r'<ins[^>]*class="[^"]*\badsbygoogle\b',
                                 f"{path.name}: a bay built as ins.adsbygoogle can be filled by another bay's request")
