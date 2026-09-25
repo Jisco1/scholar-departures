@@ -39,7 +39,74 @@
     {
       "title": "Knight-Hennessy Scholars",
       "url": "https://knight-hennessy.stanford.edu/"
+    },
+    {
+      "title": "Knight-Hennessy Scholars — Preparing your applications",
+      "url": "https://knight-hennessy.stanford.edu/admission/preparing-your-applications"
+    },
+    {
+      "title": "Knight-Hennessy Scholars — Video statement (by invitation)",
+      "url": "https://knight-hennessy.stanford.edu/admission/after-you-apply/video-statement-invitation"
+    },
+    {
+      "title": "Knight-Hennessy Scholars — FAQs",
+      "url": "https://knight-hennessy.stanford.edu/admission/faqs-frequently-asked-questions"
+    },
+    {
+      "title": "U.S. Immigration and Customs Enforcement — I-901 SEVIS fee",
+      "url": "https://www.ice.gov/sevis/i901"
+    },
+    {
+      "title": "Boston University ISSO — Visa integrity fee (with the $185 visa fee)",
+      "url": "https://www.bu.edu/isso/2026/05/19/visa-integrity-fee/"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Tuition for up to three years of graduate study",
+      "The scholarship"
+    ],
+    [
+      "Living and academic expenses",
+      "The scholarship stipend"
+    ],
+    [
+      "One trip a year to and from Stanford",
+      "The travel stipend"
+    ],
+    [
+      "Knight-Hennessy application",
+      "Free — there is no application fee"
+    ],
+    [
+      "Your Stanford degree programme's application fee",
+      "You — pay it when you apply to the programme"
+    ],
+    [
+      "US student visa: $185 application fee and $350 SEVIS fee, plus a new $250 visa integrity fee that some embassies now charge",
+      "You, before you travel"
+    ]
+  ],
+  "documents": [
+    "The Knight-Hennessy online application form and a résumé",
+    "Transcripts, and any test scores you have — you can apply without scores and add them later",
+    "Recommendation letters, submitted by your recommenders by 6 October 2026",
+    "Short answers and a personal essay reflecting on your life's journey",
+    "A video statement — only if invited; about 500 applicants are asked in January"
+  ],
+  "faq": [
+    {
+      "q": "Is there an application fee?",
+      "a": "Not for Knight-Hennessy. You still pay whatever fee your Stanford graduate programme charges when you submit that application."
+    },
+    {
+      "q": "Can I combine it with a Stanford MBA?",
+      "a": "Yes, but only the MBA's Round 1 deadline fits the Knight-Hennessy timeline — apply in Round 1."
+    },
+    {
+      "q": "Do I need test scores before I apply?",
+      "a": "No. You can submit the Knight-Hennessy application without scores and add new or updated scores after you submit."
+    }
+  ]
 }

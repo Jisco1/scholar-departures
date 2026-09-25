@@ -35,5 +35,48 @@
       "url": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-shared-scholarships/"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Tuition fees",
+      "Covered in full, by agreement between the CSC and your university"
+    ],
+    [
+      "Return airfare between home and the UK",
+      "The CSC"
+    ],
+    [
+      "Monthly stipend (£1,452, or £1,781 in London), plus thesis, warm-clothing and study-travel grants where they apply",
+      "Your university"
+    ],
+    [
+      "UK immigration health surcharge",
+      "You — the scholarship does not cover it"
+    ],
+    [
+      "Fares for family members",
+      "You — dependants' travel is not covered"
+    ]
+  ],
+  "documents": [
+    "Passport or national ID showing your photo, date of birth and citizenship",
+    "Full transcripts of all your higher education, including courses in progress, with certified translations if not in English",
+    "At least two signed references as PDFs, on institutional letterhead or with an email showing the sender's details",
+    "A clear case that you could not afford to study in the UK without the scholarship",
+    "Your application to the university for the eligible master's course, by its deadline"
+  ],
+  "faq": [
+    {
+      "q": "I have studied abroad before. Can I still apply?",
+      "a": "Only if you have not studied or worked for more than one academic year in a high-income country. The scheme is for people who have not had that opportunity."
+    },
+    {
+      "q": "Is there an age limit?",
+      "a": "No. The Commonwealth Shared Scholarships have no age limit."
+    },
+    {
+      "q": "Which countries are eligible?",
+      "a": "43 lower-income Commonwealth countries, including Ghana, Nigeria, Kenya, Uganda, Tanzania, Zambia, Malawi, Rwanda, Sierra Leone, The Gambia, Cameroon, India, Pakistan and Bangladesh. Check the CSC page for the full list each year."
+    }
+  ]
 }

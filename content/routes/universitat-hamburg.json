@@ -21,11 +21,84 @@
     "Individual programmes can override the general dates. The programme page always wins.",
     "Hamburg housing is expensive and competitive; start looking as soon as you apply."
   ],
-  "related": ["rwth-aachen-university", "freie-universitat-berlin", "daad-scholarships", "university-of-vienna"],
-  "sources": [
-    {"title": "Universität Hamburg — Applying", "url": "https://www.uni-hamburg.de/en/campuscenter/bewerbung.html"},
-    {"title": "Universität Hamburg — Semester contribution winter 2026/27", "url": "https://www.uni-hamburg.de/campuscenter/aktuelles/2026-07-23-semesterbeitrag-wise-2026.html"},
-    {"title": "Universität Hamburg — Semester contribution", "url": "https://www.uni-hamburg.de/en/campuscenter/studienorganisation/studienverlauf/beitraege-gebuehren/semesterbeitrag.html"}
+  "related": [
+    "rwth-aachen-university",
+    "freie-universitat-berlin",
+    "daad-scholarships",
+    "university-of-vienna"
   ],
-  "reviewed": "2026-09-24"
+  "sources": [
+    {
+      "title": "Universität Hamburg — Applying",
+      "url": "https://www.uni-hamburg.de/en/campuscenter/bewerbung.html"
+    },
+    {
+      "title": "Universität Hamburg — Semester contribution winter 2026/27",
+      "url": "https://www.uni-hamburg.de/campuscenter/aktuelles/2026-07-23-semesterbeitrag-wise-2026.html"
+    },
+    {
+      "title": "Universität Hamburg — Semester contribution",
+      "url": "https://www.uni-hamburg.de/en/campuscenter/studienorganisation/studienverlauf/beitraege-gebuehren/semesterbeitrag.html"
+    },
+    {
+      "title": "Universität Hamburg — Checklist for international master's enrolment, winter 2026/27 (PDF)",
+      "url": "https://www.uni-hamburg.de/en/campuscenter/studienorganisation/formulare-informationsmerkblaetter/checkliste-internationale-master.pdf"
+    },
+    {
+      "title": "Universität Hamburg — Fees and funding",
+      "url": "https://www.uni-hamburg.de/en/studium/campus-leben/finanzen.html"
+    },
+    {
+      "title": "Universität Hamburg — Getting health insurance",
+      "url": "https://www.uni-hamburg.de/en/internationales/studierende/incoming/studium-mit-abschluss/vor-studienbeginn/krankenversicherung-abschliessen.html"
+    },
+    {
+      "title": "German Federal Foreign Office — Visa fees",
+      "url": "https://www.germany.info/us-en/service/visa/visa-fee-923358"
+    }
+  ],
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Tuition",
+      "None for international degree students"
+    ],
+    [
+      "Semester contribution (€402 for winter 2026/27, including a public-transport pass for greater Hamburg)",
+      "You, every semester"
+    ],
+    [
+      "Health insurance — about €145 a month with a public insurer; students from outside the EU who are over 30 on arrival generally need private cover",
+      "You"
+    ],
+    [
+      "Living costs — about €1,000–€1,600 a month; a student-hall room is usually €350–€450",
+      "You. For the visa you must first prove €11,904 for your first year"
+    ],
+    [
+      "German national (student) visa",
+      "You — €75"
+    ]
+  ],
+  "documents": [
+    "Your online application in STiNE, with only the documents your programme asks for — paper documents sent by post are not considered",
+    "Proof of the language of instruction your programme requires (German for most bachelor's degrees)",
+    "After admission: online enrolment within 7 days of your admission letter — this deadline is final",
+    "Your first degree certificate for a master's; if it is not issued yet, submit it by the end of your first semester (31 March or 30 September)",
+    "Your health-insurance status (insured or exempt), reported to the university by a public health insurer — you cannot be enrolled without it"
+  ],
+  "faq": [
+    {
+      "q": "How quickly must I enrol after I am admitted?",
+      "a": "Within 7 days of receiving your admission letter. Hamburg says this deadline is final and cannot be extended, so have your documents ready before the letter arrives."
+    },
+    {
+      "q": "Do I need German health insurance?",
+      "a": "Yes. To enrol you must be insured with a public health insurer, or exempted through one, and the insurer reports your status to the university electronically."
+    },
+    {
+      "q": "Is studying in Hamburg really free?",
+      "a": "Tuition is free, but you pay the semester contribution (€402 for winter 2026/27, which includes a transport pass), health insurance and living costs of roughly €1,000–€1,600 a month."
+    }
+  ]
 }

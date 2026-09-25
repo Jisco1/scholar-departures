@@ -33,5 +33,40 @@
       "url": "https://mastercardfdn.org/en/what-we-do/our-programs/mastercard-foundation-scholars-program/where-to-apply/"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Tuition, accommodation, a living stipend, books — often also a laptop, insurance and travel",
+      "The partner's scholarship — the exact package varies by partner"
+    ],
+    [
+      "Application fees charged by partner universities",
+      "Refunded if you are selected, says the Foundation — but some partners, such as ASU, give waivers instead and do not refund fees you paid early. Read each partner's rules before paying"
+    ],
+    [
+      "A fee to 'register' or 'secure a place' in the programme",
+      "Never pay one — the Foundation does not request payments from individuals"
+    ]
+  ],
+  "documents": [
+    "Proof of citizenship of an African country — and, for some partners, that you live there",
+    "Academic transcripts and certificates",
+    "Essays or a personal statement about your leadership and how you plan to give back",
+    "One or more recommendation letters",
+    "Evidence of financial need"
+  ],
+  "faq": [
+    {
+      "q": "Where do I find the partner universities?",
+      "a": "On the Foundation's 'where to apply' page. On this board you can go straight to [Cambridge]({{root}}routes/mastercard-foundation-scholars-cambridge/), [UC Berkeley]({{root}}routes/mastercard-foundation-scholars-uc-berkeley/), [Arizona State]({{root}}routes/mastercard-foundation-scholars-asu/) and [McGill]({{root}}routes/mastercard-foundation-scholars-mcgill/)."
+    },
+    {
+      "q": "Will my application fees be refunded?",
+      "a": "The Foundation says partner application fees are reimbursed if you are selected. Some partners work differently — ASU gives fee waivers at the interview stage and does not refund fees paid before that — so check the partner's rules first."
+    },
+    {
+      "q": "Someone online is asking me to pay to join. What should I do?",
+      "a": "Do not pay. The Foundation does not ask individuals for money, and it warns about Facebook groups that charge 'application fees'. Report them to ethics@mastercardfdn.org."
+    }
+  ]
 }

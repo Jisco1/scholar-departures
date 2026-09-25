@@ -40,7 +40,57 @@
     {
       "title": "Fulbright Program — FAQ",
       "url": "https://fulbrightprogram.org/about/faq-contact/"
+    },
+    {
+      "title": "U.S. Embassy Ghana — Fulbright Foreign Student Program 2027–28",
+      "url": "https://gh.usembassy.gov/fulbright-foreign-student-program-fulbright-fsp-2/"
+    },
+    {
+      "title": "BridgeUSA (U.S. Department of State) — J-1 eligibility and fees",
+      "url": "https://j1visa.state.gov/participants/how-to-apply/eligibility-and-fees/"
+    },
+    {
+      "title": "U.S. Immigration and Customs Enforcement — I-901 SEVIS fee FAQ",
+      "url": "https://www.ice.gov/sevis/i901/faq"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Monthly living stipend and health insurance",
+      "The grant"
+    ],
+    [
+      "Travel to and from the United States",
+      "The grant"
+    ],
+    [
+      "Tuition",
+      "Often waived in full or in part by the host university — your country's call explains what the grant covers"
+    ],
+    [
+      "US J-1 visa application fee and SEVIS fee",
+      "Not charged — US-government-sponsored exchange visitors (programme codes G-1, G-2, G-3 or G-7) are exempt"
+    ]
+  ],
+  "documents": [
+    "The online application for your country's call — Ghana's 2027–28 call used apply.iie.org/ffsp2027",
+    "A Study Objective and a Personal Statement (in Ghana, one to two pages each). Plagiarism disqualifies you: cite any source you use",
+    "Your transcripts, degree certificates and reference letters, as your country's call specifies",
+    "TOEFL and GRE or GMAT scores if your country requires them — in Ghana, shortlisted candidates must take both, and a TOEFL of 90+ is competitive"
+  ],
+  "faq": [
+    {
+      "q": "Who can apply from Ghana?",
+      "a": "For 2027–28: Ghanaian citizens living in Ghana and employed at a tertiary, research or government institution, with a 4-year bachelor's (for a master's) or a master's (for a PhD) and a 3.5 GPA. National Service personnel are not eligible, and priority fields included AI, cyber security, STEM, public health, supply chains and trade."
+    },
+    {
+      "q": "When does the Ghana call open?",
+      "a": "The 2027–28 call closed on 5 June 2026, and only shortlisted applicants were contacted, by 6 July 2026. Watch the US Embassy in Ghana's Fulbright page for the next call — expect a similar mid-year deadline."
+    },
+    {
+      "q": "Do Fulbright students pay US visa fees?",
+      "a": "No. Fulbright grantees travel on J-1 visas under US-government-sponsored programmes, which are exempt from the visa application fee and the SEVIS fee."
+    }
+  ]
 }

@@ -191,6 +191,18 @@ class BuiltSite(unittest.TestCase):
             h1 = re.search(r"<h1>(.*?)</h1>", html).group(1)
             self.assertIn(html_mod.unescape(h1).split(":")[0], wa, f"{name}: WhatsApp message lacks the title")
 
+    def test_route_extras_render(self):
+        html = (self.site / "routes" / "brown-university" / "index.html").read_text(encoding="utf-8")
+        self.assertIn("<h2>What you will still pay</h2>", html)
+        self.assertRegex(html, r'<table><tr><th>Cost</th><th>Who pays</th></tr>(<tr><td>.+?</td><td>.+?</td></tr>){3,}</table>')
+        self.assertIn('<ul class="checklist">', html)
+        faq = html[html.index('<div class="faq">'):]
+        faq = faq[:faq.index("</div>")]
+        self.assertGreaterEqual(faq.count("<details>"), 3)
+        self.assertNotIn("<details open", faq, "questions must start closed so the page stays short")
+        # any-discipline routes no longer repeat the eight-field list
+        self.assertNotIn("Strongest in", html)
+
     def test_sitemap_lists_routes(self):
         sitemap = (self.site / "sitemap.xml").read_text(encoding="utf-8")
         self.assertIn("/routes/chevening-scholarships/", sitemap)

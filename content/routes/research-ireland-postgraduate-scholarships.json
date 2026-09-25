@@ -32,5 +32,43 @@
       "url": "https://www.researchireland.ie/funding/government-ireland-postgraduate/"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Living costs",
+      "€25,000 a year stipend (2026 awards)"
+    ],
+    [
+      "Fees, up to €5,750 a year — plus up to €4,000 more a year for non-EU students",
+      "The scholarship"
+    ],
+    [
+      "Any non-EU fees above €9,750 a year",
+      "You or your university — ask whether it waives the difference"
+    ],
+    [
+      "Research costs",
+      "€3,250 a year for eligible direct costs"
+    ]
+  ],
+  "documents": [
+    "A research project agreed with a supervisor at an eligible Irish institution — each supervisor can back only one applicant",
+    "Your online application and research proposal, submitted when a call is open",
+    "Your supervisor's section and your referees' letters, which they submit themselves",
+    "Proof that you are starting a master's or PhD, or are in its first year"
+  ],
+  "faq": [
+    {
+      "q": "Is there a 2027 call?",
+      "a": "Not yet announced on Research Ireland's page as of 25 September 2026. The 2026 call closed on 23 October 2025. For news, email postgrad@researchireland.ie or watch the funding page."
+    },
+    {
+      "q": "How competitive is it?",
+      "a": "Very. Research Ireland reports an average success rate of 18% over the past five years, so apply for other funding at the same time."
+    },
+    {
+      "q": "I have already started my PhD. Can I apply?",
+      "a": "Yes, if you are in your first year of registration. The programme is open to new entrants and to first-year registered master's and PhD students."
+    }
+  ]
 }

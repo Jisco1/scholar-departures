@@ -34,5 +34,40 @@
       "url": "https://www.ugent.be/en/research/funding/bof/dos"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "24 months of PhD funding while you are in Ghent",
+      "Ghent University's Special Research Fund (BOF)"
+    ],
+    [
+      "Research and travel costs",
+      "Paid to your Ghent supervisor: €310 per month of research in Ghent, plus an €8,000 travel budget"
+    ],
+    [
+      "24 months of funding at home",
+      "Your partner institution — a full-time local scholarship or salary is mandatory"
+    ]
+  ],
+  "documents": [
+    "A joint proposal, submitted together by you, your Ghent supervisor (promoter) and a supervisor at your home institution",
+    "The candidate application form",
+    "Your Ghent supervisor's 'advice on the candidate'",
+    "The ethics and biosafety questionnaire",
+    "Your home institution's written commitment to fund you full-time for 24 months, with no more than 10% of your time on teaching or other duties"
+  ],
+  "faq": [
+    {
+      "q": "How is my time split between Ghent and home?",
+      "a": "You start and end the PhD with a research stay of 3–12 months in Ghent, with at least 24 months of locally funded research at home in between. The first Ghent stay must begin between 1 October and 28 February."
+    },
+    {
+      "q": "Which research topics are preferred?",
+      "a": "Projects with clear North–South relevance: they address the needs of the people who would benefit, create synergies between the partners, and connect to global priorities."
+    },
+    {
+      "q": "What do I owe at the end?",
+      "a": "A final scientific report, due within three months of the grant ending."
+    }
+  ]
 }

@@ -21,9 +21,64 @@
     "Competition is intense: far more applicants than awards. Apply for other funding too.",
     "The living contribution is not designed to replace all income. Plan your budget for Delft's housing market before accepting."
   ],
-  "related": ["maastricht-holland-high-potential", "eth-zurich-excellence-scholarship", "politecnico-di-milano-merit-scholarships", "university-of-helsinki-scholarships"],
-  "sources": [
-    {"title": "TU Delft — Scholarships", "url": "https://www.tudelft.nl/en/education/practical-matters/scholarships"}
+  "related": [
+    "maastricht-holland-high-potential",
+    "eth-zurich-excellence-scholarship",
+    "politecnico-di-milano-merit-scholarships",
+    "university-of-helsinki-scholarships"
   ],
-  "reviewed": "2026-09-24"
+  "sources": [
+    {
+      "title": "TU Delft — Scholarships",
+      "url": "https://www.tudelft.nl/en/education/practical-matters/scholarships"
+    },
+    {
+      "title": "TU Delft — Admission and application",
+      "url": "https://www.tudelft.nl/en/education/admission-and-application"
+    },
+    {
+      "title": "TU Delft — MSc international diploma: tuition fees and scholarships",
+      "url": "https://www.tudelft.nl/en/education/admission-and-application/msc-international-diploma/4-tuition-fees-scholarships"
+    }
+  ],
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "First-year tuition",
+      "The scholarship"
+    ],
+    [
+      "Living costs",
+      "A contribution from the scholarship — not a full living allowance"
+    ],
+    [
+      "Second-year tuition and living contribution",
+      "The scholarship, if you earn at least 48 ECTS in your first year"
+    ],
+    [
+      "MSc application fee (€100)",
+      "You — refunded if you enrol at TU Delft"
+    ]
+  ],
+  "documents": [
+    "Your complete TU Delft MSc application by 1 December 2026, with the €100 fee",
+    "An English certificate. TU Delft's usual MSc level is IELTS Academic 7.0 with no part below 6.5, or TOEFL iBT 100 with 22+ in each part (5 overall and 4.5+ per section on TOEFL tests taken from 20 January 2026) — check your programme",
+    "The GRE General Test, for Aerospace Engineering and some other programmes",
+    "The Van Effen scholarship application form",
+    "One reference letter — if you have two, combine them into one PDF"
+  ],
+  "faq": [
+    {
+      "q": "Can I hold another scholarship as well?",
+      "a": "No. The Van Effen scholarship cannot be combined with any other partial or full scholarship."
+    },
+    {
+      "q": "What grades make me competitive?",
+      "a": "Graduating in about the top 10% of your bachelor's programme."
+    },
+    {
+      "q": "When will I know?",
+      "a": "TU Delft emails scholarship winners by the end of March 2027."
+    }
+  ]
 }

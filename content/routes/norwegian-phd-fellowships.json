@@ -35,7 +35,50 @@
     {
       "title": "NTNU doctoral candidates' organisation — Employment and salary",
       "url": "https://dion.org.ntnu.no/employment-and-salary/"
+    },
+    {
+      "title": "UDI (Norwegian Directorate of Immigration) — Vocational training and research",
+      "url": "https://www.udi.no/en/want-to-apply/work-immigration/vocational-training-and-research/"
+    },
+    {
+      "title": "UDI — Skilled workers",
+      "url": "https://www.udi.no/en/want-to-apply/work-immigration/skilled-workers/"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Tuition",
+      "None — Norwegian public universities charge no tuition for doctoral study"
+    ],
+    [
+      "Living costs",
+      "Your salary as a research fellow, taxed like any other job"
+    ],
+    [
+      "Residence permit — researchers employed in Norway apply as skilled workers",
+      "You pay the Norwegian Directorate of Immigration's application fee"
+    ]
+  ],
+  "documents": [
+    "A cover letter written for that specific project and research group",
+    "Your CV, transcripts and degree certificates, translated if they are not in English or a Scandinavian language",
+    "Names or letters of referees, as the advertisement asks",
+    "A project outline where the advertisement asks for one, and your master's thesis or other writing if requested",
+    "Proof of English where required — each advertisement sets its own rules"
+  ],
+  "faq": [
+    {
+      "q": "Is a PhD fellowship a student place or a job?",
+      "a": "A job. You are a (temporary) university employee. Your enrolment in the PhD programme is separate from your employment contract, so the contract can end before you finish the PhD — plan your timeline carefully."
+    },
+    {
+      "q": "How long do I have to finish?",
+      "a": "At NTNU, six years is the maximum time allowed for a PhD. Legal leave, long illness, duty work and approved part-time study are not counted in those six years."
+    },
+    {
+      "q": "Which residence permit do I need?",
+      "a": "Researchers with an employer in Norway apply for a residence permit as a skilled worker, and pay an application fee to the Norwegian Directorate of Immigration (UDI)."
+    }
+  ]
 }

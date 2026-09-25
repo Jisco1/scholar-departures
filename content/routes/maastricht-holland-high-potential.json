@@ -22,10 +22,60 @@
     "Only certain programmes take part; check the list before you choose.",
     "Eighteen awards across all eligible countries makes this very competitive — apply for other scholarships in parallel."
   ],
-  "related": ["tu-delft-van-effen-excellence", "university-of-helsinki-scholarships", "master-mind-scholarships-flanders", "erasmus-mundus-joint-masters"],
-  "sources": [
-    {"title": "Maastricht University — NL-High Potential scholarship", "url": "https://www.maastrichtuniversity.nl/studeren/toelating-inschrijving/financing-your-studies/scholarships/maastricht-university-nl-high"},
-    {"title": "Maastricht University — Participating programmes 2027–2028 (PDF)", "url": "https://www.maastrichtuniversity.nl/file/um-hhpstudieprogrammas-2027-2028pdf-0"}
+  "related": [
+    "tu-delft-van-effen-excellence",
+    "university-of-helsinki-scholarships",
+    "master-mind-scholarships-flanders",
+    "erasmus-mundus-joint-masters"
   ],
-  "reviewed": "2026-09-24"
+  "sources": [
+    {
+      "title": "Maastricht University — NL-High Potential scholarship",
+      "url": "https://www.maastrichtuniversity.nl/studeren/toelating-inschrijving/financing-your-studies/scholarships/maastricht-university-nl-high"
+    },
+    {
+      "title": "Maastricht University — Participating programmes 2027–2028 (PDF)",
+      "url": "https://www.maastrichtuniversity.nl/file/um-hhpstudieprogrammas-2027-2028pdf-0"
+    },
+    {
+      "title": "Maastricht University — Scholarships for talented students",
+      "url": "https://www.maastrichtuniversity.nl/studeren/toelating-inschrijving/financing-your-studies/scholarships"
+    }
+  ],
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Tuition",
+      "The scholarship — a full fee waiver"
+    ],
+    [
+      "Living costs: €15,925 for a 13-month programme or €30,625 for a 25-month programme",
+      "The scholarship stipend"
+    ],
+    [
+      "Health and liability insurance, the visa application and pre-academic training",
+      "The scholarship"
+    ]
+  ],
+  "documents": [
+    "A CV of no more than two A4 pages, including any awards or prizes",
+    "A motivation letter written on Maastricht's template",
+    "Your latest transcript showing a GPA of 7.5 out of 10 or higher, plus a document explaining your grading system",
+    "A personal statement of financial need — for example financial difficulty, caring duties, a disability or refugee status",
+    "One reference letter from a (former) professor, lecturer or employer, dated February 2026 or later and following the scholarship's referee guidelines — you upload it yourself"
+  ],
+  "faq": [
+    {
+      "q": "How are winners chosen?",
+      "a": "Each faculty ranks its top five applicants and sends them to the International Services Desk for a final check in March 2027. Selected candidates are then invited to an online interview."
+    },
+    {
+      "q": "I already have a master's degree. Can I apply?",
+      "a": "Yes, but preference goes to candidates who have not yet obtained a master's degree."
+    },
+    {
+      "q": "Can my referee send the letter directly?",
+      "a": "No. You upload the reference letter yourself, and letters that ignore the guidelines leave your application incomplete."
+    }
+  ]
 }

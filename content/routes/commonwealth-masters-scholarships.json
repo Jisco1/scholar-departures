@@ -35,5 +35,44 @@
       "url": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-masters-scholarships/"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Tuition fees",
+      "Covered in full, by agreement between the CSC and your university"
+    ],
+    [
+      "Return airfare between home and the UK",
+      "The scholarship"
+    ],
+    [
+      "Living costs: £1,712 a month, or £2,000 in the London area (2027–28 rates)",
+      "The scholarship stipend"
+    ],
+    [
+      "An English test such as IELTS",
+      "Not required by the CSC — you pay only if your chosen university asks for one"
+    ]
+  ],
+  "documents": [
+    "A copy of your valid passport, or proof of refugee status in an eligible Commonwealth country",
+    "Full transcripts of all your higher education, with certified translations if not in English",
+    "References from at least two people, as signed PDFs on institutional letterhead",
+    "Up to three eligible UK master's courses, and statements that address the selection criteria: academic merit, the quality of your proposal and the impact on your home country's development",
+    "Your national nominating agency's own forms, submitted by its deadline"
+  ],
+  "faq": [
+    {
+      "q": "Do I need IELTS?",
+      "a": "Not for the scholarship: the CSC does not require any candidate to take an IELTS test. Your UK university may still have its own English requirement."
+    },
+    {
+      "q": "How are candidates scored?",
+      "a": "On three things: your academic merit and experience, the quality of your proposal, and the potential impact of your studies on your home country's development."
+    },
+    {
+      "q": "What is the deadline?",
+      "a": "The CSC's online application closes at 16:00 BST on Tuesday 20 October 2026 — but your nominating agency usually closes earlier, so find its date first."
+    }
+  ]
 }

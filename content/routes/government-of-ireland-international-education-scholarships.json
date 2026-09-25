@@ -13,7 +13,7 @@
   "how_to_apply": [
     "Apply to your Irish programme early so you hold an offer when the call opens.",
     "Submit the GOI-IES application on the Higher Education Authority's online portal. The 2026 call closed at 5 pm Irish time on 12 March 2026; calls usually open in January.",
-    "Include your offer letter, transcripts, CV, a personal statement and a reference.",
+    "Include your offer letter, transcripts, CV and personal statement, and upload two references yourself through the portal.",
     "Results are usually announced in early June."
   ],
   "watch_out": [
@@ -31,7 +31,57 @@
     {
       "title": "Higher Education Authority — Government of Ireland International Education Scholarships",
       "url": "https://hea.ie/policy/internationalisation/goi-ies/"
+    },
+    {
+      "title": "Irish Immigration Service — Student finances (proof of funds)",
+      "url": "https://www.irishimmigration.ie/coming-to-study-in-ireland/what-are-my-study-options/a-fee-paying-private-primary-or-secondary-school/information-on-student-finances/"
+    },
+    {
+      "title": "Irish Immigration Service — Frequently asked questions for students",
+      "url": "https://www.irishimmigration.ie/coming-to-study-in-ireland/frequently-asked-questions-for-students/"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Tuition fees for the scholarship year",
+      "Waived in full by your Irish institution"
+    ],
+    [
+      "Living costs",
+      "The €10,000 stipend — budget extra, as it will not cover a full year alone"
+    ],
+    [
+      "Proof of funds for your study visa: at least €10,000 for courses longer than eight months",
+      "You must show it when you apply for your visa"
+    ],
+    [
+      "Private medical insurance",
+      "You — compulsory for all non-EEA students in Ireland"
+    ],
+    [
+      "Fees and living costs after the first year of a longer course or PhD",
+      "You, or other funding — the scholarship lasts one year"
+    ]
+  ],
+  "documents": [
+    "A conditional or final offer for a master's, postgraduate diploma or PhD (NFQ level 9 or 10) at an eligible Irish institution",
+    "Transcripts, a CV and a personal statement explaining why Ireland fits your long-term goals",
+    "Two references, which you upload yourself on the portal",
+    "One application only per cycle"
+  ],
+  "faq": [
+    {
+      "q": "What does the selection panel look for?",
+      "a": "Your academic record, your communication skills, your activities outside study, and a strong reason for choosing Ireland that fits your long-term goals."
+    },
+    {
+      "q": "Can I apply more than once?",
+      "a": "One application per cycle, and anyone who has already held a GOI-IES scholarship cannot apply again."
+    },
+    {
+      "q": "When is the next call?",
+      "a": "Calls usually open in January. The 2026 call closed on 12 March 2026, with results in early June — so secure your Irish offer in the autumn before."
+    }
+  ]
 }

@@ -31,7 +31,41 @@
     {
       "title": "UBC — International Scholars Program",
       "url": "https://you.ubc.ca/financial-planning/scholarships-awards-international-students/international-scholars/"
+    },
+    {
+      "title": "Immigration, Refugees and Citizenship Canada — Fee list",
+      "url": "https://ircc.canada.ca/english/information/fees/fees.asp"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Tuition and living expenses",
+      "The award — need-based, up to the full cost of your programme and living expenses"
+    ],
+    [
+      "Study permit (CAD 150) and biometrics (CAD 85)",
+      "You"
+    ]
+  ],
+  "documents": [
+    "Your UBC admission application — it opens in early October 2026",
+    "The International Scholars application by 15 November 2026: four short essays (about 150–250 words each) and detailed family finances — annual income and expenses, wealth and assets",
+    "A nominator at your school (such as your counsellor or principal) and a separate teacher referee",
+    "Transcripts and English test results by 31 January 2027, meeting UBC's English Language Admission Standard"
+  ],
+  "faq": [
+    {
+      "q": "How much financial need do I have to show?",
+      "a": "Enough that a UBC degree would be impossible without meaningful financial help. The awards are for students who could not otherwise attend."
+    },
+    {
+      "q": "What grades do I need?",
+      "a": "All As, or the equivalent in your curriculum."
+    },
+    {
+      "q": "When will I hear?",
+      "a": "UBC releases award decisions on a rolling basis between February and April 2027."
+    }
+  ]
 }

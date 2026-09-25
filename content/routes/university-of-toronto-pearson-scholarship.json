@@ -32,7 +32,57 @@
     {
       "title": "University of Toronto — Lester B. Pearson International Scholarship",
       "url": "https://future.utoronto.ca/pearson/"
+    },
+    {
+      "title": "Immigration, Refugees and Citizenship Canada — Fee list",
+      "url": "https://ircc.canada.ca/english/information/fees/fees.asp"
+    },
+    {
+      "title": "University of Toronto — University fees (including UHIP)",
+      "url": "https://future.utoronto.ca/fees"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-09-25",
+  "costs": [
+    [
+      "Tuition, books and incidental fees for four years",
+      "The scholarship"
+    ],
+    [
+      "Residence (housing) for four years",
+      "The scholarship — full residence support"
+    ],
+    [
+      "Study permit (CAD 150) and biometrics (CAD 85)",
+      "You"
+    ],
+    [
+      "UHIP health insurance, compulsory for international students ($792 in 2025–26)",
+      "Not in the Pearson list of covered costs — ask U of T how it is handled"
+    ],
+    [
+      "Flights to and from Canada",
+      "Not in the Pearson list of covered costs"
+    ]
+  ],
+  "documents": [
+    "A nomination from your secondary school by 9 October 2026 — schools can nominate one student a year",
+    "Your University of Toronto admission application by 16 October 2026",
+    "The Pearson Scholarship application — you receive a private link after you are nominated — by 6 November 2026",
+    "Evidence of academic excellence, creativity and leadership in your school and community"
+  ],
+  "faq": [
+    {
+      "q": "My school has never nominated anyone. Can it start now?",
+      "a": "Only verified schools can nominate: U of T verifies schools and sends them the nomination form each July. Ask your counsellor straight away whether your school is set up for this year."
+    },
+    {
+      "q": "When will I hear?",
+      "a": "U of T notifies Pearson Scholars from the end of January, and tells every nominee its decision by April."
+    },
+    {
+      "q": "Can I apply if I start in January or am already at university?",
+      "a": "No. You must start at U of T in September 2027, and students already in post-secondary studies are not eligible."
+    }
+  ]
 }
