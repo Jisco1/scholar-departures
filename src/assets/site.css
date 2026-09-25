@@ -219,3 +219,24 @@ img, svg { max-width: 100%; }
   html { scroll-behavior: auto; }
   .tile, .row { transition: none; }
 }
+
+/* ——— Phones and touch screens (all pages) ——— */
+@media (pointer: coarse) {
+  .nav a { padding-top: 12px; padding-bottom: 12px; }
+  .crumbs a { padding: 4px 0; }
+}
+@media (max-width: 400px) {
+  /* all five links fit across the smallest phones, no hidden "About" */
+  .nav { justify-content: space-between; }
+  .nav a { font-size: 10.5px; letter-spacing: .06em; padding-left: 5px; padding-right: 5px; }
+}
+@media (max-width: 640px) {
+  /* long official web addresses wrap inside their button instead of widening the page */
+  .btn { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+  .page-head h1, .prose { overflow-wrap: break-word; }
+}
+@media (max-width: 759px) {
+  .foot-grid { grid-template-columns: 1fr 1fr; gap: 24px 16px; }
+  .foot-brand { grid-column: 1 / -1; }
+  .sitefoot li + li { margin-top: 8px; }
+}

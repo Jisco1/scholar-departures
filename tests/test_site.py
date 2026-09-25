@@ -114,6 +114,25 @@ class BuiltSite(unittest.TestCase):
         self.assertIn('id="dirPager"', html)
         self.assertIn('href="routes/"', html)  # without JavaScript, every route is still one click away
 
+    def test_phone_layout(self):
+        html = (self.site / "index.html").read_text(encoding="utf-8")
+        for hook in ('id="filtersBtn"', 'id="filtersCount"', 'id="showResults"', 'id="panelClear"', 'id="boardMore"',
+                     'id="lbRegion"', 'id="lbFunding"', 'class="vtxt"'):
+            self.assertIn(hook, html, f"phone hook missing: {hook}")
+        css = (ROOT / "src" / "assets" / "app.css").read_text(encoding="utf-8")
+        js = (ROOT / "src" / "assets" / "app.js").read_text(encoding="utf-8")
+        # the script and the stylesheet must agree on what counts as a phone
+        js_bp = re.search(r'PHONE_MQ = window\.matchMedia\("\(max-width: (\d+)px\)"\)', js)
+        self.assertIsNotNone(js_bp, "phone breakpoint missing from app.js")
+        self.assertIn(f"@media (max-width: {js_bp.group(1)}px) {{\n  /* hero", css, "app.js and app.css disagree on the phone breakpoint")
+        # phone-only controls stay out of the desktop layout
+        self.assertIn(".filtersbtn, .flabel, .panelfoot, .board-more { display: none; }", css)
+        # 16px text in fields on touch screens, or iPhones zoom the page when you tap them
+        coarse = css[css.index("@media (pointer: coarse) {"):]
+        coarse = coarse[:coarse.index("\n}\n")]
+        self.assertRegex(coarse, r"\.searchbox input, select \{ font-size: 16px; \}")
+        self.assertIn("min-height: 44px", coarse)
+
     def test_sitemap_lists_routes(self):
         sitemap = (self.site / "sitemap.xml").read_text(encoding="utf-8")
         self.assertIn("/routes/chevening-scholarships/", sitemap)

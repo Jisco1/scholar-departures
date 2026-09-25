@@ -381,3 +381,121 @@ body.premium .lockdot { display: none; }
 .pager-all { font-family: var(--sans); font-size: 14px; color: var(--brass); text-underline-offset: 3px; }
 @media (max-width: 480px) { .pager { gap: 5px; } .pager button { min-width: 34px; height: 38px; padding: 0 8px; } .pager .pg-word { display: none; } }
 @media (max-width: 360px) { .pager { gap: 3px; } .pager button { min-width: 29px; padding: 0 5px; font-size: 11px; } .pager .pg-gap { padding: 0; } }
+
+/* ——— Phones and touch screens ———
+   Everything below applies only to narrow or touch screens; the desktop layout is unchanged. */
+#typePills { display: contents; }
+.filtersbtn, .flabel, .panelfoot, .board-more { display: none; }
+.filtersbtn { align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 0 14px;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--text); font-size: 14px; font-weight: 600; }
+.filtersbtn .fcount { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; padding: 0 6px;
+  border-radius: 999px; background: var(--brass); color: var(--bg); font-size: 11px; font-weight: 700; }
+.filtersbtn .fcount[hidden] { display: none; }
+.controls.open .filtersbtn { border-color: var(--brass); color: var(--brass); }
+.flabel { font-family: var(--mono); font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: var(--faint); }
+.panelclear { min-height: 44px; padding: 0 16px; border: 1px solid var(--line); border-radius: 8px; color: var(--dim); font-size: 14px; font-weight: 600; }
+.showres { flex: 1; min-height: 44px; border-radius: 8px; background: var(--brass); color: var(--bg); font-size: 14px; font-weight: 700; }
+.showres:disabled { opacity: .5; cursor: default; }
+
+@media (pointer: coarse) {
+  .searchbox input, select { font-size: 16px; }   /* 16px stops iPhones zooming into the field */
+  .planbtn, .bookmark { min-width: 44px; min-height: 44px; }
+  .apply { min-height: 44px; }
+  .dvisit { min-height: 40px; }
+  .seg button { min-height: 40px; }
+  .fchip { min-height: 40px; }
+  .pager button { height: 44px; }
+  .filtersbtn, .savedbtn, .searchbox input { min-height: 44px; }
+  button, a, [role="button"] { -webkit-tap-highlight-color: rgba(215,169,76,.18); }
+}
+
+@media (max-width: 640px) {
+  /* hero: less scrolling before the board */
+  .hero { padding: 40px 16px 30px; }
+  .seal { width: 52px; height: 52px; margin-bottom: 14px; }
+  .eyebrow { font-size: 10px; }
+  body.loaded .eyebrow { letter-spacing: .18em; }
+  .sub { font-size: 14.5px; margin-top: 14px; }
+  .stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 12px; max-width: 320px; margin: 24px auto 0; }
+  .stat span { letter-spacing: .16em; }
+  .heronav { flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .heronav a { white-space: nowrap; letter-spacing: .12em; padding: 10px 12px; }
+  .cue { display: none; }
+
+  /* departures board: two-line rows, the soonest five until "show all" */
+  .depart-head { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .depart-title { font-size: 12px; letter-spacing: .2em; }
+  .board { overflow: hidden; }
+  .board-inner { min-width: 0; }
+  .brow.h { display: none; }
+  .brow.r { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "route days" "country days"; gap: 3px 12px; padding: 12px 14px; }
+  .brow.r:hover { transform: none; }
+  .brow .route { grid-area: route; font-family: var(--sans); font-size: 15px; line-height: 1.3; color: var(--text); }
+  .brow .country { grid-area: country; font-family: var(--sans); font-size: 12.5px; line-height: 1.4; color: var(--faint); }
+  .brow .closes { display: none; }
+  .brow .days { grid-area: days; font-size: 14px; }
+  .board:not(.expanded) #boardBody > .brow.r:nth-child(n+6) { display: none; }
+  .board-more { display: block; width: 100%; margin-top: 10px; min-height: 44px; border: 1px solid var(--line); border-radius: 10px;
+    background: var(--card); color: var(--brass); font-size: 14px; font-weight: 600; }
+  .board-more[hidden] { display: none; }
+  .board-note { text-align: left; letter-spacing: .16em; }
+
+  /* board rows read as sentences, not the desktop's capitals */
+  .brow .country { text-transform: none; letter-spacing: 0; padding-top: 0; }
+
+  /* schools directory: name and city on the left, actions beside them */
+  .dir-row { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "name act" "loc act"; gap: 2px 10px; padding: 12px 14px; }
+  .dname { grid-area: name; }
+  .dloc { grid-area: loc; grid-column: auto; }
+  .dact { grid-area: act; }
+  .dvisit { width: 44px; height: 44px; padding: 0; justify-content: center; }
+  .dvisit .vtxt { display: none; }
+
+  /* the level picker shows it is a dropdown */
+  #levelSel { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23A4B4CC' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px; }
+
+  /* study fields: a swipeable row that visibly continues */
+  .fieldchips { -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent); mask-image: linear-gradient(90deg, #000 88%, transparent); padding-right: 24px; }
+
+  /* filters: search and the toolbar stay; everything else folds into a panel */
+  .controls { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px; padding: 12px; }
+  .row1, .row2 { display: contents; }
+  .searchbox { order: 1; flex: 1 1 100%; min-width: 0; }
+  .filtersbtn { order: 2; display: inline-flex; flex: 1 1 auto; }
+  #savedBtn, #btnCompare, #btnCalendar { order: 2; min-height: 44px; }
+  #btnCompare, #btnCalendar { min-width: 44px; justify-content: center; }
+  .savedbtn .btxt { display: none; }
+  .divider { display: none !important; }
+  #regionSeg, #levelSel, #kindSeg, #deadlineSeg { display: none; }
+  #typePills { display: none !important; }
+  #lbRegion { order: 3; } #regionSeg { order: 4; } #lbLevel { order: 5; } #levelSel { order: 6; }
+  #lbKind { order: 7; } #kindSeg { order: 8; } #lbDeadline { order: 9; } #deadlineSeg { order: 10; }
+  #lbFunding { order: 11; } #typePills { order: 12; } .panelfoot { order: 13; }
+  .controls.open .flabel { display: block; flex: 1 1 100%; margin-top: 6px; }
+  .controls.open #regionSeg, .controls.open #kindSeg, .controls.open #deadlineSeg { display: flex; flex: 1 1 100%; }
+  .controls.open #regionSeg { overflow-x: auto; }
+  .controls.open #levelSel { display: block; flex: 1 1 100%; }
+  .controls.open #typePills { display: flex !important; flex-wrap: wrap; gap: 6px; flex: 1 1 100%; }
+  .controls.open .panelfoot { display: flex; flex: 1 1 100%; gap: 10px; margin-top: 8px; padding-top: 12px; border-top: 1px solid var(--line); }
+  .countline { flex-wrap: wrap; font-size: 13px; }
+
+  /* route cards */
+  .grid { gap: 12px; }
+  .card { padding: 16px; gap: 10px; }
+  .card h3 { font-size: 19px; }
+  .card-bottom .apply { flex: 1; justify-content: center; }
+
+  /* guides: one swipeable row instead of a tall stack */
+  .startguides .tiles { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 16px; gap: 12px;
+    margin: 4px -16px 0; padding: 2px 16px 10px; scrollbar-width: none; }
+  .startguides .tiles::-webkit-scrollbar { display: none; }
+  .startguides .tile { flex: 0 0 84%; scroll-snap-align: start; }
+  .startguides .tile:hover { transform: none; }
+
+  /* pop-ups slide up from the bottom like a phone sheet */
+  .modal-back { align-items: flex-end; padding: 0; }
+  .modal { max-width: none; border-radius: 18px 18px 0 0; max-height: 88vh; padding: 20px 16px calc(20px + env(safe-area-inset-bottom)); transform: translateY(40px); }
+  .licrow { flex-direction: column; }
+  #toast { bottom: calc(22px + env(safe-area-inset-bottom)); max-width: calc(100% - 32px); }
+}

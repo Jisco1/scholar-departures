@@ -429,7 +429,8 @@ def build_home(routes, schools, guides, countries):
     dsorted = sorted(schools, key=lambda s: (s["country"], s["name"]))
     dir_rows = "".join(
         f'<div class="dir-row in"><span class="dname">{e(s["flag"])} {e(s["name"])}</span><span class="dloc">{e(s["city"])} · {e(s["country"])}</span>'
-        f'<span class="dact"><a class="dvisit" href="{e(s["link"])}" target="_blank" rel="noopener noreferrer">Visit site {EXT}</a></span></div>'
+        f'<span class="dact"><a class="dvisit" href="{e(s["link"])}" target="_blank" rel="noopener noreferrer" aria-label="Visit site: {e(s["name"])}">'
+        f'<span class="vtxt">Visit site</span> {EXT}</a></span></div>'
         for s in dsorted[:PER_PAGE_DIR])
     featured = [g for g in guides if g.get("featured")][:6] or guides[:6]
     guide_tiles = "".join(
@@ -492,7 +493,7 @@ def build_route_pages(routes, notes, country_pages):
   <div><dt>Fields</dt><dd>{e(scope_text)}<span class="sub">{"Strongest in" if r["scope"] == "all" else "Eligible"}: {e(", ".join(r["fields"]))}</span></dd></div>
   <div><dt>Who pays</dt><dd>{e(kind_text)}</dd></div>
 </dl>
-<div class="glance-cta"><a class="btn btn-primary" href="{e(r["link"])}" target="_blank" rel="noopener noreferrer">Official page on {e(domain(r["link"]))} {EXT}</a>
+<div class="glance-cta"><a class="btn btn-primary" href="{e(r["link"])}" target="_blank" rel="noopener noreferrer">Official page on {e(domain(r["link"])).replace(".", ".<wbr>")} {EXT}</a>
 <small>Last verified {e(fmt_date(dt.date.fromisoformat(r["last_verified"])) if r.get("last_verified") else "—")}. Cycles shift each year — confirm dates on the official page.</small></div>
 </section>"""
 

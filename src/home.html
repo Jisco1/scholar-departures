@@ -46,6 +46,7 @@
     </div>
   </div>
   <div class="board-note">Live · recalculated against today · tap a row to find it below</div>
+  <button type="button" class="board-more" id="boardMore" aria-expanded="false" hidden></button>
 </section>
 
 <div class="wrap">
@@ -62,20 +63,30 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
         <input id="q" type="search" placeholder="Search a school, country, or keyword…" autocomplete="off" aria-label="Search routes" maxlength="80" />
       </div>
-      <div class="seg" id="regionSeg"></div>
+      <span class="flabel" id="lbRegion">Region</span>
+      <div class="seg" id="regionSeg" role="group" aria-labelledby="lbRegion"></div>
+      <span class="flabel" id="lbLevel">Study level</span>
       <select id="levelSel" aria-label="Study level"></select>
-      <div class="seg" id="kindSeg"></div>
+      <span class="flabel" id="lbKind">Route type</span>
+      <div class="seg" id="kindSeg" role="group" aria-labelledby="lbKind"></div>
     </div>
     <div class="row2">
-      <div class="seg small" id="deadlineSeg"></div>
+      <button type="button" class="filtersbtn" id="filtersBtn" aria-expanded="false" aria-controls="controls"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg> Filters <span class="fcount" id="filtersCount" hidden></span></button>
+      <span class="flabel" id="lbDeadline">Deadline</span>
+      <div class="seg small" id="deadlineSeg" role="group" aria-labelledby="lbDeadline"></div>
       <button class="savedbtn" id="savedBtn">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
         <span id="savedLabel">Saved</span>
       </button>
-      <button class="savedbtn" id="btnCompare" title="Compare your saved routes side by side">Compare</button>
-      <button class="savedbtn" id="btnCalendar" title="Download all saved deadlines as a calendar file with reminders">Calendar</button>
+      <button class="savedbtn" id="btnCompare" title="Compare your saved routes side by side" aria-label="Compare saved routes">Compare</button>
+      <button class="savedbtn" id="btnCalendar" title="Download all saved deadlines as a calendar file with reminders" aria-label="Add saved deadlines to your calendar">Calendar</button>
       <span class="divider"></span>
-      <span id="typePills" style="display:contents"></span>
+      <span class="flabel" id="lbFunding">Funding</span>
+      <span id="typePills" role="group" aria-labelledby="lbFunding"></span>
+    </div>
+    <div class="panelfoot">
+      <button type="button" class="panelclear" id="panelClear">Clear all</button>
+      <button type="button" class="showres" id="showResults">Show routes</button>
     </div>
   </div>
 

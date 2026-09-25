@@ -3,6 +3,11 @@
 
   var RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var FINE = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  /* Phones (narrow screens, any brand) get two-line board rows, a folding
+     filter panel and a shorter intro. Rotating the phone re-checks it. */
+  var PHONE_MQ = window.matchMedia("(max-width: 640px)");
+  var PHONE = PHONE_MQ.matches;
+  var BOARD_PHONE_ROWS = 5;
 
   var SCHOOLS = window.SCHOLAR_DATA || [];
   var DIR = window.SCHOLAR_SCHOOLS || [];
@@ -199,14 +204,17 @@
     document.body.classList.add("loaded");
     setTimeout(function () { pre.remove(); }, 900);
   }
-  if (RM) {
+  var introSeen = false;
+  try { introSeen = sessionStorage.getItem("scholar-departures:intro") === "1"; } catch (e) {}
+  if (RM || (PHONE && introSeen)) {
     if (pre) pre.remove();
     document.body.classList.add("loaded");
   } else {
-    flap(document.getElementById("preBoard"), "SCHOLAR DEPARTURES", 120);
-    setTimeout(liftPreloader, 1650);
+    flap(document.getElementById("preBoard"), "SCHOLAR DEPARTURES", PHONE ? 60 : 120);
+    setTimeout(liftPreloader, PHONE ? 1000 : 1650);
     pre.addEventListener("click", liftPreloader);
   }
+  try { sessionStorage.setItem("scholar-departures:intro", "1"); } catch (e) {}
 
   /* ============ progress + scroll flag ============ */
     var progress = document.getElementById("progress");
@@ -221,7 +229,7 @@
   (function flightMap() {
     var canvas = document.getElementById("fx");
     var ctx = canvas.getContext("2d");
-    var W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, 2);
+    var W = 0, H = 0, DPR = Math.min(window.devicePixelRatio || 1, PHONE ? 1.5 : 2);
     var stars = [];
     var HUB = { fx: 0.14, fy: 0.82 };
     var DESTS = [
@@ -238,7 +246,7 @@
       canvas.style.width = W + "px"; canvas.style.height = H + "px";
       ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
       stars = [];
-      var n = Math.floor((W * H) / 11000);
+      var n = Math.floor((W * H) / (PHONE ? 16000 : 11000));
       for (var i = 0; i < n; i++) {
         stars.push({ x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.3 + 0.3,
                      ph: Math.random() * Math.PI * 2, sp: 0.4 + Math.random() * 0.9 });
@@ -389,17 +397,44 @@
   }
   var boardRows = buildBoard();
   var boardFlipped = false;
+  function paintBoardRow(item, base) {
+    var s = item.s, row = item.row;
+    if (PHONE) {
+      row.querySelector(".route").textContent = s.name;
+      row.querySelector(".country").textContent = s.flag + " " + s.country + " \u00B7 closes " +
+        (s.approx ? "\u2248 " : "") + fmtDate(s.nextDate, false);
+      row.querySelector(".closes").textContent = "";
+      flap(row.querySelector(".days"), s.daysUntil + "D", base);
+      return;
+    }
+    flap(row.querySelector(".route"), s.name.toUpperCase().slice(0, 26), base);
+    flap(row.querySelector(".country"), s.country.toUpperCase().slice(0, 12), base + 60);
+    flap(row.querySelector(".closes"), (s.approx ? "≈" : "") + fmtDate(s.nextDate, false).toUpperCase(), base + 120);
+    flap(row.querySelector(".days"), s.daysUntil + "D", base + 170);
+  }
   function flipBoard() {
     if (boardFlipped) return;
     boardFlipped = true;
-    boardRows.forEach(function (item, r) {
-      var s = item.s, base = r * 130;
-      flap(item.row.querySelector(".route"), s.name.toUpperCase().slice(0, 26), base);
-      flap(item.row.querySelector(".country"), s.country.toUpperCase().slice(0, 12), base + 60);
-      flap(item.row.querySelector(".closes"), (s.approx ? "≈" : "") + fmtDate(s.nextDate, false).toUpperCase(), base + 120);
-      flap(item.row.querySelector(".days"), s.daysUntil + "D", base + 170);
-    });
+    boardRows.forEach(function (item, r) { paintBoardRow(item, r * (PHONE ? 90 : 130)); });
   }
+  /* On a phone the board shows the soonest few; the rest are one tap away. */
+  (function boardMoreButton() {
+    var board = document.querySelector(".board");
+    var more = document.getElementById("boardMore");
+    if (!board || !more || boardRows.length <= BOARD_PHONE_ROWS) return;
+    function setOpen(open) {
+      board.classList.toggle("expanded", open);
+      more.setAttribute("aria-expanded", String(open));
+      more.textContent = open ? "Show fewer departures" : "Show all " + boardRows.length + " departures";
+    }
+    setOpen(false);
+    more.hidden = false;
+    more.addEventListener("click", function () {
+      var open = !board.classList.contains("expanded");
+      setOpen(open);
+      if (!open) board.scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "start" });
+    });
+  })();
 
   /* ============ scroll reveals ============ */
   var revealIO = new IntersectionObserver(function (entries) {
@@ -466,6 +501,27 @@
   document.getElementById("q").addEventListener("input", function (e) { state.q = e.target.value; render(); });
   document.getElementById("savedBtn").addEventListener("click", function () { state.savedOnly = !state.savedOnly; render(); });
   document.getElementById("clearBtn").addEventListener("click", clearAll);
+
+  /* ============ phone filter panel ============ */
+  var controlsEl = document.getElementById("controls");
+  var filtersBtn = document.getElementById("filtersBtn");
+  function setFiltersOpen(open) {
+    controlsEl.classList.toggle("open", open);
+    filtersBtn.setAttribute("aria-expanded", String(open));
+  }
+  filtersBtn.addEventListener("click", function () { setFiltersOpen(!controlsEl.classList.contains("open")); });
+  document.getElementById("panelClear").addEventListener("click", clearAll);
+  document.getElementById("showResults").addEventListener("click", function () {
+    setFiltersOpen(false);
+    document.getElementById("count").scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "start" });
+  });
+  function onPhoneChange() {
+    PHONE = PHONE_MQ.matches;
+    if (boardFlipped) boardRows.forEach(function (item) { paintBoardRow(item, 0); });
+    if (!PHONE) setFiltersOpen(false);
+  }
+  if (PHONE_MQ.addEventListener) PHONE_MQ.addEventListener("change", onPhoneChange);
+  else if (PHONE_MQ.addListener) PHONE_MQ.addListener(onPhoneChange);
 
   function clearAll() {
     state.q = ""; state.region = "All"; state.level = "All levels";
@@ -607,6 +663,14 @@
       (state.field ? ' · <span style="color:var(--brass)">' + out.filter(function (x) { return x.scope === "limited"; }).length + " field-specific</span>" : "");
 
     document.getElementById("clearBtn").hidden = !hasFilters;
+    var panelCount = [state.region !== "All", state.level !== "All levels", state.kind !== "All kinds",
+                      state.dstatus !== "All deadlines", state.type !== "All funding"].filter(Boolean).length;
+    var fcount = document.getElementById("filtersCount");
+    fcount.textContent = panelCount;
+    fcount.hidden = !panelCount;
+    var showRes = document.getElementById("showResults");
+    showRes.textContent = out.length ? "Show " + out.length + " route" + (out.length === 1 ? "" : "s") : "No matching routes";
+    showRes.disabled = !out.length;
 
     document.querySelectorAll("#regionSeg button").forEach(function (b) { b.classList.toggle("active", b.textContent === state.region); });
     document.querySelectorAll("#deadlineSeg button").forEach(function (b) { b.classList.toggle("active", b.textContent === state.dstatus); });
@@ -725,7 +789,8 @@
       '<span class="dname">' + esc(s.flag) + " " + esc(s.name) + "</span>" +
       '<span class="dloc">' + esc(s.city) + " \u00B7 " + esc(s.country) + "</span>" +
       '<span class="dact">' + chip +
-      '<a class="dvisit" href="' + esc(safeUrl(s.link)) + '" target="_blank" rel="noopener noreferrer">Visit site ' + I.ext + "</a></span></div>";
+      '<a class="dvisit" href="' + esc(safeUrl(s.link)) + '" target="_blank" rel="noopener noreferrer" aria-label="Visit site: ' + esc(s.name) + '">' +
+      '<span class="vtxt">Visit site</span> ' + I.ext + "</a></span></div>";
   }
   function renderDir() {
     var needle = dirState.q.trim().toLowerCase();
@@ -800,8 +865,8 @@
     var cmp = document.getElementById("btnCompare");
     var cal = document.getElementById("btnCalendar");
     var lockHtml = premiumOn() ? "" : I.lock + " ";
-    cmp.innerHTML = lockHtml + I.cols + " Compare";
-    cal.innerHTML = lockHtml + I.calplus + " Calendar";
+    cmp.innerHTML = lockHtml + I.cols + ' <span class="btxt">Compare</span>';
+    cal.innerHTML = lockHtml + I.calplus + ' <span class="btxt">Calendar</span>';
   }
   function unlockModal(prefillMsg) {
     openModal(
