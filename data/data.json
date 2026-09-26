@@ -26,7 +26,7 @@
     ],
     "link": "https://www.rwth-aachen.de",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "251024cec9e472fff3df4a201c36f9f8ddff6eb6205ea0281db944f995d84dba",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -36,7 +36,8 @@
       "Natural Sciences"
     ],
     "slug": "rwth-aachen-university",
-    "approx": true
+    "approx": true,
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Freie Universität Berlin",
@@ -69,7 +70,7 @@
     ],
     "link": "https://www.fu-berlin.de/en/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "00f732cdf9e5777cb1622845f17c3c981bfa9b63fe3b9846da02d5a430758237",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -79,7 +80,8 @@
       "Natural Sciences"
     ],
     "slug": "freie-universitat-berlin",
-    "approx": true
+    "approx": true,
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Universität Hamburg",
@@ -112,7 +114,7 @@
     ],
     "link": "https://www.uni-hamburg.de/en.html",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "a74a9b83e7c6136f7505ad65af8efd2d4dc21e1d400ec3a011d6795ed708a02a",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -127,7 +129,8 @@
       "Agriculture & Environment"
     ],
     "slug": "universitat-hamburg",
-    "approx": true
+    "approx": true,
+    "last_checked": "2026-09-26"
   },
   {
     "name": "DAAD Scholarships (nationwide)",
@@ -152,7 +155,7 @@
     "approx": true,
     "link": "https://www.daad.de/en/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "c7b11d7e067eaff4f528d771b8933b459299cc02c74c57efba7ec5170bc20f2b",
     "needs_review": false,
     "kind": "program",
     "scope": "all",
@@ -162,7 +165,8 @@
       "Agriculture & Environment",
       "Medicine & Health"
     ],
-    "slug": "daad-scholarships"
+    "slug": "daad-scholarships",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "University of Vienna",
@@ -195,7 +199,7 @@
     ],
     "link": "https://www.univie.ac.at/en/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "e4ee7ae07589a7d2385d31a93d7f8dac5c36fb5ffc1c7223b7846021924ab163",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -205,7 +209,8 @@
       "Natural Sciences"
     ],
     "slug": "university-of-vienna",
-    "approx": true
+    "approx": true,
+    "last_checked": "2026-09-26"
   },
   {
     "name": "TU Wien",
@@ -234,7 +239,7 @@
     ],
     "link": "https://www.tuwien.at/en/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "3ef3453c3dfcce4f2e767cc50fb2fc06b13f6072169577f8cbd711ff8d608c3d",
     "needs_review": false,
     "kind": "school",
     "scope": "limited",
@@ -244,7 +249,8 @@
       "Natural Sciences"
     ],
     "slug": "tu-wien",
-    "approx": false
+    "approx": false,
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Erasmus Mundus Joint Masters",
@@ -268,7 +274,7 @@
     "approx": true,
     "link": "https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "f7672b4928132f1522a9a2784a38cdda1e5d005f99c049547521951edb3ab0cf",
     "needs_review": false,
     "kind": "program",
     "scope": "all",
@@ -282,7 +288,8 @@
       "Arts & Humanities",
       "Agriculture & Environment"
     ],
-    "slug": "erasmus-mundus-joint-masters"
+    "slug": "erasmus-mundus-joint-masters",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Eiffel Excellence Scholarship",
@@ -307,7 +314,7 @@
     "approx": true,
     "link": "https://www.campusfrance.org/en/eiffel-scholarship-program-of-excellence",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "52c2923591180fcbdd43711b71388e12fd02907fc33d9c04a3abe0c4eab375f4",
     "needs_review": false,
     "kind": "program",
     "scope": "limited",
@@ -317,7 +324,8 @@
       "Social Sciences & Law",
       "Business & Economics"
     ],
-    "slug": "eiffel-excellence-scholarship"
+    "slug": "eiffel-excellence-scholarship",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Swedish Institute Scholarships (SISGP)",
@@ -345,7 +353,7 @@
     "approx": true,
     "link": "https://si.se/en/apply/scholarships/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "2b069e13ca5dd050803f1921c125ca03916bdb0beb6ba9f016ac6c4e7e08e358",
     "needs_review": false,
     "kind": "program",
     "scope": "all",
@@ -355,7 +363,8 @@
       "Engineering & Tech",
       "Medicine & Health"
     ],
-    "slug": "swedish-institute-scholarships"
+    "slug": "swedish-institute-scholarships",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Stipendium Hungaricum",
@@ -381,7 +390,7 @@
     "approx": false,
     "link": "https://stipendiumhungaricum.hu/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "1c48a6e4d260eb8df98a1fe74580d228a53aa02f24cf5d30e9026b2d94d1befa",
     "needs_review": false,
     "kind": "program",
     "scope": "all",
@@ -395,7 +404,8 @@
       "Arts & Humanities",
       "Agriculture & Environment"
     ],
-    "slug": "stipendium-hungaricum"
+    "slug": "stipendium-hungaricum",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Romanian Government Scholarship",
@@ -421,7 +431,7 @@
     "approx": true,
     "link": "https://studyinromania.gov.ro/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "a62951f734799821a41295304d4d06e1d624e3d308033a710029d7f5b6f1029d",
     "needs_review": false,
     "kind": "program",
     "scope": "all",
@@ -435,7 +445,8 @@
       "Arts & Humanities",
       "Agriculture & Environment"
     ],
-    "slug": "romanian-government-scholarship"
+    "slug": "romanian-government-scholarship",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "University of Iceland — doctoral study",
@@ -452,7 +463,7 @@
     "deadline": "Varies — PhD places are usually tied to advertised research projects",
     "link": "https://english.hi.is/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "43320d2243a8d20f9d0be9429e16d3d5ba5f9701e5e15dc7846867123b7be193",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -463,7 +474,8 @@
       "Arts & Humanities"
     ],
     "slug": "university-of-iceland",
-    "rolling": true
+    "rolling": true,
+    "last_checked": "2026-09-26"
   },
   {
     "name": "University of Helsinki",
@@ -487,7 +499,7 @@
     "approx": true,
     "link": "https://www.helsinki.fi/en",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "fb31148ead05d1baf6ada6d3ca7e8816d02b63397899a70220967e0ce863a708",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -497,7 +509,8 @@
       "Social Sciences & Law",
       "Agriculture & Environment"
     ],
-    "slug": "university-of-helsinki-scholarships"
+    "slug": "university-of-helsinki-scholarships",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "ETH Zürich — Excellence Scholarship",
@@ -521,7 +534,7 @@
     ],
     "link": "https://ethz.ch/en.html",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "8478e303c56413ae384ffb4667c918c012831ab6ea2743dfe183d66d9dbd4181",
     "needs_review": false,
     "kind": "school",
     "scope": "limited",
@@ -531,7 +544,8 @@
       "Natural Sciences"
     ],
     "slug": "eth-zurich-excellence-scholarship",
-    "approx": false
+    "approx": false,
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Swiss Government Excellence Scholarships",
@@ -555,7 +569,7 @@
     "approx": true,
     "link": "https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "95061143f3ccfa382ef06ba2336ae8a24522ceab63b0f11e69ca4be227918c0c",
     "needs_review": false,
     "kind": "program",
     "scope": "all",
@@ -565,7 +579,8 @@
       "Natural Sciences",
       "Medicine & Health"
     ],
-    "slug": "swiss-government-excellence-scholarships"
+    "slug": "swiss-government-excellence-scholarships",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Chevening Scholarships",
@@ -589,7 +604,7 @@
     "approx": false,
     "link": "https://www.chevening.org/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "d07b243db51ff2cc7363a61568901fca4ac1c78943ed2a75b07d837f55f33dba",
     "needs_review": false,
     "kind": "program",
     "scope": "all",
@@ -603,7 +618,8 @@
       "Arts & Humanities",
       "Agriculture & Environment"
     ],
-    "slug": "chevening-scholarships"
+    "slug": "chevening-scholarships",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Gates Cambridge Scholarship",
@@ -636,7 +652,7 @@
     "approx": true,
     "link": "https://www.gatescambridge.org/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "346a02a6fe941629b1adffc0c85b5a05897c91690e8bbb21907aed684b46882f",
     "needs_review": false,
     "kind": "program",
     "scope": "all",
@@ -650,7 +666,8 @@
       "Arts & Humanities",
       "Agriculture & Environment"
     ],
-    "slug": "gates-cambridge-scholarship"
+    "slug": "gates-cambridge-scholarship",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Rhodes Scholarships (Oxford)",
@@ -675,7 +692,7 @@
     "approx": true,
     "link": "https://www.rhodeshouse.ox.ac.uk/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "df3f84f6524e45856ef7747b0e4abc988f1dea120d4d3e87c73155b53810d22a",
     "needs_review": false,
     "kind": "program",
     "scope": "all",
@@ -689,7 +706,8 @@
       "Arts & Humanities",
       "Agriculture & Environment"
     ],
-    "slug": "rhodes-scholarship"
+    "slug": "rhodes-scholarship",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Politecnico di Milano",
@@ -713,7 +731,7 @@
     "approx": true,
     "link": "https://www.polimi.it/en",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "6c9c24de1833aa3b554fb6c0753f72fe8d2d79f77e704d39b04c8249e668ca8f",
     "needs_review": false,
     "kind": "school",
     "scope": "limited",
@@ -722,7 +740,8 @@
       "Computer Science",
       "Arts & Humanities"
     ],
-    "slug": "politecnico-di-milano-merit-scholarships"
+    "slug": "politecnico-di-milano-merit-scholarships",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "University of Bologna",
@@ -749,7 +768,7 @@
     "approx": true,
     "link": "https://www.unibo.it/en",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "4a6dab223a72236d04f79cdb0655ebf56a7ed987e1f5541c33d597ea703dcdbd",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -763,7 +782,8 @@
       "Arts & Humanities",
       "Agriculture & Environment"
     ],
-    "slug": "university-of-bologna"
+    "slug": "university-of-bologna",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "TU Delft — Van Effen Excellence",
@@ -788,7 +808,7 @@
     "approx": false,
     "link": "https://www.tudelft.nl/en/education/practical-matters/scholarships",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "5199c703735cf4494964872d6958c722ffd6c4b6645f54baa4c7ee8bca5c86ba",
     "needs_review": false,
     "kind": "school",
     "scope": "limited",
@@ -797,7 +817,8 @@
       "Computer Science",
       "Natural Sciences"
     ],
-    "slug": "tu-delft-van-effen-excellence"
+    "slug": "tu-delft-van-effen-excellence",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Maastricht University — Holland-High Potential",
@@ -826,7 +847,7 @@
     "approx": false,
     "link": "https://www.maastrichtuniversity.nl/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "421bee3b1023fd479be511f9befb11418f2fa999f32c49ac97a01c4564912f96",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -835,7 +856,8 @@
       "Social Sciences & Law",
       "Medicine & Health"
     ],
-    "slug": "maastricht-holland-high-potential"
+    "slug": "maastricht-holland-high-potential",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Master Mind Scholarships (Flanders)",
@@ -852,7 +874,7 @@
     "deadline": "2027–28 call not yet announced (scheme under review)",
     "link": "https://www.studyinflanders.be/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "50e42e009280ba1f6d0b8bcbb8f8521fae41af7c5ad6efe0625013853c34d657",
     "needs_review": false,
     "kind": "program",
     "scope": "all",
@@ -867,7 +889,8 @@
       "Agriculture & Environment"
     ],
     "slug": "master-mind-scholarships-flanders",
-    "tbc": true
+    "tbc": true,
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Charles University (Czech-taught)",
@@ -893,7 +916,7 @@
     "approx": true,
     "link": "https://cuni.cz/UKEN-1.html",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "0bba80c92248c3cff7824355b3286f7c992a8ae1251fc75406500b455d52924a",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -903,7 +926,8 @@
       "Social Sciences & Law",
       "Arts & Humanities"
     ],
-    "slug": "charles-university"
+    "slug": "charles-university",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Türkiye Bursları",
@@ -929,7 +953,7 @@
     "approx": false,
     "link": "https://www.turkiyeburslari.gov.tr/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "62f76bbd41ebb6974d6143de09f28968de75d7f4dd56d61d970747790b99ee8e",
     "needs_review": false,
     "kind": "program",
     "scope": "all",
@@ -943,7 +967,8 @@
       "Arts & Humanities",
       "Agriculture & Environment"
     ],
-    "slug": "turkiye-burslari"
+    "slug": "turkiye-burslari",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Harvard University",
@@ -971,7 +996,7 @@
     ],
     "link": "https://college.harvard.edu/admissions",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "59f8fb1ab2e8b9c2828d4937377b714f6a34142e55496d42179be79c76dd1935",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -986,7 +1011,8 @@
       "Agriculture & Environment"
     ],
     "slug": "harvard-university",
-    "approx": false
+    "approx": false,
+    "last_checked": "2026-09-26"
   },
   {
     "name": "MIT",
@@ -1014,7 +1040,7 @@
     ],
     "link": "https://mitadmissions.org/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "fe395f385beae594d5d8b93d824291c6ffc2acc6a6f5c1289d9906c37b33d773",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -1025,7 +1051,8 @@
       "Business & Economics"
     ],
     "slug": "mit",
-    "approx": true
+    "approx": true,
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Yale University",
@@ -1053,7 +1080,7 @@
     ],
     "link": "https://admissions.yale.edu/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "9018a92808de8cd57ee1cdbee632736bfd04decd007686496895c2d500004294",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -1068,7 +1095,8 @@
       "Agriculture & Environment"
     ],
     "slug": "yale-university",
-    "approx": false
+    "approx": false,
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Princeton University",
@@ -1096,7 +1124,7 @@
     ],
     "link": "https://admission.princeton.edu/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "25deb801d7f0ce471b416afb671b979788ceca3d7ba96cd0020c8124ea81b2e4",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -1107,7 +1135,8 @@
       "Arts & Humanities"
     ],
     "slug": "princeton-university",
-    "approx": false
+    "approx": false,
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Amherst College",
@@ -1135,7 +1164,7 @@
     ],
     "link": "https://www.amherst.edu/admission",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "d139da20c2a04970a274efbf60cab2a7da180764d6a34f70521e3cb7f9121035",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -1145,7 +1174,8 @@
       "Natural Sciences"
     ],
     "slug": "amherst-college",
-    "approx": false
+    "approx": false,
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Dartmouth College",
@@ -1172,7 +1202,7 @@
     ],
     "link": "https://admissions.dartmouth.edu/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "3a9665def0f86da716a479dc05010d0e7e4adceedd585d623d0ad32d4fcf4dad",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -1183,7 +1213,8 @@
       "Engineering & Tech"
     ],
     "slug": "dartmouth-college",
-    "approx": false
+    "approx": false,
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Brown University",
@@ -1210,7 +1241,7 @@
     ],
     "link": "https://admission.brown.edu/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "cb921d6594255e137710c5c12b20c5f61d8825e3dcbc56570f21922f7a688b9a",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -1225,7 +1256,8 @@
       "Agriculture & Environment"
     ],
     "slug": "brown-university",
-    "approx": false
+    "approx": false,
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Berea College",
@@ -1249,7 +1281,7 @@
     "approx": false,
     "link": "https://www.berea.edu/admissions",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "424f5e834b88a56791ce4fd6e0dd6b03103da4f3b61a9bb5a3b19f76e956bd8f",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -1259,7 +1291,8 @@
       "Arts & Humanities",
       "Agriculture & Environment"
     ],
-    "slug": "berea-college"
+    "slug": "berea-college",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Duke University",
@@ -1288,7 +1321,7 @@
     "approx": false,
     "link": "https://admissions.duke.edu/",
     "last_verified": "2026-09-25",
-    "content_hash": null,
+    "content_hash": "8c2b90e6e4151c185df65461717d127182316b0b9f7ba5d13d2a11dee7391699",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -1298,7 +1331,8 @@
       "Social Sciences & Law",
       "Business & Economics"
     ],
-    "slug": "duke-university"
+    "slug": "duke-university",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Vanderbilt University",
@@ -1325,7 +1359,7 @@
     ],
     "link": "https://admissions.vanderbilt.edu/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "e5051c1e36841c2657a45c20dfdc62224021acca0225bbe5136123a7d5015c5f",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -1336,7 +1370,8 @@
       "Arts & Humanities"
     ],
     "slug": "vanderbilt-university",
-    "approx": false
+    "approx": false,
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Colby College",
@@ -1375,7 +1410,9 @@
       "Agriculture & Environment"
     ],
     "slug": "colby-college",
-    "approx": false
+    "approx": false,
+    "last_checked": "2026-09-26",
+    "fetch_error": "403 Client Error: Forbidden for url: https://www.colby.edu/admission/"
   },
   {
     "name": "Knight-Hennessy Scholars (Stanford)",
@@ -1400,7 +1437,7 @@
     "approx": false,
     "link": "https://knight-hennessy.stanford.edu/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "c5bb1fdab83269aa5d024b86b3b16a918f2dd386865a54a87d53eaffc170d98f",
     "needs_review": false,
     "kind": "program",
     "scope": "all",
@@ -1414,7 +1451,8 @@
       "Arts & Humanities",
       "Agriculture & Environment"
     ],
-    "slug": "knight-hennessy-scholars"
+    "slug": "knight-hennessy-scholars",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Fulbright Foreign Student Program",
@@ -1439,7 +1477,7 @@
     "approx": true,
     "link": "https://foreign.fulbrightonline.org/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "d0873753d05ed67059e93d974487fad4594d055b69fd5a1686146c4e530bf8d2",
     "needs_review": false,
     "kind": "program",
     "scope": "all",
@@ -1453,7 +1491,8 @@
       "Arts & Humanities",
       "Agriculture & Environment"
     ],
-    "slug": "fulbright-foreign-student-program"
+    "slug": "fulbright-foreign-student-program",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "University of Toronto — Pearson Scholarship",
@@ -1483,7 +1522,7 @@
     "approx": false,
     "link": "https://future.utoronto.ca/pearson/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "48fe28129424ac03f97ac2b8d3039fd5e5ed289a6d8ca6e148c6f66a7b9d1321",
     "needs_review": false,
     "scope": "all",
     "fields": [
@@ -1496,7 +1535,8 @@
       "Arts & Humanities",
       "Agriculture & Environment"
     ],
-    "slug": "university-of-toronto-pearson-scholarship"
+    "slug": "university-of-toronto-pearson-scholarship",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "University of British Columbia — International Scholars",
@@ -1522,7 +1562,7 @@
     "approx": false,
     "link": "https://you.ubc.ca/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "bdbe7b126dddb1a18631075ebbe775f4b44244ad0d69bd9f3ff34dd231601a8b",
     "needs_review": false,
     "scope": "all",
     "fields": [
@@ -1535,7 +1575,8 @@
       "Arts & Humanities",
       "Agriculture & Environment"
     ],
-    "slug": "ubc-international-scholars"
+    "slug": "ubc-international-scholars",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Canada Graduate Research Scholarships — Doctoral (formerly Vanier)",
@@ -1560,7 +1601,7 @@
     "approx": true,
     "link": "https://nserc-crsng.canada.ca/en/canada-graduate-research-scholarship-doctoral-or-canada-postdoctoral-research-award-programs",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "33a3ecf4317dde4345c91703a6261e92e57291e3b07142546963e1b3c896eb33",
     "needs_review": false,
     "scope": "limited",
     "fields": [
@@ -1569,7 +1610,8 @@
       "Engineering & Tech",
       "Social Sciences & Law"
     ],
-    "slug": "canada-graduate-research-scholarships-doctoral"
+    "slug": "canada-graduate-research-scholarships-doctoral",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Government of Ireland — International Education Scholarships",
@@ -1595,7 +1637,7 @@
     "approx": true,
     "link": "https://hea.ie/policy/internationalisation/goi-ies/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "e7a15bd88e226eb27b4064727f73fb49f1e4b93a52775ac4ba92b55bbd924577",
     "needs_review": false,
     "scope": "all",
     "fields": [
@@ -1608,7 +1650,8 @@
       "Arts & Humanities",
       "Agriculture & Environment"
     ],
-    "slug": "government-of-ireland-international-education-scholarships"
+    "slug": "government-of-ireland-international-education-scholarships",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Research Ireland — Postgraduate Scholarships",
@@ -1627,7 +1670,7 @@
     "deadline": "2027 call not yet announced (2026 call closed Oct 23, 2025)",
     "link": "https://www.researchireland.ie/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "23491dad27e67c4096cd64c871037c1b23d26f4c7d1a2801060492f3c0ab2e0d",
     "needs_review": false,
     "scope": "all",
     "fields": [
@@ -1637,7 +1680,8 @@
       "Arts & Humanities"
     ],
     "slug": "research-ireland-postgraduate-scholarships",
-    "tbc": true
+    "tbc": true,
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Norwegian PhD Fellowships (salaried)",
@@ -1658,7 +1702,7 @@
     "rolling": true,
     "link": "https://www.jobbnorge.no/en",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "f869ade88cb37c5dc75aec8016ad2e414f06c6319ff4370b63cc03dd8405a7d9",
     "needs_review": false,
     "scope": "all",
     "fields": [
@@ -1667,7 +1711,8 @@
       "Natural Sciences",
       "Medicine & Health"
     ],
-    "slug": "norwegian-phd-fellowships"
+    "slug": "norwegian-phd-fellowships",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Ghent University — Doctoral Scholarships (Global South)",
@@ -1692,7 +1737,7 @@
     "approx": true,
     "link": "https://www.ugent.be/en/research/funding/bof/dos",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "246e2fc660aa4bbf54f4e7b7cef0926852d7f0ff3a6603afea9b75de69db9834",
     "needs_review": false,
     "scope": "all",
     "fields": [
@@ -1701,7 +1746,8 @@
       "Natural Sciences",
       "Engineering & Tech"
     ],
-    "slug": "ghent-university-doctoral-scholarships"
+    "slug": "ghent-university-doctoral-scholarships",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Mastercard Foundation Scholars Program",
@@ -1735,9 +1781,10 @@
     "rolling": true,
     "link": "https://mastercardfdn.org/en/what-we-do/our-programs/mastercard-foundation-scholars-program/where-to-apply/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "dba57e319f07a49744c31bdb032d12dd8e097a97350a3bb1ebfbec98d50dcd0c",
     "needs_review": false,
-    "slug": "mastercard-foundation-scholars-program"
+    "slug": "mastercard-foundation-scholars-program",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Mastercard Foundation Scholars — Cambridge",
@@ -1773,9 +1820,10 @@
     "approx": false,
     "link": "https://www.mastercardfoundation.fund.cam.ac.uk/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "a48c0bf52681817ee6a4f955cc12c97512649707a3bfaad22c1487c42911deae",
     "needs_review": false,
-    "slug": "mastercard-foundation-scholars-cambridge"
+    "slug": "mastercard-foundation-scholars-cambridge",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Mastercard Foundation Scholars — UC Berkeley",
@@ -1811,9 +1859,10 @@
     "approx": true,
     "link": "https://mcfscholarsprogram.berkeley.edu/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "ab806fc1d1aff054ffb027930f41560df2b7b4ff2e1c9931dc5540a05423aaaf",
     "needs_review": false,
-    "slug": "mastercard-foundation-scholars-uc-berkeley"
+    "slug": "mastercard-foundation-scholars-uc-berkeley",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Mastercard Foundation Scholars — ASU",
@@ -1845,9 +1894,10 @@
     "approx": false,
     "link": "https://mcfscholars.asu.edu/phase-three-innovation-and-technology",
     "last_verified": "2026-09-25",
-    "content_hash": null,
+    "content_hash": "b7df287fddd840aaba0ae4b0204cda88c6e8f21c2644caf2321206d00a60d72c",
     "needs_review": false,
-    "slug": "mastercard-foundation-scholars-asu"
+    "slug": "mastercard-foundation-scholars-asu",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Mastercard Foundation Scholars — McGill",
@@ -1883,9 +1933,10 @@
     "approx": true,
     "link": "https://www.mcgill.ca/mastercardfdn-scholars/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "b3ea9c8c71bd9caa44a141dc36f66e2f3db493433ca8b2c7ecd95ca4e43259a4",
     "needs_review": false,
-    "slug": "mastercard-foundation-scholars-mcgill"
+    "slug": "mastercard-foundation-scholars-mcgill",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Commonwealth Master's Scholarships",
@@ -1921,9 +1972,10 @@
     "approx": false,
     "link": "https://cscuk.fcdo.gov.uk/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "1e13988477c69b24533c5587e267941f4d62fd2466efb8bd38d3d156f9fe5f38",
     "needs_review": false,
-    "slug": "commonwealth-masters-scholarships"
+    "slug": "commonwealth-masters-scholarships",
+    "last_checked": "2026-09-26"
   },
   {
     "name": "Commonwealth Shared Scholarships",
@@ -1959,8 +2011,9 @@
     "approx": true,
     "link": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-shared-scholarships/",
     "last_verified": "2026-09-24",
-    "content_hash": null,
+    "content_hash": "92dd0edf20c3e4c4d68afbffda56c1441be61c20e5534b885994c01f2a9009c7",
     "needs_review": false,
-    "slug": "commonwealth-shared-scholarships"
+    "slug": "commonwealth-shared-scholarships",
+    "last_checked": "2026-09-26"
   }
 ]
