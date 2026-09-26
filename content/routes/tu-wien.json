@@ -13,19 +13,71 @@
   "how_to_apply": [
     "Choose your programme and check its language and admission requirements.",
     "Register in TISS and submit the application with all documents and certifications.",
-    "Non-EU/EEA citizens must submit a complete application within the special deadline: 16 January – 15 July 2026 for winter semester 2026/27, and 16 July 2026 – 15 January 2027 for summer semester 2027.",
+    "Non-EU/EEA citizens: the special deadline for winter semester 2026/27 (16 January – 15 July 2026) has already closed. The current window, for summer semester 2027, runs 16 July 2026 – 15 January 2027.",
     "Once admitted, enrol in person at the Admissions Office (Karlsplatz 13) by 31 October (winter) or 31 March (summer) and pay the semester fee."
   ],
   "watch_out": [
-    "The non-EU deadline (15 July / 15 January) is months earlier than TU Wien's general admission periods — the general dates do not apply to you.",
+    "If you missed the 15 July 2026 non-EU deadline for winter semester 2026/27, your next chance is the summer semester 2027 window (16 July 2026 – 15 January 2027) — these dates are months earlier than TU Wien's general admission periods.",
     "Assessment of a foreign bachelor's degree can take around three months, so apply early in the window, not near its end.",
-    "Enrolment is completed in person in Vienna, so plan your visa and arrival before the enrolment cut-off."
+    "Enrolment is completed in person in Vienna, so plan your visa and arrival before the enrolment cut-off (31 October for winter, 31 March for summer)."
   ],
-  "related": ["university-of-vienna", "rwth-aachen-university", "eth-zurich-excellence-scholarship", "charles-university"],
+  "costs": [
+    [
+      "Tuition fee per semester, non-EU nationals",
+      "€726.72, payable from the first semester of the degree"
+    ],
+    [
+      "Tuition fee per semester, citizens on the least-developed-countries list (Annex 1)",
+      "Waived for the whole degree — only the ÖH fee applies"
+    ],
+    [
+      "ÖH students' union fee",
+      "All students, every semester, regardless of tuition-fee status"
+    ],
+    [
+      "Tuition fee waiver (illness, disability, study grant, etc.)",
+      "Apply via the Admission Office's Jira portal by 31 October (winter) or 31 March (summer); the ÖH fee is still due even if the waiver is granted"
+    ]
+  ],
+  "documents": [
+    "Bachelor's degree certificate and transcript/module descriptions, needed for the equivalence assessment for master's admission.",
+    "Proof of English-language proficiency if applying to an English-taught master's programme (requirement set by the programme itself).",
+    "Application form for admission to a master's programme, if a written application is required.",
+    "Complete set of documents and certifications submitted via TISS within the non-EU/EEA deadline window."
+  ],
+  "faq": [
+    {
+      "q": "Has the non-EU deadline for winter semester 2026/27 already passed?",
+      "a": "Yes — it ran from 16 January to 15 July 2026 and is now closed. The next non-EU application window is for summer semester 2027, from 16 July 2026 to 15 January 2027."
+    },
+    {
+      "q": "Do citizens of the least-developed-countries list pay any tuition?",
+      "a": "No. They are generally exempt from the tuition fee for their whole degree, but they still pay the ÖH students' union fee every semester."
+    },
+    {
+      "q": "Does the low tuition fee include living costs?",
+      "a": "No. You need to budget separately for living costs in Vienna and meet the proof-of-funds requirement for your residence permit."
+    }
+  ],
   "sources": [
-    {"title": "TU Wien — Tuition fee", "url": "https://www.tuwien.at/en/studies/admission/students-union-fee-and-tuition-fee/tuition-fee"},
-    {"title": "TU Wien — Academic calendar and non-EU deadlines", "url": "https://www.tuwien.at/en/studies/admission/academic-calendar"},
-    {"title": "TU Wien — Master's programmes admission", "url": "https://www.tuwien.at/en/studies/admission/masters-programmes"}
+    {
+      "title": "TU Wien — Tuition fee",
+      "url": "https://www.tuwien.at/en/studies/admission/students-union-fee-and-tuition-fee/tuition-fee"
+    },
+    {
+      "title": "TU Wien — Academic calendar and non-EU deadlines",
+      "url": "https://www.tuwien.at/en/studies/admission/academic-calendar"
+    },
+    {
+      "title": "TU Wien — Master's programmes admission",
+      "url": "https://www.tuwien.at/en/studies/admission/masters-programmes"
+    }
   ],
-  "reviewed": "2026-09-24"
+  "related": [
+    "university-of-vienna",
+    "rwth-aachen-university",
+    "eth-zurich-excellence-scholarship",
+    "charles-university"
+  ],
+  "reviewed": "2026-09-26"
 }
