@@ -228,10 +228,8 @@ def verify_changes(changes, pages):
 
 
 def parse_reply(text):
-    s, e = text.find("{"), text.rfind("}")
-    if s == -1 or e < s:
-        raise ValueError("no JSON object in the reply")
-    return json.loads(text[s:e + 1])
+    from jsonpick import extract_json
+    return extract_json(text, "{", "}")
 
 
 # ---------------------------------------------------------------- choosing what to review

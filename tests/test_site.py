@@ -395,6 +395,18 @@ class MonthlyRefresh(unittest.TestCase):
         self.assertEqual(data[-1]["slug"], slug)
         self.assertEqual(list((self.dir / "data" / "incoming").glob("*.json")), [])
 
+    def test_model_replies_with_citations_are_still_read(self):
+        sys.modules.pop("jsonpick", None)
+        import jsonpick
+        pick = jsonpick.extract_json
+        noisy = ('I searched [1] and found sources [2]. The best match [see 3] is below.\n'
+                 '[{"name": "A", "types": ["Full Scholarship"]}, {"name": "B", "types": ["Merit"]}]')
+        self.assertEqual([x["name"] for x in pick(noisy, "[", "]")], ["A", "B"])
+        fenced = 'Notes {not json} here.\n```json\n{"accept": true, "confidence": 0.9}\n```\nDone.'
+        self.assertEqual(pick(fenced, "{", "}"), {"accept": True, "confidence": 0.9})
+        with self.assertRaises(ValueError):
+            pick("The search found nothing useful [1].", "{", "}")
+
     def test_closed_proposals_are_remembered(self):
         cands = [{"name": "Some Award", "slug": "some-award", "status": "in-review", "link": "https://a.org/"}]
         rejected, state = [], {"brown-university": {"status": "open", "page_hash": "abc"}}

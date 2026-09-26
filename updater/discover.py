@@ -118,7 +118,7 @@ Hard exclusions:
 
 Already in the directory (do not return these): {existing_names}
 
-Return AT MOST 3 candidates. End your reply with ONLY a JSON array (no prose after it):
+Return AT MOST 3 candidates. End your reply with ONLY a JSON array inside a ```json fence (no prose after it):
 [{{
   "name": "<programme or university name, short>",
   "flag": "<country flag emoji>",
@@ -177,15 +177,14 @@ def call_claude(model, prompt, max_tokens, use_search=False):
     resp = requests.post(API_URL, json=body, headers=headers, timeout=180)
     if resp.status_code != 200:
         raise RuntimeError(f"API {resp.status_code}: {resp.text[:300]}")
-    blocks = resp.json().get("content", [])
+    reply = resp.json()
+    if reply.get("stop_reason") not in ("end_turn", None):
+        log(f"   (reply stopped early: {reply.get('stop_reason')})")
+    blocks = reply.get("content", [])
     return "".join(b.get("text", "") for b in blocks if b.get("type") == "text")
 
 
-def extract_json(text, opener, closer):
-    s, e = text.find(opener), text.rfind(closer)
-    if s == -1 or e == -1 or e < s:
-        raise ValueError("no JSON found in model output")
-    return json.loads(text[s:e + 1])
+from jsonpick import extract_json  # noqa: E402  (tolerates citations like "[1]" before the answer)
 
 
 def norm(name):
@@ -303,7 +302,7 @@ def main():
                     valid_types=VALID_TYPES, valid_levels=VALID_LEVELS,
                     valid_fields=VALID_FIELDS,
                 ),
-                max_tokens=2500, use_search=True,
+                max_tokens=8000, use_search=True,
             )
             found = extract_json(text, "[", "]")
         except Exception as e:
