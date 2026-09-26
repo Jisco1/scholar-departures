@@ -1,1 +1,9 @@
-{}
+{
+  "tu-wien": {
+    "status": "open",
+    "branch": "bot/page-update/tu-wien",
+    "page_hash": "99a3942d5c419d54",
+    "opened": "2026-09-26",
+    "pr": "https://github.com/Jisco1/scholar-departures/pull/1"
+  }
+}
