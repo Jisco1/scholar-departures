@@ -17,7 +17,7 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-COPY = ["build.py", "site.json", "src", "content", "data"]
+COPY = ["build.py", "site.json", "src", "content", "data", "updater"]
 
 
 def make_copy():
@@ -270,6 +270,141 @@ class AdsWired(unittest.TestCase):
         for path in self.site.rglob("*.html"):
             self.assertNotRegex(path.read_text(encoding="utf-8"), r'<ins[^>]*class="[^"]*\badsbygoogle\b',
                                 f"{path.name}: a bay built as ins.adsbygoogle can be filled by another bay's request")
+
+
+class MonthlyRefresh(unittest.TestCase):
+    """The monthly robot, run end to end with a fake Claude and fake web pages (no network, no cost)."""
+
+    def setUp(self):
+        self.dir = make_copy()
+        sys.path.insert(0, str(self.dir / "updater"))
+        for name in ("drafts", "stale", "sync_decisions"):
+            sys.modules.pop(name, None)
+        import drafts, stale, sync_decisions  # noqa: E401  (the copies, not the originals)
+        self.drafts, self.stale, self.sync = drafts, stale, sync_decisions
+
+    def tearDown(self):
+        sys.path.remove(str(self.dir / "updater"))
+        for name in ("drafts", "stale", "sync_decisions"):
+            sys.modules.pop(name, None)
+        shutil.rmtree(self.dir, ignore_errors=True)
+
+    def test_stale_dates_are_classified(self):
+        import datetime as dt
+        classify = self.stale.past_dates
+        today = dt.date(2026, 10, 1)
+        w = {"summary": "Apply by 27 September 2026.",
+             "covers": ["TOEFL tests taken from 21 January 2026 use the new scale.",
+                        "The 2026 call closed on 12 March 2026.", "Files were due by 8 January 2026."],
+             "eligibility": ["Next deadline 1 December 2026."]}
+        kinds = {raw: kind for raw, _, kind in classify(w, today)}
+        self.assertEqual(kinds, {"27 September 2026": "outdated", "12 March 2026": "last_cycle", "8 January 2026": "last_cycle"})
+
+    def test_validator_accepts_current_pages_and_rejects_bad_ones(self):
+        v = self.drafts.validate_writeup
+        for path in sorted((self.dir / "content" / "routes").glob("*.json")):
+            w = json.loads(path.read_text(encoding="utf-8"))
+            if "costs" in w:
+                self.assertEqual(v(w), [], path.stem)
+        good = json.loads((self.dir / "content" / "routes" / "brown-university.json").read_text(encoding="utf-8"))
+        self.assertTrue(v({**good, "summary": "<script>x</script>"}))
+        self.assertTrue(v({**good, "faq": []}))
+        self.assertTrue(v({**good, "sources": [{"title": "x", "url": "http://example.com"}]}))
+        self.assertTrue(v({**good, "covers": ["see [this](javascript:alert(1))", "two"]}))
+
+    def fake_page(self, url):
+        return ("Brown University admission. To apply you must submit an $85 non-refundable application fee, "
+                "or a fee waiver. Early Decision closes November 1. " + url)
+
+    def test_page_update_is_proposed_with_verified_quotes(self):
+        d = self.drafts
+        current = json.loads((self.dir / "content" / "routes" / "brown-university.json").read_text(encoding="utf-8"))
+        revised = {k: v for k, v in current.items() if k not in ("related", "reviewed")}
+        revised["costs"] = [["Application fee ($85)", "You, unless a fee waiver is accepted"]] + current["costs"][1:]
+        reply = {"writeup": revised, "changes": [
+            {"change": "The application fee rose from $80 to $85.", "evidence": "submit an $85 non-refundable application fee",
+             "url": "https://admission.brown.edu/"},
+            {"change": "An invented claim.", "evidence": "this sentence is not on the page", "url": "https://admission.brown.edu/"}]}
+        d.fetch = self.fake_page
+        d.call_model = lambda prompt, max_tokens=6000: json.dumps(reply)
+        self.assertEqual(d.main(["--only", "brown-university", "--max-new", "0"]), 1)
+        meta = json.loads((self.dir / "drafts" / "page-update-brown-university" / "meta.json").read_text(encoding="utf-8"))
+        self.assertEqual(meta["branch"], "bot/page-update/brown-university")
+        self.assertIn("✓ quote found", meta["body"])
+        self.assertIn("⚠ quote NOT found", meta["body"])
+        written = json.loads(meta["files"]["content/routes/brown-university.json"])
+        self.assertEqual(written["related"], current["related"])  # bookkeeping kept
+        # merging the proposal must leave a site that builds
+        for rel, content in meta["files"].items():
+            (self.dir / rel).write_text(content, encoding="utf-8")
+        result = build(self.dir)
+        self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
+        self.assertIn("Application fee ($85)", (self.dir / "_site" / "routes" / "brown-university" / "index.html").read_text(encoding="utf-8"))
+
+    def test_a_draft_without_any_verified_quote_is_dropped(self):
+        d = self.drafts
+        current = json.loads((self.dir / "content" / "routes" / "brown-university.json").read_text(encoding="utf-8"))
+        reply = {"writeup": {k: v for k, v in current.items() if k not in ("related", "reviewed")},
+                 "changes": [{"change": "Made up.", "evidence": "nothing like this appears", "url": "https://x.org/"}]}
+        d.fetch = self.fake_page
+        d.call_model = lambda prompt, max_tokens=6000: json.dumps(reply)
+        self.assertEqual(d.main(["--only", "brown-university", "--max-new", "0"]), 0)
+
+    def test_new_route_becomes_a_page_after_merge_and_fold(self):
+        d = self.drafts
+        cand_path = self.dir / "data" / "candidates.json"
+        cand = {"name": "Example Tech University Scholarship", "flag": "🇳🇱", "country": "Netherlands", "kind": "school",
+                "scope": "all", "fields": ["Engineering & Tech"], "region": "Europe", "types": ["Full Scholarship"],
+                "levels": ["Master's"], "funding": "Full tuition and a living allowance for non-EU master's students.",
+                "deadline": "Feb 1", "deadlines": [{"m": 2, "d": 1}], "approx": False,
+                "link": "https://www.example.edu/scholarship", "last_verified": "2026-09-26",
+                "content_hash": None, "needs_review": False, "status": "pending", "theme": "test", "confidence": 0.9}
+        cand_path.write_text(json.dumps([cand]), encoding="utf-8")
+        page = "Example Tech University pays full tuition and a living allowance of EUR 1,200 per month. Apply by 1 February."
+        writeup = {"summary": "A full scholarship for non-EU master's students.",
+                   "covers": ["Full tuition.", "A living allowance of €1,200 a month."],
+                   "eligibility": ["Non-EU applicants.", "Admission to a master's programme."],
+                   "how_to_apply": ["Apply for the master's.", "Apply for the scholarship by 1 February."],
+                   "watch_out": ["Places are limited.", "Check the programme list."],
+                   "costs": [["Tuition", "The scholarship"], ["Living costs", "€1,200 a month from the scholarship"]],
+                   "documents": ["Transcripts.", "A CV."],
+                   "faq": [{"q": "When?", "a": "By 1 February."}, {"q": "Who?", "a": "Non-EU students."}, {"q": "How much?", "a": "€1,200 a month."}],
+                   "sources": [{"title": "Example Tech — Scholarship", "url": "https://www.example.edu/scholarship"}]}
+        d.fetch = lambda url: page
+        d.call_model = lambda prompt, max_tokens=6000: json.dumps({"writeup": writeup, "changes": [
+            {"change": "Living allowance", "evidence": "living allowance of EUR 1,200 per month", "url": "https://www.example.edu/scholarship"}]})
+        self.assertEqual(d.main(["--max-updates", "0", "--max-new", "1"]), 1)
+        slug = "example-tech-university-scholarship"
+        meta = json.loads((self.dir / "drafts" / f"new-route-{slug}" / "meta.json").read_text(encoding="utf-8"))
+        self.assertEqual(set(meta["files"]), {f"data/incoming/{slug}.json", f"content/routes/{slug}.json"})
+        # the owner merges: the files land on main and the site builds with the new page
+        for rel, content in meta["files"].items():
+            target = self.dir / rel
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(content, encoding="utf-8")
+        result = build(self.dir)
+        self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
+        self.assertTrue((self.dir / "_site" / "routes" / slug / "index.html").exists())
+        # next month: the decision is recorded and the file folds into data.json
+        cands = json.loads(cand_path.read_text(encoding="utf-8"))
+        notes = self.sync.apply_decisions([{"headRefName": f"bot/new-route/{slug}", "state": "MERGED", "mergedAt": "2026-10-02"}],
+                                          cands, [], {}, "2026-11-01")
+        self.assertEqual(cands[0]["status"], "approved", notes)
+        data = json.loads((self.dir / "data" / "data.json").read_text(encoding="utf-8"))
+        self.assertEqual(self.sync.fold_incoming(data, self.dir / "data" / "incoming"), [slug])
+        self.assertEqual(data[-1]["slug"], slug)
+        self.assertEqual(list((self.dir / "data" / "incoming").glob("*.json")), [])
+
+    def test_closed_proposals_are_remembered(self):
+        cands = [{"name": "Some Award", "slug": "some-award", "status": "in-review", "link": "https://a.org/"}]
+        rejected, state = [], {"brown-university": {"status": "open", "page_hash": "abc"}}
+        self.sync.apply_decisions([
+            {"headRefName": "bot/new-route/some-award", "state": "CLOSED", "mergedAt": None, "url": "u1"},
+            {"headRefName": "bot/page-update/brown-university", "state": "CLOSED", "mergedAt": None, "url": "u2"},
+        ], cands, rejected, state, "2026-11-01")
+        self.assertEqual(cands[0]["status"], "rejected")
+        self.assertEqual(rejected[0]["name"], "Some Award")
+        self.assertEqual(state["brown-university"]["status"], "rejected")
 
 
 class PoisonedData(unittest.TestCase):

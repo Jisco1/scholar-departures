@@ -45,6 +45,7 @@ except ImportError:
 ROOT = Path(__file__).resolve().parent.parent
 DATA_JSON = ROOT / "data" / "data.json"
 REVIEW_JSON = ROOT / "data" / "review_queue.json"
+CHANGED_JSON = ROOT / "data" / "changed_routes.json"  # read by drafts.py: pages worth a write-up review
 
 API_URL = "https://api.anthropic.com/v1/messages"
 MODEL = os.environ.get("MODEL", "claude-haiku-4-5-20251001")
@@ -157,6 +158,7 @@ def main():
 
     today = date.today().isoformat()
     stats = {"checked": 0, "unchanged": 0, "applied": 0, "queued": 0, "errors": 0}
+    changed = []
 
     for entry in data:
         name = entry.get("name", "?")
@@ -190,6 +192,8 @@ def main():
             continue
 
         first_run = entry.get("content_hash") is None
+        if not first_run:
+            changed.append(entry.get("slug") or name)
         log("   page changed — extracting…" if not first_run else "   first hash — baselining + verifying…")
         extraction, err = call_claude(entry, page_text)
         entry["content_hash"] = new_hash
@@ -243,7 +247,8 @@ def main():
 
     DATA_JSON.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     REVIEW_JSON.write_text(json.dumps(review_queue, ensure_ascii=False, indent=2), encoding="utf-8")
-    log(f"\nWrote {DATA_JSON.name}, {REVIEW_JSON.name}")
+    CHANGED_JSON.write_text(json.dumps(changed, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    log(f"\nWrote {DATA_JSON.name}, {REVIEW_JSON.name}, {CHANGED_JSON.name} ({len(changed)} changed page(s))")
 
 
 if __name__ == "__main__":

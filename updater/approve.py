@@ -7,6 +7,9 @@ DegreeStep — candidate approval CLI.
   python updater/approve.py --reject 2       reject #2 (never re-suggested)
   python updater/approve.py --reject 2 --reason "partial award only"
 
+The monthly refresh now proposes new routes as pull requests (updater/open_prs.py) with a
+drafted page included; prefer merging those. Approving here merges only the data entry into
+data/data.json, so write content/routes/<slug>.json first or the build will refuse it.
 Approving merges the entry into data/data.json (build.py turns it into the site),
 and the site picks it up automatically — counters, departures board and
 filters are all computed from the data.

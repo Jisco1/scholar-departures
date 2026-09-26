@@ -1,32 +1,57 @@
-name: Data refresh
+name: Monthly refresh
 
-# Re-checks every route's official page and looks for new routes, using the
-# Anthropic API (ANTHROPIC_API_KEY repository secret). It costs a little money
-# per run, so it runs only when started by hand from the Actions tab.
-# To run it every Monday, add under "on:":
-#   schedule:
-#     - cron: "0 6 * * 1"
+# Once a month (and whenever started by hand from the Actions tab):
+#   1. record the owner's decisions on last month's proposals (merged / closed PRs),
+#   2. re-check every route's official page and apply confident deadline changes (Claude Haiku),
+#   3. search for new routes and verify them against their official pages (Claude Sonnet + Haiku),
+#   4. commit the data changes to main and redeploy the site,
+#   5. draft page updates and pages for new routes (Claude Sonnet) and open ONE PULL
+#      REQUEST PER PROPOSAL. Nothing drafted goes live until the owner merges it.
+# Uses the ANTHROPIC_API_KEY repository secret; each run costs a little API money.
+# Opening pull requests needs: Settings → Actions → General → Workflow permissions →
+# "Allow GitHub Actions to create and approve pull requests".
 on:
+  schedule:
+    - cron: "0 6 1 * *"   # 06:00 UTC on the 1st of every month
   workflow_dispatch:
+    inputs:
+      max_updates:
+        description: "Most page updates to draft this run"
+        default: "6"
+      max_new:
+        description: "Most new routes to propose this run"
+        default: "3"
 
 permissions:
   contents: read
+
+concurrency:
+  group: monthly-refresh
+  cancel-in-progress: false
 
 jobs:
   refresh:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
+      issues: write          # creating the page-update / new-route labels
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GH_TOKEN: ${{ github.token }}
+      MAX_UPDATES: ${{ inputs.max_updates || '6' }}
+      MAX_NEW: ${{ inputs.max_new || '3' }}
     steps:
       - name: Stop if no API key is set
         if: env.ANTHROPIC_API_KEY == ''
         run: |
-          echo "::error::Add the ANTHROPIC_API_KEY repository secret before running the data refresh."
+          echo "::error::Add the ANTHROPIC_API_KEY repository secret before running the refresh."
           exit 1
 
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: main
+          fetch-depth: 0
 
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
@@ -35,39 +60,47 @@ jobs:
       - name: Install dependencies
         run: pip install requests==2.32.3 beautifulsoup4==4.12.3
 
-      - name: Re-check official pages
-        run: python updater/update_data.py
-
-      - name: Discover new routes (queued for approval, never auto-published)
-        run: |
-          python updater/discover.py
-          python - <<'EOF' >> $GITHUB_STEP_SUMMARY
-          import json, pathlib
-          p = pathlib.Path("data/candidates.json")
-          cands = [c for c in (json.loads(p.read_text()) if p.exists() else []) if c.get("status") == "pending"]
-          if cands:
-              print(f"## {len(cands)} candidate route(s) awaiting approval\n")
-              for c in cands:
-                  print(f"- **{c['name']}** ({c['country']}) — {c['funding']} → {c['link']}")
-              print("\nApprove locally with `python updater/approve.py --list`.")
-          else:
-              print("## No new candidates this run.")
-          EOF
-
-      - name: Validate before committing
-        run: python build.py
-
-      - name: Commit refreshed data
+      - name: Set the bot's git identity
         run: |
           git config user.name "degreestep-bot"
-          git config user.email "actions@github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Record decisions on last month's proposals
+        run: python updater/sync_decisions.py | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Re-check official pages (Claude Haiku)
+        run: python updater/update_data.py
+
+      - name: Search for new routes (Claude Sonnet, verified by Haiku)
+        run: python updater/discover.py --max-candidates "$MAX_NEW"
+
+      - name: Test, then commit the data changes to main
+        run: |
+          python -m unittest discover -s tests
+          python build.py
           git add data/
           if git diff --cached --quiet; then
             echo "No data changes."
           else
-            git commit -m "Refresh route data ($(date -u +%F))"
-            git push
+            git commit -m "Monthly refresh: route data ($(date -u +%F))"
+            git push origin HEAD:main
           fi
+
+      - name: Draft page updates and new pages (Claude Sonnet)
+        run: python updater/drafts.py --max-updates "$MAX_UPDATES" --max-new "$MAX_NEW"
+
+      - name: Open one pull request per proposal
+        run: |
+          python updater/open_prs.py | tee -a "$GITHUB_STEP_SUMMARY"
+          git add data/
+          if ! git diff --cached --quiet; then
+            git commit -m "Monthly refresh: record open proposals"
+            git push origin HEAD:main
+          fi
+
+      - name: Report write-ups that still mention past dates
+        if: always()
+        run: python updater/stale.py --summary >> "$GITHUB_STEP_SUMMARY"
 
   deploy:
     needs: refresh

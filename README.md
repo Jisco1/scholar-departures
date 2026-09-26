@@ -66,9 +66,22 @@ the AdSense tag, the site-verification meta tag and `ads.txt`. Ad units appear o
 with no slot ID is not rendered. Bays are never placed next to buttons or link lists, hold their
 height so the page never jumps, collapse if unfilled, and the sidebar bay appears only on wide screens.
 
-## Data refresh
+## Monthly refresh
 
-`.github/workflows/update.yml` re-checks every official page and looks for new routes with the
-Anthropic API. It needs an `ANTHROPIC_API_KEY` repository secret and runs only when started from the
-Actions tab. Uncertain changes go to `data/review_queue.json` and the old data stays live; new
-routes are queued in `data/candidates.json` until approved with `python updater/approve.py`.
+`.github/workflows/update.yml` runs at 06:00 UTC on the 1st of each month (or from the Actions tab)
+and needs an `ANTHROPIC_API_KEY` repository secret:
+
+1. `updater/sync_decisions.py` records last month's decisions: merged proposals are published,
+   closed ones are remembered as rejected; merged new routes move from `data/incoming/` into `data/data.json`.
+2. `updater/update_data.py` (Claude Haiku) re-checks every official page. Confident deadline changes are
+   applied to `data/data.json`; uncertain ones go to `data/review_queue.json` with the old data kept live.
+3. `updater/discover.py` (Claude Sonnet, verified by Haiku) searches for new routes → `data/candidates.json`.
+4. Data changes are tested, committed to main and deployed.
+5. `updater/drafts.py` (Claude Sonnet) drafts page updates — write-ups that present a passed deadline as
+   live (`updater/stale.py`), whose official page changed, or that describe last year's round — and complete
+   pages for new routes. Every change must quote the official page; unverifiable drafts are dropped.
+6. `updater/open_prs.py` opens one pull request per proposal (labels `page-update`, `new-route`).
+   **Merge to publish, close to reject.** Nothing drafted goes live without a merge.
+
+The repository must allow Actions to open pull requests (Settings → Actions → General → Workflow permissions).
+`updater/stale.py --summary` also runs in every daily build, for free, and lists write-ups with past dates.

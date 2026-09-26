@@ -82,9 +82,14 @@ def domain(url):
 
 def load_routes():
     routes = json.loads((DATA / "data.json").read_text(encoding="utf-8"))
+    base = len(routes)
+    # new routes approved from the monthly refresh arrive one file each, so several
+    # proposals can be merged in any order; the next refresh folds them into data.json
+    incoming = sorted((DATA / "incoming").glob("*.json"))
+    routes += [json.loads(p.read_text(encoding="utf-8")) for p in incoming]
     seen = set()
     for i, r in enumerate(routes):
-        where = f"data.json entry {i} ({r.get('name', '?')})"
+        where = (f"data.json entry {i}" if i < base else f"data/incoming/{incoming[i - base].name}") + f" ({r.get('name', '?')})"
         for key in ("name", "flag", "country", "region", "funding", "deadline", "link", "kind", "scope"):
             if not isinstance(r.get(key), str) or not r[key].strip():
                 fail(f"{where}: missing text field '{key}'")
@@ -888,7 +893,8 @@ def main():
     SCHOOLS = load_schools({r["name"] for r in ROUTES})
     checked = [r.get("last_checked") or r.get("last_verified") for r in ROUTES if r.get("last_checked") or r.get("last_verified")]
     LAST_CHECK = fmt_date(dt.date.fromisoformat(max(checked))) if checked else "—"
-    DATA_VERSION = hashlib.sha256((DATA / "data.json").read_bytes() + (DATA / "schools.json").read_bytes()).hexdigest()[:10]
+    DATA_VERSION = hashlib.sha256(b"".join(p.read_bytes() for p in [DATA / "data.json", DATA / "schools.json",
+                                                                     *sorted((DATA / "incoming").glob("*.json"))])).hexdigest()[:10]
 
     notes = load_json_docs("routes")
     for slug in notes:

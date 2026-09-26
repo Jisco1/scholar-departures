@@ -21,7 +21,7 @@ How it works each run:
 
 Environment:
   ANTHROPIC_API_KEY   required
-  DISCOVER_MODEL      optional, default claude-sonnet-4-6 (search + judgment)
+  DISCOVER_MODEL      optional, default claude-sonnet-5 (search + judgment)
   VERIFY_MODEL        optional, default claude-haiku-4-5-20251001
 
 Usage:
@@ -56,7 +56,7 @@ REJECTED_JSON = ROOT / "data" / "rejected.json"
 
 API_URL = "https://api.anthropic.com/v1/messages"
 API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-DISCOVER_MODEL = os.environ.get("DISCOVER_MODEL", "claude-sonnet-4-6")
+DISCOVER_MODEL = os.environ.get("DISCOVER_MODEL", "claude-sonnet-5")
 VERIFY_MODEL = os.environ.get("VERIFY_MODEL", "claude-haiku-4-5-20251001")
 
 VALID_TYPES = ["Tuition-Free", "Full Scholarship", "Need-Based Aid", "Merit", "Low Tuition", "Fee Waiver"]
@@ -272,8 +272,10 @@ def main():
     candidates = load_json(CANDIDATES_JSON, [])
     rejected = load_json(REJECTED_JSON, [])
 
-    known_names = {norm(x["name"]) for x in data} | {norm(x["name"]) for x in candidates} | {norm(x.get("name", "")) for x in rejected}
-    known_domains = {domain(x.get("link", "")) for x in data} | {domain(x.get("link", "")) for x in candidates}
+    incoming = [load_json(p, {}) for p in sorted((ROOT / "data" / "incoming").glob("*.json"))]
+    known_names = ({norm(x["name"]) for x in data + incoming if x.get("name")} | {norm(x["name"]) for x in candidates}
+                   | {norm(x.get("name", "")) for x in rejected})
+    known_domains = {domain(x.get("link", "")) for x in data + incoming} | {domain(x.get("link", "")) for x in candidates}
     known_domains.discard("")
 
     if args.query:
