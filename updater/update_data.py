@@ -192,9 +192,16 @@ def main():
             continue
 
         first_run = entry.get("content_hash") is None
-        if not first_run:
-            changed.append(entry.get("slug") or name)
-        log("   page changed — extracting…" if not first_run else "   first hash — baselining + verifying…")
+        if first_run:
+            # first sight of this page: record it and move on. The data was checked by hand,
+            # so there is nothing to compare against yet — and no reason to spend an API call.
+            stats["unchanged"] += 1
+            entry["content_hash"] = new_hash
+            entry["last_checked"] = today
+            log("   first visit — page recorded for next month's comparison")
+            continue
+        changed.append(entry.get("slug") or name)
+        log("   page changed — extracting…")
         extraction, err = call_claude(entry, page_text)
         entry["content_hash"] = new_hash
         entry["last_checked"] = today
