@@ -1,0 +1,37 @@
+{
+  "name": "Bowdoin College",
+  "flag": "🇺🇸",
+  "country": "USA",
+  "kind": "school",
+  "scope": "all",
+  "fields": [
+    "Natural Sciences",
+    "Social Sciences & Law",
+    "Arts & Humanities"
+  ],
+  "region": "USA",
+  "types": [
+    "Need-Based Aid"
+  ],
+  "levels": [
+    "Bachelor's"
+  ],
+  "funding": "Need-blind admission for international applicants; meets 100% of calculated need with $0 loans in financial aid packages.",
+  "deadline": "Early Decision 1 deadline is November 15; Early Decision 2 and Regular Decision applications are due January 5.",
+  "deadlines": [
+    {
+      "m": 11,
+      "d": 15
+    },
+    {
+      "m": 1,
+      "d": 5
+    }
+  ],
+  "approx": false,
+  "link": "https://www.bowdoin.edu/admissions/apply/international-students/index.html",
+  "last_verified": "2026-10-01",
+  "content_hash": null,
+  "needs_review": false,
+  "slug": "bowdoin-college"
+}
