@@ -1,0 +1,68 @@
+{
+  "summary": "Danish universities receive a limited number of government scholarships each year for highly qualified non-EU/EEA students enrolled in a full degree programme in Denmark. The scholarship can cover tuition fees, living costs, or both, and is administered separately by each university.",
+  "covers": [
+    "Full or partial tuition fee waivers for eligible non-EU/EEA students",
+    "Grants towards living costs, awarded alongside or instead of a tuition waiver",
+    "Available for students on full degree higher education programmes in Denmark",
+    "Open across Bachelor's and Master's level study at Danish universities"
+  ],
+  "eligibility": [
+    "You must be a citizen of a country outside the EU, the European Economic Area or Switzerland",
+    "You must be enrolled in a full degree higher education programme",
+    "You must have been granted a time-limited residence permit in Denmark due to education",
+    "You are not eligible if you are seeking admission to an Artistic Higher Education Institution",
+    "You are not eligible if you have a legal claim to the rights of Danish citizens",
+    "You are not eligible if you are eligible for a grant under the Danish Law regarding the State Education Fund"
+  ],
+  "how_to_apply": [
+    "Choose the Danish university and programme you want to apply to",
+    "Check that university's own admission details for the government scholarship, as each institution administers its own scheme",
+    "Apply for admission to the full degree programme through that institution",
+    "Enquire directly with the institution for further details on how the scholarship is awarded, since there is no central application process"
+  ],
+  "watch_out": [
+    "The number of scholarships each university receives is limited",
+    "Universities, not a central government body, select which students are awarded a scholarship",
+    "The scholarship may be a full or partial tuition waiver and/or a living costs grant - the exact combination depends on the institution",
+    "Students who have a residence permit granted under the Danish Aliens Consolidation Act §9c, subsection 1 as the child of a foreign citizen with a permit under §9m (where that citizen is from a non-EU/EEA country) are not eligible",
+    "No single deadline applies across all universities - check with your chosen institution"
+  ],
+  "costs": [
+    [
+      "Tuition fees",
+      "May be waived in full or in part under the scholarship, depending on the university"
+    ],
+    [
+      "Living costs",
+      "May be partly covered by a scholarship grant, depending on the university"
+    ]
+  ],
+  "documents": [
+    "Proof of citizenship of a country outside the EU, EEA or Switzerland",
+    "Evidence of enrolment (or application for enrolment) in a full degree higher education programme",
+    "Documentation of your time-limited residence permit in Denmark for education, once granted",
+    "Any scholarship application materials specified by your chosen university's admission details"
+  ],
+  "faq": [
+    {
+      "q": "Is there one application for all Danish government scholarships?",
+      "a": "No. The scholarships are administered by individual Danish universities, so you apply through the institution offering your chosen programme."
+    },
+    {
+      "q": "Does the scholarship always cover both tuition and living costs?",
+      "a": "Not necessarily. It can be a full or partial tuition fee waiver, a living costs grant, or both, depending on the university."
+    },
+    {
+      "q": "Can EU/EEA students apply for this scholarship?",
+      "a": "No. This scholarship is specifically for highly qualified non-EU/EEA students and Switzerland, enrolled in a full degree programme in Denmark."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Scholarships - Study in Denmark",
+      "url": "https://studyindenmark.dk/study-options/scholarships"
+    }
+  ],
+  "related": [],
+  "reviewed": "2026-10-01"
+}

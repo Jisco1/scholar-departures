@@ -1,0 +1,42 @@
+{
+  "name": "Danish Government Scholarships",
+  "flag": "🇩🇰",
+  "country": "Denmark",
+  "kind": "program",
+  "scope": "all",
+  "fields": [
+    "Engineering & Tech",
+    "Computer Science",
+    "Natural Sciences",
+    "Social Sciences & Law",
+    "Business & Economics"
+  ],
+  "region": "Europe",
+  "types": [
+    "Full Scholarship",
+    "Tuition-Free",
+    "Merit"
+  ],
+  "levels": [
+    "Bachelor's",
+    "Master's"
+  ],
+  "funding": "Full or partial tuition fee waivers and/or grants towards covering living costs for highly qualified non-EU/EEA students, administered by individual Danish universities.",
+  "deadline": "Not specified on the official page; varies by university and institution.",
+  "deadlines": [
+    {
+      "m": 1,
+      "d": 15
+    },
+    {
+      "m": 10,
+      "d": 20
+    }
+  ],
+  "approx": true,
+  "link": "https://studyindenmark.dk/study-options/scholarships",
+  "last_verified": "2026-10-01",
+  "content_hash": null,
+  "needs_review": false,
+  "slug": "danish-government-scholarships"
+}
