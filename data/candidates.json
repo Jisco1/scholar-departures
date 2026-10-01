@@ -39,11 +39,13 @@
     "last_verified": "2026-10-01",
     "content_hash": null,
     "needs_review": false,
-    "status": "pending",
+    "status": "in-review",
     "discovered": "2026-10-01",
     "theme": "Denmark government scholarship non-EU international students university",
     "source_note": "Confirmed via the official Danish Ministry of Higher Education's Study in Denmark portal and the University of Copenhagen's own scholarships page (ku.dk), which describe automatic consideration and tuition+living-cost coverage.",
-    "confidence": 0.75
+    "confidence": 0.75,
+    "slug": "danish-government-scholarships",
+    "pr": "https://github.com/Jisco1/scholar-departures/pull/3"
   },
   {
     "name": "Bowdoin College",
@@ -80,10 +82,12 @@
     "last_verified": "2026-10-01",
     "content_hash": null,
     "needs_review": false,
-    "status": "pending",
+    "status": "in-review",
     "discovered": "2026-10-01",
     "theme": "US college no application fee meets full need international students",
     "source_note": "Confirmed on Bowdoin's official admissions 'International Students' and 'Student Aid' pages.",
-    "confidence": 0.95
+    "confidence": 0.95,
+    "slug": "bowdoin-college",
+    "pr": "https://github.com/Jisco1/scholar-departures/pull/2"
   }
 ]
