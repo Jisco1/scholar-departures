@@ -1,1 +1,89 @@
-[]
+[
+  {
+    "name": "Danish Government Scholarships",
+    "flag": "🇩🇰",
+    "country": "Denmark",
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Social Sciences & Law",
+      "Business & Economics"
+    ],
+    "region": "Europe",
+    "types": [
+      "Full Scholarship",
+      "Tuition-Free",
+      "Merit"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's"
+    ],
+    "funding": "Full or partial tuition fee waivers and/or grants towards covering living costs for highly qualified non-EU/EEA students, administered by individual Danish universities.",
+    "deadline": "Not specified on the official page; varies by university and institution.",
+    "deadlines": [
+      {
+        "m": 1,
+        "d": 15
+      },
+      {
+        "m": 10,
+        "d": 20
+      }
+    ],
+    "approx": true,
+    "link": "https://studyindenmark.dk/study-options/scholarships",
+    "last_verified": "2026-10-01",
+    "content_hash": null,
+    "needs_review": false,
+    "status": "pending",
+    "discovered": "2026-10-01",
+    "theme": "Denmark government scholarship non-EU international students university",
+    "source_note": "Confirmed via the official Danish Ministry of Higher Education's Study in Denmark portal and the University of Copenhagen's own scholarships page (ku.dk), which describe automatic consideration and tuition+living-cost coverage.",
+    "confidence": 0.75
+  },
+  {
+    "name": "Bowdoin College",
+    "flag": "🇺🇸",
+    "country": "USA",
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Natural Sciences",
+      "Social Sciences & Law",
+      "Arts & Humanities"
+    ],
+    "region": "USA",
+    "types": [
+      "Need-Based Aid"
+    ],
+    "levels": [
+      "Bachelor's"
+    ],
+    "funding": "Need-blind admission for international applicants; meets 100% of calculated need with $0 loans in financial aid packages.",
+    "deadline": "Early Decision 1 deadline is November 15; Early Decision 2 and Regular Decision applications are due January 5.",
+    "deadlines": [
+      {
+        "m": 11,
+        "d": 15
+      },
+      {
+        "m": 1,
+        "d": 5
+      }
+    ],
+    "approx": false,
+    "link": "https://www.bowdoin.edu/admissions/apply/international-students/index.html",
+    "last_verified": "2026-10-01",
+    "content_hash": null,
+    "needs_review": false,
+    "status": "pending",
+    "discovered": "2026-10-01",
+    "theme": "US college no application fee meets full need international students",
+    "source_note": "Confirmed on Bowdoin's official admissions 'International Students' and 'Student Aid' pages.",
+    "confidence": 0.95
+  }
+]

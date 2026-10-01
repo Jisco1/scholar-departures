@@ -1,1 +1,267 @@
-[]
+[
+  {
+    "name": "RWTH Aachen University",
+    "url": "https://www.rwth-aachen.de",
+    "date": "2026-10-01",
+    "reason": "extraction failed validation",
+    "extraction": {
+      "deadline_text": null,
+      "deadlines": [],
+      "approx": true,
+      "funding_consistent": true,
+      "contradiction": null,
+      "confidence": 0.1
+    }
+  },
+  {
+    "name": "Freie Universität Berlin",
+    "url": "https://www.fu-berlin.de/en/",
+    "date": "2026-10-01",
+    "reason": "extraction failed validation",
+    "extraction": {
+      "deadline_text": null,
+      "deadlines": [],
+      "approx": true,
+      "funding_consistent": true,
+      "contradiction": null,
+      "confidence": 0.05
+    }
+  },
+  {
+    "name": "Universität Hamburg",
+    "url": "https://www.uni-hamburg.de/en.html",
+    "date": "2026-10-01",
+    "reason": "extraction failed validation",
+    "extraction": {
+      "deadline_text": null,
+      "deadlines": [],
+      "approx": true,
+      "funding_consistent": true,
+      "contradiction": null,
+      "confidence": 0.05
+    }
+  },
+  {
+    "name": "DAAD Scholarships (nationwide)",
+    "url": "https://www.daad.de/en/",
+    "date": "2026-10-01",
+    "reason": "extraction failed validation",
+    "extraction": {
+      "deadline_text": null,
+      "deadlines": [],
+      "approx": true,
+      "funding_consistent": true,
+      "contradiction": null,
+      "confidence": 0.1
+    }
+  },
+  {
+    "name": "University of Vienna",
+    "url": "https://www.univie.ac.at/en/",
+    "date": "2026-10-01",
+    "reason": "extraction failed validation",
+    "extraction": {
+      "deadline_text": null,
+      "deadlines": [],
+      "approx": true,
+      "funding_consistent": true,
+      "contradiction": null,
+      "confidence": 0.1
+    }
+  },
+  {
+    "name": "TU Wien",
+    "url": "https://www.tuwien.at/en/",
+    "date": "2026-10-01",
+    "reason": "extraction failed validation",
+    "extraction": {
+      "deadline_text": null,
+      "deadlines": [],
+      "approx": false,
+      "funding_consistent": false,
+      "contradiction": "The page text does not contain any information about tuition fees, non-EU student charges, or the €726.72 semester fee mentioned in the record. Unable to verify the funding summary.",
+      "confidence": 0.0
+    }
+  },
+  {
+    "name": "ETH Zürich — Excellence Scholarship",
+    "url": "https://ethz.ch/en.html",
+    "date": "2026-10-01",
+    "reason": "extraction failed validation",
+    "extraction": {
+      "deadline_text": null,
+      "deadlines": [],
+      "approx": false,
+      "funding_consistent": true,
+      "contradiction": null,
+      "confidence": 0.1
+    }
+  },
+  {
+    "name": "Gates Cambridge Scholarship",
+    "url": "https://www.gatescambridge.org/",
+    "date": "2026-10-01",
+    "reason": "extraction failed validation",
+    "extraction": {
+      "deadline_text": null,
+      "deadlines": [],
+      "approx": false,
+      "funding_consistent": true,
+      "contradiction": null,
+      "confidence": 0.1
+    }
+  },
+  {
+    "name": "Politecnico di Milano",
+    "url": "https://www.polimi.it/en",
+    "date": "2026-10-01",
+    "reason": "extraction failed validation",
+    "extraction": {
+      "deadline_text": null,
+      "deadlines": [],
+      "approx": true,
+      "funding_consistent": true,
+      "contradiction": null,
+      "confidence": 0.05
+    }
+  },
+  {
+    "name": "University of Bologna",
+    "url": "https://www.unibo.it/en",
+    "date": "2026-10-01",
+    "reason": "extraction failed validation",
+    "extraction": {
+      "deadline_text": null,
+      "deadlines": [],
+      "approx": true,
+      "funding_consistent": true,
+      "contradiction": null,
+      "confidence": 0.1
+    }
+  },
+  {
+    "name": "Maastricht University — Holland-High Potential",
+    "url": "https://www.maastrichtuniversity.nl/",
+    "date": "2026-10-01",
+    "reason": "extraction failed validation",
+    "extraction": {
+      "deadline_text": null,
+      "deadlines": [],
+      "approx": false,
+      "funding_consistent": true,
+      "contradiction": null,
+      "confidence": 0.1
+    }
+  },
+  {
+    "name": "Charles University (Czech-taught)",
+    "url": "https://cuni.cz/UKEN-1.html",
+    "date": "2026-10-01",
+    "reason": "extraction failed validation",
+    "extraction": {
+      "deadline_text": null,
+      "deadlines": [],
+      "approx": true,
+      "funding_consistent": true,
+      "contradiction": null,
+      "confidence": 0.15
+    }
+  },
+  {
+    "name": "MIT",
+    "url": "https://mitadmissions.org/",
+    "date": "2026-10-01",
+    "reason": "extraction failed validation",
+    "extraction": {
+      "deadline_text": null,
+      "deadlines": [],
+      "approx": false,
+      "funding_consistent": true,
+      "contradiction": null,
+      "confidence": 0.05
+    }
+  },
+  {
+    "name": "Dartmouth College",
+    "url": "https://admissions.dartmouth.edu/",
+    "date": "2026-10-01",
+    "reason": "extraction failed validation",
+    "extraction": {
+      "deadline_text": null,
+      "deadlines": [],
+      "approx": false,
+      "funding_consistent": true,
+      "contradiction": null,
+      "confidence": 0.15
+    }
+  },
+  {
+    "name": "Berea College",
+    "url": "https://www.berea.edu/admissions",
+    "date": "2026-10-01",
+    "reason": "The page states the fully funded guarantee (covering tuition, housing, food, fees, and supplies) begins Fall 2027 and applies to 'all students', not specifically international students as the record claims.",
+    "extraction": {
+      "deadline_text": "Early Action I: November 1, Early Action II: January 31, Regular Decision: March 31",
+      "deadlines": [
+        {
+          "m": 11,
+          "d": 1
+        },
+        {
+          "m": 1,
+          "d": 31
+        },
+        {
+          "m": 3,
+          "d": 31
+        }
+      ],
+      "approx": false,
+      "funding_consistent": false,
+      "contradiction": "The page states the fully funded guarantee (covering tuition, housing, food, fees, and supplies) begins Fall 2027 and applies to 'all students', not specifically international students as the record claims.",
+      "confidence": 0.65
+    }
+  },
+  {
+    "name": "University of British Columbia — International Scholars",
+    "url": "https://you.ubc.ca/",
+    "date": "2026-10-01",
+    "reason": "extraction failed validation",
+    "extraction": {
+      "deadline_text": null,
+      "deadlines": [],
+      "approx": false,
+      "funding_consistent": true,
+      "contradiction": null,
+      "confidence": 0.15
+    }
+  },
+  {
+    "name": "Research Ireland — Postgraduate Scholarships",
+    "url": "https://www.researchireland.ie/",
+    "date": "2026-10-01",
+    "reason": "extraction failed validation",
+    "extraction": {
+      "deadline_text": null,
+      "deadlines": [],
+      "approx": null,
+      "funding_consistent": null,
+      "contradiction": "The page does not mention 'Research Ireland — Postgraduate Scholarships' by name or contain any funding details matching the €25,000 stipend description in the record. The page lists several open funding programmes (Industry Fellowship, St. Patrick's Day Medal Award, Defence Innovation Challenge, Empower Programme) but does not specifically reference the postgraduate scholarship described in the record.",
+      "confidence": 0.1
+    }
+  },
+  {
+    "name": "Commonwealth Master's Scholarships",
+    "url": "https://cscuk.fcdo.gov.uk/",
+    "date": "2026-10-01",
+    "reason": "extraction failed validation",
+    "extraction": {
+      "deadline_text": null,
+      "deadlines": [],
+      "approx": false,
+      "funding_consistent": true,
+      "contradiction": null,
+      "confidence": 0.1
+    }
+  }
+]
