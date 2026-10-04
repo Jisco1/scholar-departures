@@ -1,5 +1,5 @@
 {
-  "summary": "Arizona State University's Mastercard Foundation Scholars Program offers 30 fully funded master's scholarships in technology and innovation to young Africans starting in 2027. Applications for this cohort close on Sunday 27 September 2026 at 23:59 GMT.",
+  "summary": "Arizona State University's Mastercard Foundation Scholars Program offers 30 fully funded master's scholarships in technology and innovation to young Africans starting in 2027. The application window for this cohort closed on Sunday 27 September 2026 at 23:59 GMT.",
   "covers": [
     "Full tuition and fees for an on-campus master's degree at ASU.",
     "On-campus housing and books, plus visa, airfare and medical expenses.",
@@ -13,7 +13,7 @@
   ],
   "how_to_apply": [
     "Choose one of the nine eligible programmes: MS Global Technology and Development, Information Technology, Human Systems Engineering (Intelligent Systems), Computer Science, Data Science, Analytics and Engineering, Robotics and Autonomous Systems, Civil, Environmental and Sustainable Engineering, Clean Energy Systems, or Modern Energy Production and Sustainable Use.",
-    "Submit the scholarship application online — or email the PDF version if your internet is limited — by Sunday 27 September 2026, 23:59 GMT.",
+    "The 2027-28 cohort's application window closed on Sunday 27 September 2026 at 23:59 GMT — check the official page for details of the next call.",
     "Shortlisted applicants are interviewed, then guided to apply for ASU admission with an application fee waiver.",
     "Scholarship decisions are made in early 2027."
   ],
@@ -22,27 +22,6 @@
     "You can choose only one programme, and you cannot change it after you submit.",
     "Scholars are strongly encouraged to return home after graduating — it is central to the Foundation's mission."
   ],
-  "related": [
-    "mastercard-foundation-scholars-program",
-    "mastercard-foundation-scholars-uc-berkeley",
-    "mastercard-foundation-scholars-mcgill",
-    "berea-college"
-  ],
-  "sources": [
-    {
-      "title": "Arizona State University — Mastercard Foundation Scholars Program",
-      "url": "https://mcfscholars.asu.edu/"
-    },
-    {
-      "title": "ASU Mastercard Foundation Scholars Program — Phase III: Innovation and Technology (2027–28 call)",
-      "url": "https://mcfscholars.asu.edu/phase-three-innovation-and-technology"
-    },
-    {
-      "title": "ASU Mastercard Foundation Scholars Program — 2027 scholarship FAQ (PDF)",
-      "url": "https://drive.google.com/file/d/1DnQRt3oAiY61zp3NyuGYhx264t8VOHP4/view"
-    }
-  ],
-  "reviewed": "2026-09-25",
   "costs": [
     [
       "Tuition, fees, on-campus housing and books",
@@ -71,8 +50,8 @@
   ],
   "faq": [
     {
-      "q": "Do I need to apply to ASU first?",
-      "a": "No. Apply for the scholarship first. Only applicants selected for an interview are guided to apply for ASU admission, with the fee waived."
+      "q": "Can I still apply for the 2027-28 cohort?",
+      "a": "No. The application window for this cohort closed on Sunday 27 September 2026 at 23:59 GMT. Check the official programme page for news of the next call."
     },
     {
       "q": "Can my documents be in French?",
@@ -82,5 +61,26 @@
       "q": "Can I work in the US or stay after graduating?",
       "a": "You may work within F-1 student visa rules and ASU policies. After graduation the scholarship strongly encourages you to return home."
     }
-  ]
+  ],
+  "sources": [
+    {
+      "title": "Arizona State University — Mastercard Foundation Scholars Program",
+      "url": "https://mcfscholars.asu.edu/"
+    },
+    {
+      "title": "ASU Mastercard Foundation Scholars Program — Phase III: Innovation and Technology (2027–28 call)",
+      "url": "https://mcfscholars.asu.edu/phase-three-innovation-and-technology"
+    },
+    {
+      "title": "ASU Mastercard Foundation Scholars Program — 2027 scholarship FAQ (PDF)",
+      "url": "https://drive.google.com/file/d/1DnQRt3oAiY61zp3NyuGYhx264t8VOHP4/view"
+    }
+  ],
+  "related": [
+    "mastercard-foundation-scholars-program",
+    "mastercard-foundation-scholars-uc-berkeley",
+    "mastercard-foundation-scholars-mcgill",
+    "berea-college"
+  ],
+  "reviewed": "2026-10-01"
 }
