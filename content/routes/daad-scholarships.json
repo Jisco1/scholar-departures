@@ -1,7 +1,7 @@
 {
   "summary": "The German Academic Exchange Service (DAAD) is Germany's national funding body for international students. Its master's and doctoral scholarships pay a monthly stipend plus insurance and travel — and because most German public universities charge no tuition, that stipend effectively makes the whole degree funded.",
   "covers": [
-    "A monthly stipend of €992 for master's students and €1,400 for doctoral candidates (raised from €1,300 from February 2026 for EPOS; always check the current call).",
+    "A monthly stipend of €992 for master's students. For doctoral candidates, DAAD's EPOS call gives €1,400 a month from February 2026 (up from €1,300), while its general overview still lists €1,300, so check the call for your programme.",
     "Payments towards health, accident and personal liability insurance, and a travel allowance.",
     "On the Study Scholarships for master's programmes: an annual study allowance of €460, plus a rent subsidy and family allowances on application.",
     "Funded German language courses before or during your studies, with the TestDaF or DSH exam fee refunded.",
@@ -28,7 +28,7 @@
   ],
   "costs": [
     [
-      "Monthly stipend (€992 master's, €1,400 doctoral from February 2026)",
+      "Monthly stipend (€992 master's; €1,300 doctoral, €1,400 on EPOS from February 2026)",
       "DAAD"
     ],
     [
@@ -59,7 +59,7 @@
   "documents": [
     "CV (max three pages, reverse chronological for EPOS)",
     "Letter of motivation (one to three pages)",
-    "Letter of admission to the German study programme (master's) or direct application to the course (EPOS)",
+    "Letter of admission to your German master's programme (if it hasn't arrived when you apply, send it before funding starts); for EPOS you apply directly to the course instead",
     "Transcript of records and university degree certificate",
     "Language certificate (no older than three years, matching the programme's language of instruction)",
     "Recommendation letter — from a university teacher (master's) or current employer (EPOS)",
