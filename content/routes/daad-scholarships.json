@@ -1,7 +1,7 @@
 {
   "summary": "The German Academic Exchange Service (DAAD) is Germany's national funding body for international students. Its master's and doctoral scholarships pay a monthly stipend plus insurance and travel — and because most German public universities charge no tuition, that stipend effectively makes the whole degree funded.",
   "covers": [
-    "A monthly stipend of €992 for master's students and €1,300 for doctoral candidates (the rates DAAD lists on its scholarship overview; always check the current call).",
+    "A monthly stipend of €992 for master's students and €1,400 for doctoral candidates (raised from €1,300 from February 2026 for EPOS; always check the current call).",
     "Payments towards health, accident and personal liability insurance, and a travel allowance.",
     "On the Study Scholarships for master's programmes: an annual study allowance of €460, plus a rent subsidy and family allowances on application.",
     "Funded German language courses before or during your studies, with the TestDaF or DSH exam fee refunded.",
@@ -9,28 +9,95 @@
   ],
   "eligibility": [
     "Each DAAD programme has its own country list. If your country is not listed in the call, you cannot apply to that programme.",
-    "Study Scholarships (master's): a completed first degree by the time funding starts, a degree no more than six years old at the application deadline, and no more than 15 months' residence in Germany at the deadline.",
-    "EPOS development-related postgraduate courses: graduates from eligible developing countries, usually with a four-year bachelor's and at least two years' professional experience.",
+    "Study Scholarships (master's): a completed first degree by the time funding starts, a degree no more than six years old at the application deadline, and no more than 15 months' residence in Germany at the deadline. Funding must begin in 2027.",
+    "EPOS development-related postgraduate courses: graduates from eligible developing countries, usually with a four-year bachelor's and at least two years' professional experience after the degree.",
     "Doctoral grants are open to candidates from nearly all countries; full doctoral programmes focus on developing and emerging countries."
   ],
   "how_to_apply": [
     "Search the DAAD scholarship database (funding-guide.de) with your nationality, level and subject, and open the call for the programme that fits.",
-    "Read the call's country-specific deadline — it differs by country and, for EPOS, by course.",
+    "Read the call's country-specific deadline — it differs by country and, for EPOS, by course. Study Scholarships funding usually starts on 1 October 2027.",
     "Prepare a CV (up to three pages), a one-to-three-page motivation letter, transcripts, degree certificate, language certificate (no older than three years) and one recommendation letter from a university teacher.",
-    "Submit through the DAAD portal as PDFs, or — for EPOS — directly to the university course as its call instructs. The portal closes at midnight German time on the last day.",
-    "Shortlisted candidates may be interviewed; funding for master's study usually starts on 1 October of the following year."
+    "Submit through the DAAD portal as PDFs, or — for EPOS — directly to the university course as its call instructs (up to three courses, ranked by priority).",
+    "Shortlisted candidates may be interviewed; funding for master's study usually starts on 1 October 2027."
   ],
   "watch_out": [
     "DAAD is many programmes, not one scholarship. Applying to the wrong call is the most common mistake.",
     "Most calls close between August and November for study starting the following October — about a year ahead.",
     "DAAD never charges application fees and never contacts applicants through social media. See our guide to [spotting scholarship scams]({{root}}guides/scholarship-scams/).",
-    "EPOS applications go through the individual course, which sets its own deadline — often 15 October or earlier."
+    "EPOS applications go through the individual course, which sets its own deadline — applications sent to DAAD directly will not be forwarded."
   ],
-  "related": ["rwth-aachen-university", "freie-universitat-berlin", "erasmus-mundus-joint-masters", "swiss-government-excellence-scholarships"],
+  "costs": [
+    [
+      "Monthly stipend (€992 master's, €1,400 doctoral from February 2026)",
+      "DAAD"
+    ],
+    [
+      "Health, accident and personal liability insurance",
+      "DAAD"
+    ],
+    [
+      "Travel allowance",
+      "DAAD (unless covered by another funder, for EPOS)"
+    ],
+    [
+      "Annual study allowance (€460, master's)",
+      "DAAD"
+    ],
+    [
+      "Rent subsidy and family allowances (on application)",
+      "DAAD"
+    ],
+    [
+      "German language course fees and TestDaF/DSH exam fee",
+      "DAAD, under conditions set by the call"
+    ],
+    [
+      "Tuition fees",
+      "Not paid by DAAD; most public universities charge none"
+    ]
+  ],
+  "documents": [
+    "CV (max three pages, reverse chronological for EPOS)",
+    "Letter of motivation (one to three pages)",
+    "Letter of admission to the German study programme (master's) or direct application to the course (EPOS)",
+    "Transcript of records and university degree certificate",
+    "Language certificate (no older than three years, matching the programme's language of instruction)",
+    "Recommendation letter — from a university teacher (master's) or current employer (EPOS)",
+    "For EPOS: completed checklist, application form and certificate(s) of employment showing at least two years' experience"
+  ],
+  "faq": [
+    {
+      "q": "Can I apply from any country?",
+      "a": "No — each DAAD programme lists the countries it accepts. Check your programme's call before applying."
+    },
+    {
+      "q": "Does DAAD pay tuition fees?",
+      "a": "No, but most public universities in Germany charge no tuition, so the stipend still covers the cost of studying."
+    },
+    {
+      "q": "When does the next master's funding round start?",
+      "a": "Study Scholarships funding must begin in 2027, usually on 1 October 2027, with calls typically closing in autumn 2026."
+    }
+  ],
   "sources": [
-    {"title": "DAAD — Scholarships overview", "url": "https://www.daad.de/en/studying-in-germany/scholarships/daad-scholarships/"},
-    {"title": "DAAD scholarship database — Study Scholarships, master's for all disciplines", "url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50026200"},
-    {"title": "DAAD scholarship database — Development-related postgraduate courses (EPOS)", "url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50076777"}
+    {
+      "title": "DAAD — Scholarships overview",
+      "url": "https://www.daad.de/en/studying-in-germany/scholarships/daad-scholarships/"
+    },
+    {
+      "title": "DAAD scholarship database — Study Scholarships, master's for all disciplines",
+      "url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50026200"
+    },
+    {
+      "title": "DAAD scholarship database — Development-related postgraduate courses (EPOS)",
+      "url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50076777"
+    }
   ],
-  "reviewed": "2026-09-24"
+  "related": [
+    "rwth-aachen-university",
+    "freie-universitat-berlin",
+    "erasmus-mundus-joint-masters",
+    "swiss-government-excellence-scholarships"
+  ],
+  "reviewed": "2026-10-01"
 }
