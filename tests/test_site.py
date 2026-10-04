@@ -28,6 +28,14 @@ def make_copy():
     return tmp
 
 
+def source_routes(where):
+    """Every route the builder publishes: data.json, plus the new routes a merged
+    proposal adds as data/incoming/<slug>.json - loaded the same way build.py does."""
+    routes = json.loads((where / "data" / "data.json").read_text(encoding="utf-8"))
+    return routes + [json.loads(p.read_text(encoding="utf-8"))
+                     for p in sorted((where / "data" / "incoming").glob("*.json"))]
+
+
 def build(where, *args):
     return subprocess.run([sys.executable, str(where / "build.py"), *args], capture_output=True, text=True,
                           encoding="utf-8", cwd=where)
@@ -49,8 +57,7 @@ class BuiltSite(unittest.TestCase):
         self.assertEqual(self.result.returncode, 0, self.result.stderr)
 
     def test_every_route_has_a_page(self):
-        routes = json.loads((self.dir / "data" / "data.json").read_text(encoding="utf-8"))
-        for r in routes:
+        for r in source_routes(self.dir):
             self.assertTrue((self.site / "routes" / r["slug"] / "index.html").exists(), r["slug"])
 
     def test_no_backdoors_in_output(self):
@@ -92,7 +99,7 @@ class BuiltSite(unittest.TestCase):
         # regression: the board once lost "tbc" and showed "Closed · next —"
         js = (self.site / "data" / "data.js").read_text(encoding="utf-8")
         data = json.loads(js[len("window.SCHOLAR_DATA = "):].rstrip().rstrip(";"))
-        source = json.loads((self.dir / "data" / "data.json").read_text(encoding="utf-8"))
+        source = source_routes(self.dir)
         for key in ("tbc", "rolling", "approx", "slug"):
             want = sum(1 for r in source if key in r)
             have = sum(1 for r in data if key in r)
@@ -352,6 +359,11 @@ class MonthlyRefresh(unittest.TestCase):
 
     def test_new_route_becomes_a_page_after_merge_and_fold(self):
         d = self.drafts
+        # Start from no pending new routes, so the fold below is about this one only.
+        # A pending route is two files: its data and its page.
+        for p in (self.dir / "data" / "incoming").glob("*.json"):
+            p.unlink()
+            (self.dir / "content" / "routes" / p.name).unlink(missing_ok=True)
         cand_path = self.dir / "data" / "candidates.json"
         cand = {"name": "Example Tech University Scholarship", "flag": "🇳🇱", "country": "Netherlands", "kind": "school",
                 "scope": "all", "fields": ["Engineering & Tech"], "region": "Europe", "types": ["Full Scholarship"],
