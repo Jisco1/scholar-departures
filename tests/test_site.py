@@ -113,17 +113,18 @@ class BuiltSite(unittest.TestCase):
             self.assertNotIn("adsbygoogle", html, path)
         self.assertFalse((self.site / "ads.txt").exists())
 
-    def test_home_prerenders_first_page_only(self):
+    def test_board_prerenders_first_page_only(self):
         # the static page must match what the script shows first, or the page jumps on load
-        html = (self.site / "index.html").read_text(encoding="utf-8")
+        html = (self.site / "scholarships" / "index.html").read_text(encoding="utf-8")
         self.assertEqual(html.count('class="card slim in ready"'), 6)
         self.assertEqual(html.count('class="dir-row in"'), 10)
         self.assertIn('id="gridPager"', html)
         self.assertIn('id="dirPager"', html)
-        self.assertIn('href="routes/"', html)  # without JavaScript, every route is still one click away
+        self.assertIn('href="../routes/"', html)  # without JavaScript, every route is still one click away
+        self.assertIn('href="../routes/', html.split('id="grid"')[1].split('id="gridPager"')[0])  # card links climb to the root
 
     def test_phone_layout(self):
-        html = (self.site / "index.html").read_text(encoding="utf-8")
+        html = (self.site / "scholarships" / "index.html").read_text(encoding="utf-8")
         for hook in ('id="filtersBtn"', 'id="filtersCount"', 'id="showResults"', 'id="panelClear"', 'id="boardMore"',
                      'id="lbRegion"', 'id="lbFunding"', 'class="vtxt"'):
             self.assertIn(hook, html, f"phone hook missing: {hook}")
@@ -152,13 +153,67 @@ class BuiltSite(unittest.TestCase):
             self.assertEqual(html.count('<details class="menu">'), 1, f"{name}: needs exactly one Menu button")
             self.assertNotIn('class="nav"', html, f"{name}: the old link bar is back")
             menu = html[html.index('<details class="menu">'):html.index("</header>")]
-            for target in ("routes/", "deadlines/", "countries/", "guides/", "about/", "#directory"):
+            for target in ("scholarships/", "routes/", "deadlines/", "countries/", "guides/", "about/", "updates/",
+                           "scholarships/#directory"):
                 self.assertRegex(menu, r'href="(?:(?:\.\./)*|https://[^"]+/)' + re.escape(target) + '"', f"{name}: menu lacks {target}")
             self.assertEqual(menu.count('<details class="menu-sub"'), 3, f"{name}: Countries, Guides and About drop-downs")
             self.assertIn('data-theme-choice="light"', menu, f"{name}: no theme switch")
+        board = (self.site / "scholarships" / "index.html").read_text(encoding="utf-8")
+        self.assertNotIn("startguides", board)  # the board stays clean: no guide tiles or country strip
+        self.assertNotIn("country-strip", board)
+
+    def test_home_is_a_landing_page_and_the_board_moved(self):
         home = (self.site / "index.html").read_text(encoding="utf-8")
-        self.assertNotIn("startguides", home)
-        self.assertNotIn("country-strip", home)
+        board = (self.site / "scholarships" / "index.html").read_text(encoding="utf-8")
+        self.assertIn('href="scholarships/"', home, "no way from the home page to the board")
+        self.assertNotIn('id="grid"', home, "the board is still on the home page")
+        self.assertIn('id="grid"', board)
+        self.assertRegex(board, r'src="\.\./data/data\.js\?v=')
+        self.assertIn('"root": "../"', board)
+        # the board's script builds every route link from the site root, so links work from /scholarships/
+        js = (ROOT / "src" / "assets" / "app.js").read_text(encoding="utf-8")
+        self.assertNotRegex(js, r'href="routes/|(?<!ROOT \+ )"routes/" \+')
+        self.assertEqual(js.count('ROOT + "routes/"') + js.count("esc(ROOT) + 'routes/"), 3)
+        for name in ("level", "type", "kind", "region"):  # the home page's paths open a filtered board
+            self.assertIn(f'p.get("{name}")', js)
+
+    def test_choose_your_path_counts_match_the_board(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("site_build", self.dir / "build.py")
+        home = (self.site / "index.html").read_text(encoding="utf-8")
+        routes = source_routes(self.dir)
+        rules = {"masters": lambda r: "Master's" in r["levels"], "phd": lambda r: "PhD" in r["levels"],
+                 "bachelors": lambda r: "Bachelor's" in r["levels"],
+                 "tuition-free": lambda r: r["kind"] != "program" and "Tuition-Free" in r["types"],
+                 "programmes": lambda r: r["kind"] == "program"}
+        self.assertEqual(home.count('role="tab"'), len(rules))
+        for pid, rule in rules.items():
+            n = sum(1 for r in routes if rule(r))
+            panel = home[home.index(f'id="path-{pid}"'):]
+            panel = panel[:panel.index("</section>")]
+            self.assertIn(f"See all {n} on the board", panel, pid)
+            self.assertIn('href="scholarships/?', panel, pid)
+            self.assertGreater(panel.count('class="row"'), 0, pid)
+
+    def test_boarding_pass_shows_the_next_deadline(self):
+        import datetime as dt
+        home = (self.site / "index.html").read_text(encoding="utf-8")
+        due = re.search(r'data-due="(\d{4}-\d{2}-\d{2})"', home)
+        self.assertIsNotNone(due, "no next deadline on the home page")
+        self.assertGreaterEqual(dt.date.fromisoformat(due.group(1)), dt.date.today())
+        soon = home[home.index("Closing soon"):]
+        first = re.search(r'<div class="row-name">([^<]+)</div>', soon).group(1)
+        name = re.search(r'<span class="pass-name">([^<]+)</span>', home).group(1)
+        self.assertEqual(name, first, "the boarding pass and the closing-soon list disagree")
+
+    def test_updates_page_lists_changes_newest_first(self):
+        page = (self.site / "updates" / "index.html").read_text(encoding="utf-8")
+        dates = re.findall(r'<time datetime="(\d{4}-\d{2}-\d{2})"', page)
+        items = json.loads((self.dir / "content" / "updates.json").read_text(encoding="utf-8"))
+        self.assertEqual(len(dates), len(items))
+        self.assertEqual(dates, sorted(dates, reverse=True))
+        home = (self.site / "index.html").read_text(encoding="utf-8")
+        self.assertEqual(len(re.findall(r'<li class="lp-upd">', home)), min(5, len(items)))
 
     def test_light_theme_covers_every_colour(self):
         css = (ROOT / "src" / "assets" / "site.css").read_text(encoding="utf-8")
@@ -169,7 +224,8 @@ class BuiltSite(unittest.TestCase):
         missing = colours - set(re.findall(r"(--[\w-]+):", light))
         self.assertFalse(missing, f"light theme lacks {sorted(missing)}")
         # outside the two token blocks, colours come from tokens, so a new rule cannot stay dark in the light theme
-        rest = css.replace(dark, "").replace(light, "") + (ROOT / "src" / "assets" / "app.css").read_text(encoding="utf-8")
+        rest = css.replace(dark, "").replace(light, "") + "".join(
+            (ROOT / "src" / "assets" / name).read_text(encoding="utf-8") for name in ("app.css", "landing.css"))
         rest = re.sub(r'url\("data:[^"]*"\)', "", rest)
         stray = set(re.findall(r"#[0-9A-Fa-f]{6}\b|rgba\((?!215,169,76)[^)]*\)", rest)) - {"#000"}
         self.assertFalse(stray, f"hard-coded colours outside the theme tokens: {sorted(stray)}")
@@ -254,6 +310,7 @@ class AdsWired(unittest.TestCase):
     def test_each_page_type_gets_its_bays(self):
         between, article, rail = self.SLOTS["between"], self.SLOTS["article"], self.SLOTS["rail"]
         self.assertEqual(self.slots(self.html(".")), [between])
+        self.assertEqual(self.slots(self.html("scholarships")), [between])
         self.assertEqual(self.slots(self.html("routes/chevening-scholarships")), sorted([article, rail]))
         self.assertEqual(self.slots(self.html("routes")), [between])
         self.assertEqual(self.slots(self.html("guides/scholarship-scams")), sorted([article, rail]))
@@ -361,9 +418,14 @@ class MonthlyRefresh(unittest.TestCase):
         d = self.drafts
         # Start from no pending new routes, so the fold below is about this one only.
         # A pending route is two files: its data and its page.
+        gone = set()
         for p in (self.dir / "data" / "incoming").glob("*.json"):
             p.unlink()
             (self.dir / "content" / "routes" / p.name).unlink(missing_ok=True)
+            gone.add(p.stem)
+        upd = self.dir / "content" / "updates.json"  # and the What's new entries about them
+        upd.write_text(json.dumps([u for u in json.loads(upd.read_text(encoding="utf-8")) if u.get("slug") not in gone]),
+                       encoding="utf-8")
         cand_path = self.dir / "data" / "candidates.json"
         cand = {"name": "Example Tech University Scholarship", "flag": "🇳🇱", "country": "Netherlands", "kind": "school",
                 "scope": "all", "fields": ["Engineering & Tech"], "region": "Europe", "types": ["Full Scholarship"],
@@ -458,6 +520,19 @@ class PoisonedData(unittest.TestCase):
 
     def test_markup_in_text_rejected(self):
         self.assertRejected(lambda d: d[0].__setitem__("name", "X <img src=x onerror=alert(1)>"), "markup")
+
+    def test_update_for_a_missing_route_rejected(self):
+        tmp = make_copy()
+        try:
+            path = tmp / "content" / "updates.json"
+            items = json.loads(path.read_text(encoding="utf-8"))
+            items[0]["slug"] = "no-such-route"
+            path.write_text(json.dumps(items), encoding="utf-8")
+            result = build(tmp)
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+        self.assertNotEqual(result.returncode, 0, "an update about a missing route was accepted")
+        self.assertIn("matches no route", result.stderr)
 
     def test_impossible_deadline_rejected(self):
         self.assertRejected(lambda d: d[0].__setitem__("deadlines", [{"m": 2, "d": 31}]), "impossible deadline")

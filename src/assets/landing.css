@@ -1,0 +1,146 @@
+/* DegreeStep — the home (landing) page and the What's new page. Loaded after site.css.
+   Every colour comes from the tokens in site.css, so the light theme needs nothing extra. */
+.btn-lg { padding: 14px 22px; font-size: 16px; border-radius: 999px; }
+
+/* ——— Hero ——— */
+.lp-hero { position: relative; overflow: hidden; padding: 48px 0 32px;
+  background: radial-gradient(900px 440px at 88% 8%, var(--brass-soft), transparent 70%); }
+.lp-hero-grid { display: grid; gap: 40px; align-items: center; }
+@media (min-width: 900px) {
+  .lp-hero { padding: 88px 0 56px; }
+  .lp-hero-grid { grid-template-columns: 1.15fr .85fr; gap: 56px; }
+}
+.lp-hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 6.4vw, 66px); line-height: 1.06;
+  letter-spacing: -0.015em; text-wrap: balance; }
+.lp-hero h1 em { color: var(--brass); }
+.lp-hero .lede { max-width: 54ch; }
+.lp-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.lp-cta.center { justify-content: center; }
+.lp-trust { margin-top: 16px; font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+
+/* the next deadline, drawn as a boarding pass */
+.pass-wrap { position: relative; width: 100%; max-width: 440px; justify-self: center; padding-bottom: 48px; }
+.pass { display: block; text-decoration: none; background: var(--card); border: 1px solid var(--line); border-radius: 20px;
+  box-shadow: 0 24px 60px -28px var(--shadow); overflow: hidden; transition: transform .25s ease, border-color .25s ease; }
+.pass:hover { transform: translateY(-3px); border-color: var(--line-hi); }
+.pass-top { display: flex; justify-content: space-between; gap: 12px; padding: 14px 22px; background: var(--brass); color: var(--bg);
+  font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
+.pass-name { display: block; padding: 20px 22px 6px; font-family: var(--serif); font-size: 26px; line-height: 1.2; color: var(--text); }
+.pass-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; padding: 12px 22px 20px; }
+.pass-grid > span { display: flex; flex-direction: column; gap: 3px; font-size: 15px; color: var(--text); }
+.pass-grid small { font-family: var(--mono); font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--faint); }
+.pass-grid .hot { color: var(--approaching); }
+.pass-stub { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 16px 22px; border-top: 2px dashed var(--line); }
+.pass-stub::before, .pass-stub::after { content: ""; position: absolute; top: -11px; width: 20px; height: 20px; border-radius: 50%;
+  background: var(--bg); border: 1px solid var(--line); }
+.pass-stub::before { left: -11px; }
+.pass-stub::after { right: -11px; }
+.pass-code { width: 120px; height: 30px; opacity: .5;
+  background: repeating-linear-gradient(90deg, var(--text) 0 2px, transparent 2px 4px, var(--text) 4px 5px, transparent 5px 8px); }
+.pass-go { font-size: 14px; font-weight: 600; color: var(--brass); }
+.pass-chip { position: absolute; left: -14px; bottom: 0; display: flex; align-items: center; gap: 10px; background: var(--card);
+  border: 1px solid var(--line); border-left: 3px solid var(--rolling); border-radius: 10px; padding: 10px 14px; font-size: 13px;
+  color: var(--text); box-shadow: 0 14px 34px -18px var(--shadow); animation: lp-float 5s ease-in-out infinite; }
+.pass-chip small { display: block; margin-top: 2px; font-size: 12px; color: var(--faint); }
+.pass-tick { width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0; background: var(--rolling-soft); color: var(--rolling); font-weight: 700; }
+@keyframes lp-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+/* on a phone the chip sits under the pass, so it never covers the link */
+@media (max-width: 520px) {
+  .pass-wrap { padding-bottom: 0; }
+  .pass-chip { position: relative; left: auto; bottom: auto; width: fit-content; margin: -12px 0 0 12px; }
+  .pass-name { font-size: 23px; }
+}
+
+/* ——— Numbers ——— */
+.lp-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line);
+  border-radius: 16px; overflow: hidden; }
+@media (min-width: 720px) { .lp-stats { grid-template-columns: repeat(4, 1fr); } }
+.lp-stats > div { background: var(--card); padding: 18px 12px; text-align: center; }
+.lp-stats b { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 4vw, 38px); color: var(--text); }
+.lp-stats b.hot { color: var(--approaching); }
+.lp-stats span { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--faint); }
+
+/* ——— Sections ——— */
+.lp-section { padding-top: 64px; }
+@media (min-width: 900px) { .lp-section { padding-top: 88px; } }
+.lp-h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 4.2vw, 42px); line-height: 1.15; text-align: center; text-wrap: balance; }
+.lp-sub { max-width: 60ch; margin: 12px auto 0; color: var(--dim); font-size: 16.5px; line-height: 1.6; text-align: center; }
+.lp-h2.left, .lp-sub.left { text-align: left; margin-left: 0; }
+.lp-more { margin-top: 14px; font-size: 15px; }
+.lp-more a { color: var(--brass); font-weight: 600; text-decoration: none; }
+.lp-more a:hover { text-decoration: underline; }
+.lp-more.center { text-align: center; margin-top: 22px; }
+
+.lp-cards { display: grid; gap: 16px; margin-top: 32px; }
+@media (min-width: 820px) { .lp-cards { grid-template-columns: repeat(3, 1fr); } }
+.lp-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
+.lp-icon { width: 48px; height: 48px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center;
+  color: var(--brass); background: var(--brass-soft); }
+.lp-card h3 { margin-top: 18px; font-size: 18px; line-height: 1.35; }
+.lp-card p { margin-top: 8px; color: var(--dim); font-size: 15px; line-height: 1.6; }
+
+/* ——— Choose your path ——— */
+.lp-paths { margin-top: 64px; padding: 56px 0; background: var(--bg-2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+@media (min-width: 900px) { .lp-paths { margin-top: 88px; padding: 72px 0; } }
+.lp-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 28px; }
+.lp-tabs[hidden] { display: none; }
+.lp-tabs button { border: 1px solid var(--line); background: var(--card); color: var(--dim); border-radius: 999px; padding: 9px 16px;
+  font-size: 14.5px; font-weight: 600; transition: border-color .15s, color .15s; }
+.lp-tabs button:hover { border-color: var(--brass); color: var(--text); }
+.lp-tabs button[aria-selected="true"] { background: var(--brass); border-color: var(--brass); color: var(--bg); }
+.lp-panel { display: grid; gap: 24px; margin-top: 32px; align-items: start; }
+.lp-panel[hidden] { display: none; }
+@media (min-width: 900px) { .lp-panel { grid-template-columns: .9fr 1.1fr; gap: 40px; } }
+.lp-panel-text h3 { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.2; }
+.lp-panel-text p:not(.eyebrow-s) { margin: 10px 0 20px; color: var(--dim); font-size: 16px; line-height: 1.6; }
+
+/* ——— Closing soon, how it works ——— */
+.lp-two { display: grid; gap: 48px; }
+@media (min-width: 900px) { .lp-two { grid-template-columns: 1.1fr .9fr; gap: 56px; } }
+.lp-two .rows { margin-top: 20px; }
+.lp-steps { list-style: none; display: grid; gap: 14px; margin-top: 20px; }
+.lp-steps li { display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; background: var(--card); border: 1px solid var(--line);
+  border-radius: 14px; padding: 18px; }
+.lp-step-n { grid-row: span 2; width: 40px; height: 40px; border: 1px solid var(--brass); border-radius: 50%; display: inline-flex;
+  align-items: center; justify-content: center; font-family: var(--mono); font-size: 13px; color: var(--brass); }
+.lp-steps h3 { font-size: 16.5px; }
+.lp-steps p { margin-top: 4px; color: var(--dim); font-size: 14.5px; line-height: 1.55; }
+
+/* ——— What's new (also the /updates/ page) ——— */
+.lp-news { list-style: none; max-width: 760px; margin: 28px auto 0; border-left: 1px solid var(--line); }
+.lp-upd { position: relative; display: grid; gap: 4px; padding: 0 0 22px 22px; }
+.lp-upd::before { content: ""; position: absolute; left: -5px; top: 5px; width: 9px; height: 9px; border-radius: 50%; background: var(--brass); }
+@media (min-width: 640px) { .lp-upd { grid-template-columns: 112px 1fr; gap: 16px; } }
+.lp-upd time { padding-top: 3px; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; color: var(--faint); }
+.lp-upd h3 { font-size: 16.5px; line-height: 1.4; }
+.lp-upd h3 a { color: var(--text); text-decoration: none; }
+.lp-upd h3 a:hover { color: var(--brass); }
+.lp-upd p { margin-top: 4px; color: var(--dim); font-size: 15px; line-height: 1.6; }
+.updates h2 { margin-top: 36px; font-family: var(--serif); font-weight: 400; font-size: 26px; }
+.updates .lp-news { margin-left: 0; }
+
+/* ——— Programmes ——— */
+.lp-progs { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 960px; margin: 26px auto 0; }
+.lp-progs a { display: inline-block; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--tint);
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); text-decoration: none; }
+.lp-progs a:hover { border-color: var(--brass); color: var(--brass); }
+
+/* ——— Questions ——— */
+.lp-faqs { max-width: 820px; }
+.lp-faqs .lp-h2 { margin-bottom: 16px; }
+.lp-faq { border-bottom: 1px solid var(--line); }
+.lp-faq summary { position: relative; padding: 18px 36px 18px 0; font-size: 17px; font-weight: 600; cursor: pointer; list-style: none; }
+.lp-faq summary::-webkit-details-marker { display: none; }
+.lp-faq summary::after { content: "+"; position: absolute; right: 4px; top: 13px; font-size: 22px; font-weight: 400; color: var(--brass); }
+.lp-faq[open] summary::after { content: "\2212"; }
+.lp-faq p { padding: 0 0 18px; color: var(--dim); font-size: 16px; line-height: 1.65; }
+
+/* ——— Closing band ——— */
+.lp-band { margin-top: 72px; padding: 64px 0; text-align: center; background: linear-gradient(180deg, var(--bg), var(--bg-2));
+  border-top: 1px solid var(--rule); }
+.lp-band h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 4.6vw, 46px); text-wrap: balance; }
+.lp-band p { max-width: 56ch; margin: 12px auto 0; color: var(--dim); font-size: 16.5px; line-height: 1.6; }
+
+@media (prefers-reduced-motion: reduce) { .pass-chip { animation: none; } .pass { transition: none; } }

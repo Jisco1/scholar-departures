@@ -281,11 +281,11 @@ def menu_html(root, here):
 
     countries = [(f"countries/{slug}/", name) for slug, name in MENU_COUNTRIES] + [("countries/", "All countries \u2192")]
     guides = [(f"guides/{g['slug']}/", g.get("menu") or g["title"]) for g in MENU_GUIDES] + [("guides/", "All guides \u2192")]
-    about = [("about/", "About us"), ("editorial-policy/", "How we verify"), ("contact/", "Contact")]
+    about = [("about/", "About us"), ("editorial-policy/", "How we verify"), ("updates/", "What's new"), ("contact/", "Contact")]
     return ('<details class="menu"><summary class="menu-btn">' + MENU_ICON + '<span class="menu-label">Menu</span></summary>'
             '<div class="menu-panel"><nav aria-label="Main"><ul class="menu-list">'
-            + link("", "Live board") + link("routes/", "Funded routes") + link("deadlines/", "Deadlines")
-            + link("#directory", "Schools directory")
+            + link("", "Home") + link("scholarships/", "Scholarship board") + link("routes/", "Funded routes")
+            + link("deadlines/", "Deadlines") + link("scholarships/#directory", "Schools directory")
             + drop("Countries", countries) + drop("Guides", guides) + drop("About", about)
             + "</ul></nav>" + THEME_SWITCH + "</div></details>")
 
@@ -413,7 +413,8 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
       <p>Free, independent listings of tuition-free universities and fully funded scholarships, each checked against its official page. We are not affiliated with any university or scholarship provider.</p>
     </div>
     <div><h2>Explore</h2><ul>
-      <li><a href="{root}routes/">All funded routes</a></li><li><a href="{root}deadlines/">Deadline calendar</a></li>
+      <li><a href="{root}scholarships/">Scholarship board</a></li><li><a href="{root}routes/">All funded routes</a></li>
+      <li><a href="{root}deadlines/">Deadline calendar</a></li><li><a href="{root}updates/">What's new</a></li>
       <li><a href="{root}countries/">Countries</a></li><li><a href="{root}guides/">Guides</a></li></ul></div>
     <div><h2>About</h2><ul>
       <li><a href="{root}about/">About us</a></li><li><a href="{root}editorial-policy/">How we verify</a></li>
@@ -462,16 +463,17 @@ def route_row(r, root):
 
 # ---------------------------------------------------------------- pages
 
-def build_home(routes, schools, guides, countries):
-    root = ""
-    tpl = (SRC / "home.html").read_text(encoding="utf-8")
-    config_json = json.dumps({"premium": {
+def build_board(routes, schools):
+    """The live board: search, filters, the departures board and the schools directory."""
+    root = "../"
+    tpl = (SRC / "board.html").read_text(encoding="utf-8")
+    config_json = json.dumps({"root": root, "premium": {
         "gumroadProductId": (CONFIG.get("premium") or {}).get("gumroad_product_id", ""),
         "purchaseUrl": (CONFIG.get("premium") or {}).get("purchase_url", "")}}).replace("</", "<\\/")
 
     def card(r):
         return (f'<article class="card slim in ready"><div class="country">{e(r["flag"])} {e(r["country"])}</div>'
-                f'<h3><a class="card-title" href="routes/{r["slug"]}/">{e(r["name"])}</a></h3>'
+                f'<h3><a class="card-title" href="{root}routes/{r["slug"]}/">{e(r["name"])}</a></h3>'
                 f'<span class="card-go" aria-hidden="true">→</span></article>')
 
     uni = [r for r in routes if r["kind"] != "program"]
@@ -495,17 +497,271 @@ def build_home(routes, schools, guides, countries):
             .replace("{{N_ROUTES}}", str(len(routes)))
             .replace("{{N_SCHOOLS}}", str(len(schools)))
             .replace("{{N_COUNTRIES}}", str(len({r["country"] for r in routes})))
-            .replace("{{LAST_CHECK}}", e(LAST_CHECK)))
+            .replace("{{LAST_CHECK}}", e(LAST_CHECK))
+            .replace("{{ROOT}}", root))
+    jsonld = [breadcrumb_ld([("", "Home"), ("scholarships/", "Scholarship board")])]
+    title = "Scholarship board: live deadlines for funded study abroad"
+    desc = (f"Search and filter {len(routes)} tuition-free universities and fully funded scholarships by level, field, region "
+            f"and funding type, with live deadline countdowns and a directory of {len(schools)} schools.")
+    write("scholarships/", page("scholarships/", title, desc, body, root=root, nav="scholarships/", body_class="home", jsonld=jsonld,
+                               extra_head=f'<link rel="stylesheet" href="{asset(root, "app.css")}">\n',
+                               scripts=[f"{root}data/data.js?v=" + DATA_VERSION, f"{root}data/schools.js?v=" + DATA_VERSION,
+                                        asset(root, "app.js")]))
+
+
+def load_updates(route_slugs):
+    """content/updates.json: what changed on the site, newest first. Shown on the home page and at /updates/."""
+    path = CONTENT / "updates.json"
+    if not path.exists():
+        return []
+    items = json.loads(path.read_text(encoding="utf-8"))
+    for i, u in enumerate(items):
+        where = f"content/updates.json entry {i}"
+        try:
+            dt.date.fromisoformat(u.get("date", ""))
+        except ValueError:
+            fail(f"{where}: date must be YYYY-MM-DD")
+        for key, limit in (("title", 120), ("text", 400)):
+            v = u.get(key)
+            if not isinstance(v, str) or not v.strip() or len(v) > limit or re.search(r"[<>\x00-\x1f]", v):
+                fail(f"{where}: '{key}' must be plain text of at most {limit} characters")
+        if u.get("slug") and u["slug"] not in route_slugs:
+            fail(f"{where}: slug {u['slug']!r} matches no route")
+    return sorted(items, key=lambda u: u.get("date", ""), reverse=True)
+
+
+def update_item(u, root):
+    d = dt.date.fromisoformat(u["date"])
+    title = (f'<a href="{root}routes/{u["slug"]}/">{e(u["title"])}</a>' if u.get("slug") else e(u["title"]))
+    return (f'<li class="lp-upd"><time datetime="{u["date"]}">{fmt_date(d)}</time>'
+            f'<div><h3>{title}</h3><p>{e(u["text"])}</p></div></li>')
+
+
+# The home page's "Choose your path" tabs. Each tab's list and count use the same rule as
+# the board link it ends with, so "See all 35" opens a board showing 35.
+PATHS = [
+    ("masters", "Master's", "Funded and tuition-free master's degrees",
+     "Scholarships that pay tuition and living costs, and universities that charge international students little or nothing.",
+     lambda r: "Master's" in r["levels"], "level=Master%27s"),
+    ("phd", "PhD", "Funded PhDs and doctoral grants",
+     "Doctoral scholarships with a monthly stipend, and salaried PhD positions.",
+     lambda r: "PhD" in r["levels"], "level=PhD"),
+    ("bachelors", "Bachelor's", "Funded bachelor's degrees",
+     "Undergraduate scholarships and universities that give need-based aid to international students.",
+     lambda r: "Bachelor's" in r["levels"], "level=Bachelor%27s"),
+    ("tuition-free", "Tuition-free", "Tuition-free universities",
+     "Public universities where international students pay no tuition, only a small semester fee.",
+     lambda r: r["kind"] != "program" and "Tuition-Free" in r["types"], "kind=Universities&type=Tuition-Free"),
+    ("programmes", "Scholarship programmes", "Government and foundation scholarships",
+     "National and foundation programmes that fund you at the university of your choice.",
+     lambda r: r["kind"] == "program", "kind=Programmes"),
+]
+
+
+def by_urgency(routes):
+    """Approaching deadlines first, soonest first; then everything else by name."""
+    def key(r):
+        nd, days, status = next_deadline(r)
+        return (0, days, r["name"]) if status == "approaching" else (1, 0, r["name"])
+    return sorted(routes, key=key)
+
+
+def build_home(routes, schools, updates):
+    """The landing page: what DegreeStep is, the next deadline, the paths in, and what changed."""
+    root = ""
+    countries_n = len({r["country"] for r in routes})
+    upcoming = []
+    for r in routes:
+        nd, days, status = next_deadline(r)
+        if nd is not None and status == "approaching":
+            upcoming.append((days, r["name"], r, nd))
+    upcoming.sort(key=lambda t: (t[0], t[1]))
+    soon30 = sum(1 for t in upcoming if t[0] <= 30)
+
+    # the boarding pass: the next deadline, recounted live by landing.js
+    pass_html = ""
+    if upcoming:
+        days, _, r, nd = upcoming[0]
+        approx = "≈ " if r.get("approx") else ""
+        when = "Today" if days == 0 else ("Tomorrow" if days == 1 else f"In {days} days")
+        frm = "Any country" if r["scope"] == "all" else "Eligible countries"
+        checked = r.get("last_checked") or r.get("last_verified")
+        chip = (f'<p class="pass-chip"><span class="pass-tick" aria-hidden="true">✓</span>'
+                f'<span>Checked against the official page<small>{fmt_date(dt.date.fromisoformat(checked))}</small></span></p>'
+                if checked else "")
+        pass_html = f"""<div class="pass-wrap">
+  <a class="pass" href="routes/{r['slug']}/">
+    <span class="pass-top"><span>Boarding pass</span><span>Next deadline</span></span>
+    <span class="pass-name">{e(r['name'])}</span>
+    <span class="pass-grid">
+      <span><small>From</small>{e(frm)}</span>
+      <span><small>To</small>{e(r['flag'])} {e(r['country'])}</span>
+      <span><small>Closes</small>{approx}{fmt_date(nd)}</span>
+      <span><small>Boarding</small><b class="hot" data-due="{nd.isoformat()}">{when}</b></span>
+    </span>
+    <span class="pass-stub"><span class="pass-code" aria-hidden="true"></span><span class="pass-go">Open this route →</span></span>
+  </a>
+  {chip}
+</div>"""
+
+    why = [
+        ('<path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6z"/>', "Checked against the official page",
+         "Every route links to the page we checked it against: the university, the government or the foundation. Deadlines and amounts are re-checked every month."),
+        ('<circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/>', "Live deadline countdowns",
+         "See what closes next, save the routes you like, and add their deadlines to your calendar with reminders."),
+        ('<path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/>', "Costs and eligibility in plain English",
+         "What each award covers, what you still pay, who qualifies and which documents to prepare, on one page per route."),
+    ]
+    why_html = "".join(
+        f'<article class="lp-card"><span class="lp-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+        f'stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{icon}</svg></span>'
+        f'<h3>{e(t)}</h3><p>{e(txt)}</p></article>' for icon, t, txt in why)
+
+    tabs, panels = [], []
+    for pid, label, heading, text, rule, query in PATHS:
+        picked = [r for r in routes if rule(r)]
+        if not picked:
+            continue
+        tab_state = 'aria-selected="false" tabindex="-1"' if tabs else 'aria-selected="true"'
+        tabs.append(f'<button type="button" role="tab" id="tab-{pid}" aria-controls="path-{pid}" {tab_state}>{e(label)}</button>')
+        rows = "".join(route_row(r, root) for r in by_urgency(picked)[:4])
+        panels.append(f"""<section class="lp-panel" id="path-{pid}" role="tabpanel" aria-labelledby="tab-{pid}">
+  <div class="lp-panel-text">
+    <p class="eyebrow-s">{e(label)} · {len(picked)} routes</p>
+    <h3>{e(heading)}</h3>
+    <p>{e(text)}</p>
+    <a class="btn btn-primary" href="scholarships/?{query}">See all {len(picked)} on the board →</a>
+  </div>
+  <div class="rows">{rows}</div>
+</section>""")
+
+    soon_rows = "".join(route_row(t[2], root) for t in upcoming[:5])
+    steps = [("Find a route", "Filter the scholarship board by study level, field, region and type of funding."),
+             ("Check you qualify", "Each route page sets out eligibility, costs, documents and a timeline for applying."),
+             ("Apply on the official site", "Save the route, add its deadline to your calendar, and apply before it closes.")]
+    steps_html = "".join(f'<li><span class="lp-step-n">0{i + 1}</span><h3>{e(t)}</h3><p>{e(x)}</p></li>'
+                         for i, (t, x) in enumerate(steps))
+    news = "".join(update_item(u, root) for u in updates[:5])
+    programmes = sorted((r for r in routes if r["kind"] == "program"), key=lambda r: r["name"])
+    prog_html = "".join(f'<li><a href="routes/{r["slug"]}/">{e(r["name"])}</a></li>' for r in programmes)
+
+    faq = [("Is DegreeStep free?",
+            "Yes. Every page, the board and the deadline calendar are free, and there is no account to create."),
+           ("Can students from any country use it?",
+            "Yes. DegreeStep is for international students from anywhere. Most routes are open to every nationality; "
+            "the ones limited to certain countries say so on their page."),
+           ("How do you check the information?",
+            f"Each route is checked against its official page, which every route page links to. The data was last checked {LAST_CHECK}. "
+            "Our editorial policy explains the process, and you can report a correction through the contact page."),
+           ("Do you handle applications?",
+            "No. You apply directly to the university or scholarship provider. DegreeStep is independent and not affiliated with any of them."),
+           ("How often is it updated?",
+            "Deadlines and amounts are re-checked every month, new routes are added as they are verified, and every change is listed on the What's new page.")]
+    faq_html = "".join(f'<details class="lp-faq"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in faq)
+
+    body = f"""<section class="lp-hero"><div class="wrap lp-hero-grid">
+  <div class="lp-hero-text">
+    <p class="eyebrow-s">Funded study abroad · Europe · USA · Canada</p>
+    <h1>The world’s scholarships, <em>one step away</em></h1>
+    <p class="lede">{len(routes)} tuition-free universities and fully funded scholarships in {countries_n} countries, for international students from anywhere. Each one is checked against its official page, with live deadline countdowns.</p>
+    <div class="lp-cta"><a class="btn btn-primary btn-lg" href="scholarships/">View scholarships →</a><a class="btn btn-line btn-lg" href="editorial-policy/">How we verify</a></div>
+    <p class="lp-trust">Free · No account needed · Every fact linked to its source</p>
+  </div>
+  {pass_html}
+</div></section>
+
+<div class="wrap"><section class="lp-stats" aria-label="DegreeStep in numbers">
+  <div><b>{len(routes)}</b><span>Funded routes</span></div>
+  <div><b>{countries_n}</b><span>Countries</span></div>
+  <div><b>{len(schools)}</b><span>Schools indexed</span></div>
+  <div><b class="hot">{soon30}</b><span>Closing within 30 days</span></div>
+</section></div>
+
+<section class="lp-section wrap">
+  <h2 class="lp-h2">Find funding you can trust</h2>
+  <p class="lp-sub">Scholarship lists are easy to find. Ones you can rely on are not. DegreeStep keeps each route short, sourced and current.</p>
+  <div class="lp-cards">{why_html}</div>
+</section>
+
+<section class="lp-paths"><div class="wrap">
+  <h2 class="lp-h2">Choose your path</h2>
+  <p class="lp-sub">Start from the degree you want. Each path opens the board already filtered for you.</p>
+  <div class="lp-tabs" role="tablist" aria-label="Choose your path" hidden>{"".join(tabs)}</div>
+  {"".join(panels)}
+</div></section>
+
+{ad_bay("between", wide=True)}
+
+<section class="lp-section wrap lp-two">
+  <div>
+    <h2 class="lp-h2 left">Closing soon</h2>
+    <p class="lp-sub left">The next deadlines across every route. Dates come from each official page.</p>
+    <div class="rows">{soon_rows}</div>
+    <p class="lp-more"><a href="deadlines/">Full deadline calendar →</a></p>
+  </div>
+  <div>
+    <h2 class="lp-h2 left">How it works</h2>
+    <p class="lp-sub left">Three steps from first search to a submitted application.</p>
+    <ol class="lp-steps">{steps_html}</ol>
+  </div>
+</section>
+
+<section class="lp-section wrap">
+  <h2 class="lp-h2">What’s new</h2>
+  <p class="lp-sub">Every change to the site, with the date it was made. Nothing is updated silently.</p>
+  <ul class="lp-news">{news}</ul>
+  <p class="lp-more center"><a href="updates/">All updates →</a></p>
+</section>
+
+<section class="lp-section wrap">
+  <h2 class="lp-h2">Programmes on DegreeStep</h2>
+  <p class="lp-sub">Government and foundation scholarships we track, each with its own page.</p>
+  <ul class="lp-progs">{prog_html}</ul>
+</section>
+
+<section class="lp-section wrap lp-faqs">
+  <h2 class="lp-h2">Questions</h2>
+  {faq_html}
+</section>
+
+<section class="lp-band"><div class="wrap">
+  <h2>Ready to find your scholarship?</h2>
+  <p>Search {len(routes)} funded routes, filter by what you want to study, and see what closes next.</p>
+  <div class="lp-cta center"><a class="btn btn-primary btn-lg" href="scholarships/">View scholarships →</a><a class="btn btn-line btn-lg" href="deadlines/">See deadlines</a></div>
+</div></section>"""
+
     jsonld = [{"@context": "https://schema.org", "@type": "WebSite", "name": SITE, "url": BASE,
                "description": CONFIG["tagline"]},
               {"@context": "https://schema.org", "@type": "Organization", "name": SITE, "url": BASE,
-               "logo": BASE + "assets/apple-touch-icon.png", "email": CONFIG["contact_email"]}]
+               "logo": BASE + "assets/apple-touch-icon.png", "email": CONFIG["contact_email"]},
+              {"@context": "https://schema.org", "@type": "FAQPage",
+               "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}]
     title = f"{SITE} — Tuition-Free & Fully Funded Study Abroad"
     desc = (f"{len(routes)} tuition-free universities and fully funded scholarships for international students in Europe, "
-            f"the USA and Canada — live deadline countdowns, plain-English eligibility and links to the official pages.")
-    write("", page("", title, desc, body, root=root, body_class="home", jsonld=jsonld,
-                   extra_head=f'<link rel="stylesheet" href="{asset(root, "app.css")}">\n',
-                   scripts=["data/data.js?v=" + DATA_VERSION, "data/schools.js?v=" + DATA_VERSION, asset(root, "app.js")]))
+            f"the USA and Canada — each checked against its official page, with live deadline countdowns.")
+    write("", page("", title, desc, body, root=root, nav="", body_class="landing", jsonld=jsonld,
+                   extra_head=f'<link rel="stylesheet" href="{asset(root, "landing.css")}">\n',
+                   scripts=[asset(root, "landing.js")]))
+
+
+def build_updates(updates):
+    root = "../"
+    months = {}
+    for u in updates:
+        d = dt.date.fromisoformat(u["date"])
+        months.setdefault(f"{MONTHS[d.month - 1]} {d.year}", []).append(u)
+    sections = "".join(f'<h2>{e(m)}</h2><ul class="lp-news">{"".join(update_item(u, root) for u in items)}</ul>'
+                       for m, items in months.items())
+    body = f"""<div class="wrap"><header class="page-head">{crumbs(root, [("", "What's new")])}
+<p class="eyebrow-s">Changelog</p><h1>What’s new on {e(SITE)}</h1>
+<p class="lede">Every change to the routes and pages, newest first: new routes, corrected deadlines and amounts, and closed calls.
+Each one was checked against the official page before it went live.</p></header>
+<div class="layout"><div class="updates">{sections or '<p class="lede">No updates yet.</p>'}</div></div></div>"""
+    write("updates/", page("updates/", f"What's new on {SITE}",
+                           "A dated list of every change to DegreeStep: new funded routes, corrected deadlines and amounts, and closed scholarship calls.",
+                           body, root=root, nav="updates/", body_class="updates-page",
+                           extra_head=f'<link rel="stylesheet" href="{asset(root, "landing.css")}">\n',
+                           jsonld=[breadcrumb_ld([("", "Home"), ("updates/", "What's new")])]))
 
 
 def build_route_pages(routes, notes, country_pages):
@@ -820,8 +1076,8 @@ def build_static_pages(pages):
 def build_404():
     body = f"""<div class="wrap center" style="padding:80px 0 64px"><div class="big404">404</div>
 <h1 style="font-family:var(--serif);font-weight:400;font-size:32px;margin-top:12px">This gate doesn't exist</h1>
-<p class="lede" style="margin:14px auto 28px">The page may have moved when a route was renamed. Try the full list or the live board.</p>
-<p><a class="btn btn-primary" href="{BASE}routes/">All funded routes</a> <a class="btn btn-line" href="{BASE}">Live board</a></p></div>"""
+<p class="lede" style="margin:14px auto 28px">The page may have moved when a route was renamed. Try the full list or the scholarship board.</p>
+<p><a class="btn btn-primary" href="{BASE}routes/">All funded routes</a> <a class="btn btn-line" href="{BASE}scholarships/">Scholarship board</a></p></div>"""
     # served at any depth, so links and assets are absolute
     text = page("404.html", "Page not found", "The page you were looking for isn't on DegreeStep — try the full list of funded routes or the live deadline board.",
                 body, root=BASE, noindex=True, ads=False)
@@ -916,7 +1172,12 @@ def main():
         shutil.copy2(f, OUT / "assets" / f.name)
         ASSET_VERSIONS[f.name] = hashlib.sha256(f.read_bytes()).hexdigest()[:10]
 
-    build_home(ROUTES, SCHOOLS, guides, countries)
+    updates = load_updates({r["slug"] for r in ROUTES})
+    if ERRORS:
+        return report()
+    build_home(ROUTES, SCHOOLS, updates)
+    build_board(ROUTES, SCHOOLS)
+    build_updates(updates)
     build_route_pages(ROUTES, notes, dict(countries))
     build_routes_index(ROUTES, dict(countries))
     build_countries(ROUTES, countries)

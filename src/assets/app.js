@@ -26,6 +26,9 @@
     catch (e) { return {}; }
   })();
   var PREMIUM = CONFIG.premium || {};
+  /* Where the site's root is from this page: the board lives at /scholarships/, so
+     its links to route pages go up a level. */
+  var ROOT = typeof CONFIG.root === "string" ? CONFIG.root : "";
   var PREMIUM_ENABLED = !!(PREMIUM.gumroadProductId && PREMIUM.purchaseUrl);
   var LIC_KEY = "scholar-departures:license";
   var CHARSET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789·—≈ ";
@@ -401,7 +404,7 @@
     return boardData.map(function (s) {
       var row = document.createElement("a");
       row.className = "brow r";
-      row.href = "routes/" + s.slug + "/";
+      row.href = ROOT + "routes/" + s.slug + "/";
       ["route", "country", "closes", "days"].forEach(function (cls) {
         var c = document.createElement("span"); c.className = cls; row.appendChild(c);
       });
@@ -558,7 +561,7 @@
     var pop = lastToggled === s.name ? " pop" : "";
     return '<article class="card slim' + (isSaved ? " saved" : "") + '" style="--d:' + d + 'ms" data-name="' + esc(s.name) + '">' +
       '<div class="country">' + esc(s.flag) + " " + esc(s.country) + "</div>" +
-      '<h3><a class="card-title" href="routes/' + esc(s.slug) + '/">' + esc(s.name) + "</a></h3>" +
+      '<h3><a class="card-title" href="' + esc(ROOT) + 'routes/' + esc(s.slug) + '/">' + esc(s.name) + "</a></h3>" +
       '<span class="card-go" aria-hidden="true">\u2192</span>' +
       '<button class="bookmark' + (isSaved ? " saved" : "") + pop + '" data-save="' + esc(s.name) + '" aria-label="' +
         (isSaved ? "Remove from shortlist" : "Save to shortlist") + '">' + (isSaved ? I.bmFill : I.bm) + "</button>" +
@@ -765,7 +768,7 @@
   })();
   function dirRowHTML(s, i) {
     var slug = s.atlasName && SLUG_BY_NAME[s.atlasName];
-    var chip = slug ? '<a class="dchip" href="routes/' + esc(slug) + '/" title="Open this school\u2019s funded route">Funded</a>' : "";
+    var chip = slug ? '<a class="dchip" href="' + esc(ROOT) + 'routes/' + esc(slug) + '/" title="Open this school\u2019s funded route">Funded</a>' : "";
     return '<div class="dir-row" style="--d:' + (i % 14) * 25 + 'ms">' +
       '<span class="dname">' + esc(s.flag) + " " + esc(s.name) + "</span>" +
       '<span class="dloc">' + esc(s.city) + " \u00B7 " + esc(s.country) + "</span>" +
@@ -1019,6 +1022,17 @@
     premiumOn() ? planModal(name) : unlockModal();
   });
   applyPremiumUI();
+
+  /* ----- filters asked for in the link, e.g. ?level=Master's from the home page ----- */
+  (function filtersFromLink() {
+    var p;
+    try { p = new URLSearchParams(window.location.search); } catch (e) { return; }
+    var level = p.get("level"), type = p.get("type"), kind = p.get("kind"), region = p.get("region");
+    if (level && LEVELS.indexOf(level) > 0) { state.level = level; levelSel.value = level; }
+    if (type && TYPES.indexOf(type) > 0) state.type = type;
+    if (kind && KINDS.indexOf(kind) > 0) state.kind = kind;
+    if (region && REGIONS.indexOf(region) > 0) state.region = region;
+  })();
 
   render();
   renderDir();
