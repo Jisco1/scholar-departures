@@ -201,6 +201,33 @@ class BuiltSite(unittest.TestCase):
             m = banned.search(text)
             self.assertIsNone(m, f"{path.relative_to(self.site)}: {m.group(0) if m else ''}")
 
+    def test_guides_name_their_author(self):
+        # the owner asked to be named as the author (5 Oct 2026); bylines lead to his page, which says how pages are written
+        def ld(text):
+            return [json.loads(x) for x in re.findall(r'<script type="application/ld\+json"[^>]*>(.*?)</script>', text, re.S)]
+        author = {"@type": "Person", "name": "Eric Arko", "url": "https://degreestep.com/about/eric-arko/"}
+        guides = sorted(self.site.glob("guides/*/index.html")) + sorted(self.site.glob("countries/*/index.html"))
+        self.assertGreaterEqual(len(guides), 20)
+        for path in guides:
+            text = self.pages[path]
+            name = path.parent.relative_to(self.site).as_posix()
+            head = text[text.index('<div class="byline">'):]
+            self.assertIn('By <b><a href="../../about/eric-arko/">Eric Arko</a></b>', head[:head.index("</div>")], name)
+            articles = [x for x in ld(text) if x.get("@type") == "Article"]
+            self.assertEqual(len(articles), 1, name)
+            self.assertEqual(articles[0]["author"], author, name)
+        for path, text in self.pages.items():
+            self.assertNotIn("DegreeStep editors", text, path.relative_to(self.site))
+        profile = self.pages[self.site / "about" / "eric-arko" / "index.html"]
+        person = next(x for x in ld(profile) if x.get("@type") == "ProfilePage")["mainEntity"]
+        self.assertEqual((person["@type"], person["name"], person["url"]), ("Person", author["name"], author["url"]))
+        self.assertIn("AI tools", profile, "the author page should say how the pages are written")
+        for path in guides:
+            self.assertIn(f'href="../../{path.parent.relative_to(self.site).as_posix()}/"', profile, "the author page lists his guides")
+        self.assertIn('about/eric-arko/"', self.pages[self.site / "about" / "index.html"], "About should name who runs the site")
+        home = next(x for x in ld(self.pages[self.site / "index.html"]) if x.get("@type") == "Organization")
+        self.assertEqual(home.get("founder"), author)
+
     def test_choose_your_path_counts_match_the_board(self):
         import importlib.util
         spec = importlib.util.spec_from_file_location("site_build", self.dir / "build.py")

@@ -259,6 +259,34 @@ def asset(root, name):
 
 MENU_GUIDES = []     # filled in main(): the featured guides, shown in the menu under short labels
 MENU_COUNTRIES = []  # filled in main(): (slug, name) for every country guide
+AUTHOR = {}          # filled in main(): content/author.html, the person named on every guide
+
+
+def load_author():
+    """content/author.html: the person behind the guides. Their page lives at about/<slug>/."""
+    path = CONTENT / "author.html"
+    raw = path.read_text(encoding="utf-8")
+    m = FRONT.match(raw)
+    if not m:
+        fail("author.html: missing <!--{json front matter}-->")
+        return {}
+    meta = json.loads(m.group(1))
+    for key in ("name", "slug", "role", "description", "updated", "alumni"):
+        if not isinstance(meta.get(key), str) or not meta[key].strip() or re.search(r"[<>]", meta[key]):
+            fail(f"author.html: front matter needs plain-text '{key}'")
+    if not re.match(r"^[a-z0-9-]+$", meta.get("slug", "")):
+        fail("author.html: 'slug' must be lowercase letters, digits and hyphens")
+    meta["body"] = raw[m.end():]
+    meta["path"] = f"about/{meta.get('slug', '')}/"
+    return meta
+
+
+def author_link(root):
+    return f'<a href="{root}{AUTHOR["path"]}">{e(AUTHOR["name"])}</a>'
+
+
+def author_ld():
+    return {"@type": "Person", "name": AUTHOR["name"], "url": BASE + AUTHOR["path"]}
 MENU_ICON = '<span class="menu-icon" aria-hidden="true"><i></i><i></i><i></i></span>'
 THEME_SWITCH = ('<div class="menu-theme" hidden><span>Theme</span><div class="theme-seg" role="group" aria-label="Colour theme">'
                 '<button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button>'
@@ -1148,7 +1176,7 @@ def build_home(routes, schools, updates, positions, research):
     jsonld = [{"@context": "https://schema.org", "@type": "WebSite", "name": SITE, "url": BASE,
                "description": CONFIG["tagline"]},
               {"@context": "https://schema.org", "@type": "Organization", "name": SITE, "url": BASE,
-               "logo": BASE + "assets/apple-touch-icon.png", "email": CONFIG["contact_email"]},
+               "logo": BASE + "assets/apple-touch-icon.png", "email": CONFIG["contact_email"], "founder": author_ld()},
               {"@context": "https://schema.org", "@type": "FAQPage",
                "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}]
     title = f"{SITE} — Tuition-Free & Fully Funded Study Abroad"
@@ -1376,14 +1404,18 @@ def build_countries(routes, countries):
         body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("countries/", "Countries"), ("", c["name"])])}
 <div class="eyebrow-s">{e(c.get("flag", ""))} {len(rs)} funded route{"s" if len(rs) != 1 else ""}</div>
 <h1>{e(c["title"])}</h1><p class="lede">{e(c["lede"])}</p>
-<div class="byline"><span>Reviewed <b>{e(fmt_date(dt.date.fromisoformat(c["reviewed"])))}</b></span><span>Sources: official government and university pages</span></div></div>
+<div class="byline"><span>By <b>{author_link(root)}</b></span><span>Reviewed <b>{e(fmt_date(dt.date.fromisoformat(c["reviewed"])))}</b></span></div></div>
 <div class="layout has-rail"><div>{glance_html}
 <h2 class="group-title">Funded routes in {e(c["name"])}</h2><div class="rows">{"".join(route_row(r, root) for r in rs)}</div>
 <article class="prose" style="margin-top:12px">{sections}{faq_html}
 {"<h2>Sources</h2><ul>" + sources + "</ul>" if sources else ""}</article>
 </div><aside class="rail" aria-label="Advertisements">{ad_bay("rail")}</aside></div></div>"""
         write(f"countries/{slug}/", page(f"countries/{slug}/", c["title"], c["description"], body, root=root, nav="countries/",
-                                          jsonld=[breadcrumb_ld([("", "Home"), ("countries/", "Countries"), (f"countries/{slug}/", c["name"])])] + faq_ld,
+                                          jsonld=[breadcrumb_ld([("", "Home"), ("countries/", "Countries"), (f"countries/{slug}/", c["name"])]),
+                                                  {"@context": "https://schema.org", "@type": "Article", "headline": c["title"],
+                                                   "description": c["description"], "dateModified": c["reviewed"],
+                                                   "author": author_ld(), "publisher": {"@type": "Organization", "name": SITE, "url": BASE},
+                                                   "mainEntityOfPage": BASE + f"countries/{slug}/"}] + faq_ld,
                                           og_type="article"))
     root = "../"
     tiles = "".join(
@@ -1426,15 +1458,14 @@ def build_guides(guides, routes):
             f'<h3>{e(x["title"])}</h3><p>{e(x["description"])}</p></a>' for x in others) + "</div>"
         html_body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("guides/", "Guides"), ("", g["title"])])}
 <div class="eyebrow-s">{e(g.get("kicker", "Guide"))}</div><h1>{e(g["title"])}</h1><p class="lede">{e(g["description"])}</p>
-<div class="byline"><span>By the <b>{e(SITE)} editors</b></span><span>Updated {e(fmt_date(dt.date.fromisoformat(g["updated"])))}</span><span>{mins} min read</span></div>
+<div class="byline"><span>By <b>{author_link(root)}</b></span><span>Updated {e(fmt_date(dt.date.fromisoformat(g["updated"])))}</span><span>{mins} min read</span></div>
 <div class="head-share">{share_box(f"guides/{g['slug']}/", g["title"], g["title"], "guide")}</div></div>
 <div class="layout has-rail"><div><article class="prose">{toc_html}{body}</article>
 <div class="prose" style="margin-top:8px">{more}</div></div><aside class="rail" aria-label="Advertisements">{ad_bay("rail")}</aside></div></div>"""
         ld = [breadcrumb_ld([("", "Home"), ("guides/", "Guides"), (f"guides/{g['slug']}/", g["title"])]),
               {"@context": "https://schema.org", "@type": "Article", "headline": g["title"], "description": g["description"],
                "dateModified": g["updated"], "datePublished": g.get("published", g["updated"]),
-               "author": {"@type": "Organization", "name": f"{SITE} editors", "url": BASE + "about/"},
-               "publisher": {"@type": "Organization", "name": SITE, "url": BASE},
+               "author": author_ld(), "publisher": {"@type": "Organization", "name": SITE, "url": BASE},
                "mainEntityOfPage": BASE + f"guides/{g['slug']}/"}]
         write(f"guides/{g['slug']}/", page(f"guides/{g['slug']}/", g["title"], g["description"], html_body, root=root,
                                             nav="guides/", jsonld=ld, og_type="article"))
@@ -1501,6 +1532,25 @@ def build_static_pages(pages):
 <div class="layout"><article class="prose">{body}</article></div></div>"""
         write(f"{p['slug']}/", page(f"{p['slug']}/", p["title"], p["description"], html_body, root=root,
                                      nav=f"{p['slug']}/" if p["slug"] == "about" else None, ads=p.get("ads", False)))
+
+
+def build_author(guides, countries):
+    root = "../../"
+    a = AUTHOR
+    body = a["body"].replace("{{root}}", root).replace("{{site}}", e(SITE))
+    listed = ('<h2>Guides by ' + e(a["name"].split()[0]) + '</h2><ul>'
+              + "".join(f'<li><a href="{root}guides/{g["slug"]}/">{e(g["title"])}</a></li>' for g in guides)
+              + "".join(f'<li><a href="{root}countries/{slug}/">{e(c["title"])}</a></li>' for slug, c in countries) + "</ul>")
+    html_body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("about/", "About"), ("", a["name"])])}
+<h1>{e(a["name"])}</h1><p class="lede">{e(a["role"])}</p>
+<div class="byline"><span>Last updated <b>{e(fmt_date(dt.date.fromisoformat(a["updated"])))}</b></span></div></div>
+<div class="layout"><article class="prose">{body.replace("<!--guides-->", listed) if "<!--guides-->" in body else body + listed}</article></div></div>"""
+    person = dict(author_ld(), jobTitle=a["role"], worksFor={"@type": "Organization", "name": SITE, "url": BASE},
+                  alumniOf={"@type": "CollegeOrUniversity", "name": a["alumni"]})
+    write(a["path"], page(a["path"], f'{a["name"]}, {a["role"]}', a["description"], html_body, root=root, nav="about/", ads=False,
+                          jsonld=[breadcrumb_ld([("", "Home"), ("about/", "About"), (a["path"], a["name"])]),
+                                  {"@context": "https://schema.org", "@type": "ProfilePage", "dateModified": a["updated"],
+                                   "mainEntity": person}]))
 
 
 def build_404():
@@ -1590,6 +1640,7 @@ def main():
     countries = sorted(countries_raw.items(), key=lambda kv: kv[1]["name"])
     guides = sorted(load_html_docs("guides"), key=lambda g: g.get("order", 99))
     static_pages = load_html_docs("pages")
+    AUTHOR.update(load_author())
     MENU_GUIDES[:] = [g for g in guides if g.get("featured")][:6] or guides[:6]
     MENU_COUNTRIES[:] = [(slug, c["name"]) for slug, c in countries]
     if ERRORS:
@@ -1618,6 +1669,7 @@ def main():
     build_guides(guides, ROUTES)
     build_deadlines(ROUTES)
     build_static_pages(static_pages)
+    build_author(guides, countries)
     build_404()
     write_meta_files(ROUTES)
     check_links()
