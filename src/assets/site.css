@@ -122,6 +122,8 @@ img, svg { max-width: 100%; }
 .prose hr { border: none; border-top: 1px solid var(--line); margin: 2em 0; }
 .prose code { font-family: var(--mono); font-size: .88em; background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
 .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; }
+/* On a phone a wide table scrolls sideways inside its box rather than crushing its columns. */
+@media (max-width: 640px) { .table-wrap > table { min-width: 600px; } }
 .prose table, table.data { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.5; }
 .prose th, .prose td, table.data th, table.data td { text-align: left; vertical-align: top; padding: 10px 14px; border-bottom: 1px solid var(--rule); }
 .prose th, table.data th { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--faint); font-weight: 400; white-space: nowrap; background: var(--tint); }
