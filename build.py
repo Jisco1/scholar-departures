@@ -271,7 +271,7 @@ def load_author():
         fail("author.html: missing <!--{json front matter}-->")
         return {}
     meta = json.loads(m.group(1))
-    for key in ("name", "slug", "role", "description", "updated", "alumni"):
+    for key in ("name", "slug", "role", "description", "updated"):
         if not isinstance(meta.get(key), str) or not meta[key].strip() or re.search(r"[<>]", meta[key]):
             fail(f"author.html: front matter needs plain-text '{key}'")
     if not re.match(r"^[a-z0-9-]+$", meta.get("slug", "")):
@@ -1545,8 +1545,7 @@ def build_author(guides, countries):
 <h1>{e(a["name"])}</h1><p class="lede">{e(a["role"])}</p>
 <div class="byline"><span>Last updated <b>{e(fmt_date(dt.date.fromisoformat(a["updated"])))}</b></span></div></div>
 <div class="layout"><article class="prose">{body.replace("<!--guides-->", listed) if "<!--guides-->" in body else body + listed}</article></div></div>"""
-    person = dict(author_ld(), jobTitle=a["role"], worksFor={"@type": "Organization", "name": SITE, "url": BASE},
-                  alumniOf={"@type": "CollegeOrUniversity", "name": a["alumni"]})
+    person = dict(author_ld(), jobTitle=a["role"], worksFor={"@type": "Organization", "name": SITE, "url": BASE})
     write(a["path"], page(a["path"], f'{a["name"]}, {a["role"]}', a["description"], html_body, root=root, nav="about/", ads=False,
                           jsonld=[breadcrumb_ld([("", "Home"), ("about/", "About"), (a["path"], a["name"])]),
                                   {"@context": "https://schema.org", "@type": "ProfilePage", "dateModified": a["updated"],
