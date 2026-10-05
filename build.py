@@ -411,7 +411,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
   <div class="foot-grid">
     <div class="foot-brand">
       <a class="brand" href="{root or './'}"><span class="brand-mark">{SEAL}</span><span class="brand-name">Degree<b>Step</b></span></a>
-      <p>Free, independent listings of tuition-free universities and fully funded scholarships, each checked against its official page. We are not affiliated with any university or scholarship provider.</p>
+      <p>Independent listings of tuition-free universities and fully funded scholarships. We are not affiliated with any university or scholarship provider.</p>
     </div>
     <div><h2>Explore</h2><ul>
       <li><a href="{root}scholarships/">Scholarship board</a></li><li><a href="{root}routes/">All funded routes</a></li>
@@ -630,7 +630,7 @@ def position_card(p):
   <p class="pos-where">{e(p['flag'])} {e(p['institution'])} · {e(p['country'])}</p>
   <p class="pos-sum">{e(p['summary'])}</p>
   <dl class="pos-meta"><div><dt>Funding</dt><dd>{e(p['funding'])}</dd></div><div><dt>Deadline</dt><dd>{fmt_date(d)}</dd></div></dl>
-  <p class="pos-foot"><a class="btn btn-line" href="{e(p['link'])}" target="_blank" rel="noopener">Official posting {EXT}</a><span>{e(p['source'])} · checked {fmt_date(dt.date.fromisoformat(p['posted']))}</span></p>
+  <p class="pos-foot"><a class="btn btn-line" href="{e(p['link'])}" target="_blank" rel="noopener">Official posting {EXT}</a><span>{e(p['source'])} · listed {fmt_date(dt.date.fromisoformat(p['posted']))}</span></p>
 </article>"""
 
 
@@ -649,7 +649,7 @@ def build_positions(items):
     countries = sorted({p["country"] for p in live})
     fields = [f for f in FIELDS if any(p["field"] == f for p in live)]
     cards = "".join(position_card(p) for p in live) or (
-        '<p class="lede">No funded positions are open right now. New ones are added as they are checked; see '
+        '<p class="lede">No funded positions are open right now. New ones are added regularly; see '
         f'<a href="{root}updates/">what\'s new</a>.</p>')
     levels = [lv for lv in POSITION_LEVELS if any(p["level"] == lv for p in live)]
     filters = ("" if len(live) < 4 else
@@ -661,7 +661,7 @@ def build_positions(items):
     where = and_list(countries) if countries else "several countries"
     body = f"""<div class="wrap"><header class="page-head">{crumbs(root, [("", "Funded positions")])}
 <p class="eyebrow-s">Funded positions · {len(live)} open</p><h1>Funded PhD and research positions</h1>
-<p class="lede">Salaried PhD posts, doctoral fellowships and postdocs, each checked on the official vacancy page before it is listed. In much of northern Europe a PhD is a paid job with a salary, so you apply for the position itself rather than for a separate scholarship.</p>
+<p class="lede">Salaried PhD posts, doctoral fellowships and postdocs. In much of northern Europe a PhD is a paid job with a salary, so you apply for the position itself rather than for a separate scholarship.</p>
 <div class="byline"><span>Open now in <b>{e(where)}</b></span><span>Listings come down at their deadline</span></div></header>
 {filters}
 <div class="pos-list">{cards}</div>
@@ -679,7 +679,7 @@ def build_positions(items):
   <p class="muted">We list only funded positions. We never ask candidates for fees, and you should be wary of anyone who does: see our <a href="{root}guides/scholarship-scams/">scam guide</a>.</p>
 </section></div>"""
     write("positions/", page("positions/", "Funded PhD and research positions",
-                             f"{len(live)} open funded PhD, doctoral fellowship and postdoc positions, each checked on the official vacancy page, with salaries, deadlines and links.",
+                             f"{len(live)} open funded PhD, doctoral fellowship and postdoc positions, with salaries, deadlines and links.",
                              body, root=root, nav="positions/", body_class="positions-page",
                              extra_head=f'<link rel="stylesheet" href="{asset(root, "landing.css")}">\n',
                              scripts=[asset(root, "positions.js")],
@@ -828,12 +828,12 @@ def build_news(items):
                        for m, ns in months.items())
     body = f"""<div class="wrap"><header class="page-head">{crumbs(root, [("", "Research news")])}
 <p class="eyebrow-s">Research and innovation</p><h1>Research and innovation news</h1>
-<p class="lede">The year's major research prizes, discoveries and new funding for students and researchers, explained in plain English. Every item links to its official source, and we say why it matters if you are planning a degree or a PhD.</p></header>
+<p class="lede">The year's major research prizes, discoveries and new funding for students and researchers, and why each one matters if you are planning a degree or a PhD.</p></header>
 <div class="news-page">{sections or '<p class="lede">No news yet.</p>'}</div>
 {ad_bay("between", wide=True)}
 <p class="muted" style="margin:28px 0 56px;line-height:1.7">Looking for a funded PhD in one of these fields? See our <a href="{root}positions/">funded positions</a>, or every change to the site on <a href="{root}updates/">what's new</a>.</p></div>"""
     write("news/", page("news/", "Research and innovation news",
-                        "Major research prizes, scientific breakthroughs and new funding for students and researchers, explained in plain English with links to the official sources.",
+                        "Major research prizes, scientific breakthroughs and new funding for students and researchers, explained in plain English.",
                         body, root=root, nav="news/", body_class="news-page-body",
                         extra_head=f'<link rel="stylesheet" href="{asset(root, "landing.css")}">\n',
                         jsonld=[breadcrumb_ld([("", "Home"), ("news/", "Research news")])]))
@@ -858,10 +858,6 @@ def build_home(routes, schools, updates, positions, research):
         approx = "≈ " if r.get("approx") else ""
         when = "Today" if days == 0 else ("Tomorrow" if days == 1 else f"In {days} days")
         frm = "Any country" if r["scope"] == "all" else "Eligible countries"
-        checked = r.get("last_checked") or r.get("last_verified")
-        chip = (f'<p class="pass-chip"><span class="pass-tick" aria-hidden="true">✓</span>'
-                f'<span>Checked against the official page<small>{fmt_date(dt.date.fromisoformat(checked))}</small></span></p>'
-                if checked else "")
         pass_html = f"""<div class="pass-wrap">
   <a class="pass" href="routes/{r['slug']}/">
     <span class="pass-top"><span>Boarding pass</span><span>Next deadline</span></span>
@@ -874,12 +870,11 @@ def build_home(routes, schools, updates, positions, research):
     </span>
     <span class="pass-stub"><span class="pass-code" aria-hidden="true"></span><span class="pass-go">Open this route →</span></span>
   </a>
-  {chip}
 </div>"""
 
     why = [
-        ('<path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6z"/>', "Checked against the official page",
-         "Every route links to the page we checked it against: the university, the government or the foundation. Deadlines and amounts are re-checked every month."),
+        ('<path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>', "Straight to the official page",
+         "Every route links to the university, government or foundation page where you apply."),
         ('<circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/>', "Live deadline countdowns",
          "See what closes next, save the routes you like, and add their deadlines to your calendar with reminders."),
         ('<path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/>', "Costs and eligibility in plain English",
@@ -921,7 +916,6 @@ def build_home(routes, schools, updates, positions, research):
         f'<span class="lp-news-title">{e(n["title"])}</span></a>' for n in research[:3])
     news_html = (f"""<section class="lp-section wrap">
   <h2 class="lp-h2">Research and innovation news</h2>
-  <p class="lp-sub">The year's major research prizes, discoveries and new funding, explained in plain English with official sources.</p>
   <div class="lp-news-grid">{news_cards}</div>
   <p class="lp-more center"><a href="news/">All research news →</a></p>
 </section>""" if research else "")
@@ -933,7 +927,6 @@ def build_home(routes, schools, updates, positions, research):
         f'{closes_text(dt.date.fromisoformat(p["deadline"]))}</span></div></a>' for p in live_pos[:4])
     pos_html = (f"""<section class="lp-section wrap">
   <h2 class="lp-h2">Funded PhD and research positions</h2>
-  <p class="lp-sub">Salaried PhDs, doctoral fellowships and postdocs, each checked on the official vacancy page.</p>
   <div class="rows lp-pos">{pos_rows}</div>
   <p class="lp-more center"><a href="positions/">All {len(live_pos)} open positions →</a><span class="lp-dot" aria-hidden="true">·</span><a href="positions/#post">Post a position</a></p>
 </section>""" if live_pos else "")
@@ -958,11 +951,13 @@ def build_home(routes, schools, updates, positions, research):
   <div class="lp-hero-text">
     <p class="eyebrow-s">Funded study abroad · Europe · USA · Canada</p>
     <h1>The world’s scholarships, <em>one step away</em></h1>
-    <p class="lede">{len(routes)} tuition-free universities and fully funded scholarships in {countries_n} countries, for international students from anywhere. Each one is checked against its official page, with live deadline countdowns.</p>
-    <div class="lp-cta"><a class="btn btn-primary btn-lg" href="scholarships/">View scholarships →</a><a class="btn btn-line btn-lg" href="editorial-policy/">How we verify</a></div>
-    <p class="lp-trust">Free · No account needed · Every fact linked to its source</p>
+    <p class="lede">{len(routes)} tuition-free universities and fully funded scholarships in {countries_n} countries, for international students from anywhere, with live deadline countdowns.</p>
+    <div class="lp-cta"><a class="btn btn-primary btn-lg" href="scholarships/">View scholarships →</a></div>
   </div>
-  {pass_html}
+  <div class="lp-hero-side">
+    <a class="lp-newsbtn" href="news/"><span class="lp-newsbtn-dot" aria-hidden="true"></span>Research news<span aria-hidden="true">→</span></a>
+    {pass_html}
+  </div>
 </div></section>
 
 <div class="wrap"><section class="lp-stats" aria-label="DegreeStep in numbers">
@@ -974,13 +969,11 @@ def build_home(routes, schools, updates, positions, research):
 
 <section class="lp-section wrap">
   <h2 class="lp-h2">Find funding you can trust</h2>
-  <p class="lp-sub">Scholarship lists are easy to find. Ones you can rely on are not. DegreeStep keeps each route short, sourced and current.</p>
   <div class="lp-cards">{why_html}</div>
 </section>
 
 <section class="lp-paths"><div class="wrap">
   <h2 class="lp-h2">Choose your path</h2>
-  <p class="lp-sub">Start from the degree you want. Each path opens the board already filtered for you.</p>
   <div class="lp-tabs" role="tablist" aria-label="Choose your path" hidden>{"".join(tabs)}</div>
   {"".join(panels)}
 </div></section>
@@ -990,13 +983,11 @@ def build_home(routes, schools, updates, positions, research):
 <section class="lp-section wrap lp-two">
   <div>
     <h2 class="lp-h2 left">Closing soon</h2>
-    <p class="lp-sub left">The next deadlines across every route. Dates come from each official page.</p>
     <div class="rows">{soon_rows}</div>
     <p class="lp-more"><a href="deadlines/">Full deadline calendar →</a></p>
   </div>
   <div>
     <h2 class="lp-h2 left">How it works</h2>
-    <p class="lp-sub left">Three steps from first search to a submitted application.</p>
     <ol class="lp-steps">{steps_html}</ol>
   </div>
 </section>
@@ -1007,14 +998,12 @@ def build_home(routes, schools, updates, positions, research):
 
 <section class="lp-section wrap">
   <h2 class="lp-h2">What’s new</h2>
-  <p class="lp-sub">Every change to the site, with the date it was made. Nothing is updated silently.</p>
   <ul class="lp-news">{news}</ul>
   <p class="lp-more center"><a href="updates/">All updates →</a></p>
 </section>
 
 <section class="lp-section wrap">
   <h2 class="lp-h2">Programmes on DegreeStep</h2>
-  <p class="lp-sub">Government and foundation scholarships we track, each with its own page.</p>
   <ul class="lp-progs">{prog_html}</ul>
 </section>
 
@@ -1025,8 +1014,7 @@ def build_home(routes, schools, updates, positions, research):
 
 <section class="lp-band"><div class="wrap">
   <h2>Ready to find your scholarship?</h2>
-  <p>Search {len(routes)} funded routes, filter by what you want to study, and see what closes next.</p>
-  <div class="lp-cta center"><a class="btn btn-primary btn-lg" href="scholarships/">View scholarships →</a><a class="btn btn-line btn-lg" href="deadlines/">See deadlines</a></div>
+  <div class="lp-cta center"><a class="btn btn-primary btn-lg" href="scholarships/">View scholarships →</a><a class="btn btn-line btn-lg" href="deadlines/">See deadlines</a><a class="btn btn-line btn-lg" href="editorial-policy/">How we verify</a></div>
 </div></section>"""
 
     jsonld = [{"@context": "https://schema.org", "@type": "WebSite", "name": SITE, "url": BASE,
@@ -1037,7 +1025,7 @@ def build_home(routes, schools, updates, positions, research):
                "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}]
     title = f"{SITE} — Tuition-Free & Fully Funded Study Abroad"
     desc = (f"{len(routes)} tuition-free universities and fully funded scholarships for international students in Europe, "
-            f"the USA and Canada — each checked against its official page, with live deadline countdowns.")
+            f"the USA and Canada, with live deadline countdowns.")
     write("", page("", title, desc, body, root=root, nav="", body_class="landing", jsonld=jsonld,
                    extra_head=f'<link rel="stylesheet" href="{asset(root, "landing.css")}">\n',
                    scripts=[asset(root, "landing.js")]))
@@ -1053,8 +1041,7 @@ def build_updates(updates):
                        for m, items in months.items())
     body = f"""<div class="wrap"><header class="page-head">{crumbs(root, [("", "What's new")])}
 <p class="eyebrow-s">Changelog</p><h1>What’s new on {e(SITE)}</h1>
-<p class="lede">Every change to the routes and pages, newest first: new routes, corrected deadlines and amounts, and closed calls.
-Each one was checked against the official page before it went live.</p></header>
+<p class="lede">Every change to the routes and pages, newest first: new routes, corrected deadlines and amounts, and closed calls.</p></header>
 <div class="layout"><div class="updates">{sections or '<p class="lede">No updates yet.</p>'}</div></div></div>"""
     write("updates/", page("updates/", f"What's new on {SITE}",
                            "A dated list of every change to DegreeStep: new funded routes, corrected deadlines and amounts, and closed scholarship calls.",
@@ -1278,7 +1265,7 @@ def build_countries(routes, countries):
     other_html = ", ".join(f'<a href="{root}routes/#{slugify(o)}">{e(o)}</a>' for o in others)
     body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("", "Countries")])}
 <div class="eyebrow-s">Country guides</div><h1>Where tuition is free — and where scholarships pay</h1>
-<p class="lede">How tuition, living costs and funding work for international students in each country with several funded routes. Every guide lists its routes and the official sources we checked.</p></div>
+<p class="lede">How tuition, living costs and funding work for international students in each country with several funded routes.</p></div>
 <div class="tiles three">{tiles}</div>
 <p class="muted" style="margin:28px 0 48px;line-height:1.7">Also on the board, with one route each: {other_html}.</p></div>"""
     write("countries/", page("countries/", "Country guides: free tuition and full scholarships",
@@ -1328,7 +1315,7 @@ def build_guides(guides, routes):
         f'<a class="tile" href="{g["slug"]}/"><span class="tile-kicker">{e(g.get("kicker", "Guide"))}</span><h2>{e(g["title"])}</h2>'
         f'<p>{e(g["description"])}</p><span class="more">Read · {max(1, round(words(g["body"]) / 220))} min →</span></a>' for g in guides)
     body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("", "Guides")])}<div class="eyebrow-s">Guides</div>
-<h1>How to win a funded place, step by step</h1><p class="lede">Practical, source-checked guides for international applicants: what the funding labels really mean, what "free" tuition still costs, how to plan a year out, and how to write the documents that decide it.</p></div>
+<h1>How to win a funded place, step by step</h1><p class="lede">Practical guides for international applicants: what the funding labels really mean, what "free" tuition still costs, how to plan a year out, and how to write the documents that decide it.</p></div>
 <div class="tiles three" style="margin-bottom:48px">{tiles}</div></div>"""
     write("guides/", page("guides/", "Guides for funded study abroad",
                           "Practical guides for international students applying to tuition-free universities and fully funded scholarships.",

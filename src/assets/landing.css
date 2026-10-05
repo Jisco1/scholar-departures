@@ -16,10 +16,20 @@
 .lp-hero .lede { max-width: 54ch; }
 .lp-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 .lp-cta.center { justify-content: center; }
-.lp-trust { margin-top: 16px; font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+
+/* the right-hand column: the news button above the boarding pass */
+.lp-hero-side { width: 100%; max-width: 440px; justify-self: center; display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
+.lp-newsbtn { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--card); color: var(--text); font-size: 15px; font-weight: 600; text-decoration: none;
+  transition: border-color .2s ease, transform .2s ease; }
+.lp-newsbtn:hover { border-color: var(--brass); transform: translateY(-1px); }
+.lp-newsbtn:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+.lp-newsbtn > span:last-child { color: var(--brass); }
+.lp-newsbtn-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brass); box-shadow: 0 0 0 4px var(--brass-soft); }
+@media (prefers-reduced-motion: reduce) { .lp-newsbtn { transition: none; } .lp-newsbtn:hover { transform: none; } }
 
 /* the next deadline, drawn as a boarding pass */
-.pass-wrap { position: relative; width: 100%; max-width: 440px; justify-self: center; padding-bottom: 48px; }
+.pass-wrap { position: relative; width: 100%; }
 .pass { display: block; text-decoration: none; background: var(--card); border: 1px solid var(--line); border-radius: 20px;
   box-shadow: 0 24px 60px -28px var(--shadow); overflow: hidden; transition: transform .25s ease, border-color .25s ease; }
 .pass:hover { transform: translateY(-3px); border-color: var(--line-hi); }
@@ -39,17 +49,7 @@
 .pass-code { width: 120px; height: 30px; opacity: .5;
   background: repeating-linear-gradient(90deg, var(--text) 0 2px, transparent 2px 4px, var(--text) 4px 5px, transparent 5px 8px); }
 .pass-go { font-size: 14px; font-weight: 600; color: var(--brass); }
-.pass-chip { position: absolute; left: -14px; bottom: 0; display: flex; align-items: center; gap: 10px; background: var(--card);
-  border: 1px solid var(--line); border-left: 3px solid var(--rolling); border-radius: 10px; padding: 10px 14px; font-size: 13px;
-  color: var(--text); box-shadow: 0 14px 34px -18px var(--shadow); animation: lp-float 5s ease-in-out infinite; }
-.pass-chip small { display: block; margin-top: 2px; font-size: 12px; color: var(--faint); }
-.pass-tick { width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
-  flex-shrink: 0; background: var(--rolling-soft); color: var(--rolling); font-weight: 700; }
-@keyframes lp-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-/* on a phone the chip sits under the pass, so it never covers the link */
 @media (max-width: 520px) {
-  .pass-wrap { padding-bottom: 0; }
-  .pass-chip { position: relative; left: auto; bottom: auto; width: fit-content; margin: -12px 0 0 12px; }
   .pass-name { font-size: 23px; }
 }
 
@@ -66,8 +66,7 @@
 .lp-section { padding-top: 64px; }
 @media (min-width: 900px) { .lp-section { padding-top: 88px; } }
 .lp-h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 4.2vw, 42px); line-height: 1.15; text-align: center; text-wrap: balance; }
-.lp-sub { max-width: 60ch; margin: 12px auto 0; color: var(--dim); font-size: 16.5px; line-height: 1.6; text-align: center; }
-.lp-h2.left, .lp-sub.left { text-align: left; margin-left: 0; }
+.lp-h2.left { text-align: left; }
 .lp-more { margin-top: 14px; font-size: 15px; }
 .lp-more a { color: var(--brass); font-weight: 600; text-decoration: none; }
 .lp-more a:hover { text-decoration: underline; }
@@ -141,9 +140,8 @@
 .lp-band { margin-top: 72px; padding: 64px 0; text-align: center; background: linear-gradient(180deg, var(--bg), var(--bg-2));
   border-top: 1px solid var(--rule); }
 .lp-band h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 4.6vw, 46px); text-wrap: balance; }
-.lp-band p { max-width: 56ch; margin: 12px auto 0; color: var(--dim); font-size: 16.5px; line-height: 1.6; }
 
-@media (prefers-reduced-motion: reduce) { .pass-chip { animation: none; } .pass { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .pass { transition: none; } }
 
 /* ——— Funded positions (the /positions/ page and the home teaser) ——— */
 .lp-pos { max-width: 860px; margin: 28px auto 0; }

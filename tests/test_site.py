@@ -177,6 +177,20 @@ class BuiltSite(unittest.TestCase):
         for name in ("level", "type", "kind", "region"):  # the home page's paths open a filtered board
             self.assertIn(f'p.get("{name}")', js)
 
+    def test_home_hero_has_one_button_and_verification_sits_at_the_bottom(self):
+        home = (self.site / "index.html").read_text(encoding="utf-8")
+        hero = re.search(r'<section class="lp-hero">.*?</section>', home, re.S).group(0)
+        band = re.search(r'<section class="lp-band">.*?</section>', home, re.S).group(0)
+        self.assertEqual(re.findall(r'class="btn [^"]*"', hero), ['class="btn btn-primary btn-lg"'])
+        self.assertNotIn("No account needed", home)
+        self.assertNotIn("Nothing is updated silently", home)
+        # section headings stand alone: no one-line notes under them (the owner asked for these gone)
+        self.assertNotIn('class="lp-sub', home)
+        self.assertNotIn("Scholarship lists are easy to find", home)
+        self.assertNotIn("editorial-policy/", hero)
+        self.assertIn('<a class="lp-newsbtn" href="news/">', hero)  # the news button sits above the boarding pass
+        self.assertIn('href="editorial-policy/">How we verify</a>', band)
+
     def test_choose_your_path_counts_match_the_board(self):
         import importlib.util
         spec = importlib.util.spec_from_file_location("site_build", self.dir / "build.py")
