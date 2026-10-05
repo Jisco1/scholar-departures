@@ -715,8 +715,94 @@ def load_news():
             dt.date.fromisoformat(n.get("date") or "")
         except ValueError:
             fail(f"{where}: 'date' must be YYYY-MM-DD")
+        if n.get("art") and n["art"] not in NEWS_ART:
+            fail(f"{where}: 'art' must be one of {sorted(NEWS_ART)}")
+        for im in n.get("images") or []:
+            f = im.get("file") or ""
+            if not re.match(r"^news-[a-z0-9-]+\.jpg$", f) or not (SRC / "assets" / f).exists():
+                fail(f"{where}: image {f!r} must be an existing src/assets/news-*.jpg")
+            if im.get("kind") not in ("portrait", "wide"):
+                fail(f"{where}: image 'kind' must be portrait or wide")
+            for key in ("name", "credit", "license"):
+                v = im.get(key)
+                if not isinstance(v, str) or not v.strip() or len(v) > 200 or re.search(r"[<>\x00-\x1f]", v):
+                    fail(f"{where}: image '{key}' must be plain text")
+            if not IMAGE_LICENCE.match(im.get("license") or ""):
+                fail(f"{where}: image licence {im.get('license')!r} is not one we may use (CC0, public domain, CC BY or CC BY-SA)")
+            for key in ("source_url", "license_url"):
+                if (key == "source_url" or im.get(key)) and not URL_RE.match(im.get(key) or ""):
+                    fail(f"{where}: image '{key}' must be a plain https:// URL")
     # newest first; items from the same day keep the order they were written in
     return sorted(items, key=lambda n: n.get("date", ""), reverse=True)
+
+
+def _svg(inner):
+    return (f'<svg viewBox="0 0 160 100" width="160" height="100" fill="none" stroke="currentColor" stroke-width="2" '
+            f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{inner}</svg>')
+
+
+def _network():
+    layers = [(40, [25, 50, 75]), (80, [18, 39, 61, 82]), (120, [35, 65])]
+    lines = "".join(f'<path d="M{x1} {y1}L{x2} {y2}" opacity=".45"/>'
+                    for (x1, ys1), (x2, ys2) in zip(layers, layers[1:]) for y1 in ys1 for y2 in ys2)
+    nodes = "".join(f'<circle cx="{x}" cy="{y}" r="5" fill="currentColor"/>' for x, ys in layers for y in ys)
+    return _svg(lines + nodes)
+
+
+def _atom():
+    orbits = "".join(f'<ellipse cx="80" cy="50" rx="42" ry="14" transform="rotate({a} 80 50)"/>' for a in (0, 60, 120))
+    return _svg(orbits + '<circle cx="80" cy="50" r="6" fill="currentColor"/>')
+
+
+# Our own drawings, for news items with no freely licensed photo. Plain line art in the
+# site's accent colour, so they suit both themes and raise no rights questions.
+NEWS_ART = {
+    "ai": _network(),
+    "breakthrough": _atom(),
+    "scholarship": _svg('<path d="M80 22 130 40 80 58 30 40Z"/><path d="M50 49v15c0 9 60 9 60 0V49"/>'
+                        '<path d="M124 42v22"/><circle cx="124" cy="68" r="4" fill="currentColor"/>'),
+    "award": _svg('<path d="M64 14l12 26M96 14 84 40"/><circle cx="80" cy="62" r="22"/><circle cx="80" cy="62" r="13"/>'
+                  '<path d="M80 54l2.5 5 5.5.8-4 3.9 1 5.5-5-2.6-5 2.6 1-5.5-4-3.9 5.5-.8z" fill="currentColor"/>'),
+}
+NEWS_ART_FOR = {"Award": "award", "Breakthrough": "breakthrough", "Funding": "scholarship", "Policy": "scholarship"}
+IMAGE_LICENCE = re.compile(r"^(CC0|Public domain|CC BY(-SA)? \d\.\d( [A-Z]{2,3})?)$")  # never NC or ND
+
+
+def news_art(n):
+    return NEWS_ART.get(n.get("art") or "") or NEWS_ART[NEWS_ART_FOR.get(n.get("category"), "award")]
+
+
+def news_media(n, root):
+    """Photos with their credits, or our own drawing when there are none."""
+    imgs = n.get("images") or []
+    if not imgs:
+        return f'<div class="news-art">{news_art(n)}</div>'
+    html_parts = ""
+    for im in (i for i in imgs if i["kind"] == "wide"):
+        html_parts += (f'<figure class="news-wide"><img src="{asset(root, im["file"])}" alt="{e(im["name"])}" loading="lazy" decoding="async">'
+                       f'<figcaption>{e(im["name"])}</figcaption></figure>')
+    people = [i for i in imgs if i["kind"] == "portrait"]
+    if people:
+        html_parts += '<div class="news-people">' + "".join(
+            f'<figure><img src="{asset(root, im["file"])}" alt="{e(im["name"])}" loading="lazy" decoding="async">'
+            f'<figcaption>{e(im["name"])}</figcaption></figure>' for im in people) + "</div>"
+
+    def credit(im):
+        who = f'<a href="{e(im["source_url"])}" target="_blank" rel="noopener">{e(im["credit"])}</a>'
+        lic = (f'<a href="{e(im["license_url"])}" target="_blank" rel="noopener">{e(im["license"])}</a>'
+               if im.get("license_url") else e(im["license"]))
+        return (f'{e(im["name"])} by {who} ({lic})' if im["kind"] == "portrait" else f'{who} ({lic})')
+    credits = "; ".join(credit(im) for im in imgs)
+    return (f'<div class="news-media">{html_parts}'
+            f'<p class="news-credit">{"Images" if len(imgs) > 1 else "Image"} via Wikimedia Commons, resized for the web: {credits}.</p></div>')
+
+
+def news_thumb(n, root):
+    imgs = n.get("images") or []
+    if imgs:
+        im = imgs[0]
+        return f'<span class="lp-news-thumb"><img src="{asset(root, im["file"])}" alt="" loading="lazy" decoding="async"></span>'
+    return f'<span class="lp-news-thumb art">{news_art(n)}</span>'
 
 
 def news_item(n, root, heading="h3"):
@@ -725,6 +811,7 @@ def news_item(n, root, heading="h3"):
     return f"""<article class="news" id="{e(n['id'])}">
   <div class="news-top"><span class="pos-level">{e(n['category'])}</span><time datetime="{n['date']}">{fmt_date(d)}</time></div>
   <{heading}>{e(n['title'])}</{heading}>
+  {news_media(n, root)}
   <p class="news-sum">{e(n['summary'])}</p>
   <p class="news-why"><b>Why it matters:</b> {e(n['why'])}</p>
   <p class="news-src">Source: <a href="{e(n['source_url'])}" target="_blank" rel="noopener">{e(n['source_title'])}</a>{more}</p>
@@ -829,7 +916,7 @@ def build_home(routes, schools, updates, positions, research):
                          for i, (t, x) in enumerate(steps))
     news = "".join(update_item(u, root) for u in updates[:5])
     news_cards = "".join(
-        f'<a class="lp-news-card" href="news/#{e(n["id"])}"><span class="lp-news-meta"><span class="pos-level">{e(n["category"])}</span>'
+        f'<a class="lp-news-card" href="news/#{e(n["id"])}">{news_thumb(n, root)}<span class="lp-news-meta"><span class="pos-level">{e(n["category"])}</span>'
         f'<time datetime="{n["date"]}">{fmt_date(dt.date.fromisoformat(n["date"]))}</time></span>'
         f'<span class="lp-news-title">{e(n["title"])}</span></a>' for n in research[:3])
     news_html = (f"""<section class="lp-section wrap">

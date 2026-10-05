@@ -265,6 +265,23 @@ class BuiltSite(unittest.TestCase):
         home = (self.site / "index.html").read_text(encoding="utf-8")
         self.assertIn(f'href="news/#{newest["id"]}"', home, "the home page should show the latest news")
 
+    def test_news_pictures_carry_their_credits(self):
+        items = json.loads((self.dir / "content" / "news.json").read_text(encoding="utf-8"))
+        page = (self.site / "news" / "index.html").read_text(encoding="utf-8")
+        for n in items:
+            card = page[page.index(f'id="{n["id"]}"'):]
+            card = card[:card.index("</article>")]
+            imgs = n.get("images") or []
+            if not imgs:
+                self.assertIn('class="news-art"', card, f'{n["id"]}: neither a photo nor a drawing')
+                continue
+            self.assertIn("via Wikimedia Commons", card, n["id"])
+            for im in imgs:
+                self.assertTrue((self.site / "assets" / im["file"]).exists(), im["file"])
+                self.assertIn(f'href="{html_mod.escape(im["source_url"], quote=True)}"', card, f'{n["id"]}: {im["file"]} not credited')
+                self.assertIn(html_mod.escape(im["license"]), card, f'{n["id"]}: {im["file"]} licence not shown')
+                self.assertNotRegex(im["license"], r"NC|ND", f'{im["file"]}: licence does not allow use on this site')
+
     def test_light_theme_covers_every_colour(self):
         css = (ROOT / "src" / "assets" / "site.css").read_text(encoding="utf-8")
         dark = css[css.index(":root {"):css.index("}", css.index(":root {"))]
@@ -643,6 +660,22 @@ class PoisonedData(unittest.TestCase):
         result = self.news_build(lambda items: items[0].__setitem__("summary", "<script>alert(1)</script>"))
         self.assertNotEqual(result.returncode, 0, "markup in news was accepted")
         self.assertIn("plain text", result.stderr)
+
+    def test_news_image_with_a_noncommercial_licence_rejected(self):
+        def nc(items):
+            item = next(i for i in items if i.get("images"))
+            item["images"][0]["license"] = "CC BY-NC 4.0"
+        result = self.news_build(nc)
+        self.assertNotEqual(result.returncode, 0, "a non-commercial image was accepted")
+        self.assertIn("is not one we may use", result.stderr)
+
+    def test_news_image_that_does_not_exist_rejected(self):
+        def missing(items):
+            item = next(i for i in items if i.get("images"))
+            item["images"][0]["file"] = "news-no-such-picture.jpg"
+        result = self.news_build(missing)
+        self.assertNotEqual(result.returncode, 0, "a missing image was accepted")
+        self.assertIn("must be an existing", result.stderr)
 
     def test_news_with_an_unknown_category_rejected(self):
         result = self.news_build(lambda items: items[0].__setitem__("category", "Gossip"))
