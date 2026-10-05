@@ -9,8 +9,9 @@
     var p = el.getAttribute("data-closes").split("-");
     var days = Math.round((new Date(+p[0], +p[1] - 1, +p[2]) - t0) / 86400000);
     if (days < 0) {  // closed since the last daily build
-      var card = el.closest(".pos");
+      var card = el.closest(".pos, .row");
       if (card) card.remove();
+      else el.textContent = "Closed";  // the position's own page
       return;
     }
     el.textContent = days === 0 ? "Closes today" : days === 1 ? "Closes tomorrow" : "Closes in " + days + " days";

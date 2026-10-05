@@ -12,7 +12,40 @@
     "deadline": "2026-10-23",
     "posted": "2026-10-05",
     "link": "https://lu.varbi.com/en/what:job/jobID:961545/type:job/where:4/apply:1",
-    "source": "Official university vacancy"
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "This post is one of 15 PhD places in AEGIS (Adaptive Grid-Interactive Edge Datacenter Fleets), an EU-funded Marie Skłodowska-Curie doctoral network running from 2026 to 2030. You are based in Lund University's Department of Automatic Control, with two three-month visits to network partners: EPFL in Switzerland and the Finnish company Elisa.",
+        "The project joins two fast-growing fields: datacentres and AI infrastructure on one side, energy and power systems on the other. Operators set broad goals such as cutting carbon emissions, but a site's cooling, batteries and computers are controlled at a much lower level. You will build the control layer in between, one that takes a goal and turns it into coordinated actions across the site, using classical control, AI and reinforcement learning."
+      ],
+      "tasks": [
+        "Design a way of stating goals around carbon, flexibility and cost, and break those goals down into control actions.",
+        "Build control software that turns goals into commands, and test it on real data from experiments.",
+        "Build monitoring that reports spare capacity while keeping services within their agreed limits.",
+        "Take 90 ECTS credits of doctoral courses, and teach for up to 20% of your time, for example supervising labs."
+      ],
+      "requirements": [
+        "A master's degree, or at least 240 credits of university study including 60 at master's level, or equivalent knowledge gained in Sweden or abroad.",
+        "An MSc in engineering or similar, with knowledge equal to Lund's basic course in automatic control and a relevant master's specialisation.",
+        "Strong mathematics, shown in your transcripts, and very good spoken and written English.",
+        "You must not already hold a PhD.",
+        "EU mobility rule: you must not have lived, worked or studied in Sweden for more than 12 of the 36 months before you are recruited. Holidays and other short stays do not count.",
+        "An advantage: machine learning or reinforcement learning, cloud computing, or low-level programming and Linux kernel experience."
+      ],
+      "offer": [
+        "A salary of SEK 35,900 a month to start, rising each year.",
+        "Full-time, fixed-term employment: four years of doctoral study, extended to match any teaching or department work.",
+        "Start as soon as possible, and by 1 March 2027 at the latest.",
+        "Swedish public-sector benefits, including generous annual leave and an occupational pension."
+      ],
+      "apply": [
+        "Apply in English through the university's online application system, linked below.",
+        "Send a CV and a cover letter explaining why you want this PhD and how the project fits your interests and studies.",
+        "Add copies of your degree certificates and transcripts showing you meet the entry requirements.",
+        "Add anything else you want considered, such as reference contacts or recommendation letters.",
+        "Shortlisted applicants may be asked to do a short test at interview."
+      ]
+    }
   },
   {
     "id": "lund-cybersecurity-ai-code",
@@ -27,7 +60,36 @@
     "deadline": "2026-10-23",
     "posted": "2026-10-05",
     "link": "https://lu.varbi.com/en/what:job/jobID:968016/type:job/where:4/apply:1",
-    "source": "Official university vacancy"
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "You join the Division for Secure and Networked Systems in Lund University's Department of Electrical and Information Technology, which works on cryptography, computer security and networks. The post belongs to RESIST, a research centre funded by the Swedish Foundation for Strategic Research that develops ways to protect future AI-based systems. Linköping University leads the centre, with Lund University, Örebro University and the research institute RISE as partners.",
+        "Code written by AI often contains serious security flaws, so before it can be used in high-security systems, the way it is generated has to become far more robust. You will study how AI models can analyse software and correct it so that it is free of vulnerabilities, working between cybersecurity and software engineering."
+      ],
+      "tasks": [
+        "Evaluate existing code-analysis techniques from a security point of view.",
+        "Develop principles for analysing and correcting code automatically, mainly through case studies and experiments.",
+        "Take doctoral courses, seminars and conferences, and spend up to 20% of your time teaching or on department work."
+      ],
+      "requirements": [
+        "A master's degree, or at least 240 credits of university study including 60 at master's level, or equivalent knowledge gained in Sweden or abroad.",
+        "At least 60 master's-level credits relevant to electrical engineering, or an MSc in engineering in a field such as computer science, electrical engineering, engineering physics, engineering mathematics or information and communication engineering.",
+        "Very good software development skills, and experience with complex computer and communication systems.",
+        "Very good spoken and written English.",
+        "An advantage: courses or a master's thesis in computer security, documented software engineering or AI skills, teaching experience, or industry experience."
+      ],
+      "offer": [
+        "Full-time, fixed-term employment as a doctoral student: four years of study, extended to match any teaching or department work.",
+        "A monthly salary as a university employee.",
+        "Start as soon as agreed, and by 1 May 2027 at the latest."
+      ],
+      "apply": [
+        "Apply in English through the university's online application system, linked below.",
+        "Send a CV and a cover letter explaining why you want this PhD and how the project fits your interests and studies.",
+        "Add copies of your degree certificates and transcripts showing you meet the entry requirements.",
+        "Add anything else you want considered, such as reference contacts or recommendation letters."
+      ]
+    }
   },
   {
     "id": "lund-astronomy-planet-formation",
@@ -42,7 +104,35 @@
     "deadline": "2026-12-01",
     "posted": "2026-10-05",
     "link": "https://lu.varbi.com/en/what:job/jobID:970808/type:job/where:4/apply:1",
-    "source": "Official university vacancy"
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "The Planet Formation Group in Lund University's Division of Astrophysics is looking for a PhD student in theoretical astrophysics to model how planets form across the whole galaxy.",
+        "You will study how planets form at different times and in different parts of the Milky Way, and calculate how some planetesimals, the small bodies that planets are built from, are thrown out of their systems to drift between the stars. The aim is to show where interstellar comets come from."
+      ],
+      "tasks": [
+        "Carry out the research and write a doctoral thesis.",
+        "Publish in leading scientific journals and present your results at national and international conferences.",
+        "Take doctoral courses and seminars, and spend up to 20% of your time teaching or on department work."
+      ],
+      "requirements": [
+        "A master's degree, or at least 240 credits of university study including 60 at master's level, or equivalent knowledge gained in Sweden or abroad.",
+        "Studies in which physics, mathematics or a related engineering subject made up a large part: 60 credits of basic physics plus at least 60 credits relevant to astronomy, with at least 60 of these 120 at master's level. Applicants from neighbouring subjects may also be considered.",
+        "Very good spoken and written English.",
+        "An advantage: experience with models of planet or galaxy formation, strong numerical skills, and programming in languages such as Python or Fortran."
+      ],
+      "offer": [
+        "Full-time, fixed-term employment as a doctoral student: four years of study, extended to match any teaching or department work.",
+        "A monthly salary as a university employee.",
+        "Start date by agreement."
+      ],
+      "apply": [
+        "Apply in English through the university's online application system, linked below.",
+        "Send a CV and a cover letter explaining why you want this PhD and how the project fits your interests and studies.",
+        "Add copies of your degree certificates and transcripts showing you meet the entry requirements.",
+        "Add anything else you want considered, such as reference contacts or recommendation letters."
+      ]
+    }
   },
   {
     "id": "lund-biomedical-acoustics",
@@ -57,7 +147,38 @@
     "deadline": "2026-11-09",
     "posted": "2026-10-05",
     "link": "https://lu.varbi.com/en/what:job/jobID:963476/type:job/where:4/apply:1",
-    "source": "Official university vacancy"
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "This PhD asks how dolphins aim their sonar. Dolphins make short ultrasonic clicks inside their heads, and the tissues they pass through shape them into a narrow beam pointing forward. You will build computer models of that process, looking at how the properties, shape and reflecting structures of the tissues control the beam's direction, frequency and timing.",
+        "The post is in Lund University's Department of Biomedical Engineering, in a group working on engineering acoustics, medical ultrasound and acoustic testing, with links to marine biology, biomechanics, physics and the eSSENCE e-science programme. The results are also meant to feed into human technology, such as diagnostic ultrasound, underwater sonar and acoustic testing of buildings and bridges."
+      ],
+      "tasks": [
+        "Measure the acoustic properties of tissues, such as sound speed, density and attenuation, and help with CT scans of stranded harbour porpoises.",
+        "Build three-dimensional finite element models of sound travelling through the dolphin's sound-producing organs, working towards a digital twin.",
+        "Collect and analyse acoustic, mechanical and anatomical data from toothed whales.",
+        "Write analysis code in MATLAB and COMSOL or similar, with or without machine learning, and compare simulations with measurements.",
+        "Publish papers and present at conferences; teaching or department work takes up to 20% of your time."
+      ],
+      "requirements": [
+        "A master's degree, or at least 240 credits of university study including 60 at master's level, or equivalent knowledge gained in Sweden or abroad.",
+        "At least 45 master's-level credits relevant to biomedical engineering.",
+        "Knowledge relevant to the project, for example engineering or theoretical physics, wave propagation, acoustics, programming, modelling, applied mathematics or zoology.",
+        "Very good analytical skills and very good spoken and written English.",
+        "An advantage: a master's in engineering physics, electrical or mechanical engineering, mathematics or acoustics; finite element modelling; knowledge of marine mammals or bioacoustics; hands-on measurement and electronics experience; or machine-learning signal analysis."
+      ],
+      "offer": [
+        "Full-time, fixed-term employment as a doctoral student: four years of study, extended to match any teaching or department work.",
+        "A monthly salary as a university employee.",
+        "Start as soon as possible. Interviews take place online and in Lund during autumn 2026."
+      ],
+      "apply": [
+        "Apply in English through the university's online application system, linked below.",
+        "Send a CV and a cover letter explaining why you want this PhD and how the project fits your interests and studies.",
+        "Add copies of your degree certificates and transcripts showing you meet the entry requirements.",
+        "Add anything else you want considered, such as reference contacts or recommendation letters."
+      ]
+    }
   },
   {
     "id": "lund-postdoc-ai-protein-biofilms",
@@ -72,7 +193,34 @@
     "deadline": "2026-10-31",
     "posted": "2026-10-05",
     "link": "https://lu.varbi.com/en/what:job/jobID:973185/type:job/where:4/apply:1",
-    "source": "Official university vacancy"
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "This two-year postdoc uses AI to design new proteins from scratch, then builds them into bacterial biofilms to make programmable living materials. The work combines computational protein design with synthetic biology to control how these living materials form, organise themselves and behave.",
+        "The lab, in Lund University's Department of Chemistry, aims to turn its findings into technology: its first spin-out company is already funded and running, with more in development. That makes it a good fit if you are weighing a career in basic research against one in technology and start-ups."
+      ],
+      "tasks": [
+        "Develop computational pipelines for designing new proteins and protein-based systems.",
+        "Set up high-throughput experiments to screen and characterise the designed proteins.",
+        "Engineer microbes that build the newly designed biofilms.",
+        "Teach and supervise degree projects and PhD students for up to 20% of your time, and help seek research funding. The post includes three weeks of training in university teaching."
+      ],
+      "requirements": [
+        "A PhD in a relevant field, such as protein design, computational, structural or synthetic biology, biotechnology, bioengineering, microbiology or molecular biology.",
+        "The PhD must have been completed no more than three years before the hiring decision, unless there are special circumstances.",
+        "Very good spoken and written English.",
+        "Research experience in at least one of: computational or de novo protein design, synthetic biology, microbial or yeast engineering, biofilm engineering, or high-throughput screening."
+      ],
+      "offer": [
+        "Full-time, fixed-term employment for up to two years.",
+        "Start on 1 January 2027, or as agreed.",
+        "A career-development post focused on research, with the chance to work alongside the lab's spin-out work."
+      ],
+      "apply": [
+        "Apply in English through the university's online application system, linked below.",
+        "Combine everything into one PDF: a CV with your list of publications, a description of your past research and future interests (no more than three pages), contact details for at least two referees, and a copy of your doctoral degree certificate."
+      ]
+    }
   },
   {
     "id": "lund-postdoc-global-forests",
@@ -87,7 +235,33 @@
     "deadline": "2026-11-02",
     "posted": "2026-10-05",
     "link": "https://lu.varbi.com/en/what:job/jobID:975037/type:job/where:4/apply:1",
-    "source": "Official university vacancy"
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "The world's forests are changing fast: in many regions more trees are dying, growth rates are shifting, and the large amount of carbon that forests absorb may be at risk. There is still no consistent global picture of how tree growth and death are changing, or how they will change.",
+        "The TreeChange project at Lund University's Department of Earth and Environmental Sciences tackles this by combining field data on how trees grow, live and die with computer models of vegetation. As the postdoc, you will extend the LPJ-GUESS vegetation model and use it to assess forests and their carbon worldwide, working with project partners in Switzerland and the United Kingdom."
+      ],
+      "tasks": [
+        "Plan and carry out developments to the LPJ-GUESS model, linking it to tree data from ground-based forest inventory plots.",
+        "Prepare and analyse observational datasets, design and run simulations, and lead the writing of peer-reviewed papers.",
+        "Take part in national and international meetings. Teaching is a small part of the role, and the post includes three weeks of training in university teaching."
+      ],
+      "requirements": [
+        "A PhD in biology, ecology or a related quantitative science, completed no more than three years before the hiring decision unless there are special circumstances.",
+        "Documented programming skills (C++ is an advantage) and a record of publishing high-quality papers.",
+        "Very good spoken and written English.",
+        "Valued: deep knowledge of forest ecology, experience with process-based or vegetation models, and organising community activities such as model comparisons."
+      ],
+      "offer": [
+        "Full-time, fixed-term employment for two years.",
+        "Start on 15 January 2027, or as agreed.",
+        "A large international network of collaborators, and membership of BECC, a Lund–Gothenburg research platform of more than 250 researchers working on biodiversity and ecosystem services in a changing climate."
+      ],
+      "apply": [
+        "Apply in English through the university's online application system, linked below.",
+        "Combine everything into one PDF: a CV with your list of publications, a one-page letter on your motivation and your past and future research, contact details for at least two referees, and a copy of your doctoral degree certificate."
+      ]
+    }
   },
   {
     "id": "uppsala-ml-uncertainty",
@@ -102,7 +276,36 @@
     "deadline": "2026-10-16",
     "posted": "2026-10-05",
     "link": "https://www.uu.se/en/about-uu/join-us/jobs-and-vacancies/job-details?query=972267",
-    "source": "Official university vacancy"
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "Hospitals and researchers increasingly rely on mathematical and statistical models built from data, and they need to know how far to trust each prediction. This PhD develops new ways of measuring that uncertainty and applies them to large-scale clinical cancer data.",
+        "A central task is to measure how uncertain the information pulled out of medical reports is, and to carry that uncertainty through into time-to-event models, which estimate how likely an event is to happen by a given time. The post is in the Division of Systems and Control at Uppsala University's Department of Information Technology, and is part of DDLS, Sweden's national programme in data-driven life science, which adds 25 academic PhD students to its research school in 2026."
+      ],
+      "tasks": [
+        "Develop new mathematical and statistical methods for uncertainty quantification.",
+        "Apply them to real clinical cancer data as part of the DDLS research school in precision medicine and diagnostics.",
+        "Spend up to 20% of your time teaching or on department work."
+      ],
+      "requirements": [
+        "A master's degree in applied mathematics, applied statistics, engineering physics, physics, machine learning or a similar subject, or at least 240 credits of university study including 60 at master's level with an independent project of at least 15 credits, or equivalent knowledge.",
+        "Strong foundations in linear algebra, probability and calculus, and solid programming skills.",
+        "Good spoken and written English.",
+        "An advantage: Bayesian statistics, mathematical modelling or statistical machine learning."
+      ],
+      "offer": [
+        "Full-time, fixed-term employment as a doctoral student, on a fixed monthly salary.",
+        "Start on 15 November 2026, or as agreed.",
+        "The post may involve a security check before you are hired."
+      ],
+      "apply": [
+        "Apply through Uppsala University's recruitment system, linked below, quoting reference UFV-PA 2026/2836.",
+        "A one-page cover letter on how you meet the requirements, why you want the post, and your earliest start date.",
+        "A CV, plus your degree certificates and transcripts with grades, translated into English or Swedish.",
+        "Your master's thesis or a draft of it (or another technical text you wrote), and any publications.",
+        "Contact details for your referees, and up to two reference letters."
+      ]
+    }
   },
   {
     "id": "uppsala-quantum-verification",
@@ -117,7 +320,35 @@
     "deadline": "2026-11-15",
     "posted": "2026-10-05",
     "link": "https://www.uu.se/en/about-uu/join-us/jobs-and-vacancies/job-details?query=961891",
-    "source": "Official university vacancy"
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "Quantum computers now have thousands of qubits, and the software that runs on them is growing more complex. Because quantum software is used in sensitive areas such as security, there is a pressing need to check that quantum programs do what they should. Features like quantum error correction mix quantum and classical computing, which today's checking tools cannot yet handle at scale.",
+        "This PhD combines classical program verification and programming language theory with methods for complex arithmetic, to produce both theory and software tools for verifying quantum programs. It is based in Uppsala University's Department of Information Technology, whose verification researchers built tools such as UPPAAL, Concuerror and Nidhugg."
+      ],
+      "tasks": [
+        "Develop theory and techniques for verifying quantum programs at scale.",
+        "Build software tools that put these techniques into practice.",
+        "Spend up to 20% of your time teaching or on department work."
+      ],
+      "requirements": [
+        "A master's degree in computer science, mathematics or a related field, or at least 240 credits of university study including 60 at master's level with an independent project of at least 15 credits, or equivalent knowledge.",
+        "A mathematical background, excellent problem-solving skills and an interest in programming.",
+        "Good spoken and written English.",
+        "An advantage: formal methods, programming language theory or semantics, logic, automata theory, automated theorem proving or quantum computing."
+      ],
+      "offer": [
+        "Full-time, fixed-term employment as a doctoral student, on a fixed monthly salary.",
+        "Start on 15 January 2027, or as agreed.",
+        "The post may involve a security check before you are hired."
+      ],
+      "apply": [
+        "Apply through Uppsala University's recruitment system, linked below, quoting reference UFV-PA 2026/2571.",
+        "A statement of up to two pages covering your motivation, research interests, a short summary of your master's thesis, your earliest start date, and contact details for at least one referee (no letter needed yet).",
+        "A CV, plus your degree certificates and transcripts with grades, officially translated into English or Swedish.",
+        "Your master's thesis or a draft of it, and any publications or reports you wrote. Promising applicants are interviewed."
+      ]
+    }
   },
   {
     "id": "oslo-cancer-chromatin",
@@ -132,7 +363,37 @@
     "deadline": "2026-10-25",
     "posted": "2026-10-05",
     "link": "https://www.jobbnorge.no/en/available-jobs/job/309092/phd-position-in-cancer-chromatin-biology",
-    "source": "Official university vacancy"
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "This three-year PhD studies whether microproteins, very small proteins, could become a new treatment for advanced prostate cancer. You will look at how certain microproteins control SOX2, a protein that switches genes on and off, and work out the structure of the complex they form with it.",
+        "The post is in the Department of Molecular Medicine at the University of Oslo's Institute of Basic Medical Sciences, in the Collas Lab, and is funded by the Research Council of Norway. You will also work with partners at the Technical University of Denmark (DTU)."
+      ],
+      "tasks": [
+        "Plan and run genomics experiments (RNA-seq, ATAC-seq, ChIP-seq), proteomics, and the expression and purification of proteins.",
+        "Design and carry out cell-based tests, and use crystallography to solve the structure of the SOX2–microprotein complex.",
+        "Keep electronic lab records, analyse your data, present at meetings, help write papers, and take the required doctoral courses."
+      ],
+      "requirements": [
+        "A five-year master's degree, or equivalent, in molecular biology, epigenetics or a related field, with at least a B on the ECTS grading scale.",
+        "Experience in cell and molecular biology, such as vector design, cloning, engineering cell lines and cell-based assays.",
+        "Knowledge of chromatin, transcription regulation or microproteins, and fluent spoken and written English.",
+        "An advantage: proteomics, bioinformatics for epigenetic data, electronic lab journals such as Benchling, or published work."
+      ],
+      "offer": [
+        "A three-year, full-time post as a Doctoral Research Fellow, paid NOK 550,800 to 607,500 a year depending on experience.",
+        "From the salary, 2% goes to the State Pension Fund, which gives membership of one of Norway's best pension schemes, with good mortgage and insurance terms.",
+        "Norwegian language courses if you do not already speak Norwegian, Swedish or Danish at A2 level.",
+        "Up to 1.5 hours a week of exercise during working hours."
+      ],
+      "apply": [
+        "Apply through Jobbnorge, the University of Oslo's recruitment system, linked below. All documents must be in English or a Scandinavian language, and nothing can be added after the deadline.",
+        "A cover letter on your research interests and motivation, and a CV entered in Jobbnorge's own CV form.",
+        "Your academic transcripts, with an explanation of your university's grading system if you studied outside Norway.",
+        "A list of publications (not the publications themselves), and contact details for three referees.",
+        "Any certificate for laboratory animal work, if you have one."
+      ]
+    }
   },
   {
     "id": "oslo-ai-biomaterials",
@@ -147,7 +408,37 @@
     "deadline": "2026-10-20",
     "posted": "2026-10-05",
     "link": "https://www.jobbnorge.no/en/available-jobs/job/307439/phd-position-ai-driven-multimodal-analysis-and-predictive-modelling-of-biomaterials",
-    "source": "Official university vacancy"
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "This PhD uses imaging and AI to understand biomaterials, the materials used to rebuild hard and soft tissue, for example in dentistry. You will combine 2D and 3D imaging, including micro- and nano-CT scans, confocal microscopy and electron microscopy, with computer vision and machine learning, to link a material's structure and strength to how well it helps tissue regrow.",
+        "The post is in the Biomaterial Science group at the University of Oslo's Faculty of Dentistry, with a focus on regenerative medicine and dental uses. Most of the work takes place in the Oral Research Laboratory. The three-year project is expected to produce three scientific papers and a doctoral thesis."
+      ],
+      "tasks": [
+        "Analyse tissues and biomaterials in 2D and 3D with micro- and nano-CT, confocal microscopy and electron microscopy.",
+        "Measure the structure, porosity and stability of fibrous scaffolds.",
+        "Develop computer vision and machine learning methods for combined imaging data.",
+        "Build AI models that predict how cells and exosomes spread through regenerative materials."
+      ],
+      "requirements": [
+        "A BSc and MSc in biomaterials, biomedical engineering, biotechnology, bioinformatics, biology, computer science, medical technology or a related field.",
+        "Experience with biomedical imaging, data analysis, image processing, machine learning or biomaterials.",
+        "A documented interest in research that combines biology and computing, and fluent spoken and written English.",
+        "An advantage: Python or another scientific programming language, and experience with scaffolds, hydrogels or 3D biological models."
+      ],
+      "offer": [
+        "A fully funded, three-year, full-time post as a Doctoral Research Fellow, paid NOK 551,000 to 605,000 a year depending on experience.",
+        "From the salary, 2% goes to the State Pension Fund, which gives membership of one of Norway's best pension schemes, with good mortgage and insurance terms.",
+        "Supervision and training in dental biomaterials, imaging and quantitative image analysis, with access to modern laboratories."
+      ],
+      "apply": [
+        "Apply through Jobbnorge, the University of Oslo's recruitment system, linked below. All documents must be in English or a Scandinavian language, and nothing can be added after the deadline.",
+        "A cover letter of up to two pages on your motivation and how your background fits the project, and a CV.",
+        "Copies of your diplomas and transcripts, with an explanation of your university's grading system and a Diploma Supplement if you studied outside Scandinavia.",
+        "Proof of English if the faculty's admission rules require it, any publications, and contact details for two or three referees.",
+        "Shortlisted applicants may be asked to give a short presentation at interview."
+      ]
+    }
   },
   {
     "id": "oslo-bioinformatics",
@@ -162,7 +453,38 @@
     "deadline": "2026-10-21",
     "posted": "2026-10-05",
     "link": "https://www.jobbnorge.no/en/available-jobs/job/309328/phd-research-fellow-in-bioinformatics-and-computational-biology",
-    "source": "Official university vacancy"
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "Many mutations in the cancer genome sit outside genes, in non-coding DNA, where they can still change how distant genes are switched on. This PhD develops machine learning methods to find which of these non-coding mutations matter in cancer, and which genes they affect.",
+        "The methods will combine how proteins bind to DNA, epigenetic marks that control gene activity, and how the genome folds in three dimensions, using single-cell data. You will work in EpiGen, a research unit run by the University of Oslo and Akershus University Hospital, alongside molecular biologists, physicists and pathologists, with partners in the United States. The post is funded by the Research Council of Norway."
+      ],
+      "tasks": [
+        "Develop data-mining and network-analysis methods for 3D genome regulation.",
+        "Predict which non-coding mutations are functional and which distant genes they target.",
+        "Test the predictions against experimental cancer data, both from living systems and from the lab.",
+        "Depending on your progress, you may spend three to six months in a collaborating lab in the United States."
+      ],
+      "requirements": [
+        "A five-year master's degree, ideally in bioinformatics or computational biology. An MSc in physics, computer science, applied mathematics or statistics is also welcome if you are keen to learn molecular biology and genetics.",
+        "Grades at Norwegian levels of C or better across your bachelor's, and B or better across your master's and for your master's thesis.",
+        "Documented skills in statistics, data mining and machine learning; programming in shell script, R, Python and C; and analysis of big data and sequencing data.",
+        "Good spoken and written English.",
+        "An advantage: experience with ChIP-seq, ATAC-seq, RNA-seq, Hi-C or similar data, and with combining several types of omics data."
+      ],
+      "offer": [
+        "A three-year, full-time post as a Doctoral Research Fellow, with no teaching duties, paid NOK 550,800 to 600,000 a year depending on experience.",
+        "From the salary, 2% goes to the State Pension Fund, which gives membership of one of Norway's best pension schemes, with good mortgage and insurance terms.",
+        "Start as soon as possible. The workplace is the university's Ahus campus in Lørenskog, just outside Oslo."
+      ],
+      "apply": [
+        "Apply through Jobbnorge, the University of Oslo's recruitment system, linked below. All documents must be in English or a Scandinavian language, and nothing can be added after the deadline.",
+        "A cover letter on your motivation and research interests, and a CV covering your education, posts and publications.",
+        "A copy of your master's thesis, and up to five publications or other works for the committee to consider.",
+        "Certified copies of your bachelor's and master's diplomas and transcripts, and proof of English if required.",
+        "Contact details for at least three referees, with their institutional email addresses."
+      ]
+    }
   },
   {
     "id": "oslo-postdoc-learning-ai",
@@ -177,7 +499,35 @@
     "deadline": "2026-11-12",
     "posted": "2026-10-05",
     "link": "https://www.jobbnorge.no/en/available-jobs/job/308911/postdoctoral-fellow",
-    "source": "Official university vacancy"
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "Generative AI has changed how university students find information and learn, but researchers still know little about what students actually do with AI, and what they learn from it, in specific subjects. This postdoc studies how students learn together when AI tools are part of their coursework.",
+        "The project uses design-based research, in which researchers and teachers design, try out and improve learning activities together over several rounds. It runs with students at the University of Oslo's Faculty of Educational Sciences, in the KITE research group, and is part of the AI projects of TRUST, the Norwegian Centre for Trustworthy AI."
+      ],
+      "tasks": [
+        "Write and carry out your own postdoc project on collaborative learning and AI in higher education.",
+        "Design, test and analyse learning activities with students, working with senior KITE researchers.",
+        "In the four-year version of the post, a quarter of your time goes to teaching in the department."
+      ],
+      "requirements": [
+        "A PhD in the learning sciences, educational sciences, educational psychology or human–computer interaction.",
+        "A thesis covering areas such as learning theory, the design of learning environments, design-based research, or digital technology and AI in education. Theses that study how people interact with intelligent technologies get priority.",
+        "Your thesis must be submitted for assessment by the deadline, and the appointment depends on it being approved.",
+        "English is required; spoken and written Norwegian is an advantage."
+      ],
+      "offer": [
+        "A full-time postdoc post for three or four years, paid NOK 595,000 to 670,000 a year depending on experience.",
+        "From the salary, 2% goes to the State Pension Fund, which gives membership of one of Norway's best pension schemes, with good mortgage and insurance terms.",
+        "A career plan and career guidance aimed at qualifying you for an associate professor post, plus teaching training if you need it."
+      ],
+      "apply": [
+        "Apply through Jobbnorge, the University of Oslo's recruitment system, linked below. All documents must be in English or a Scandinavian language, and nothing can be added after the deadline. Incomplete applications are not assessed.",
+        "A cover letter, and a project proposal of 7 to 8 pages with a timeline outlining three or four papers. It must set out the theory, methods, design process, data analysis and research questions. The advert encourages you to contact the listed professors for guidance first.",
+        "A CV, a copy of your PhD diploma (or proof of submission plus a letter from your supervisor on when you expect the degree), and your transcripts.",
+        "A full list of publications, any works you want considered, and two or three referees."
+      ]
+    }
   },
   {
     "id": "copenhagen-china-studies",
@@ -192,7 +542,33 @@
     "deadline": "2026-10-15",
     "posted": "2026-10-05",
     "link": "https://employment.ku.dk/phd/?show=168607",
-    "source": "Official university vacancy"
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "This three-year PhD belongs to Global Cultural China: Danish–Chinese Cultural Encounters, a project at the University of Copenhagen's Department of Cross-Cultural and Regional Studies. It studies how cultural products, practices and ideas cross borders and change along the way, across the wider Chinese-speaking world, including Taiwan, Hong Kong and diaspora communities.",
+        "Rather than looking only at state-led cultural promotion, the project starts from real encounters between China and Denmark and asks how markets, institutions, digital platforms and local audiences shape cultural exchange. You propose your own PhD project within it, with a clearly defined focus."
+      ],
+      "tasks": [
+        "Research one or more themes: how Chinese art, traditional culture or popular media are made, spread and received abroad; culture on digital platforms; translating, curating and publishing across borders; or how Danish culture is received in the Chinese-speaking world.",
+        "Use qualitative or mixed methods, such as ethnographic, textual, historical or digital approaches.",
+        "Write and publicly defend a thesis, and spend the equivalent of six months (840 hours) on department work over the three years."
+      ],
+      "requirements": [
+        "A master's degree in China studies or a related humanities or social science subject. From outside Denmark, a two-year master's equal to a Danish one, or at least a three-year bachelor's plus qualifications assessed at master's level.",
+        "High-level academic English, and the ability to work in Chinese and Danish. The department may ask you to document these."
+      ],
+      "offer": [
+        "A three-year, full-time salaried PhD post, starting on 1 February 2027 or soon after.",
+        "A salary from about DKK 31,844 (EUR 4,200) a month, plus a pension contribution of 18.07%.",
+        "Relocation support for international researchers and their families."
+      ],
+      "apply": [
+        "Apply online through the University of Copenhagen job portal, linked below, in English or Danish, before 23:59 Danish summer time (CEST) on 15 October 2026.",
+        "A CV and a cover letter, each no longer than one page.",
+        "Bachelor's and master's diplomas and transcripts with a description of the grading scale (or your latest transcript if the master's is not finished). Documents not in English or a Scandinavian language need verified translations.",
+        "A project abstract of up to 1,000 characters and a project description of up to 7,000 characters, not counting the bibliography. Do not send recommendation letters or supervisor commitments."
+      ]
+    }
   },
   {
     "id": "copenhagen-soil-phosphorus",
@@ -207,7 +583,33 @@
     "deadline": "2026-10-15",
     "posted": "2026-10-05",
     "link": "https://employment.ku.dk/phd/?show=167182",
-    "source": "Official university vacancy"
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "Bio-based fertilisers such as compost, manure and sewage sludge contain much of their phosphorus in forms plants cannot use directly. Soil microbes have to release it first, and the carbon and nitrogen these fertilisers add also change the soil's organic matter and microbial activity.",
+        "This PhD asks how different bio-based fertilisers change soil organic matter over time and how that affects the release of phosphorus by microbes. It is part of PRIME-P, a project funded by the Novo Nordisk Foundation, in the Soil Fertility and Nutrient Recycling group at the University of Copenhagen's Frederiksberg campus, with partners at Aarhus University, TU Berlin, ETH Zurich and the University of Guelph."
+      ],
+      "tasks": [
+        "Characterise soils, and separate soil organic matter after recent and long-term fertiliser use.",
+        "Run soil incubation experiments using isotope techniques and enzyme measurements, and study small-scale processes with advanced imaging.",
+        "Spend a research stay at TU Berlin, take about 30 ECTS of PhD courses, teach, and write papers and a thesis."
+      ],
+      "requirements": [
+        "A degree equal to a Danish master's (a three-year bachelor's plus a two-year master's) in soil science, biogeochemistry, plant nutrition or a related field.",
+        "Strong lab experience, such as soil sampling and analysis, organic matter fractionation or isotope techniques, and the ability to analyse complex data.",
+        "English at C1 level, including academic writing.",
+        "The advert encourages you to apply even if you do not match every point."
+      ],
+      "offer": [
+        "A full-time, salaried PhD post for up to three years on Danish state-sector terms, starting on 1 January 2027 or soon after.",
+        "Modern laboratories, climate chambers and access to long-term field trials."
+      ],
+      "apply": [
+        "Apply online in English through the University of Copenhagen job portal, linked below.",
+        "A one-page cover letter, a CV, and a one-page reflection on your research interests and how you would approach the project.",
+        "Your bachelor's and master's diplomas and transcripts, with an authorised English translation if they are in another language. See the official posting for the full list of documents."
+      ]
+    }
   },
   {
     "id": "eth-ai-center-doctoral-fellowship",
@@ -222,7 +624,34 @@
     "deadline": "2026-10-27",
     "posted": "2026-10-05",
     "link": "https://jobs.ethz.ch/job/view/12136",
-    "source": "Official university vacancy"
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "The ETH AI Center Doctoral Fellowship funds about 8 to 12 PhD students a year to do research on artificial intelligence at ETH Zurich. You propose your own project, either in the foundations of AI or linking AI with another field such as medicine, architecture, robotics or the social sciences.",
+        "Each fellow is supervised jointly by two professors from different fields, who share the supervision equally. The centre brings together more than 140 professorships from all sixteen ETH departments, plus groups at the University of Zurich and the University of St. Gallen. Fellows have their main office at the centre."
+      ],
+      "tasks": [
+        "Propose and carry out your own AI research project with your two supervisors.",
+        "Work with other teams, and take part in the centre's retreats, symposia and summits.",
+        "If you wish, follow the optional entrepreneurial or industry track to put your research into practice."
+      ],
+      "requirements": [
+        "A master's degree in computer science, machine learning, statistics, physics, engineering, applied mathematics or a related field, finished at least three months before you start, and by June 2027 at the latest.",
+        "An excellent academic record, and ETH Zurich's general requirements for doctoral admission.",
+        "English good enough to discuss your work with colleagues and write up your results."
+      ],
+      "offer": [
+        "A full-time, fixed-term doctoral post, normally for three years. Fellows making good progress can be extended by up to a year to finish the thesis.",
+        "Two supervisors from different fields.",
+        "A flexible start date, usually September 2027.",
+        "Training, affordable language courses, and support for combining work and family life."
+      ],
+      "apply": [
+        "Apply only through ETH's online portal, linked below. Applications by email or post are not accepted.",
+        "Read the fellowship's guidelines and FAQ before you apply; they set out what to submit.",
+        "The deadline is 16:00 Central European Time on 27 October 2026."
+      ]
+    }
   },
   {
     "id": "eth-max-planck-learning-systems",
@@ -237,7 +666,32 @@
     "deadline": "2026-11-02",
     "posted": "2026-10-05",
     "link": "https://jobs.ethz.ch/job/view/12140",
-    "source": "Official university vacancy"
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "The Max Planck ETH Center for Learning Systems (CLS) trains PhD students in learning systems, from machine learning and computer vision to robotics and AI safety. Each fellow has two advisors: one at ETH Zurich, and one at the Max Planck Institute for Intelligent Systems in Stuttgart or Tübingen, the Max Planck Institute for Informatics in Saarbrücken, or the ELLIS Institute Tübingen.",
+        "You choose a main location based on your interests and spend a compulsory 12 months at the other. All fellows register as doctoral students at ETH Zurich and receive their degree from ETH. The fellowships are fully funded, and the programme runs in English."
+      ],
+      "tasks": [
+        "Do basic research in an area such as AI for science, AI safety, computer vision, natural language processing, reinforcement learning, robotics, computational biology or human–computer interaction.",
+        "Spend 12 months at your partner institution as part of the programme."
+      ],
+      "requirements": [
+        "An excellent master's degree in a relevant subject, already held or expected.",
+        "A strong interest in basic research in learning systems. The call lists more than 30 areas, from causal inference to soft robotics.",
+        "Good written and spoken English."
+      ],
+      "offer": [
+        "A fully funded PhD, supervised jointly across ETH Zurich and a Max Planck Institute or the ELLIS Institute Tübingen.",
+        "A doctoral degree from ETH Zurich."
+      ],
+      "apply": [
+        "Apply through ETH's online portal, linked below. Every part of the application is due by 23:59 Central European Time on 2 November 2026.",
+        "The official posting lists the participating advisors; some are available only as co-advisors for the exchange year.",
+        "Long-listed applicants are asked for a research video of two to five minutes.",
+        "Shortlisted applicants are invited to the selection symposium in Tübingen on 1–2 March 2027."
+      ]
+    }
   },
   {
     "id": "eth-robotx-phd-fellowship",
@@ -252,6 +706,31 @@
     "deadline": "2026-12-15",
     "posted": "2026-10-05",
     "link": "https://jobs.ethz.ch/job/view/JOPG_ethz_zBtPwWHnM0fumyTFso",
-    "source": "Official university vacancy"
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "RobotX, ETH Zurich's centre for robotics, is looking for PhD students who want to build robots that work in the real world. You apply once and are considered by several robotics groups across ETH: you name up to three professors you would like to work with, and they review your application.",
+        "The groups cover soft and bio-inspired robots, legged robots and robot hands, robots built partly from living cells, computer vision, human–robot interaction, computational design, machine learning, humanoids and touch sensing, motion planning, and robots that must work safely around people. You shape your doctoral project with your supervisor in the first months."
+      ],
+      "tasks": [
+        "Define and carry out your doctoral project in one RobotX group, with access to the wider RobotX network across ETH."
+      ],
+      "requirements": [
+        "A master's degree in mechanical or electrical engineering, computer science, robotics, bioengineering, materials science or a related field, completed by August 2027.",
+        "An excellent record in both your bachelor's and your master's.",
+        "Experience in one or more of the research areas, ideally a project you took from an idea to a working result on real hardware.",
+        "Strong programming skills (experience with robotics software is a plus) and excellent written and spoken English."
+      ],
+      "offer": [
+        "A fully funded doctoral post at ETH Zurich, paid at ETH's doctoral salary rate with full social benefits.",
+        "A start date by agreement in 2027.",
+        "ETH staff benefits, including public transport passes, sport through ASVZ, childcare and a pension."
+      ],
+      "apply": [
+        "Apply only through ETH's online portal, linked below, by 15 December 2026. Applications by email or post are not accepted.",
+        "Send one merged PDF, ideally under 10 MB, in this order: a cover letter (your research motivation, what you have built, and which RobotX groups you want to join and why); your CV with any publications; bachelor's and master's transcripts in English with the grading scale; three referees with email and direct phone numbers; and one publication, thesis or project report.",
+        "Name the file with the date and your name, for example 261201_MillerJane_application.pdf."
+      ]
+    }
   }
 ]

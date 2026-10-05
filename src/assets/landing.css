@@ -172,6 +172,13 @@
 .pos-meta dd { font-size: 14.5px; line-height: 1.5; color: var(--text); }
 .pos-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: auto; padding-top: 6px; }
 .pos-foot span { font-size: 12.5px; color: var(--faint); }
+/* a position's own page: the apply button after the write-up, then more positions */
+.pos-apply { max-width: 720px; margin-top: 28px; }
+.pos-more { max-width: 720px; margin-top: 56px; }
+.pos-more h2 { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.25; margin-bottom: 16px; }
+.pos-more p { margin-top: 14px; }
+.pos-more p a { color: var(--brass); font-weight: 600; text-decoration: none; }
+.pos-more p a:hover { text-decoration: underline; }
 .pos-post { margin: 56px 0 64px; max-width: 760px; background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--brass); border-radius: 14px; padding: 24px; }
 .pos-post h2 { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.2; }
 .pos-post p, .pos-post li { color: var(--dim); font-size: 15.5px; line-height: 1.65; }

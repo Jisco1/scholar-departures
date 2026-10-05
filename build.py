@@ -571,10 +571,15 @@ def by_urgency(routes):
 
 POSITION_LEVELS = ["PhD", "Postdoc", "Research assistant"]
 POSITION_DAYS = 60  # a listing comes down at its deadline, or 60 days after we posted it
+# Each position has its own page, written in our own words from the official posting: the paragraphs
+# about the post, then bulleted lists. "tasks" may be empty; the rest need at least one entry.
+POSITION_SECTIONS = (("about", "About the position", 1, 4, 900), ("tasks", "What you will do", 0, 8, 600),
+                     ("requirements", "Who can apply", 1, 8, 600), ("offer", "What is offered", 1, 8, 600),
+                     ("apply", "How to apply", 1, 8, 600))
 
 
 def load_positions():
-    """content/positions.json: funded PhD and research openings, each checked on the official vacancy page."""
+    """content/positions.json: funded PhD and research openings, each with the write-up for its own page."""
     path = CONTENT / "positions.json"
     if not path.exists():
         return []
@@ -603,6 +608,15 @@ def load_positions():
                 dt.date.fromisoformat(p.get(key) or "")
             except ValueError:
                 fail(f"{where}: '{key}' must be YYYY-MM-DD")
+        d = p.get("details")
+        if not isinstance(d, dict) or set(d) - {k for k, *_ in POSITION_SECTIONS}:
+            fail(f"{where}: 'details' must hold {', '.join(k for k, *_ in POSITION_SECTIONS)}")
+            continue
+        for key, _, least, most, limit in POSITION_SECTIONS:
+            v = d.get(key, [])
+            if (not isinstance(v, list) or not least <= len(v) <= most
+                    or any(not isinstance(x, str) or not x.strip() or len(x) > limit or re.search(r"[<>\x00-\x1f]", x) for x in v)):
+                fail(f"{where}: details.{key} must be {least} to {most} plain-text entries of at most {limit} characters")
     return items
 
 
@@ -626,11 +640,11 @@ def position_card(p):
     d = dt.date.fromisoformat(p["deadline"])
     return f"""<article class="pos" id="pos-{e(p['id'])}" data-level="{e(p['level'])}" data-field="{e(p['field'])}">
   <div class="pos-top"><span class="pos-level">{e(p['level'])}</span><span class="pos-field">{e(p['field'])}</span><span class="chip approaching" data-closes="{p['deadline']}">{closes_text(d)}</span></div>
-  <h3><a href="{e(p['link'])}" target="_blank" rel="noopener">{e(p['title'])}</a></h3>
+  <h3><a href="{e(p['id'])}/">{e(p['title'])}</a></h3>
   <p class="pos-where">{e(p['flag'])} {e(p['institution'])} · {e(p['country'])}</p>
   <p class="pos-sum">{e(p['summary'])}</p>
   <dl class="pos-meta"><div><dt>Funding</dt><dd>{e(p['funding'])}</dd></div><div><dt>Deadline</dt><dd>{fmt_date(d)}</dd></div></dl>
-  <p class="pos-foot"><a class="btn btn-line" href="{e(p['link'])}" target="_blank" rel="noopener">Official posting {EXT}</a><span>{e(p['source'])} · listed {fmt_date(dt.date.fromisoformat(p['posted']))}</span></p>
+  <p class="pos-foot"><a class="btn btn-line" href="{e(p['id'])}/">Full details →</a><span>Listed {fmt_date(dt.date.fromisoformat(p['posted']))}</span></p>
 </article>"""
 
 
@@ -672,18 +686,77 @@ def build_positions(items):
   <ul>
     <li><b>What we need:</b> the title, institution, funding and its length, the deadline, and a link to the official posting on your institution's website.</li>
     <li><b>How we check it:</b> we confirm the position and its funding on that official page, and reply to your institutional email address before anything goes live.</li>
-    <li><b>What we publish:</b> a short summary in our own words, the funding, the deadline and a link to your posting. Applications always go through your own process.</li>
+    <li><b>What we publish:</b> a page in our own words with the project, who can apply, the funding, the deadline and how to apply, linking to your posting. Applications always go through your own process.</li>
     <li><b>When it comes down:</b> at the application deadline, or after {POSITION_DAYS} days. Tell us if the position is filled earlier.</li>
   </ul>
   <p><a class="btn btn-primary" href="{e(post_position_link())}">Post a position by email</a></p>
   <p class="muted">We list only funded positions. We never ask candidates for fees, and you should be wary of anyone who does: see our <a href="{root}guides/scholarship-scams/">scam guide</a>.</p>
 </section></div>"""
+    for p in live:
+        build_position_page(p, live)
     write("positions/", page("positions/", "Funded PhD and research positions",
                              f"{len(live)} open funded PhD, doctoral fellowship and postdoc positions, with salaries, deadlines and links.",
                              body, root=root, nav="positions/", body_class="positions-page",
                              extra_head=f'<link rel="stylesheet" href="{asset(root, "landing.css")}">\n',
                              scripts=[asset(root, "positions.js")],
                              jsonld=[breadcrumb_ld([("", "Home"), ("positions/", "Funded positions")])]))
+
+
+def build_position_page(p, live):
+    root = "../../"
+    path = f"positions/{p['id']}/"
+    d, deadline = p["details"], dt.date.fromisoformat(p["deadline"])
+    sections = ""
+    for key, heading, *_ in POSITION_SECTIONS:
+        items = d.get(key) or []
+        if not items:
+            continue
+        body = ("".join(f"<p>{e(x)}</p>" for x in items) if key == "about"
+                else "<ul>" + "".join(f"<li>{e(x)}</li>" for x in items) + "</ul>")
+        sections += f'<h2 id="{key}">{heading}</h2>{body}'
+        if key == "requirements":
+            sections += ad_bay("article")
+    # more positions: the same field first, then the soonest deadlines
+    others = sorted((o for o in live if o["id"] != p["id"]),
+                    key=lambda o: (o["field"] != p["field"], o["deadline"], o["title"]))[:3]
+    more = "".join(
+        f'<a class="row" href="../{e(o["id"])}/"><div><div class="row-name">{e(o["title"])}</div>'
+        f'<div class="row-meta">{e(o["flag"])} {e(o["institution"])} · {e(o["level"])} · {e(o["field"])}</div></div>'
+        f'<div class="row-side"><span class="chip approaching" data-closes="{o["deadline"]}">'
+        f'{closes_text(dt.date.fromisoformat(o["deadline"]))}</span></div></a>' for o in others)
+    more_html = (f'<section class="pos-more"><h2>More funded positions</h2><div class="rows">{more}</div>'
+                 f'<p><a href="../">All open positions →</a></p></section>') if others else ""
+    body = f"""<div class="wrap">
+<div class="page-head">
+{crumbs(root, [("positions/", "Funded positions"), ("", p["title"])])}
+<div class="eyebrow-s">{e(p["level"])} · {e(p["field"])}</div>
+<h1>{e(p["title"])}</h1>
+<p class="lede">{e(p["summary"])}</p>
+</div>
+<div class="layout has-rail"><div>
+<section class="glance" aria-label="At a glance">
+<dl class="glance-grid">
+  <div><dt>Where</dt><dd>{e(p["flag"])} {e(p["institution"])}<span class="sub">{e(p["country"])}</span></dd></div>
+  <div><dt>Deadline</dt><dd>{fmt_date(deadline)}<span class="sub"><span data-closes="{p["deadline"]}">{closes_text(deadline)}</span></span></dd></div>
+  <div><dt>Funding</dt><dd>{e(p["funding"])}</dd></div>
+  <div><dt>Position</dt><dd>{e(p["level"])}<span class="sub">{e(p["field"])}</span></dd></div>
+</dl>
+<div class="glance-cta"><a class="btn btn-line" href="#apply">How to apply ↓</a></div>
+</section>
+<article class="prose">
+{sections}
+</article>
+<p class="pos-apply"><a class="btn btn-primary" href="{e(p["link"])}" target="_blank" rel="noopener">Apply on the official posting {EXT}</a></p>
+{more_html}
+</div><aside class="rail" aria-label="Advertisements">{ad_bay("rail")}</aside></div>
+</div>"""
+    desc = f"{p['title']} at {p['institution']}, {p['country']}. {p['funding']}. Deadline {fmt_date(deadline)}."
+    if len(desc) > 300:
+        desc = desc[:297].rsplit(" ", 1)[0] + "…"
+    write(path, page(path, f"{p['title']}, {p['institution']}", desc, body, root=root, nav="positions/",
+                     body_class="position-page", extra_head=f'<link rel="stylesheet" href="{asset(root, "landing.css")}">\n',
+                     scripts=[asset(root, "positions.js")],
+                     jsonld=[breadcrumb_ld([("", "Home"), ("positions/", "Funded positions"), (path, p["title"])])]))
 
 
 NEWS_CATEGORIES = ["Award", "Breakthrough", "Funding", "Policy"]
@@ -921,7 +994,7 @@ def build_home(routes, schools, updates, positions, research):
 </section>""" if research else "")
     live_pos = open_positions(positions)
     pos_rows = "".join(
-        f'<a class="row" href="positions/#pos-{e(p["id"])}"><div><div class="row-name">{e(p["title"])}</div>'
+        f'<a class="row" href="positions/{e(p["id"])}/"><div><div class="row-name">{e(p["title"])}</div>'
         f'<div class="row-meta">{e(p["flag"])} {e(p["institution"])} · {e(p["level"])} · {e(p["field"])}</div></div>'
         f'<div class="row-side"><span class="chip approaching" data-closes="{p["deadline"]}">'
         f'{closes_text(dt.date.fromisoformat(p["deadline"]))}</span></div></a>' for p in live_pos[:4])
@@ -939,8 +1012,8 @@ def build_home(routes, schools, updates, positions, research):
             "Yes. DegreeStep is for international students from anywhere. Most routes are open to every nationality; "
             "the ones limited to certain countries say so on their page."),
            ("How do you check the information?",
-            f"Each route is checked against its official page, which every route page links to. The data was last checked {LAST_CHECK}. "
-            "Our editorial policy explains the process, and you can report a correction through the contact page."),
+            f"Every route page links to the official page its facts come from, and the data was last reviewed {LAST_CHECK}. "
+            "Our How we verify page explains the process, and you can report a correction through the contact page."),
            ("Do you handle applications?",
             "No. You apply directly to the university or scholarship provider. DegreeStep is independent and not affiliated with any of them."),
            ("How often is it updated?",

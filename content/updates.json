@@ -1,6 +1,11 @@
 [
   {
     "date": "2026-10-05",
+    "title": "Every funded position now has its own page",
+    "text": "Each PhD and postdoc listing opens a full page: the project, who can apply, the salary and contract, and the documents to send, with the link to apply at the end."
+  },
+  {
+    "date": "2026-10-05",
     "title": "Pictures on the research news",
     "text": "Research news now shows photos of the prize winners and the science behind them, each freely licensed from Wikimedia Commons and credited to its photographer with its licence. Items without a free photo get our own drawing."
   },

@@ -191,6 +191,16 @@ class BuiltSite(unittest.TestCase):
         self.assertIn('<a class="lp-newsbtn" href="news/">', hero)  # the news button sits above the boarding pass
         self.assertIn('href="editorial-policy/">How we verify</a>', band)
 
+    def test_no_page_repeats_the_checked_claims(self):
+        # the owner asked for these gone (5 Oct 2026): verification is explained once, on How we verify
+        banned = re.compile(r"checked against (its|the) official page|each (one |route )?(is |was )?checked|source-checked|"
+                            r"every figure was checked|no account needed|nothing is updated silently", re.I)
+        for path, text in self.pages.items():
+            if path.parent.name == "editorial-policy":
+                continue
+            m = banned.search(text)
+            self.assertIsNone(m, f"{path.relative_to(self.site)}: {m.group(0) if m else ''}")
+
     def test_choose_your_path_counts_match_the_board(self):
         import importlib.util
         spec = importlib.util.spec_from_file_location("site_build", self.dir / "build.py")
@@ -257,14 +267,23 @@ class BuiltSite(unittest.TestCase):
         ids = re.findall(r'<article class="pos" id="pos-([a-z0-9-]+)"', page)
         self.assertEqual(ids, [p["id"] for p in live], "open listings, soonest deadline first")
         for p in live:
-            self.assertIn(f'href="{html_mod.escape(p["link"], quote=True)}"', page, p["id"])
+            # the card opens our own page; the official posting is linked from there, after the write-up
+            link = f'href="{html_mod.escape(p["link"], quote=True)}"'
+            self.assertIn(f'href="{p["id"]}/"', page, p["id"])
+            self.assertNotIn(link, page, f'{p["id"]}: the list sends readers straight to the official posting')
+            own = (self.site / "positions" / p["id"] / "index.html").read_text(encoding="utf-8")
+            for heading in ("About the position", "Who can apply", "What is offered", "How to apply"):
+                self.assertIn(f">{heading}</h2>", own, f'{p["id"]}: no "{heading}" section')
+            self.assertGreater(own.index(link), own.index(">How to apply</h2>"), f'{p["id"]}: the apply link comes before the write-up')
             self.assertTrue(p["link"].startswith("https://"), p["id"])
+        built = sorted(d.name for d in (self.site / "positions").iterdir() if d.is_dir())
+        self.assertEqual(built, sorted(p["id"] for p in live), "a page for each open position, and none for closed ones")
         cfg = json.loads((self.dir / "site.json").read_text(encoding="utf-8"))
         self.assertIn(f'href="mailto:{cfg["contact_email"]}?subject=', page, "no way to post a position")
         home = (self.site / "index.html").read_text(encoding="utf-8")
         if live:
             self.assertIn('href="positions/"', home)
-            self.assertIn(f'href="positions/#pos-{live[0]["id"]}"', home, "the home page should lead with the soonest deadline")
+            self.assertIn(f'href="positions/{live[0]["id"]}/"', home, "the home page should lead with the soonest deadline")
 
     def test_research_news_is_sourced_and_newest_first(self):
         items = json.loads((self.dir / "content" / "news.json").read_text(encoding="utf-8"))
@@ -648,6 +667,16 @@ class PoisonedData(unittest.TestCase):
         result, page = self.positions_build(close_first)
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertNotIn("A position that closed long ago", page)
+
+    def test_position_without_its_own_write_up_rejected(self):
+        result, _ = self.positions_build(lambda items: items[0].pop("details"))
+        self.assertNotEqual(result.returncode, 0, "a position with no write-up for its own page was accepted")
+        self.assertIn("'details' must hold", result.stderr)
+
+    def test_markup_in_a_position_write_up_rejected(self):
+        result, _ = self.positions_build(lambda items: items[0]["details"]["requirements"].append("<script>alert(1)</script>"))
+        self.assertNotEqual(result.returncode, 0, "markup in a position's write-up was accepted")
+        self.assertIn("plain-text entries", result.stderr)
 
     def test_markup_in_a_position_rejected(self):
         result, _ = self.positions_build(lambda items: items[0].__setitem__("summary", "<img src=x onerror=alert(1)>"))
