@@ -5,7 +5,7 @@ body.home::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* ——— Preloader ——— */
+/* -  -  - Preloader -  -  - */
 #preloader {
   position: fixed; inset: 0; z-index: 100; background: var(--bg);
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px;
@@ -30,10 +30,10 @@ body.home::after {
 .fchar.tick { transform: scaleY(.5); }
 .fchar.set { color: var(--text); }
 
-/* ——— Progress ——— */
+/* -  -  - Progress -  -  - */
 #progress { position: fixed; top: 0; left: 0; height: 2px; background: var(--brass); width: 0; z-index: 95; }
 
-/* ——— Hero ——— */
+/* -  -  - Hero -  -  - */
 .hero { position: relative; text-align: center; padding: 84px 16px 56px; overflow: hidden; }
 #fx { position: absolute; inset: 0; width: 100%; height: 100%; display: block;
       mask-image: linear-gradient(180deg, #000 70%, transparent 100%);
@@ -80,7 +80,7 @@ body.loaded .cue { opacity: 1; }
 @keyframes drip { 0% { top: -50%; } 100% { top: 110%; } }
 body.scrolled .cue { opacity: 0; }
 
-/* ——— Departures board ——— */
+/* -  -  - Departures board -  -  - */
 .depart { padding-top: 18px; }
 .depart-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 12px;
                opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s ease; }
@@ -103,7 +103,7 @@ body.scrolled .cue { opacity: 0; }
 .brow:last-child { border-bottom: none; }
 .board-note { font-family: var(--mono); font-size: 9px; letter-spacing: .25em; text-transform: uppercase; color: var(--faint); margin-top: 8px; text-align: right; }
 
-/* ——— Section tag ——— */
+/* -  -  - Section tag -  -  - */
 .section-tag { display: flex; align-items: center; gap: 14px; margin: 40px 0 14px;
                font-family: var(--mono); font-size: 10px; letter-spacing: .35em; text-transform: uppercase; color: var(--faint);
                opacity: 0; transition: opacity .7s ease; }
@@ -113,7 +113,7 @@ body.scrolled .cue { opacity: 0; }
 .section-tag.in { opacity: 1; }
 .section-tag.in::before, .section-tag.in::after { transform: scaleX(1); }
 
-/* ——— Controls ——— */
+/* -  -  - Controls -  -  - */
 .controls { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 12px;
             opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
 .controls.in { opacity: 1; transform: none; }
@@ -158,7 +158,7 @@ select {
 .countline .clear { color: var(--brass); text-decoration: underline; text-underline-offset: 3px; font-size: 14px; }
 .approaching-count { color: var(--approaching); }
 
-/* ——— Cards ——— */
+/* -  -  - Cards -  -  - */
 .grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 16px; perspective: 1200px; }
 @media (min-width: 768px) { .grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1180px) { .grid { grid-template-columns: repeat(3, 1fr); } }
@@ -229,7 +229,7 @@ select {
 .empty p { color: var(--dim); font-size: 15px; }
 .empty button { margin-top: 16px; border: 1px solid var(--brass); color: var(--brass); border-radius: 8px; padding: 9px 16px; font-size: 14px; font-weight: 600; }
 
-/* ——— Field chooser ——— */
+/* -  -  - Field chooser -  -  - */
 .fieldbar { margin-bottom: 12px; opacity: 0; transform: translateY(12px); transition: opacity .7s ease, transform .7s ease; }
 .fieldbar.in { opacity: 1; transform: none; }
 .fieldbar-lab { font-family: var(--mono); font-size: 9px; letter-spacing: .3em; text-transform: uppercase;
@@ -248,7 +248,7 @@ select {
   color: var(--rolling); border: 1px solid var(--rolling); background: var(--rolling-soft); border-radius: 3px; padding: 1px 5px; }
 .fscope.lim { color: var(--brass); border-color: var(--brass); background: var(--brass-soft); }
 
-/* ——— Hero nav ——— */
+/* -  -  - Hero nav -  -  - */
 .heronav { margin-top: 26px; display: flex; justify-content: center; gap: 10px;
   opacity: 0; transition: opacity .8s ease 1.4s; }
 body.loaded .heronav { opacity: 1; }
@@ -257,7 +257,7 @@ body.loaded .heronav { opacity: 1; }
   text-decoration: none; transition: color .2s, border-color .2s; }
 .heronav a:hover { color: var(--brass); border-color: var(--brass); }
 
-/* ——— Schools directory ——— */
+/* -  -  - Schools directory -  -  - */
 .directory { margin-top: 48px; }
 .dir-intro { color: var(--dim); font-size: 14px; line-height: 1.6; margin-bottom: 12px; }
 .dir-head { display: flex; flex-direction: column; gap: 12px; margin-bottom: 12px; }
@@ -286,7 +286,7 @@ body.loaded .heronav { opacity: 1; }
   .dloc { grid-column: 1 / -1; }
 }
 
-/* ——— Premium / modals / admin ——— */
+/* -  -  - Premium / modals / admin -  -  - */
 .lockdot { display: inline-flex; opacity: .8; }
 body.premium .lockdot { display: none; }
 .planbtn { display: inline-flex; align-items: center; justify-content: center; gap: 4px;
@@ -349,7 +349,7 @@ body.premium .lockdot { display: none; }
   .seal, .eyebrow, .sub, .stats, .cue, h1 .l, .card, .stamp, .controls, .board, .depart-head, .section-tag, .home-notes, .empty, .dir-row, .heronav, .fieldbar { opacity: 1 !important; transform: none !important; }
 }
 
-/* ——— Additions for DegreeStep ——— */
+/* -  -  - Additions for DegreeStep -  -  - */
 .section-tag, .depart-title { font-weight: 400; }
 .card h3 .card-title { color: inherit; text-decoration: none; }
 .card h3 .card-title:hover { color: var(--brass); }
@@ -366,7 +366,7 @@ body.premium .lockdot { display: none; }
 .card-bottom { flex-direction: column; align-items: stretch; gap: 14px; }
 .card-bottom .actions { justify-content: flex-end; }
 
-/* ——— Pager: a row of departure-board tiles under the routes and the directory ——— */
+/* -  -  - Pager: a row of departure-board tiles under the routes and the directory -  -  - */
 .pager { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px; margin: 22px 0 6px; font-family: var(--mono); }
 .pager button { min-width: 40px; height: 40px; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px;
   background: linear-gradient(180deg, var(--flap2-a) 0%, var(--flap2-a) 49%, var(--flap2-b) 51%, var(--flap2-b) 100%);
@@ -381,8 +381,7 @@ body.premium .lockdot { display: none; }
 @media (max-width: 480px) { .pager { gap: 5px; } .pager button { min-width: 34px; height: 38px; padding: 0 8px; } .pager .pg-word { display: none; } }
 @media (max-width: 360px) { .pager { gap: 3px; } .pager button { min-width: 29px; padding: 0 5px; font-size: 11px; } .pager .pg-gap { padding: 0; } }
 
-/* ——— Phones and touch screens ———
-   Everything below applies only to narrow or touch screens, except the board's "Show all" button. */
+/* -  -  - Phones and touch screens -  -  - Everything below applies only to narrow or touch screens, except the board's "Show all" button. */
 #typePills { display: contents; }
 .filtersbtn, .flabel, .panelfoot { display: none; }
 /* the board shows the soonest eight (five on phones); the rest are one tap away */
@@ -495,7 +494,7 @@ body.premium .lockdot { display: none; }
   #toast { bottom: calc(22px + env(safe-area-inset-bottom)); max-width: calc(100% - 32px); }
 }
 
-/* ——— Slim route cards: the school only; the whole card opens its page ——— */
+/* -  -  - Slim route cards: the school only; the whole card opens its page -  -  - */
 .card.slim { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "country save" "title go";
   align-items: center; gap: 6px 12px; padding: 18px 20px; }
 .card.slim .country { grid-area: country; padding-top: 0; }

@@ -8,11 +8,11 @@
   "sections": [
     {
       "h": "Need-blind and full need, explained",
-      "html": "<p><strong>Need-blind</strong> means a college decides whether to admit you without considering whether you can pay. <strong>Meeting full need</strong> means that, once admitted, the college gives you enough grant aid to cover the gap between the cost of attendance and what your family can afford. Colleges that do both for international students are rare — and they are the best route to a free US degree. Read our full guide to <a href=\"{{root}}guides/us-financial-aid-international/\">US financial aid for international students</a>.</p>"
+      "html": "<p><strong>Need-blind</strong> means a college decides whether to admit you without considering whether you can pay. <strong>Meeting full need</strong> means that, once admitted, the college gives you enough grant aid to cover the gap between the cost of attendance and what your family can afford. Colleges that do both for international students are rare, and they are the best route to a free US degree. Read our full guide to <a href=\"{{root}}guides/us-financial-aid-international/\">US financial aid for international students</a>.</p>"
     },
     {
       "h": "Need-blind for international students",
-      "html": "<p>On this board: <a href=\"{{root}}routes/harvard-university/\">Harvard</a>, <a href=\"{{root}}routes/mit/\">MIT</a>, <a href=\"{{root}}routes/yale-university/\">Yale</a>, <a href=\"{{root}}routes/princeton-university/\">Princeton</a>, <a href=\"{{root}}routes/amherst-college/\">Amherst</a>, <a href=\"{{root}}routes/dartmouth-college/\">Dartmouth</a> and <a href=\"{{root}}routes/brown-university/\">Brown</a>. Several now publish income thresholds below which families pay nothing — under $100,000 at Harvard, MIT and Yale, and up to $150,000 for most families at Princeton.</p>"
+      "html": "<p>On this board: <a href=\"{{root}}routes/harvard-university/\">Harvard</a>, <a href=\"{{root}}routes/mit/\">MIT</a>, <a href=\"{{root}}routes/yale-university/\">Yale</a>, <a href=\"{{root}}routes/princeton-university/\">Princeton</a>, <a href=\"{{root}}routes/amherst-college/\">Amherst</a>, <a href=\"{{root}}routes/dartmouth-college/\">Dartmouth</a> and <a href=\"{{root}}routes/brown-university/\">Brown</a>. Several now publish income thresholds below which families pay nothing: under $100,000 at Harvard, MIT and Yale, and up to $150,000 for most families at Princeton.</p>"
     },
     {
       "h": "Full need, but need-aware",
@@ -41,31 +41,31 @@
   ],
   "sources": [
     {
-      "title": "Harvard Gazette — Harvard expands financial aid",
+      "title": "Harvard Gazette: Harvard expands financial aid",
       "url": "https://news.harvard.edu/gazette/story/2025/03/harvard-expands-financial-aid"
     },
     {
-      "title": "MIT Admissions — Tuition-free for families below $200,000",
+      "title": "MIT Admissions: Tuition-free for families below $200,000",
       "url": "https://mitadmissions.org/blogs/entry/fyi-undergraduates-with-family-income-below-200000-can-expect-to-attend-mit-tuition-free-starting-in-2025/"
     },
     {
-      "title": "Brown University — Need-blind admission for international undergraduates",
+      "title": "Brown University: Need-blind admission for international undergraduates",
       "url": "https://president.brown.edu/president/need-blind-admission-international-undergraduates"
     },
     {
-      "title": "Berea College — International applicant information",
+      "title": "Berea College: International applicant information",
       "url": "https://www.berea.edu/admissions/admission-information/apply/checklist-items/international-faqs"
     },
     {
-      "title": "Study in the States (DHS) — Proof of financial support for Form I-20",
+      "title": "Study in the States (DHS): Proof of financial support for Form I-20",
       "url": "https://studyinthestates.dhs.gov/2016/12/reminder-proof-financial-support-needed-issue-form-i-20"
     },
     {
-      "title": "USCIS — Optional Practical Training (OPT) for F-1 students",
+      "title": "USCIS: Optional Practical Training (OPT) for F-1 students",
       "url": "https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students"
     },
     {
-      "title": "Study in the States (DHS) — STEM OPT extension overview",
+      "title": "Study in the States (DHS): STEM OPT extension overview",
       "url": "https://studyinthestates.dhs.gov/stem-opt-hub/additional-resources/stem-opt-extension-overview"
     }
   ],

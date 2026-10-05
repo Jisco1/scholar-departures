@@ -4,7 +4,7 @@
   "title": "Ireland: government scholarships for international postgraduates",
   "lede": "Ireland is English-speaking, research-intensive and part of the EU. Its government funds international postgraduates through the GOI-IES scholarships and, for researchers, Research Ireland's postgraduate awards.",
   "description": "Funded postgraduate study in Ireland for international students: Government of Ireland International Education Scholarships, Research Ireland awards, proof of funds and work rules.",
-  "card": "GOI-IES pays €10,000 plus a fee waiver; Research Ireland has funded research degrees — check the 2027 call.",
+  "card": "GOI-IES pays €10,000 plus a fee waiver; Research Ireland has funded research degrees. Check the 2027 call.",
   "sections": [
     {
       "h": "Funded routes",
@@ -12,7 +12,7 @@
     },
     {
       "h": "Proof of funds and fees for your visa",
-      "html": "<p>Students from visa-required countries must show access to at least <strong>€10,000</strong> for living costs for each year of study. Since 30 June 2025 you must also have paid at least <strong>€6,000</strong> of your tuition (or the full fee if it is lower) before a visa is granted. A scholarship covering these costs usually counts — keep your award letter ready.</p>"
+      "html": "<p>Students from visa-required countries must show access to at least <strong>€10,000</strong> for living costs for each year of study. Since 30 June 2025 you must also have paid at least <strong>€6,000</strong> of your tuition (or the full fee if it is lower) before a visa is granted. A scholarship covering these costs usually counts. Keep your award letter ready.</p>"
     },
     {
       "h": "Working while you study",
@@ -25,23 +25,23 @@
   ],
   "sources": [
     {
-      "title": "Higher Education Authority — GOI-IES",
+      "title": "Higher Education Authority: GOI-IES",
       "url": "https://hea.ie/policy/internationalisation/goi-ies/"
     },
     {
-      "title": "Research Ireland — Government of Ireland Postgraduate Scholarship Programme",
+      "title": "Research Ireland: Government of Ireland Postgraduate Scholarship Programme",
       "url": "https://www.researchireland.ie/funding/government-ireland-postgraduate/"
     },
     {
-      "title": "Citizens Information — Student visas to study in Ireland",
+      "title": "Citizens Information: Student visas to study in Ireland",
       "url": "https://www.citizensinformation.ie/en/moving-country/visas-for-ireland/student-visas/"
     },
     {
-      "title": "Citizens Information — Immigration rules for full-time non-EEA students",
+      "title": "Citizens Information: Immigration rules for full-time non-EEA students",
       "url": "https://www.citizensinformation.ie/en/moving-country/moving-to-ireland/studying-in-ireland/immigration-nonEEA-students/"
     },
     {
-      "title": "Irish Immigration Service — Third Level Graduate Programme",
+      "title": "Irish Immigration Service: Third Level Graduate Programme",
       "url": "https://www.irishimmigration.ie/my-situation-has-changed-since-i-arrived-in-ireland/third-level-graduate-programme/"
     }
   ],

@@ -2,7 +2,7 @@
   "name": "Italy",
   "flag": "🇮🇹",
   "title": "Italy: income-based fees and regional grants that make study nearly free",
-  "lede": "Italian public universities set tuition by family income, and regional student-aid agencies give grants, fee exemptions and housing to students with limited means — including international students. Merit scholarships add another route.",
+  "lede": "Italian public universities set tuition by family income, and regional student-aid agencies give grants, fee exemptions and housing to students with limited means, including international students. Merit scholarships add another route.",
   "description": "How international students can study in Italy for little or nothing: income-based fees, regional DSU grants such as ER.GO in Bologna, and merit awards at Politecnico di Milano.",
   "card": "Fees scale with family income, and regional DSU grants can waive them and add up to about €7,000 a year.",
   "sections": [
@@ -16,7 +16,7 @@
     },
     {
       "h": "Merit scholarships",
-      "html": "<p>Some universities reward strong international applicants directly. <a href=\"{{root}}routes/politecnico-di-milano-merit-scholarships/\">Politecnico di Milano</a> waives tuition for top applicants to its English-taught master's programmes, and adds up to €10,000 a year for the highest-ranked — but only for applicants who apply in its Early Bird window (1 October to 1 December).</p>"
+      "html": "<p>Some universities reward strong international applicants directly. <a href=\"{{root}}routes/politecnico-di-milano-merit-scholarships/\">Politecnico di Milano</a> waives tuition for top applicants to its English-taught master's programmes, and adds up to €10,000 a year for the highest-ranked, but only for applicants who apply in its Early Bird window (1 October to 1 December).</p>"
     },
     {
       "h": "Paperwork is the hard part",
@@ -33,23 +33,23 @@
   ],
   "sources": [
     {
-      "title": "ER.GO — Guide to the application announcement 2026/2027",
+      "title": "ER.GO: Guide to the application announcement 2026/2027",
       "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/guide-to-application-announcement-a-y-2025_26/@@download/file"
     },
     {
-      "title": "University of Bologna — Study grants and subsidies",
+      "title": "University of Bologna: Study grants and subsidies",
       "url": "https://www.unibo.it/en/study/study-grants-and-subsidies"
     },
     {
-      "title": "Politecnico di Milano — Scholarships",
+      "title": "Politecnico di Milano: Scholarships",
       "url": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/scholarships"
     },
     {
-      "title": "Consulate General of Italy in Dubai — Student visa checklist 2026/2027",
+      "title": "Consulate General of Italy in Dubai: Student visa checklist 2026/2027",
       "url": "https://consdubai.esteri.it/wp-content/uploads/2026/05/StudyVisa_2026_2027.pdf"
     },
     {
-      "title": "Politecnico di Milano — Residence permit",
+      "title": "Politecnico di Milano: Residence permit",
       "url": "https://www.polimi.it/en/prospective-students/how-to-apply/on-arrival-information/residence-permit"
     }
   ],

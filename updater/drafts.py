@@ -72,7 +72,7 @@ Rules:
 - Use ONLY facts stated in the official pages above. Keep an existing fact if the pages do not contradict it. Never invent a number, date, fee or requirement.
 - Update what the pages show has changed: the new cycle's dates, fees, amounts, requirements.
 - Never leave a passed deadline written as upcoming. If the pages give the new date, use it; if not, put the old one in the past tense ("the 2026 call closed on ...") or remove it.
-- Keep the style: short, plain English, second person, British spelling, no marketing words. Keep list sizes: covers, eligibility, how_to_apply and watch_out 2-6 items each; costs 2-7 rows of ["what it is", "who pays"]; documents 2-7 items; faq exactly 3 items of {{"q": ..., "a": ...}}.
+- Keep the style: short, plain English, second person, British spelling, no marketing words. Never use em dashes; use commas, colons or full stops. Keep list sizes: covers, eligibility, how_to_apply and watch_out 2-6 items each; costs 2-7 rows of ["what it is", "who pays"]; documents 2-7 items; faq exactly 3 items of {{"q": ..., "a": ...}}.
 - Plain text only, no HTML. Links only as [label](https://...).
 - sources: keep the existing ones that still apply and add every official page you used, as {{"title": ..., "url": "https://..."}}.
 
@@ -93,7 +93,7 @@ OFFICIAL PAGE, fetched just now (may be truncated):
 
 Rules:
 - Use ONLY facts stated in the page text. Never invent a number, date, fee or requirement; if the page does not say, leave it out.
-- Style: short, plain English, second person, British spelling, no marketing words.
+- Style: short, plain English, second person, British spelling, no marketing words. Never use em dashes; use commas, colons or full stops.
 - summary: 1-2 sentences. covers, eligibility, how_to_apply, watch_out: 2-6 items each. costs: 2-7 rows of ["what it is", "who pays"]. documents: 2-7 items. faq: exactly 3 items of {{"q": ..., "a": ...}}.
 - Plain text only, no HTML. Links only as [label](https://...).
 - sources: every official page you used, as {{"title": ..., "url": "https://..."}}.

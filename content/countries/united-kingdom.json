@@ -2,13 +2,13 @@
   "name": "United Kingdom",
   "flag": "🇬🇧",
   "title": "Fully funded master's and PhDs in the UK: the scholarships that pay for everything",
-  "lede": "UK tuition for international students is high, so the UK is a country you reach through a scholarship. Luckily it has some of the world's best-known full awards — Chevening, Commonwealth, Gates Cambridge, Rhodes and the Mastercard Foundation programme at Cambridge.",
+  "lede": "UK tuition for international students is high, so the UK is a country you reach through a scholarship. Luckily it has some of the world's best-known full awards: Chevening, Commonwealth, Gates Cambridge, Rhodes and the Mastercard Foundation programme at Cambridge.",
   "description": "How international students can study in the UK for free: Chevening, Commonwealth, Gates Cambridge, Rhodes and Mastercard Foundation scholarships, plus visa costs and proof-of-funds rules.",
-  "card": "High fees, but the strongest line-up of full scholarships anywhere — Chevening, Commonwealth, Gates, Rhodes.",
+  "card": "High fees, but the strongest line-up of full scholarships anywhere: Chevening, Commonwealth, Gates, Rhodes.",
   "sections": [
     {
       "h": "Why the UK needs a scholarship",
-      "html": "<p>International students pay international tuition at UK universities, often well above £20,000 a year for a master's, and more for laboratory subjects. UK master's degrees are usually just <strong>one year</strong>, though, so a single award can fund a complete degree — which is exactly what the major scholarships do.</p>"
+      "html": "<p>International students pay international tuition at UK universities, often well above £20,000 a year for a master's, and more for laboratory subjects. UK master's degrees are usually just <strong>one year</strong>, though, so a single award can fund a complete degree, which is exactly what the major scholarships do.</p>"
     },
     {
       "h": "The big full awards compared",
@@ -16,11 +16,11 @@
     },
     {
       "h": "Visa costs and proof of funds",
-      "html": "<p>A UK Student visa requires you to show money for living costs for up to nine months: <strong>£1,529 a month in London or £1,171 a month elsewhere</strong> for applications from 11 November 2025. You also pay the <strong>Immigration Health Surcharge</strong> (£776 a year for students) and the visa fee. Full scholarships such as Chevening and Commonwealth normally cover these or count as your financial evidence — check your award letter.</p>"
+      "html": "<p>A UK Student visa requires you to show money for living costs for up to nine months: <strong>£1,529 a month in London or £1,171 a month elsewhere</strong> for applications from 11 November 2025. You also pay the <strong>Immigration Health Surcharge</strong> (£776 a year for students) and the visa fee. Full scholarships such as Chevening and Commonwealth normally cover these or count as your financial evidence. Check your award letter.</p>"
     },
     {
       "h": "Return commitments",
-      "html": "<p>Chevening and Commonwealth scholars must return to their home country after the award (two years for Chevening), and Commonwealth scholars cannot switch to the Graduate visa. If staying to work in the UK matters to you, Gates Cambridge and Rhodes have no such rule — read each award's terms before applying.</p>"
+      "html": "<p>Chevening and Commonwealth scholars must return to their home country after the award (two years for Chevening), and Commonwealth scholars cannot switch to the Graduate visa. If staying to work in the UK matters to you, Gates Cambridge and Rhodes have no such rule. Read each award's terms before applying.</p>"
     },
     {
       "h": "Working while you study",
@@ -33,31 +33,31 @@
   ],
   "sources": [
     {
-      "title": "GOV.UK — Applications open for 2027 to 2028 Chevening Scholarships",
+      "title": "GOV.UK: Applications open for 2027 to 2028 Chevening Scholarships",
       "url": "https://www.gov.uk/government/news/applications-open-for-2027-to-2028-chevening-scholarships-to-study-in-the-uk"
     },
     {
-      "title": "Commonwealth Scholarship Commission — Commonwealth Master's Scholarships",
+      "title": "Commonwealth Scholarship Commission: Commonwealth Master's Scholarships",
       "url": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-masters-scholarships/"
     },
     {
-      "title": "Gates Cambridge — Application timeline",
+      "title": "Gates Cambridge: Application timeline",
       "url": "https://www.gatescambridge.org/apply/timeline/"
     },
     {
-      "title": "UKCISA — Changes to the Student and Graduate rules",
+      "title": "UKCISA: Changes to the Student and Graduate rules",
       "url": "https://www.ukcisa.org.uk/news/student-update-changes-to-the-student-and-graduate-rules/"
     },
     {
-      "title": "GOV.UK — Student visa: money you need",
+      "title": "GOV.UK: Student visa: money you need",
       "url": "https://www.gov.uk/student-visa/money"
     },
     {
-      "title": "GOV.UK — Graduate visa",
+      "title": "GOV.UK: Graduate visa",
       "url": "https://www.gov.uk/graduate-visa"
     },
     {
-      "title": "UKCISA — Working as an international student",
+      "title": "UKCISA: Working as an international student",
       "url": "https://www.ukcisa.org.uk/student-advice/working/student-work/"
     }
   ],

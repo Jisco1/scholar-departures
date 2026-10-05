@@ -192,14 +192,27 @@ class BuiltSite(unittest.TestCase):
         self.assertIn('href="editorial-policy/">How we verify</a>', band)
 
     def test_no_page_repeats_the_checked_claims(self):
-        # the owner asked for these gone (5 Oct 2026): verification is explained once, on How we verify
+        # the owner asked for these gone (5 Oct 2026): verification is explained once, on How we verify,
+        # and no page tells readers how the research is done
         banned = re.compile(r"checked against (its|the) official page|each (one |route )?(is |was )?checked|source-checked|"
-                            r"every figure was checked|no account needed|nothing is updated silently", re.I)
+                            r"every figure was checked|no account needed|nothing is updated silently|"
+                            r"help of AI|including AI models|automated and AI|automated (check|search)|drafts are done", re.I)
+        research = re.compile(r"help of AI|including AI models|automated and AI|automated (check|search)|drafts are done", re.I)
         for path, text in self.pages.items():
             if path.parent.name == "editorial-policy":
+                m = research.search(text)
+                self.assertIsNone(m, f"editorial-policy: {m.group(0) if m else ''}")
                 continue
             m = banned.search(text)
             self.assertIsNone(m, f"{path.relative_to(self.site)}: {m.group(0) if m else ''}")
+
+    def test_no_em_dashes_anywhere(self):
+        # the owner reads em dashes as a sign of AI writing (5 Oct 2026); none may reach a page, a script or a style
+        for path in self.site.rglob("*"):
+            if path.suffix in (".html", ".js", ".css", ".json", ".xml", ".txt"):
+                text = path.read_text(encoding="utf-8")
+                i = text.find("\u2014")
+                self.assertEqual(i, -1, f"{path.relative_to(self.site)}: ...{text[max(0, i - 40):i + 40]}...")
 
     def test_guides_name_their_author(self):
         # the owner asked to be named as the author (5 Oct 2026); bylines lead to his page, which says how pages are written
@@ -221,7 +234,6 @@ class BuiltSite(unittest.TestCase):
         profile = self.pages[self.site / "about" / "eric-arko" / "index.html"]
         person = next(x for x in ld(profile) if x.get("@type") == "ProfilePage")["mainEntity"]
         self.assertEqual((person["@type"], person["name"], person["url"]), ("Person", author["name"], author["url"]))
-        self.assertIn("AI tools", profile, "the author page should say how the pages are written")
         for path in guides:
             self.assertIn(f'href="../../{path.parent.relative_to(self.site).as_posix()}/"', profile, "the author page lists his guides")
         self.assertIn('about/eric-arko/"', self.pages[self.site / "about" / "index.html"], "About should name who runs the site")
@@ -610,6 +622,15 @@ class MonthlyRefresh(unittest.TestCase):
         self.assertEqual(pick(fenced, "{", "}"), {"accept": True, "confidence": 0.9})
         with self.assertRaises(ValueError):
             pick("The search found nothing useful [1].", "{", "}")
+
+    def test_model_replies_lose_their_em_dashes(self):
+        # nothing the monthly robot writes may bring an em dash back to the site
+        sys.modules.pop("jsonpick", None)
+        import jsonpick
+        reply = ('```json\n{"deadline_text": "Varies \u2014 each university sets its own", "watch_out": ["Apply early\u2014places fill"], "n": 3}\n```')
+        got = jsonpick.extract_json(reply)
+        self.assertNotIn("\u2014", json.dumps(got, ensure_ascii=False))
+        self.assertEqual(got, {"deadline_text": "Varies, each university sets its own", "watch_out": ["Apply early, places fill"], "n": 3})
 
     def test_closed_proposals_are_remembered(self):
         cands = [{"name": "Some Award", "slug": "some-award", "status": "in-review", "link": "https://a.org/"}]

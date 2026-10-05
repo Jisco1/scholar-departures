@@ -1,4 +1,4 @@
-/* DegreeStep — shared styles for every page.
+/* DegreeStep - shared styles for every page.
    The home app adds app.css on top of this. */
 :root {
   --bg: #0B1322;
@@ -79,7 +79,7 @@ img, svg { max-width: 100%; }
 .skip:focus { left: 8px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-/* ——— Top bar ——— */
+/* -  -  - Top bar -  -  - */
 .topbar { border-bottom: 1px solid var(--rule); background: var(--topbar); position: relative; z-index: 50; }
 .topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 56px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; white-space: nowrap; }
@@ -87,7 +87,7 @@ img, svg { max-width: 100%; }
 .brand-name { font-family: var(--mono); font-size: 12px; letter-spacing: .24em; text-transform: uppercase; }
 .brand-name b { color: var(--brass); font-weight: 400; }
 
-/* ——— Page heads (content pages) ——— */
+/* -  -  - Page heads (content pages) -  -  - */
 .page-head { padding: 40px 0 8px; }
 .crumbs { font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
 .crumbs a { color: var(--dim); text-decoration: none; }
@@ -99,7 +99,7 @@ img, svg { max-width: 100%; }
 .byline { margin-top: 18px; font-size: 13px; color: var(--faint); display: flex; flex-wrap: wrap; gap: 6px 14px; }
 .byline b { color: var(--dim); font-weight: 600; }
 
-/* ——— Two-column layout: content + optional ad rail ——— */
+/* -  -  - Two-column layout: content + optional ad rail -  -  - */
 .layout { display: block; padding-bottom: 56px; }
 .rail { display: none; }
 @media (min-width: 1100px) {
@@ -107,7 +107,7 @@ img, svg { max-width: 100%; }
   .layout.has-rail .rail { display: block; position: sticky; top: 24px; }
 }
 
-/* ——— Long-form text ——— */
+/* -  -  - Long-form text -  -  - */
 .prose { max-width: 720px; font-size: 17px; line-height: 1.75; color: var(--prose); }
 .prose > * + * { margin-top: 1.05em; }
 .prose h2 { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.25; color: var(--text); margin-top: 2em; scroll-margin-top: 16px; }
@@ -138,7 +138,7 @@ img, svg { max-width: 100%; }
 .toc a { color: var(--dim); text-decoration: none; }
 .toc a:hover { color: var(--brass); }
 
-/* ——— Tags, chips, buttons ——— */
+/* -  -  - Tags, chips, buttons -  -  - */
 .tag { display: inline-block; font-family: var(--mono); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; border: 1px solid; border-radius: 4px; padding: 3px 8px; background: var(--tint); }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .chip { display: inline-flex; width: fit-content; align-items: center; border: 1px solid; border-radius: 999px; padding: 3px 9px; font-family: var(--mono); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
@@ -151,7 +151,7 @@ img, svg { max-width: 100%; }
 .btn-line { border: 1px solid var(--line); color: var(--dim); }
 .btn-line:hover { border-color: var(--brass); color: var(--brass); }
 
-/* ——— "At a glance" panel on route pages ——— */
+/* -  -  - "At a glance" panel on route pages -  -  - */
 .glance { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; margin: 28px 0 8px; max-width: 720px; }
 .glance-grid { display: grid; grid-template-columns: 1fr; gap: 14px 24px; }
 @media (min-width: 620px) { .glance-grid { grid-template-columns: 1fr 1fr; } }
@@ -161,7 +161,7 @@ img, svg { max-width: 100%; }
 .glance-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
 .glance-cta small { color: var(--faint); font-size: 12.5px; line-height: 1.5; }
 
-/* ——— Timeline (route pages + planner) ——— */
+/* -  -  - Timeline (route pages + planner) -  -  - */
 .plan-list { margin-top: 6px; }
 .plan-item { display: grid; grid-template-columns: 104px 14px 1fr; gap: 10px; padding: 9px 0; align-items: start; }
 .plan-date { font-family: var(--mono); font-size: 11px; color: var(--faint); padding-top: 3px; white-space: nowrap; }
@@ -173,7 +173,7 @@ img, svg { max-width: 100%; }
 .plan-item.due .plan-text { color: var(--approaching); }
 .plan-item.final .plan-text { color: var(--text); font-weight: 600; }
 
-/* ——— Route rows (lists on hub pages) ——— */
+/* -  -  - Route rows (lists on hub pages) -  -  - */
 .rows { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--card); }
 .row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 16px; align-items: center; padding: 14px 18px; border-bottom: 1px solid var(--rule); text-decoration: none; transition: background .15s; }
 .row:last-child { border-bottom: none; }
@@ -187,7 +187,7 @@ img, svg { max-width: 100%; }
 .group-title::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 .group-title a { color: var(--brass); text-decoration: none; }
 
-/* ——— Tile grid (guides, countries) ——— */
+/* -  -  - Tile grid (guides, countries) -  -  - */
 .tiles { display: grid; grid-template-columns: 1fr; gap: 14px; }
 @media (min-width: 700px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1040px) { .tiles.three { grid-template-columns: repeat(3, 1fr); } }
@@ -198,7 +198,7 @@ img, svg { max-width: 100%; }
 .tile p { font-size: 14.5px; line-height: 1.6; color: var(--dim); }
 .tile .more { margin-top: auto; padding-top: 6px; font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--brass); }
 
-/* ——— Deadline calendar ——— */
+/* -  -  - Deadline calendar -  -  - */
 .months { display: grid; grid-template-columns: 1fr; gap: 14px; }
 @media (min-width: 760px) { .months { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1080px) { .months { grid-template-columns: repeat(3, 1fr); } }
@@ -216,8 +216,7 @@ img, svg { max-width: 100%; }
 .month li.past { opacity: .45; }
 .month .empty-m { color: var(--faint); font-size: 13.5px; padding-top: 8px; }
 
-/* ——— Ad bays ———
-   Ads live in their own clearly labelled bays: set apart by a perforated
+/* -  -  - Ad bays -  -  - Ads live in their own clearly labelled bays: set apart by a perforated
    "ticket stub" edge, never styled like a route card, never beside a button
    or link list, and holding their height so nothing on the page jumps.
    A bay whose ad is unfilled collapses. */
@@ -235,7 +234,7 @@ img, svg { max-width: 100%; }
 .ad-bay.preview .ad-fill { display: grid; place-items: center; border-radius: 6px; background: repeating-linear-gradient(135deg, var(--tint) 0 10px, transparent 10px 20px); color: var(--faint); font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; text-align: center; padding: 16px; }
 @media print { .ad-bay, .rail { display: none !important; } }
 
-/* ——— Footer ——— */
+/* -  -  - Footer -  -  - */
 .sitefoot { border-top: 1px solid var(--line); margin-top: 24px; padding: 40px 0 32px; font-size: 13.5px; color: var(--faint); line-height: 1.7; }
 .foot-grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
 @media (min-width: 760px) { .foot-grid { grid-template-columns: 1.6fr 1fr 1fr 1fr; } }
@@ -247,7 +246,7 @@ img, svg { max-width: 100%; }
 .sitefoot a:hover, .sitefoot .linkish:hover { color: var(--brass); }
 .foot-legal { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 12.5px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; }
 
-/* ——— Misc ——— */
+/* -  -  - Misc -  -  - */
 .section { padding: 8px 0 16px; }
 .section > h2 { font-family: var(--serif); font-weight: 400; font-size: 28px; margin: 36px 0 14px; }
 .muted { color: var(--faint); }
@@ -260,7 +259,7 @@ img, svg { max-width: 100%; }
   .tile, .row { transition: none; }
 }
 
-/* ——— Phones and touch screens (all pages) ——— */
+/* -  -  - Phones and touch screens (all pages) -  -  - */
 @media (pointer: coarse) {
   .crumbs a { padding: 4px 0; }
 }
@@ -275,7 +274,7 @@ img, svg { max-width: 100%; }
   .sitefoot li + li { margin-top: 8px; }
 }
 
-/* ——— The menu: one button in the top bar, one short list in its panel ——— */
+/* -  -  - The menu: one button in the top bar, one short list in its panel -  -  - */
 .menu { position: relative; }
 .menu > summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; min-height: 40px; padding: 0 16px;
   border: 1px solid var(--line); border-radius: 999px; font-family: var(--mono); font-size: 11px; letter-spacing: .2em;
@@ -323,7 +322,7 @@ img, svg { max-width: 100%; }
 .tag[style*="--tc"] { color: var(--tc); }
 :root[data-theme="light"] .tag[style*="--tc"] { color: color-mix(in srgb, var(--tc) 48%, #000); }
 
-/* ——— Share: one button; phones get their own share sheet, others a short list ——— */
+/* -  -  - Share: one button; phones get their own share sheet, others a short list -  -  - */
 .share { position: relative; display: inline-block; }
 .share > summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px;
   border: 1px solid var(--line); border-radius: 8px; font-size: 15px; font-weight: 600; color: var(--text); user-select: none; -webkit-user-select: none;
@@ -342,7 +341,7 @@ img, svg { max-width: 100%; }
 @media (max-width: 640px) { .share-panel { width: min(260px, calc(100vw - 32px)); } }
 @media (prefers-reduced-motion: reduce) { .share-panel { animation: none; } }
 
-/* ——— Route pages: compact extras (checklist, questions that stay closed until tapped) ——— */
+/* -  -  - Route pages: compact extras (checklist, questions that stay closed until tapped) -  -  - */
 .prose ul.checklist { list-style: none; padding-left: 0; }
 .prose ul.checklist li { position: relative; padding-left: 30px; }
 .prose ul.checklist li::before { content: ""; position: absolute; left: 2px; top: .42em; width: 14px; height: 14px;

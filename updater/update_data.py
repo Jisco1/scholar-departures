@@ -121,7 +121,8 @@ def call_claude(record, page_text):
     text = "".join(b.get("text", "") for b in blocks if b.get("type") == "text")
     text = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.MULTILINE).strip()
     try:
-        return json.loads(text), None
+        from jsonpick import no_em_dashes
+        return no_em_dashes(json.loads(text)), None
     except json.JSONDecodeError as e:
         return None, f"unparseable extraction: {e}"
 

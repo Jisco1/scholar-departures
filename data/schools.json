@@ -297,7 +297,7 @@
     "region": "Canada",
     "city": "Toronto, ON",
     "link": "https://utoronto.ca",
-    "atlasName": "University of Toronto — Pearson Scholarship"
+    "atlasName": "University of Toronto: Pearson Scholarship"
   },
   {
     "name": "University of British Columbia",
@@ -306,7 +306,7 @@
     "region": "Canada",
     "city": "Vancouver, BC",
     "link": "https://ubc.ca",
-    "atlasName": "University of British Columbia — International Scholars"
+    "atlasName": "University of British Columbia: International Scholars"
   },
   {
     "name": "McGill University",
@@ -590,7 +590,7 @@
     "region": "Europe",
     "city": "Delft",
     "link": "https://tudelft.nl",
-    "atlasName": "TU Delft — Van Effen Excellence"
+    "atlasName": "TU Delft: Van Effen Excellence"
   },
   {
     "name": "University of Amsterdam",
@@ -639,7 +639,7 @@
     "region": "Europe",
     "city": "Maastricht",
     "link": "https://maastrichtuniversity.nl",
-    "atlasName": "Maastricht University — Holland-High Potential"
+    "atlasName": "Maastricht University: Holland-High Potential"
   },
   {
     "name": "ETH Zürich",
@@ -648,7 +648,7 @@
     "region": "Europe",
     "city": "Zürich",
     "link": "https://ethz.ch",
-    "atlasName": "ETH Zürich — Excellence Scholarship"
+    "atlasName": "ETH Zürich: Excellence Scholarship"
   },
   {
     "name": "EPFL",
@@ -836,7 +836,7 @@
     "region": "Europe",
     "city": "Ghent",
     "link": "https://ugent.be",
-    "atlasName": "Ghent University — Doctoral Scholarships (Global South)"
+    "atlasName": "Ghent University: Doctoral Scholarships (Global South)"
   },
   {
     "name": "UCLouvain",
@@ -920,7 +920,7 @@
     "region": "Europe",
     "city": "Reykjavík",
     "link": "https://hi.is",
-    "atlasName": "University of Iceland — doctoral study"
+    "atlasName": "University of Iceland: doctoral study"
   },
   {
     "name": "University of Warsaw",

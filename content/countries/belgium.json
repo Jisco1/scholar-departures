@@ -2,7 +2,7 @@
   "name": "Belgium",
   "flag": "🇧🇪",
   "title": "Belgium (Flanders): moderate fees and two government-backed routes",
-  "lede": "Flemish universities such as KU Leuven and Ghent charge non-EU students several thousand euros a year — moderate by Western European standards. Funded routes include the Flemish government's Master Mind Scholarships and Ghent University's doctoral scholarships for the Global South.",
+  "lede": "Flemish universities such as KU Leuven and Ghent charge non-EU students several thousand euros a year, moderate by Western European standards. Funded routes include the Flemish government's Master Mind Scholarships and Ghent University's doctoral scholarships for the Global South.",
   "description": "Tuition for non-EU students at Flemish universities and the funded routes: Master Mind Scholarships and Ghent University's BOF doctoral scholarships.",
   "card": "Non-EU fees of a few thousand euros a year; Master Mind and Ghent's doctoral scholarships fund the rest.",
   "sections": [
@@ -37,27 +37,27 @@
   ],
   "sources": [
     {
-      "title": "KU Leuven — Tuition fee regulations 2026–2027",
+      "title": "KU Leuven: Tuition fee regulations 2026–2027",
       "url": "https://www.kuleuven.be/english/education/student/fees/regulation"
     },
     {
-      "title": "Study in Flanders — Master Mind Scholarships",
+      "title": "Study in Flanders: Master Mind Scholarships",
       "url": "https://www.studyinflanders.be/scholarships/master-mind-scholarships"
     },
     {
-      "title": "Ghent University — Doctoral scholarships for the Global South",
+      "title": "Ghent University: Doctoral scholarships for the Global South",
       "url": "https://www.ugent.be/en/research/funding/bof/dos"
     },
     {
-      "title": "Study in Flanders — Visa requirements",
+      "title": "Study in Flanders: Visa requirements",
       "url": "https://www.studyinflanders.be/practical-information/visa-requirements"
     },
     {
-      "title": "Study in Flanders — Work and study",
+      "title": "Study in Flanders: Work and study",
       "url": "https://www.studyinflanders.be/practical-information/work-and-study"
     },
     {
-      "title": "KU Leuven — Working in Belgium after graduation (non-EEA)",
+      "title": "KU Leuven: Working in Belgium after graduation (non-EEA)",
       "url": "https://www.kuleuven.be/english/stuvo/working-volunteering-career/transition-to-the-job-market/working-non-eea"
     }
   ],

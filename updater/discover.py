@@ -118,6 +118,8 @@ Hard exclusions:
 
 Already in the directory (do not return these): {existing_names}
 
+Never use em dashes in any text you return; use commas, colons or full stops.
+
 Return AT MOST 3 candidates. End your reply with ONLY a JSON array inside a ```json fence (no prose after it):
 [{{
   "name": "<programme or university name, short>",

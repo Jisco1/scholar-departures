@@ -31,7 +31,7 @@
   var ROOT = typeof CONFIG.root === "string" ? CONFIG.root : "";
   var PREMIUM_ENABLED = !!(PREMIUM.gumroadProductId && PREMIUM.purchaseUrl);
   var LIC_KEY = "scholar-departures:license";
-  var CHARSET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789·—≈ ";
+  var CHARSET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789·≈ ";
 
   var TYPE_COLORS = {
     "Tuition-Free": "#7FD1AE",
@@ -386,7 +386,7 @@
     var days = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
     var mons = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
     var hh = String(d.getHours()).padStart(2, "0"), mm = String(d.getMinutes()).padStart(2, "0");
-    clockEl.textContent = days[d.getDay()] + " " + d.getDate() + " " + mons[d.getMonth()] + " — " + hh + ":" + mm;
+    clockEl.textContent = days[d.getDay()] + " " + d.getDate() + " " + mons[d.getMonth()] + " · " + hh + ":" + mm;
   }
   tickClock(); setInterval(tickClock, 15000);
 
@@ -397,7 +397,7 @@
     if (!boardData) {
       var r0 = document.createElement("div");
       r0.className = "brow";
-      r0.innerHTML = "<span>NO DEPARTURES — ALL WINDOWS CLOSED</span><span></span><span></span><span></span>";
+      r0.innerHTML = "<span>NO DEPARTURES: ALL WINDOWS CLOSED</span><span></span><span></span><span></span>";
       boardBody.appendChild(r0);
       return [];
     }
@@ -612,8 +612,8 @@
     var grid = document.getElementById("grid");
     if (out.length === 0) {
       var msg = (state.savedOnly && state.saved.size === 0)
-        ? "Nothing saved yet — tap the bookmark on any card to build your shortlist."
-        : (state.field ? "No " + state.field + " routes match the other filters — try clearing one." : "No matches yet. Clear a filter, or try a country like “Germany” or a word like “tuition”.");
+        ? "Nothing saved yet. Tap the bookmark on any card to build your shortlist."
+        : (state.field ? "No " + state.field + " routes match the other filters. Try clearing one." : "No matches yet. Clear a filter, or try a country like “Germany” or a word like “tuition”.");
       grid.innerHTML = '<div class="empty"><p>' + msg + '</p><button id="emptyClear">Clear all filters</button></div>';
       document.getElementById("emptyClear").addEventListener("click", clearAll);
     } else {
@@ -793,7 +793,7 @@
     var list = document.getElementById("dirList");
     list.innerHTML = out.length
       ? out.slice(pg.start, pg.end).map(dirRowHTML).join("")
-      : '<div class="dir-empty">No schools match — try a country name like \u201CCanada\u201D.</div>';
+      : '<div class="dir-empty">No schools match. Try a country name like \u201CCanada\u201D.</div>';
     list.querySelectorAll(".dir-row").forEach(function (r) { revealIO.observe(r); });
     var range = rangeText(pg);
     document.getElementById("dirCount").textContent = !out.length ? "No matching schools"
@@ -983,8 +983,8 @@
     var s = enriched.find(function (x) { return x.name === name; });
     if (!s) return;
     if (!s.nextDate) return toast(s.tbc
-      ? "The next call hasn't been announced yet — check the official page for dates."
-      : "Rolling deadline — positions post year-round. Apply when one fits; nothing to count down.");
+      ? "The next call hasn't been announced yet; check the official page for dates."
+      : "Rolling deadline: positions post year-round. Apply when one fits; nothing to count down.");
     var today = new Date(); today.setHours(0, 0, 0, 0);
     var items = PLAN_STEPS.map(function (st) {
       var d = new Date(s.nextDate); d.setDate(d.getDate() - st.w * 7);

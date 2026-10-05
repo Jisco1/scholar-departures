@@ -1179,7 +1179,7 @@ def build_home(routes, schools, updates, positions, research):
                "logo": BASE + "assets/apple-touch-icon.png", "email": CONFIG["contact_email"], "founder": author_ld()},
               {"@context": "https://schema.org", "@type": "FAQPage",
                "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}]
-    title = f"{SITE} — Tuition-Free & Fully Funded Study Abroad"
+    title = f"{SITE}: Tuition-Free & Fully Funded Study Abroad"
     desc = (f"{len(routes)} tuition-free universities and fully funded scholarships for international students in Europe, "
             f"the USA and Canada, with live deadline countdowns.")
     write("", page("", title, desc, body, root=root, nav="", body_class="landing", jsonld=jsonld,
@@ -1215,7 +1215,7 @@ def build_route_pages(routes, notes, country_pages):
             if ARGS.draft:
                 n = {}
             else:
-                fail(f"content/routes/{r['slug']}.json is missing — every route needs its own write-up")
+                fail(f"content/routes/{r['slug']}.json is missing: every route needs its own write-up")
                 continue
         nd, days, status = next_deadline(r)
         cslug = slugify(r["country"])
@@ -1224,9 +1224,9 @@ def build_route_pages(routes, notes, country_pages):
         if has_country:
             crumb_items.append((f"countries/{cslug}/", r["country"]))
         crumb_items.append(("", r["name"]))
-        kind_text = ("The university itself funds you — you apply for admission and the funding together."
+        kind_text = ("The university itself funds you: you apply for admission and the funding together."
                      if r["kind"] == "school" else
-                     "An external award — you win the scholarship and take it to a university that admits you.")
+                     "An external award: you win the scholarship and take it to a university that admits you.")
         scope_text = ("Any discipline may apply" if r["scope"] == "all" else "Only certain fields are eligible")
         fields_sub = "" if r["scope"] == "all" else f'<span class="sub">Eligible: {e(", ".join(r["fields"]))}</span>'
         next_text = ("Positions open year-round" if status == "rolling"
@@ -1248,7 +1248,7 @@ def build_route_pages(routes, notes, country_pages):
 </dl>
 <div class="glance-cta"><a class="btn btn-primary" href="{e(r["link"])}" target="_blank" rel="noopener noreferrer">Official page on {e(domain(r["link"])).replace(".", ".<wbr>")} {EXT}</a>
 {share_box(f"routes/{r['slug']}/", r["name"], share_text, "opportunity")}
-<small>Last verified {e(fmt_date(dt.date.fromisoformat(r["last_verified"])) if r.get("last_verified") else "—")}. Cycles shift each year — confirm dates on the official page.</small></div>
+<small>Last verified {e(fmt_date(dt.date.fromisoformat(r["last_verified"])) if r.get("last_verified") else "unknown")}. Cycles shift each year; confirm dates on the official page.</small></div>
 </section>"""
 
         def section(title, items, ordered=False):
@@ -1279,13 +1279,13 @@ def build_route_pages(routes, notes, country_pages):
 
         plan_html = ""
         if nd:
-            steps = [(12, "Research the route in depth — confirm eligibility, costs and every required document"),
+            steps = [(12, "Research the route in depth: confirm eligibility, costs and every required document"),
                      (10, "Ask your referees (for a PhD, email potential supervisors with a short, specific pitch)"),
                      (8, "Write the first full draft of your motivation letter or statement of purpose"),
                      (6, "Order transcripts and certified translations · book any language test"),
-                     (4, "Second draft — get feedback from someone who reads critically"),
+                     (4, "Second draft: get feedback from someone who reads critically"),
                      (2, "Finalise every document and complete the online form"),
-                     (1, "Submit — never on the last day"),
+                     (1, "Submit, but never on the last day"),
                      (0, "Typical deadline")]
             items = ""
             for w, text in steps:
@@ -1331,7 +1331,7 @@ def build_route_pages(routes, notes, country_pages):
 {plan_html}
 {related_html}
 {sources_html}
-<p class="muted">Page reviewed {e(fmt_date(dt.date.fromisoformat(reviewed)) if reviewed else "—")}. Spotted something out of date? <a href="{root}contact/">Tell us</a> and we will check it against the official source.</p>
+<p class="muted">Page reviewed {e(fmt_date(dt.date.fromisoformat(reviewed)) if reviewed else "unknown")}. Spotted something out of date? <a href="{root}contact/">Tell us</a> and we will check it against the official source.</p>
 </article>
 </div><aside class="rail" aria-label="Advertisements">{ad_bay("rail")}</aside></div>
 </div>"""
@@ -1424,7 +1424,7 @@ def build_countries(routes, countries):
     others = sorted({r["country"] for r in routes} - {c["name"] for _, c in countries})
     other_html = ", ".join(f'<a href="{root}routes/#{slugify(o)}">{e(o)}</a>' for o in others)
     body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("", "Countries")])}
-<div class="eyebrow-s">Country guides</div><h1>Where tuition is free — and where scholarships pay</h1>
+<div class="eyebrow-s">Country guides</div><h1>Where tuition is free, and where scholarships pay</h1>
 <p class="lede">How tuition, living costs and funding work for international students in each country with several funded routes.</p></div>
 <div class="tiles three">{tiles}</div>
 <p class="muted" style="margin:28px 0 48px;line-height:1.7">Also on the board, with one route each: {other_html}.</p></div>"""
@@ -1504,15 +1504,15 @@ def build_deadlines(routes):
             past = k == 0 and d < TODAY.day
             lis += (f'<li{PAST_CLASS if past else ""}><span class="day">{"≈" if r.get("approx") else ""}{d}</span>'
                     f'<span><a href="{root}routes/{r["slug"]}/">{e(r["name"])}</a>'
-                    f'<span class="note">{e(r["flag"])} {e(r["country"])} · {"passed this year — " if past else ""}{e(r["deadline"])}</span></span></li>')
+                    f'<span class="note">{e(r["flag"])} {e(r["country"])} · {"passed this year: " if past else ""}{e(r["deadline"])}</span></span></li>')
         cards += (f'<section class="month{" now" if k == 0 else ""}" data-month="{m}"><h2>{MONTHS[m - 1]} <small>{len(items)} deadline{"s" if len(items) != 1 else ""}</small></h2>'
-                  + (f"<ul>{lis}</ul>" if lis else '<p class="empty-m">No typical deadlines this month — a good month to prepare documents.</p>') + "</section>")
+                  + (f"<ul>{lis}</ul>" if lis else '<p class="empty-m">No typical deadlines this month; a good month to prepare documents.</p>') + "</section>")
         if k == 5:
             cards += "</div>" + ad_bay("between", wide=True) + '<div class="months">'
     roll = ", ".join(f'<a href="{root}routes/{r["slug"]}/" style="color:var(--brass)">{e(r["name"])}</a>' for r in rolling)
     body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("", "Deadlines")])}<div class="eyebrow-s">Deadline calendar</div>
 <h1>Every typical deadline, month by month</h1>
-<p class="lede">The next twelve months, starting now. Dates are each route's usual annual deadline — ≈ marks dates that vary by course or country, so always confirm on the official page. Plan to submit at least a week early.</p></div>
+<p class="lede">The next twelve months, starting now. Dates are each route's usual annual deadline. ≈ marks dates that vary by course or country, so always confirm on the official page. Plan to submit at least a week early.</p></div>
 <div class="months">{cards}</div>
 <p class="muted" style="margin:24px 0 8px;line-height:1.7">Open year-round (no fixed deadline): {roll}.</p>
 <p class="muted" style="margin:0 0 48px;line-height:1.7">Next call not yet announced: {", ".join(f'<a href="{root}routes/{r["slug"]}/" style="color:var(--brass)">{e(r["name"])}</a>' for r in tbc) or "none"}.</p></div>"""
@@ -1558,7 +1558,7 @@ def build_404():
 <p class="lede" style="margin:14px auto 28px">The page may have moved when a route was renamed. Try the full list or the scholarship board.</p>
 <p><a class="btn btn-primary" href="{BASE}routes/">All funded routes</a> <a class="btn btn-line" href="{BASE}scholarships/">Scholarship board</a></p></div>"""
     # served at any depth, so links and assets are absolute
-    text = page("404.html", "Page not found", "The page you were looking for isn't on DegreeStep — try the full list of funded routes or the live deadline board.",
+    text = page("404.html", "Page not found", "The page you were looking for isn't on DegreeStep; try the full list of funded routes or the live deadline board.",
                 body, root=BASE, noindex=True, ads=False)
     write("404.html", text)
 
@@ -1627,7 +1627,7 @@ def main():
     ROUTES = load_routes()
     SCHOOLS = load_schools({r["name"] for r in ROUTES})
     checked = [r.get("last_checked") or r.get("last_verified") for r in ROUTES if r.get("last_checked") or r.get("last_verified")]
-    LAST_CHECK = fmt_date(dt.date.fromisoformat(max(checked))) if checked else "—"
+    LAST_CHECK = fmt_date(dt.date.fromisoformat(max(checked))) if checked else "unknown"
     DATA_VERSION = hashlib.sha256(b"".join(p.read_bytes() for p in [DATA / "data.json", DATA / "schools.json",
                                                                      *sorted((DATA / "incoming").glob("*.json"))])).hexdigest()[:10]
 
@@ -1677,7 +1677,7 @@ def main():
 
 def report():
     if ERRORS:
-        print(f"BUILD FAILED — {len(ERRORS)} problem(s):", file=sys.stderr)
+        print(f"BUILD FAILED: {len(ERRORS)} problem(s):", file=sys.stderr)
         for m in ERRORS:
             print("  • " + m, file=sys.stderr)
         return 1

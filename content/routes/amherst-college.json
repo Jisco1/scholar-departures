@@ -1,5 +1,5 @@
 {
-  "summary": "Amherst is one of a handful of US colleges — and one of very few liberal-arts colleges — that admits international students need-blind and meets their full need. Its aid never includes loans.",
+  "summary": "Amherst is one of a handful of US colleges, and one of very few liberal-arts colleges, that admits international students need-blind and meets their full need. Its aid never includes loans.",
   "covers": [
     "Need-blind admission for international students: your aid request is not considered.",
     "100% of calculated financial need met for admitted international students who apply for aid.",
@@ -16,7 +16,7 @@
     "Ask for an application fee waiver if the fee is a barrier."
   ],
   "watch_out": [
-    "Early Decision is binding — only use it if Amherst is your clear first choice and the aid estimate works for you.",
+    "Early Decision is binding; only use it if Amherst is your clear first choice and the aid estimate works for you.",
     "Amherst's intake is small (under 500 first-years), so admission is very competitive.",
     "Being need-blind for internationals is rare; strong applicants who need full aid should put Amherst on their list."
   ],
@@ -28,43 +28,43 @@
   ],
   "sources": [
     {
-      "title": "Amherst College — Financial aid for international students",
+      "title": "Amherst College: Financial aid for international students",
       "url": "https://www.amherst.edu/offices/financialaid/international_students"
     },
     {
-      "title": "Amherst College — Calendar and deadlines for first-year applicants",
+      "title": "Amherst College: Calendar and deadlines for first-year applicants",
       "url": "https://www.amherst.edu/admission/apply/firstyear/calendar_deadlines"
     },
     {
-      "title": "Amherst College — International applicants",
+      "title": "Amherst College: International applicants",
       "url": "https://www.amherst.edu/admission/apply/international"
     },
     {
-      "title": "Amherst College — Standardized testing policy",
+      "title": "Amherst College: Standardized testing policy",
       "url": "https://www.amherst.edu/admission/apply/firstyear/testing"
     },
     {
-      "title": "Amherst College — Applying for financial aid as an international student",
+      "title": "Amherst College: Applying for financial aid as an international student",
       "url": "https://www.amherst.edu/offices/financialaid/international_students/appleton"
     },
     {
-      "title": "Amherst College — Costs for international students 2026–27",
+      "title": "Amherst College: Costs for international students 2026–27",
       "url": "https://www.amherst.edu/offices/financialaid/international_students/costs_amherst"
     },
     {
-      "title": "Amherst College — Fees for the 2026–27 academic year",
+      "title": "Amherst College: Fees for the 2026–27 academic year",
       "url": "https://www.amherst.edu/offices/financialaid/forms_links/fees_2026-2027_academic_year"
     },
     {
-      "title": "College Board — What does the CSS Profile cost?",
+      "title": "College Board: What does the CSS Profile cost?",
       "url": "https://cssprofile.collegeboard.org/help-center/what-cost-css-profile-and-what-payment-methods-are-accepted"
     },
     {
-      "title": "U.S. Immigration and Customs Enforcement — I-901 SEVIS fee",
+      "title": "U.S. Immigration and Customs Enforcement: I-901 SEVIS fee",
       "url": "https://www.ice.gov/sevis/i901"
     },
     {
-      "title": "Boston University ISSO — Visa integrity fee (with the $185 visa fee)",
+      "title": "Boston University ISSO: Visa integrity fee (with the $185 visa fee)",
       "url": "https://www.bu.edu/isso/2026/05/19/visa-integrity-fee/"
     }
   ],
@@ -72,7 +72,7 @@
   "costs": [
     [
       "Tuition, housing, meals and fees ($75,330 + $10,980 + $9,340 + $710 in 2026–27)",
-      "Amherst scholarships and a campus job, up to your full calculated need — no loans in your offer"
+      "Amherst scholarships and a campus job, up to your full calculated need, with no loans in your offer"
     ],
     [
       "Books and course materials",
@@ -92,7 +92,7 @@
     ],
     [
       "CSS Profile ($25 for the first college, $16 for each extra one)",
-      "You — or ask to file the free ISFAA if the fee is a serious hardship"
+      "You, or ask to file the free ISFAA if the fee is a serious hardship"
     ],
     [
       "US student visa: $185 application fee and $350 SEVIS fee, plus a new $250 visa integrity fee that some embassies now charge",
@@ -101,9 +101,9 @@
   ],
   "documents": [
     "Common Application or QuestBridge application",
-    "SAT or ACT only if you want them considered — tests are optional for all applicants, including international students",
+    "SAT or ACT only if you want them considered; tests are optional for all applicants, including international students",
     "An English test unless your last two years of secondary school were taught in English: TOEFL iBT (or Home Edition), IELTS Academic or Duolingo. Amherst strongly recommends a TOEFL of 100 (5.5 on the scale used from 21 January 2026). Self-reported scores are fine until you enrol",
-    "CSS Profile, filled in using your home currency (Amherst code 3003) — or the ISFAA — by 13 November 2026 for Early Decision or 15 January 2027 for Regular Decision",
+    "CSS Profile, filled in using your home currency (Amherst code 3003), or the ISFAA, by 13 November 2026 for Early Decision or 15 January 2027 for Regular Decision",
     "Your parents' most recent income tax returns (and yours, if you file), with every schedule, notated or translated into English"
   ],
   "faq": [
@@ -117,7 +117,7 @@
     },
     {
       "q": "Is health insurance covered?",
-      "a": "Not at first — it is outside the initial aid budget. But if you receive Amherst aid and use the college's health plan, the $3,627 cost is added to your budget and covered by a Health Insurance Scholarship."
+      "a": "Not at first; it is outside the initial aid budget. But if you receive Amherst aid and use the college's health plan, the $3,627 cost is added to your budget and covered by a Health Insurance Scholarship."
     }
   ]
 }

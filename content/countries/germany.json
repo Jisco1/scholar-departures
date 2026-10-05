@@ -2,9 +2,9 @@
   "name": "Germany",
   "flag": "🇩🇪",
   "title": "Studying in Germany for free: what international students really pay",
-  "lede": "Most German public universities charge no tuition to anyone, at any level. The real costs are the semester contribution, living expenses and the proof of funds you need for a visa — and scholarships such as DAAD can cover those.",
+  "lede": "Most German public universities charge no tuition to anyone, at any level. The real costs are the semester contribution, living expenses and the proof of funds you need for a visa, and scholarships such as DAAD can cover those.",
   "description": "How free tuition works in Germany for international students: semester contributions, the €11,904 proof of funds, the exceptions that do charge fees, and the funded routes to apply for.",
-  "card": "No tuition at most public universities — you pay a semester contribution and prove €11,904 a year for your visa.",
+  "card": "No tuition at most public universities; you pay a semester contribution and prove €11,904 a year for your visa.",
   "sections": [
     {
       "h": "Tuition: free almost everywhere",
@@ -16,7 +16,7 @@
     },
     {
       "h": "Proof of funds for your visa",
-      "html": "<p>To get a student visa you must show that you can support yourself: <strong>€992 a month, or €11,904 a year</strong>, the amount in force since January 2025, which still applied for winter semester 2026–27. It is linked to Germany's student grant (BAföG) rates and changes when they do, so check the current figure before you open an account. Most students do this with a blocked account (<em>Sperrkonto</em>): you deposit a year's money, and €992 is released to you each month. A scholarship award letter, or a formal declaration from a sponsor living in Germany, can also count. Use only a regulated blocked-account provider — see our <a href=\"{{root}}guides/scholarship-scams/\">scam guide</a>.</p>"
+      "html": "<p>To get a student visa you must show that you can support yourself: <strong>€992 a month, or €11,904 a year</strong>, the amount in force since January 2025, which still applied for winter semester 2026–27. It is linked to Germany's student grant (BAföG) rates and changes when they do, so check the current figure before you open an account. Most students do this with a blocked account (<em>Sperrkonto</em>): you deposit a year's money, and €992 is released to you each month. A scholarship award letter, or a formal declaration from a sponsor living in Germany, can also count. Use only a regulated blocked-account provider. See our <a href=\"{{root}}guides/scholarship-scams/\">scam guide</a>.</p>"
     },
     {
       "h": "Deadlines for international applicants",
@@ -28,7 +28,7 @@
     },
     {
       "h": "Paying for living costs",
-      "html": "<p>Because tuition is free, a stipend is effectively a full scholarship in Germany. The <a href=\"{{root}}routes/daad-scholarships/\">DAAD</a> pays €992 a month to master's students and €1,300 to doctoral candidates (€1,400 in its EPOS call from February 2026), plus insurance and travel. International students may also work part-time within legal limits — but you cannot count on work income for your visa.</p>"
+      "html": "<p>Because tuition is free, a stipend is effectively a full scholarship in Germany. The <a href=\"{{root}}routes/daad-scholarships/\">DAAD</a> pays €992 a month to master's students and €1,300 to doctoral candidates (€1,400 in its EPOS call from February 2026), plus insurance and travel. International students may also work part-time within legal limits, but you cannot count on work income for your visa.</p>"
     },
     {
       "h": "Working while you study",
@@ -41,27 +41,27 @@
   ],
   "sources": [
     {
-      "title": "DAAD — Requirements for studying in Germany",
+      "title": "DAAD: Requirements for studying in Germany",
       "url": "https://www.daad.de/en/studying-in-germany/requirements/overview/"
     },
     {
-      "title": "DAAD — Scholarships overview",
+      "title": "DAAD: Scholarships overview",
       "url": "https://www.daad.de/en/studying-in-germany/scholarships/daad-scholarships/"
     },
     {
-      "title": "RWTH Aachen — Master's application for international applicants",
+      "title": "RWTH Aachen: Master's application for international applicants",
       "url": "https://www.rwth-aachen.de/cms/root/studium/vor-dem-studium/bewerbung-um-einen-studienplatz/master-bewerbung/~dqml/bewerbung-master-internationale/?lidx=1"
     },
     {
-      "title": "Freie Universität Berlin — Fees",
+      "title": "Freie Universität Berlin: Fees",
       "url": "https://www.fu-berlin.de/studium/studieren/studienorganisation/gebuehren/index.html"
     },
     {
-      "title": "Make it in Germany — Study and work",
+      "title": "Make it in Germany: Study and work",
       "url": "https://www.make-it-in-germany.com/en/study-vocational-training/studies-in-germany/work"
     },
     {
-      "title": "Make it in Germany — Prospects after graduation",
+      "title": "Make it in Germany: Prospects after graduation",
       "url": "https://www.make-it-in-germany.com/en/study-training/study/prospects/seeking-employment"
     }
   ],

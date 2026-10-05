@@ -1,5 +1,5 @@
 {
-  "summary": "Colby, a liberal-arts college in Maine, charges no application fee to anyone and meets 100% of demonstrated need for every admitted student, including international students — with the chance to graduate without loans.",
+  "summary": "Colby, a liberal-arts college in Maine, charges no application fee to anyone and meets 100% of demonstrated need for every admitted student, including international students, with the chance to graduate without loans.",
   "covers": [
     "No application fee for any applicant.",
     "100% of demonstrated need met for admitted students, including international students.",
@@ -16,7 +16,7 @@
     "Early Decision applicants hear about a month after the deadline."
   ],
   "watch_out": [
-    "Early Decision rounds are binding — ED II lets you commit after an early rejection elsewhere.",
+    "Early Decision rounds are binding; ED II lets you commit after an early rejection elsewhere.",
     "As a need-aware college for internationals, Colby admits a limited number of aided international students each year.",
     "Colby is in a small town in Maine; winters are long and cold."
   ],
@@ -28,35 +28,35 @@
   ],
   "sources": [
     {
-      "title": "Colby College — International applicants",
+      "title": "Colby College: International applicants",
       "url": "https://afa.colby.edu/apply/requirements/international-applicants/"
     },
     {
-      "title": "Colby College — Dates and deadlines",
+      "title": "Colby College: Dates and deadlines",
       "url": "https://afa.colby.edu/apply/dates-and-deadlines/"
     },
     {
-      "title": "Colby College — Cost and aid",
+      "title": "Colby College: Cost and aid",
       "url": "https://afa.colby.edu/cost-and-aid/"
     },
     {
-      "title": "Colby College — Tuition and fees 2026–27",
+      "title": "Colby College: Tuition and fees 2026–27",
       "url": "https://afa.colby.edu/cost-and-aid/tuition-and-fees/"
     },
     {
-      "title": "Colby College — Application requirements",
+      "title": "Colby College: Application requirements",
       "url": "https://afa.colby.edu/apply/requirements/"
     },
     {
-      "title": "College Board — What does the CSS Profile cost?",
+      "title": "College Board: What does the CSS Profile cost?",
       "url": "https://cssprofile.collegeboard.org/help-center/what-cost-css-profile-and-what-payment-methods-are-accepted"
     },
     {
-      "title": "U.S. Immigration and Customs Enforcement — I-901 SEVIS fee",
+      "title": "U.S. Immigration and Customs Enforcement: I-901 SEVIS fee",
       "url": "https://www.ice.gov/sevis/i901"
     },
     {
-      "title": "Boston University ISSO — Visa integrity fee (with the $185 visa fee)",
+      "title": "Boston University ISSO: Visa integrity fee (with the $185 visa fee)",
       "url": "https://www.bu.edu/isso/2026/05/19/visa-integrity-fee/"
     }
   ],
@@ -76,11 +76,11 @@
     ],
     [
       "Application fee",
-      "None — Colby charges no application fee"
+      "None: Colby charges no application fee"
     ],
     [
       "CSS Profile ($25 for the first college, $16 for each extra one)",
-      "You — Colby offers a CSS fee waiver if the fee is a burden"
+      "You, but Colby offers a CSS fee waiver if the fee is a burden"
     ],
     [
       "US student visa: $185 application fee and $350 SEVIS fee, plus a new $250 visa integrity fee that some embassies now charge",
@@ -88,10 +88,10 @@
     ]
   ],
   "documents": [
-    "Common Application or QuestBridge application — every document in English",
-    "SAT or ACT only if you want them considered — tests are optional at Colby",
+    "Common Application or QuestBridge application, with every document in English",
+    "SAT or ACT only if you want them considered; tests are optional at Colby",
     "An English test if English is neither your first language nor your language of instruction: TOEFL iBT (or Home Edition), IELTS Academic or Duolingo. You can self-report scores, and Colby superscores the TOEFL",
-    "CSS Profile — plus the non-custodial parent CSS Profile if your parents are separated — by 15 November (ED I), 4 January (ED II) or 15 January (Regular Decision)",
+    "CSS Profile (plus the non-custodial parent CSS Profile if your parents are separated) by 15 November (ED I), 4 January (ED II) or 15 January (Regular Decision)",
     "Optional: a video interview through Duolingo, Vericant or InitialView"
   ],
   "faq": [
