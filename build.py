@@ -285,7 +285,7 @@ def menu_html(root, here):
     return ('<details class="menu"><summary class="menu-btn">' + MENU_ICON + '<span class="menu-label">Menu</span></summary>'
             '<div class="menu-panel"><nav aria-label="Main"><ul class="menu-list">'
             + link("", "Home") + link("scholarships/", "Scholarship board") + link("routes/", "Funded routes")
-            + link("deadlines/", "Deadlines") + link("positions/", "Funded positions")
+            + link("deadlines/", "Deadlines") + link("positions/", "Funded positions") + link("news/", "Research news")
             + link("scholarships/#directory", "Schools directory")
             + drop("Countries", countries) + drop("Guides", guides) + drop("About", about)
             + "</ul></nav>" + THEME_SWITCH + "</div></details>")
@@ -416,6 +416,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
     <div><h2>Explore</h2><ul>
       <li><a href="{root}scholarships/">Scholarship board</a></li><li><a href="{root}routes/">All funded routes</a></li>
       <li><a href="{root}deadlines/">Deadline calendar</a></li><li><a href="{root}positions/">Funded positions</a></li>
+      <li><a href="{root}news/">Research news</a></li>
       <li><a href="{root}updates/">What's new</a></li>
       <li><a href="{root}countries/">Countries</a></li><li><a href="{root}guides/">Guides</a></li></ul></div>
     <div><h2>About</h2><ul>
@@ -685,7 +686,73 @@ def build_positions(items):
                              jsonld=[breadcrumb_ld([("", "Home"), ("positions/", "Funded positions")])]))
 
 
-def build_home(routes, schools, updates, positions):
+NEWS_CATEGORIES = ["Award", "Breakthrough", "Funding", "Policy"]
+
+
+def load_news():
+    """content/news.json: research awards, breakthroughs and funding news, in our own words, each with its official source."""
+    path = CONTENT / "news.json"
+    if not path.exists():
+        return []
+    items = json.loads(path.read_text(encoding="utf-8"))
+    seen = set()
+    for i, n in enumerate(items):
+        where = f"content/news.json entry {i} ({n.get('id', '?')})"
+        for key, limit in (("id", 80), ("title", 160), ("summary", 900), ("why", 300), ("source_title", 160)):
+            v = n.get(key)
+            if not isinstance(v, str) or not v.strip() or len(v) > limit or re.search(r"[<>\x00-\x1f]", v):
+                fail(f"{where}: '{key}' must be plain text of at most {limit} characters")
+        if not re.match(r"^[a-z0-9-]+$", n.get("id") or "") or n.get("id") in seen:
+            fail(f"{where}: 'id' must be unique lowercase letters, digits and hyphens")
+        seen.add(n.get("id"))
+        if n.get("category") not in NEWS_CATEGORIES:
+            fail(f"{where}: 'category' must be one of {NEWS_CATEGORIES}")
+        if not URL_RE.match(n.get("source_url") or ""):
+            fail(f"{where}: 'source_url' must be a plain https:// URL")
+        if n.get("link") and not re.match(r"^[a-z0-9-]+(/[a-z0-9-]+)*/$", n["link"]):
+            fail(f"{where}: 'link' must be a path on this site such as routes/some-route/")
+        try:
+            dt.date.fromisoformat(n.get("date") or "")
+        except ValueError:
+            fail(f"{where}: 'date' must be YYYY-MM-DD")
+    # newest first; items from the same day keep the order they were written in
+    return sorted(items, key=lambda n: n.get("date", ""), reverse=True)
+
+
+def news_item(n, root, heading="h3"):
+    d = dt.date.fromisoformat(n["date"])
+    more = (f' · <a href="{root}{e(n["link"])}">More on {e(SITE)} →</a>' if n.get("link") else "")
+    return f"""<article class="news" id="{e(n['id'])}">
+  <div class="news-top"><span class="pos-level">{e(n['category'])}</span><time datetime="{n['date']}">{fmt_date(d)}</time></div>
+  <{heading}>{e(n['title'])}</{heading}>
+  <p class="news-sum">{e(n['summary'])}</p>
+  <p class="news-why"><b>Why it matters:</b> {e(n['why'])}</p>
+  <p class="news-src">Source: <a href="{e(n['source_url'])}" target="_blank" rel="noopener">{e(n['source_title'])}</a>{more}</p>
+</article>"""
+
+
+def build_news(items):
+    root = "../"
+    months = {}
+    for n in items:
+        d = dt.date.fromisoformat(n["date"])
+        months.setdefault(f"{MONTHS[d.month - 1]} {d.year}", []).append(n)
+    sections = "".join(f'<h2 class="news-month">{e(m)}</h2><div class="news-list">{"".join(news_item(n, root) for n in ns)}</div>'
+                       for m, ns in months.items())
+    body = f"""<div class="wrap"><header class="page-head">{crumbs(root, [("", "Research news")])}
+<p class="eyebrow-s">Research and innovation</p><h1>Research and innovation news</h1>
+<p class="lede">The year's major research prizes, discoveries and new funding for students and researchers, explained in plain English. Every item links to its official source, and we say why it matters if you are planning a degree or a PhD.</p></header>
+<div class="news-page">{sections or '<p class="lede">No news yet.</p>'}</div>
+{ad_bay("between", wide=True)}
+<p class="muted" style="margin:28px 0 56px;line-height:1.7">Looking for a funded PhD in one of these fields? See our <a href="{root}positions/">funded positions</a>, or every change to the site on <a href="{root}updates/">what's new</a>.</p></div>"""
+    write("news/", page("news/", "Research and innovation news",
+                        "Major research prizes, scientific breakthroughs and new funding for students and researchers, explained in plain English with links to the official sources.",
+                        body, root=root, nav="news/", body_class="news-page-body",
+                        extra_head=f'<link rel="stylesheet" href="{asset(root, "landing.css")}">\n',
+                        jsonld=[breadcrumb_ld([("", "Home"), ("news/", "Research news")])]))
+
+
+def build_home(routes, schools, updates, positions, research):
     """The landing page: what DegreeStep is, the next deadline, the paths in, and what changed."""
     root = ""
     countries_n = len({r["country"] for r in routes})
@@ -761,6 +828,16 @@ def build_home(routes, schools, updates, positions):
     steps_html = "".join(f'<li><span class="lp-step-n">0{i + 1}</span><h3>{e(t)}</h3><p>{e(x)}</p></li>'
                          for i, (t, x) in enumerate(steps))
     news = "".join(update_item(u, root) for u in updates[:5])
+    news_cards = "".join(
+        f'<a class="lp-news-card" href="news/#{e(n["id"])}"><span class="lp-news-meta"><span class="pos-level">{e(n["category"])}</span>'
+        f'<time datetime="{n["date"]}">{fmt_date(dt.date.fromisoformat(n["date"]))}</time></span>'
+        f'<span class="lp-news-title">{e(n["title"])}</span></a>' for n in research[:3])
+    news_html = (f"""<section class="lp-section wrap">
+  <h2 class="lp-h2">Research and innovation news</h2>
+  <p class="lp-sub">The year's major research prizes, discoveries and new funding, explained in plain English with official sources.</p>
+  <div class="lp-news-grid">{news_cards}</div>
+  <p class="lp-more center"><a href="news/">All research news →</a></p>
+</section>""" if research else "")
     live_pos = open_positions(positions)
     pos_rows = "".join(
         f'<a class="row" href="positions/#pos-{e(p["id"])}"><div><div class="row-name">{e(p["title"])}</div>'
@@ -838,6 +915,8 @@ def build_home(routes, schools, updates, positions):
 </section>
 
 {pos_html}
+
+{news_html}
 
 <section class="lp-section wrap">
   <h2 class="lp-h2">What’s new</h2>
@@ -1323,10 +1402,12 @@ def main():
 
     updates = load_updates({r["slug"] for r in ROUTES})
     positions = load_positions()
+    news = load_news()
     if ERRORS:
         return report()
-    build_home(ROUTES, SCHOOLS, updates, positions)
+    build_home(ROUTES, SCHOOLS, updates, positions, news)
     build_positions(positions)
+    build_news(news)
     build_board(ROUTES, SCHOOLS)
     build_updates(updates)
     build_route_pages(ROUTES, notes, dict(countries))

@@ -153,7 +153,7 @@ class BuiltSite(unittest.TestCase):
             self.assertEqual(html.count('<details class="menu">'), 1, f"{name}: needs exactly one Menu button")
             self.assertNotIn('class="nav"', html, f"{name}: the old link bar is back")
             menu = html[html.index('<details class="menu">'):html.index("</header>")]
-            for target in ("scholarships/", "routes/", "deadlines/", "positions/", "countries/", "guides/", "about/",
+            for target in ("scholarships/", "routes/", "deadlines/", "positions/", "news/", "countries/", "guides/", "about/",
                            "updates/", "scholarships/#directory"):
                 self.assertRegex(menu, r'href="(?:(?:\.\./)*|https://[^"]+/)' + re.escape(target) + '"', f"{name}: menu lacks {target}")
             self.assertEqual(menu.count('<details class="menu-sub"'), 3, f"{name}: Countries, Guides and About drop-downs")
@@ -251,6 +251,19 @@ class BuiltSite(unittest.TestCase):
         if live:
             self.assertIn('href="positions/"', home)
             self.assertIn(f'href="positions/#pos-{live[0]["id"]}"', home, "the home page should lead with the soonest deadline")
+
+    def test_research_news_is_sourced_and_newest_first(self):
+        items = json.loads((self.dir / "content" / "news.json").read_text(encoding="utf-8"))
+        page = (self.site / "news" / "index.html").read_text(encoding="utf-8")
+        dates = re.findall(r'<article class="news" id="[a-z0-9-]+">\s*<div class="news-top">.*?<time datetime="(\d{4}-\d{2}-\d{2})"', page, re.S)
+        self.assertEqual(len(dates), len(items))
+        self.assertEqual(dates, sorted(dates, reverse=True), "newest first")
+        for n in items:
+            self.assertTrue(n["source_url"].startswith("https://"), n["id"])
+            self.assertIn(f'href="{html_mod.escape(n["source_url"], quote=True)}"', page, f'{n["id"]}: source not linked')
+        newest = sorted(items, key=lambda n: n["date"], reverse=True)[0]  # same-day items keep their written order
+        home = (self.site / "index.html").read_text(encoding="utf-8")
+        self.assertIn(f'href="news/#{newest["id"]}"', home, "the home page should show the latest news")
 
     def test_light_theme_covers_every_colour(self):
         css = (ROOT / "src" / "assets" / "site.css").read_text(encoding="utf-8")
@@ -614,6 +627,27 @@ class PoisonedData(unittest.TestCase):
         result, _ = self.positions_build(lambda items: items[0].__setitem__("link", "javascript:alert(1)"))
         self.assertNotEqual(result.returncode, 0, "a javascript: link was accepted")
         self.assertIn("plain https:// URL", result.stderr)
+
+    def news_build(self, mutate):
+        tmp = make_copy()
+        try:
+            path = tmp / "content" / "news.json"
+            items = json.loads(path.read_text(encoding="utf-8"))
+            mutate(items)
+            path.write_text(json.dumps(items, ensure_ascii=False), encoding="utf-8")
+            return build(tmp)
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+    def test_news_with_markup_rejected(self):
+        result = self.news_build(lambda items: items[0].__setitem__("summary", "<script>alert(1)</script>"))
+        self.assertNotEqual(result.returncode, 0, "markup in news was accepted")
+        self.assertIn("plain text", result.stderr)
+
+    def test_news_with_an_unknown_category_rejected(self):
+        result = self.news_build(lambda items: items[0].__setitem__("category", "Gossip"))
+        self.assertNotEqual(result.returncode, 0, "an unknown news category was accepted")
+        self.assertIn("'category' must be one of", result.stderr)
 
     def test_impossible_deadline_rejected(self):
         self.assertRejected(lambda d: d[0].__setitem__("deadlines", [{"m": 2, "d": 31}]), "impossible deadline")
