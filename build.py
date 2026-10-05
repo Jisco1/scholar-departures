@@ -763,7 +763,8 @@ NEWS_CATEGORIES = ["Award", "Breakthrough", "Funding", "Policy"]
 
 
 def load_news():
-    """content/news.json: research awards, breakthroughs and funding news, in our own words, each with its official source."""
+    """content/news.json: research awards, breakthroughs and funding news. Each story has its own page, written in
+    our own words with links to our own pages; its official source is credited at the end."""
     path = CONTENT / "news.json"
     if not path.exists():
         return []
@@ -782,8 +783,15 @@ def load_news():
             fail(f"{where}: 'category' must be one of {NEWS_CATEGORIES}")
         if not URL_RE.match(n.get("source_url") or ""):
             fail(f"{where}: 'source_url' must be a plain https:// URL")
-        if n.get("link") and not re.match(r"^[a-z0-9-]+(/[a-z0-9-]+)*/$", n["link"]):
-            fail(f"{where}: 'link' must be a path on this site such as routes/some-route/")
+        body = n.get("body")
+        if (not isinstance(body, list) or not 2 <= len(body) <= 10
+                or any(not isinstance(x, str) or not x.strip() or len(x) > 1500 or re.search(r"[<>\x00-\x1f]", x) for x in body)):
+            fail(f"{where}: 'body' must be 2 to 10 plain-text paragraphs of at most 1,500 characters")
+        else:
+            for x in body:
+                for m in LINK_MD.finditer(x):
+                    if not re.match(r"^\{\{root\}\}[a-z0-9-]+(/[a-z0-9-]+)*/$", m.group(2)):
+                        fail(f"{where}: body link {m.group(2)!r} must be a page on this site, written as {{{{root}}}}path/")
         try:
             dt.date.fromisoformat(n.get("date") or "")
         except ValueError:
@@ -796,6 +804,8 @@ def load_news():
                 fail(f"{where}: image {f!r} must be an existing src/assets/news-*.jpg")
             if im.get("kind") not in ("portrait", "wide"):
                 fail(f"{where}: image 'kind' must be portrait or wide")
+            if "focus" in im and (not isinstance(im["focus"], int) or not 0 <= im["focus"] <= 100):
+                fail(f"{where}: image 'focus' must be a whole number from 0 (top) to 100 (bottom)")
             for key in ("name", "credit", "license"):
                 v = im.get(key)
                 if not isinstance(v, str) or not v.strip() or len(v) > 200 or re.search(r"[<>\x00-\x1f]", v):
@@ -874,37 +884,85 @@ def news_thumb(n, root):
     imgs = n.get("images") or []
     if imgs:
         im = imgs[0]
-        return f'<span class="lp-news-thumb"><img src="{asset(root, im["file"])}" alt="" loading="lazy" decoding="async"></span>'
+        # "focus" moves the crop of a tall photo up or down, so the face stays in the short thumbnail
+        focus = f' style="object-position:center {im["focus"]}%"' if "focus" in im else ""
+        return f'<span class="lp-news-thumb"><img src="{asset(root, im["file"])}" alt="" loading="lazy" decoding="async"{focus}></span>'
     return f'<span class="lp-news-thumb art">{news_art(n)}</span>'
 
 
-def news_item(n, root, heading="h3"):
+def news_card(n, root, href, summary=True):
     d = dt.date.fromisoformat(n["date"])
-    more = (f' · <a href="{root}{e(n["link"])}">More on {e(SITE)} →</a>' if n.get("link") else "")
-    return f"""<article class="news" id="{e(n['id'])}">
-  <div class="news-top"><span class="pos-level">{e(n['category'])}</span><time datetime="{n['date']}">{fmt_date(d)}</time></div>
-  <{heading}>{e(n['title'])}</{heading}>
-  {news_media(n, root)}
-  <p class="news-sum">{e(n['summary'])}</p>
-  <p class="news-why"><b>Why it matters:</b> {e(n['why'])}</p>
-  <p class="news-src">Source: <a href="{e(n['source_url'])}" target="_blank" rel="noopener">{e(n['source_title'])}</a>{more}</p>
-</article>"""
+    return (f'<a class="lp-news-card" href="{href}">{news_thumb(n, root)}<span class="lp-news-meta"><span class="pos-level">{e(n["category"])}</span>'
+            f'<time datetime="{n["date"]}">{fmt_date(d)}</time></span><span class="lp-news-title">{e(n["title"])}</span>'
+            + (f'<span class="news-card-sum">{e(n["summary"])}</span><span class="news-card-more">Read the full story →</span>' if summary else "")
+            + "</a>")
 
 
-def build_news(items):
+def news_inline(text, root, live_positions):
+    """A story paragraph: plain text with [label]({{root}}path/) links to our own pages. A link to a position that
+    has since closed keeps its words and loses the link, because that position's page is no longer built."""
+    def keep(m):
+        pos = re.match(r"^\{\{root\}\}positions/([a-z0-9-]+)/$", m.group(2))
+        return m.group(1) if pos and pos.group(1) not in live_positions else m.group(0)
+    return inline(LINK_MD.sub(keep, text), root)
+
+
+def build_news_page(n, items, live_positions):
+    root = "../../"
+    path = f"news/{n['id']}/"
+    d = dt.date.fromisoformat(n["date"])
+    paras = [f"<p>{news_inline(x, root, live_positions)}</p>" for x in n["body"]]
+    paras.insert(min(2, len(paras)), ad_bay("article"))
+    others = [o for o in items if o["id"] != n["id"]][:3]
+    more = (f'<section class="news-more"><h2>More research news</h2><div class="lp-news-grid">'
+            + "".join(news_card(o, root, f'../{e(o["id"])}/', summary=False) for o in others)
+            + '</div><p><a href="../">All research news →</a></p></section>') if others else ""
+    body = f"""<div class="wrap">
+<div class="page-head">
+{crumbs(root, [("news/", "Research news"), ("", n["title"])])}
+<div class="eyebrow-s">{e(n["category"])} · <time datetime="{n["date"]}">{fmt_date(d)}</time></div>
+<h1>{e(n["title"])}</h1>
+<p class="lede">{e(n["summary"])}</p>
+</div>
+<div class="layout has-rail"><div>
+<div class="news-story-media">{news_media(n, root)}</div>
+<article class="prose">
+{"".join(paras)}
+<div class="callout"><b>Why it matters:</b> {e(n["why"])}</div>
+</article>
+<p class="news-story-src">Source: <a href="{e(n["source_url"])}" target="_blank" rel="noopener">{e(n["source_title"])}</a></p>
+{more}
+</div><aside class="rail" aria-label="Advertisements">{ad_bay("rail")}</aside></div>
+</div>"""
+    desc = n["summary"] if len(n["summary"]) <= 300 else n["summary"][:297].rsplit(" ", 1)[0] + "…"
+    article_ld = {"@context": "https://schema.org", "@type": "NewsArticle", "headline": n["title"], "description": desc,
+                  "datePublished": n["date"], "dateModified": n["date"], "mainEntityOfPage": BASE + path,
+                  "author": {"@type": "Organization", "name": SITE, "url": BASE},
+                  "publisher": {"@type": "Organization", "name": SITE, "url": BASE,
+                                "logo": {"@type": "ImageObject", "url": BASE + "assets/apple-touch-icon.png"}}}
+    if n.get("images"):
+        article_ld["image"] = [BASE + "assets/" + im["file"] for im in n["images"]]
+    write(path, page(path, n["title"], desc, body, root=root, nav="news/", body_class="news-story",
+                     extra_head=f'<link rel="stylesheet" href="{asset(root, "landing.css")}">\n', og_type="article",
+                     jsonld=[breadcrumb_ld([("", "Home"), ("news/", "Research news"), (path, n["title"])]), article_ld]))
+
+
+def build_news(items, live_positions):
     root = "../"
+    for n in items:
+        build_news_page(n, items, live_positions)
     months = {}
     for n in items:
         d = dt.date.fromisoformat(n["date"])
         months.setdefault(f"{MONTHS[d.month - 1]} {d.year}", []).append(n)
-    sections = "".join(f'<h2 class="news-month">{e(m)}</h2><div class="news-list">{"".join(news_item(n, root) for n in ns)}</div>'
+    sections = "".join(f'<h2 class="news-month">{e(m)}</h2><div class="news-list">'
+                       + "".join(news_card(n, root, e(n["id"]) + "/") for n in ns) + "</div>"
                        for m, ns in months.items())
     body = f"""<div class="wrap"><header class="page-head">{crumbs(root, [("", "Research news")])}
 <p class="eyebrow-s">Research and innovation</p><h1>Research and innovation news</h1>
 <p class="lede">The year's major research prizes, discoveries and new funding for students and researchers, and why each one matters if you are planning a degree or a PhD.</p></header>
 <div class="news-page">{sections or '<p class="lede">No news yet.</p>'}</div>
-{ad_bay("between", wide=True)}
-<p class="muted" style="margin:28px 0 56px;line-height:1.7">Looking for a funded PhD in one of these fields? See our <a href="{root}positions/">funded positions</a>, or every change to the site on <a href="{root}updates/">what's new</a>.</p></div>"""
+<div class="news-page-end">{ad_bay("between", wide=True)}</div></div>"""
     write("news/", page("news/", "Research and innovation news",
                         "Major research prizes, scientific breakthroughs and new funding for students and researchers, explained in plain English.",
                         body, root=root, nav="news/", body_class="news-page-body",
@@ -983,10 +1041,7 @@ def build_home(routes, schools, updates, positions, research):
     steps_html = "".join(f'<li><span class="lp-step-n">0{i + 1}</span><h3>{e(t)}</h3><p>{e(x)}</p></li>'
                          for i, (t, x) in enumerate(steps))
     news = "".join(update_item(u, root) for u in updates[:5])
-    news_cards = "".join(
-        f'<a class="lp-news-card" href="news/#{e(n["id"])}">{news_thumb(n, root)}<span class="lp-news-meta"><span class="pos-level">{e(n["category"])}</span>'
-        f'<time datetime="{n["date"]}">{fmt_date(dt.date.fromisoformat(n["date"]))}</time></span>'
-        f'<span class="lp-news-title">{e(n["title"])}</span></a>' for n in research[:3])
+    news_cards = "".join(news_card(n, root, f'news/{e(n["id"])}/', summary=False) for n in research[:3])
     news_html = (f"""<section class="lp-section wrap">
   <h2 class="lp-h2">Research and innovation news</h2>
   <div class="lp-news-grid">{news_cards}</div>
@@ -1554,7 +1609,7 @@ def main():
         return report()
     build_home(ROUTES, SCHOOLS, updates, positions, news)
     build_positions(positions)
-    build_news(news)
+    build_news(news, {p["id"] for p in open_positions(positions)})
     build_board(ROUTES, SCHOOLS)
     build_updates(updates)
     build_route_pages(ROUTES, notes, dict(countries))

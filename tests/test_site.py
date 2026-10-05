@@ -285,25 +285,28 @@ class BuiltSite(unittest.TestCase):
             self.assertIn('href="positions/"', home)
             self.assertIn(f'href="positions/{live[0]["id"]}/"', home, "the home page should lead with the soonest deadline")
 
-    def test_research_news_is_sourced_and_newest_first(self):
+    def test_research_news_opens_our_own_stories(self):
         items = json.loads((self.dir / "content" / "news.json").read_text(encoding="utf-8"))
+        newest_first = [n["id"] for n in sorted(items, key=lambda n: n["date"], reverse=True)]  # same-day items keep their order
         page = (self.site / "news" / "index.html").read_text(encoding="utf-8")
-        dates = re.findall(r'<article class="news" id="[a-z0-9-]+">\s*<div class="news-top">.*?<time datetime="(\d{4}-\d{2}-\d{2})"', page, re.S)
-        self.assertEqual(len(dates), len(items))
-        self.assertEqual(dates, sorted(dates, reverse=True), "newest first")
+        self.assertEqual(re.findall(r'<a class="lp-news-card" href="([a-z0-9-]+)/">', page), newest_first, "every story, newest first")
         for n in items:
+            source = f'href="{html_mod.escape(n["source_url"], quote=True)}"'
             self.assertTrue(n["source_url"].startswith("https://"), n["id"])
-            self.assertIn(f'href="{html_mod.escape(n["source_url"], quote=True)}"', page, f'{n["id"]}: source not linked')
-        newest = sorted(items, key=lambda n: n["date"], reverse=True)[0]  # same-day items keep their written order
+            self.assertNotIn(source, page, f'{n["id"]}: the list sends readers straight to the source')
+            story = (self.site / "news" / n["id"] / "index.html").read_text(encoding="utf-8")
+            article = story[story.index('<article class="prose">'):story.index("</article>")]
+            self.assertGreaterEqual(article.count("<p>"), 2, f'{n["id"]}: the story is not written out')
+            self.assertNotRegex(article, r'href="https?://', f'{n["id"]}: the story links away from the site')
+            self.assertGreater(story.index(source), story.index("</article>"), f'{n["id"]}: the source is credited before the story ends')
         home = (self.site / "index.html").read_text(encoding="utf-8")
-        self.assertIn(f'href="news/#{newest["id"]}"', home, "the home page should show the latest news")
+        self.assertIn(f'href="news/{newest_first[0]}/"', home, "the home page should show the latest news")
 
     def test_news_pictures_carry_their_credits(self):
         items = json.loads((self.dir / "content" / "news.json").read_text(encoding="utf-8"))
-        page = (self.site / "news" / "index.html").read_text(encoding="utf-8")
-        for n in items:
-            card = page[page.index(f'id="{n["id"]}"'):]
-            card = card[:card.index("</article>")]
+        for n in items:  # the pictures and their credits sit at the top of each story's page
+            story = (self.site / "news" / n["id"] / "index.html").read_text(encoding="utf-8")
+            card = story[story.index('class="news-story-media"'):story.index('<article class="prose">')]
             imgs = n.get("images") or []
             if not imgs:
                 self.assertIn('class="news-art"', card, f'{n["id"]}: neither a photo nor a drawing')
@@ -698,6 +701,39 @@ class PoisonedData(unittest.TestCase):
             return build(tmp)
         finally:
             shutil.rmtree(tmp, ignore_errors=True)
+
+    def test_news_without_its_story_rejected(self):
+        result = self.news_build(lambda items: items[0].pop("body"))
+        self.assertNotEqual(result.returncode, 0, "a story with nothing written was accepted")
+        self.assertIn("'body' must be", result.stderr)
+
+    def test_news_story_linking_out_rejected(self):
+        def link_out(items):
+            items[0]["body"][0] += " Read [the original](https://example.com/news/)."
+        result = self.news_build(link_out)
+        self.assertNotEqual(result.returncode, 0, "a story linking to another site was accepted")
+        self.assertIn("must be a page on this site", result.stderr)
+
+    def test_story_link_to_a_closed_position_keeps_its_words(self):
+        tmp = make_copy()
+        try:
+            news = json.loads((tmp / "content" / "news.json").read_text(encoding="utf-8"))
+            found = [(n["id"], m.group(1), m.group(2)) for n in news for x in n["body"]
+                     for m in re.finditer(r"\[([^\]]+)\]\(\{\{root\}\}positions/([a-z0-9-]+)/\)", x)]
+            if not found:
+                self.skipTest("no story links to a position")
+            story_id, label, position_id = found[0]
+            path = tmp / "content" / "positions.json"
+            items = json.loads(path.read_text(encoding="utf-8"))
+            next(p for p in items if p["id"] == position_id)["deadline"] = "2020-01-01"
+            path.write_text(json.dumps(items, ensure_ascii=False), encoding="utf-8")
+            result = build(tmp)
+            story = (tmp / "_site" / "news" / story_id / "index.html").read_text(encoding="utf-8")
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+        self.assertEqual(result.returncode, 0, result.stderr)  # no broken link once the position's page is gone
+        self.assertIn(html_mod.escape(label, quote=False), story)
+        self.assertNotIn(f"positions/{position_id}/", story)
 
     def test_news_with_markup_rejected(self):
         result = self.news_build(lambda items: items[0].__setitem__("summary", "<script>alert(1)</script>"))

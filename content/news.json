@@ -16,7 +16,8 @@
         "credit": "Christopher Michel",
         "license": "CC BY-SA 4.0",
         "source_url": "https://commons.wikimedia.org/wiki/File:Karl_Deisseroth_by_Christopher_Michel_02.jpg",
-        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "focus": 8
       },
       {
         "file": "news-hegemann.jpg",
@@ -36,6 +37,14 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Prof._Dr._Georg_Nagel.png",
         "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
       }
+    ],
+    "body": [
+      "The 2026 Nobel Prize in Physiology or Medicine goes to Karl Deisseroth, Peter Hegemann and Georg Nagel for discovering light-gated ion channels and developing optogenetics, a way of switching nerve cells on and off with light. The Nobel Assembly at Karolinska Institutet announced the prize on 5 October, and the three share 12 million Swedish kronor equally.",
+      "The story begins with Chlamydomonas, a single-celled green alga that swims towards light. Peter Hegemann wanted to know how it senses that light. In the early 2000s he and Georg Nagel found the answer in a protein on the alga's surface, channelrhodopsin. When blue light falls on it, a channel opens through the protein, charged ions flow into the cell and an electrical signal follows. Whatever cell they put the protein into became sensitive to light. The work was done at Max Planck institutes in Germany: Hegemann's in Martinsried and Nagel's in Frankfurt.",
+      "Karl Deisseroth then put the gene for channelrhodopsin into nerve cells from rats. Shining blue light on the cells made them fire. He published the result in 2005, and two years later had the same light switch working in the brains of living mice.",
+      "Before optogenetics, researchers could link areas of the brain to functions, but they struggled to prove cause and effect. Being able to switch chosen nerve cells on and off changed that. The method has been used to trace the circuits behind particular memories, feelings and behaviours, including those involved in neurological and psychiatric disorders, and clinical researchers are testing it as a way to restore sight to people with visual impairment.",
+      "Deisseroth, born in 1971, is a professor of bioengineering and of psychiatry and behavioural sciences at Stanford University and the Howard Hughes Medical Institute. Hegemann, born in 1954, is Hertie Senior Professor of Neuroscience at Humboldt University of Berlin. Nagel, born in 1953, is professor of molecular plant physiology at the University of Würzburg.",
+      "Neuroscience PhDs in much of northern Europe are salaried posts. Our guide to [how funded PhDs work in Europe]({{root}}guides/funded-phd-europe/) explains how to find and apply for them, and current openings are on our [funded positions]({{root}}positions/) page."
     ]
   },
   {
@@ -47,8 +56,14 @@
     "why": "All three are funded doctoral routes into AI and robotics at one of Europe's leading technical universities.",
     "source_title": "ETH Zurich — Jobs: ETH AI Center Doctoral Fellowship 2027",
     "source_url": "https://jobs.ethz.ch/job/view/12136",
-    "link": "positions/",
-    "art": "ai"
+    "art": "ai",
+    "body": [
+      "ETH Zurich has opened three funded doctoral programmes for 2027 in artificial intelligence, machine learning and robotics. Each takes a single application and pairs successful candidates with supervisors, so you apply to the programme rather than to one professor's project.",
+      "The [ETH AI Center Doctoral Fellowship]({{root}}positions/eth-ai-center-doctoral-fellowship/) offers about 8 to 12 places. Fellows propose their own project and are supervised jointly by two professors from different fields. Applications close at 16:00 Central European Time on 27 October 2026.",
+      "The [Max Planck ETH Center for Learning Systems]({{root}}positions/eth-max-planck-learning-systems/) gives each fellow one advisor at ETH Zurich and one at a Max Planck Institute in Stuttgart, Tübingen or Saarbrücken, or at the ELLIS Institute Tübingen, with a compulsory 12-month exchange between the two. The deadline is 23:59 Central European Time on 2 November 2026, and shortlisted applicants are invited to a selection symposium in Tübingen in March 2027.",
+      "The [RobotX PhD Fellowship]({{root}}positions/eth-robotx-phd-fellowship/) lets you apply once and name up to three robotics professors, who then review your application. It suits applicants who have already built something that works on real hardware, and it closes on 15 December 2026.",
+      "All three need a master's degree by the time you start, and ETH accepts applications only through its online portal. Our guide to [how funded PhDs work in Europe]({{root}}guides/funded-phd-europe/) explains how fellowship programmes like these differ from single-project PhD posts. If you still need the master's, the [ETH Zurich Excellence Scholarship]({{root}}routes/eth-zurich-excellence-scholarship/) funds master's study at ETH."
+    ]
   },
   {
     "id": "chevening-2027-28-closing",
@@ -59,8 +74,14 @@
     "why": "11:00 UTC is 11:00 in Accra, 12:00 in London and Lagos, 14:00 in Nairobi, 16:30 in Delhi and 07:00 in New York, so check your own time zone.",
     "source_title": "Chevening — Application timeline",
     "source_url": "https://www.chevening.org/scholarships/application-timeline/",
-    "link": "routes/chevening-scholarships/",
-    "art": "scholarship"
+    "art": "scholarship",
+    "body": [
+      "Chevening, the UK government's international scholarship programme, closes applications for 2027–28 at 11:00 UTC on 6 October 2026. After that moment the online application system can no longer be opened.",
+      "Chevening funds a one-year master's degree at a UK university. Applications opened on 4 August 2026. Our page on [Chevening Scholarships]({{root}}routes/chevening-scholarships/) sets out who can apply and what the award covers.",
+      "After the deadline, applications are checked against the eligibility criteria, and independent reading committees assess the eligible ones from mid-October 2026 to January 2027. British embassies and high commissions draw up shortlists in mid-February 2027 and interview candidates in March and April.",
+      "Shortlisted candidates must upload their documents, including photo ID, their undergraduate certificate and their reference letters, at least seven working days before the interview. Results are announced from mid-June 2027. Successful candidates must then secure at least one unconditional offer from a UK university by 17:00 UK time on 8 July 2027, and start their studies in September or October 2027.",
+      "If you are aiming for next year's round instead, our [application timeline]({{root}}guides/application-timeline/) and [document checklist]({{root}}guides/document-checklist/) help you prepare early."
+    ]
   },
   {
     "id": "lasker-awards-2026",
@@ -81,6 +102,13 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Masashi_Yanagisawa_cropped_2_Masashi_Yanagisawa_201911.jpg",
         "license_url": "https://creativecommons.org/licenses/by/4.0/"
       }
+    ],
+    "body": [
+      "The 2026 Lasker Awards honour the discovery of the brain's wakefulness signal, a new kind of medicine for the bleeding disorder haemophilia A, and more than two decades of work for people with Parkinson's disease.",
+      "The basic medical research award goes to Emmanuel Mignot of Stanford University and Masashi Yanagisawa of the University of Tsukuba in Japan. They identified orexin, a small protein made in the brain that keeps us awake, and showed that losing it causes narcolepsy, in which people fall asleep uncontrollably. Several insomnia drugs now work by blocking orexin's receptors, and a drug that activates one of those receptors is in late-stage development as a treatment for narcolepsy.",
+      "The clinical research award goes to Kunihiro Hattori, Tomoyuki Igawa and Takehisa Kitazawa of Chugai Pharmaceutical in Tokyo. People with haemophilia A lack a working clotting protein, Factor VIII. The three designed an antibody with two arms, emicizumab (sold as Hemlibra), that holds two other clotting factors together and so does Factor VIII's job. In 2017 it became the first antibody of its kind approved as a treatment by the US Food and Drug Administration. It is now approved in more than 120 countries, has helped more than 30,000 people, and has all but stopped bleeding for patients, including those whose immune systems attack replacement Factor VIII.",
+      "The public service award goes to the actor Michael J. Fox. He learned he had Parkinson's disease in 1990, at the age of 29, made it public in 1998, and in 2000 launched the Michael J. Fox Foundation for Parkinson's Research. The foundation has given US$3 billion in research grants, is the largest non-profit funder of Parkinson's research in the world, and helps recruit volunteers for clinical trials.",
+      "Much of the medical research behind awards like these is done by PhD students. Our guide to [how funded PhDs work in Europe]({{root}}guides/funded-phd-europe/) explains how to find a salaried post."
     ]
   },
   {
@@ -128,6 +156,14 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Hong_Wang,_2025_(cropped).jpg",
         "license_url": "https://creativecommons.org/licenses/by/4.0/"
       }
+    ],
+    "body": [
+      "The International Mathematical Union awarded the 2026 Fields Medals to Yu Deng, John Pardon, Jacob Tsimerman and Hong Wang at the opening of the International Congress of Mathematicians in Philadelphia in July. The medal goes to mathematicians under 40, both for what they have achieved and for the promise of what is to come.",
+      "Yu Deng works on partial differential equations. He rigorously derived the Boltzmann equation, which describes thin gases, from the motion of colliding hard spheres, derived the equations that describe how energy spreads through large systems of waves, and developed probabilistic approaches to the nonlinear Schrödinger equation.",
+      "John Pardon is honoured for work in symplectic geometry, including new approaches to counting holomorphic curves, and for results in other parts of geometry and topology, among them group actions on three-dimensional manifolds and knot theory.",
+      "Jacob Tsimerman turned o-minimality, an idea from mathematical logic, into a basic method of arithmetic and algebraic geometry, and helped prove several central conjectures, including the André–Oort conjecture for Siegel modular varieties and Griffiths' conjecture on the images of period maps.",
+      "Hong Wang works in harmonic analysis and geometric measure theory. She made major advances on Fourier restriction, Falconer distance sets and Furstenberg sets, and on the Kakeya problem in three dimensions, which asks how much space a set must take up if it contains a line segment pointing in every direction.",
+      "The medals and their cash prizes are paid for by a trust set up by J. C. Fields at the University of Toronto, with extra support this year from the Fields Institute. If you are thinking about a doctorate in mathematics, our guide to [contacting PhD supervisors]({{root}}guides/contacting-phd-supervisors/) explains how to approach a potential supervisor."
     ]
   },
   {
@@ -149,6 +185,13 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:The_best_Milky_Way_map,_by_Gaia_(edge-on)_ESA505424.jpg",
         "license_url": "https://creativecommons.org/licenses/by-sa/3.0/igo/"
       }
+    ],
+    "body": [
+      "The Norwegian Academy of Science and Letters announced the 2026 Kavli Prizes in astrophysics, nanoscience and neuroscience in June. Ten scientists of nine nationalities share the three prizes, each worth US$1 million, which are presented in Oslo in September.",
+      "The astrophysics prize goes to Vasily Belokurov of the University of Cambridge, Amina Helmi of the University of Groningen and Rodrigo Ibata of CNRS and the University of Strasbourg. They showed that the Milky Way grew by swallowing smaller galaxies. Their evidence is stellar streams: long trails of stars left behind by dwarf galaxies that our galaxy's gravity tore apart. The way those stars move also reveals the pull of the dark matter that holds the galaxy together.",
+      "The nanoscience prize goes to Eva Andrei, Pablo Jarillo-Herrero of MIT and Allan MacDonald of the University of Texas at Austin for founding twistronics. Stacking atom-thin sheets of graphene and twisting one against the other changes how the material behaves without changing what it is made of. Andrei showed how twisting graphene layers alters their properties; by 2011 MacDonald's theory had pinned down a 'magic angle' of about 1.1 degrees; and in 2018 Jarillo-Herrero's team reported in two papers in Nature that twisted graphene at that angle conducts electricity with no resistance at 1.7 kelvin.",
+      "The neuroscience prize goes to Christine Holt of the University of Cambridge, Kelsey Martin, Erin Schuman of the Max Planck Institute for Brain Research and Oswald Steward of the University of California, Irvine. They showed that nerve cells make proteins locally, at the synapses where the proteins are needed, and not only in the cell body. Steward found protein-making machinery at the base of synapses; Schuman showed that strengthening a synapse needs fast local protein synthesis; Martin showed the same for connections strengthened during learning; and Holt found that growing nerve fibres can steer towards chemical signals even when cut off from the cell body.",
+      "Lund University is recruiting a [PhD student to model planet formation across the Milky Way]({{root}}positions/lund-astronomy-planet-formation/), and other salaried physics and neuroscience posts are on our [funded positions]({{root}}positions/) page."
     ]
   },
   {
@@ -170,6 +213,14 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Fermilab_g-2_(E989)_ring.jpg",
         "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
       }
+    ],
+    "body": [
+      "The Breakthrough Prize Foundation announced its 2026 prizes on 18 April in Los Angeles. Six prizes of US$3 million each recognised gene therapies, the genetics of ALS and dementia, the mathematics of waves, precise measurements of the muon, and a lifetime in theoretical physics.",
+      "Jean Bennett, Katherine High and Albert Maguire share a life sciences prize for the first gene replacement therapy approved by the US Food and Drug Administration. It treats Leber congenital amaurosis, an inherited eye disease that usually leads to total blindness in early adulthood, by replacing a faulty gene, RPE65, that the retina needs to respond to light. Patients treated more than a decade ago have kept their improved vision.",
+      "Stuart Orkin and Swee Lay Thein share a second prize for showing how fetal haemoglobin can be switched back on. People who keep making it as adults have milder sickle cell disease and beta-thalassaemia. Thein traced the trait to the gene BCL11A; Orkin showed that BCL11A shuts fetal haemoglobin off after birth, and found a control switch for it that works only in red blood cells. Editing that switch is the basis of Casgevy, the first CRISPR-based medicine approved for any disease.",
+      "Rosa Rademakers and Bryan Traynor share the third prize. In 2011 their labs independently found the most common genetic cause of both ALS and frontotemporal dementia: a short stretch of DNA in the C9orf72 gene repeated hundreds or thousands of times. It explains about a third of family cases of both diseases in European populations, and has made genetic testing possible for affected families.",
+      "Frank Merle won the mathematics prize for work on the equations that describe how waves and fluids change over time, especially on singularities, where solutions blow up to infinity. With colleagues he showed that the defocusing nonlinear Schrödinger equation, long thought to be stable, can in fact blow up in finite time. The fundamental physics prize went to the Muon g-2 collaborations at CERN, Brookhaven National Laboratory and Fermilab for decades of ever more precise measurements of the muon's magnetism, and David Gross received a special prize for a lifetime of work in theoretical physics.",
+      "Gene therapy and precision physics both have salaried PhD posts in Europe; see our [funded positions]({{root}}positions/) and our guide to [how funded PhDs work in Europe]({{root}}guides/funded-phd-europe/)."
     ]
   },
   {
@@ -191,6 +242,13 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Gerd_Faltings_MFO_(cropped).jpg",
         "license_url": "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en"
       }
+    ],
+    "body": [
+      "The Norwegian Academy of Science and Letters awarded the 2026 Abel Prize to Gerd Faltings of the Max Planck Institute for Mathematics in Bonn, for powerful new tools in arithmetic geometry and for settling long-standing conjectures of Mordell and Lang. He is the first German to receive the prize, which is worth 7.5 million Norwegian kroner.",
+      "Faltings's field is the study of Diophantine equations, where the solutions must be whole numbers or fractions. The Mordell conjecture, from 1922, says that a wide class of these equations can have only finitely many rational solutions. It stood unproven for 60 years until Faltings proved it in 1983, and it is now known as Faltings's theorem.",
+      "After Paul Vojta found a different proof in 1989, Faltings developed a new tool, now called Faltings's product theorem, and used it to prove the Mordell–Lang conjecture, another long-standing problem.",
+      "Born in West Germany in 1954, Faltings became a full professor at the University of Wuppertal in 1982, moved to Princeton University in 1985, and returned to Germany in 1994 as a director at the Max Planck Institute for Mathematics in Bonn, where he has been emeritus director since 2023. In 1986 he became the first German to win the Fields Medal.",
+      "Germany offers fully funded doctoral study, including through the [DAAD scholarships]({{root}}routes/daad-scholarships/); our [Germany guide]({{root}}countries/germany/) covers costs, visas and work rights."
     ]
   },
   {
@@ -199,10 +257,9 @@
     "category": "Award",
     "title": "Turing Award goes to the founders of quantum information science",
     "summary": "ACM named Charles Bennett of IBM Research and Gilles Brassard of the Université de Montréal as recipients of the 2025 A.M. Turing Award. In 1984 they introduced BB84, the first practical protocol for quantum cryptography, and in 1993, with colleagues, quantum teleportation. The award carries US$1 million.",
-    "why": "Quantum computing and quantum security now offer funded PhDs across Europe and North America, including the Uppsala quantum verification post on our positions page.",
+    "why": "Quantum computing and quantum security now offer funded PhDs across Europe and North America.",
     "source_title": "ACM — 2025 A.M. Turing Award",
     "source_url": "https://www.acm.org/media-center/2026/march/turing-award-2025",
-    "link": "positions/",
     "images": [
       {
         "file": "news-bennett-brassard.jpg",
@@ -213,6 +270,13 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Charles_Bennett_Gilles_Brassard_stitched.png",
         "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
       }
+    ],
+    "body": [
+      "The Association for Computing Machinery named Charles Bennett and Gilles Brassard as the recipients of the 2025 A.M. Turing Award on 18 March 2026, for founding quantum information science. The award carries US$1 million, with financial support from Google.",
+      "In 1984 the two introduced BB84, the first practical scheme for quantum cryptography. It lets two people agree on a secret key whose security rests on physics: quantum information cannot be copied or measured without disturbing it, so an eavesdropper always leaves traces. Unlike today's public-key encryption, which a large quantum computer could break, BB84 does not depend on any problem being hard to solve. Versions of it already run in quantum communication networks, over optical fibre and through satellites.",
+      "In 1993, with colleagues, they described quantum teleportation: sending an unknown quantum state to a distant partner using entanglement and ordinary communication. In 1996 they showed how weak entanglement can be distilled into strong entanglement, a step towards long-distance quantum networks.",
+      "Bennett, an American physicist, has worked at IBM Research since 1973, after a PhD at Harvard University. Brassard, a Canadian computer scientist, earned his PhD at Cornell University in 1979 and joined the Université de Montréal, where he held the Canada Research Chair in Quantum Information Science from 2001 to 2021.",
+      "Quantum computing now has funded PhDs of its own, such as Uppsala University's [PhD in scalable quantum program verification]({{root}}positions/uppsala-quantum-verification/). More are on our [funded positions]({{root}}positions/) page."
     ]
   }
 ]
