@@ -21,6 +21,18 @@
     {
       "h": "Housing",
       "html": "<p>Student housing is scarce in Delft, Amsterdam, Utrecht and other university cities. Look as soon as you are admitted, and be wary of listings that ask for payment before you have seen a contract.</p>"
+    },
+    {
+      "h": "Proof of funds for your residence permit",
+      "html": "<p>The Dutch immigration service (IND) asks you to show the <strong>study norm</strong>: <strong>€1,130.77 a month</strong> for university and higher professional education in 2026, the most a Dutch student can receive in study finance when living away from home. You need it for a year (twelve times the monthly amount, €13,569.24), and in practice you usually transfer it to your university, which applies for the permit for you. The amount changes every 1 January.</p>"
+    },
+    {
+      "h": "Working while you study",
+      "html": "<p>You may work as an employee only if your employer has a work permit (<em>TWV</em>) for you, and then you must choose: <strong>up to 16 hours a week</strong>, or <strong>full time in June, July and August</strong>. Self-employment does not need a work permit, as long as you still meet the conditions of your study permit.</p>"
+    },
+    {
+      "h": "After you graduate: the orientation year",
+      "html": "<p>Within <strong>three years</strong> of finishing your studies, you can apply for a residence permit for an <strong>orientation year</strong> for highly educated persons. It lasts one year, and during it you may work freely: your employer does not need a work permit.</p>"
     }
   ],
   "sources": [
@@ -35,7 +47,51 @@
     {
       "title": "Maastricht University — NL-High Potential scholarship",
       "url": "https://www.maastrichtuniversity.nl/studeren/toelating-inschrijving/financing-your-studies/scholarships/maastricht-university-nl-high"
+    },
+    {
+      "title": "IND — Student residence permit for university or higher professional education",
+      "url": "https://ind.nl/en/residence-permits/study/student-residence-permit-for-university-or-higher-professional-education"
+    },
+    {
+      "title": "IND — Required amounts (study norm)",
+      "url": "https://ind.nl/en/required-amounts-income-requirements"
+    },
+    {
+      "title": "IND — Residence permit for orientation year",
+      "url": "https://ind.nl/en/residence-permits/work/residence-permit-for-orientation-year"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-10-05",
+  "glance": [
+    [
+      "Tuition",
+      "Institutional fees for non-EU students, often €12,000–€30,000 a year for a master's"
+    ],
+    [
+      "Proof of funds",
+      "€1,130.77 a month in 2026, deposited for 12 months"
+    ],
+    [
+      "Work while studying",
+      "16 hours a week, or full time in June–August; the employer needs a work permit"
+    ],
+    [
+      "After you graduate",
+      "A one-year orientation year with free access to work"
+    ]
+  ],
+  "faq": [
+    {
+      "q": "How much money do I need for a Dutch student residence permit?",
+      "a": "The 2026 study norm for university and higher professional education is €1,130.77 a month, and you need it for a year: €13,569.24."
+    },
+    {
+      "q": "Can I work while studying in the Netherlands?",
+      "a": "Only if your employer gets a work permit for you, and then up to 16 hours a week or full time in June, July and August."
+    },
+    {
+      "q": "Can I stay in the Netherlands after graduating?",
+      "a": "Yes. Within three years of graduating you can apply for a one-year orientation year, during which you may work without a work permit."
+    }
+  ]
 }

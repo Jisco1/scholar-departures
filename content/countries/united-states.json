@@ -29,6 +29,14 @@
     {
       "h": "Timeline",
       "html": "<p>Undergraduate early deadlines fall on or around <strong>1 November</strong> and regular deadlines in the first week of January. You will need school reports, teacher recommendations, essays, English-test results where required and financial aid forms such as the CSS Profile. Start a year ahead.</p>"
+    },
+    {
+      "h": "Proof of funds and the I-20",
+      "html": "<p>Before a college can issue the Form I-20 you need for an F-1 student visa, you must prove you can pay for your studies: tuition, fees and living costs for <strong>one academic year</strong>, or for the whole programme if it is shorter. Family bank statements, a sponsor's documents, financial aid letters and scholarship letters can all count. At colleges that meet full need, your aid award is part of that evidence.</p>"
+    },
+    {
+      "h": "Working and staying after graduation",
+      "html": "<p>On an F-1 visa you may work <strong>on campus up to 20 hours a week</strong> while school is in session, and full time in the breaks. Off-campus work needs separate authorisation. After graduating you can apply for up to <strong>12 months of Optional Practical Training (OPT)</strong> in your field, and graduates of approved STEM degrees can extend it by <strong>24 months</strong> with an employer enrolled in E-Verify.</p>"
     }
   ],
   "sources": [
@@ -47,7 +55,51 @@
     {
       "title": "Berea College — International applicant information",
       "url": "https://www.berea.edu/admissions/admission-information/apply/checklist-items/international-faqs"
+    },
+    {
+      "title": "Study in the States (DHS) — Proof of financial support for Form I-20",
+      "url": "https://studyinthestates.dhs.gov/2016/12/reminder-proof-financial-support-needed-issue-form-i-20"
+    },
+    {
+      "title": "USCIS — Optional Practical Training (OPT) for F-1 students",
+      "url": "https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students"
+    },
+    {
+      "title": "Study in the States (DHS) — STEM OPT extension overview",
+      "url": "https://studyinthestates.dhs.gov/stem-opt-hub/additional-resources/stem-opt-extension-overview"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-10-05",
+  "glance": [
+    [
+      "Tuition",
+      "Set by each college; a few meet full need for international students"
+    ],
+    [
+      "Proof of funds",
+      "Enough for one year's tuition, fees and living costs, shown to your college for the I-20"
+    ],
+    [
+      "Work while studying",
+      "On campus only, up to 20 hours a week while classes are in session"
+    ],
+    [
+      "After you graduate",
+      "Up to 12 months of OPT, plus 24 months for STEM degrees"
+    ]
+  ],
+  "faq": [
+    {
+      "q": "Can international students study in the US for free?",
+      "a": "Yes, at a few colleges: those that are need-blind or meet full need for international students can cover everything your family cannot pay, and Berea College charges no tuition."
+    },
+    {
+      "q": "How much money do I need for a US student visa?",
+      "a": "Enough to cover one academic year of tuition, fees and living costs, as shown on your Form I-20. Scholarships and financial aid letters count."
+    },
+    {
+      "q": "Can I work in the US after graduating?",
+      "a": "F-1 graduates can apply for up to 12 months of OPT, and STEM graduates can extend it by 24 months."
+    }
+  ]
 }

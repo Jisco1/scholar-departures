@@ -21,6 +21,14 @@
     {
       "h": "For researchers: the Swiss Government Excellence Scholarships",
       "html": "<p>The <a href=\"{{root}}routes/swiss-government-excellence-scholarships/\">federal scholarships</a> fund doctoral and postdoctoral research at Swiss universities for researchers from about 180 countries, with a monthly stipend of CHF 2,450 plus fees, insurance and housing support. You apply through the Swiss embassy in your country, which sets its own deadline, and you need a Swiss professor to host you.</p>"
+    },
+    {
+      "h": "Proof of funds and your residence permit",
+      "html": "<p>Non-EU students need a residence permit from the canton where they study, and each canton sets its own proof of funds. At ETH Zürich, students from outside the EU/EFTA show a statement from a bank account in their own name holding <strong>at least CHF 21,000</strong>, with a European bank or one on the Swiss regulator's (FINMA) list, and must show it again for each following year.</p>"
+    },
+    {
+      "h": "Working and staying after graduation",
+      "html": "<p>Non-EU students may work <strong>up to 15 hours a week</strong> during the semester and full time in the lecture-free periods. Bachelor's students, and master's students working outside their university, must wait <strong>six months after arriving</strong> before a work permit can be issued.</p><p>After graduating you can extend your permit for <strong>up to six months to look for a job</strong>. The six months run from your graduation date, so apply promptly, and the same limit on working hours applies meanwhile.</p>"
     }
   ],
   "sources": [
@@ -39,7 +47,51 @@
     {
       "title": "SERI — Swiss Government Excellence Scholarships",
       "url": "https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html"
+    },
+    {
+      "title": "ETH Zürich — Applying for a residence permit",
+      "url": "https://ethz.ch/en/studies/international/after-arrival/residence-permit/applying.html"
+    },
+    {
+      "title": "ETH Zürich — Employment for non-EU/EFTA students",
+      "url": "https://ethz.ch/en/studies/international/after-arrival/employment/non-eu.html"
+    },
+    {
+      "title": "ETH Zürich — Residence permit after graduation for job seeking",
+      "url": "https://ethz.ch/en/studies/international/end-studies/residence-permit-job-seeking.html"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-10-05",
+  "glance": [
+    [
+      "Tuition",
+      "CHF 2,190 a semester at ETH Zürich and EPFL for students from abroad"
+    ],
+    [
+      "Proof of funds",
+      "CHF 21,000 in your own bank account at ETH Zürich; each canton sets its own"
+    ],
+    [
+      "Work while studying",
+      "Up to 15 hours a week in term, full time in breaks; bachelor's students wait 6 months"
+    ],
+    [
+      "After you graduate",
+      "Up to 6 months to look for a job"
+    ]
+  ],
+  "faq": [
+    {
+      "q": "How much money do I need to study in Switzerland?",
+      "a": "Each canton sets its own figure. At ETH Zürich, non-EU students show at least CHF 21,000 in a bank account in their name."
+    },
+    {
+      "q": "Can I work while studying in Switzerland?",
+      "a": "Yes, up to 15 hours a week in term and full time in breaks. Bachelor's students must wait six months after arriving."
+    },
+    {
+      "q": "Can I stay in Switzerland after graduating?",
+      "a": "You can extend your permit by up to six months from your graduation date to look for a job."
+    }
+  ]
 }

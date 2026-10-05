@@ -943,17 +943,33 @@ def build_countries(routes, countries):
             if i == 1:
                 sections += ad_bay("article")
         sources = "".join(f'<li><a href="{e(s["url"])}" target="_blank" rel="noopener">{e(s["title"])}</a></li>' for s in c.get("sources", []))
+        # the numbers people come for, then the questions they ask; both plain text, checked here
+        glance, faq = c.get("glance") or [], c.get("faq") or []
+        for item in glance:
+            if (not isinstance(item, list) or len(item) != 2 or not all(isinstance(x, str) and x.strip() for x in item)
+                    or any(re.search(r"[<>]", x) for x in item)):
+                fail(f"content/countries/{slug}.json: each 'glance' item must be [label, plain text]")
+        for q in faq:
+            if not all(isinstance(q.get(k), str) and q[k].strip() and not re.search(r"[<>]", q[k]) for k in ("q", "a")):
+                fail(f"content/countries/{slug}.json: each 'faq' item needs plain-text 'q' and 'a'")
+        glance_html = ('<div class="glance"><p class="eyebrow-s">At a glance · international students</p><dl class="glance-grid">'
+                       + "".join(f"<div><dt>{e(k)}</dt><dd>{e(v)}</dd></div>" for k, v in glance) + "</dl></div>") if glance else ""
+        faq_html = ('<h2 id="common-questions">Common questions</h2>'
+                    + "".join(f"<h3>{e(q['q'])}</h3><p>{e(q['a'])}</p>" for q in faq)) if faq else ""
+        faq_ld = ([{"@context": "https://schema.org", "@type": "FAQPage",
+                    "mainEntity": [{"@type": "Question", "name": q["q"], "acceptedAnswer": {"@type": "Answer", "text": q["a"]}}
+                                   for q in faq]}] if faq else [])
         body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("countries/", "Countries"), ("", c["name"])])}
 <div class="eyebrow-s">{e(c.get("flag", ""))} {len(rs)} funded route{"s" if len(rs) != 1 else ""}</div>
 <h1>{e(c["title"])}</h1><p class="lede">{e(c["lede"])}</p>
 <div class="byline"><span>Reviewed <b>{e(fmt_date(dt.date.fromisoformat(c["reviewed"])))}</b></span><span>Sources: official government and university pages</span></div></div>
-<div class="layout has-rail"><div>
+<div class="layout has-rail"><div>{glance_html}
 <h2 class="group-title">Funded routes in {e(c["name"])}</h2><div class="rows">{"".join(route_row(r, root) for r in rs)}</div>
-<article class="prose" style="margin-top:12px">{sections}
+<article class="prose" style="margin-top:12px">{sections}{faq_html}
 {"<h2>Sources</h2><ul>" + sources + "</ul>" if sources else ""}</article>
 </div><aside class="rail" aria-label="Advertisements">{ad_bay("rail")}</aside></div></div>"""
         write(f"countries/{slug}/", page(f"countries/{slug}/", c["title"], c["description"], body, root=root, nav="countries/",
-                                          jsonld=[breadcrumb_ld([("", "Home"), ("countries/", "Countries"), (f"countries/{slug}/", c["name"])])],
+                                          jsonld=[breadcrumb_ld([("", "Home"), ("countries/", "Countries"), (f"countries/{slug}/", c["name"])])] + faq_ld,
                                           og_type="article"))
     root = "../"
     tiles = "".join(

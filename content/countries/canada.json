@@ -21,6 +21,14 @@
     {
       "h": "Study permits and proof of funds",
       "html": "<p>Canada caps the number of study permits it issues. For applications from <strong>1 September 2026</strong>, a single applicant must show <strong>CAD 23,448</strong> for living costs, in addition to tuition and travel. Master's and doctoral students at public institutions no longer need a provincial attestation letter. Rules change often — check Immigration, Refugees and Citizenship Canada before you apply.</p>"
+    },
+    {
+      "h": "Working while you study",
+      "html": "<p>With an eligible study permit you can work off campus <strong>up to 24 hours a week</strong> during regular academic sessions, and <strong>without limit during scheduled breaks</strong> such as the winter and summer holidays.</p>"
+    },
+    {
+      "h": "After you graduate: the post-graduation work permit",
+      "html": "<p>Graduates of eligible programmes can apply for a post-graduation work permit (PGWP). For a programme of at least eight months but less than two years, it can last as long as the programme; for a programme of two years or more, it can last <strong>three years</strong>. It never runs past your passport's expiry. Since 1 November 2024 most applicants must also submit language test results.</p>"
     }
   ],
   "sources": [
@@ -37,9 +45,49 @@
       "url": "https://www.grad.ubc.ca/awards/vanier-scholarship"
     },
     {
-      "title": "Moving2Canada — Proof-of-funds requirement increasing from 1 September 2026",
-      "url": "https://moving2canada.com/2026/08/proof-of-funds-requirement-for-canadian-study-permit-increasing/"
+      "title": "IRCC — Proof of financial support for a study permit",
+      "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/financial-support.html"
+    },
+    {
+      "title": "IRCC — Work off campus",
+      "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/work-off-campus.html"
+    },
+    {
+      "title": "IRCC — Post-graduation work permit",
+      "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/about.html"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-10-05",
+  "glance": [
+    [
+      "Tuition",
+      "Set by each university; international fees are far higher than domestic ones"
+    ],
+    [
+      "Proof of funds",
+      "CAD 23,448 a year for a single applicant from 1 September 2026, plus tuition and travel"
+    ],
+    [
+      "Work while studying",
+      "Up to 24 hours a week off campus in term; unlimited in scheduled breaks"
+    ],
+    [
+      "After you graduate",
+      "A post-graduation work permit of up to 3 years"
+    ]
+  ],
+  "faq": [
+    {
+      "q": "How much money do I need for a Canadian study permit?",
+      "a": "For applications from 1 September 2026, a single applicant must show CAD 23,448 for a year's living costs, on top of tuition and travel."
+    },
+    {
+      "q": "Can I work in Canada as an international student?",
+      "a": "Yes, up to 24 hours a week off campus during term and without limit during scheduled breaks, if your study permit allows it."
+    },
+    {
+      "q": "Can I work in Canada after graduating?",
+      "a": "Graduates of eligible programmes can get a post-graduation work permit of up to three years, depending on the length of the programme."
+    }
+  ]
 }

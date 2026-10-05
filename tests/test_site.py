@@ -215,6 +215,24 @@ class BuiltSite(unittest.TestCase):
         home = (self.site / "index.html").read_text(encoding="utf-8")
         self.assertEqual(len(re.findall(r'<li class="lp-upd">', home)), min(5, len(items)))
 
+    def test_country_guides_answer_the_practical_questions(self):
+        for path in sorted((self.dir / "content" / "countries").glob("*.json")):
+            c = json.loads(path.read_text(encoding="utf-8"))
+            html = (self.site / "countries" / path.stem / "index.html").read_text(encoding="utf-8")
+            labels = [k for k, _ in c["glance"]]
+            self.assertEqual(len(labels), 4, path.stem)
+            self.assertTrue(any("Proof of funds" in k for k in labels), f"{path.stem}: no proof of funds")
+            self.assertIn("Work while studying", labels, path.stem)
+            self.assertIn("After you graduate", labels, path.stem)
+            self.assertEqual(html.count("<div><dt>"), 4, path.stem)
+            self.assertGreaterEqual(len(c["faq"]), 3, path.stem)
+            ld = [json.loads(b) for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)]
+            faq = [b for b in ld if b.get("@type") == "FAQPage"]
+            self.assertEqual(len(faq), 1, f"{path.stem}: FAQ structured data")
+            self.assertEqual([q["name"] for q in faq[0]["mainEntity"]], [q["q"] for q in c["faq"]], path.stem)
+            for s in c["sources"]:
+                self.assertTrue(s["url"].startswith("https://"), path.stem)
+
     def test_light_theme_covers_every_colour(self):
         css = (ROOT / "src" / "assets" / "site.css").read_text(encoding="utf-8")
         dark = css[css.index(":root {"):css.index("}", css.index(":root {"))]
@@ -533,6 +551,19 @@ class PoisonedData(unittest.TestCase):
             shutil.rmtree(tmp, ignore_errors=True)
         self.assertNotEqual(result.returncode, 0, "an update about a missing route was accepted")
         self.assertIn("matches no route", result.stderr)
+
+    def test_markup_in_a_country_glance_rejected(self):
+        tmp = make_copy()
+        try:
+            path = tmp / "content" / "countries" / "germany.json"
+            c = json.loads(path.read_text(encoding="utf-8"))
+            c["glance"][0][1] = "<script>alert(1)</script>"
+            path.write_text(json.dumps(c, ensure_ascii=False), encoding="utf-8")
+            result = build(tmp)
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+        self.assertNotEqual(result.returncode, 0, "markup in a country glance was accepted")
+        self.assertIn("plain text", result.stderr)
 
     def test_impossible_deadline_rejected(self):
         self.assertRejected(lambda d: d[0].__setitem__("deadlines", [{"m": 2, "d": 31}]), "impossible deadline")

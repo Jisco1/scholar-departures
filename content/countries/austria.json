@@ -21,6 +21,14 @@
     {
       "h": "Language and living costs",
       "html": "<p>Most bachelor's programmes are taught in German; many master's programmes, especially in engineering and science, are taught in English. Vienna is consistently rated one of the world's most liveable cities, but rents have risen — budget carefully, and remember the residence permit requires proof of funds.</p>"
+    },
+    {
+      "h": "Proof of funds for your residence permit",
+      "html": "<p>Students from outside the EU need a <em>Residence Permit – Student</em>, and must prove they can support themselves for <strong>twelve months in advance</strong>. For 2026 the amounts are <strong>€722.58 a month if you are under 24</strong> and <strong>€1,308.39 a month from the age of 24</strong>. If your rent is more than €386.43 a month, you must show additional funds to cover the difference.</p><p>The money can be in a bank account or savings book in your name that you can use from Austria; a confirmed scholarship or a declaration of guarantee can also count. Health insurance is compulsory as well.</p>"
+    },
+    {
+      "h": "Working and staying after graduation",
+      "html": "<p>With a student residence permit you can get a work permit for <strong>up to 20 hours a week</strong>. When you finish your degree, you can apply to renew the permit for another <strong>12 months to look for a job or set up a business</strong> in Austria.</p>"
     }
   ],
   "sources": [
@@ -39,7 +47,47 @@
     {
       "title": "TU Wien — Academic calendar",
       "url": "https://www.tuwien.at/en/studies/admission/academic-calendar"
+    },
+    {
+      "title": "OeAD — Residence permit for students",
+      "url": "https://oead.at/en/to-austria/entry-and-residence/residence-permit-student-no-mobility-programme"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-10-05",
+  "glance": [
+    [
+      "Tuition",
+      "€726.72 a semester for most non-EU students; none for citizens of the least-developed-countries list"
+    ],
+    [
+      "Proof of funds (2026)",
+      "€722.58 a month under 24, €1,308.39 a month from 24, shown for 12 months"
+    ],
+    [
+      "Work while studying",
+      "Up to 20 hours a week, with a work permit"
+    ],
+    [
+      "After you graduate",
+      "12 more months to look for a job or start a business"
+    ]
+  ],
+  "faq": [
+    {
+      "q": "How much does it cost a non-EU student to study in Austria?",
+      "a": "Usually €726.72 a semester in tuition plus the students' union fee, at public universities such as the University of Vienna and TU Wien. Citizens of the countries on Austria's least-developed-countries list pay no tuition."
+    },
+    {
+      "q": "How much money do I need to show for an Austrian student residence permit?",
+      "a": "For 2026, €722.58 a month if you are under 24 and €1,308.39 a month from 24, for twelve months in advance, plus more if your rent is above €386.43 a month."
+    },
+    {
+      "q": "Can I work in Austria as a student?",
+      "a": "Yes, up to 20 hours a week once you have a work permit, which your employer applies for."
+    },
+    {
+      "q": "Can I stay in Austria after graduating?",
+      "a": "You can renew your residence permit for another 12 months to look for a job or set up a business."
+    }
+  ]
 }

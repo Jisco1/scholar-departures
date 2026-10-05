@@ -21,6 +21,18 @@
     {
       "h": "Language",
       "html": "<p>Flanders is Dutch-speaking, but its universities offer many master's and doctoral programmes in English. Brussels is officially bilingual (French and Dutch).</p>"
+    },
+    {
+      "h": "Proof of funds for your visa",
+      "html": "<p>Non-EU students must show <strong>€1,062 a month for 2026–27</strong>, the minimum set by the Belgian government. There are four ways to prove it: a blocked university account holding twelve times that amount (€12,744), a bank guarantee deposit of the same amount, a scholarship, or a sponsor who signs the formal undertaking known as Annex 32 and shows enough income of their own.</p>"
+    },
+    {
+      "h": "Working while you study",
+      "html": "<p>During the academic year you may work <strong>up to 20 hours a week</strong>. In the official winter, spring and summer holidays you may work more.</p>"
+    },
+    {
+      "h": "After you graduate: the search year",
+      "html": "<p>Graduates from outside the EEA can apply for a <strong>12-month residence permit for a 'search year'</strong> to look for work or start a business. Apply before your student permit expires. During the search year you can work for any employer, even full time.</p>"
     }
   ],
   "sources": [
@@ -35,7 +47,51 @@
     {
       "title": "Ghent University — Doctoral scholarships for the Global South",
       "url": "https://www.ugent.be/en/research/funding/bof/dos"
+    },
+    {
+      "title": "Study in Flanders — Visa requirements",
+      "url": "https://www.studyinflanders.be/practical-information/visa-requirements"
+    },
+    {
+      "title": "Study in Flanders — Work and study",
+      "url": "https://www.studyinflanders.be/practical-information/work-and-study"
+    },
+    {
+      "title": "KU Leuven — Working in Belgium after graduation (non-EEA)",
+      "url": "https://www.kuleuven.be/english/stuvo/working-volunteering-career/transition-to-the-job-market/working-non-eea"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-10-05",
+  "glance": [
+    [
+      "Tuition",
+      "Set by each university; KU Leuven's standard non-EEA fee was €9,493.90 for 2026–27"
+    ],
+    [
+      "Proof of funds",
+      "€1,062 a month for 2026–27 (€12,744 for the year)"
+    ],
+    [
+      "Work while studying",
+      "Up to 20 hours a week in term; more in official holidays"
+    ],
+    [
+      "After you graduate",
+      "A 12-month search year, with no limit on work"
+    ]
+  ],
+  "faq": [
+    {
+      "q": "How much money do I need for a Belgian student visa?",
+      "a": "€1,062 a month for 2026–27, usually proven with €12,744 in a blocked university account, a bank guarantee, a scholarship or a sponsor's Annex 32 undertaking."
+    },
+    {
+      "q": "Can I work while studying in Belgium?",
+      "a": "Yes, up to 20 hours a week during the academic year and more during official holidays."
+    },
+    {
+      "q": "Can I stay in Belgium after graduating?",
+      "a": "Yes. You can apply for a 12-month search year, during which you can work without restrictions."
+    }
+  ]
 }

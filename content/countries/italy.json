@@ -21,6 +21,14 @@
     {
       "h": "Paperwork is the hard part",
       "html": "<p>Income-based aid needs official documents about your family's income and property from your home country, usually translated and legalised. Start collecting them in spring: DSU windows close in late summer, often before international students arrive.</p>"
+    },
+    {
+      "h": "Proof of funds for your visa",
+      "html": "<p>For a study visa you must show at least <strong>€10,179.85 for the 2026–27 academic year</strong>, plus the cost of a return journey. The threshold is linked to Italy's social allowance and is updated each year. Consulates can ask for more, judging the whole financial situation of your family or sponsor, and some accept only certain kinds of evidence, so read the checklist of the consulate that handles your application.</p>"
+    },
+    {
+      "h": "Working and staying after graduation",
+      "html": "<p>With a study residence permit you can work <strong>up to 20 hours a week and 1,040 hours a year</strong>. After a bachelor's (laurea), master's (laurea magistrale), specialising master's or PhD, you can convert your study permit into a <strong>one-year residence permit while awaiting employment</strong>. Register with the local job centre (<em>Centro per l'Impiego</em>) first. During that year the permit can be changed into a work permit once you find a job.</p>"
     }
   ],
   "sources": [
@@ -35,7 +43,47 @@
     {
       "title": "Politecnico di Milano — Scholarships",
       "url": "https://www.polimi.it/en/prospective-students/how-much-does-it-cost/scholarships"
+    },
+    {
+      "title": "Consulate General of Italy in Dubai — Student visa checklist 2026/2027",
+      "url": "https://consdubai.esteri.it/wp-content/uploads/2026/05/StudyVisa_2026_2027.pdf"
+    },
+    {
+      "title": "Politecnico di Milano — Residence permit",
+      "url": "https://www.polimi.it/en/prospective-students/how-to-apply/on-arrival-information/residence-permit"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-10-05",
+  "glance": [
+    [
+      "Tuition",
+      "Scaled to family income at public universities"
+    ],
+    [
+      "Proof of funds",
+      "At least €10,179.85 a year for 2026–27, plus money for the journey home"
+    ],
+    [
+      "Work while studying",
+      "Up to 20 hours a week and 1,040 hours a year"
+    ],
+    [
+      "After you graduate",
+      "A one-year permit to look for work"
+    ]
+  ],
+  "faq": [
+    {
+      "q": "How much money do I need for an Italian student visa?",
+      "a": "At least €10,179.85 for 2026–27, plus money for a return journey. Consulates may ask for more evidence about your family's or sponsor's finances."
+    },
+    {
+      "q": "Can I work while studying in Italy?",
+      "a": "Yes, up to 20 hours a week and 1,040 hours a year with a study residence permit."
+    },
+    {
+      "q": "Can I stay in Italy after graduating?",
+      "a": "Yes. After a degree or PhD you can convert your permit into a one-year permit to look for work, after registering with the local job centre."
+    }
+  ]
 }
