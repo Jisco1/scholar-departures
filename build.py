@@ -285,7 +285,8 @@ def menu_html(root, here):
     return ('<details class="menu"><summary class="menu-btn">' + MENU_ICON + '<span class="menu-label">Menu</span></summary>'
             '<div class="menu-panel"><nav aria-label="Main"><ul class="menu-list">'
             + link("", "Home") + link("scholarships/", "Scholarship board") + link("routes/", "Funded routes")
-            + link("deadlines/", "Deadlines") + link("scholarships/#directory", "Schools directory")
+            + link("deadlines/", "Deadlines") + link("positions/", "Funded positions")
+            + link("scholarships/#directory", "Schools directory")
             + drop("Countries", countries) + drop("Guides", guides) + drop("About", about)
             + "</ul></nav>" + THEME_SWITCH + "</div></details>")
 
@@ -414,7 +415,8 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
     </div>
     <div><h2>Explore</h2><ul>
       <li><a href="{root}scholarships/">Scholarship board</a></li><li><a href="{root}routes/">All funded routes</a></li>
-      <li><a href="{root}deadlines/">Deadline calendar</a></li><li><a href="{root}updates/">What's new</a></li>
+      <li><a href="{root}deadlines/">Deadline calendar</a></li><li><a href="{root}positions/">Funded positions</a></li>
+      <li><a href="{root}updates/">What's new</a></li>
       <li><a href="{root}countries/">Countries</a></li><li><a href="{root}guides/">Guides</a></li></ul></div>
     <div><h2>About</h2><ul>
       <li><a href="{root}about/">About us</a></li><li><a href="{root}editorial-policy/">How we verify</a></li>
@@ -566,7 +568,124 @@ def by_urgency(routes):
     return sorted(routes, key=key)
 
 
-def build_home(routes, schools, updates):
+POSITION_LEVELS = ["PhD", "Postdoc", "Research assistant"]
+POSITION_DAYS = 60  # a listing comes down at its deadline, or 60 days after we posted it
+
+
+def load_positions():
+    """content/positions.json: funded PhD and research openings, each checked on the official vacancy page."""
+    path = CONTENT / "positions.json"
+    if not path.exists():
+        return []
+    items = json.loads(path.read_text(encoding="utf-8"))
+    seen = set()
+    for i, p in enumerate(items):
+        where = f"content/positions.json entry {i} ({p.get('id', '?')})"
+        for key, limit in (("id", 80), ("title", 140), ("institution", 120), ("country", 60), ("flag", 8),
+                           ("funding", 200), ("summary", 500), ("source", 60)):
+            v = p.get(key)
+            if not isinstance(v, str) or not v.strip() or len(v) > limit or re.search(r"[<>\x00-\x1f]", v):
+                fail(f"{where}: '{key}' must be plain text of at most {limit} characters")
+        if not re.match(r"^[a-z0-9-]+$", p.get("id") or ""):
+            fail(f"{where}: 'id' must be lowercase letters, digits and hyphens")
+        if p.get("id") in seen:
+            fail(f"{where}: duplicate id")
+        seen.add(p.get("id"))
+        if p.get("level") not in POSITION_LEVELS:
+            fail(f"{where}: 'level' must be one of {POSITION_LEVELS}")
+        if p.get("field") not in FIELDS:
+            fail(f"{where}: 'field' must be one of {FIELDS}")
+        if not URL_RE.match(p.get("link") or ""):
+            fail(f"{where}: 'link' must be a plain https:// URL")
+        for key in ("deadline", "posted"):
+            try:
+                dt.date.fromisoformat(p.get(key) or "")
+            except ValueError:
+                fail(f"{where}: '{key}' must be YYYY-MM-DD")
+    return items
+
+
+def open_positions(items, today=None):
+    """The listings still open today, soonest deadline first."""
+    today = today or TODAY
+    live = []
+    for p in items:
+        deadline, posted = dt.date.fromisoformat(p["deadline"]), dt.date.fromisoformat(p["posted"])
+        if deadline >= today and (today - posted).days <= POSITION_DAYS:
+            live.append(p)
+    return sorted(live, key=lambda p: (p["deadline"], p["title"]))
+
+
+def closes_text(deadline):
+    days = (deadline - TODAY).days
+    return "Closes today" if days == 0 else ("Closes tomorrow" if days == 1 else f"Closes in {days} days")
+
+
+def position_card(p):
+    d = dt.date.fromisoformat(p["deadline"])
+    return f"""<article class="pos" id="pos-{e(p['id'])}" data-level="{e(p['level'])}" data-field="{e(p['field'])}">
+  <div class="pos-top"><span class="pos-level">{e(p['level'])}</span><span class="pos-field">{e(p['field'])}</span><span class="chip approaching" data-closes="{p['deadline']}">{closes_text(d)}</span></div>
+  <h3><a href="{e(p['link'])}" target="_blank" rel="noopener">{e(p['title'])}</a></h3>
+  <p class="pos-where">{e(p['flag'])} {e(p['institution'])} · {e(p['country'])}</p>
+  <p class="pos-sum">{e(p['summary'])}</p>
+  <dl class="pos-meta"><div><dt>Funding</dt><dd>{e(p['funding'])}</dd></div><div><dt>Deadline</dt><dd>{fmt_date(d)}</dd></div></dl>
+  <p class="pos-foot"><a class="btn btn-line" href="{e(p['link'])}" target="_blank" rel="noopener">Official posting {EXT}</a><span>{e(p['source'])} · checked {fmt_date(dt.date.fromisoformat(p['posted']))}</span></p>
+</article>"""
+
+
+def post_position_link():
+    subject = "A funded position for DegreeStep"
+    body = ("Position title:\nUniversity and department:\nCountry:\nLevel (PhD / Postdoc / Research assistant):\n"
+            "Field:\nFunding (salary or stipend, and for how long):\nApplication deadline:\n"
+            "Link to the official posting on your institution's website:\nYour name and role:\n\n"
+            "Please send this from your university email address.")
+    return f"mailto:{CONFIG['contact_email']}?subject={quote(subject)}&body={quote(body)}"
+
+
+def build_positions(items):
+    root = "../"
+    live = open_positions(items)
+    countries = sorted({p["country"] for p in live})
+    fields = [f for f in FIELDS if any(p["field"] == f for p in live)]
+    cards = "".join(position_card(p) for p in live) or (
+        '<p class="lede">No funded positions are open right now. New ones are added as they are checked; see '
+        f'<a href="{root}updates/">what\'s new</a>.</p>')
+    levels = [lv for lv in POSITION_LEVELS if any(p["level"] == lv for p in live)]
+    filters = ("" if len(live) < 4 else
+               '<div class="pos-filters" hidden><div class="seg" role="group" aria-label="Position type">'
+               + "".join(f'<button type="button" data-level="{e(lv)}">{e(lv)}</button>' for lv in ["All"] + levels)
+               + '</div><label class="pos-fieldsel"><span class="sr">Field</span><select aria-label="Field">'
+               + "".join(f'<option value="{e(f)}">{e(f)}</option>' for f in ["All fields"] + fields)
+               + '</select></label><span class="pos-count" aria-live="polite"></span></div>')
+    where = and_list(countries) if countries else "several countries"
+    body = f"""<div class="wrap"><header class="page-head">{crumbs(root, [("", "Funded positions")])}
+<p class="eyebrow-s">Funded positions · {len(live)} open</p><h1>Funded PhD and research positions</h1>
+<p class="lede">Salaried PhD posts, doctoral fellowships and postdocs, each checked on the official vacancy page before it is listed. In much of northern Europe a PhD is a paid job with a salary, so you apply for the position itself rather than for a separate scholarship.</p>
+<div class="byline"><span>Open now in <b>{e(where)}</b></span><span>Listings come down at their deadline</span></div></header>
+{filters}
+<div class="pos-list">{cards}</div>
+{ad_bay("between", wide=True)}
+<section class="pos-post" id="post">
+  <h2>Post a funded position, free</h2>
+  <p>Are you a professor, research group leader or university recruiter with a funded PhD, postdoc or research assistant position? Send it to us and we will list it here at no cost.</p>
+  <ul>
+    <li><b>What we need:</b> the title, institution, funding and its length, the deadline, and a link to the official posting on your institution's website.</li>
+    <li><b>How we check it:</b> we confirm the position and its funding on that official page, and reply to your institutional email address before anything goes live.</li>
+    <li><b>What we publish:</b> a short summary in our own words, the funding, the deadline and a link to your posting. Applications always go through your own process.</li>
+    <li><b>When it comes down:</b> at the application deadline, or after {POSITION_DAYS} days. Tell us if the position is filled earlier.</li>
+  </ul>
+  <p><a class="btn btn-primary" href="{e(post_position_link())}">Post a position by email</a></p>
+  <p class="muted">We list only funded positions. We never ask candidates for fees, and you should be wary of anyone who does: see our <a href="{root}guides/scholarship-scams/">scam guide</a>.</p>
+</section></div>"""
+    write("positions/", page("positions/", "Funded PhD and research positions",
+                             f"{len(live)} open funded PhD, doctoral fellowship and postdoc positions, each checked on the official vacancy page, with salaries, deadlines and links.",
+                             body, root=root, nav="positions/", body_class="positions-page",
+                             extra_head=f'<link rel="stylesheet" href="{asset(root, "landing.css")}">\n',
+                             scripts=[asset(root, "positions.js")],
+                             jsonld=[breadcrumb_ld([("", "Home"), ("positions/", "Funded positions")])]))
+
+
+def build_home(routes, schools, updates, positions):
     """The landing page: what DegreeStep is, the next deadline, the paths in, and what changed."""
     root = ""
     countries_n = len({r["country"] for r in routes})
@@ -642,6 +761,18 @@ def build_home(routes, schools, updates):
     steps_html = "".join(f'<li><span class="lp-step-n">0{i + 1}</span><h3>{e(t)}</h3><p>{e(x)}</p></li>'
                          for i, (t, x) in enumerate(steps))
     news = "".join(update_item(u, root) for u in updates[:5])
+    live_pos = open_positions(positions)
+    pos_rows = "".join(
+        f'<a class="row" href="positions/#pos-{e(p["id"])}"><div><div class="row-name">{e(p["title"])}</div>'
+        f'<div class="row-meta">{e(p["flag"])} {e(p["institution"])} · {e(p["level"])} · {e(p["field"])}</div></div>'
+        f'<div class="row-side"><span class="chip approaching" data-closes="{p["deadline"]}">'
+        f'{closes_text(dt.date.fromisoformat(p["deadline"]))}</span></div></a>' for p in live_pos[:4])
+    pos_html = (f"""<section class="lp-section wrap">
+  <h2 class="lp-h2">Funded PhD and research positions</h2>
+  <p class="lp-sub">Salaried PhDs, doctoral fellowships and postdocs, each checked on the official vacancy page.</p>
+  <div class="rows lp-pos">{pos_rows}</div>
+  <p class="lp-more center"><a href="positions/">All {len(live_pos)} open positions →</a><span class="lp-dot" aria-hidden="true">·</span><a href="positions/#post">Post a position</a></p>
+</section>""" if live_pos else "")
     programmes = sorted((r for r in routes if r["kind"] == "program"), key=lambda r: r["name"])
     prog_html = "".join(f'<li><a href="routes/{r["slug"]}/">{e(r["name"])}</a></li>' for r in programmes)
 
@@ -705,6 +836,8 @@ def build_home(routes, schools, updates):
     <ol class="lp-steps">{steps_html}</ol>
   </div>
 </section>
+
+{pos_html}
 
 <section class="lp-section wrap">
   <h2 class="lp-h2">What’s new</h2>
@@ -1189,9 +1322,11 @@ def main():
         ASSET_VERSIONS[f.name] = hashlib.sha256(f.read_bytes()).hexdigest()[:10]
 
     updates = load_updates({r["slug"] for r in ROUTES})
+    positions = load_positions()
     if ERRORS:
         return report()
-    build_home(ROUTES, SCHOOLS, updates)
+    build_home(ROUTES, SCHOOLS, updates, positions)
+    build_positions(positions)
     build_board(ROUTES, SCHOOLS)
     build_updates(updates)
     build_route_pages(ROUTES, notes, dict(countries))

@@ -38,4 +38,10 @@
     if (days < 0) return;  // keep the built text; the next build moves on to the next deadline
     el.textContent = days === 0 ? "Today" : days === 1 ? "Tomorrow" : "In " + days + " days";
   });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-closes]"), function (el) {
+    var p = el.getAttribute("data-closes").split("-");
+    var days = Math.round((new Date(+p[0], +p[1] - 1, +p[2]) - t0) / 86400000);
+    if (days < 0) return;
+    el.textContent = days === 0 ? "Closes today" : days === 1 ? "Closes tomorrow" : "Closes in " + days + " days";
+  });
 })();

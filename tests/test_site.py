@@ -153,8 +153,8 @@ class BuiltSite(unittest.TestCase):
             self.assertEqual(html.count('<details class="menu">'), 1, f"{name}: needs exactly one Menu button")
             self.assertNotIn('class="nav"', html, f"{name}: the old link bar is back")
             menu = html[html.index('<details class="menu">'):html.index("</header>")]
-            for target in ("scholarships/", "routes/", "deadlines/", "countries/", "guides/", "about/", "updates/",
-                           "scholarships/#directory"):
+            for target in ("scholarships/", "routes/", "deadlines/", "positions/", "countries/", "guides/", "about/",
+                           "updates/", "scholarships/#directory"):
                 self.assertRegex(menu, r'href="(?:(?:\.\./)*|https://[^"]+/)' + re.escape(target) + '"', f"{name}: menu lacks {target}")
             self.assertEqual(menu.count('<details class="menu-sub"'), 3, f"{name}: Countries, Guides and About drop-downs")
             self.assertIn('data-theme-choice="light"', menu, f"{name}: no theme switch")
@@ -232,6 +232,25 @@ class BuiltSite(unittest.TestCase):
             self.assertEqual([q["name"] for q in faq[0]["mainEntity"]], [q["q"] for q in c["faq"]], path.stem)
             for s in c["sources"]:
                 self.assertTrue(s["url"].startswith("https://"), path.stem)
+
+    def test_positions_list_only_open_checked_listings(self):
+        import datetime as dt
+        today = dt.date.today()
+        items = json.loads((self.dir / "content" / "positions.json").read_text(encoding="utf-8"))
+        live = sorted((p for p in items if dt.date.fromisoformat(p["deadline"]) >= today
+                       and (today - dt.date.fromisoformat(p["posted"])).days <= 60), key=lambda p: (p["deadline"], p["title"]))
+        page = (self.site / "positions" / "index.html").read_text(encoding="utf-8")
+        ids = re.findall(r'<article class="pos" id="pos-([a-z0-9-]+)"', page)
+        self.assertEqual(ids, [p["id"] for p in live], "open listings, soonest deadline first")
+        for p in live:
+            self.assertIn(f'href="{html_mod.escape(p["link"], quote=True)}"', page, p["id"])
+            self.assertTrue(p["link"].startswith("https://"), p["id"])
+        cfg = json.loads((self.dir / "site.json").read_text(encoding="utf-8"))
+        self.assertIn(f'href="mailto:{cfg["contact_email"]}?subject=', page, "no way to post a position")
+        home = (self.site / "index.html").read_text(encoding="utf-8")
+        if live:
+            self.assertIn('href="positions/"', home)
+            self.assertIn(f'href="positions/#pos-{live[0]["id"]}"', home, "the home page should lead with the soonest deadline")
 
     def test_light_theme_covers_every_colour(self):
         css = (ROOT / "src" / "assets" / "site.css").read_text(encoding="utf-8")
@@ -564,6 +583,37 @@ class PoisonedData(unittest.TestCase):
             shutil.rmtree(tmp, ignore_errors=True)
         self.assertNotEqual(result.returncode, 0, "markup in a country glance was accepted")
         self.assertIn("plain text", result.stderr)
+
+    def positions_build(self, mutate):
+        tmp = make_copy()
+        try:
+            path = tmp / "content" / "positions.json"
+            items = json.loads(path.read_text(encoding="utf-8"))
+            mutate(items)
+            path.write_text(json.dumps(items, ensure_ascii=False), encoding="utf-8")
+            result = build(tmp)
+            page = (tmp / "_site" / "positions" / "index.html")
+            return result, (page.read_text(encoding="utf-8") if page.exists() else "")
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+    def test_closed_position_is_not_listed(self):
+        def close_first(items):
+            items[0]["deadline"] = "2020-01-01"
+            items[0]["title"] = "A position that closed long ago"
+        result, page = self.positions_build(close_first)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertNotIn("A position that closed long ago", page)
+
+    def test_markup_in_a_position_rejected(self):
+        result, _ = self.positions_build(lambda items: items[0].__setitem__("summary", "<img src=x onerror=alert(1)>"))
+        self.assertNotEqual(result.returncode, 0, "markup in a position was accepted")
+        self.assertIn("plain text", result.stderr)
+
+    def test_position_with_an_unsafe_link_rejected(self):
+        result, _ = self.positions_build(lambda items: items[0].__setitem__("link", "javascript:alert(1)"))
+        self.assertNotEqual(result.returncode, 0, "a javascript: link was accepted")
+        self.assertIn("plain https:// URL", result.stderr)
 
     def test_impossible_deadline_rejected(self):
         self.assertRejected(lambda d: d[0].__setitem__("deadlines", [{"m": 2, "d": 31}]), "impossible deadline")
