@@ -1,43 +1,23 @@
 [
   {
     "date": "2026-10-05",
-    "title": "Guides now name their author",
-    "text": "Every guide and country guide now carries the name of DegreeStep's founder and editor, Eric Arko, with a page listing every guide."
-  },
-  {
-    "date": "2026-10-05",
-    "title": "Every research news story now has its own page",
-    "text": "Each news item opens the full story in our own words, with links to related guides and funded positions, and its official source credited at the end."
-  },
-  {
-    "date": "2026-10-05",
-    "title": "Every funded position now has its own page",
-    "text": "Each PhD and postdoc listing opens a full page: the project, who can apply, the salary and contract, and the documents to send, with the link to apply at the end."
-  },
-  {
-    "date": "2026-10-05",
-    "title": "Pictures on the research news",
-    "text": "Research news now shows photos of the prize winners and the science behind them, each freely licensed from Wikimedia Commons and credited to its photographer with its licence. Items without a free photo get our own drawing."
-  },
-  {
-    "date": "2026-10-05",
     "title": "Two new guides for applicants from any country",
     "text": "Visa money, work hours and staying after graduation compared across ten countries, and how funded PhDs work in Europe: salaried posts, doctoral fellowships and scholarships, with a checklist for reading a PhD advert."
   },
   {
     "date": "2026-10-05",
     "title": "New: research and innovation news",
-    "text": "A new page explains the year's major research prizes and new funding in plain English, from the 2026 Nobel Prize in Physiology or Medicine and the Fields Medals to the Kavli and Breakthrough Prizes, each with its official source and why it matters for students."
+    "text": "A new page on the year's major research prizes and new funding, from the 2026 Nobel Prize in Physiology or Medicine and the Fields Medals to the Kavli and Breakthrough Prizes."
   },
   {
     "date": "2026-10-05",
     "title": "New: funded PhD and research positions",
-    "text": "A new page lists salaried PhD posts, doctoral fellowships and postdocs: 17 to start, at Lund, Uppsala, Oslo, Copenhagen and ETH Zurich. Researchers can post their own funded positions for free."
+    "text": "A new page lists salaried PhD posts, doctoral fellowships and postdocs at Lund, Uppsala, Oslo, Copenhagen and ETH Zurich."
   },
   {
     "date": "2026-10-05",
     "title": "Country guides: visa money, work rights and staying after graduation",
-    "text": "All ten country guides now open with an at-a-glance box and answer common questions: the proof of funds for the student visa, how many hours you may work, and how long you can stay to look for a job."
+    "text": "For all ten countries: the proof of funds for a student visa, the hours you may work, and how long you can stay to look for a job."
   },
   {
     "date": "2026-10-05",
@@ -61,22 +41,12 @@
     "date": "2026-10-05",
     "slug": "tu-wien",
     "title": "TU Wien: non-EU application windows",
-    "text": "The winter semester 2026/27 window for non-EU/EEA applicants closed on 15 July 2026. The summer semester 2027 window runs from 16 July 2026 to 15 January 2027. Costs, documents and questions added."
+    "text": "The winter semester 2026/27 window for non-EU/EEA applicants closed on 15 July 2026. The summer semester 2027 window runs from 16 July 2026 to 15 January 2027."
   },
   {
     "date": "2026-10-05",
     "slug": "mastercard-foundation-scholars-asu",
     "title": "Mastercard Foundation Scholars at ASU: 2027–28 call closed",
-    "text": "Applications for the 2027–28 cohort closed on 27 September 2026 at 23:59 GMT. The page now says so."
-  },
-  {
-    "date": "2026-09-25",
-    "title": "Costs, documents and questions on 13 route pages",
-    "text": "Thirteen route pages gained costs, the documents to prepare and answers to common questions."
-  },
-  {
-    "date": "2026-09-25",
-    "title": "DegreeStep moved to degreestep.com",
-    "text": "The site now lives at its own address. Old links forward automatically."
+    "text": "Applications for the 2027–28 cohort closed on 27 September 2026 at 23:59 GMT."
   }
 ]
