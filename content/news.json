@@ -1,5 +1,25 @@
 [
   {
+    "id": "nobel-physics-2026-icecube",
+    "date": "2026-10-06",
+    "category": "Award",
+    "title": "Nobel Prize in Physics 2026 goes to Francis Halzen for catching neutrinos in the South Pole ice",
+    "summary": "Francis Halzen of the University of Wisconsin–Madison receives the prize for his decisive part in the IceCube Neutrino Observatory, a cubic kilometre of Antarctic ice fitted with light sensors, and for the discovery of high-energy neutrinos that come from far beyond the solar system.",
+    "why": "Neutrino astronomy has opened a new way to study the universe, and funded PhDs in astrophysics and particle physics in Europe are often salaried posts.",
+    "art": "award",
+    "source_title": "NobelPrize.org: Press release, 6 October 2026",
+    "source_url": "https://www.nobelprize.org/prizes/physics/2026/press-release/",
+    "body": [
+      "The 2026 Nobel Prize in Physics goes to Francis Halzen of the University of Wisconsin–Madison in the United States. The Royal Swedish Academy of Sciences announced the prize on 6 October for his decisive contributions to the IceCube Neutrino Observatory and the discovery of high-energy neutrinos from astrophysical sources. He is the only laureate this year and receives the full 12 million Swedish kronor.",
+      "Neutrinos are everywhere, yet they are almost impossible to catch. They pass straight through the Earth, and through our bodies, without leaving a trace. Only very rarely does one strike an atomic nucleus, and when that happens inside clear ice it gives off a faint flash of light that sensitive detectors can record.",
+      "That rarity is also what makes neutrinos so useful to astronomers. The universe contains natural particle accelerators that fire out particles with up to a million times more energy than any laboratory on Earth can reach, and much about these sources is still unknown: what they are, where they are and what goes on inside them. Other particles from these sources change direction or lose energy on their way to us. Neutrinos do not, so they carry information that cannot be gathered any other way.",
+      "Halzen first proposed using the ice at the South Pole as a neutrino detector in 1988. The ice there is very clear, free from many kinds of interference, and rests on geologically stable ground with no earthquakes. Other researchers soon backed the idea, and within a few years the first sensors were being tested in the ice. Because high-energy cosmic neutrinos are so rare, the detector had to be enormous. IceCube fills a full cubic kilometre of ice and was completed in 2011.",
+      "Results came quickly. The team recorded its first high-energy neutrinos and, a few years later, published evidence that some of them must come from far outside the solar system. That began the real search for the sources. IceCube keeps collecting neutrino collisions around the clock, and the data could tell researchers more about the violent places where these particles are made, or even reveal phenomena nobody has seen before.",
+      "Halzen was born in 1944 in Tienen, Belgium, earned his PhD at KU Leuven in 1969 and is a professor at the University of Wisconsin–Madison. If you are thinking of studying in Belgium, our [Belgium country guide]({{root}}countries/belgium/) covers tuition, living costs and visas, and [Ghent University's doctoral scholarships]({{root}}routes/ghent-university-doctoral-scholarships/) fund PhD researchers from the Global South.",
+      "Lund University is currently advertising a salaried [PhD in astronomy and astrophysics on planet formation]({{root}}positions/lund-astronomy-planet-formation/), and our guide to [how funded PhDs work in Europe]({{root}}guides/funded-phd-europe/) explains how posts like it are advertised and filled."
+    ]
+  },
+  {
     "id": "nobel-medicine-2026-optogenetics",
     "date": "2026-10-05",
     "category": "Award",
