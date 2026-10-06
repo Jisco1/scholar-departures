@@ -160,6 +160,10 @@ img, svg { max-width: 100%; }
 .glance dd .sub { display: block; color: var(--dim); font-size: 13px; margin-top: 3px; }
 .glance-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
 .glance-cta small { color: var(--faint); font-size: 12.5px; line-height: 1.5; }
+/* the official link comes after the write-up, so the page is read before the visitor leaves */
+.route-official { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin: 28px 0 8px; padding: 20px 0;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.route-official small { color: var(--faint); font-size: 12.5px; line-height: 1.5; }
 
 /* -  -  - Timeline (route pages + planner) -  -  - */
 .plan-list { margin-top: 6px; }

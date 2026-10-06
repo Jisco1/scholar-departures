@@ -1244,9 +1244,8 @@ def build_route_pages(routes, notes, country_pages):
   <div><dt>Fields</dt><dd>{e(scope_text)}{fields_sub}</dd></div>
   <div><dt>Who pays</dt><dd>{e(kind_text)}</dd></div>
 </dl>
-<div class="glance-cta"><a class="btn btn-primary" href="{e(r["link"])}" target="_blank" rel="noopener noreferrer">Official page on {e(domain(r["link"])).replace(".", ".<wbr>")} {EXT}</a>
-{share_box(f"routes/{r['slug']}/", r["name"], share_text, "opportunity")}
-<small>Last verified {e(fmt_date(dt.date.fromisoformat(r["last_verified"])) if r.get("last_verified") else "unknown")}. Cycles shift each year; confirm dates on the official page.</small></div>
+<div class="glance-cta">{share_box(f"routes/{r['slug']}/", r["name"], share_text, "opportunity")}
+<small>Last verified {e(fmt_date(dt.date.fromisoformat(r["last_verified"])) if r.get("last_verified") else "unknown")}.</small></div>
 </section>"""
 
         def section(title, items, ordered=False):
@@ -1327,10 +1326,14 @@ def build_route_pages(routes, notes, country_pages):
 {section("Before you apply: things to know", n.get("watch_out"))}
 {faq_html}
 {plan_html}
+</article>
+<div class="route-official"><a class="btn btn-primary route-official-btn" href="{e(r["link"])}" target="_blank" rel="noopener noreferrer">Official page on {e(domain(r["link"])).replace(".", ".<wbr>")} {EXT}</a>
+<small>Cycles shift each year; confirm the dates there before you apply.</small></div>
+<div class="prose">
 {related_html}
 {sources_html}
 <p class="muted">Page reviewed {e(fmt_date(dt.date.fromisoformat(reviewed)) if reviewed else "unknown")}. Spotted something out of date? <a href="{root}contact/">Tell us</a> and we will check it against the official source.</p>
-</article>
+</div>
 </div><aside class="rail" aria-label="Advertisements">{ad_bay("rail")}</aside></div>
 </div>"""
         desc = f"{r['name']} ({r['country']}): {r['funding']} Eligibility, how to apply and the typical deadline ({r['deadline']})."

@@ -851,9 +851,9 @@
       mhead("DegreeStep Premium") +
       '<p class="msub">One license, three power tools for serious applicants:</p>' +
       '<div class="featlist">' +
-      '<div>' + I.calplus + '<span><b>Calendar sync</b> \u2014 every saved deadline as a calendar file with 30 / 14 / 7 / 1-day reminder alarms built in. One tap into Google Calendar or your phone.</span></div>' +
-      '<div>' + I.cols + '<span><b>Compare mode</b> \u2014 your saved routes side by side: funding, levels, status and days left in one table.</span></div>' +
-      '<div>' + I.zap + '<span><b>Application timelines</b> \u2014 a week-by-week plan generated backwards from any deadline, exportable to your calendar as scheduled tasks.</span></div>' +
+      '<div>' + I.calplus + '<span><b>Calendar sync</b>: every saved deadline as a calendar file with 30 / 14 / 7 / 1-day reminder alarms built in. One tap into Google Calendar or your phone.</span></div>' +
+      '<div>' + I.cols + '<span><b>Compare mode</b>: your saved routes side by side: funding, levels, status and days left in one table.</span></div>' +
+      '<div>' + I.zap + '<span><b>Application timelines</b>: a week-by-week plan generated backwards from any deadline, exportable to your calendar as scheduled tasks.</span></div>' +
       "</div>" +
       '<div class="licrow"><input id="licInput" type="text" placeholder="Paste your license key" autocomplete="off" maxlength="80" /><button class="btn-brass" id="licGo">Unlock</button></div>' +
       '<div class="licstatus" id="licStatus">' + esc(prefillMsg || "") + "</div>" +
@@ -885,7 +885,7 @@
     }).then(function (r) { return r.json(); }).then(function (j) {
       if (j && j.success && j.purchase && !j.purchase.refunded && !j.purchase.chargebacked) cb(true);
       else cb(false, "Key not valid for this product (or refunded).");
-    }).catch(function () { cb(false, "Couldn\u2019t reach Gumroad \u2014 check connection and retry."); });
+    }).catch(function () { cb(false, "Couldn\u2019t reach Gumroad. Check your connection and try again."); });
   }
   function requirePremium(fn) {
     return function () { premiumOn() ? fn() : unlockModal(); };
@@ -939,10 +939,10 @@
   }
   function exportSavedICS() {
     var picked = enriched.filter(function (s) { return state.saved.has(s.name) && s.nextDate; });
-    if (!picked.length) return toast("Bookmark some routes first \u2014 then export them.");
+    if (!picked.length) return toast("Bookmark some routes first, then export them.");
     downloadICS(picked.map(function (s) {
       return { date: s.nextDate, title: "Deadline: " + s.name,
-               desc: s.funding + " \u2014 " + s.deadline + (s.approx ? " (date varies \u2014 confirm on the official page)" : ""),
+               desc: s.funding + " Deadline: " + s.deadline + (s.approx ? " (date varies; confirm on the official page)" : ""),
                url: s.link, alarms: [30, 14, 7, 1] };
     }), "degreestep-deadlines.ics");
     toast(picked.length + " deadline" + (picked.length === 1 ? "" : "s") + " exported with reminders.");
@@ -963,20 +963,20 @@
     }).join("");
     openModal(
       mhead("Compare saved routes") +
-      '<p class="msub">Sorted by urgency \u2014 soonest deadline first.</p>' +
+      '<p class="msub">Sorted by urgency: soonest deadline first.</p>' +
       '<div class="cmp-wrap"><table class="cmp-table"><tr><th>Route</th><th>Days</th><th>Typical deadline</th><th>Funding</th><th>Levels</th><th></th></tr>' + rows + "</table></div>"
     );
   }
 
   /* ============ premium feature: application timeline ============ */
   var PLAN_STEPS = [
-    { w: 12, t: "Research the programme in depth \u2014 confirm eligibility, costs and documents" },
+    { w: 12, t: "Research the programme in depth: confirm eligibility, costs and documents" },
     { w: 10, t: "Contact recommenders (for PhDs: email potential supervisors with a short pitch)" },
     { w: 8,  t: "Write the first draft of your SOP / motivation letter" },
     { w: 6,  t: "Order transcripts \u00B7 book or complete language tests" },
-    { w: 4,  t: "Second draft \u2014 get feedback from someone who reads critically" },
+    { w: 4,  t: "Second draft: get feedback from someone who reads critically" },
     { w: 2,  t: "Finalize every document and fill the application form" },
-    { w: 1,  t: "Submit \u2014 never on the last day" },
+    { w: 1,  t: "Submit, but never on the last day" },
     { w: 0,  t: "Official deadline" }
   ];
   function planModal(name) {
@@ -998,17 +998,17 @@
     openModal(
       mhead("Plan: " + esc(s.name)) +
       '<p class="msub">' + (s.approx ? "\u2248 " : "") + "Built backwards from " + fmtDate(s.nextDate, true) +
-      " \u2014 " + s.daysUntil + " days out. Steps marked NOW are already due if you\u2019re starting today.</p>" +
+      ", " + s.daysUntil + " days out. Steps marked NOW are already due if you\u2019re starting today.</p>" +
       '<div class="plan-list">' + html + "</div>" +
       '<div class="mfoot"><button class="btn-brass" id="planIcs">' + I.calplus + " Add this plan to my calendar</button>" +
       '<a class="btn-ghost" href="' + esc(safeUrl(s.link)) + '" target="_blank" rel="noopener noreferrer">Official page ' + I.ext + "</a></div>"
     );
     modalBox.querySelector("#planIcs").addEventListener("click", function () {
       downloadICS(items.map(function (it) {
-        return { date: it.date, title: (it.final ? "DEADLINE: " : "") + s.name + " \u2014 " + it.t.replace(/\\u00B7/g, "-"),
+        return { date: it.date, title: (it.final ? "DEADLINE: " : "") + s.name + ": " + it.t.replace(/\\u00B7/g, "-"),
                  desc: "Application plan step for " + s.name, url: s.link, alarms: it.final ? [7, 1] : [1] };
       }), "plan-" + s.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 40) + ".ics");
-      toast("Plan exported \u2014 " + items.length + " calendar entries with reminders.");
+      toast("Plan exported: " + items.length + " calendar entries with reminders.");
     });
   }
 

@@ -220,8 +220,9 @@ class BuiltSite(unittest.TestCase):
         for path in self.site.rglob("*"):
             if path.suffix in (".html", ".js", ".css", ".json", ".xml", ".txt"):
                 text = path.read_text(encoding="utf-8")
-                i = text.find("\u2014")
-                self.assertEqual(i, -1, f"{path.relative_to(self.site)}: ...{text[max(0, i - 40):i + 40]}...")
+                # the character itself, or written as an escape or an HTML entity
+                m = re.search(r"\u2014|\\u2014|&mdash;|&#8212;|&#x2014;", text, re.I)
+                self.assertIsNone(m, f"{path.relative_to(self.site)}: ...{text[max(0, m.start() - 40):m.start() + 40] if m else ''}...")
 
     def test_guides_name_their_author(self):
         # the owner asked to be named as the author (5 Oct 2026); bylines lead to his page, which says how pages are written
@@ -405,6 +406,23 @@ class BuiltSite(unittest.TestCase):
             self.assertTrue(wa.endswith(canonical), f"{name}: WhatsApp message lacks the link")
             h1 = re.search(r"<h1>(.*?)</h1>", html).group(1)
             self.assertIn(html_mod.unescape(h1).split(":")[0], wa, f"{name}: WhatsApp message lacks the title")
+
+    def test_official_page_button_comes_after_the_write_up(self):
+        # the owner asked (6 Oct 2026) for the official link at the end, so visitors read the page before leaving
+        routes = sorted(self.site.glob("routes/*/index.html"))
+        self.assertGreaterEqual(len(routes), 50)
+        for path in routes:
+            html = self.pages[path]
+            name = path.parent.name
+            self.assertEqual(html.count('class="btn btn-primary route-official-btn"'), 1, f"{name}: one official-page button")
+            glance = html[html.index('<section class="glance"'):html.index("</section>", html.index('<section class="glance"'))]
+            self.assertNotIn("Official page on", glance, f"{name}: the official link is back at the top")
+            self.assertIn('<details class="share"', glance, f"{name}: Share stays at the top")
+            button = html.index("route-official-btn")
+            self.assertGreater(button, html.index("<h2>How to apply</h2>"), f"{name}: official link before How to apply")
+            for later in ("<h2>Common questions</h2>", "<h2>A working timeline</h2>"):
+                if later in html:
+                    self.assertGreater(button, html.index(later), f"{name}: official link before {later}")
 
     def test_route_extras_render(self):
         html = (self.site / "routes" / "brown-university" / "index.html").read_text(encoding="utf-8")
