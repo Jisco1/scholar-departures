@@ -384,10 +384,11 @@ class BuiltSite(unittest.TestCase):
         home = (self.site / "index.html").read_text(encoding="utf-8")
         self.assertRegex(home, r'<script nonce="[^"]+">try\{var t=localStorage\.getItem\(.sd-theme.\);if\(t===.dark.\)')
 
-    def test_share_on_every_route_and_guide(self):
+    def test_share_on_every_route_guide_and_story(self):
         from urllib.parse import parse_qs, urlsplit
-        shared = [p for p in self.pages if p.parent.parent.name in ("routes", "guides")]
-        self.assertGreaterEqual(len(shared), 60)
+        shared = [p for p in self.pages if p.parent.parent.name in ("routes", "guides", "news")]
+        self.assertGreaterEqual(len([p for p in shared if p.parent.parent.name == "news"]), 9, "every news story can be shared")
+        self.assertGreaterEqual(len(shared), 70)
         for path in shared:
             html = self.pages[path]
             name = path.relative_to(self.site).as_posix()

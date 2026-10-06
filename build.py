@@ -955,6 +955,7 @@ def build_news_page(n, items, live_positions):
 <div class="eyebrow-s">{e(n["category"])} · <time datetime="{n["date"]}">{fmt_date(d)}</time></div>
 <h1>{e(n["title"])}</h1>
 <p class="lede">{e(n["summary"])}</p>
+<div class="head-share">{share_box(path, n["title"], n["title"], "story")}</div>
 </div>
 <div class="layout has-rail"><div>
 <div class="news-story-media">{news_media(n, root)}</div>
