@@ -157,7 +157,12 @@ class BuiltSite(unittest.TestCase):
                            "updates/", "scholarships/#directory"):
                 self.assertRegex(menu, r'href="(?:(?:\.\./)*|https://[^"]+/)' + re.escape(target) + '"', f"{name}: menu lacks {target}")
             self.assertEqual(menu.count('<details class="menu-sub"'), 3, f"{name}: Countries, Guides and About drop-downs")
-            self.assertIn('data-theme-choice="light"', menu, f"{name}: no theme switch")
+            self.assertNotIn("menu-theme", menu, f"{name}: the theme switch belongs beside the menu, not in it")
+            # light is the first theme (no script needed); the one button beside Menu switches to dark and back
+            self.assertRegex(html, r'<html lang="en" data-theme="light">', f"{name}: light is not the default")
+            self.assertIn('<meta name="theme-color" content="#F3F5F9">', html, name)
+            top = html[html.index('<header class="topbar">'):html.index('<details class="menu">')]
+            self.assertIn('<button type="button" class="theme-toggle"', top, f"{name}: no theme button beside the menu")
         board = (self.site / "scholarships" / "index.html").read_text(encoding="utf-8")
         self.assertNotIn("startguides", board)  # the board stays clean: no guide tiles or country strip
         self.assertNotIn("country-strip", board)
@@ -198,6 +203,10 @@ class BuiltSite(unittest.TestCase):
                             r"every figure was checked|no account needed|nothing is updated silently|"
                             r"help of AI|including AI models|automated and AI|automated (check|search)|drafts are done", re.I)
         research = re.compile(r"help of AI|including AI models|automated and AI|automated (check|search)|drafts are done", re.I)
+        home = self.pages[self.site / "index.html"]
+        for line in ("How often is it updated", "re-checked every month", "no account to create", "Is DegreeStep free",
+                     "How do you check the information"):
+            self.assertNotIn(line, home, "the home page FAQ explains the site to itself")
         for path, text in self.pages.items():
             if path.parent.name == "editorial-policy":
                 m = research.search(text)
@@ -373,7 +382,7 @@ class BuiltSite(unittest.TestCase):
         self.assertFalse(stray, f"hard-coded colours outside the theme tokens: {sorted(stray)}")
         # the saved theme is applied before first paint, by a nonced script
         home = (self.site / "index.html").read_text(encoding="utf-8")
-        self.assertRegex(home, r'<script nonce="[^"]+">try\{var t=localStorage\.getItem\(.sd-theme.\)')
+        self.assertRegex(home, r'<script nonce="[^"]+">try\{var t=localStorage\.getItem\(.sd-theme.\);if\(t===.dark.\)')
 
     def test_share_on_every_route_and_guide(self):
         from urllib.parse import parse_qs, urlsplit

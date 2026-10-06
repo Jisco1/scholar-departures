@@ -104,30 +104,30 @@
       if (e.key === "Escape" && menu.open) { menu.open = false; summary.focus(); }
     });
     menu.addEventListener("click", function (e) { if (e.target.closest(".menu-panel a")) menu.open = false; });
+  }
 
-    // Dark / Light, remembered on this device (the choice is applied before first paint by the head script)
-    var themeBox = menu.querySelector(".menu-theme");
+  /* ---- theme: light first; the button beside Menu switches to dark and back, remembered on this device
+     (a saved choice is applied before first paint by the head script) ---- */
+  var toggle = document.querySelector(".theme-toggle");
+  if (toggle) {
     var themeMeta = document.querySelector('meta[name="theme-color"]');
     var paintTheme = function (theme) {
       if (theme === "light") document.documentElement.setAttribute("data-theme", "light");
       else document.documentElement.removeAttribute("data-theme");
       if (themeMeta) themeMeta.setAttribute("content", theme === "light" ? "#F3F5F9" : "#0B1322");
-      themeBox.querySelectorAll("[data-theme-choice]").forEach(function (b) {
-        b.setAttribute("aria-pressed", b.getAttribute("data-theme-choice") === theme ? "true" : "false");
-      });
+      var label = theme === "light" ? "Switch to dark theme" : "Switch to light theme";
+      toggle.setAttribute("aria-label", label);
+      toggle.setAttribute("title", label);
     };
-    if (themeBox) {
-      themeBox.hidden = false;
-      paintTheme(document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark");
-      themeBox.addEventListener("click", function (e) {
-        var b = e.target.closest("[data-theme-choice]");
-        if (!b) return;
-        var theme = b.getAttribute("data-theme-choice");
-        paintTheme(theme);
-        try { localStorage.setItem("sd-theme", theme); } catch (err) {}
-        try { document.dispatchEvent(new CustomEvent("sd-theme", { detail: theme })); } catch (err) {}
-      });
-    }
+    var current = function () { return document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark"; };
+    paintTheme(current());
+    toggle.hidden = false;
+    toggle.addEventListener("click", function () {
+      var theme = current() === "light" ? "dark" : "light";
+      paintTheme(theme);
+      try { localStorage.setItem("sd-theme", theme); } catch (err) {}
+      try { document.dispatchEvent(new CustomEvent("sd-theme", { detail: theme })); } catch (err) {}
+    });
   }
 
   /* ---- share: the phone's own share sheet where there is one, otherwise the short list ---- */

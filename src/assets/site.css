@@ -304,18 +304,19 @@ img, svg { max-width: 100%; }
 .menu-sub[open] > summary::after { transform: translateY(2px) rotate(-135deg); }
 .menu-sub ul { padding: 0 0 8px 10px; }
 .menu-sub ul a { min-height: 40px; padding: 8px 12px; font-size: 14.5px; color: var(--dim); }
-.menu-theme { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 4px; padding: 12px 12px 6px;
-  border-top: 1px solid var(--line); font-family: var(--mono); font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: var(--faint); }
-.menu-theme[hidden] { display: none; }
-.theme-seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
-.theme-seg button { min-height: 32px; padding: 0 14px; border-radius: 999px; font-family: var(--mono); font-size: 10.5px;
-  letter-spacing: .16em; text-transform: uppercase; color: var(--dim); }
-.theme-seg button[aria-pressed="true"] { background: var(--brass); color: var(--bg); }
+/* the theme button sits beside Menu: a moon in the light theme, a sun in the dark one */
+.top-actions { display: flex; align-items: center; gap: 8px; }
+.theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; flex: none;
+  border: 1px solid var(--line); border-radius: 999px; color: var(--text); cursor: pointer; transition: border-color .15s, color .15s; }
+.theme-toggle:hover { border-color: var(--brass); color: var(--brass); }
+.theme-toggle[hidden] { display: none; }
+.theme-toggle .ico-sun, :root:not([data-theme="light"]) .theme-toggle .ico-moon { display: none; }
+:root:not([data-theme="light"]) .theme-toggle .ico-sun { display: block; }
 @media (max-width: 640px) {
   .menu-panel { position: fixed; left: 12px; right: 12px; top: 64px; width: auto; max-height: calc(100vh - 80px); max-height: calc(100dvh - 80px); }
   .menu-list a, .menu-sub > summary { font-size: 16px; }
 }
-@media (pointer: coarse) { .menu > summary { min-height: 44px; } .theme-seg button { min-height: 38px; } }
+@media (pointer: coarse) { .menu > summary { min-height: 44px; } .theme-toggle { width: 44px; height: 44px; } }
 @media (prefers-reduced-motion: reduce) { .menu-panel { animation: none; } .menu-icon i, .menu-sub > summary::after { transition: none; } }
 
 /* funding-type tags carry their colour in --tc; the light theme deepens it so it stays readable */

@@ -288,12 +288,16 @@ def author_link(root):
 def author_ld():
     return {"@type": "Person", "name": AUTHOR["name"], "url": BASE + AUTHOR["path"]}
 MENU_ICON = '<span class="menu-icon" aria-hidden="true"><i></i><i></i><i></i></span>'
-THEME_SWITCH = ('<div class="menu-theme" hidden><span>Theme</span><div class="theme-seg" role="group" aria-label="Colour theme">'
-                '<button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button>'
-                '<button type="button" data-theme-choice="light" aria-pressed="false">Light</button></div></div>')
-# runs before the first paint so a saved light theme never flashes dark
-THEME_BOOT = ("try{var t=localStorage.getItem('sd-theme');if(t==='light'){document.documentElement.setAttribute('data-theme','light');"
-              "document.querySelector('meta[name=theme-color]').setAttribute('content','#F3F5F9')}}catch(e){}")
+# Light is the first theme; this button beside Menu switches to dark and back (shown once the script runs)
+THEME_TOGGLE = ('<button type="button" class="theme-toggle" aria-label="Switch to dark theme" title="Switch to dark theme" hidden>'
+                '<svg class="ico-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
+                'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>'
+                '<svg class="ico-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
+                'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/>'
+                '<path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>')
+# runs before the first paint so a saved dark choice never flashes light
+THEME_BOOT = ("try{var t=localStorage.getItem('sd-theme');if(t==='dark'){document.documentElement.removeAttribute('data-theme');"
+              "document.querySelector('meta[name=theme-color]').setAttribute('content','#0B1322')}}catch(e){}")
 
 
 def menu_html(root, here):
@@ -316,7 +320,7 @@ def menu_html(root, here):
             + link("deadlines/", "Deadlines") + link("positions/", "Funded positions") + link("news/", "Research news")
             + link("scholarships/#directory", "Schools directory")
             + drop("Countries", countries) + drop("Guides", guides) + drop("About", about)
-            + "</ul></nav>" + THEME_SWITCH + "</div></details>")
+            + "</ul></nav></div></details>")
 
 SEAL = ('<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
         'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/>'
@@ -402,7 +406,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
     script_tags = "".join(f'<script nonce="{NONCE}" src="{src}"></script>\n' for src in
                           [asset(root, "site.js")] + list(scripts))
     return f"""<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -412,7 +416,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
 <meta name="description" content="{e(description)}">
 <link rel="canonical" href="{e(canonical)}">
 {'<meta name="robots" content="noindex">' if noindex else ''}
-<meta name="theme-color" content="#0B1322">
+<meta name="theme-color" content="#F3F5F9">
 <script nonce="{NONCE}">{THEME_BOOT}</script>
 <meta property="og:site_name" content="{e(SITE)}">
 <meta property="og:title" content="{e(title)}">
@@ -430,7 +434,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
 <a class="skip" href="#main">Skip to content</a>
 <header class="topbar"><div class="wrap">
   <a class="brand" href="{root or './'}" aria-label="{e(SITE)} home"><span class="brand-mark">{SEAL}</span><span class="brand-name">Degree<b>Step</b></span></a>
-  {nav_html}
+  <div class="top-actions">{THEME_TOGGLE}{nav_html}</div>
 </div></header>
 <main id="main">
 {body}
@@ -1089,18 +1093,11 @@ def build_home(routes, schools, updates, positions, research):
     programmes = sorted((r for r in routes if r["kind"] == "program"), key=lambda r: r["name"])
     prog_html = "".join(f'<li><a href="routes/{r["slug"]}/">{e(r["name"])}</a></li>' for r in programmes)
 
-    faq = [("Is DegreeStep free?",
-            "Yes. Every page, the board and the deadline calendar are free, and there is no account to create."),
-           ("Can students from any country use it?",
+    faq = [("Can students from any country use it?",
             "Yes. DegreeStep is for international students from anywhere. Most routes are open to every nationality; "
             "the ones limited to certain countries say so on their page."),
-           ("How do you check the information?",
-            f"Every route page links to the official page its facts come from, and the data was last reviewed {LAST_CHECK}. "
-            "Our How we verify page explains the process, and you can report a correction through the contact page."),
            ("Do you handle applications?",
-            "No. You apply directly to the university or scholarship provider. DegreeStep is independent and not affiliated with any of them."),
-           ("How often is it updated?",
-            "Deadlines and amounts are re-checked every month, new routes are added as they are verified, and every change is listed on the What's new page.")]
+            "No. You apply directly to the university or scholarship provider. DegreeStep is independent and not affiliated with any of them.")]
     faq_html = "".join(f'<details class="lp-faq"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in faq)
 
     body = f"""<section class="lp-hero"><div class="wrap lp-hero-grid">
