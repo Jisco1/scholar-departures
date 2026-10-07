@@ -464,6 +464,15 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
 """
 
 
+LASTMOD = {}  # path -> the date the page's content last changed, for the sitemap
+DATES = {}    # newest date in each section, filled in main()
+
+
+def latest(*dates):
+    """The newest of several ISO dates, ignoring blanks."""
+    return max((d for d in dates if isinstance(d, str) and re.match(r"^\d{4}-\d{2}-\d{2}$", d)), default=None)
+
+
 def write(path, text):
     target = OUT / path / "index.html" if (path == "" or path.endswith("/")) else OUT / path
     target.parent.mkdir(parents=True, exist_ok=True)
@@ -538,6 +547,7 @@ def build_board(routes, schools):
     title = "Scholarship board: live deadlines for funded study abroad"
     desc = (f"Search and filter {len(routes)} tuition-free universities and fully funded scholarships by level, field, region "
             f"and funding type, with live deadline countdowns and a directory of {len(schools)} schools.")
+    LASTMOD["scholarships/"] = DATES.get("routes")
     write("scholarships/", page("scholarships/", title, desc, body, root=root, nav="scholarships/", body_class="home", jsonld=jsonld,
                                extra_head=f'<link rel="stylesheet" href="{asset(root, "app.css")}">\n',
                                scripts=[f"{root}data/data.js?v=" + DATA_VERSION, f"{root}data/schools.js?v=" + DATA_VERSION,
@@ -726,6 +736,7 @@ def build_positions(items):
 </section></div>"""
     for p in live:
         build_position_page(p, live)
+    LASTMOD["positions/"] = DATES.get("positions")
     write("positions/", page("positions/", "Funded PhD and research positions",
                              f"{len(live)} open funded PhD, doctoral fellowship and postdoc positions, with salaries, deadlines and links.",
                              body, root=root, nav="positions/", body_class="positions-page",
@@ -748,9 +759,12 @@ def build_position_page(p, live):
         sections += f'<h2 id="{key}">{heading}</h2>{body}'
         if key == "requirements":
             sections += ad_bay("article")
-    # more positions: the same field first, then the soonest deadlines
-    others = sorted((o for o in live if o["id"] != p["id"]),
-                    key=lambda o: (o["field"] != p["field"], o["deadline"], o["title"]))[:3]
+    # more positions: the next two in the list (wrapping round, so each is linked from its neighbours),
+    # then the nearest one in the same field
+    i = next(k for k, o in enumerate(live) if o["id"] == p["id"])
+    ring = live[i + 1:] + live[:i]
+    others = ring[:2]
+    others += ([o for o in ring[2:] if o["field"] == p["field"]] + ring[2:])[:1]
     more = "".join(
         f'<a class="row" href="../{e(o["id"])}/"><div><div class="row-name">{e(o["title"])}</div>'
         f'<div class="row-meta">{e(o["flag"])} {e(o["institution"])} · {e(o["level"])} · {e(o["field"])}</div></div>'
@@ -785,6 +799,7 @@ def build_position_page(p, live):
     desc = f"{p['title']} at {p['institution']}, {p['country']}. {p['funding']}. Deadline {fmt_date(deadline)}."
     if len(desc) > 300:
         desc = desc[:297].rsplit(" ", 1)[0] + "…"
+    LASTMOD[path] = p.get("posted")
     write(path, page(path, f"{p['title']}, {p['institution']}", desc, body, root=root, nav="positions/",
                      body_class="position-page", extra_head=f'<link rel="stylesheet" href="{asset(root, "landing.css")}">\n',
                      scripts=[asset(root, "positions.js")],
@@ -945,7 +960,8 @@ def build_news_page(n, items, live_positions):
     d = dt.date.fromisoformat(n["date"])
     paras = [f"<p>{news_inline(x, root, live_positions)}</p>" for x in n["body"]]
     paras.insert(min(2, len(paras)), ad_bay("article"))
-    others = [o for o in items if o["id"] != n["id"]][:3]
+    i = items.index(n)  # the next three stories, wrapping round, so each story is linked from the three before it
+    others = [items[(i + k) % len(items)] for k in range(1, min(4, len(items)))]
     more = (f'<section class="news-more"><h2>More research news</h2><div class="lp-news-grid">'
             + "".join(news_card(o, root, f'../{e(o["id"])}/', summary=False) for o in others)
             + '</div><p><a href="../">All research news →</a></p></section>') if others else ""
@@ -975,6 +991,7 @@ def build_news_page(n, items, live_positions):
                                 "logo": {"@type": "ImageObject", "url": BASE + "assets/apple-touch-icon.png"}}}
     if n.get("images"):
         article_ld["image"] = [BASE + "assets/" + im["file"] for im in n["images"]]
+    LASTMOD[path] = n["date"]
     write(path, page(path, n["title"], desc, body, root=root, nav="news/", body_class="news-story",
                      extra_head=f'<link rel="stylesheet" href="{asset(root, "landing.css")}">\n', og_type="article",
                      jsonld=[breadcrumb_ld([("", "Home"), ("news/", "Research news"), (path, n["title"])]), article_ld]))
@@ -996,6 +1013,7 @@ def build_news(items, live_positions):
 <p class="lede">The year's major research prizes, discoveries and new funding for students and researchers, and why each one matters if you are planning a degree or a PhD.</p></header>
 <div class="news-page">{sections or '<p class="lede">No news yet.</p>'}</div>
 <div class="news-page-end">{ad_bay("between", wide=True)}</div></div>"""
+    LASTMOD["news/"] = DATES.get("news")
     write("news/", page("news/", "Research and innovation news",
                         "Major research prizes, scientific breakthroughs and new funding for students and researchers, explained in plain English.",
                         body, root=root, nav="news/", body_class="news-page-body",
@@ -1180,6 +1198,7 @@ def build_home(routes, schools, updates, positions, research):
     title = f"{SITE}: Tuition-Free & Fully Funded Study Abroad"
     desc = (f"{len(routes)} tuition-free universities and fully funded scholarships for international students in Europe, "
             f"the USA and Canada, with live deadline countdowns.")
+    LASTMOD[""] = latest(*DATES.values())
     write("", page("", title, desc, body, root=root, nav="", body_class="landing", jsonld=jsonld,
                    extra_head=f'<link rel="stylesheet" href="{asset(root, "landing.css")}">\n',
                    scripts=[asset(root, "landing.js")]))
@@ -1197,6 +1216,7 @@ def build_updates(updates):
 <p class="eyebrow-s">Changelog</p><h1>What’s new on {e(SITE)}</h1>
 <p class="lede">Every change to the routes and pages, newest first: new routes, corrected deadlines and amounts, and closed calls.</p></header>
 <div class="layout"><div class="updates">{sections or '<p class="lede">No updates yet.</p>'}</div></div></div>"""
+    LASTMOD["updates/"] = DATES.get("updates")
     write("updates/", page("updates/", f"What's new on {SITE}",
                            "A dated list of every change to DegreeStep: new funded routes, corrected deadlines and amounts, and closed scholarship calls.",
                            body, root=root, nav="updates/", body_class="updates-page",
@@ -1343,6 +1363,7 @@ def build_route_pages(routes, notes, country_pages):
                             + [(f"routes/{r['slug']}/", r["name"])]),
               {"@context": "https://schema.org", "@type": "WebPage", "name": r["name"], "description": desc,
                "dateModified": reviewed or None, "url": BASE + f"routes/{r['slug']}/"}]
+        LASTMOD[f"routes/{r['slug']}/"] = latest(reviewed, r.get("last_verified"))
         write(f"routes/{r['slug']}/", page(f"routes/{r['slug']}/", f"{r['name']}: funding, eligibility and deadlines", desc,
                                             article, root=root, nav="routes/", jsonld=ld, og_type="article"))
 
@@ -1368,6 +1389,7 @@ def build_routes_index(routes, country_pages):
 <h1>Every funded route, by country</h1>
 <p class="lede">Universities that charge international students no tuition, and scholarships that pay tuition and living costs. Each route has its own page with eligibility, how to apply and a working timeline. Prefer to filter? Use the <a href="{root}" style="color:var(--brass)">live board</a>.</p>
 </div><div class="layout">{body}{ad_bay("between", wide=True)}</div></div>"""
+    LASTMOD["routes/"] = DATES.get("routes")
     write("routes/", page("routes/", "All tuition-free and fully funded routes by country",
                           f"All {len(routes)} tuition-free universities and fully funded scholarships on {SITE}, grouped by country, each with eligibility, deadlines and how to apply.",
                           html_body, root=root, nav="routes/",
@@ -1411,6 +1433,7 @@ def build_countries(routes, countries):
 <article class="prose" style="margin-top:12px">{sections}{faq_html}
 {"<h2>Sources</h2><ul>" + sources + "</ul>" if sources else ""}</article>
 </div><aside class="rail" aria-label="Advertisements">{ad_bay("rail")}</aside></div></div>"""
+        LASTMOD[f"countries/{slug}/"] = c.get("reviewed")
         write(f"countries/{slug}/", page(f"countries/{slug}/", c["title"], c["description"], body, root=root, nav="countries/",
                                           jsonld=[breadcrumb_ld([("", "Home"), ("countries/", "Countries"), (f"countries/{slug}/", c["name"])]),
                                                   {"@context": "https://schema.org", "@type": "Article", "headline": c["title"],
@@ -1429,6 +1452,7 @@ def build_countries(routes, countries):
 <p class="lede">How tuition, living costs and funding work for international students in each country with several funded routes.</p></div>
 <div class="tiles three">{tiles}</div>
 <p class="muted" style="margin:28px 0 48px;line-height:1.7">Also on the board, with one route each: {other_html}.</p></div>"""
+    LASTMOD["countries/"] = DATES.get("countries")
     write("countries/", page("countries/", "Country guides: free tuition and full scholarships",
                              "Country-by-country guides to tuition-free study and fully funded scholarships for international students in Europe, the USA and Canada.",
                              body, root=root, nav="countries/", jsonld=[breadcrumb_ld([("", "Home"), ("countries/", "Countries")])]))
@@ -1468,6 +1492,7 @@ def build_guides(guides, routes):
                "dateModified": g["updated"], "datePublished": g.get("published", g["updated"]),
                "author": author_ld(), "publisher": {"@type": "Organization", "name": SITE, "url": BASE},
                "mainEntityOfPage": BASE + f"guides/{g['slug']}/"}]
+        LASTMOD[f"guides/{g['slug']}/"] = g.get("updated")
         write(f"guides/{g['slug']}/", page(f"guides/{g['slug']}/", g["title"], g["description"], html_body, root=root,
                                             nav="guides/", jsonld=ld, og_type="article"))
     root = "../"
@@ -1477,6 +1502,7 @@ def build_guides(guides, routes):
     body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("", "Guides")])}<div class="eyebrow-s">Guides</div>
 <h1>How to win a funded place, step by step</h1><p class="lede">Practical guides for international applicants: what the funding labels really mean, what "free" tuition still costs, how to plan a year out, and how to write the documents that decide it.</p></div>
 <div class="tiles three" style="margin-bottom:48px">{tiles}</div></div>"""
+    LASTMOD["guides/"] = DATES.get("guides")
     write("guides/", page("guides/", "Guides for funded study abroad",
                           "Practical guides for international students applying to tuition-free universities and fully funded scholarships.",
                           body, root=root, nav="guides/", jsonld=[breadcrumb_ld([("", "Home"), ("guides/", "Guides")])]))
@@ -1517,6 +1543,7 @@ def build_deadlines(routes):
 <div class="months">{cards}</div>
 <p class="muted" style="margin:24px 0 8px;line-height:1.7">Open year-round (no fixed deadline): {roll}.</p>
 <p class="muted" style="margin:0 0 48px;line-height:1.7">Next call not yet announced: {", ".join(f'<a href="{root}routes/{r["slug"]}/" style="color:var(--brass)">{e(r["name"])}</a>' for r in tbc) or "none"}.</p></div>"""
+    LASTMOD["deadlines/"] = DATES.get("routes")
     write("deadlines/", page("deadlines/", "Scholarship and admission deadline calendar",
                              "Month-by-month calendar of typical deadlines for tuition-free universities and fully funded scholarships for international students.",
                              body, root=root, nav="deadlines/", jsonld=[breadcrumb_ld([("", "Home"), ("deadlines/", "Deadlines")])]))
@@ -1531,6 +1558,7 @@ def build_static_pages(pages):
 <h1>{e(p["title"])}</h1>{f'<p class="lede">{e(p["lede"])}</p>' if p.get("lede") else ""}
 <div class="byline"><span>Last updated <b>{e(fmt_date(dt.date.fromisoformat(p["updated"])))}</b></span></div></div>
 <div class="layout"><article class="prose">{body}</article></div></div>"""
+        LASTMOD[f"{p['slug']}/"] = p.get("updated")
         write(f"{p['slug']}/", page(f"{p['slug']}/", p["title"], p["description"], html_body, root=root,
                                      nav=f"{p['slug']}/" if p["slug"] == "about" else None, ads=p.get("ads", False)))
 
@@ -1547,6 +1575,7 @@ def build_author(guides, countries):
 <div class="byline"><span>Last updated <b>{e(fmt_date(dt.date.fromisoformat(a["updated"])))}</b></span></div></div>
 <div class="layout"><article class="prose">{body.replace("<!--guides-->", listed) if "<!--guides-->" in body else body + listed}</article></div></div>"""
     person = dict(author_ld(), jobTitle=a["role"], worksFor={"@type": "Organization", "name": SITE, "url": BASE})
+    LASTMOD[a["path"]] = a["updated"]
     write(a["path"], page(a["path"], f'{a["name"]}, {a["role"]}', a["description"], html_body, root=root, nav="about/", ads=False,
                           jsonld=[breadcrumb_ld([("", "Home"), ("about/", "About"), (a["path"], a["name"])]),
                                   {"@context": "https://schema.org", "@type": "ProfilePage", "dateModified": a["updated"],
@@ -1572,7 +1601,8 @@ def write_meta_files(routes):
     (OUT / "data").mkdir(parents=True, exist_ok=True)
     (OUT / "data" / "data.js").write_text("window.SCHOLAR_DATA = " + json.dumps(slim, ensure_ascii=False).replace("</", "<\\/") + ";\n", encoding="utf-8")
     (OUT / "data" / "schools.js").write_text("window.SCHOLAR_SCHOOLS = " + json.dumps(SCHOOLS, ensure_ascii=False).replace("</", "<\\/") + ";\n", encoding="utf-8")
-    urls = "".join(f"<url><loc>{e(BASE + p)}</loc><lastmod>{TODAY.isoformat()}</lastmod></url>\n"
+    # each page's own last change, never the build date: Google ignores sitemap dates that are not accurate
+    urls = "".join(f"<url><loc>{e(BASE + p)}</loc>" + (f"<lastmod>{LASTMOD[p]}</lastmod>" if LASTMOD.get(p) else "") + "</url>\n"
                    for p in PAGES if p.endswith("/") or p == "")
     (OUT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
                                      + urls + "</urlset>\n", encoding="utf-8")
@@ -1658,6 +1688,10 @@ def main():
     news = load_news()
     if ERRORS:
         return report()
+    DATES.update(routes=latest(*(r.get("last_verified") for r in ROUTES), *(x.get("reviewed") for x in notes.values())),
+                 news=latest(*(n["date"] for n in news)), positions=latest(*(p.get("posted") for p in open_positions(positions))),
+                 updates=latest(*(u["date"] for u in updates)), guides=latest(*(g.get("updated") for g in guides)),
+                 countries=latest(*(c.get("reviewed") for _, c in countries)))
     build_home(ROUTES, SCHOOLS, updates, positions, news)
     build_positions(positions)
     build_news(news, {p["id"] for p in open_positions(positions)})

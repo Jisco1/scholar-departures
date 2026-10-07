@@ -424,6 +424,34 @@ class BuiltSite(unittest.TestCase):
                 if later in html:
                     self.assertGreater(button, html.index(later), f"{name}: official link before {later}")
 
+    def test_sitemap_dates_are_each_pages_real_date(self):
+        # a sitemap that stamps every page with the build date is ignored by Google; each page carries its own date
+        sm = dict(re.findall(r"<loc>https://degreestep\.com/([^<]*)</loc><lastmod>([^<]+)</lastmod>",
+                             (self.site / "sitemap.xml").read_text(encoding="utf-8")))
+        self.assertGreaterEqual(len(sm), 100)
+        front = lambda f: json.loads(re.match(r"\s*<!--\s*(\{.*?\})\s*-->", f.read_text(encoding="utf-8"), re.S).group(1))
+        for f in (self.dir / "content" / "guides").glob("*.html"):
+            self.assertEqual(sm[f"guides/{f.stem}/"], front(f)["updated"], f.stem)
+        for f in (self.dir / "content" / "pages").glob("*.html"):
+            self.assertEqual(sm[f"{f.stem}/"], front(f)["updated"], f.stem)
+        for f in (self.dir / "content" / "countries").glob("*.json"):
+            self.assertEqual(sm[f"countries/{f.stem}/"], json.loads(f.read_text(encoding="utf-8"))["reviewed"], f.stem)
+        for n in json.loads((self.dir / "content" / "news.json").read_text(encoding="utf-8")):
+            self.assertEqual(sm[f"news/{n['id']}/"], n["date"], n["id"])
+        import datetime
+        today = datetime.date.today().isoformat()
+        self.assertTrue(all(d <= today for d in sm.values()), "a page dated in the future")
+        self.assertGreater(len(set(sm.values())), 3, "every page carries the same date")
+
+    def test_every_story_and_position_is_linked_from_its_neighbours(self):
+        # the More boxes rotate, so no story or position hangs off a single link from its list page
+        for folder, least in (("news", 3), ("positions", 2)):
+            pages = {p.parent.name: self.pages[p] for p in self.site.glob(f"{folder}/*/index.html")}
+            self.assertGreater(len(pages), 3)
+            for name in pages:
+                links = sum(1 for other, html in pages.items() if other != name and f'href="../{name}/"' in html)
+                self.assertGreaterEqual(links, least, f"{folder}/{name}: linked from only {links} other {folder} pages")
+
     def test_route_extras_render(self):
         html = (self.site / "routes" / "brown-university" / "index.html").read_text(encoding="utf-8")
         self.assertIn("<h2>What you will still pay</h2>", html)
