@@ -475,6 +475,12 @@ def latest(*dates):
     return max((d for d in dates if isinstance(d, str) and re.match(r"^\d{4}-\d{2}-\d{2}$", d)), default=None)
 
 
+def share_image(key):
+    """The page's own 1200 x 630 share picture, made by tools/share_cards.py; None keeps the site-wide card."""
+    name = f"share-{key}.jpg"
+    return BASE + "assets/" + name if (SRC / "assets" / name).exists() else None
+
+
 def write(path, text):
     target = OUT / path / "index.html" if (path == "" or path.endswith("/")) else OUT / path
     target.parent.mkdir(parents=True, exist_ok=True)
@@ -803,6 +809,7 @@ def build_position_page(p, live):
         desc = desc[:297].rsplit(" ", 1)[0] + "…"
     LASTMOD[path] = p.get("posted")
     write(path, page(path, f"{p['title']}, {p['institution']}", desc, body, root=root, nav="positions/",
+                     og_image=share_image(f"position-{p['id']}"),
                      body_class="position-page", extra_head=f'<link rel="stylesheet" href="{asset(root, "landing.css")}">\n',
                      scripts=[asset(root, "positions.js")],
                      jsonld=[breadcrumb_ld([("", "Home"), ("positions/", "Funded positions"), (path, p["title"])])]))
@@ -1372,7 +1379,8 @@ def build_route_pages(routes, notes, country_pages):
                "dateModified": reviewed or None, "url": BASE + f"routes/{r['slug']}/"}]
         LASTMOD[f"routes/{r['slug']}/"] = latest(reviewed, r.get("last_verified"))
         write(f"routes/{r['slug']}/", page(f"routes/{r['slug']}/", f"{r['name']}: funding, eligibility and deadlines", desc,
-                                            article, root=root, nav="routes/", jsonld=ld, og_type="article"))
+                                            article, root=root, nav="routes/", jsonld=ld, og_type="article",
+                                            og_image=share_image(f"route-{r['slug']}")))
 
 
 def build_routes_index(routes, country_pages):
@@ -1447,7 +1455,7 @@ def build_countries(routes, countries):
                                                    "description": c["description"], "dateModified": c["reviewed"],
                                                    "author": author_ld(), "publisher": {"@type": "Organization", "name": SITE, "url": BASE},
                                                    "mainEntityOfPage": BASE + f"countries/{slug}/"}] + faq_ld,
-                                          og_type="article"))
+                                          og_type="article", og_image=share_image(f"country-{slug}")))
     root = "../"
     tiles = "".join(
         f'<a class="tile" href="{slug}/"><span class="tile-kicker">{e(c.get("flag", ""))} {len([r for r in routes if slugify(r["country"]) == slug])} routes</span>'
@@ -1501,7 +1509,8 @@ def build_guides(guides, routes):
                "mainEntityOfPage": BASE + f"guides/{g['slug']}/"}]
         LASTMOD[f"guides/{g['slug']}/"] = g.get("updated")
         write(f"guides/{g['slug']}/", page(f"guides/{g['slug']}/", g["title"], g["description"], html_body, root=root,
-                                            nav="guides/", jsonld=ld, og_type="article"))
+                                            nav="guides/", jsonld=ld, og_type="article",
+                                            og_image=share_image(f"guide-{g['slug']}")))
     root = "../"
     tiles = "".join(
         f'<a class="tile" href="{g["slug"]}/"><span class="tile-kicker">{e(g.get("kicker", "Guide"))}</span><h2>{e(g["title"])}</h2>'

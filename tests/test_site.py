@@ -466,6 +466,20 @@ class BuiltSite(unittest.TestCase):
         home = self.pages[self.site / "index.html"]
         self.assertIn('<meta property="og:image" content="https://degreestep.com/assets/og.png">', home)
 
+    def test_shared_pages_show_their_own_card(self):
+        # scholarships, guides, country guides and positions each preview their own card when shared
+        checked = 0
+        for folder, kind in (("routes", "route"), ("guides", "guide"), ("countries", "country"), ("positions", "position")):
+            for path in self.site.glob(f"{folder}/*/index.html"):
+                img = re.search(r'<meta property="og:image" content="([^"]+)">', self.pages[path]).group(1)
+                card = f"share-{kind}-{path.parent.name}.jpg"
+                if (self.site / "assets" / card).exists():
+                    self.assertEqual(img, "https://degreestep.com/assets/" + card, path.parent.name)
+                    checked += 1
+                else:
+                    self.assertEqual(img, "https://degreestep.com/assets/og.png", path.parent.name)
+        self.assertGreaterEqual(checked, 80, "most pages should have their own card")
+
     def test_route_extras_render(self):
         html = (self.site / "routes" / "brown-university" / "index.html").read_text(encoding="utf-8")
         self.assertIn("<h2>What you will still pay</h2>", html)
