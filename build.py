@@ -388,7 +388,7 @@ def ad_bay(kind, wide=False):
 
 
 def page(path, title, description, body, *, root, nav=None, body_class="", jsonld=None, extra_head="",
-         scripts=(), og_type="website", noindex=False, ads=True):
+         scripts=(), og_type="website", noindex=False, ads=True, og_image=None):
     canonical = BASE + path
     full_title = title if title.endswith(SITE) or title.startswith(SITE) else f"{title} · {SITE}"
     client = adsense_client() if ads else ""
@@ -423,7 +423,9 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
 <meta property="og:description" content="{e(description)}">
 <meta property="og:type" content="{og_type}">
 <meta property="og:url" content="{e(canonical)}">
-<meta property="og:image" content="{BASE}assets/og.png">
+<meta property="og:image" content="{e(og_image or BASE + 'assets/og.png')}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="{root}assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="{root}assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -992,7 +994,12 @@ def build_news_page(n, items, live_positions):
     if n.get("images"):
         article_ld["image"] = [BASE + "assets/" + im["file"] for im in n["images"]]
     LASTMOD[path] = n["date"]
-    write(path, page(path, n["title"], desc, body, root=root, nav="news/", body_class="news-story",
+    # a shared link previews the story's own 1200 x 630 picture, made by tools/share_images.py
+    share = f"share-{n['id']}.jpg"
+    if n.get("images") and not (SRC / "assets" / share).exists():
+        fail(f"news.json: {n['id']} has photos but no src/assets/{share}; run python tools/share_images.py {n['id']}")
+    og_image = BASE + "assets/" + share if n.get("images") else None
+    write(path, page(path, n["title"], desc, body, root=root, nav="news/", body_class="news-story", og_image=og_image,
                      extra_head=f'<link rel="stylesheet" href="{asset(root, "landing.css")}">\n', og_type="article",
                      jsonld=[breadcrumb_ld([("", "Home"), ("news/", "Research news"), (path, n["title"])]), article_ld]))
 

@@ -452,6 +452,20 @@ class BuiltSite(unittest.TestCase):
                 links = sum(1 for other, html in pages.items() if other != name and f'href="../{name}/"' in html)
                 self.assertGreaterEqual(links, least, f"{folder}/{name}: linked from only {links} other {folder} pages")
 
+    def test_shared_stories_show_their_own_photo(self):
+        # a link shared on WhatsApp or Facebook should preview the story's photo, not the site-wide card
+        items = json.loads((self.dir / "content" / "news.json").read_text(encoding="utf-8"))
+        with_photo = [n for n in items if n.get("images")]
+        self.assertGreaterEqual(len(with_photo), 5)
+        for n in items:
+            html = self.pages[self.site / "news" / n["id"] / "index.html"]
+            img = re.search(r'<meta property="og:image" content="([^"]+)">', html).group(1)
+            want = "https://degreestep.com/assets/" + (f"share-{n['id']}.jpg" if n.get("images") else "og.png")
+            self.assertEqual(img, want, n["id"])
+            self.assertTrue((self.site / "assets" / img.rsplit("/", 1)[1]).exists(), img)
+        home = self.pages[self.site / "index.html"]
+        self.assertIn('<meta property="og:image" content="https://degreestep.com/assets/og.png">', home)
+
     def test_route_extras_render(self):
         html = (self.site / "routes" / "brown-university" / "index.html").read_text(encoding="utf-8")
         self.assertIn("<h2>What you will still pay</h2>", html)
