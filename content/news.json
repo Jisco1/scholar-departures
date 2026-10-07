@@ -1,5 +1,25 @@
 [
   {
+    "id": "nobel-chemistry-2026-mirror-molecules",
+    "date": "2026-10-07",
+    "category": "Award",
+    "title": "Nobel Prize in Chemistry 2026 goes to Henri Kagan and Kenso Soai for making chemistry choose one mirror image",
+    "summary": "Henri B. Kagan of Université Paris-Sud in France and Kenso Soai of Tokyo University of Science in Japan share the prize for discovering non-linear effects and autocatalysis in asymmetric organic synthesis: ways to make a reaction produce mostly, or only, one of a molecule's two mirror-image forms.",
+    "why": "Making only one mirror form of a molecule matters in the manufacture of medicines, and organic and medicinal chemistry are common fields for funded PhDs.",
+    "art": "award",
+    "source_title": "NobelPrize.org: Press release, 7 October 2026",
+    "source_url": "https://www.nobelprize.org/prizes/chemistry/2026/press-release/",
+    "body": [
+      "The 2026 Nobel Prize in Chemistry goes to Henri B. Kagan of Université Paris-Sud in France and Kenso Soai of Tokyo University of Science in Japan. The Royal Swedish Academy of Sciences announced the prize on 7 October for their discovery of non-linear effects and autocatalysis in asymmetric organic synthesis. The two share 12 million Swedish kronor equally.",
+      "Many molecules come in two forms that are mirror images of each other, like a left and a right hand. Amino acids are an example: each exists in both forms, but the proteins in living cells are built from only one of them, and the other is rarely found in nature. Chemists call this homochirality, from the Greek words for same and hand. How it could arise on its own was a puzzle for more than a century.",
+      "The puzzle had a practical side too. When chemists ran reactions that could make both mirror forms, they always ended up with equal amounts of each. Yet for molecules that act on the body, such as medicines, usually only one form has the effect you want, so chemists worked hard to make one form alone.",
+      "Kagan took the first decisive step in 1986, when he found a new way to steer reactions that gave a far larger excess of one mirror form than anyone had thought possible. Soai took the next step. A key paper in 1995 described the first reaction that had the potential to be homochiral, and in 2003 he succeeded: a reaction that produced only one of the two possible mirror forms. Until then, only life itself had managed that.",
+      "Together their discoveries show how one mirror form can come to dominate, and they have been decisive for chemists who design reactions to manufacture medicines.",
+      "Kagan was born in 1930 in Boulogne-Billancourt, France, earned his PhD at the Collège de France in 1960 and is professor emeritus at what was then Université Paris-Sud. Soai was born in 1950 in Hiroshima, Japan, earned his PhD at the University of Tokyo in 1979 and is professor emeritus at Tokyo University of Science.",
+      "If you are thinking of studying in France, the [Eiffel Excellence Scholarship]({{root}}routes/eiffel-excellence-scholarship/) pays a monthly allowance plus travel and insurance for master's and PhD students. For chemistry and other sciences across Europe, our guide to [how funded PhDs work in Europe]({{root}}guides/funded-phd-europe/) explains where salaried PhD posts are advertised and how to apply."
+    ]
+  },
+  {
     "id": "nobel-physics-2026-icecube",
     "date": "2026-10-06",
     "category": "Award",
