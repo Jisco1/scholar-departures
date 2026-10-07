@@ -6,7 +6,18 @@
     "title": "Nobel Prize in Chemistry 2026 goes to Henri Kagan and Kenso Soai for making chemistry choose one mirror image",
     "summary": "Henri B. Kagan of Université Paris-Sud in France and Kenso Soai of Tokyo University of Science in Japan share the prize for discovering non-linear effects and autocatalysis in asymmetric organic synthesis: ways to make a reaction produce mostly, or only, one of a molecule's two mirror-image forms.",
     "why": "Making only one mirror form of a molecule matters in the manufacture of medicines, and organic and medicinal chemistry are common fields for funded PhDs.",
-    "art": "award",
+    "images": [
+      {
+        "file": "news-henri-kagan.jpg",
+        "kind": "portrait",
+        "name": "Henri B. Kagan",
+        "credit": "École polytechnique",
+        "license": "CC BY-SA 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Henri_Kagan.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "focus": 12
+      }
+    ],
     "source_title": "NobelPrize.org: Press release, 7 October 2026",
     "source_url": "https://www.nobelprize.org/prizes/chemistry/2026/press-release/",
     "body": [
