@@ -6,7 +6,18 @@
     "title": "Nobel Prize in Physics 2026 goes to Francis Halzen for catching neutrinos in the South Pole ice",
     "summary": "Francis Halzen of the University of Wisconsin–Madison receives the prize for his decisive part in the IceCube Neutrino Observatory, a cubic kilometre of Antarctic ice fitted with light sensors, and for the discovery of high-energy neutrinos that come from far beyond the solar system.",
     "why": "Neutrino astronomy has opened a new way to study the universe, and funded PhDs in astrophysics and particle physics in Europe are often salaried posts.",
-    "art": "award",
+    "images": [
+      {
+        "file": "news-icecube-lab.jpg",
+        "kind": "wide",
+        "focus": 45,
+        "name": "The IceCube Laboratory at the Amundsen-Scott South Pole Station, where the detector's data is collected",
+        "credit": "Christopher Michel",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:IceCube_Neutrino_Observatory_in_2023_02.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    ],
     "source_title": "NobelPrize.org: Press release, 6 October 2026",
     "source_url": "https://www.nobelprize.org/prizes/physics/2026/press-release/",
     "body": [
