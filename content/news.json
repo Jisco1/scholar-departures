@@ -1,5 +1,35 @@
 [
   {
+    "id": "nobel-literature-2026-anne-carson",
+    "date": "2026-10-08",
+    "category": "Award",
+    "title": "Nobel Prize in Literature 2026 goes to Canadian poet and classicist Anne Carson",
+    "summary": "Anne Carson, born in Toronto in 1950, receives the prize for a bold and inventive body of work that plays with the classical tradition and has created new forms for contemporary literature, from Autobiography of Red to Nox.",
+    "why": "Carson built her career on a doctorate in classics, combining poetry with translation and university teaching, and funded humanities PhDs in Europe are often salaried posts.",
+    "images": [
+      {
+        "file": "news-anne-carson.jpg",
+        "kind": "portrait",
+        "name": "Anne Carson",
+        "credit": "Jay Dixit",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Anne_Carson_closeup_(cropped).jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "focus": 30
+      }
+    ],
+    "source_title": "NobelPrize.org: Press release and biobibliography, 8 October 2026",
+    "source_url": "https://www.nobelprize.org/prizes/literature/2026/bio-bibliography/",
+    "body": [
+      "The 2026 Nobel Prize in Literature goes to the Canadian author Anne Carson. The Swedish Academy announced the prize on 8 October for a bold and inventive body of work that, in playful conversation with the classical tradition, has created new forms for contemporary literature. She is the only laureate this year.",
+      "Carson was born in Toronto in 1950. She is a classicist as well as a poet: she published her doctoral thesis in classics in 1981 and has spent her career combining her own writing with translation and teaching at universities. She has named the history of words as the starting point for all her work, which sits where a scholar's close attention to language meets a poet's search for new meaning.",
+      "Her long essay Eros the Bittersweet (1986) laid the foundations. Built around a word from the Greek poet Sappho that describes love as sweetness and pain at once, it set out a way of writing that lets different voices pull against each other. In later essays she paired writers centuries apart: the Greek poet Simonides with Paul Celan, and the historian Thucydides with Virginia Woolf.",
+      "Two books from the 1990s are among her best known. 'The Glass Essay', in Glass, Irony and God (1995), is a long poem that is also a story of grief and lost love, threaded through with the life and novels of Emily Brontë. Autobiography of Red (1998), a novel in verse, takes fragments by the ancient poet Stesichoros about the red winged monster Geryon and turns him into a tender young man in a modern coming-of-age story.",
+      "Her translations from ancient Greek, including Sappho's fragments in If Not, Winter (2002), are read as works in their own right. Nox (2010), written after the death of her brother Michael, is a book in a box: a fold-out of photographs, letters and fragments, set beside her translation of the Roman poet Catullus's elegy for his own brother. Later books such as Float (2016) and Wrong Norma (2024) mix forms freely, and she has worked with visual artists, choreographers and opera and theatre directors.",
+      "Carson's path ran through a doctorate in the humanities, and funded humanities PhDs exist in Europe too. The University of Copenhagen is advertising a salaried [PhD in China Studies]({{root}}positions/copenhagen-china-studies/), and our guide to [how funded PhDs work in Europe]({{root}}guides/funded-phd-europe/) explains how posts like it work. For study in Carson's home country, see our [Canada country guide]({{root}}countries/canada/)."
+    ]
+  },
+  {
     "id": "nobel-chemistry-2026-mirror-molecules",
     "date": "2026-10-07",
     "category": "Award",
