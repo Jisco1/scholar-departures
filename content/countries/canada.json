@@ -3,7 +3,7 @@
   "flag": "🇨🇦",
   "title": "Canada: the full scholarships worth applying for, and the new rules",
   "lede": "Canadian universities charge international students substantial fees, and the government now caps study permits and requires more proof of funds. The routes that pay are a few prestigious entrance awards, the Mastercard Foundation programme at McGill and federal doctoral scholarships.",
-  "description": "Full scholarships for international students in Canada: Pearson at U of T, UBC's International Scholars, McGill's Mastercard Foundation programme and federal doctoral awards, plus 2026 study-permit rules.",
+  "description": "Full scholarships for international students in Canada: Pearson at U of T, UBC's International Scholars, McGill's Mastercard Foundation programme and federal doctoral awards, plus application fees and waivers and 2026 study-permit rules.",
   "card": "Nomination-based entrance awards at U of T and UBC, Mastercard at McGill, and federal PhD awards.",
   "sections": [
     {
@@ -17,6 +17,10 @@
     {
       "h": "Doctoral: the end of Vanier",
       "html": "<p>The Vanier scholarship has been folded into the <a href=\"{{root}}routes/canada-graduate-research-scholarships-doctoral/\">Canada Graduate Research Scholarship – Doctoral</a>, worth $40,000 a year for three years. International students can compete, but only once they are enrolled in a PhD at a Canadian university.</p>"
+    },
+    {
+      "h": "Application fees, and who waives them",
+      "html": "<p>Canadian universities charge international applicants about CAD 130 to 170 per application, and most never waive it.</p><div class=\"table-wrap\"><table><tr><th>University</th><th>Application fee</th><th>Waivers</th></tr><tr><td>University of Toronto, graduate</td><td>CAD 130 for starts up to May 2027; CAD 135 from September 2027</td><td>None, and no refunds</td></tr><tr><td>UBC, graduate</td><td>CAD 168.25 for international applicants</td><td>Automatic if your citizenship and address are both in one of the UN's least developed countries</td></tr><tr><td>McGill, graduate</td><td>CAD 143.82 for Summer 2027; one fee covers two programmes in the same term</td><td>None</td></tr><tr><td>University of Alberta</td><td>CAD 150</td><td>Non-refundable</td></tr></table></div><p>For undergraduates, McGill charges CAD 140.16, and a second application in the same term is free.</p><p>Compare other countries in our guide to <a href=\"{{root}}guides/universities-with-no-application-fee/\">universities with no application fee</a>.</p>"
     },
     {
       "h": "Study permits and proof of funds",
@@ -55,13 +59,37 @@
     {
       "title": "IRCC: Post-graduation work permit",
       "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/about.html"
+    },
+    {
+      "title": "University of Toronto School of Graduate Studies: FAQ",
+      "url": "https://www.sgs.utoronto.ca/future-students/faq/"
+    },
+    {
+      "title": "UBC Graduate School: Online application and fee",
+      "url": "https://www.grad.ubc.ca/prospective-students/application-admission/online-application-fee"
+    },
+    {
+      "title": "McGill: Graduate application support FAQ",
+      "url": "https://www.mcgill.ca/gradapplicants/how-apply/application-support"
+    },
+    {
+      "title": "McGill: Undergraduate application",
+      "url": "https://www.mcgill.ca/undergraduate-admissions/apply"
+    },
+    {
+      "title": "University of Alberta: International tuition and fees",
+      "url": "https://www.ualberta.ca/en/admissions/tuition-and-scholarships/international-tuition-and-fees.html"
     }
   ],
-  "reviewed": "2026-10-05",
+  "reviewed": "2026-10-09",
   "glance": [
     [
       "Tuition",
       "Set by each university; international fees are far higher than domestic ones"
+    ],
+    [
+      "Application fee",
+      "About CAD 130 to 170; UBC waives its graduate fee for the least developed countries"
     ],
     [
       "Proof of funds",
@@ -77,6 +105,14 @@
     ]
   ],
   "faq": [
+    {
+      "q": "How much does it cost to apply to a Canadian university?",
+      "a": "Usually CAD 130 to 170 per application: CAD 135 at the University of Toronto's graduate school from September 2027, CAD 168.25 for international graduate applicants at UBC, and CAD 140.16 for an undergraduate application to McGill."
+    },
+    {
+      "q": "Can I get a Canadian application fee waived?",
+      "a": "UBC waives its graduate application fee for citizens of the UN's least developed countries who also live there. Toronto's graduate school and McGill's graduate office do not offer waivers."
+    },
     {
       "q": "How much money do I need for a Canadian study permit?",
       "a": "For applications from 1 September 2026, a single applicant must show CAD 23,448 for a year's living costs, on top of tuition and travel."

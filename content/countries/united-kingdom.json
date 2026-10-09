@@ -3,7 +3,7 @@
   "flag": "🇬🇧",
   "title": "Fully funded master's and PhDs in the UK: the scholarships that pay for everything",
   "lede": "UK tuition for international students is high, so the UK is a country you reach through a scholarship. Luckily it has some of the world's best-known full awards: Chevening, Commonwealth, Gates Cambridge, Rhodes and the Mastercard Foundation programme at Cambridge.",
-  "description": "How international students can study in the UK for free: Chevening, Commonwealth, Gates Cambridge, Rhodes and Mastercard Foundation scholarships, plus visa costs and proof-of-funds rules.",
+  "description": "How international students can study in the UK for free: Chevening, Commonwealth, Gates Cambridge, Rhodes and Mastercard Foundation scholarships, plus application fees and waivers, visa costs and proof-of-funds rules.",
   "card": "High fees, but the strongest line-up of full scholarships anywhere: Chevening, Commonwealth, Gates, Rhodes.",
   "sections": [
     {
@@ -13,6 +13,10 @@
     {
       "h": "The big full awards compared",
       "html": "<div class=\"table-wrap\"><table><tr><th>Scholarship</th><th>Level</th><th>Who</th><th>Deadline</th></tr><tr><td><a href=\"{{root}}routes/chevening-scholarships/\">Chevening</a></td><td>One-year master's</td><td>160+ countries, 2 years' work experience</td><td>6 Oct 2026</td></tr><tr><td><a href=\"{{root}}routes/commonwealth-masters-scholarships/\">Commonwealth Master's</a></td><td>One-year master's</td><td>Eligible Commonwealth countries, via national nominating agency</td><td>20 Oct 2026</td></tr><tr><td><a href=\"{{root}}routes/commonwealth-shared-scholarships/\">Commonwealth Shared</a></td><td>Selected master's</td><td>Lower-income Commonwealth countries, via UK universities</td><td>Set by each university</td></tr><tr><td><a href=\"{{root}}routes/gates-cambridge-scholarship/\">Gates Cambridge</a></td><td>Any Cambridge postgraduate degree</td><td>Any country outside the UK</td><td>8 Dec 2026 or 6 Jan 2027</td></tr><tr><td><a href=\"{{root}}routes/rhodes-scholarship/\">Rhodes</a></td><td>Oxford postgraduate</td><td>By constituency</td><td>Jun–Oct, by constituency</td></tr><tr><td><a href=\"{{root}}routes/mastercard-foundation-scholars-cambridge/\">Mastercard Foundation at Cambridge</a></td><td>One-year master's</td><td>Young Africans</td><td>5 Jan 2027</td></tr></table></div>"
+    },
+    {
+      "h": "Application fees and waivers",
+      "html": "<p>Undergraduates apply through UCAS: for 2027 entry, one fee of <strong>£34.50</strong> covers up to five choices. For a master's or PhD you apply to each university, and each sets its own fee.</p><div class=\"table-wrap\"><table><tr><th>University</th><th>Application fee</th><th>Waivers</th></tr><tr><td>Oxford</td><td>£75 for taught courses; £20 for research courses</td><td>Residents of listed low-income countries, and refugees and displaced people</td></tr><tr><td>Cambridge</td><td>£85 per master's application; £20 for doctoral courses, covering up to 7 applications</td><td>Automatic for nationals of listed countries who have lived there since birth; African applicants to the Mastercard Foundation Scholars Program can ask by 20 November 2026</td></tr><tr><td>Imperial College London</td><td>£90 for most master's; £125 for Business School MSc courses</td><td>On request, if you are in financial difficulty</td></tr><tr><td>UCL</td><td>£90; £160 for some business master's</td><td>Only for hardship caused by conflict or displacement</td></tr></table></div><p>At the University of Manchester, only eight Business School MSc courses charge a fee (£60); the school's other courses are free to apply to.</p><p>The Oxford and Cambridge lists are mostly the world's poorest countries, such as Ethiopia, Malawi, Rwanda, Sierra Leone, Uganda and Zambia. Ghana, Nigeria and Kenya are not on either list. Always ask for a waiver before you pay: neither Cambridge nor Imperial can waive a fee that has already been paid.</p><p>Compare other countries in our guide to <a href=\"{{root}}guides/universities-with-no-application-fee/\">universities with no application fee</a>.</p>"
     },
     {
       "h": "Visa costs and proof of funds",
@@ -59,13 +63,49 @@
     {
       "title": "UKCISA: Working as an international student",
       "url": "https://www.ukcisa.org.uk/student-advice/working/student-work/"
+    },
+    {
+      "title": "UCAS: Application fee for the 2027 cycle",
+      "url": "https://www.ucas.com/faqs/what-is-the-application-fee-for-the-2027-cycle"
+    },
+    {
+      "title": "University of Oxford: Graduate application fee",
+      "url": "https://www.ox.ac.uk/admissions/graduate/application-guide/declaration-and-payment/application-fee"
+    },
+    {
+      "title": "University of Oxford: Application fee waivers",
+      "url": "https://www.ox.ac.uk/admissions/graduate/application-guide/declaration-and-payment/application-fee-waivers"
+    },
+    {
+      "title": "University of Cambridge: Application fee",
+      "url": "https://www.postgraduate.study.cam.ac.uk/apply/how/application-fee"
+    },
+    {
+      "title": "University of Cambridge: Application fee waiver",
+      "url": "https://www.postgraduate.study.cam.ac.uk/apply/how/application-fee-waiver"
+    },
+    {
+      "title": "Imperial College London: Application fee",
+      "url": "https://www.imperial.ac.uk/study/apply/postgraduate-taught/application-process/application-fee/"
+    },
+    {
+      "title": "UCL: Application fees",
+      "url": "https://www.ucl.ac.uk/prospective-students/graduate/application-fees"
+    },
+    {
+      "title": "Alliance Manchester Business School: Help with your application",
+      "url": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/help-with-your-application/"
     }
   ],
-  "reviewed": "2026-10-05",
+  "reviewed": "2026-10-09",
   "glance": [
     [
       "Tuition",
       "International fees, often well above £20,000 a year for a master's"
+    ],
+    [
+      "Application fee",
+      "UCAS £34.50 for up to five choices; postgraduate fees £60 to £90, with waivers at Oxford and Cambridge"
     ],
     [
       "Proof of funds",
@@ -81,6 +121,14 @@
     ]
   ],
   "faq": [
+    {
+      "q": "How much does it cost to apply to a UK university?",
+      "a": "Undergraduate applications through UCAS cost £34.50 for up to five choices for 2027 entry. Postgraduate fees are set by each university: £75 at Oxford for taught courses, £85 at Cambridge for a master's, and £90 at Imperial and UCL."
+    },
+    {
+      "q": "Can I get my UK application fee waived?",
+      "a": "Oxford waives it for residents of listed low-income countries, and Cambridge for nationals of listed countries who have lived there since birth; Ghana, Nigeria and Kenya are not on either list. Imperial considers waivers for financial difficulty. Ask before you pay."
+    },
     {
       "q": "How much money do I need for a UK Student visa?",
       "a": "£1,529 a month for up to nine months in London, or £1,171 a month elsewhere, on top of any unpaid tuition. A full scholarship often counts as your evidence."

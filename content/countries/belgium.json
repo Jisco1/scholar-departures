@@ -1,14 +1,22 @@
 {
   "name": "Belgium",
   "flag": "🇧🇪",
-  "title": "Belgium (Flanders): moderate fees and two government-backed routes",
+  "title": "Belgium (Flanders): tuition, application fees and two government-backed routes",
   "lede": "Flemish universities such as KU Leuven and Ghent charge non-EU students several thousand euros a year, moderate by Western European standards. Funded routes include the Flemish government's Master Mind Scholarships and Ghent University's doctoral scholarships for the Global South.",
-  "description": "Tuition for non-EU students at Flemish universities and the funded routes: Master Mind Scholarships and Ghent University's BOF doctoral scholarships.",
+  "description": "Tuition and application fees for non-EU students at Flemish universities, including Ghent University's free application and low fees, and the funded routes: Master Mind Scholarships and Ghent's BOF doctoral scholarships.",
   "card": "Non-EU fees of a few thousand euros a year; Master Mind and Ghent's doctoral scholarships fund the rest.",
   "sections": [
     {
       "h": "What non-EU students pay",
       "html": "<p>Flemish universities publish their own fees for students from outside the EU/EEA. For 2026–27, KU Leuven's standard non-EEA fee was <strong>€9,493.90</strong> for a full-time year of 60 credits; other Flemish universities charge from a few thousand euros upwards, and fees have been rising. Always check your specific programme.</p>"
+    },
+    {
+      "h": "Application fees",
+      "html": "<p><strong>Ghent University charges no application fee.</strong> KU Leuven charges <strong>€120</strong> for each application and VUB <strong>€90</strong> for each application with a foreign diploma. Neither fee is refunded, and VUB no longer deducts it from your tuition if you are admitted.</p><p>Compare other countries in our guide to <a href=\"{{root}}guides/universities-with-no-application-fee/\">universities with no application fee</a>.</p>"
+    },
+    {
+      "h": "The cheapest option: Ghent University",
+      "html": "<p>Ghent is also cheap. For 2026–27 its master's programmes charge non-EEA students <strong>€2,297.40</strong> or <strong>€7,079.40</strong> for 60 credits, depending on the programme; a few interuniversity programmes charge more. KU Leuven's standard non-EEA fee is €9,493.90. VUB charges non-EEA students a fixed €2,200 plus €52 a credit: €5,320 for a 60-credit year of its Social Sciences bachelor's.</p>"
     },
     {
       "h": "Master Mind Scholarships",
@@ -59,13 +67,37 @@
     {
       "title": "KU Leuven: Working in Belgium after graduation (non-EEA)",
       "url": "https://www.kuleuven.be/english/stuvo/working-volunteering-career/transition-to-the-job-market/working-non-eea"
+    },
+    {
+      "title": "Ghent University: How to submit an application",
+      "url": "https://www.ugent.be/prospect/en/administration/application/application-degree/apply.htm"
+    },
+    {
+      "title": "Ghent University: Master's tuition 2026–2027",
+      "url": "https://www.ugent.be/student/en/administration/tuition/tuition-fee-master-programme-not-advanced-and-masters-programme-in-teaching.htm/tuitionmasterteacher20262027.htm"
+    },
+    {
+      "title": "KU Leuven: Application fee",
+      "url": "https://www.kuleuven.be/english/apply/requested-documents/application-fee"
+    },
+    {
+      "title": "VUB: Enrolling with a foreign diploma",
+      "url": "https://www.vub.be/en/studying-vub/apply-and-enrol-vub/application-and-enrolment/enrolling-with-foreign-diploma"
+    },
+    {
+      "title": "VUB: Tuition fees",
+      "url": "https://www.vub.be/en/studying-vub/practical-info-for-students/how-much-does-studying-cost/tuition-fees"
     }
   ],
-  "reviewed": "2026-10-05",
+  "reviewed": "2026-10-09",
   "glance": [
     [
       "Tuition",
       "Set by each university; KU Leuven's standard non-EEA fee was €9,493.90 for 2026–27"
+    ],
+    [
+      "Application fee",
+      "None at Ghent University; €120 at KU Leuven, €90 at VUB"
     ],
     [
       "Proof of funds",
@@ -81,6 +113,14 @@
     ]
   ],
   "faq": [
+    {
+      "q": "Which Belgian universities have no application fee?",
+      "a": "Ghent University charges no application fee. KU Leuven charges €120 for each application, and VUB €90 for each application with a foreign diploma."
+    },
+    {
+      "q": "How much does a master's at Ghent University cost for non-EU students?",
+      "a": "For 2026–27, €2,297.40 or €7,079.40 for 60 credits, depending on the programme; some interuniversity programmes charge more. Ghent charges no application fee."
+    },
     {
       "q": "How much money do I need for a Belgian student visa?",
       "a": "€1,062 a month for 2026–27, usually proven with €12,744 in a blocked university account, a bank guarantee, a scholarship or a sponsor's Annex 32 undertaking."

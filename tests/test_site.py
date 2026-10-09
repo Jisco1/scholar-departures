@@ -199,7 +199,7 @@ class BuiltSite(unittest.TestCase):
     def test_no_page_repeats_the_checked_claims(self):
         # the owner asked for these gone (5 Oct 2026): verification is explained once, on How we verify,
         # and no page tells readers how the research is done
-        banned = re.compile(r"checked against (its|the) official page|each (one |route )?(is |was )?checked|source-checked|"
+        banned = re.compile(r"checked against (its|the) official page|checked against official sources|each (one |route )?(is |was )?checked|source-checked|"
                             r"every figure was checked|no account needed|nothing is updated silently|"
                             r"help of AI|including AI models|automated and AI|automated (check|search)|drafts are done", re.I)
         research = re.compile(r"help of AI|including AI models|automated and AI|automated (check|search)|drafts are done", re.I)
@@ -214,6 +214,20 @@ class BuiltSite(unittest.TestCase):
                 continue
             m = banned.search(text)
             self.assertIsNone(m, f"{path.relative_to(self.site)}: {m.group(0) if m else ''}")
+
+    def test_country_guides_answer_application_fees(self):
+        # Search Console (9 Oct 2026) showed people finding us for "netherlands universities without application fee"
+        # and leaving: every country guide now answers what applying costs, and points to the cross-country guide
+        guide = "guides/universities-with-no-application-fee/"
+        self.assertIn(self.site / guide / "index.html", self.pages)
+        countries = [p for p in self.pages if p.parent.parent.name == "countries"]
+        self.assertGreaterEqual(len(countries), 10)
+        for path in countries:
+            text = self.pages[path]
+            where = path.parent.name
+            self.assertTrue("<dt>Application fee</dt>" in text, f"{where}: no application fee in At a glance")
+            self.assertRegex(text, r'"@type": "Question", "name": "[^"]*application fee', f"{where}: no application-fee question")
+            self.assertTrue(guide in text, f"{where}: no link to the application-fee guide")
 
     def test_no_em_dashes_anywhere(self):
         # the owner reads em dashes as a sign of AI writing (5 Oct 2026); none may reach a page, a script or a style
@@ -293,11 +307,12 @@ class BuiltSite(unittest.TestCase):
             c = json.loads(path.read_text(encoding="utf-8"))
             html = (self.site / "countries" / path.stem / "index.html").read_text(encoding="utf-8")
             labels = [k for k, _ in c["glance"]]
-            self.assertEqual(len(labels), 4, path.stem)
+            self.assertEqual(len(labels), 5, path.stem)
+            self.assertIn("Application fee", labels, path.stem)
             self.assertTrue(any("Proof of funds" in k for k in labels), f"{path.stem}: no proof of funds")
             self.assertIn("Work while studying", labels, path.stem)
             self.assertIn("After you graduate", labels, path.stem)
-            self.assertEqual(html.count("<div><dt>"), 4, path.stem)
+            self.assertEqual(html.count("<div><dt>"), 5, path.stem)
             self.assertGreaterEqual(len(c["faq"]), 3, path.stem)
             ld = [json.loads(b) for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)]
             faq = [b for b in ld if b.get("@type") == "FAQPage"]

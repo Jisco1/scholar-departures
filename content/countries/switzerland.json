@@ -1,14 +1,18 @@
 {
   "name": "Switzerland",
   "flag": "🇨🇭",
-  "title": "Switzerland: world-class universities, and two ways to have them paid for",
+  "title": "Switzerland: tuition, application fees and two ways to have them paid for",
   "lede": "Swiss federal institutes of technology charge modest fees by international standards, but Switzerland is expensive to live in. The funded routes are ETH Zürich's ESOP for master's students and the Swiss Government Excellence Scholarships for researchers.",
-  "description": "Tuition, living costs and the funded routes for international students in Switzerland: ETH Zürich's ESOP and the Swiss Government Excellence Scholarships.",
+  "description": "Tuition and application fees for international students at ETH Zürich, EPFL, Zurich, Geneva, Lausanne, Basel and Bern, living costs, and the funded routes: ETH's ESOP and the Swiss Government Excellence Scholarships.",
   "card": "ETH and EPFL charge foreign students CHF 2,190 a semester; ESOP and federal scholarships cover the costs.",
   "sections": [
     {
       "h": "Tuition",
       "html": "<p>From autumn 2025, <strong>ETH Zürich and EPFL</strong> tripled tuition for students who come to Switzerland to study, from CHF 730 to <strong>CHF 2,190 per semester</strong> (CHF 4,380 a year). That is still low compared with private or UK universities. Cantonal universities set their own fees, often with a surcharge for international students.</p>"
+    },
+    {
+      "h": "Application fees, and the cheapest universities",
+      "html": "<p>Every Swiss university charges applicants with a foreign degree a fee, and none of them refunds it if you are turned down. Tuition at the cantonal universities is far lower than at ETH Zürich and EPFL.</p><div class=\"table-wrap\"><table><tr><th>University</th><th>Application fee, foreign degree</th><th>Tuition per semester</th></tr><tr><td>ETH Zürich</td><td>CHF 150 per programme; never waived</td><td>CHF 2,190 for students who come to Switzerland to study</td></tr><tr><td>EPFL</td><td>CHF 150; one master's application per year</td><td>CHF 2,190 for students who come to Switzerland to study</td></tr><tr><td>University of Zurich</td><td>CHF 150</td><td>CHF 720, plus CHF 100 for foreign master's students (CHF 500 at bachelor's level)</td></tr><tr><td>University of Geneva</td><td>CHF 65, deducted from your first semester if you enrol</td><td>CHF 500 for everyone, whatever their nationality</td></tr><tr><td>University of Lausanne</td><td>CHF 200</td><td>CHF 580</td></tr><tr><td>University of Basel</td><td>CHF 100</td><td>CHF 850</td></tr></table></div><p>Geneva is the cheapest of these: CHF 500 a semester for every student, and its CHF 65 fee counts towards the first one. Lausanne, at CHF 580, comes next. The University of Bern charges CHF 850 a semester, plus CHF 1,700 from autumn 2026 for students who were not living in Switzerland when they gained their university entrance qualification.</p><p>Compare other countries in our guide to <a href=\"{{root}}guides/universities-with-no-application-fee/\">universities with no application fee</a>.</p>"
     },
     {
       "h": "The real cost is living in Switzerland",
@@ -59,13 +63,53 @@
     {
       "title": "ETH Zürich: Residence permit after graduation for job seeking",
       "url": "https://ethz.ch/en/studies/international/end-studies/residence-permit-job-seeking.html"
+    },
+    {
+      "title": "ETH Zürich: How to apply with an international bachelor's",
+      "url": "https://ethz.ch/en/studies/master/application/international-bachelor/how-to-apply.html"
+    },
+    {
+      "title": "EPFL: Master's online application",
+      "url": "https://www.epfl.ch/education/admission/admission-2/master-admission-criteria-application/online-application/"
+    },
+    {
+      "title": "University of Zurich: Fees and contributions",
+      "url": "https://www.uzh.ch/en/studies/application/fees.html"
+    },
+    {
+      "title": "University of Geneva: Tuition fees",
+      "url": "https://www.unige.ch/immatriculations/en/informations/fees"
+    },
+    {
+      "title": "University of Geneva: Registration FAQ",
+      "url": "https://www.unige.ch/immatriculations/en/faq"
+    },
+    {
+      "title": "University of Lausanne: Master's with a foreign bachelor's",
+      "url": "https://www.unil.ch/unil/en/home/menuinst/etudier/immatriculations-et-inscriptions/master-avec-bachelor-etranger.html"
+    },
+    {
+      "title": "University of Lausanne: Tuition and semester fees",
+      "url": "https://www.unil.ch/unil/en/home/menuinst/etudier/immatriculations-et-inscriptions/etudiants-unil/taxes.html"
+    },
+    {
+      "title": "University of Basel: Tuition fees",
+      "url": "https://www.unibas.ch/en/Studies/Before-My-Studies/Application-Admission/Tuition-Fees-.html"
+    },
+    {
+      "title": "University of Bern: Tuition and semester fees",
+      "url": "https://www.unibe.ch/studies/organizational_matters/renewal_of_semester_registration/fees/index_eng.html"
     }
   ],
-  "reviewed": "2026-10-05",
+  "reviewed": "2026-10-09",
   "glance": [
     [
       "Tuition",
       "CHF 2,190 a semester at ETH Zürich and EPFL for students from abroad"
+    ],
+    [
+      "Application fee",
+      "CHF 65 at Geneva up to CHF 200 at Lausanne; CHF 150 at ETH Zürich and EPFL"
     ],
     [
       "Proof of funds",
@@ -81,6 +125,14 @@
     ]
   ],
   "faq": [
+    {
+      "q": "Which Swiss university is cheapest for international students?",
+      "a": "Of the major universities, Geneva charges every student CHF 500 a semester and Lausanne CHF 580. ETH Zürich and EPFL charge CHF 2,190 a semester to students who come to Switzerland to study."
+    },
+    {
+      "q": "How much is the application fee at ETH Zürich?",
+      "a": "CHF 150 for each master's programme you apply to. It is not refunded and cannot be waived. EPFL also charges CHF 150 for applicants with a foreign bachelor's degree."
+    },
     {
       "q": "How much money do I need to study in Switzerland?",
       "a": "Each canton sets its own figure. At ETH Zürich, non-EU students show at least CHF 21,000 in a bank account in their name."

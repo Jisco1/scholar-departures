@@ -1,14 +1,22 @@
 {
   "name": "Netherlands",
   "flag": "🇳🇱",
-  "title": "The Netherlands: high non-EU fees, and the scholarships that cover them",
+  "title": "The Netherlands: tuition, application fees and the scholarships that cover them",
   "lede": "Dutch universities teach hundreds of programmes in English, but students from outside the EU/EEA pay institutional fees that are often €12,000–€30,000 a year. The funded routes are university scholarships such as TU Delft's Van Effen and Maastricht's NL-High Potential.",
-  "description": "Tuition fees for non-EU students in the Netherlands and the full scholarships at TU Delft and Maastricht University that cover tuition and living costs.",
+  "description": "What non-EU students pay in the Netherlands: the €100 application fee and who waives it, tuition at research universities and cheaper universities of applied sciences, and full scholarships.",
   "card": "Non-EU master's fees often €12,000–€30,000; full awards at TU Delft and Maastricht cover them.",
   "sections": [
     {
       "h": "Statutory and institutional fees",
       "html": "<p>EU/EEA students pay the Dutch <strong>statutory fee</strong> (€2,694 for 2026–27). Students from outside the EU/EEA pay an <strong>institutional fee</strong> set by each university, for master's programmes usually somewhere between about <strong>€12,000 and €30,000 a year</strong>, depending on the university and subject.</p>"
+    },
+    {
+      "h": "Application fees",
+      "html": "<p>Almost every Dutch research university charges <strong>€100</strong> to applicants whose previous degree is from outside the Netherlands. It is not refunded if you are turned down, and the university will not assess your file until it has been paid.</p><div class=\"table-wrap\"><table><tr><th>University</th><th>Application fee</th><th>Good to know</th></tr><tr><td>University of Amsterdam</td><td>€100</td><td>One payment covers all your UvA master's applications for the year</td></tr><tr><td>Vrije Universiteit Amsterdam</td><td>€100</td><td>Covers up to four programmes and stays valid for two academic years</td></tr><tr><td>Leiden University</td><td>€100</td><td>Covers several programmes</td></tr><tr><td>Utrecht University</td><td>€100</td><td>Paid once, valid for three years</td></tr><tr><td>University of Groningen</td><td>€100</td><td>Paid once per academic year</td></tr><tr><td>Tilburg University</td><td>€100</td><td>Paid once per academic year</td></tr><tr><td>Radboud University</td><td>€100</td><td>Paid once per academic year; €75 for non-EEA master's applications to the February 2027 intake</td></tr><tr><td>Erasmus School of Economics, Rotterdam</td><td>€100</td><td>Charged again for each programme you apply to</td></tr><tr><td>TU Delft</td><td>€100</td><td>Bachelor's and master's</td></tr><tr><td>Eindhoven University of Technology</td><td>€100</td><td>Per application, by bank transfer only; bank charges come on top</td></tr><tr><td>University of Twente</td><td>€100 in three faculties</td><td>Only master's programmes in the BMS, EEMCS and ET faculties charge it</td></tr><tr><td>Maastricht University</td><td>€100</td><td>Refunded once you start your studies there</td></tr><tr><td>Wageningen University</td><td>None listed</td><td>Its application steps and cost table list no application fee</td></tr></table></div><p>So the Dutch universities you can apply to without losing money are <strong>Wageningen</strong>, <strong>Twente</strong> for master's programmes outside those three faculties, and <strong>Maastricht</strong>, which gives the fee back when you enrol. See also our guide to <a href=\"{{root}}guides/universities-with-no-application-fee/\">universities with no application fee</a> in other countries.</p>"
+    },
+    {
+      "h": "The cheapest options",
+      "html": "<p>Universities of applied sciences (<em>hogescholen</em>) charge non-EU students much less than research universities. At Saxion, the 2026–27 fee for a non-EU bachelor's student is <strong>€9,360</strong> a year, and its cost table lists no application fee. Wageningen, by comparison, charges non-EU master's students <strong>€21,900</strong> for 2026–27, with €22,500 expected for 2027–28.</p><p>The only way to study in the Netherlands for nothing is a full scholarship, such as the two below.</p>"
     },
     {
       "h": "Full scholarships",
@@ -59,13 +67,73 @@
     {
       "title": "IND: Residence permit for orientation year",
       "url": "https://ind.nl/en/residence-permits/work/residence-permit-for-orientation-year"
+    },
+    {
+      "title": "University of Amsterdam: Applying for a master's programme",
+      "url": "https://www.uva.nl/en/education/admissions/masters/applying-for-a-degree-programme"
+    },
+    {
+      "title": "Vrije Universiteit Amsterdam: FAQ for international applicants",
+      "url": "https://vu.nl/en/education/more-about/faq-for-international-applicants"
+    },
+    {
+      "title": "Leiden University: Master's application procedure",
+      "url": "https://www.universiteitleiden.nl/en/education/admission-and-application/masters/application-procedure"
+    },
+    {
+      "title": "Utrecht University: Application fee",
+      "url": "https://www.uu.nl/en/masters/general-information/application-and-admission/fees/application-fee"
+    },
+    {
+      "title": "University of Groningen: Master's with a non-Dutch qualification",
+      "url": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/non-dutch-qualification/master-non-dutch-qualification"
+    },
+    {
+      "title": "Tilburg University: Master's admission and application",
+      "url": "https://www.tilburguniversity.edu/education/masters-programs/admission-application"
+    },
+    {
+      "title": "Radboud University: Application fee",
+      "url": "https://www.ru.nl/english/education/masters-programmes/international-masters-students/financial-matters/handling-fee/"
+    },
+    {
+      "title": "Erasmus School of Economics: Application fee",
+      "url": "https://www.eur.nl/en/ese/education/master/admission-requirements/students-international-diploma/application-fee"
+    },
+    {
+      "title": "TU Delft: Enrolment and Tuition Fee Regulations 2026–2027",
+      "url": "https://filelist.tudelft.nl/TUDelft/Over_TU_Delft/Organisatie/regelingen/Studenten%20en%20onderwijs/Regeling%20Inschrijving%20en%20Collegegeld_ENGELS_versie%202026%20def.pdf"
+    },
+    {
+      "title": "TU Eindhoven: Application fee",
+      "url": "https://www.tue.nl/en/education/become-a-tue-student/tuition-fees-and-other-study-costs/application-fee"
+    },
+    {
+      "title": "University of Twente: Application fee",
+      "url": "https://www.utwente.nl/en/education/master/how-to-apply/application-fee/"
+    },
+    {
+      "title": "Maastricht University: Handling fee",
+      "url": "https://www.maastrichtuniversity.nl/studeren/toelating-inschrijving/applying-maastricht-university/handling-fee"
+    },
+    {
+      "title": "Wageningen University: Study expenses for master's",
+      "url": "https://www.wur.nl/en/education/master/study-expenses-masters"
+    },
+    {
+      "title": "Saxion: Total costs for international students",
+      "url": "https://www.saxion.edu/studying-in-the-netherlands/finance-your-studies/total-costs"
     }
   ],
-  "reviewed": "2026-10-05",
+  "reviewed": "2026-10-09",
   "glance": [
     [
       "Tuition",
       "Institutional fees for non-EU students, often €12,000–€30,000 a year for a master's"
+    ],
+    [
+      "Application fee",
+      "€100 at most research universities for a non-Dutch degree; none listed at Wageningen"
     ],
     [
       "Proof of funds",
@@ -81,6 +149,18 @@
     ]
   ],
   "faq": [
+    {
+      "q": "Which universities in the Netherlands have no application fee?",
+      "a": "Wageningen University lists no application fee. Maastricht University charges €100 but refunds it once you start your studies, and at the University of Twente only master's programmes in three faculties charge it. The other research universities charge €100 to applicants with a non-Dutch degree."
+    },
+    {
+      "q": "How much are tuition fees in the Netherlands for international students?",
+      "a": "Students from outside the EU/EEA pay an institutional fee set by each university, often €12,000 to €30,000 a year for a master's. Wageningen charges €21,900 for 2026–27, and universities of applied sciences cost less: Saxion charges €9,360 for a bachelor's year."
+    },
+    {
+      "q": "What is the cheapest way to study in the Netherlands as a non-EU student?",
+      "a": "A university of applied sciences costs far less than a research university, and a full scholarship such as TU Delft's Van Effen or Maastricht's NL-High Potential covers tuition and living costs."
+    },
     {
       "q": "How much money do I need for a Dutch student residence permit?",
       "a": "The 2026 study norm for university and higher professional education is €1,130.77 a month, and you need it for a year: €13,569.24."

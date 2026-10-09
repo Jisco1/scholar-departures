@@ -154,7 +154,7 @@ img, svg { max-width: 100%; }
 /* -  -  - "At a glance" panel on route pages -  -  - */
 .glance { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; margin: 28px 0 8px; max-width: 720px; }
 .glance-grid { display: grid; grid-template-columns: 1fr; gap: 14px 24px; }
-@media (min-width: 620px) { .glance-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 620px) { .glance-grid { grid-template-columns: 1fr 1fr; } .glance-grid > div:last-child:nth-child(odd) { grid-column: 1 / -1; } }
 .glance dt { font-family: var(--mono); font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--faint); margin-bottom: 5px; }
 .glance dd { font-size: 15px; line-height: 1.5; color: var(--text); }
 .glance dd .sub { display: block; color: var(--dim); font-size: 13px; margin-top: 3px; }

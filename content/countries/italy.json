@@ -11,6 +11,10 @@
       "html": "<p>Italian public universities calculate most students' fees from family income and assets, using an indicator called the <strong>ISEE</strong> (for families abroad, an equivalent calculated from home-country documents). Students from lower-income families pay little or nothing, and some universities offer reduced flat fees to students from developing countries.</p>"
     },
     {
+      "h": "Application fees",
+      "html": "<p>Italian universities charge a small fee to assess an international application: <strong>€50</strong> at Politecnico di Torino and <strong>€60</strong> at Padova. Politecnico di Milano charges <strong>€50</strong> in its early-bird window (1 October to 1 December) and <strong>€150</strong> after that, so apply early. At Padova, programmes that require the CEnT-S entry test ask for its €55 registration fee instead. None of these fees is refunded.</p><p>Compare other countries in our guide to <a href=\"{{root}}guides/universities-with-no-application-fee/\">universities with no application fee</a>.</p>"
+    },
+    {
       "h": "Regional grants (DSU)",
       "html": "<p>Each Italian region funds a student-aid agency that awards the <em>diritto allo studio</em> (DSU) scholarship. In Emilia-Romagna, where the <a href=\"{{root}}routes/university-of-bologna/\">University of Bologna</a> is, the agency is ER.GO. For 2026–27 it offered a full fee exemption plus a grant of up to <strong>€7,171.11 a year</strong> for students living away from home, with access to student housing, for families with an ISEE of up to €25,000 and an ISPE of up to €50,000. Applications ran from late June to <strong>24 August 2026</strong>.</p>"
     },
@@ -51,13 +55,29 @@
     {
       "title": "Politecnico di Milano: Residence permit",
       "url": "https://www.polimi.it/en/prospective-students/how-to-apply/on-arrival-information/residence-permit"
+    },
+    {
+      "title": "University of Padova: Study in English, how to apply",
+      "url": "https://www.unipd.it/en/studiare-inglese-come-fare-domanda"
+    },
+    {
+      "title": "Politecnico di Torino: Master's applicants with a non-Italian qualification",
+      "url": "https://www.polito.it/en/education/applying-studying-graduating/admissions-and-enrolment/master-s-degree-programmes/applicants-with-a-non-italian-qualification"
+    },
+    {
+      "title": "Politecnico di Milano: Deadlines for applicants with a foreign qualification",
+      "url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines"
     }
   ],
-  "reviewed": "2026-10-05",
+  "reviewed": "2026-10-09",
   "glance": [
     [
       "Tuition",
       "Scaled to family income at public universities"
+    ],
+    [
+      "Application fee",
+      "About €50 to €60; €150 at Politecnico di Milano after 1 December"
     ],
     [
       "Proof of funds",
@@ -73,6 +93,10 @@
     ]
   ],
   "faq": [
+    {
+      "q": "How much is the application fee at Italian universities?",
+      "a": "Usually €50 to €60: €50 at Politecnico di Torino, €60 at Padova, and €50 at Politecnico di Milano if you apply between 1 October and 1 December (€150 after that)."
+    },
     {
       "q": "How much money do I need for an Italian student visa?",
       "a": "At least €10,179.85 for 2026–27, plus money for a return journey. Consulates may ask for more evidence about your family's or sponsor's finances."

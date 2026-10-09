@@ -11,6 +11,10 @@
       "html": "<ul><li><a href=\"{{root}}routes/government-of-ireland-international-education-scholarships/\">Government of Ireland International Education Scholarships</a>: 60 awards a year, each with a €10,000 stipend and a full fee waiver for one year of master's or PhD study, for students domiciled outside the EU/EEA, Switzerland and the UK. The 2026 call closed on 12 March.</li><li><a href=\"{{root}}routes/research-ireland-postgraduate-scholarships/\">Research Ireland postgraduate scholarships</a>: a €25,000 stipend plus fees and research costs for research master's and PhD students of any nationality. No 2027 call had been announced when we last checked.</li></ul>"
     },
     {
+      "h": "Application fees",
+      "html": "<p>Undergraduate applications through the CAO cost <strong>€35</strong> online by 20 January 2027, or <strong>€50</strong> by 1 February. For a master's you apply to each university: Trinity College Dublin charges <strong>€55</strong> per course and University College Cork <strong>€50</strong> (€100 for its two Professional Master of Education programmes). Trinity refunds its fee only if the course does not run.</p><p>Compare other countries in our guide to <a href=\"{{root}}guides/universities-with-no-application-fee/\">universities with no application fee</a>.</p>"
+    },
+    {
       "h": "Proof of funds and fees for your visa",
       "html": "<p>Students from visa-required countries must show access to at least <strong>€10,000</strong> for living costs for each year of study. Since 30 June 2025 you must also have paid at least <strong>€6,000</strong> of your tuition (or the full fee if it is lower) before a visa is granted. A scholarship covering these costs usually counts. Keep your award letter ready.</p>"
     },
@@ -43,13 +47,29 @@
     {
       "title": "Irish Immigration Service: Third Level Graduate Programme",
       "url": "https://www.irishimmigration.ie/my-situation-has-changed-since-i-arrived-in-ireland/third-level-graduate-programme/"
+    },
+    {
+      "title": "CAO: Handbook 2027",
+      "url": "https://www2.cao.ie/handbook/handbook2027/hb.pdf"
+    },
+    {
+      "title": "Trinity College Dublin: What fees do I need to pay",
+      "url": "https://www.tcd.ie/academicregistry/fees-and-payments/what-fees-do-I-need-to-pay/"
+    },
+    {
+      "title": "University College Cork: Apply for a taught postgraduate course",
+      "url": "https://www.ucc.ie/en/study/postgrad/studytaught/apply/"
     }
   ],
-  "reviewed": "2026-10-05",
+  "reviewed": "2026-10-09",
   "glance": [
     [
       "Tuition",
       "Set by each university for students from outside the EU/EEA"
+    ],
+    [
+      "Application fee",
+      "€55 per course at Trinity, €50 at UCC; CAO €35 to €50"
     ],
     [
       "Proof of funds",
@@ -65,6 +85,10 @@
     ]
   ],
   "faq": [
+    {
+      "q": "How much is the application fee for a master's in Ireland?",
+      "a": "Each university sets its own: €55 per course at Trinity College Dublin and €50 at University College Cork. Undergraduate applications through the CAO cost €35 online by 20 January 2027, or €50 by 1 February."
+    },
     {
       "q": "How much money do I need for an Irish student visa?",
       "a": "At least €10,000 for each year's living costs, and since 30 June 2025 you must also have paid at least €6,000 of your tuition, or the full fee if it is lower."

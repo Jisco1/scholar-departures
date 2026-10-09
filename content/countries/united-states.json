@@ -3,7 +3,7 @@
   "flag": "🇺🇸",
   "title": "Free college in the USA for international students: need-blind schools and full scholarships",
   "lede": "American sticker prices are the highest in the world, but a small group of colleges admit international students without looking at their finances and then pay whatever the family cannot. Add Berea's no-tuition model and a few flagship graduate awards, and the USA becomes one of the most generous places to study.",
-  "description": "How international students can study in the USA for free: need-blind colleges that meet full need, Berea College, merit scholarships, Knight-Hennessy, Fulbright and Mastercard Foundation programmes.",
+  "description": "How international students can study in the USA for free: need-blind colleges that meet full need, colleges with no application fee, Berea College, merit scholarships, Knight-Hennessy, Fulbright and Mastercard Foundation programmes.",
   "card": "A handful of colleges are need-blind for internationals and pay full need; graduate awards cover the rest.",
   "sections": [
     {
@@ -21,6 +21,10 @@
     {
       "h": "No tuition: Berea College",
       "html": "<p><a href=\"{{root}}routes/berea-college/\">Berea College</a> in Kentucky has charged no tuition since 1892. For admitted international students, aid covers 100% of tuition, housing, food and fees, and a compulsory campus job pays for personal costs. The international deadline is 30 November.</p>"
+    },
+    {
+      "h": "Application fees and waivers",
+      "html": "<p>Selective US colleges usually charge <strong>$50 to $90</strong> to apply: $50 at Vanderbilt, $75 at Amherst, $80 at Brown, and $85 at Dartmouth and Duke. Two colleges on this board charge nothing: <a href=\"{{root}}routes/colby-college/\">Colby</a> has no application fee for anyone, and <a href=\"{{root}}routes/berea-college/\">Berea</a>'s application is free.</p><p>Harvard, MIT, Yale and Princeton waive their fee for applicants who cannot afford it, international applicants included. Ask for the waiver in the Common App (or in MIT's own application) instead of paying; MIT says asking has no effect on your chances.</p><p>Compare other countries in our guide to <a href=\"{{root}}guides/universities-with-no-application-fee/\">universities with no application fee</a>.</p>"
     },
     {
       "h": "Graduate study",
@@ -67,13 +71,21 @@
     {
       "title": "Study in the States (DHS): STEM OPT extension overview",
       "url": "https://studyinthestates.dhs.gov/stem-opt-hub/additional-resources/stem-opt-extension-overview"
+    },
+    {
+      "title": "Berea College: Admissions",
+      "url": "https://admissions.berea.edu/"
     }
   ],
-  "reviewed": "2026-10-05",
+  "reviewed": "2026-10-09",
   "glance": [
     [
       "Tuition",
       "Set by each college; a few meet full need for international students"
+    ],
+    [
+      "Application fee",
+      "Usually $50 to $90; none at Colby or Berea, and waivers at Harvard, MIT, Yale and Princeton"
     ],
     [
       "Proof of funds",
@@ -89,6 +101,10 @@
     ]
   ],
   "faq": [
+    {
+      "q": "Which US colleges have no application fee for international students?",
+      "a": "Colby College charges no application fee to anyone, and Berea College's application is free. Harvard, MIT, Yale and Princeton waive their fee for applicants who cannot afford it, including international applicants."
+    },
     {
       "q": "Can international students study in the US for free?",
       "a": "Yes, at a few colleges: those that are need-blind or meet full need for international students can cover everything your family cannot pay, and Berea College charges no tuition."

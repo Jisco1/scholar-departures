@@ -1,14 +1,18 @@
 {
   "name": "Germany",
   "flag": "🇩🇪",
-  "title": "Studying in Germany for free: what international students really pay",
+  "title": "Studying in Germany for free: application fees, tuition and what you really pay",
   "lede": "Most German public universities charge no tuition to anyone, at any level. The real costs are the semester contribution, living expenses and the proof of funds you need for a visa, and scholarships such as DAAD can cover those.",
-  "description": "How free tuition works in Germany for international students: semester contributions, the €11,904 proof of funds, the exceptions that do charge fees, and the funded routes to apply for.",
+  "description": "How free tuition works in Germany for international students: application fees through uni-assist, semester contributions, the €11,904 proof of funds, the exceptions that do charge fees, and the funded routes.",
   "card": "No tuition at most public universities; you pay a semester contribution and prove €11,904 a year for your visa.",
   "sections": [
     {
       "h": "Tuition: free almost everywhere",
-      "html": "<p>Public universities in Germany do not charge tuition for bachelor's, master's or doctoral degrees, whatever your nationality. There are two exceptions worth knowing. The state of <strong>Baden-Württemberg</strong> charges non-EU students €1,500 per semester, and the <strong>Technical University of Munich</strong> has charged non-EU students tuition since winter 2024. Some continuing-education master's programmes also charge fees everywhere. Check before you apply.</p>"
+      "html": "<p>Public universities in Germany do not charge tuition for bachelor's, master's or doctoral degrees, whatever your nationality. There are two exceptions worth knowing. The state of <strong>Baden-Württemberg</strong> charges non-EU students €1,500 per semester, and the <strong>Technical University of Munich</strong> has charged non-EU students tuition since winter 2024. Some continuing-education master's programmes also charge fees everywhere. Check before you apply.</p><p>At TU Munich, non-EU students usually pay <strong>€4,000 or €6,000 a semester</strong> for a master's (€2,000 or €3,000 for a bachelor's). From winter semester 2027/28 this rises to €4,600 or €6,800 for a master's; students already enrolled keep their original rate.</p>"
+    },
+    {
+      "h": "Application fees: uni-assist",
+      "html": "<p>Many German universities have foreign certificates checked by <strong>uni-assist</strong> before they decide. If yours does, uni-assist charges <strong>€75</strong> for your first chosen programme in a semester and <strong>€30</strong> for each additional one, so three programmes in one semester cost €135. Applying again in a later semester starts at €75 again. The fee covers the check whatever the result, so it is not refunded if you are turned down.</p><p>Some universities pay their applicants' uni-assist fees, and then your application is free: uni-assist shows a note in your selection list when that applies. Each programme page says whether to apply through uni-assist or directly to the university.</p><p>Compare other countries in our guide to <a href=\"{{root}}guides/universities-with-no-application-fee/\">universities with no application fee</a>.</p>"
     },
     {
       "h": "The semester contribution",
@@ -63,13 +67,25 @@
     {
       "title": "Make it in Germany: Prospects after graduation",
       "url": "https://www.make-it-in-germany.com/en/study-training/study/prospects/seeking-employment"
+    },
+    {
+      "title": "uni-assist: Handling fees",
+      "url": "https://www.uni-assist.de/en/how-to-apply/pay-all-fees/handling-fees/"
+    },
+    {
+      "title": "TU Munich: Tuition fees for students from non-EU countries",
+      "url": "https://www.tum.de/en/studies/fees/tuition"
     }
   ],
-  "reviewed": "2026-10-05",
+  "reviewed": "2026-10-09",
   "glance": [
     [
       "Tuition",
       "None at most public universities; Baden-Württemberg and TU Munich charge non-EU students"
+    ],
+    [
+      "Application fee",
+      "€75 through uni-assist for the first programme, €30 for each extra one; some universities pay it"
     ],
     [
       "Proof of funds",
@@ -85,6 +101,14 @@
     ]
   ],
   "faq": [
+    {
+      "q": "Do German universities charge an application fee?",
+      "a": "Public universities charge no tuition in most states, but those that use uni-assist pass on its fee: €75 for your first programme in a semester and €30 for each additional one. Some universities pay this fee for their applicants."
+    },
+    {
+      "q": "How much does TU Munich charge international students?",
+      "a": "Non-EU students usually pay €4,000 or €6,000 a semester for a master's and €2,000 or €3,000 for a bachelor's. From winter semester 2027/28 the master's rates rise to €4,600 or €6,800."
+    },
     {
       "q": "Is studying in Germany really free for international students?",
       "a": "At most public universities, yes: there is no tuition at any level. You still pay a semester contribution of a few hundred euros, and Baden-Württemberg and TU Munich charge students from outside the EU."
