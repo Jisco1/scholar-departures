@@ -1,5 +1,65 @@
 [
   {
+    "id": "nobel-peace-2026-navi-pillay",
+    "date": "2026-10-09",
+    "category": "Award",
+    "title": "Nobel Peace Prize 2026 goes to South African judge Navi Pillay for her work for peace and international law",
+    "summary": "Navanethem 'Navi' Pillay, who defended opponents of apartheid before serving as a judge at international courts and as the UN's human rights chief, receives the prize for her efforts to promote peace and international law.",
+    "why": "Pillay's career, from a lawyer under apartheid to the world's highest courts, shows how far a law degree can lead, and international law is a field with funded master's and PhD study.",
+    "images": [
+      {
+        "file": "news-navi-pillay.jpg",
+        "kind": "portrait",
+        "name": "Navi Pillay",
+        "credit": "Dutch Ministry of Foreign Affairs",
+        "license": "CC BY-SA 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:130517_Pillay_HC_Mensenrechten_VN_3050_(12768843023)_(cropped).jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "focus": 25
+      }
+    ],
+    "source_title": "NobelPrize.org: Press release, 9 October 2026",
+    "source_url": "https://www.nobelprize.org/prizes/peace/2026/press-release/",
+    "body": [
+      "The Norwegian Nobel Committee has awarded the 2026 Nobel Peace Prize to Navanethem 'Navi' Pillay of South Africa for her efforts to promote peace and international law. The committee announced the prize on 9 October, calling her one of the most respected international jurists of our time.",
+      "Pillay was born into a family of Indian Tamil origin in Durban under apartheid. She became a lawyer in a system built on discrimination, segregation and exclusion, and her early work included defending Nelson Mandela and others who stood up against apartheid.",
+      "She went on to serve as a judge on the High Court in South Africa, at the International Criminal Tribunal for Rwanda and at the International Criminal Court. She was the United Nations High Commissioner for Human Rights and, until recently, chaired the UN's independent commission of inquiry on the Occupied Palestinian Territory. She now sits as a judge at the International Court of Justice in the case in which Myanmar is accused of genocide.",
+      "The committee pointed to two legal milestones from her years at the Rwanda tribunal. Her influence was significant when the tribunal established that rape and sexual violence could constitute a crime against humanity and genocide. In the same case, for the first time, a defendant faced charges of incitement to genocide purely for spreading propaganda.",
+      "The committee noted that the first Nobel Peace Prize was awarded 125 years ago, and that settling conflicts through international law has been a theme ever since. It warned that the system is now under heavy pressure, with its institutions attacked and its judges sanctioned, and said this year's prize is a reminder that the rule of law, national and international, underpins peace.",
+      "For students drawn to law and international relations, the [Commonwealth Master's Scholarships]({{root}}routes/commonwealth-masters-scholarships/) close on 20 October 2026, and our guide comparing [government scholarships]({{root}}guides/government-scholarships-compared/) covers the major awards. Salaried PhD posts, including in the social sciences, are on our [funded positions]({{root}}positions/) page."
+    ]
+  },
+  {
+    "id": "nasa-lisa-test-telescope-2026",
+    "date": "2026-10-08",
+    "category": "Breakthrough",
+    "title": "NASA moves to the last test telescope for LISA, the planned observatory that will hear gravitational waves from space",
+    "summary": "L3Harris Technologies will build the Engineering Test Unit, the final pre-flight version of the all-glass telescopes NASA is contributing to LISA, the ESA-led mission due to launch in the mid-2030s.",
+    "why": "Gravitational-wave astronomy joins physics with precision engineering, two fields with many salaried PhD posts in Europe.",
+    "images": [
+      {
+        "file": "news-lisa-laser-module.jpg",
+        "kind": "wide",
+        "focus": 45,
+        "name": "A technician installs a connector on LISA's laser optical module at NASA's Goddard Space Flight Center",
+        "credit": "NASA / Denny Henry",
+        "license": "Public domain",
+        "source_url": "https://commons.wikimedia.org/wiki/File:2025_NASA_Photographer_Of_The_Year_Winners_(GSFC_20250527_LISA_005699).jpg",
+        "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+      }
+    ],
+    "source_title": "NASA Science: NASA Advances LISA Mission Contributions With New Test Telescope, 8 October 2026",
+    "source_url": "https://science.nasa.gov/missions/lisa/nasa-advances-lisa-mission-contributions-with-new-test-telescope",
+    "body": [
+      "NASA announced on 8 October that it has taken the next step towards the telescopes it is building for LISA, the Laser Interferometer Space Antenna. L3Harris Technologies will design, assemble and integrate a new Engineering Test Unit, the last step before flight hardware is produced. NASA says it will be the final pre-flight unit and its first optical telescope delivery to the European Space Agency.",
+      "LISA is led by ESA and is due to launch in the mid-2030s. Three spacecraft will fly in an Earth-following orbit, forming a triangle about 2.5 million kilometres on each side. Each carries two telescopes that send and receive infrared laser beams between the spacecraft. Passing gravitational waves will change the distances between them by less than the width of a helium atom, and LISA is designed to measure exactly that.",
+      "From space, LISA can pick up low-frequency gravitational waves that observatories on Earth cannot. NASA expects it to detect mergers of giant black holes billions of light-years away, map close pairs of white dwarfs, neutron stars and smaller black holes in our own galaxy, and perhaps reveal something new about gravity itself.",
+      "Each telescope is made entirely of Zerodur, an amber-coloured glass-ceramic that barely changes shape as temperatures swing. L3Harris delivered a prototype to NASA's Goddard Space Flight Center in 2024, and in June 2026 the team delivered a structural model made of metal. Lessons from testing both are going into the new unit.",
+      "Einstein predicted gravitational waves in 1916, and observatories on the ground first detected them in 2015. Inside each LISA spacecraft a gold-platinum cube will fall freely, shielded from every force but gravity; ESA's LISA Pathfinder mission showed in 2016 that this can be done. NASA is also supplying the laser system, devices that control electric charge on the cubes, and data analysis.",
+      "This week's [Nobel Prize in Physics]({{root}}news/nobel-physics-2026-icecube/) went to another way of watching the violent universe, through neutrinos. For funded research in astrophysics, Lund University is advertising a salaried [PhD in astronomy and astrophysics]({{root}}positions/lund-astronomy-planet-formation/), and our guide to [how funded PhDs work in Europe]({{root}}guides/funded-phd-europe/) explains how posts like it work."
+    ]
+  },
+  {
     "id": "nobel-literature-2026-anne-carson",
     "date": "2026-10-08",
     "category": "Award",
