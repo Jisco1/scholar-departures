@@ -780,12 +780,16 @@ def build_position_page(p, live):
         f'{closes_text(dt.date.fromisoformat(o["deadline"]))}</span></div></a>' for o in others)
     more_html = (f'<section class="pos-more"><h2>More funded positions</h2><div class="rows">{more}</div>'
                  f'<p><a href="../">All open positions →</a></p></section>') if others else ""
+    # one short line each, the way the scholarship shares read in a WhatsApp chat; the link goes underneath
+    share_text = NL.join([f"🎓 {p['title']}", f"{p['institution']} · {p['country']} · {p['level']}",
+                          f"Closes: {fmt_date(deadline)}"])
     body = f"""<div class="wrap">
 <div class="page-head">
 {crumbs(root, [("positions/", "Funded positions"), ("", p["title"])])}
 <div class="eyebrow-s">{e(p["level"])} · {e(p["field"])}</div>
 <h1>{e(p["title"])}</h1>
 <p class="lede">{e(p["summary"])}</p>
+<div class="head-share">{share_box(path, p["title"], share_text, "position")}</div>
 </div>
 <div class="layout has-rail"><div>
 <section class="glance" aria-label="At a glance">

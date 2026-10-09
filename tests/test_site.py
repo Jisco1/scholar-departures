@@ -387,7 +387,8 @@ class BuiltSite(unittest.TestCase):
 
     def test_share_on_every_route_guide_and_story(self):
         from urllib.parse import parse_qs, urlsplit
-        shared = [p for p in self.pages if p.parent.parent.name in ("routes", "guides", "news")]
+        shared = [p for p in self.pages if p.parent.parent.name in ("routes", "guides", "news", "positions")]
+        self.assertGreaterEqual(len([p for p in shared if p.parent.parent.name == "positions"]), 10, "every funded position can be shared")
         self.assertGreaterEqual(len([p for p in shared if p.parent.parent.name == "news"]), 9, "every news story can be shared")
         self.assertGreaterEqual(len(shared), 70)
         for path in shared:
@@ -479,6 +480,22 @@ class BuiltSite(unittest.TestCase):
                 else:
                     self.assertEqual(img, "https://degreestep.com/assets/og.png", path.parent.name)
         self.assertGreaterEqual(checked, 80, "most pages should have their own card")
+
+    def test_shared_positions_say_where_and_when(self):
+        # a shared position reads like the shared scholarships: title, then where and what level, then when it closes
+        from urllib.parse import parse_qs, urlsplit
+        for p in json.loads((self.dir / "content" / "positions.json").read_text(encoding="utf-8")):
+            path = self.site / "positions" / p["id"] / "index.html"
+            if not path.exists():
+                continue  # closed, so no page
+            html = self.pages[path]
+            box = html[html.index('<details class="share"'):]
+            wa = [x.replace("&amp;", "&") for x in re.findall(r'href="(https://wa\.me/[^"]+)"', box)][0]
+            text = parse_qs(urlsplit(wa).query)["text"][0]
+            self.assertIn(p["title"], text, p["id"])
+            self.assertIn(p["institution"], text, p["id"])
+            self.assertIn("Closes", text, p["id"])
+            self.assertIn('<p class="share-h">Share this position</p>', box, p["id"])
 
     def test_route_extras_render(self):
         html = (self.site / "routes" / "brown-university" / "index.html").read_text(encoding="utf-8")
