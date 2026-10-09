@@ -35,6 +35,8 @@ CONFIG = json.loads((ROOT / "site.json").read_text(encoding="utf-8"))
 SITE = CONFIG["name"]
 BASE = CONFIG["base_url"].rstrip("/") + "/"
 TODAY = dt.date.today()
+# Bing Webmaster Tools ownership check (9 Oct 2026): it reads this tag on the home page; removing it unverifies the site
+BING_SITE_AUTH = "3AB2C31D0CAC546EF960DE446F493EF4"
 
 TYPES = ["Tuition-Free", "Full Scholarship", "Need-Based Aid", "Merit", "Low Tuition", "Fee Waiver"]
 TYPE_COLORS = {"Tuition-Free": "#7FD1AE", "Full Scholarship": "#B3A1E8", "Need-Based Aid": "#7EB8E8",
@@ -415,7 +417,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
 <title>{e(full_title)}</title>
 <meta name="description" content="{e(description)}">
 <link rel="canonical" href="{e(canonical)}">
-{'<meta name="robots" content="noindex">' if noindex else ''}
+{'<meta name="robots" content="noindex">' if noindex else ''}{f'<meta name="msvalidate.01" content="{BING_SITE_AUTH}">' if path == "" else ''}
 <meta name="theme-color" content="#F3F5F9">
 <script nonce="{NONCE}">{THEME_BOOT}</script>
 <meta property="og:site_name" content="{e(SITE)}">

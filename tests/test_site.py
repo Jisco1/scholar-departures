@@ -215,6 +215,12 @@ class BuiltSite(unittest.TestCase):
             m = banned.search(text)
             self.assertIsNone(m, f"{path.relative_to(self.site)}: {m.group(0) if m else ''}")
 
+    def test_home_page_carries_the_bing_verification_tag(self):
+        # Bing Webmaster Tools checks this tag on the home page (9 Oct 2026); without it the site falls out of Bing's tools
+        home = self.pages[self.site / "index.html"]
+        self.assertTrue('<meta name="msvalidate.01" content="3AB2C31D0CAC546EF960DE446F493EF4">' in home)
+        self.assertEqual([p for p, t in self.pages.items() if "msvalidate.01" in t], [self.site / "index.html"])
+
     def test_country_guides_answer_application_fees(self):
         # Search Console (9 Oct 2026) showed people finding us for "netherlands universities without application fee"
         # and leaving: every country guide now answers what applying costs, and points to the cross-country guide
