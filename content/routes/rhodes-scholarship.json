@@ -1,5 +1,6 @@
 {
   "summary": "The oldest international scholarship programme in the world brings students from around the world to the University of Oxford for postgraduate study. It pays Oxford's fees and a living stipend, plus visa and travel costs, for up to three years.",
+  "meta_description": "Rhodes Scholarships pay Oxford fees, a living stipend, flights and visa costs for postgraduate study. Eligibility by constituency and how to apply.",
   "covers": [
     "University of Oxford course fees, and the Oxford application fee.",
     "A stipend of £20,400 a year (£1,700 a month) at the 2025–26 rate.",
@@ -22,9 +23,17 @@
     "Deadlines and age limits differ by constituency. Missing yours means waiting a year.",
     "Your personal statement must show who you are, not just what you have achieved; generic essays stand out for the wrong reasons."
   ],
-  "related": ["gates-cambridge-scholarship", "chevening-scholarships", "knight-hennessy-scholars", "mastercard-foundation-scholars-program"],
+  "related": [
+    "gates-cambridge-scholarship",
+    "chevening-scholarships",
+    "knight-hennessy-scholars",
+    "mastercard-foundation-scholars-program"
+  ],
   "sources": [
-    {"title": "Rhodes House: The Rhodes Scholarship", "url": "https://www.rhodeshouse.ox.ac.uk/scholarships/the-rhodes-scholarship/"}
+    {
+      "title": "Rhodes House: The Rhodes Scholarship",
+      "url": "https://www.rhodeshouse.ox.ac.uk/scholarships/the-rhodes-scholarship/"
+    }
   ],
   "reviewed": "2026-09-24"
 }

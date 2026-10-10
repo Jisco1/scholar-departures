@@ -1,5 +1,6 @@
 {
   "summary": "The Swiss Confederation funds early-career researchers from about 180 countries to do doctoral or postdoctoral research at a Swiss university or federal institute of technology. Applications go through the Swiss embassy in your country, and each country sets its own deadline.",
+  "meta_description": "Swiss Government Excellence Scholarships fund PhD and postdoctoral research in Switzerland, with fees and insurance covered. Apply through the Swiss embassy.",
   "covers": [
     "A monthly stipend of CHF 2,450 for research scholarships.",
     "Tuition fees, health insurance and a housing allowance, as set out in the call.",
@@ -22,9 +23,17 @@
     "The research proposal and the host's support letter decide most applications. Start the supervisor conversation months ahead.",
     "The scholarship is for research; it will not fund a taught master's programme."
   ],
-  "related": ["eth-zurich-excellence-scholarship", "daad-scholarships", "ghent-university-doctoral-scholarships", "norwegian-phd-fellowships"],
+  "related": [
+    "eth-zurich-excellence-scholarship",
+    "daad-scholarships",
+    "ghent-university-doctoral-scholarships",
+    "norwegian-phd-fellowships"
+  ],
   "sources": [
-    {"title": "State Secretariat for Education, Research and Innovation: Swiss Government Excellence Scholarships", "url": "https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html"}
+    {
+      "title": "State Secretariat for Education, Research and Innovation: Swiss Government Excellence Scholarships",
+      "url": "https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html"
+    }
   ],
   "reviewed": "2026-09-24"
 }

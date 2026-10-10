@@ -1,5 +1,6 @@
 {
   "summary": "Czech law makes study at public universities free in the Czech language, whatever your nationality. At Charles University, founded in 1348 and Central Europe's oldest, that means a tuition-free degree if you are willing to learn Czech first.",
+  "meta_description": "Charles University in Prague charges no tuition for degrees taught in Czech, for any nationality. Eligibility, the language year and deadlines.",
   "covers": [
     "No tuition for degree programmes taught in Czech, for the standard length of study plus one year.",
     "English-taught programmes are not free; they charge tuition set by each faculty.",
@@ -21,10 +22,21 @@
     "Deadlines are set faculty by faculty; there is no single university deadline.",
     "Diploma recognition (nostrification) can take months and sometimes requires exams."
   ],
-  "related": ["university-of-vienna", "stipendium-hungaricum", "romanian-government-scholarship", "freie-universitat-berlin"],
+  "related": [
+    "university-of-vienna",
+    "stipendium-hungaricum",
+    "romanian-government-scholarship",
+    "freie-universitat-berlin"
+  ],
   "sources": [
-    {"title": "Charles University: How to apply", "url": "https://cuni.cz/uken-329.html"},
-    {"title": "Charles University: Fact sheet 2026/2027", "url": "https://cuni.cz/UKEN-344.html"}
+    {
+      "title": "Charles University: How to apply",
+      "url": "https://cuni.cz/uken-329.html"
+    },
+    {
+      "title": "Charles University: Fact sheet 2026/2027",
+      "url": "https://cuni.cz/UKEN-344.html"
+    }
   ],
   "reviewed": "2026-09-24"
 }

@@ -1,5 +1,6 @@
 {
   "summary": "Hungary's government scholarship funds thousands of international students each year at bachelor's, master's and doctoral level. Tuition is free, housing is provided or subsidised, and there is a monthly stipend, although at bachelor's and master's level it is only a contribution to living costs.",
+  "meta_description": "Stipendium Hungaricum covers tuition, a monthly stipend, housing and insurance for study in Hungary at every level. Eligibility, how to apply and deadlines.",
   "covers": [
     "Tuition-free study at a Hungarian university.",
     "A monthly stipend of HUF 43,700 (about €110) for bachelor's, master's and one-tier master's students, paid 12 months a year.",
@@ -23,10 +24,21 @@
     "Some sending partners have their own earlier deadlines or extra forms. Missing their step disqualifies you even if the main form is submitted.",
     "Nomination by your sending partner does not guarantee a place; the university's entrance exam decides."
   ],
-  "related": ["turkiye-burslari", "romanian-government-scholarship", "charles-university", "erasmus-mundus-joint-masters"],
+  "related": [
+    "turkiye-burslari",
+    "romanian-government-scholarship",
+    "charles-university",
+    "erasmus-mundus-joint-masters"
+  ],
   "sources": [
-    {"title": "Stipendium Hungaricum: About the scholarship", "url": "https://stipendiumhungaricum.hu/about/"},
-    {"title": "Stipendium Hungaricum: How to apply", "url": "https://stipendiumhungaricum.hu/apply/"}
+    {
+      "title": "Stipendium Hungaricum: About the scholarship",
+      "url": "https://stipendiumhungaricum.hu/about/"
+    },
+    {
+      "title": "Stipendium Hungaricum: How to apply",
+      "url": "https://stipendiumhungaricum.hu/apply/"
+    }
   ],
   "reviewed": "2026-09-24"
 }

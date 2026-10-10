@@ -1,5 +1,7 @@
 {
   "summary": "Iceland's public universities used to charge every student only a registration fee. That is ending for bachelor's and master's students from outside the EEA: from autumn 2027 they will pay tuition. Doctoral programmes are exempt, so the University of Iceland stays on the board as a tuition-free route for PhD candidates.",
+  "meta_title": "University of Iceland PhD: funding, eligibility and deadlines",
+  "meta_description": "University of Iceland PhD programmes stay tuition-free, with only a registration fee, while non-EEA bachelor's and master's students start paying in 2027.",
   "covers": [
     "No tuition for doctoral programmes; PhD programmes are exempt from the new non-EEA fees.",
     "The annual registration fee all students pay: ISK 100,000 for 2026–27 (ISK 75,000 if you start in the spring semester).",
@@ -22,10 +24,21 @@
     "The University of Iceland says its fee information is subject to change pending final decisions by the Icelandic authorities; check its fees page before you apply.",
     "Reykjavík is expensive; a PhD without a grant or salary is rarely sustainable."
   ],
-  "related": ["norwegian-phd-fellowships", "university-of-helsinki-scholarships", "ghent-university-doctoral-scholarships", "swiss-government-excellence-scholarships"],
+  "related": [
+    "norwegian-phd-fellowships",
+    "university-of-helsinki-scholarships",
+    "ghent-university-doctoral-scholarships",
+    "swiss-government-excellence-scholarships"
+  ],
   "sources": [
-    {"title": "University of Iceland: University fees", "url": "https://english.hi.is/study/apply/university-fees"},
-    {"title": "University of Iceland: Higher registration fees next academic year", "url": "https://english.hi.is/news/higher-registration-fees-university-iceland-next-academic-year"}
+    {
+      "title": "University of Iceland: University fees",
+      "url": "https://english.hi.is/study/apply/university-fees"
+    },
+    {
+      "title": "University of Iceland: Higher registration fees next academic year",
+      "url": "https://english.hi.is/news/higher-registration-fees-university-iceland-next-academic-year"
+    }
   ],
   "reviewed": "2026-09-24"
 }

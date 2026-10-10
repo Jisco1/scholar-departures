@@ -1,5 +1,6 @@
 {
   "summary": "Created by the Bill & Melinda Gates Foundation, Gates Cambridge funds outstanding applicants from outside the UK to take a full-time postgraduate degree in any subject at the University of Cambridge. It covers fees, a maintenance allowance, flights and visa costs.",
+  "meta_description": "Gates Cambridge covers fees, a maintenance allowance, flights and visa costs for a postgraduate degree at Cambridge in any subject. Eligibility and deadlines.",
   "covers": [
     "The University Composition Fee at the appropriate rate.",
     "A maintenance allowance of £22,050 for 12 months (the 2025–26 rate), pro rata for shorter courses and for up to four years for a PhD.",
@@ -22,10 +23,21 @@
     "Being admitted to Cambridge is a separate decision from winning Gates; many admitted students are unfunded.",
     "About 80 scholarships are awarded each year across all countries, so apply for other funding in parallel."
   ],
-  "related": ["rhodes-scholarship", "chevening-scholarships", "mastercard-foundation-scholars-cambridge", "knight-hennessy-scholars"],
+  "related": [
+    "rhodes-scholarship",
+    "chevening-scholarships",
+    "mastercard-foundation-scholars-cambridge",
+    "knight-hennessy-scholars"
+  ],
   "sources": [
-    {"title": "Gates Cambridge: Application timeline and deadlines", "url": "https://www.gatescambridge.org/apply/timeline/"},
-    {"title": "Gates Cambridge", "url": "https://www.gatescambridge.org/"}
+    {
+      "title": "Gates Cambridge: Application timeline and deadlines",
+      "url": "https://www.gatescambridge.org/apply/timeline/"
+    },
+    {
+      "title": "Gates Cambridge",
+      "url": "https://www.gatescambridge.org/"
+    }
   ],
   "reviewed": "2026-09-24"
 }

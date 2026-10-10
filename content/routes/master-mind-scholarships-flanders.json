@@ -1,5 +1,6 @@
 {
   "summary": "The Flemish government's Master Mind Scholarships have funded international master's students at universities in Flanders and Brussels with a yearly grant and near-free tuition. The scheme is under review for 2027–28, and the most recent call focused on a few priority countries; read this before you plan around it.",
+  "meta_description": "Master Mind Scholarships have funded international master's students in Flanders with a yearly grant and a tuition waiver. Eligibility and current status.",
   "covers": [
     "A grant of €10,225 per academic year (2026–27 rate), for one year on a 60-credit master's or two years on a 120-credit master's.",
     "A tuition waiver: the host institution may charge only the lowest local rate, which was €136.50 for 2026–27."
@@ -19,10 +20,21 @@
     "Many websites still describe Master Mind as open to every nationality with the old €9,600 amount; both are out of date.",
     "If your country is not a priority country, treat this as a long shot and apply for other funding too."
   ],
-  "related": ["ghent-university-doctoral-scholarships", "maastricht-holland-high-potential", "erasmus-mundus-joint-masters", "tu-delft-van-effen-excellence"],
+  "related": [
+    "ghent-university-doctoral-scholarships",
+    "maastricht-holland-high-potential",
+    "erasmus-mundus-joint-masters",
+    "tu-delft-van-effen-excellence"
+  ],
   "sources": [
-    {"title": "Study in Flanders: Master Mind Scholarships", "url": "https://www.studyinflanders.be/scholarships/master-mind-scholarships"},
-    {"title": "VLUHR International: Master Mind Scholarships", "url": "https://www.international.vluhr.be/scholarships/master-mind-scholarships"}
+    {
+      "title": "Study in Flanders: Master Mind Scholarships",
+      "url": "https://www.studyinflanders.be/scholarships/master-mind-scholarships"
+    },
+    {
+      "title": "VLUHR International: Master Mind Scholarships",
+      "url": "https://www.international.vluhr.be/scholarships/master-mind-scholarships"
+    }
   ],
   "reviewed": "2026-09-24"
 }

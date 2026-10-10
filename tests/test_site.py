@@ -199,7 +199,7 @@ class BuiltSite(unittest.TestCase):
     def test_no_page_repeats_the_checked_claims(self):
         # the owner asked for these gone (5 Oct 2026): verification is explained once, on How we verify,
         # and no page tells readers how the research is done
-        banned = re.compile(r"checked against (its|the) official page|checked against official sources|each (one |route )?(is |was )?checked|source-checked|"
+        banned = re.compile(r"checked against (its|the) official page|checked against official sources|checked on official pages|each (one |route )?(is |was )?checked|source-checked|"
                             r"every figure was checked|no account needed|nothing is updated silently|"
                             r"help of AI|including AI models|automated and AI|automated (check|search)|drafts are done", re.I)
         research = re.compile(r"help of AI|including AI models|automated and AI|automated (check|search)|drafts are done", re.I)
@@ -220,6 +220,21 @@ class BuiltSite(unittest.TestCase):
         home = self.pages[self.site / "index.html"]
         self.assertTrue('<meta name="msvalidate.01" content="3AB2C31D0CAC546EF960DE446F493EF4">' in home)
         self.assertEqual([p for p, t in self.pages.items() if "msvalidate.01" in t], [self.site / "index.html"])
+
+    def test_every_page_fits_a_search_result(self):
+        # Bing Webmaster Tools (10 Oct 2026) flagged 88 titles over 70 characters and 111 descriptions outside 25-160
+        # as errors; short search text lives in meta_title / meta_description, and the visible headings stay long
+        for path, text in self.pages.items():
+            if 'name="robots" content="noindex"' in text:
+                continue
+            where = path.relative_to(self.site)
+            title = html_mod.unescape(re.search(r"<title>(.*?)</title>", text, re.S).group(1))
+            desc = html_mod.unescape(re.search(r'<meta name="description" content="(.*?)"', text, re.S).group(1))
+            self.assertLessEqual(len(title), 70, f"{where}: {title}")
+            self.assertTrue(25 <= len(desc) <= 160, f"{where}: {len(desc)} characters: {desc}")
+        nl = self.pages[self.site / "countries" / "netherlands" / "index.html"]
+        self.assertIn("<title>Netherlands: tuition, application fees and scholarships · DegreeStep</title>", nl)
+        self.assertIn("<h1>The Netherlands: tuition, application fees and the scholarships that cover them</h1>", nl)
 
     def test_country_guides_answer_application_fees(self):
         # Search Console (9 Oct 2026) showed people finding us for "netherlands universities without application fee"

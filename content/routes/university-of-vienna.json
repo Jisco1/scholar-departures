@@ -1,5 +1,6 @@
 {
   "summary": "Austria's largest university charges non-EU students €726.72 per semester, a fraction of what comparable universities charge elsewhere. And citizens of about 50 of the world's least developed countries pay no tuition at all, only the €26.20 students' union fee.",
+  "meta_description": "The University of Vienna charges non-EU students low tuition, and none for citizens of the least developed countries. Eligibility, how to apply and deadlines.",
   "covers": [
     "Non-EU/EEA students pay a tuition fee of €726.72 plus the students' union (ÖH) fee of €26.20, making €752.92 per semester in total.",
     "Tuition exemption for citizens of countries on Austria's list of least developed countries (the list runs from Afghanistan, Angola, Bangladesh, Benin and Bhutan to around 45 more). Exempt students pay only the ÖH fee.",
@@ -23,10 +24,21 @@
     "Selective master's programmes and entrance-exam bachelor's programmes have one application window per year, in spring. Miss it and you wait a year.",
     "If you are from a least-developed country, check the annex list carefully; the exemption is worth over €1,400 a year."
   ],
-  "related": ["tu-wien", "universitat-hamburg", "charles-university", "freie-universitat-berlin"],
+  "related": [
+    "tu-wien",
+    "universitat-hamburg",
+    "charles-university",
+    "freie-universitat-berlin"
+  ],
   "sources": [
-    {"title": "University of Vienna: Application and admission periods", "url": "https://studieren.univie.ac.at/en/admission/application-and-admission-periods/"},
-    {"title": "University of Vienna: Amount of the tuition fee / Students' Union fee", "url": "https://studieren.univie.ac.at/en/tuition-fee/amount-tuition-fee/"}
+    {
+      "title": "University of Vienna: Application and admission periods",
+      "url": "https://studieren.univie.ac.at/en/admission/application-and-admission-periods/"
+    },
+    {
+      "title": "University of Vienna: Amount of the tuition fee / Students' Union fee",
+      "url": "https://studieren.univie.ac.at/en/tuition-fee/amount-tuition-fee/"
+    }
   ],
   "reviewed": "2026-09-24"
 }

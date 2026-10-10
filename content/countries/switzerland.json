@@ -2,8 +2,9 @@
   "name": "Switzerland",
   "flag": "🇨🇭",
   "title": "Switzerland: tuition, application fees and two ways to have them paid for",
+  "meta_title": "Switzerland: tuition, application fees and two funded routes",
   "lede": "Swiss federal institutes of technology charge modest fees by international standards, but Switzerland is expensive to live in. The funded routes are ETH Zürich's ESOP for master's students and the Swiss Government Excellence Scholarships for researchers.",
-  "description": "Tuition and application fees for international students at ETH Zürich, EPFL, Zurich, Geneva, Lausanne, Basel and Bern, living costs, and the funded routes: ETH's ESOP and the Swiss Government Excellence Scholarships.",
+  "description": "Tuition and application fees at ETH Zürich, EPFL, Zurich, Geneva, Lausanne, Basel and Bern, plus ETH's ESOP and the Swiss Government Excellence Scholarships.",
   "card": "ETH and EPFL charge foreign students CHF 2,190 a semester; ESOP and federal scholarships cover the costs.",
   "sections": [
     {

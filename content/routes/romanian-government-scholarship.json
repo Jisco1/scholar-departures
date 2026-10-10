@@ -1,5 +1,6 @@
 {
   "summary": "Romania's Ministry of Foreign Affairs offers scholarships to citizens of non-EU countries for bachelor's, master's and doctoral study at Romanian public universities. The award waives fees, pays a monthly scholarship and funds a place in student housing, and starts with a year learning Romanian.",
+  "meta_description": "Romania's government scholarship waives fees and pays a monthly allowance and student housing for non-EU students, after a Romanian language year.",
   "covers": [
     "No registration, tuition or other fees, for the standard length of the programme.",
     "A preparatory year of Romanian language, also fee-free.",
@@ -23,10 +24,21 @@
     "Programmes are taught in Romanian, so commit fully to the language year; you will study your degree in it.",
     "The monthly amount is modest; check the current figure on the portal's FAQ and budget accordingly."
   ],
-  "related": ["stipendium-hungaricum", "turkiye-burslari", "charles-university", "erasmus-mundus-joint-masters"],
+  "related": [
+    "stipendium-hungaricum",
+    "turkiye-burslari",
+    "charles-university",
+    "erasmus-mundus-joint-masters"
+  ],
   "sources": [
-    {"title": "Study in Romania: Government scholarships: about the programme", "url": "https://scholarships.studyinromania.gov.ro/scholarship-about"},
-    {"title": "Study in Romania", "url": "https://studyinromania.gov.ro/"}
+    {
+      "title": "Study in Romania: Government scholarships: about the programme",
+      "url": "https://scholarships.studyinromania.gov.ro/scholarship-about"
+    },
+    {
+      "title": "Study in Romania",
+      "url": "https://studyinromania.gov.ro/"
+    }
   ],
   "reviewed": "2026-09-24"
 }

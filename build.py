@@ -64,6 +64,39 @@ def fail(msg):
     ERRORS.append(msg)
 
 
+# Bing Webmaster Tools flags a <title> over 70 characters and a description outside 25-160 as errors, and both
+# engines cut longer text off in results. A page whose headline or lede runs longer carries a meta_title /
+# meta_description written for search; the visible h1 and lede stay as they are.
+TITLE_MAX, DESC_MIN, DESC_MAX = 70, 25, 160
+
+
+def search_title(own, fallback, where):
+    title = own or fallback
+    if len(title) > TITLE_MAX:
+        fail(f"{where}: the search title is {len(title)} characters; give it a meta_title of {TITLE_MAX} or fewer")
+    return title
+
+
+def search_description(own, fallback, where):
+    """A written meta_description must fit as it is; a generated one is clipped to fit."""
+    desc = own or clip(fallback)
+    if not DESC_MIN <= len(desc) <= DESC_MAX:
+        fail(f"{where}: the search description is {len(desc)} characters; give it a meta_description of "
+             f"{DESC_MIN} to {DESC_MAX}")
+    return desc
+
+
+def clip(text, limit=DESC_MAX):
+    """Cut generated text to fit a search result: at the last full sentence that fits, else at a word."""
+    if len(text) <= limit:
+        return text
+    head = text[:limit]
+    stop = head.rfind(". ")
+    if stop >= DESC_MIN:
+        return head[:stop + 1]
+    return head[:limit - 1].rsplit(" ", 1)[0].rstrip(",;:") + "…"
+
+
 def e(value):
     return html.escape("" if value is None else str(value), quote=True)
 
@@ -392,7 +425,8 @@ def ad_bay(kind, wide=False):
 def page(path, title, description, body, *, root, nav=None, body_class="", jsonld=None, extra_head="",
          scripts=(), og_type="website", noindex=False, ads=True, og_image=None):
     canonical = BASE + path
-    full_title = title if title.endswith(SITE) or title.startswith(SITE) else f"{title} · {SITE}"
+    branded = f"{title} · {SITE}"
+    full_title = title if title.endswith(SITE) or title.startswith(SITE) or len(branded) > TITLE_MAX else branded
     client = adsense_client() if ads else ""
     head_ads = ""
     if client:
@@ -555,8 +589,8 @@ def build_board(routes, schools):
             .replace("{{ROOT}}", root))
     jsonld = [breadcrumb_ld([("", "Home"), ("scholarships/", "Scholarship board")])]
     title = "Scholarship board: live deadlines for funded study abroad"
-    desc = (f"Search and filter {len(routes)} tuition-free universities and fully funded scholarships by level, field, region "
-            f"and funding type, with live deadline countdowns and a directory of {len(schools)} schools.")
+    desc = search_description(None, f"Search {len(routes)} tuition-free universities and fully funded scholarships by level, field "
+                                    f"and region, with live deadline countdowns and a directory of {len(schools)} schools.", "scholarships/")
     LASTMOD["scholarships/"] = DATES.get("routes")
     write("scholarships/", page("scholarships/", title, desc, body, root=root, nav="scholarships/", body_class="home", jsonld=jsonld,
                                extra_head=f'<link rel="stylesheet" href="{asset(root, "app.css")}">\n',
@@ -810,11 +844,13 @@ def build_position_page(p, live):
 {more_html}
 </div><aside class="rail" aria-label="Advertisements">{ad_bay("rail")}</aside></div>
 </div>"""
-    desc = f"{p['title']} at {p['institution']}, {p['country']}. {p['funding']}. Deadline {fmt_date(deadline)}."
-    if len(desc) > 300:
-        desc = desc[:297].rsplit(" ", 1)[0] + "…"
+    where = f"positions.json: {p['id']}"
+    desc = search_description(p.get("meta_description"),
+                              f"{p['title']} at {p['institution']}, {p['country']}. {p['funding']}. Deadline {fmt_date(deadline)}.",
+                              where)
+    title = search_title(p.get("meta_title"), f"{p['title']}, {p['institution']}", where)
     LASTMOD[path] = p.get("posted")
-    write(path, page(path, f"{p['title']}, {p['institution']}", desc, body, root=root, nav="positions/",
+    write(path, page(path, title, desc, body, root=root, nav="positions/",
                      og_image=share_image(f"position-{p['id']}"),
                      body_class="position-page", extra_head=f'<link rel="stylesheet" href="{asset(root, "landing.css")}">\n',
                      scripts=[asset(root, "positions.js")],
@@ -998,7 +1034,8 @@ def build_news_page(n, items, live_positions):
 {more}
 </div><aside class="rail" aria-label="Advertisements">{ad_bay("rail")}</aside></div>
 </div>"""
-    desc = n["summary"] if len(n["summary"]) <= 300 else n["summary"][:297].rsplit(" ", 1)[0] + "…"
+    desc = search_description(n.get("meta_description"), n["summary"], f"news.json: {n['id']}")
+    title = search_title(n.get("meta_title"), n["title"], f"news.json: {n['id']}")
     article_ld = {"@context": "https://schema.org", "@type": "NewsArticle", "headline": n["title"], "description": desc,
                   "datePublished": n["date"], "dateModified": n["date"], "mainEntityOfPage": BASE + path,
                   "author": {"@type": "Organization", "name": SITE, "url": BASE},
@@ -1012,7 +1049,7 @@ def build_news_page(n, items, live_positions):
     if n.get("images") and not (SRC / "assets" / share).exists():
         fail(f"news.json: {n['id']} has photos but no src/assets/{share}; run python tools/share_images.py {n['id']}")
     og_image = BASE + "assets/" + share if n.get("images") else None
-    write(path, page(path, n["title"], desc, body, root=root, nav="news/", body_class="news-story", og_image=og_image,
+    write(path, page(path, title, desc, body, root=root, nav="news/", body_class="news-story", og_image=og_image,
                      extra_head=f'<link rel="stylesheet" href="{asset(root, "landing.css")}">\n', og_type="article",
                      jsonld=[breadcrumb_ld([("", "Home"), ("news/", "Research news"), (path, n["title"])]), article_ld]))
 
@@ -1376,15 +1413,20 @@ def build_route_pages(routes, notes, country_pages):
 </div>
 </div><aside class="rail" aria-label="Advertisements">{ad_bay("rail")}</aside></div>
 </div>"""
-        desc = f"{r['name']} ({r['country']}): {r['funding']} Eligibility, how to apply and the typical deadline ({r['deadline']})."
-        if len(desc) > 300:
-            desc = desc[:297].rsplit(" ", 1)[0] + "…"
+        where = f"content/routes/{r['slug']}.json"
+        desc = search_description(n.get("meta_description"),
+                                  f"{r['name']} ({r['country']}): {r['funding']} Eligibility, how to apply and the typical deadline ({r['deadline']}).",
+                                  where)
+        # the update robot adds routes without a meta_title, so fall back to the longest wording that fits
+        title = search_title(n.get("meta_title"), next((t for t in (f"{r['name']}: funding, eligibility and deadlines",
+                                                                     f"{r['name']}: funding and deadlines")
+                                                         if len(t) <= TITLE_MAX), r["name"]), where)
         ld = [breadcrumb_ld([("", "Home"), ("routes/", "Routes")] + ([(f"countries/{cslug}/", r["country"])] if has_country else [])
                             + [(f"routes/{r['slug']}/", r["name"])]),
               {"@context": "https://schema.org", "@type": "WebPage", "name": r["name"], "description": desc,
                "dateModified": reviewed or None, "url": BASE + f"routes/{r['slug']}/"}]
         LASTMOD[f"routes/{r['slug']}/"] = latest(reviewed, r.get("last_verified"))
-        write(f"routes/{r['slug']}/", page(f"routes/{r['slug']}/", f"{r['name']}: funding, eligibility and deadlines", desc,
+        write(f"routes/{r['slug']}/", page(f"routes/{r['slug']}/", title, desc,
                                             article, root=root, nav="routes/", jsonld=ld, og_type="article",
                                             og_image=share_image(f"route-{r['slug']}")))
 
@@ -1455,7 +1497,9 @@ def build_countries(routes, countries):
 {"<h2>Sources</h2><ul>" + sources + "</ul>" if sources else ""}</article>
 </div><aside class="rail" aria-label="Advertisements">{ad_bay("rail")}</aside></div></div>"""
         LASTMOD[f"countries/{slug}/"] = c.get("reviewed")
-        write(f"countries/{slug}/", page(f"countries/{slug}/", c["title"], c["description"], body, root=root, nav="countries/",
+        where = f"content/countries/{slug}.json"
+        write(f"countries/{slug}/", page(f"countries/{slug}/", search_title(c.get("meta_title"), c["title"], where),
+                                          search_description(c["description"], "", where), body, root=root, nav="countries/",
                                           jsonld=[breadcrumb_ld([("", "Home"), ("countries/", "Countries"), (f"countries/{slug}/", c["name"])]),
                                                   {"@context": "https://schema.org", "@type": "Article", "headline": c["title"],
                                                    "description": c["description"], "dateModified": c["reviewed"],
@@ -1514,7 +1558,9 @@ def build_guides(guides, routes):
                "author": author_ld(), "publisher": {"@type": "Organization", "name": SITE, "url": BASE},
                "mainEntityOfPage": BASE + f"guides/{g['slug']}/"}]
         LASTMOD[f"guides/{g['slug']}/"] = g.get("updated")
-        write(f"guides/{g['slug']}/", page(f"guides/{g['slug']}/", g["title"], g["description"], html_body, root=root,
+        where = f"content/guides/{g['slug']}.html"
+        write(f"guides/{g['slug']}/", page(f"guides/{g['slug']}/", search_title(g.get("meta_title"), g["title"], where),
+                                            search_description(g.get("meta_description"), g["description"], where), html_body, root=root,
                                             nav="guides/", jsonld=ld, og_type="article",
                                             og_image=share_image(f"guide-{g['slug']}")))
     root = "../"
@@ -1581,7 +1627,9 @@ def build_static_pages(pages):
 <div class="byline"><span>Last updated <b>{e(fmt_date(dt.date.fromisoformat(p["updated"])))}</b></span></div></div>
 <div class="layout"><article class="prose">{body}</article></div></div>"""
         LASTMOD[f"{p['slug']}/"] = p.get("updated")
-        write(f"{p['slug']}/", page(f"{p['slug']}/", p["title"], p["description"], html_body, root=root,
+        where = f"content/pages/{p['slug']}.html"
+        write(f"{p['slug']}/", page(f"{p['slug']}/", search_title(None, p["title"], where),
+                                     search_description(p["description"], "", where), html_body, root=root,
                                      nav=f"{p['slug']}/" if p["slug"] == "about" else None, ads=p.get("ads", False)))
 
 

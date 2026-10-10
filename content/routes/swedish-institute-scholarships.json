@@ -1,5 +1,6 @@
 {
   "summary": "The Swedish Institute Scholarships for Global Professionals (SISGP) fund one- and two-year master's degrees in Sweden for early-career professionals from a list of eligible countries. They cover tuition, a monthly living allowance, travel and insurance.",
+  "meta_description": "Swedish Institute scholarships cover tuition, a monthly allowance, travel and insurance for a master's in Sweden, for early-career professionals.",
   "covers": [
     "Full tuition fees at the Swedish university.",
     "A monthly living allowance of SEK 12,000.",
@@ -22,11 +23,25 @@
     "Check the eligible-countries list for your intake every year: countries are added and removed.",
     "SI values leadership and a clear plan for how you will contribute to your country's development; generic motivation letters rarely succeed."
   ],
-  "related": ["erasmus-mundus-joint-masters", "chevening-scholarships", "university-of-helsinki-scholarships", "daad-scholarships"],
+  "related": [
+    "erasmus-mundus-joint-masters",
+    "chevening-scholarships",
+    "university-of-helsinki-scholarships",
+    "daad-scholarships"
+  ],
   "sources": [
-    {"title": "Swedish Institute: Scholarships for Global Professionals", "url": "https://si.se/en/apply/scholarships/swedish-institute-scholarships-for-global-professionals/"},
-    {"title": "University Admissions in Sweden", "url": "https://www.universityadmissions.se/"},
-    {"title": "Swedish Institute scholarship application portal", "url": "https://apply-scholarships.si.se/"}
+    {
+      "title": "Swedish Institute: Scholarships for Global Professionals",
+      "url": "https://si.se/en/apply/scholarships/swedish-institute-scholarships-for-global-professionals/"
+    },
+    {
+      "title": "University Admissions in Sweden",
+      "url": "https://www.universityadmissions.se/"
+    },
+    {
+      "title": "Swedish Institute scholarship application portal",
+      "url": "https://apply-scholarships.si.se/"
+    }
   ],
   "reviewed": "2026-09-24"
 }
