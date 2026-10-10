@@ -29,6 +29,17 @@
   --shadow: rgba(0,0,0,.85);
   --backdrop: rgba(5,9,17,.72);
   --ad-line: rgba(125,142,173,.3);
+  /* the home hero sits on a photograph at golden hour, the look the app shares, so it keeps these in both themes */
+  --hero-night: #0E0C0A;
+  --hero-ink: #FFF8EE;
+  --hero-dim: rgba(255,248,238,.86);
+  --hero-gold: #F2C37A;
+  --hero-warm: rgba(255,150,70,.32);
+  --hero-shade: rgba(14,12,10,.84);
+  --hero-shade-mid: rgba(14,12,10,.52);
+  --hero-shade-lo: rgba(14,12,10,.22);
+  --hero-glass: rgba(255,248,238,.14);
+  --hero-glass-line: rgba(255,248,238,.34);
   color-scheme: dark;
   --serif: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
   --sans: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -64,6 +75,16 @@
   --shadow: rgba(20,33,58,.22);
   --backdrop: rgba(20,33,58,.45);
   --ad-line: rgba(94,110,135,.35);
+  --hero-night: #0E0C0A;
+  --hero-ink: #FFF8EE;
+  --hero-dim: rgba(255,248,238,.86);
+  --hero-gold: #F2C37A;
+  --hero-warm: rgba(255,150,70,.32);
+  --hero-shade: rgba(14,12,10,.84);
+  --hero-shade-mid: rgba(14,12,10,.52);
+  --hero-shade-lo: rgba(14,12,10,.22);
+  --hero-glass: rgba(255,248,238,.14);
+  --hero-glass-line: rgba(255,248,238,.34);
   color-scheme: light;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }

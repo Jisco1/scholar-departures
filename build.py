@@ -1176,7 +1176,10 @@ def build_home(routes, schools, updates, positions, research):
             "No. You apply directly to the university or scholarship provider. DegreeStep is independent and not affiliated with any of them.")]
     faq_html = "".join(f'<details class="lp-faq"><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in faq)
 
-    body = f"""<section class="lp-hero"><div class="wrap lp-hero-grid">
+    body = f"""<section class="lp-hero">
+<img class="lp-hero-photo" src="{asset(root, "hero-graduation-1920.jpg")}" srcset="{asset(root, "hero-graduation-960.jpg")} 960w, {asset(root, "hero-graduation-1920.jpg")} 1920w" sizes="100vw" width="1920" height="1280" alt="" fetchpriority="high" decoding="async">
+<div class="lp-hero-shade" aria-hidden="true"></div>
+<div class="wrap lp-hero-grid">
   <div class="lp-hero-text">
     <p class="eyebrow-s">Funded study abroad · Europe · USA · Canada</p>
     <h1>The world’s scholarships, <em>one step away</em></h1>
@@ -1187,7 +1190,9 @@ def build_home(routes, schools, updates, positions, research):
     <a class="lp-newsbtn" href="news/"><span class="lp-newsbtn-dot" aria-hidden="true"></span>Research news<span aria-hidden="true">→</span></a>
     {pass_html}
   </div>
-</div></section>
+</div>
+<small class="lp-hero-credit">Photo: U.S. Army / Bryan Gatchell, public domain</small>
+</section>
 
 <div class="wrap"><section class="lp-stats" aria-label="DegreeStep in numbers">
   <div><b>{len(routes)}</b><span>Funded routes</span></div>

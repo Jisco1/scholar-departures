@@ -3,16 +3,30 @@
 .btn-lg { padding: 14px 22px; font-size: 16px; border-radius: 999px; }
 
 /* -  -  - Hero -  -  - */
-.lp-hero { position: relative; overflow: hidden; padding: 48px 0 32px;
-  background: radial-gradient(900px 440px at 88% 8%, var(--brass-soft), transparent 70%); }
+/* graduates throwing their caps at golden hour, the same picture that opens the app; the shade keeps the text
+   readable, warm at the top like the evening sky and darkest behind the headline */
+.lp-hero { position: relative; overflow: hidden; isolation: isolate; padding: 52px 0 64px;
+  background: var(--hero-night); color: var(--hero-ink); }
+.lp-hero-photo { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 30% 35%; }
+.lp-hero-shade { position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, var(--hero-warm) 0%, transparent 34%),
+              linear-gradient(180deg, var(--hero-shade-mid) 0%, var(--hero-shade) 58%); }
+.lp-hero-credit { position: absolute; right: 16px; top: 10px; font-size: 11px; color: var(--hero-dim); opacity: .75; }
+.lp-hero .eyebrow-s { color: var(--hero-gold); }
+.lp-hero h1 { color: var(--hero-ink); }
+.lp-hero .lede { color: var(--hero-dim); }
+.lp-hero .btn-primary { background: var(--hero-gold); color: var(--hero-night); }
 .lp-hero-grid { display: grid; gap: 40px; align-items: center; }
 @media (min-width: 900px) {
-  .lp-hero { padding: 88px 0 56px; }
+  .lp-hero { padding: 104px 0 120px; }
+  .lp-hero-photo { object-position: 30% 22%; }   /* more of the caps in the air */
   .lp-hero-grid { grid-template-columns: 1.15fr .85fr; gap: 56px; }
+  .lp-hero-shade { background: linear-gradient(180deg, var(--hero-warm) 0%, transparent 42%),
+                               linear-gradient(90deg, var(--hero-shade) 0%, var(--hero-shade-mid) 52%, var(--hero-shade-lo) 100%); }
 }
 .lp-hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 6.4vw, 66px); line-height: 1.06;
   letter-spacing: -0.015em; text-wrap: balance; }
-.lp-hero h1 em { color: var(--brass); }
+.lp-hero h1 em { color: var(--hero-gold); }
 .lp-hero .lede { max-width: 54ch; }
 .lp-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 .lp-cta.center { justify-content: center; }
@@ -27,6 +41,13 @@
 .lp-newsbtn > span:last-child { color: var(--brass); }
 .lp-newsbtn-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brass); box-shadow: 0 0 0 4px var(--brass-soft); }
 @media (prefers-reduced-motion: reduce) { .lp-newsbtn { transition: none; } .lp-newsbtn:hover { transform: none; } }
+/* over the photo the news button is frosted glass, as in the app */
+.lp-hero .lp-newsbtn { background: var(--hero-glass); border-color: var(--hero-glass-line); color: var(--hero-ink);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.lp-hero .lp-newsbtn:hover { border-color: var(--hero-gold); }
+.lp-hero .lp-newsbtn:focus-visible { outline-color: var(--hero-gold); }
+.lp-hero .lp-newsbtn > span:last-child { color: var(--hero-gold); }
+.lp-hero .lp-newsbtn-dot { background: var(--hero-gold); box-shadow: 0 0 0 4px var(--hero-glass); }
 
 /* the next deadline, drawn as a boarding pass */
 .pass-wrap { position: relative; width: 100%; }
@@ -55,7 +76,9 @@
 
 /* -  -  - Numbers -  -  - */
 .lp-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line);
-  border-radius: 16px; overflow: hidden; }
+  border-radius: 16px; overflow: hidden; position: relative; z-index: 1; margin-top: -28px;   /* rests on the photo's edge */
+  box-shadow: 0 24px 60px -30px var(--shadow); }
+@media (min-width: 900px) { .lp-stats { margin-top: -40px; } }
 @media (min-width: 720px) { .lp-stats { grid-template-columns: repeat(4, 1fr); } }
 .lp-stats > div { background: var(--card); padding: 18px 12px; text-align: center; }
 .lp-stats b { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 4vw, 38px); color: var(--text); }

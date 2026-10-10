@@ -196,6 +196,17 @@ class BuiltSite(unittest.TestCase):
         self.assertIn('<a class="lp-newsbtn" href="news/">', hero)  # the news button sits above the boarding pass
         self.assertIn('href="editorial-policy/">How we verify</a>', band)
 
+    def test_home_hero_sits_on_the_golden_hour_photo(self):
+        # the owner approved the app's graduation photo behind the hero (10 Oct 2026); phones get the smaller file,
+        # and a public-domain photo still carries its credit
+        home = (self.site / "index.html").read_text(encoding="utf-8")
+        hero = re.search(r'<section class="lp-hero">.*?</section>', home, re.S).group(0)
+        self.assertRegex(hero, r'<img class="lp-hero-photo" src="assets/hero-graduation-1920\.jpg\?v=\w+" '
+                               r'srcset="assets/hero-graduation-960\.jpg\?v=\w+ 960w, assets/hero-graduation-1920\.jpg\?v=\w+ 1920w"')
+        self.assertIn("Photo: U.S. Army / Bryan Gatchell, public domain", hero)
+        for name in ("hero-graduation-1920.jpg", "hero-graduation-960.jpg"):
+            self.assertLess((self.site / "assets" / name).stat().st_size, 300_000, name)
+
     def test_no_page_repeats_the_checked_claims(self):
         # the owner asked for these gone (5 Oct 2026): verification is explained once, on How we verify,
         # and no page tells readers how the research is done
