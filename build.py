@@ -22,6 +22,7 @@ import re
 import secrets
 import shutil
 import sys
+from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import quote, urlsplit
 
@@ -1724,16 +1725,149 @@ def build_subjects(subjects, routes, positions):
 APP_FEED_VERSION = 1
 
 
+class AppBlocks(HTMLParser):
+    """A guide or subject page's HTML as the blocks the iPhone app draws itself: headings (h, h3), paragraphs (p),
+    list items (li, or ol with its number), quotes (q), tables and ad slots, with a callout's tone in "c". Inline
+    bold, italics and links become Markdown, so the app reads every word without opening the website."""
+    KINDS = {"h2": "h", "h3": "h3", "p": "p", "li": "li"}
+    INLINE = {"strong": "**", "b": "**", "em": "*", "i": "*"}
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.blocks, self.buf, self.kind = [], [], None
+        self.lists, self.divs, self.hrefs = [], [], []
+        self.quote, self.table, self.row, self.cell, self.head_row = False, None, None, None, False
+
+    def callout(self):
+        tone = next((d for d in reversed(self.divs) if d), None)
+        return tone
+
+    def out(self):
+        return self.cell if self.cell is not None else self.buf
+
+    def flush(self):
+        x = re.sub(r"\s+", " ", "".join(self.buf)).strip()
+        if x and self.kind:
+            kind = "q" if self.quote else self.kind
+            b = {"t": kind, "x": x}
+            if kind == "li" and self.lists and self.lists[-1][0] == "ol":
+                self.lists[-1][1] += 1
+                b = {"t": "ol", "n": self.lists[-1][1], "x": x}
+            if self.callout():
+                b["c"] = self.callout()
+            self.blocks.append(b)
+        self.buf, self.kind = [], None
+
+    def handle_starttag(self, tag, attrs):
+        a = dict(attrs)
+        if tag in self.KINDS and self.cell is None:
+            self.flush()
+            self.kind = self.KINDS[tag]
+        elif tag in ("ul", "ol"):
+            self.flush()
+            self.lists.append([tag, 0])
+        elif tag == "div":
+            cls = a.get("class") or ""
+            self.flush()
+            self.divs.append(("warn" if "warn" in cls else "good" if "good" in cls else "note") if "callout" in cls else None)
+        elif tag == "blockquote":
+            self.flush()
+            self.quote = True
+        elif tag == "table":
+            self.flush()
+            self.table = {"t": "table", "head": [], "rows": []}
+        elif tag == "tr" and self.table is not None:
+            self.row, self.head_row = [], True
+        elif tag in ("td", "th") and self.row is not None:
+            self.cell = []
+            self.head_row = self.head_row and tag == "th"
+        elif tag in self.INLINE:
+            self.out().append(self.INLINE[tag])
+        elif tag == "a":
+            href = (a.get("href") or "").replace("{{root}}", BASE)
+            href = BASE + href[1:] if href.startswith("/") else href
+            self.hrefs.append(href if href.startswith(("http://", "https://", "mailto:")) else "")
+            if self.hrefs[-1]:
+                self.out().append("[")
+        elif tag == "br":
+            self.out().append(" ")
+
+    def handle_endtag(self, tag):
+        if tag in self.KINDS and self.cell is None:
+            self.flush()
+        elif tag in ("ul", "ol") and self.lists:
+            self.flush()
+            self.lists.pop()
+        elif tag == "div" and self.divs:
+            self.flush()
+            self.divs.pop()
+        elif tag == "blockquote":
+            self.flush()
+            self.quote = False
+        elif tag in ("td", "th") and self.cell is not None:
+            self.row.append(re.sub(r"\s+", " ", "".join(self.cell)).strip())
+            self.cell = None
+        elif tag == "tr" and self.row is not None:
+            if self.row:
+                (self.table["head"] if self.head_row and not self.table["head"] else self.table["rows"]).append(self.row)
+            self.row = None
+        elif tag == "table" and self.table is not None:
+            self.table["head"] = self.table["head"][0] if self.table["head"] else []
+            self.blocks.append(self.table)
+            self.table = None
+        elif tag in self.INLINE:
+            self.out().append(self.INLINE[tag])
+        elif tag == "a" and self.hrefs:
+            href = self.hrefs.pop()
+            if href:
+                self.out().append(f"]({href})")
+
+    def handle_data(self, data):
+        if self.cell is None and self.table is not None:
+            return
+        if self.cell is None and not self.kind and data.strip():
+            self.kind = "p"
+        self.out().append(re.sub(r"([\\*_\[\]`])", r"\\\1", data))
+
+    def handle_comment(self, data):
+        if data.strip() == "ad":
+            self.flush()
+            self.blocks.append({"t": "ad"})
+
+
+def app_blocks(body):
+    parser = AppBlocks()
+    parser.feed(body)
+    parser.close()
+    parser.flush()
+    return parser.blocks
+
+
 def write_app_feed(routes, notes, positions, news, subjects, guides):
     """app/feed.json: everything the DegreeStep iPhone app shows, so its content updates with every deploy and never
     needs a new App Store version. The app keeps the last copy for offline use and works out each route's next
-    deadline itself, so a feed a few days old still counts down correctly."""
+    deadline itself, so a feed a few days old still counts down correctly. Every guide, story, subject page and
+    listing travels in full, so the app shows them itself instead of opening the website."""
     order = {name: i for i, name in enumerate(ELIGIBILITY["countries"])}
+    slugs = {r["slug"] for r in routes}
+    live = open_positions(positions)
+    live_ids = {p["id"] for p in live}
 
     def open_rule(slug):
         kind, names, rule = who_can_apply(slug)
         idx = sorted(order[n] for n in names)
         return {"x": idx} if kind == "all" else {"o": idx} if kind == "only" else {"c": rule.get("check", "")}
+
+    def md(text):
+        """Route notes and stories already use [label]({{root}}path/) links; the app needs them absolute, and a link to
+        a closed listing keeps its words but loses the link, as on the website."""
+        def keep(m):
+            pos = re.match(r"^\{\{root\}\}positions/([a-z0-9-]+)/$", m.group(2))
+            return m.group(1) if pos and pos.group(1) not in live_ids else m.group(0)
+        return LINK_MD.sub(keep, text).replace("{{root}}", BASE)
+
+    def note(slug, key):
+        return [md(x) for x in (notes.get(slug) or {}).get(key) or []]
 
     feed = {
         "version": APP_FEED_VERSION,
@@ -1747,22 +1881,35 @@ def write_app_feed(routes, notes, positions, news, subjects, guides):
             "deadline": r["deadline"], "deadlines": r.get("deadlines", []), "approx": bool(r.get("approx")),
             "rolling": bool(r.get("rolling")), "tbc": bool(r.get("tbc")),
             "url": BASE + f"routes/{r['slug']}/", "official": r["link"], "open": open_rule(r["slug"]),
+            "covers": note(r["slug"], "covers"), "eligibility": note(r["slug"], "eligibility"),
+            "how_to_apply": note(r["slug"], "how_to_apply"), "watch_out": note(r["slug"], "watch_out"),
+            "sources": [{"title": s["title"], "url": s["url"]} for s in (notes.get(r["slug"]) or {}).get("sources") or []],
+            "related": [x for x in (notes.get(r["slug"]) or {}).get("related") or [] if x in slugs],
         } for r in routes],
         "positions": [{
             "id": p["id"], "title": p["title"], "institution": p["institution"], "country": p["country"], "flag": p["flag"],
             "level": p["level"], "field": p["field"], "funding": p["funding"], "summary": p["summary"],
             "deadline": p["deadline"], "url": BASE + f"positions/{p['id']}/",
-        } for p in open_positions(positions)],
+            "official": p["link"], "source": p.get("source", ""), "posted": p.get("posted", ""),
+            "details": {k: list(v) for k, v in (p.get("details") or {}).items()},
+        } for p in live],
         "news": [{
             "id": n["id"], "title": n["title"], "summary": n["summary"], "date": n["date"], "category": n.get("category", ""),
             "url": BASE + f"news/{n['id']}/",
             "image": (BASE + "assets/" + n["images"][0]["file"]) if n.get("images") else None,
             "credit": (f'{n["images"][0]["credit"]}, {n["images"][0]["license"]}') if n.get("images") else None,
+            "body": [md(x) for x in n.get("body") or []], "why": n.get("why", ""),
+            "source_title": n.get("source_title", ""), "source_url": n.get("source_url", ""),
         } for n in sorted(news, key=lambda n: n["date"], reverse=True)[:30]],
         "subjects": [{"slug": s["slug"], "field": s["field"], "title": s["title"], "lede": s["lede"],
-                      "url": BASE + f"subjects/{s['slug']}/"} for s in sorted(subjects, key=lambda s: FIELDS.index(s["field"]))],
+                      "url": BASE + f"subjects/{s['slug']}/", "updated": s.get("updated", ""),
+                      "blocks": app_blocks(s["body"]),
+                      "picks": [{"slug": p["slug"], "why": p["why"]} for p in s.get("picks") or [] if p["slug"] in slugs],
+                      "faq": [{"q": q["q"], "a": md(q["a"])} for q in s.get("faq") or []],
+                      } for s in sorted(subjects, key=lambda s: FIELDS.index(s["field"]))],
         "guides": [{"slug": g["slug"], "title": g["title"], "description": g["description"],
-                    "url": BASE + f"guides/{g['slug']}/"} for g in guides],
+                    "url": BASE + f"guides/{g['slug']}/", "kicker": g.get("kicker", "Guide"), "updated": g.get("updated", ""),
+                    "minutes": max(1, round(words(g["body"]) / 220)), "blocks": app_blocks(g["body"])} for g in guides],
     }
     (OUT / "app").mkdir(exist_ok=True)
     (OUT / "app" / "feed.json").write_text(json.dumps(feed, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")

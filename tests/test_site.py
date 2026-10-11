@@ -221,6 +221,24 @@ class BuiltSite(unittest.TestCase):
             self.assertTrue(r["url"].startswith("https://degreestep.com/routes/"), r["slug"])
         self.assertEqual(len(feed["subjects"]), 8)
         self.assertTrue(feed["news"] and feed["positions"] and feed["guides"])
+        # the app shows guides, stories, subject pages and listings itself (11 Oct 2026: the owner did not want taps
+        # to open the website), so each one travels whole, with no HTML left for the app to stumble over
+        for r in feed["routes"]:
+            self.assertTrue(r["how_to_apply"] and r["eligibility"], f"{r['slug']}: no how-to-apply or eligibility")
+        for s in feed["subjects"]:
+            self.assertGreaterEqual(len(s["picks"]), 5, s["slug"])
+            self.assertTrue(s["faq"], s["slug"])
+        for doc in feed["guides"] + feed["subjects"]:
+            self.assertGreater(len(doc["blocks"]), 8 if doc in feed["guides"] else 2, f"{doc['slug']}: too few blocks")
+            for b in doc["blocks"]:
+                self.assertIn(b["t"], {"h", "h3", "p", "li", "ol", "q", "table", "ad"}, doc["slug"])
+                for text in [b.get("x", "")] + [c for row in b.get("rows", []) + [b.get("head", [])] for c in row]:
+                    self.assertNotRegex(text, r"<[a-z/]|\{\{", f"{doc['slug']}: markup left in {text[:60]!r}")
+        for n in feed["news"]:
+            self.assertTrue(n["body"], n["id"])
+            self.assertFalse(any("{{root}}" in p for p in n["body"]), n["id"])
+        for p in feed["positions"]:
+            self.assertTrue(p["official"].startswith("http") and p["details"], p["id"])
         ads = (self.site / "app-ads.txt").read_text(encoding="utf-8")
         self.assertEqual(ads, (self.site / "ads.txt").read_text(encoding="utf-8"))
         self.assertIn("pub-6851724780839114, DIRECT", ads)
