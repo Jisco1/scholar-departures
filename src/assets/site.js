@@ -133,11 +133,12 @@
   /* ---- share: the phone's own share sheet where there is one, otherwise the short list ---- */
   var touch = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
   document.querySelectorAll("details[data-share]").forEach(function (box) {
-    var url = box.getAttribute("data-url"), summary = box.querySelector("summary");
+    var summary = box.querySelector("summary");
+    function url() { return box.getAttribute("data-url"); }  // read when used: a page may set it after loading
     if (touch && navigator.share) {
       summary.addEventListener("click", function (e) {
         e.preventDefault();
-        navigator.share({ title: box.getAttribute("data-title"), text: box.getAttribute("data-text"), url: url })
+        navigator.share({ title: box.getAttribute("data-title"), text: box.getAttribute("data-text"), url: url() })
           .catch(function (err) { if (!err || err.name !== "AbortError") box.open = true; });  // no sheet: show the list
       });
     }
@@ -145,7 +146,7 @@
     if (copy && navigator.clipboard && window.isSecureContext) {
       copy.hidden = false;
       copy.addEventListener("click", function () {
-        navigator.clipboard.writeText(url).then(function () {
+        navigator.clipboard.writeText(url()).then(function () {
           copy.textContent = "Link copied";
           setTimeout(function () { copy.textContent = "Copy link"; box.open = false; }, 1400);
         }, function () { copy.textContent = "Copy failed"; });

@@ -779,7 +779,8 @@
   function dirEntry(s) {  // curated rows and app rows in one shape
     var x = { name: s.name, country: s.country, city: s.city || "", flag: s.flag || "", link: s.link || s.url,
               continent: s.continent || DIR_CONTINENT[s.region] || s.region,
-              slug: s.route || (s.atlasName && SLUG_BY_NAME[s.atlasName]) || "", offers: s.offers || null };
+              route: s.route || (s.atlasName && SLUG_BY_NAME[s.atlasName]) || "", offers: s.offers || null,
+              page: s.page || s.slug || "" };  // page: the university’s page on DegreeStep
     x.hay = dirWords(x.name + " " + x.country + " " + x.city + " " + (DIR_ALIASES[x.country] || ""));
     return x;
   }
@@ -858,16 +859,15 @@
       near.observe(document.getElementById("directory"));
     } else loadFullDir();
   })();
-  function dirRowHTML(s, i) {
-    var chip = s.slug ? '<a class="dchip" href="' + esc(ROOT) + 'routes/' + esc(s.slug) + '/" title="Open this school’s funded route">Funded</a>' : "";
+  function dirRowHTML(s, i) {  // the row opens the university's page on DegreeStep; its website is linked from there
+    var chip = s.route ? '<a class="dchip" href="' + esc(ROOT) + 'routes/' + esc(s.route) + '/" title="Open this school\u2019s funded route">Funded</a>' : "";
+    var href = s.page ? esc(ROOT) + "school/?s=" + encodeURIComponent(s.page) : esc(safeUrl(s.link));
     return '<div class="dir-row" style="--d:' + (i % 14) * 25 + 'ms">' +
-      '<span class="dname">' + esc(s.flag) + " " + esc(s.name) + "</span>" +
+      '<a class="dname" href="' + href + '">' + esc(s.flag) + " " + esc(s.name) + "</a>" +
       '<span class="dloc">' + (s.city ? esc(s.city) + " \u00B7 " : "") + esc(s.country) +
         (s.offers ? " \u00B7 " + ["b", "m", "d"].filter(function (k) { return s.offers[k]; })
           .map(function (k) { return dirLevels[k]; }).join(", ") : "") + "</span>" +
-      '<span class="dact">' + chip +
-      '<a class="dvisit" href="' + esc(safeUrl(s.link)) + '" target="_blank" rel="noopener noreferrer" aria-label="Visit site: ' + esc(s.name) + '">' +
-      '<span class="vtxt">Visit site</span> ' + I.ext + "</a></span></div>";
+      '<span class="dact">' + chip + '<span class="dgo" aria-hidden="true">\u2192</span></span></div>';
   }
   function renderDir() {
     var needle = dirState.q.trim().toLowerCase();

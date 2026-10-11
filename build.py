@@ -475,6 +475,7 @@ def brand_logo():
 
 BRAND_LOGO = brand_logo()
 DIRECTORY_SIZE = 0  # set in main() once the world list is loaded
+NOINDEX = set()  # pages written with noindex, left out of the sitemap
 NL = "\n"
 SHARE_ICON = ('<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
               'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/>'
@@ -666,7 +667,7 @@ def route_row(r, root):
 
 # ---------------------------------------------------------------- pages
 
-def build_board(routes, schools):
+def build_board(routes, schools, directory):
     """The live board: search, filters, the departures board and the schools directory."""
     root = "../"
     tpl = (SRC / "board.html").read_text(encoding="utf-8")
@@ -687,11 +688,12 @@ def build_board(routes, schools):
         cards = [r for r in first if (r["kind"] == "program") == (kind == "program")]
         if cards:
             grid += f'<div class="grid-sep">{label}</div>' + "".join(map(card, cards))
+    slug_of = {(d["name"], d["country"]): d["slug"] for d in directory}
     dsorted = sorted(schools, key=lambda s: (s["country"], s["name"]))
     dir_rows = "".join(
-        f'<div class="dir-row in"><span class="dname">{e(s["flag"])} {e(s["name"])}</span><span class="dloc">{e(s["city"])} · {e(s["country"])}</span>'
-        f'<span class="dact"><a class="dvisit" href="{e(s["link"])}" target="_blank" rel="noopener noreferrer" aria-label="Visit site: {e(s["name"])}">'
-        f'<span class="vtxt">Visit site</span> {EXT}</a></span></div>'
+        f'<div class="dir-row in"><a class="dname" href="{root}school/?s={quote(slug_of[(s["name"], s["country"])])}">'
+        f'{e(s["flag"])} {e(s["name"])}</a><span class="dloc">{e(s["city"])} · {e(s["country"])}</span>'
+        f'<span class="dact"><span class="dgo" aria-hidden="true">→</span></span></div>'
         for s in dsorted[:PER_PAGE_DIR])
     body = (tpl.replace("{{CONFIG_JSON}}", config_json)
             .replace("{{GRID}}", grid)
@@ -1986,10 +1988,10 @@ def flag_emoji(code):
     return "".join(chr(0x1F1E6 + ord(c) - ord("A")) for c in code.upper())
 
 
-def write_app_schools(schools, routes, world=(), programs=None):
-    """app/schools.json: the schools directory for the app, kept apart from feed.json because it is large and only
-    needed when someone opens it. Each school has its official website, and links to its route page when it has one:
-    by name for the schools we curate, by website for the rest."""
+def make_directory(schools, routes, world=(), programs=None):
+    """The schools directory shared by the site and the app: the schools we curate plus the world list. Each has its
+    official website, its route page when it has one (by name for the schools we curate, by website for the rest),
+    a slug for its page on degreestep.com and, for US universities, the degree levels and subjects it awards."""
     by_name = {r["name"]: r["slug"] for r in routes}
     by_host = {url_host(r["link"]): r["slug"] for r in routes if r["kind"] == "school"}
 
@@ -2004,15 +2006,74 @@ def write_app_schools(schools, routes, world=(), programs=None):
              "continent": u["continent"], "url": u["url"], "route": route_for(u["url"])} for u in world]
     out.sort(key=lambda s: (s["country"], s["name"]))
     programs = programs or {"levels": {}, "fields": [], "schools": {}}
-    for s in out:  # US universities: the levels and subjects they award degrees in
+    taken = set()
+    for s in out:
         offers = s["country"] == "United States" and programs["schools"].get(url_host(s["url"]))
-        if offers:
+        if offers:  # US universities: the levels and subjects they award degrees in
             s["offers"] = offers
-    doc = {"version": 1, "schools": out}
+        slug = slugify(s["name"]) or "university"
+        if slug in taken:
+            slug = f"{slug}-{slugify(s['country'])}"
+        base, n = slug, 2
+        while slug in taken:
+            slug, n = f"{base}-{n}", n + 1
+        taken.add(slug)
+        s["slug"] = slug
+    return out
+
+
+def write_app_schools(directory, programs=None):
+    """app/schools.json: the schools directory for the app and for the site's directory and school pages, kept apart
+    from feed.json because it is large and only needed when someone opens it."""
+    programs = programs or {"levels": {}, "fields": [], "schools": {}}
+    doc = {"version": 1, "schools": directory}
     if programs["schools"]:
         doc.update(levels=programs["levels"], fields=programs["fields"], programsSource=programs.get("source", ""))
     (OUT / "app").mkdir(exist_ok=True)
     (OUT / "app" / "schools.json").write_text(json.dumps(doc, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+
+
+def build_school_page(country_pages):
+    """school/?s=<slug>: one page for every university in the directory, filled in by school.js from
+    app/schools.json. Location, degrees (US), our funding guide for it, funded routes and our guide for its country,
+    and other universities there come before its official website. Kept out of search results and the sitemap:
+    ten thousand pages built from one template would read as thin content."""
+    root = "../"
+    config = {"root": root, "base": BASE, "ext": EXT,
+              "countryPages": {c["name"]: slug for slug, c in country_pages.items()}}
+    config_json = json.dumps(config, ensure_ascii=False).replace("</", "<\\/")
+    body = f"""<div class="wrap school-page">
+<header class="page-head">
+{crumbs(root, [("scholarships/#directory", "Schools directory"), ("", "University")])}
+<p class="eyebrow-s" id="schEyebrow">University</p>
+<h1 id="schName">Opening the university\u2026</h1>
+<p class="lede" id="schPlace"></p>
+<div class="school-share" id="schShare" hidden>{share_box("school/", SITE, SITE, noun="university")}</div>
+</header>
+<noscript><p class="lede">This page needs JavaScript. <a href="{root}scholarships/#directory">Open the schools directory</a>.</p></noscript>
+<div class="prose school-body">
+<section id="schGuide" hidden></section>
+<section id="schDegrees" hidden></section>
+{ad_bay("article")}
+<section id="schFunding" hidden></section>
+<section id="schApply" hidden>
+<h2>Before you apply</h2>
+<ul>
+<li>Find your programme on the university's own website and check its entry requirements, language tests and fees.</li>
+<li>Look for a scholarships or financial aid page there; many universities fund international students directly.</li>
+<li>Note the deadline for your intake, then work back to when you need transcripts, references and test results.</li>
+<li>Apply through the university or the official national portal it names. Never pay an agent who promises admission.</li>
+</ul>
+</section>
+<section id="schMore" hidden></section>
+</div>
+<div class="route-official" id="schOfficial" hidden></div>
+</div>
+<script type="application/json" id="schoolConfig">{config_json}</script>"""
+    write("school/", page("school/", "University", "A university in the DegreeStep schools directory: where it is, "
+                          "funding for study there and its official website.", body, root=root, nav="scholarships/",
+                          noindex=True, scripts=[f"{root}data/data.js?v=" + DATA_VERSION, asset(root, "school.js")]))
+    NOINDEX.add("school/")
 
 
 def add_heading_ids(body):
@@ -2173,7 +2234,7 @@ def write_meta_files(routes):
     (OUT / "data" / "schools.js").write_text("window.SCHOLAR_SCHOOLS = " + json.dumps(SCHOOLS, ensure_ascii=False).replace("</", "<\\/") + ";\n", encoding="utf-8")
     # each page's own last change, never the build date: Google ignores sitemap dates that are not accurate
     urls = "".join(f"<url><loc>{e(BASE + p)}</loc>" + (f"<lastmod>{LASTMOD[p]}</lastmod>" if LASTMOD.get(p) else "") + "</url>\n"
-                   for p in PAGES if p.endswith("/") or p == "")
+                   for p in PAGES if (p.endswith("/") or p == "") and p not in NOINDEX)
     (OUT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
                                      + urls + "</urlset>\n", encoding="utf-8")
     (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n", encoding="utf-8")
@@ -2269,12 +2330,17 @@ def main():
                  updates=latest(*(u["date"] for u in updates)), guides=latest(*(g.get("updated") for g in guides)),
                  countries=latest(*(c.get("reviewed") for _, c in countries)))
     global DIRECTORY_SIZE
-    world = load_world_universities()
-    DIRECTORY_SIZE = len(SCHOOLS) + len(world)  # the schools directory on the site and in the app: curated + world list
+    programs = load_us_programs()
+    directory = make_directory(SCHOOLS, ROUTES, load_world_universities(), programs)
+    DIRECTORY_SIZE = len(directory)  # the schools directory on the site and in the app: curated + world list
+    page_of = {(d["name"], d["country"]): d["slug"] for d in directory}
+    for s in SCHOOLS:  # the board's built-in directory rows open the same university pages
+        s["page"] = page_of[(s["name"], s["country"])]
     build_home(ROUTES, SCHOOLS, updates, positions, news)
     build_positions(positions)
     build_news(news, {p["id"] for p in open_positions(positions)})
-    build_board(ROUTES, SCHOOLS)
+    build_board(ROUTES, SCHOOLS, directory)
+    build_school_page(dict(countries))
     build_updates(updates)
     build_route_pages(ROUTES, notes, dict(countries))
     build_routes_index(ROUTES, dict(countries))
@@ -2287,7 +2353,7 @@ def main():
     build_404()
     write_meta_files(ROUTES)
     write_app_feed(ROUTES, notes, positions, news, subjects, guides)
-    write_app_schools(SCHOOLS, ROUTES, world, load_us_programs())
+    write_app_schools(directory, programs)
     check_links()
     return report()
 

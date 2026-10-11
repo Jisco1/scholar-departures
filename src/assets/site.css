@@ -395,3 +395,23 @@ img, svg { max-width: 100%; }
 .picks .pick { display: flex; flex-direction: column; }
 .picks .pick + .pick { border-top: 1px solid var(--rule); }
 .pick-why { margin: -4px 0 0; padding: 0 18px 14px; font-size: 14px; line-height: 1.55; color: var(--dim); }
+
+/* -  -  - A university's page (school/?s=…): our sections first, its official website last -  -  - */
+.school-share { margin-top: 18px; }
+.school-body section { margin-top: 8px; }
+.school-card { display: grid; gap: 6px; margin-top: 14px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 14px;
+  background: var(--card); color: inherit; text-decoration: none; transition: border-color .15s; }
+.school-card:hover { border-color: var(--brass); }
+.school-card strong { font-family: var(--serif); font-weight: 400; font-size: 22px; line-height: 1.25; color: var(--text); }
+.school-card span { color: var(--dim); font-size: 15px; line-height: 1.55; }
+.school-card .school-card-k { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--brass); }
+.school-card .school-card-go { color: var(--brass); font-weight: 600; font-size: 14px; }
+.school-routes, .school-more { list-style: none; padding: 0; margin: 14px 0 0; border-top: 1px solid var(--line); }
+.school-routes li, .school-more li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; padding: 12px 0;
+  border-bottom: 1px solid var(--line); margin: 0; }
+.school-routes a, .school-more a { font-weight: 600; text-decoration: none; }
+.school-routes a:hover, .school-more a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.school-route-meta { color: var(--faint); font-size: 13.5px; }
+.school-links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 14px; }
+.school-links a { font-weight: 600; text-decoration: none; }
+.school-src { color: var(--faint); font-size: 13.5px; }

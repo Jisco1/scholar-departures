@@ -128,7 +128,7 @@ class BuiltSite(unittest.TestCase):
         # 11 Oct 2026: filters are one row of dropdowns, as in the app, on the board and in the schools directory
         for hook in ('class="filterrow"', 'id="fieldSel"', 'id="levelSel"', 'id="kindSel"', 'id="regionSel"',
                      'id="deadlineSel"', 'id="typeSel"', 'id="dirRegionSel"', 'id="dirCountrySel"', 'id="dirLevelSel"',
-                     'id="dirFieldSel"', 'id="boardMore"', 'class="vtxt"'):
+                     'id="dirFieldSel"', 'id="boardMore"', 'class="dgo"'):
             self.assertIn(hook, html, f"layout hook missing: {hook}")
         css = (ROOT / "src" / "assets" / "app.css").read_text(encoding="utf-8")
         js = (ROOT / "src" / "assets" / "app.js").read_text(encoding="utf-8")
@@ -261,6 +261,17 @@ class BuiltSite(unittest.TestCase):
         self.assertEqual({s["country"] for s in offering}, {"United States"})
         self.assertEqual(doc["levels"], {"b": "Bachelor's", "m": "Master's", "d": "PhD"})
         self.assertTrue(all(0 <= f < len(doc["fields"]) for s in offering for fs in s["offers"].values() for f in fs))
+        # 11 Oct 2026: every university gets a page on DegreeStep before its website (school/?s=<slug>)
+        slugs = [s["slug"] for s in doc["schools"]]
+        self.assertEqual(len(slugs), len(set(slugs)), "each university needs its own page address")
+        school = (self.site / "school" / "index.html").read_text(encoding="utf-8")
+        self.assertIn('<meta name="robots" content="noindex">', school)  # one template, ten thousand schools: kept out of search
+        self.assertIn('id="schoolConfig"', school)
+        self.assertNotIn("school/", (self.site / "sitemap.xml").read_text(encoding="utf-8"))
+        board = (self.site / "scholarships" / "index.html").read_text(encoding="utf-8")
+        rows = board.split('id="dirList"')[1].split('id="dirPager"')[0]
+        self.assertIn('href="../school/?s=', rows)
+        self.assertNotIn("Visit site", rows)  # the directory opens our page; the official link sits at its end
         ads = (self.site / "app-ads.txt").read_text(encoding="utf-8")
         self.assertEqual(ads, (self.site / "ads.txt").read_text(encoding="utf-8"))
         self.assertIn("pub-6851724780839114, DIRECT", ads)
