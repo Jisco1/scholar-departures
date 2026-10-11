@@ -54,6 +54,17 @@
     "Arts & Humanities": "\u270E", "Agriculture & Environment": "\u2698"
   };
 
+  /* Who can apply: each route's "open" holds positions in this list (build.py writes both from data/eligibility.json) */
+  var COUNTRIES = window.SCHOLAR_COUNTRIES || [];
+  var NAT_KEY = "scholar-departures:nationality";
+  function openFor(s, nat) {
+    var o = s.open;
+    if (nat < 0 || !o) return nat < 0 ? "yes" : "check";
+    if (o.x) return o.x.indexOf(nat) === -1 ? "yes" : "no";
+    if (o.o) return o.o.indexOf(nat) === -1 ? "no" : "yes";
+    return "check";
+  }
+
   /* ============ data + status ============ */
   var now = new Date();
   var t0 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -79,7 +90,8 @@
   /* ============ state ============ */
   var state = {
     q: "", region: "All", level: "All levels", type: "All funding",
-    dstatus: "All deadlines", kind: "All kinds", field: "", savedOnly: false, saved: loadSaved(), page: 1
+    dstatus: "All deadlines", kind: "All kinds", field: "", savedOnly: false, saved: loadSaved(), page: 1,
+    nat: loadNat()
   };
   var lastToggled = null;
   var lastFilterKey = "";
@@ -93,6 +105,15 @@
   }
   function persistSaved() {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(state.saved))); } catch (e) {}
+  }
+  // your nationality is remembered on this device, like your shortlist; it is never sent anywhere
+  function loadNat() {
+    try { return COUNTRIES.indexOf(localStorage.getItem(NAT_KEY) || ""); } catch (e) { return -1; }
+  }
+  function persistNat() {
+    try {
+      if (state.nat < 0) localStorage.removeItem(NAT_KEY); else localStorage.setItem(NAT_KEY, COUNTRIES[state.nat]);
+    } catch (e) {}
   }
 
   /* ============ helpers ============ */
@@ -507,6 +528,14 @@
     });
   })();
 
+  var natSel = document.getElementById("natSel");
+  COUNTRIES.forEach(function (c, i) { var o = document.createElement("option"); o.value = String(i); o.textContent = c; natSel.appendChild(o); });
+  natSel.value = state.nat < 0 ? "" : String(state.nat);
+  natSel.addEventListener("change", function () {
+    state.nat = natSel.value === "" ? -1 : Number(natSel.value);
+    persistNat(); render();
+  });
+
   var levelSel = document.getElementById("levelSel");
   LEVELS.forEach(function (l) { var o = document.createElement("option"); o.textContent = l; levelSel.appendChild(o); });
   levelSel.addEventListener("change", function () { state.level = levelSel.value; render(); });
@@ -559,8 +588,10 @@
     var isSaved = state.saved.has(s.name);
     var d = Math.min(idx, 9) * 45;
     var pop = lastToggled === s.name ? " pop" : "";
+    var check = state.nat >= 0 && openFor(s, state.nat) === "check"
+      ? '<span class="natcheck" title="' + esc((s.open && s.open.c) || "Confirm your country on the route page") + '">Check your country</span>' : "";
     return '<article class="card slim' + (isSaved ? " saved" : "") + '" style="--d:' + d + 'ms" data-name="' + esc(s.name) + '">' +
-      '<div class="country">' + esc(s.flag) + " " + esc(s.country) + "</div>" +
+      '<div class="country">' + esc(s.flag) + " " + esc(s.country) + check + "</div>" +
       '<h3><a class="card-title" href="' + esc(ROOT) + 'routes/' + esc(s.slug) + '/">' + esc(s.name) + "</a></h3>" +
       '<span class="card-go" aria-hidden="true">\u2192</span>' +
       '<button class="bookmark' + (isSaved ? " saved" : "") + pop + '" data-save="' + esc(s.name) + '" aria-label="' +
@@ -583,6 +614,7 @@
       if (state.dstatus === "Approaching" && s.status !== "approaching" && s.status !== "rolling") return false;
       if (state.dstatus === "Closed" && s.status !== "closed") return false;
       if (state.savedOnly && !state.saved.has(s.name)) return false;
+      if (openFor(s, state.nat) === "no") return false;
       return true;
     });
     if (state.field) {
@@ -603,7 +635,7 @@
     }
     // a new filter starts again at page 1; saving or unsaving a route keeps your page
     var filterKey = [state.q.trim().toLowerCase(), state.region, state.level, state.type,
-                     state.dstatus, state.kind, state.field, state.savedOnly].join("|");
+                     state.dstatus, state.kind, state.field, state.savedOnly, state.nat].join("|");
     if (filterKey !== lastFilterKey) { state.page = 1; lastFilterKey = filterKey; }
     var pg = paginate(out.length, state.page, hasFilters ? PER_PAGE_FILTERED : PER_PAGE_ALL);
     state.page = pg.page;
@@ -649,7 +681,19 @@
 
     var range = rangeText(pg);
     document.getElementById("count").textContent = !out.length ? "No matching routes"
-      : hasFilters ? range + " of " + out.length + " matching" : range + " of " + SCHOOLS.length + " routes";
+      : hasFilters ? range + " of " + out.length + " matching"
+      : state.nat >= 0 ? range + " of " + out.length + " open to you" : range + " of " + SCHOOLS.length + " routes";
+    var natNote = document.getElementById("natNote");
+    if (state.nat < 0) {
+      natNote.textContent = "Pick your country to see only what you can apply for.";
+    } else {
+      var all = enriched.map(function (s) { return openFor(s, state.nat); });
+      var yes = all.filter(function (v) { return v === "yes"; }).length, chk = all.filter(function (v) { return v === "check"; }).length;
+      var who = COUNTRIES[state.nat];
+      if (/^United |^(Netherlands|Philippines)$/.test(who)) who = "the " + who;
+      natNote.textContent = "Citizens of " + who + " can apply to " + yes + " of " + SCHOOLS.length + " routes" +
+        (chk ? ", and " + chk + " more depend on a call for your country." : ".");
+    }
 
     document.getElementById("clearBtn").hidden = !hasFilters;
     var panelCount = [state.region !== "All", state.level !== "All levels", state.kind !== "All kinds",
@@ -1028,6 +1072,9 @@
     var p;
     try { p = new URLSearchParams(window.location.search); } catch (e) { return; }
     var level = p.get("level"), type = p.get("type"), kind = p.get("kind"), region = p.get("region");
+    var field = p.get("field"), nat = COUNTRIES.indexOf(p.get("nat") || "");
+    if (field && FIELDS.indexOf(field) !== -1) state.field = field;
+    if (nat !== -1) { state.nat = nat; natSel.value = String(nat); persistNat(); }
     if (level && LEVELS.indexOf(level) > 0) { state.level = level; levelSel.value = level; }
     if (type && TYPES.indexOf(type) > 0) state.type = type;
     if (kind && KINDS.indexOf(kind) > 0) state.kind = kind;

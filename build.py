@@ -258,6 +258,101 @@ def load_json_docs(folder):
     return out
 
 
+# ---------------------------------------------------------------- who can apply, by nationality
+
+ELIGIBILITY = {}  # filled in main(): data/eligibility.json
+TERRITORIES = {"Anguilla", "Bermuda", "British Virgin Islands", "Cayman Islands", "Cook Islands", "Falkland Islands", "Gibraltar",
+               "Greenland", "Hong Kong", "Macao", "Montserrat", "Saint Helena", "Tokelau", "Turks and Caicos Islands"}
+
+
+def load_eligibility(slugs):
+    doc = json.loads((DATA / "eligibility.json").read_text(encoding="utf-8"))
+    names = doc.get("countries") or []
+    known = set(names)
+    if len(known) != len(names):
+        fail("eligibility.json: a country appears twice in 'countries'")
+
+    def check(where, xs):
+        for x in xs:
+            if x not in known:
+                fail(f"eligibility.json: {where} names {x!r}, which is not in 'countries'")
+
+    for key, g in doc.get("groups", {}).items():
+        check(f"group {key}", g.get("countries", []))
+    for key, lst in doc.get("lists", {}).items():
+        check(f"list {key}", lst.get("countries", []))
+        for f in ("name", "source", "as_of", "note"):
+            if not lst.get(f):
+                fail(f"eligibility.json: list {key} has no '{f}'")
+        if lst.get("source") and not URL_RE.match(lst["source"]):
+            fail(f"eligibility.json: list {key} source must be a plain https:// URL")
+    for slug, rule in doc.get("routes", {}).items():
+        where = f"eligibility.json: route {slug}"
+        if slug not in slugs:
+            continue  # the update robot can retire a route; its rule simply stops mattering
+        shapes = [k for k in ("all", "groups", "list", "check") if k in rule]
+        if len(shapes) != 1:
+            fail(f"{where} needs exactly one of all, groups, list or check")
+            continue
+        check(where, rule.get("except", []))
+        for g in rule.get("except_groups", []) + rule.get("groups", []):
+            if g not in doc.get("groups", {}):
+                fail(f"{where} names an unknown group {g!r}")
+        if "list" in rule and rule["list"] not in doc.get("lists", {}):
+            fail(f"{where} names an unknown list {rule['list']!r}")
+    return doc
+
+
+def who_can_apply(slug):
+    """('all', excluded names, rule), ('only', included names, rule) or ('check', set(), rule). The update robot adds
+    routes without a rule, and those read as check-your-country until someone writes one."""
+    rule = ELIGIBILITY.get("routes", {}).get(slug) or {"check": ""}
+    groups = ELIGIBILITY.get("groups", {})
+    if "check" in rule:
+        return "check", set(), rule
+    if "all" in rule:
+        out = set(rule.get("except", []))
+        for g in rule.get("except_groups", []):
+            out |= set(groups[g]["countries"])
+        return "all", out, rule
+    inc = set()
+    for g in rule.get("groups", []):
+        inc |= set(groups[g]["countries"])
+    if "list" in rule:
+        inc |= set(ELIGIBILITY["lists"][rule["list"]]["countries"])
+    return "only", inc, rule
+
+
+def nationality_html(slug):
+    """The route page's answer to "can someone from my country apply?", with the full list when there is one."""
+    kind, names, rule = who_can_apply(slug)
+    order = ELIGIBILITY.get("countries", [])
+    groups = ELIGIBILITY.get("groups", {})
+    head = "<h3>Which nationalities can apply</h3>"
+
+    def the(name):
+        return f"the {name}" if name.startswith("United ") or name in ("Netherlands", "Philippines") else name
+    if kind == "check":
+        why = rule.get("check") or "Read who can apply above, and confirm your country on the official page."
+        return f'<div class="nat-box">{head}<p>{e(why)}</p></div>'
+    if kind == "all":
+        if not names:
+            return f'<div class="nat-box">{head}<p>Every nationality can apply.</p></div>'
+        left_out = [groups[g]["name"] for g in rule.get("except_groups", [])] + [the(x) for x in rule.get("except", [])]
+        return f'<div class="nat-box">{head}<p>Every nationality except citizens of {e(and_list(left_out))}.</p></div>'
+    listed = ", ".join(sorted(names, key=order.index))
+    if "list" in rule:
+        lst = ELIGIBILITY["lists"][rule["list"]]
+        places = "countries and territories" if names & TERRITORIES else "countries"
+        lead = (f"Citizens of {len(names)} {places} can apply. {e(lst['note'])} "
+                f'<a href="{e(lst["source"])}" target="_blank" rel="noopener">Official list</a>, as of '
+                f"{e(fmt_date(dt.date.fromisoformat(lst['as_of'])))}.")
+    else:
+        lead = f"Only citizens of {e(and_list([groups[g]['name'] for g in rule['groups']]))} can apply."
+    return (f'<div class="nat-box">{head}<p>{lead}</p>'
+            f'<details><summary>See all {len(names)}</summary><p class="nat-list">{e(listed)}</p></details></div>')
+
+
 LINK_MD = re.compile(r"\[([^\]]+)\]\(([^)\s]+)\)")
 
 
@@ -595,7 +690,7 @@ def build_board(routes, schools):
     write("scholarships/", page("scholarships/", title, desc, body, root=root, nav="scholarships/", body_class="home", jsonld=jsonld,
                                extra_head=f'<link rel="stylesheet" href="{asset(root, "app.css")}">\n',
                                scripts=[f"{root}data/data.js?v=" + DATA_VERSION, f"{root}data/schools.js?v=" + DATA_VERSION,
-                                        asset(root, "app.js")]))
+                                        f"{root}data/countries.js?v=" + DATA_VERSION, asset(root, "app.js")]))
 
 
 def load_updates(route_slugs):
@@ -1402,6 +1497,7 @@ def build_route_pages(routes, notes, country_pages):
 {section("What the funding covers", n.get("covers"))}
 {costs_html}
 {section("Who can apply", n.get("eligibility"))}
+{nationality_html(r["slug"])}
 {ad_bay("article")}
 {docs_html}
 {section("How to apply", n.get("how_to_apply"), ordered=True)}
@@ -1673,8 +1769,16 @@ def write_meta_files(routes):
     keep = ("name", "slug", "flag", "country", "region", "kind", "scope", "types", "levels", "fields", "funding",
             "deadline", "deadlines", "approx", "rolling", "tbc", "link", "last_verified")
     slim = [{k: r[k] for k in keep if k in r} for r in ROUTES]
+    # who can apply, as positions in SCHOLAR_COUNTRIES: x = everyone except these, o = only these, c = check, with why
+    order = {name: i for i, name in enumerate(ELIGIBILITY["countries"])}
+    for s in slim:
+        kind, names, rule = who_can_apply(s["slug"])
+        idx = sorted(order[n] for n in names)
+        s["open"] = {"x": idx} if kind == "all" else {"o": idx} if kind == "only" else {"c": rule.get("check", "")}
     (OUT / "data").mkdir(parents=True, exist_ok=True)
     (OUT / "data" / "data.js").write_text("window.SCHOLAR_DATA = " + json.dumps(slim, ensure_ascii=False).replace("</", "<\\/") + ";\n", encoding="utf-8")
+    (OUT / "data" / "countries.js").write_text("window.SCHOLAR_COUNTRIES = " + json.dumps(ELIGIBILITY["countries"], ensure_ascii=False) + ";\n",
+                                               encoding="utf-8")
     (OUT / "data" / "schools.js").write_text("window.SCHOLAR_SCHOOLS = " + json.dumps(SCHOOLS, ensure_ascii=False).replace("</", "<\\/") + ";\n", encoding="utf-8")
     # each page's own last change, never the build date: Google ignores sitemap dates that are not accurate
     urls = "".join(f"<url><loc>{e(BASE + p)}</loc>" + (f"<lastmod>{LASTMOD[p]}</lastmod>" if LASTMOD.get(p) else "") + "</url>\n"
@@ -1734,8 +1838,9 @@ def main():
     SCHOOLS = load_schools({r["name"] for r in ROUTES})
     checked = [r.get("last_checked") or r.get("last_verified") for r in ROUTES if r.get("last_checked") or r.get("last_verified")]
     LAST_CHECK = fmt_date(dt.date.fromisoformat(max(checked))) if checked else "unknown"
-    DATA_VERSION = hashlib.sha256(b"".join(p.read_bytes() for p in [DATA / "data.json", DATA / "schools.json",
+    DATA_VERSION = hashlib.sha256(b"".join(p.read_bytes() for p in [DATA / "data.json", DATA / "schools.json", DATA / "eligibility.json",
                                                                      *sorted((DATA / "incoming").glob("*.json"))])).hexdigest()[:10]
+    ELIGIBILITY.update(load_eligibility({r["slug"] for r in ROUTES}))
 
     notes = load_json_docs("routes")
     for slug in notes:

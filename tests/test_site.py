@@ -207,6 +207,39 @@ class BuiltSite(unittest.TestCase):
         for name in ("hero-graduation-1920.jpg", "hero-graduation-960.jpg"):
             self.assertLess((self.site / "assets" / name).stat().st_size, 300_000, name)
 
+    def test_board_knows_which_nationalities_can_apply(self):
+        # the owner asked for a "who can apply" filter (10 Oct 2026); the lists copy each scheme's official page
+        doc = json.loads((self.dir / "data" / "eligibility.json").read_text(encoding="utf-8"))
+        # the update robot can add a route before anyone writes its rule; until then it reads as check-your-country
+        self.assertGreaterEqual(len(set(doc["routes"]) & {r["slug"] for r in source_routes(self.dir)}), 54)
+        js = (self.site / "data" / "data.js").read_text(encoding="utf-8")
+        routes = json.loads(js[len("window.SCHOLAR_DATA = "):].rstrip().rstrip(";"))
+        cjs = (self.site / "data" / "countries.js").read_text(encoding="utf-8")
+        countries = json.loads(cjs[len("window.SCHOLAR_COUNTRIES = "):].rstrip().rstrip(";"))
+        by = {r["slug"]: r["open"] for r in routes}
+
+        def can(slug, country):
+            o, i = by[slug], countries.index(country)
+            return "check" if "c" in o else (i not in o["x"]) if "x" in o else (i in o["o"])
+
+        self.assertTrue(can("commonwealth-masters-scholarships", "Ghana"))
+        self.assertFalse(can("commonwealth-masters-scholarships", "Germany"))
+        self.assertFalse(can("swedish-institute-scholarships", "Ghana"))
+        self.assertTrue(can("swedish-institute-scholarships", "Nigeria"))
+        self.assertTrue(can("mastercard-foundation-scholars-asu", "Kenya"))
+        self.assertFalse(can("mastercard-foundation-scholars-asu", "India"))
+        self.assertFalse(can("danish-government-scholarships", "Germany"))
+        self.assertFalse(can("gates-cambridge-scholarship", "United Kingdom"))
+        self.assertTrue(can("mit", "North Korea"))
+        self.assertEqual(can("daad-scholarships", "Ghana"), "check")
+        board = (self.site / "scholarships" / "index.html").read_text(encoding="utf-8")
+        self.assertIn('<select id="natSel">', board)
+        page = (self.site / "routes" / "commonwealth-masters-scholarships" / "index.html").read_text(encoding="utf-8")
+        self.assertIn("<summary>See all 43</summary>", page)
+        self.assertIn('<a href="https://cscuk.fcdo.gov.uk/scholarships/commonwealth-masters-scholarships/" target="_blank" rel="noopener">Official list</a>', page)
+        mit = (self.site / "routes" / "mit" / "index.html").read_text(encoding="utf-8")
+        self.assertIn("<p>Every nationality can apply.</p>", mit)
+
     def test_no_page_repeats_the_checked_claims(self):
         # the owner asked for these gone (5 Oct 2026): verification is explained once, on How we verify,
         # and no page tells readers how the research is done
@@ -845,6 +878,19 @@ class PoisonedData(unittest.TestCase):
             shutil.rmtree(tmp, ignore_errors=True)
         self.assertNotEqual(result.returncode, 0, "markup in a country glance was accepted")
         self.assertIn("plain text", result.stderr)
+
+    def test_unknown_country_in_eligibility_rejected(self):
+        tmp = make_copy()
+        try:
+            path = tmp / "data" / "eligibility.json"
+            doc = json.loads(path.read_text(encoding="utf-8"))
+            doc["lists"]["csc_masters"]["countries"].append("Atlantis")
+            path.write_text(json.dumps(doc, ensure_ascii=False), encoding="utf-8")
+            result = build(tmp)
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+        self.assertNotEqual(result.returncode, 0, "a made-up country was accepted")
+        self.assertIn("'Atlantis', which is not in 'countries'", result.stderr)
 
     def positions_build(self, mutate):
         tmp = make_copy()

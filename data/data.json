@@ -1731,16 +1731,16 @@
       "PhD"
     ],
     "funding": "BOF 'sandwich' PhD scholarships for Global South candidates: Ghent funds 24 months in Ghent; a home institution must fund the other 24.",
-    "deadline": "Annual call closes mid-Feb (Feb 17 in 2026)",
+    "deadline": "2027 call closes Feb 9, 23:59 Belgian time",
     "deadlines": [
       {
         "m": 2,
-        "d": 17
+        "d": 9
       }
     ],
-    "approx": true,
+    "approx": false,
     "link": "https://www.ugent.be/en/research/funding/bof/dos",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-10",
     "content_hash": "246e2fc660aa4bbf54f4e7b7cef0926852d7f0ff3a6603afea9b75de69db9834",
     "needs_review": false,
     "scope": "all",

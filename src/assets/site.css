@@ -382,3 +382,11 @@ img, svg { max-width: 100%; }
 .faq summary:hover { color: var(--brass); }
 .faq details p { margin: 0 0 16px; }
 @media (prefers-reduced-motion: reduce) { .faq summary::after { transition: none; } }
+
+/* route pages: which nationalities can apply, with the full list folded away */
+.nat-box { margin: 18px 0 8px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--tint); }
+.nat-box h3 { font-family: var(--serif); font-weight: 400; font-size: 20px; margin-bottom: 6px; color: var(--text); }
+.nat-box p { margin: 0; }
+.nat-box details { margin-top: 10px; }
+.nat-box summary { cursor: pointer; color: var(--brass); font-weight: 600; }
+.nat-box .nat-list { margin-top: 8px; font-size: 14px; line-height: 1.7; color: var(--dim); }
