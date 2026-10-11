@@ -6,6 +6,7 @@
   --card: #121F35;
   --line: #243450;
   --text: #E9EEF7;
+  --logo: #FFFFFF;
   --dim: #A4B4CC;
   --faint: #7D8EAD;
   --brass: #D7A94C;
@@ -52,6 +53,7 @@
   --card: #FFFFFF;
   --line: #D3DAE5;
   --text: #14213A;
+  --logo: #0B1322;
   --dim: #44536B;
   --faint: #5E6E87;
   --brass: #8C6414;
@@ -104,9 +106,7 @@ img, svg { max-width: 100%; }
 .topbar { border-bottom: 1px solid var(--rule); background: var(--topbar); position: relative; z-index: 50; }
 .topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 56px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; white-space: nowrap; }
-.brand-mark { width: 36px; height: 28px; display: inline-flex; align-items: center; justify-content: center; color: var(--text); flex-shrink: 0; }
-.brand-name { font-family: var(--sans); font-size: 18px; font-weight: 800; letter-spacing: -0.02em; color: var(--text); }
-.brand-name b { color: inherit; font-weight: inherit; }
+.brand-logo { display: block; width: 131px; height: 44px; color: var(--logo); flex-shrink: 0; }
 
 /* -  -  - Page heads (content pages) -  -  - */
 .page-head { padding: 40px 0 8px; }

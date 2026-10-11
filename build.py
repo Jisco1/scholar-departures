@@ -461,15 +461,19 @@ def menu_html(root, here):
             + drop("Countries", countries) + drop("Guides", guides) + drop("About", about)
             + "</ul></nav></div></details>")
 
-def brand_mark():
-    """The DegreeStep mark (a diamond with three steps and a caped figure cut out of it), inline so the diamond takes
-    the text colour: navy on the light theme, white on the dark one. The head stays brass."""
-    body, head = re.findall(r' d="([^"]+)"', (SRC / "assets" / "logo-mark.svg").read_text(encoding="utf-8"))
-    return ('<svg width="36" height="28" viewBox="128 128 776 612" aria-hidden="true">'
-            f'<path fill="currentColor" fill-rule="evenodd" d="{body}"/><path fill="#D7A94C" d="{head}"/></svg>')
+def brand_logo():
+    """The approved DegreeStep logo: the diamond with its carved steps and caped figure, and the name starting at the
+    top step on the diamond's ground line. The letters are outlines, so no font is needed. Diamond and name take the
+    text colour (navy on the light theme, white on the dark one); the head stays brass."""
+    svg = (SRC / "assets" / "logo-lockup.svg").read_text(encoding="utf-8")
+    view_box = re.search(r'viewBox="([^"]+)"', svg).group(1)
+    body, head, word = re.findall(r' d="([^"]+)"', svg)
+    return (f'<svg class="brand-logo" viewBox="{view_box}" role="img" aria-label="{SITE}">'
+            f'<path fill="currentColor" fill-rule="evenodd" d="{body}"/><path fill="#D7A94C" d="{head}"/>'
+            f'<path fill="currentColor" d="{word}"/></svg>')
 
 
-BRAND_MARK = brand_mark()
+BRAND_LOGO = brand_logo()
 NL = "\n"
 SHARE_ICON = ('<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
               'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/>'
@@ -581,7 +585,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
 <body class="{body_class}">
 <a class="skip" href="#main">Skip to content</a>
 <header class="topbar"><div class="wrap">
-  <a class="brand" href="{root or './'}" aria-label="{e(SITE)} home"><span class="brand-mark">{BRAND_MARK}</span><span class="brand-name">Degree<b>Step</b></span></a>
+  <a class="brand" href="{root or './'}" aria-label="{e(SITE)} home">{BRAND_LOGO}</a>
   <div class="top-actions">{THEME_TOGGLE}{nav_html}</div>
 </div></header>
 <main id="main">
@@ -590,7 +594,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
 <footer class="sitefoot"><div class="wrap">
   <div class="foot-grid">
     <div class="foot-brand">
-      <a class="brand" href="{root or './'}"><span class="brand-mark">{BRAND_MARK}</span><span class="brand-name">Degree<b>Step</b></span></a>
+      <a class="brand" href="{root or './'}">{BRAND_LOGO}</a>
       <p>Independent listings of tuition-free universities and fully funded scholarships. We are not affiliated with any university or scholarship provider.</p>
     </div>
     <div><h2>Explore</h2><ul>
