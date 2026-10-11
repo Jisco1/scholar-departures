@@ -193,7 +193,9 @@ class BuiltSite(unittest.TestCase):
         self.assertNotIn('class="lp-sub', home)
         self.assertNotIn("Scholarship lists are easy to find", home)
         self.assertNotIn("editorial-policy/", hero)
-        self.assertIn('<a class="lp-newsbtn" href="news/">', hero)  # the news button sits above the boarding pass
+        # News sits in the hero's top corner, above the photo's trees (the owner moved it there, 11 Oct 2026)
+        self.assertIn('<div class="wrap lp-hero-top"><a class="lp-newsbtn" href="news/"><span class="lp-newsbtn-dot" aria-hidden="true"></span>News<span', hero)
+        self.assertNotIn("Research news", hero)
         self.assertIn('href="editorial-policy/">How we verify</a>', band)
 
     def test_home_hero_sits_on_the_golden_hour_photo(self):

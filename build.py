@@ -1274,6 +1274,7 @@ def build_home(routes, schools, updates, positions, research):
     body = f"""<section class="lp-hero">
 <img class="lp-hero-photo" src="{asset(root, "hero-graduation-1920.jpg")}" srcset="{asset(root, "hero-graduation-960.jpg")} 960w, {asset(root, "hero-graduation-1920.jpg")} 1920w" sizes="100vw" width="1920" height="1280" alt="" fetchpriority="high" decoding="async">
 <div class="lp-hero-shade" aria-hidden="true"></div>
+<div class="wrap lp-hero-top"><a class="lp-newsbtn" href="news/"><span class="lp-newsbtn-dot" aria-hidden="true"></span>News<span aria-hidden="true">→</span></a></div>
 <div class="wrap lp-hero-grid">
   <div class="lp-hero-text">
     <p class="eyebrow-s">Funded study abroad · Europe · USA · Canada</p>
@@ -1282,7 +1283,6 @@ def build_home(routes, schools, updates, positions, research):
     <div class="lp-cta"><a class="btn btn-primary btn-lg" href="scholarships/">View scholarships →</a></div>
   </div>
   <div class="lp-hero-side">
-    <a class="lp-newsbtn" href="news/"><span class="lp-newsbtn-dot" aria-hidden="true"></span>Research news<span aria-hidden="true">→</span></a>
     {pass_html}
   </div>
 </div>
