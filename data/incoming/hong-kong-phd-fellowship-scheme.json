@@ -1,0 +1,40 @@
+{
+  "rolling": false,
+  "tbc": false,
+  "approx": false,
+  "last_verified": "2026-10-11",
+  "content_hash": null,
+  "needs_review": false,
+  "slug": "hong-kong-phd-fellowship-scheme",
+  "name": "Hong Kong PhD Fellowship Scheme",
+  "flag": "🇭🇰",
+  "country": "Hong Kong",
+  "region": "Asia",
+  "kind": "program",
+  "scope": "all",
+  "fields": [
+    "Engineering & Tech",
+    "Computer Science",
+    "Natural Sciences",
+    "Medicine & Health",
+    "Business & Economics",
+    "Social Sciences & Law",
+    "Arts & Humanities",
+    "Agriculture & Environment"
+  ],
+  "types": [
+    "Full Scholarship"
+  ],
+  "levels": [
+    "PhD"
+  ],
+  "funding": "400 fellowships a year paying HK$344,400 a year plus HK$14,400 for conferences and research travel, for up to three years of PhD study at a Hong Kong university.",
+  "deadline": "Initial application Sep 1 – Dec 1, 2026, 12:00 noon Hong Kong time",
+  "deadlines": [
+    {
+      "m": 12,
+      "d": 1
+    }
+  ],
+  "link": "https://cerg1.ugc.edu.hk/hkpfs/index.html"
+}

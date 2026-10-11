@@ -241,6 +241,17 @@ class BuiltSite(unittest.TestCase):
             self.assertFalse(any("{{root}}" in p for p in n["body"]), n["id"])
         for p in feed["positions"]:
             self.assertTrue(p["official"].startswith("http") and p["details"], p["id"])
+        self.assertTrue(feed["contact"]["email"] and "Position title" in feed["contact"]["position_body"])
+        # 11 Oct 2026: the owner wanted students to find any university in the app, Africa and Asia included
+        schools = json.loads((self.site / "app" / "schools.json").read_text(encoding="utf-8"))["schools"]
+        self.assertGreater(len(schools), 5000)
+        by_continent = {}
+        for s in schools:
+            by_continent[s["continent"]] = by_continent.get(s["continent"], 0) + 1
+            self.assertTrue(s["url"].startswith("http"), s["name"])
+        self.assertGreater(by_continent.get("Africa", 0), 300)
+        self.assertGreater(by_continent.get("Asia", 0), 1000)
+        self.assertTrue((self.dir / "data" / "world_universities.LICENSE.txt").exists(), "the MIT licence must travel with the list")
         ads = (self.site / "app-ads.txt").read_text(encoding="utf-8")
         self.assertEqual(ads, (self.site / "ads.txt").read_text(encoding="utf-8"))
         self.assertIn("pub-6851724780839114, DIRECT", ads)

@@ -1504,19 +1504,11 @@
       "Bachelor's"
     ],
     "funding": "Canada's flagship undergraduate award: tuition, books, fees and four years of residence at U of T for about 37 scholars. Your school must nominate you.",
-    "deadline": "School nomination Oct 9 · U of T application Oct 16 · scholarship Nov 6 (2026)",
+    "deadline": "School nominations closed Oct 9, 2026 · nominated students: U of T application Oct 16, scholarship Nov 6",
     "deadlines": [
       {
         "m": 10,
         "d": 9
-      },
-      {
-        "m": 10,
-        "d": 16
-      },
-      {
-        "m": 11,
-        "d": 6
       }
     ],
     "approx": false,

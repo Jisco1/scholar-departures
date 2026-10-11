@@ -43,7 +43,7 @@ TYPES = ["Tuition-Free", "Full Scholarship", "Need-Based Aid", "Merit", "Low Tui
 TYPE_COLORS = {"Tuition-Free": "#7FD1AE", "Full Scholarship": "#B3A1E8", "Need-Based Aid": "#7EB8E8",
                "Merit": "#E3C892", "Low Tuition": "#6FC7C0", "Fee Waiver": "#E8919E"}
 LEVELS = ["Bachelor's", "Master's", "PhD"]
-REGIONS = ["Europe", "USA", "Canada", "Global"]
+REGIONS = ["Europe", "USA", "Canada", "Asia", "Africa", "Global"]
 # One spelling per country, so search, filters and grouping never split a country in two (the update robot
 # once filed Bowdoin under "USA" while every other US school said "United States").
 COUNTRY_NAMES = {"USA": "United States", "US": "United States", "U.S.": "United States", "U.S.A.": "United States",
@@ -838,13 +838,15 @@ def position_card(p):
 </article>"""
 
 
+POST_SUBJECT = "A funded position for DegreeStep"
+POST_BODY = ("Position title:\nUniversity and department:\nCountry:\nLevel (PhD / Postdoc / Research assistant):\n"
+             "Field:\nFunding (salary or stipend, and for how long):\nApplication deadline:\n"
+             "Link to the official posting on your institution's website:\nYour name and role:\n\n"
+             "Please send this from your university email address.")
+
+
 def post_position_link():
-    subject = "A funded position for DegreeStep"
-    body = ("Position title:\nUniversity and department:\nCountry:\nLevel (PhD / Postdoc / Research assistant):\n"
-            "Field:\nFunding (salary or stipend, and for how long):\nApplication deadline:\n"
-            "Link to the official posting on your institution's website:\nYour name and role:\n\n"
-            "Please send this from your university email address.")
-    return f"mailto:{CONFIG['contact_email']}?subject={quote(subject)}&body={quote(body)}"
+    return f"mailto:{CONFIG['contact_email']}?subject={quote(POST_SUBJECT)}&body={quote(POST_BODY)}"
 
 
 def build_positions(items):
@@ -1545,7 +1547,7 @@ def build_routes_index(routes, country_pages):
     groups = {}
     for r in routes:
         groups.setdefault(r["region"], {}).setdefault(r["country"], []).append(r)
-    order = ["Europe", "USA", "Canada", "Global"]
+    order = ["Europe", "USA", "Canada", "Asia", "Africa", "Global"]
     body = ""
     for region in order:
         if region not in groups:
@@ -1915,12 +1917,65 @@ def write_app_feed(routes, notes, positions, news, subjects, guides):
                       "picks": [{"slug": p["slug"], "why": p["why"]} for p in s.get("picks") or [] if p["slug"] in slugs],
                       "faq": [{"q": q["q"], "a": md(q["a"])} for q in s.get("faq") or []],
                       } for s in sorted(subjects, key=lambda s: FIELDS.index(s["field"]))],
+        # professors post positions by email, from the app as from the positions page
+        "contact": {"email": CONFIG["contact_email"], "position_subject": POST_SUBJECT, "position_body": POST_BODY},
         "guides": [{"slug": g["slug"], "title": g["title"], "description": g["description"],
                     "url": BASE + f"guides/{g['slug']}/", "kicker": g.get("kicker", "Guide"), "updated": g.get("updated", ""),
                     "minutes": max(1, round(words(g["body"]) / 220)), "blocks": app_blocks(g["body"])} for g in guides],
     }
     (OUT / "app").mkdir(exist_ok=True)
     (OUT / "app" / "feed.json").write_text(json.dumps(feed, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+
+
+CONTINENTS = {"Europe": "Europe", "USA": "North America", "Canada": "North America", "Asia": "Asia", "Africa": "Africa"}
+
+
+def url_host(url):
+    h = urlsplit(url).netloc.lower()
+    return h[4:] if h.startswith("www.") else h
+
+
+def load_world_universities():
+    """data/world_universities.json: about 10,000 universities worldwide with their official websites, from Hipo's
+    university-domains-list (MIT licence, data/world_universities.LICENSE.txt), minus the schools we curate."""
+    path = DATA / "world_universities.json"
+    if not path.exists():
+        return []
+    items = json.loads(path.read_text(encoding="utf-8"))
+    for i, u in enumerate(items):
+        where = f"world_universities.json entry {i} ({u.get('name', '?')})"
+        for key in ("name", "code", "country", "continent", "url"):
+            if not isinstance(u.get(key), str) or not u[key].strip() or re.search(r"[<>\x00-\x1f]", u[key]):
+                fail(f"{where}: bad '{key}'")
+        if not re.match(r"^[A-Z]{2}$", u.get("code") or "") or not re.match(r"^https?://\S+$", u.get("url") or ""):
+            fail(f"{where}: bad country code or url")
+    return items
+
+
+def flag_emoji(code):
+    return "".join(chr(0x1F1E6 + ord(c) - ord("A")) for c in code.upper())
+
+
+def write_app_schools(schools, routes, world=()):
+    """app/schools.json: the schools directory for the app, kept apart from feed.json because it is large and only
+    needed when someone opens it. Each school has its official website, and links to its route page when it has one:
+    by name for the schools we curate, by website for the rest."""
+    by_name = {r["name"]: r["slug"] for r in routes}
+    by_host = {url_host(r["link"]): r["slug"] for r in routes if r["kind"] == "school"}
+
+    def route_for(url):
+        h = url_host(url)
+        return next((slug for rh, slug in by_host.items() if rh == h or rh.endswith("." + h)), None)
+
+    out = [{"name": s["name"], "country": s["country"], "flag": s.get("flag", ""), "city": s.get("city", ""),
+            "continent": CONTINENTS.get(s["region"], s["region"]), "url": s["link"],
+            "route": by_name.get(s.get("atlasName") or "") or route_for(s["link"])} for s in schools]
+    out += [{"name": u["name"], "country": u["country"], "flag": flag_emoji(u["code"]), "city": u.get("region", ""),
+             "continent": u["continent"], "url": u["url"], "route": route_for(u["url"])} for u in world]
+    out.sort(key=lambda s: (s["country"], s["name"]))
+    (OUT / "app").mkdir(exist_ok=True)
+    (OUT / "app" / "schools.json").write_text(json.dumps({"version": 1, "schools": out}, ensure_ascii=False,
+                                                         separators=(",", ":")), encoding="utf-8")
 
 
 def add_heading_ids(body):
@@ -2191,6 +2246,7 @@ def main():
     build_404()
     write_meta_files(ROUTES)
     write_app_feed(ROUTES, notes, positions, news, subjects, guides)
+    write_app_schools(SCHOOLS, ROUTES, load_world_universities())
     check_links()
     return report()
 

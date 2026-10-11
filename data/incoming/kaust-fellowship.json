@@ -1,0 +1,36 @@
+{
+  "rolling": false,
+  "tbc": false,
+  "approx": false,
+  "last_verified": "2026-10-11",
+  "content_hash": null,
+  "needs_review": false,
+  "slug": "kaust-fellowship",
+  "name": "KAUST Fellowship (Saudi Arabia)",
+  "flag": "🇸🇦",
+  "country": "Saudi Arabia",
+  "region": "Asia",
+  "kind": "school",
+  "scope": "limited",
+  "fields": [
+    "Engineering & Tech",
+    "Computer Science",
+    "Natural Sciences"
+  ],
+  "types": [
+    "Full Scholarship"
+  ],
+  "levels": [
+    "Master's",
+    "PhD"
+  ],
+  "funding": "Most admitted KAUST students get full tuition, a stipend of $20,000 a year for a master's or $25,000–30,000 for a PhD, campus housing, health insurance and relocation costs.",
+  "deadline": "Fall 2027 applications close Jan 3, 2027 (tentative)",
+  "deadlines": [
+    {
+      "m": 1,
+      "d": 3
+    }
+  ],
+  "link": "https://admissions.kaust.edu.sa/fees-funding"
+}

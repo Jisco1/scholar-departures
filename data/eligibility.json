@@ -1272,6 +1272,37 @@
     },
     "yale-university": {
       "all": true
+    },
+    "mext-japanese-government-scholarship": {
+      "all": true,
+      "except": [
+        "Japan"
+      ]
+    },
+    "global-korea-scholarship-graduate": {
+      "check": "Open to citizens of the countries NIIED invites each year, with a quota per country; check the year's guidelines."
+    },
+    "kaust-fellowship": {
+      "all": true
+    },
+    "hong-kong-phd-fellowship-scheme": {
+      "all": true
+    },
+    "mastercard-foundation-scholars-uct": {
+      "groups": [
+        "africa"
+      ]
+    },
+    "ashesi-university-scholarships": {
+      "all": true
+    },
+    "aims-masters-mathematical-sciences": {
+      "check": "Designed for African students; each AIMS centre's call says who else it admits."
+    },
+    "pan-african-university-scholarship": {
+      "groups": [
+        "africa"
+      ]
     }
   }
 }

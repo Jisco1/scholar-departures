@@ -1,0 +1,45 @@
+{
+  "rolling": false,
+  "tbc": false,
+  "approx": false,
+  "last_verified": "2026-10-11",
+  "content_hash": null,
+  "needs_review": false,
+  "slug": "mastercard-foundation-scholars-uct",
+  "name": "Mastercard Foundation Scholars: University of Cape Town",
+  "flag": "🇿🇦",
+  "country": "South Africa",
+  "region": "Africa",
+  "kind": "school",
+  "scope": "all",
+  "fields": [
+    "Engineering & Tech",
+    "Computer Science",
+    "Natural Sciences",
+    "Medicine & Health",
+    "Business & Economics",
+    "Social Sciences & Law",
+    "Arts & Humanities",
+    "Agriculture & Environment"
+  ],
+  "types": [
+    "Full Scholarship"
+  ],
+  "levels": [
+    "Bachelor's",
+    "Master's"
+  ],
+  "funding": "Tuition, a laptop, campus accommodation, living costs, medical aid, visa costs and annual travel for African students at Africa's top-ranked university.",
+  "deadline": "Postgraduate Oct 31, 2026 · undergraduate closed Sep 30, 2026 (2027 intake)",
+  "deadlines": [
+    {
+      "m": 9,
+      "d": 30
+    },
+    {
+      "m": 10,
+      "d": 31
+    }
+  ],
+  "link": "https://uct.ac.za/mastercardfdn/apply-mastercard-foundation-scholars-program"
+}
