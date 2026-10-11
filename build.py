@@ -474,6 +474,7 @@ def brand_logo():
 
 
 BRAND_LOGO = brand_logo()
+DIRECTORY_SIZE = 0  # set in main() once the world list is loaded
 NL = "\n"
 SHARE_ICON = ('<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
               'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/>'
@@ -669,7 +670,7 @@ def build_board(routes, schools):
     """The live board: search, filters, the departures board and the schools directory."""
     root = "../"
     tpl = (SRC / "board.html").read_text(encoding="utf-8")
-    config_json = json.dumps({"root": root, "premium": {
+    config_json = json.dumps({"root": root, "directorySize": DIRECTORY_SIZE, "premium": {
         "gumroadProductId": (CONFIG.get("premium") or {}).get("gumroad_product_id", ""),
         "purchaseUrl": (CONFIG.get("premium") or {}).get("purchase_url", "")}}).replace("</", "<\\/")
 
@@ -697,14 +698,14 @@ def build_board(routes, schools):
             .replace("{{DIR_ROWS}}", dir_rows)
             .replace("{{AD_HOME}}", ad_bay("between", wide=True))
             .replace("{{N_ROUTES}}", str(len(routes)))
-            .replace("{{N_SCHOOLS}}", str(len(schools)))
+            .replace("{{N_SCHOOLS}}", f"{DIRECTORY_SIZE:,}")
             .replace("{{N_COUNTRIES}}", str(len({r["country"] for r in routes})))
             .replace("{{LAST_CHECK}}", e(LAST_CHECK))
             .replace("{{ROOT}}", root))
     jsonld = [breadcrumb_ld([("", "Home"), ("scholarships/", "Scholarship board")])]
     title = "Scholarship board: live deadlines for funded study abroad"
     desc = search_description(None, f"Search {len(routes)} tuition-free universities and fully funded scholarships by level, field "
-                                    f"and region, with live deadline countdowns and a directory of {len(schools)} schools.", "scholarships/")
+                                    f"and region, with live deadline countdowns and a directory of {DIRECTORY_SIZE:,} universities.", "scholarships/")
     LASTMOD["scholarships/"] = DATES.get("routes")
     write("scholarships/", page("scholarships/", title, desc, body, root=root, nav="scholarships/", body_class="home", jsonld=jsonld,
                                extra_head=f'<link rel="stylesheet" href="{asset(root, "app.css")}">\n',
@@ -1312,7 +1313,7 @@ def build_home(routes, schools, updates, positions, research):
 <div class="wrap"><section class="lp-stats" aria-label="DegreeStep in numbers">
   <div><b>{len(routes)}</b><span>Funded routes</span></div>
   <div><b>{countries_n}</b><span>Countries</span></div>
-  <div><b>{len(schools)}</b><span>Schools indexed</span></div>
+  <div><b>{DIRECTORY_SIZE:,}</b><span>Universities indexed</span></div>
   <div><b class="hot">{soon30}</b><span>Closing within 30 days</span></div>
 </section></div>
 
@@ -2241,6 +2242,9 @@ def main():
                  news=latest(*(n["date"] for n in news)), positions=latest(*(p.get("posted") for p in open_positions(positions))),
                  updates=latest(*(u["date"] for u in updates)), guides=latest(*(g.get("updated") for g in guides)),
                  countries=latest(*(c.get("reviewed") for _, c in countries)))
+    global DIRECTORY_SIZE
+    world = load_world_universities()
+    DIRECTORY_SIZE = len(SCHOOLS) + len(world)  # the schools directory on the site and in the app: curated + world list
     build_home(ROUTES, SCHOOLS, updates, positions, news)
     build_positions(positions)
     build_news(news, {p["id"] for p in open_positions(positions)})
@@ -2257,7 +2261,7 @@ def main():
     build_404()
     write_meta_files(ROUTES)
     write_app_feed(ROUTES, notes, positions, news, subjects, guides)
-    write_app_schools(SCHOOLS, ROUTES, load_world_universities())
+    write_app_schools(SCHOOLS, ROUTES, world)
     check_links()
     return report()
 

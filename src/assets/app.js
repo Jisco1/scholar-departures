@@ -388,12 +388,12 @@
 
   /* ============ count-up stats ============ */
   function countUp(el, target) {
-    if (RM) { el.textContent = target; return; }
+    if (RM) { el.textContent = target.toLocaleString("en-US"); return; }
     var start = null, DUR = 1200;
     function step(ts) {
       if (!start) start = ts;
       var p = Math.min((ts - start) / DUR, 1);
-      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString("en-US");
       if (p < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
@@ -403,7 +403,7 @@
     countUp(document.getElementById("statRoutes"), SCHOOLS.length);
     countUp(document.getElementById("statCountries"), countriesN);
     countUp(document.getElementById("statApproaching"), approaching.length);
-    countUp(document.getElementById("statSchools"), DIR.length);
+    countUp(document.getElementById("statSchools"), CONFIG.directorySize || DIR.length);
   }, RM ? 0 : 1900);
 
   /* ============ departures board ============ */
@@ -804,43 +804,86 @@
   /* ============ schools directory ============ */
   var SLUG_BY_NAME = {};
   SCHOOLS.forEach(function (s) { SLUG_BY_NAME[s.name] = s.slug; });
+  // The page carries the schools we curate. The full directory, the same list of about 10,000 universities as the
+  // app, loads from app/schools.json once the directory comes near the screen or someone searches it.
+  var DIR_REGIONS = ["All", "Africa", "Asia", "Europe", "North America", "South America", "Oceania"];
+  var DIR_CONTINENT = { USA: "North America", Canada: "North America" };
+  var DIR_ALIASES = { "United States": "usa us america", "United Kingdom": "uk britain great britain england scotland wales",
+    "Netherlands": "holland", "Türkiye": "turkey", "Côte d'Ivoire": "ivory coast", "Czechia": "czech republic",
+    "South Korea": "korea", "United Arab Emirates": "uae", "Democratic Republic of the Congo": "drc congo" };
+  function dirWords(t) {  // " word word ": search matches the start of a word, so "usa" never matches "Busan"
+    return " " + t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim() + " ";
+  }
+  function dirEntry(s) {  // curated rows and app rows in one shape
+    var x = { name: s.name, country: s.country, city: s.city || "", flag: s.flag || "", link: s.link || s.url,
+              continent: s.continent || DIR_CONTINENT[s.region] || s.region,
+              slug: s.route || (s.atlasName && SLUG_BY_NAME[s.atlasName]) || "" };
+    x.hay = dirWords(x.name + " " + x.country + " " + x.city + " " + (DIR_ALIASES[x.country] || ""));
+    return x;
+  }
+  function sortDir(list) {
+    return list.sort(function (a, b) {
+      return a.country === b.country ? a.name.localeCompare(b.name) : a.country.localeCompare(b.country);
+    });
+  }
+  var dirSorted = sortDir(DIR.map(dirEntry));
+  var dirFull = false, dirLoading = false, dirRetryAt = 0;
   var dirState = { q: "", region: "All", page: 1 };
   var lastDirKey = "";
-  var dirSorted = DIR.slice().sort(function (a, b) {
-    return a.country === b.country ? a.name.localeCompare(b.name) : a.country.localeCompare(b.country);
-  });
-  var dirCountries = new Set(DIR.map(function (s) { return s.country; })).size;
-  (function buildDirControls() {
+  function buildDirSeg() {
     var seg = document.getElementById("dirRegionSeg");
     var present = {};
-    DIR.forEach(function (x) { present[x.region] = true; });
-    REGIONS.filter(function (r) { return r === "All" || present[r]; }).forEach(function (r) {
+    dirSorted.forEach(function (x) { present[x.continent] = true; });
+    seg.innerHTML = "";
+    DIR_REGIONS.filter(function (r) { return r === "All" || present[r]; }).forEach(function (r) {
       var b = document.createElement("button");
       b.textContent = r;
-      b.addEventListener("click", function () { dirState.region = r; renderDir(); });
+      b.addEventListener("click", function () { dirState.region = r; loadFullDir(); renderDir(); });
       seg.appendChild(b);
     });
-    document.getElementById("dirQ").addEventListener("input", function (e) { dirState.q = e.target.value; renderDir(); });
+  }
+  function loadFullDir() {
+    if (dirFull || dirLoading || !window.fetch || Date.now() < dirRetryAt) return;
+    dirLoading = true;
+    fetch(ROOT + "app/schools.json")
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function (data) {
+        var list = ((data && data.schools) || []).filter(function (s) { return s && s.name && s.country && s.url; });
+        if (!list.length) return;
+        dirSorted = sortDir(list.map(dirEntry));
+        dirFull = true;
+        buildDirSeg();
+      })
+      .catch(function () { dirRetryAt = Date.now() + 15000; })  // keep the curated list; try again later
+      .then(function () { dirLoading = false; renderDir(); });
+  }
+  (function buildDirControls() {
+    buildDirSeg();
+    var q = document.getElementById("dirQ");
+    q.addEventListener("input", function (e) { dirState.q = e.target.value; loadFullDir(); renderDir(); });
+    q.addEventListener("focus", loadFullDir);
+    if ("IntersectionObserver" in window) {
+      var near = new IntersectionObserver(function (entries) {
+        if (entries.some(function (x) { return x.isIntersecting; })) { near.disconnect(); loadFullDir(); }
+      }, { rootMargin: "600px 0px" });
+      near.observe(document.getElementById("directory"));
+    } else loadFullDir();
   })();
   function dirRowHTML(s, i) {
-    var slug = s.atlasName && SLUG_BY_NAME[s.atlasName];
-    var chip = slug ? '<a class="dchip" href="' + esc(ROOT) + 'routes/' + esc(slug) + '/" title="Open this school\u2019s funded route">Funded</a>' : "";
+    var chip = s.slug ? '<a class="dchip" href="' + esc(ROOT) + 'routes/' + esc(s.slug) + '/" title="Open this school’s funded route">Funded</a>' : "";
     return '<div class="dir-row" style="--d:' + (i % 14) * 25 + 'ms">' +
       '<span class="dname">' + esc(s.flag) + " " + esc(s.name) + "</span>" +
-      '<span class="dloc">' + esc(s.city) + " \u00B7 " + esc(s.country) + "</span>" +
+      '<span class="dloc">' + (s.city ? esc(s.city) + " · " : "") + esc(s.country) + "</span>" +
       '<span class="dact">' + chip +
       '<a class="dvisit" href="' + esc(safeUrl(s.link)) + '" target="_blank" rel="noopener noreferrer" aria-label="Visit site: ' + esc(s.name) + '">' +
       '<span class="vtxt">Visit site</span> ' + I.ext + "</a></span></div>";
   }
   function renderDir() {
     var needle = dirState.q.trim().toLowerCase();
+    var words = dirWords(needle).split(" ").filter(Boolean);
     var out = dirSorted.filter(function (s) {
-      if (dirState.region !== "All" && s.region !== dirState.region) return false;
-      if (needle) {
-        var hay = (s.name + " " + s.country + " " + s.city).toLowerCase();
-        if (hay.indexOf(needle) === -1) return false;
-      }
-      return true;
+      if (dirState.region !== "All" && s.continent !== dirState.region) return false;
+      return words.every(function (w) { return s.hay.indexOf(" " + w) !== -1; });
     });
     var dirKey = dirState.region + "|" + needle;
     if (dirKey !== lastDirKey) { dirState.page = 1; lastDirKey = dirKey; }
@@ -849,11 +892,13 @@
     var list = document.getElementById("dirList");
     list.innerHTML = out.length
       ? out.slice(pg.start, pg.end).map(dirRowHTML).join("")
-      : '<div class="dir-empty">No schools match. Try a country name like \u201CCanada\u201D.</div>';
+      : '<div class="dir-empty">' + (dirLoading && !dirFull ? "Loading every university…"
+        : "No universities match. Try a country name like “Ghana”.") + "</div>";
     list.querySelectorAll(".dir-row").forEach(function (r) { revealIO.observe(r); });
     var range = rangeText(pg);
-    document.getElementById("dirCount").textContent = !out.length ? "No matching schools"
-      : (needle || dirState.region !== "All") ? range + " of " + out.length + " matching" : range + " of " + DIR.length + " schools";
+    document.getElementById("dirCount").textContent = !out.length ? (dirLoading && !dirFull ? "" : "No matching universities")
+      : (needle || dirState.region !== "All") ? range + " of " + out.length.toLocaleString("en-US") + " matching"
+      : range + " of " + dirSorted.length.toLocaleString("en-US") + " universities";
     renderPager(document.getElementById("dirPager"), pg, function (p) {
       dirState.page = p;
       renderDir();
