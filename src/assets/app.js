@@ -505,34 +505,45 @@
   });
 
   /* ============ controls ============ */
-  function buildSeg(el, options, key, statusClasses) {
-    el.innerHTML = "";
-    options.forEach(function (opt) {
-      var b = document.createElement("button");
-      b.textContent = opt;
-      if (statusClasses) {
-        if (opt === "Approaching") b.classList.add("st-approaching");
-        if (opt === "Closed") b.classList.add("st-closed");
-      }
-      b.addEventListener("click", function () { state[key] = opt; render(); });
-      el.appendChild(b);
+  // One dropdown per filter, as in the app's Explore tab. Each option is [value, label]; the first is "no filter".
+  function fillSelect(el, options, onChange) {
+    options.forEach(function (o) {
+      var opt = document.createElement("option");
+      opt.value = o[0]; opt.textContent = o[1];
+      el.appendChild(opt);
     });
+    el.addEventListener("change", function () { onChange(el.value); render(); });
   }
-  buildSeg(document.getElementById("regionSeg"), REGIONS, "region", false);
-  buildSeg(document.getElementById("deadlineSeg"), DFILTERS, "dstatus", true);
-  buildSeg(document.getElementById("kindSeg"), KINDS, "kind", false);
-  (function buildFieldChips() {
-    var wrap = document.getElementById("fieldChips");
-    var opts = [["", "All fields", "\u2732"]].concat(FIELDS.map(function (f) { return [f, f, FIELD_ICON[f]]; }));
-    opts.forEach(function (o) {
-      var b = document.createElement("button");
-      b.className = "fchip";
-      b.dataset.field = o[0];
-      b.innerHTML = '<span class="fi">' + o[2] + "</span>" + o[1];
-      b.addEventListener("click", function () { state.field = state.field === o[0] ? "" : o[0]; render(); });
-      wrap.appendChild(b);
-    });
-  })();
+  // Each dropdown is as wide as the label it shows, like the app's filter buttons (a plain select takes the width of
+  // its longest option, so "All subjects" would fill a phone's row).
+  var fitCtx = document.createElement("canvas").getContext("2d");
+  function fitSelect(el) {
+    var opt = el.options[el.selectedIndex];
+    if (!opt || !fitCtx) return;
+    var cs = getComputedStyle(el);
+    fitCtx.font = cs.fontWeight + " " + cs.fontSize + " " + cs.fontFamily;
+    el.style.width = Math.ceil(fitCtx.measureText(opt.textContent).width + parseFloat(cs.paddingLeft) +
+                               parseFloat(cs.paddingRight) + 2) + "px";
+  }
+  window.addEventListener("resize", function () { document.querySelectorAll(".fsel").forEach(fitSelect); });
+  var fieldSel = document.getElementById("fieldSel"), levelSel = document.getElementById("levelSel");
+  var kindSel = document.getElementById("kindSel"), regionSel = document.getElementById("regionSel");
+  var deadlineSel = document.getElementById("deadlineSel"), typeSel = document.getElementById("typeSel");
+  fillSelect(fieldSel, [["", "All subjects"]].concat(FIELDS.map(function (f) { return [f, f]; })), function (v) { state.field = v; });
+  fillSelect(levelSel, LEVELS.map(function (l) { return [l, l]; }), function (v) { state.level = v; });
+  fillSelect(kindSel, [["All kinds", "All funders"], ["Universities", "Universities"], ["Programmes", "Organisations"]],
+             function (v) { state.kind = v; });
+  fillSelect(regionSel, [["All", "All regions"]].concat(REGIONS.slice(1).map(function (r) { return [r, r]; })),
+             function (v) { state.region = v; });
+  fillSelect(deadlineSel, [["All deadlines", "Any deadline"], ["Approaching", "Approaching"], ["Closed", "Closed"]],
+             function (v) { state.dstatus = v; });
+  fillSelect(typeSel, [["All funding", "All funding types"]].concat(TYPES.slice(1).map(function (t) { return [t, t]; })),
+             function (v) { state.type = v; });
+  function syncSelects() {
+    [[fieldSel, state.field, ""], [levelSel, state.level, "All levels"], [kindSel, state.kind, "All kinds"],
+     [regionSel, state.region, "All"], [deadlineSel, state.dstatus, "All deadlines"], [typeSel, state.type, "All funding"]]
+      .forEach(function (x) { x[0].value = x[1]; x[0].classList.toggle("on", x[1] !== x[2]); fitSelect(x[0]); });
+  }
 
   var natSel = document.getElementById("natSel");
   COUNTRIES.forEach(function (c, i) { var o = document.createElement("option"); o.value = String(i); o.textContent = c; natSel.appendChild(o); });
@@ -542,39 +553,13 @@
     persistNat(); render();
   });
 
-  var levelSel = document.getElementById("levelSel");
-  LEVELS.forEach(function (l) { var o = document.createElement("option"); o.textContent = l; levelSel.appendChild(o); });
-  levelSel.addEventListener("change", function () { state.level = levelSel.value; render(); });
-
-  var typeWrap = document.getElementById("typePills");
-  TYPES.forEach(function (t) {
-    var b = document.createElement("button");
-    b.className = "pill"; b.textContent = t; b.dataset.type = t;
-    b.addEventListener("click", function () { state.type = t; render(); });
-    typeWrap.appendChild(b);
-  });
-
   document.getElementById("q").addEventListener("input", function (e) { state.q = e.target.value; render(); });
   document.getElementById("savedBtn").addEventListener("click", function () { state.savedOnly = !state.savedOnly; render(); });
   document.getElementById("clearBtn").addEventListener("click", clearAll);
 
-  /* ============ phone filter panel ============ */
-  var controlsEl = document.getElementById("controls");
-  var filtersBtn = document.getElementById("filtersBtn");
-  function setFiltersOpen(open) {
-    controlsEl.classList.toggle("open", open);
-    filtersBtn.setAttribute("aria-expanded", String(open));
-  }
-  filtersBtn.addEventListener("click", function () { setFiltersOpen(!controlsEl.classList.contains("open")); });
-  document.getElementById("panelClear").addEventListener("click", clearAll);
-  document.getElementById("showResults").addEventListener("click", function () {
-    setFiltersOpen(false);
-    document.getElementById("count").scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "start" });
-  });
   function onPhoneChange() {
     PHONE = PHONE_MQ.matches;
     if (boardFlipped) boardRows.forEach(function (item) { paintBoardRow(item, 0); });
-    if (!PHONE) setFiltersOpen(false);
     boardMoreUpdate();
   }
   if (PHONE_MQ.addEventListener) PHONE_MQ.addEventListener("change", onPhoneChange);
@@ -584,7 +569,6 @@
     state.q = ""; state.region = "All"; state.level = "All levels";
     state.type = "All funding"; state.dstatus = "All deadlines"; state.kind = "All kinds"; state.field = ""; state.savedOnly = false;
     document.getElementById("q").value = "";
-    levelSel.value = "All levels";
     render();
   }
 
@@ -702,35 +686,13 @@
     }
 
     document.getElementById("clearBtn").hidden = !hasFilters;
-    var panelCount = [state.region !== "All", state.level !== "All levels", state.kind !== "All kinds",
-                      state.dstatus !== "All deadlines", state.type !== "All funding"].filter(Boolean).length;
-    var fcount = document.getElementById("filtersCount");
-    fcount.textContent = panelCount;
-    fcount.hidden = !panelCount;
-    var showRes = document.getElementById("showResults");
-    showRes.textContent = out.length ? "Show " + out.length + " route" + (out.length === 1 ? "" : "s") : "No matching routes";
-    showRes.disabled = !out.length;
-
-    document.querySelectorAll("#regionSeg button").forEach(function (b) { b.classList.toggle("active", b.textContent === state.region); });
-    document.querySelectorAll("#deadlineSeg button").forEach(function (b) { b.classList.toggle("active", b.textContent === state.dstatus); });
-    document.querySelectorAll("#kindSeg button").forEach(function (b) { b.classList.toggle("active", b.textContent === state.kind); });
-    document.querySelectorAll("#fieldChips .fchip").forEach(function (b) {
-      b.classList.toggle("active", (b.dataset.field || "") === state.field);
-    });
+    syncSelects();
     var guide = document.getElementById("fieldGuide");
     guide.hidden = !FIELD_PAGE[state.field];
     if (FIELD_PAGE[state.field]) {
       guide.href = ROOT + "subjects/" + FIELD_PAGE[state.field] + "/";
       guide.textContent = "Read our guide to funding in " + state.field + " →";
     }
-    document.querySelectorAll("#typePills .pill").forEach(function (b) {
-      var t = b.dataset.type, active = t === state.type;
-      b.classList.toggle("active", active);
-      var col = t === "All funding" ? "#D7A94C" : TYPE_COLORS[t];
-      b.style.borderColor = active ? col : "";
-      b.style.background = active ? col : "";
-      b.style.color = active ? "#0B1322" : "";
-    });
     var sb = document.getElementById("savedBtn");
     sb.classList.toggle("active", state.savedOnly);
     document.getElementById("savedLabel").textContent = "Saved" + (state.saved.size ? " (" + state.saved.size + ")" : "");
@@ -817,7 +779,7 @@
   function dirEntry(s) {  // curated rows and app rows in one shape
     var x = { name: s.name, country: s.country, city: s.city || "", flag: s.flag || "", link: s.link || s.url,
               continent: s.continent || DIR_CONTINENT[s.region] || s.region,
-              slug: s.route || (s.atlasName && SLUG_BY_NAME[s.atlasName]) || "" };
+              slug: s.route || (s.atlasName && SLUG_BY_NAME[s.atlasName]) || "", offers: s.offers || null };
     x.hay = dirWords(x.name + " " + x.country + " " + x.city + " " + (DIR_ALIASES[x.country] || ""));
     return x;
   }
@@ -828,20 +790,45 @@
   }
   var dirSorted = sortDir(DIR.map(dirEntry));
   var dirFull = false, dirLoading = false, dirRetryAt = 0;
-  var dirState = { q: "", region: "All", page: 1 };
+  var dirState = { q: "", region: "All", country: "", level: "", field: "", page: 1 };
   var lastDirKey = "";
+  var dirRegionSel = document.getElementById("dirRegionSel"), dirCountrySel = document.getElementById("dirCountrySel");
+  var dirLevelSel = document.getElementById("dirLevelSel"), dirFieldSel = document.getElementById("dirFieldSel");
+  var dirLevels = {}, dirFields = [];  // from app/schools.json: degree levels and subjects of US universities
+  function setOptions(el, options, value) {
+    el.innerHTML = "";
+    options.forEach(function (o) {
+      var opt = document.createElement("option");
+      opt.value = o[0]; opt.textContent = o[1];
+      el.appendChild(opt);
+    });
+    el.value = options.some(function (o) { return o[0] === value; }) ? value : options[0][0];
+    el.classList.toggle("on", el.value !== options[0][0]);
+    fitSelect(el);
+    return el.value;
+  }
   function buildDirSeg() {
-    var seg = document.getElementById("dirRegionSeg");
     var present = {};
     dirSorted.forEach(function (x) { present[x.continent] = true; });
-    seg.innerHTML = "";
-    DIR_REGIONS.filter(function (r) { return r === "All" || present[r]; }).forEach(function (r) {
-      var b = document.createElement("button");
-      b.textContent = r;
-      b.addEventListener("click", function () { dirState.region = r; loadFullDir(); renderDir(); });
-      seg.appendChild(b);
-    });
+    dirState.region = setOptions(dirRegionSel, [["All", "All regions"]].concat(DIR_REGIONS.slice(1)
+      .filter(function (r) { return present[r]; }).map(function (r) { return [r, r]; })), dirState.region);
+    var countries = {};
+    dirSorted.forEach(function (x) { if (dirState.region === "All" || x.continent === dirState.region) countries[x.country] = true; });
+    dirState.country = setOptions(dirCountrySel, [["", "All countries"]].concat(Object.keys(countries).sort()
+      .map(function (c) { return [c, c]; })), dirState.country);
+    dirState.level = setOptions(dirLevelSel, [["", "All levels"]].concat(["b", "m", "d"]
+      .filter(function (k) { return dirLevels[k]; }).map(function (k) { return [k, dirLevels[k]]; })), dirState.level);
+    dirState.field = setOptions(dirFieldSel, [["", "All subjects"]].concat(dirFields
+      .map(function (f, i) { return [String(i), f]; })), dirState.field);
   }
+  [[dirRegionSel, "region"], [dirCountrySel, "country"], [dirLevelSel, "level"], [dirFieldSel, "field"]].forEach(function (x) {
+    x[0].addEventListener("change", function () {
+      dirState[x[1]] = x[0].value;
+      if (x[1] === "region") dirState.country = "";
+      buildDirSeg(); loadFullDir(); renderDir();
+    });
+    x[0].addEventListener("focus", loadFullDir);
+  });
   function loadFullDir() {
     if (dirFull || dirLoading || !window.fetch || Date.now() < dirRetryAt) return;
     dirLoading = true;
@@ -850,6 +837,8 @@
       .then(function (data) {
         var list = ((data && data.schools) || []).filter(function (s) { return s && s.name && s.country && s.url; });
         if (!list.length) return;
+        dirLevels = data.levels || {};
+        dirFields = data.fields || [];
         dirSorted = sortDir(list.map(dirEntry));
         dirFull = true;
         buildDirSeg();
@@ -873,7 +862,9 @@
     var chip = s.slug ? '<a class="dchip" href="' + esc(ROOT) + 'routes/' + esc(s.slug) + '/" title="Open this school’s funded route">Funded</a>' : "";
     return '<div class="dir-row" style="--d:' + (i % 14) * 25 + 'ms">' +
       '<span class="dname">' + esc(s.flag) + " " + esc(s.name) + "</span>" +
-      '<span class="dloc">' + (s.city ? esc(s.city) + " · " : "") + esc(s.country) + "</span>" +
+      '<span class="dloc">' + (s.city ? esc(s.city) + " \u00B7 " : "") + esc(s.country) +
+        (s.offers ? " \u00B7 " + ["b", "m", "d"].filter(function (k) { return s.offers[k]; })
+          .map(function (k) { return dirLevels[k]; }).join(", ") : "") + "</span>" +
       '<span class="dact">' + chip +
       '<a class="dvisit" href="' + esc(safeUrl(s.link)) + '" target="_blank" rel="noopener noreferrer" aria-label="Visit site: ' + esc(s.name) + '">' +
       '<span class="vtxt">Visit site</span> ' + I.ext + "</a></span></div>";
@@ -883,9 +874,17 @@
     var words = dirWords(needle).split(" ").filter(Boolean);
     var out = dirSorted.filter(function (s) {
       if (dirState.region !== "All" && s.continent !== dirState.region) return false;
+      if (dirState.country && s.country !== dirState.country) return false;
+      if (dirState.level || dirState.field) {
+        if (!s.offers) return false;
+        var f = dirState.field === "" ? -1 : Number(dirState.field);
+        var lvls = dirState.level ? [dirState.level] : ["b", "m", "d"];
+        if (!lvls.some(function (k) { return s.offers[k] && (f < 0 || s.offers[k].indexOf(f) !== -1); })) return false;
+      }
       return words.every(function (w) { return s.hay.indexOf(" " + w) !== -1; });
     });
-    var dirKey = dirState.region + "|" + needle;
+    var dirKey = [dirState.region, dirState.country, dirState.level, dirState.field, needle].join("|");
+    document.getElementById("dirNote").hidden = !(dirState.level || dirState.field);
     if (dirKey !== lastDirKey) { dirState.page = 1; lastDirKey = dirKey; }
     var pg = paginate(out.length, dirState.page, PER_PAGE_DIR);
     dirState.page = pg.page;
@@ -897,15 +896,12 @@
     list.querySelectorAll(".dir-row").forEach(function (r) { revealIO.observe(r); });
     var range = rangeText(pg);
     document.getElementById("dirCount").textContent = !out.length ? (dirLoading && !dirFull ? "" : "No matching universities")
-      : (needle || dirState.region !== "All") ? range + " of " + out.length.toLocaleString("en-US") + " matching"
+      : (needle || dirState.region !== "All" || dirState.country || dirState.level || dirState.field) ? range + " of " + out.length.toLocaleString("en-US") + " matching"
       : range + " of " + dirSorted.length.toLocaleString("en-US") + " universities";
     renderPager(document.getElementById("dirPager"), pg, function (p) {
       dirState.page = p;
       renderDir();
       afterPageTurn("dirPager", document.querySelector("#directory .dir-head"));
-    });
-    document.querySelectorAll("#dirRegionSeg button").forEach(function (b) {
-      b.classList.toggle("active", b.textContent === dirState.region);
     });
   }
 
@@ -1132,7 +1128,7 @@
     var field = p.get("field"), nat = COUNTRIES.indexOf(p.get("nat") || "");
     if (field && FIELDS.indexOf(field) !== -1) state.field = field;
     if (nat !== -1) { state.nat = nat; natSel.value = String(nat); persistNat(); }
-    if (level && LEVELS.indexOf(level) > 0) { state.level = level; levelSel.value = level; }
+    if (level && LEVELS.indexOf(level) > 0) state.level = level;
     if (type && TYPES.indexOf(type) > 0) state.type = type;
     if (kind && KINDS.indexOf(kind) > 0) state.kind = kind;
     if (region && REGIONS.indexOf(region) > 0) state.region = region;

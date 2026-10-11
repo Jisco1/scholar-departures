@@ -56,42 +56,27 @@
     <span class="natnote" id="natNote" aria-live="polite">Pick your country to see only what you can apply for.</span>
   </div>
 
-  <div class="fieldbar" id="fieldbar">
-    <div class="fieldbar-lab">Study field</div>
-    <div class="fieldchips" id="fieldChips"></div>
-    <a class="fieldguide" id="fieldGuide" href="#" hidden></a>
-  </div>
-
   <div class="controls" id="controls">
-    <div class="row1">
-      <div class="searchbox">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        <input id="q" type="search" placeholder="Search a school, country, or keyword…" autocomplete="off" aria-label="Search routes" maxlength="80" />
-      </div>
-      <span class="flabel" id="lbRegion">Region</span>
-      <div class="seg" id="regionSeg" role="group" aria-labelledby="lbRegion"></div>
-      <span class="flabel" id="lbLevel">Study level</span>
-      <select id="levelSel" aria-label="Study level"></select>
-      <span class="flabel" id="lbKind">Route type</span>
-      <div class="seg" id="kindSeg" role="group" aria-labelledby="lbKind"></div>
+    <div class="searchbox">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="q" type="search" placeholder="Search a school, country, or keyword…" autocomplete="off" aria-label="Search routes" maxlength="80" />
     </div>
-    <div class="row2">
-      <button type="button" class="filtersbtn" id="filtersBtn" aria-expanded="false" aria-controls="controls"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg> Filters <span class="fcount" id="filtersCount" hidden></span></button>
-      <span class="flabel" id="lbDeadline">Deadline</span>
-      <div class="seg small" id="deadlineSeg" role="group" aria-labelledby="lbDeadline"></div>
+    <div class="filterrow" role="group" aria-label="Filter routes">
+      <select id="fieldSel" class="fsel" aria-label="Subject"></select>
+      <select id="levelSel" class="fsel" aria-label="Study level"></select>
+      <select id="kindSel" class="fsel" aria-label="Funded by"></select>
+      <select id="regionSel" class="fsel" aria-label="Region"></select>
+      <select id="deadlineSel" class="fsel" aria-label="Deadline"></select>
+      <select id="typeSel" class="fsel" aria-label="Funding type"></select>
+    </div>
+    <div class="toolrow">
       <button class="savedbtn" id="savedBtn">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
         <span id="savedLabel">Saved</span>
       </button>
       <button class="savedbtn" id="btnCompare" title="Compare your saved routes side by side" aria-label="Compare saved routes">Compare</button>
       <button class="savedbtn" id="btnCalendar" title="Download all saved deadlines as a calendar file with reminders" aria-label="Add saved deadlines to your calendar">Calendar</button>
-      <span class="divider"></span>
-      <span class="flabel" id="lbFunding">Funding</span>
-      <span id="typePills" role="group" aria-labelledby="lbFunding"></span>
-    </div>
-    <div class="panelfoot">
-      <button type="button" class="panelclear" id="panelClear">Clear all</button>
-      <button type="button" class="showres" id="showResults">Show routes</button>
+      <a class="fieldguide" id="fieldGuide" href="#" hidden></a>
     </div>
   </div>
 
@@ -116,8 +101,14 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
       <input id="dirQ" type="search" placeholder="Search a school, city, or country…" autocomplete="off" aria-label="Search schools" maxlength="80" />
     </div>
-    <div class="seg" id="dirRegionSeg"></div>
+    <div class="filterrow" role="group" aria-label="Filter universities">
+      <select id="dirRegionSel" class="fsel" aria-label="Region"></select>
+      <select id="dirCountrySel" class="fsel" aria-label="Country"></select>
+      <select id="dirLevelSel" class="fsel" aria-label="Degree level"></select>
+      <select id="dirFieldSel" class="fsel" aria-label="Subject"></select>
+    </div>
   </div>
+  <p class="dir-note" id="dirNote" hidden>Degree levels and subjects are listed for universities in the United States, from U.S. Department of Education data.</p>
   <div class="dir-list" id="dirList">{{DIR_ROWS}}</div>
   <div class="countline"><span id="dirCount"></span></div>
   <nav class="pager" id="dirPager" aria-label="School directory pages"></nav>

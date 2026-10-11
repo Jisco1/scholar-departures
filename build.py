@@ -1963,11 +1963,30 @@ def load_world_universities():
     return items
 
 
+def load_us_programs():
+    """data/us_programs.json: the degree levels and subjects each US university in the directory awards, keyed by its
+    website host, from the U.S. Department of Education's IPEDS (public domain). Made by tools outside the build from
+    the IPEDS directory and completions files; only US schools have this."""
+    path = DATA / "us_programs.json"
+    if not path.exists():
+        return {"levels": {}, "fields": [], "schools": {}}
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    n = len(doc.get("fields") or [])
+    if set(doc.get("levels") or {}) != {"b", "m", "d"} or not n:
+        fail("us_programs.json: levels must be b, m, d and fields must be listed")
+    for h, offers in (doc.get("schools") or {}).items():
+        if not re.match(r"^[a-z0-9.-]+$", h) or not offers or any(
+                lvl not in ("b", "m", "d") or not fs or any(not isinstance(f, int) or not 0 <= f < n for f in fs)
+                for lvl, fs in offers.items()):
+            fail(f"us_programs.json: bad entry for {h}")
+    return doc
+
+
 def flag_emoji(code):
     return "".join(chr(0x1F1E6 + ord(c) - ord("A")) for c in code.upper())
 
 
-def write_app_schools(schools, routes, world=()):
+def write_app_schools(schools, routes, world=(), programs=None):
     """app/schools.json: the schools directory for the app, kept apart from feed.json because it is large and only
     needed when someone opens it. Each school has its official website, and links to its route page when it has one:
     by name for the schools we curate, by website for the rest."""
@@ -1984,9 +2003,16 @@ def write_app_schools(schools, routes, world=()):
     out += [{"name": u["name"], "country": u["country"], "flag": flag_emoji(u["code"]), "city": u.get("region", ""),
              "continent": u["continent"], "url": u["url"], "route": route_for(u["url"])} for u in world]
     out.sort(key=lambda s: (s["country"], s["name"]))
+    programs = programs or {"levels": {}, "fields": [], "schools": {}}
+    for s in out:  # US universities: the levels and subjects they award degrees in
+        offers = s["country"] == "United States" and programs["schools"].get(url_host(s["url"]))
+        if offers:
+            s["offers"] = offers
+    doc = {"version": 1, "schools": out}
+    if programs["schools"]:
+        doc.update(levels=programs["levels"], fields=programs["fields"], programsSource=programs.get("source", ""))
     (OUT / "app").mkdir(exist_ok=True)
-    (OUT / "app" / "schools.json").write_text(json.dumps({"version": 1, "schools": out}, ensure_ascii=False,
-                                                         separators=(",", ":")), encoding="utf-8")
+    (OUT / "app" / "schools.json").write_text(json.dumps(doc, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
 
 def add_heading_ids(body):
@@ -2261,7 +2287,7 @@ def main():
     build_404()
     write_meta_files(ROUTES)
     write_app_feed(ROUTES, notes, positions, news, subjects, guides)
-    write_app_schools(SCHOOLS, ROUTES, world)
+    write_app_schools(SCHOOLS, ROUTES, world, load_us_programs())
     check_links()
     return report()
 

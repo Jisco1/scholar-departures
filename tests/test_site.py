@@ -125,17 +125,19 @@ class BuiltSite(unittest.TestCase):
 
     def test_phone_layout(self):
         html = (self.site / "scholarships" / "index.html").read_text(encoding="utf-8")
-        for hook in ('id="filtersBtn"', 'id="filtersCount"', 'id="showResults"', 'id="panelClear"', 'id="boardMore"',
-                     'id="lbRegion"', 'id="lbFunding"', 'class="vtxt"'):
-            self.assertIn(hook, html, f"phone hook missing: {hook}")
+        # 11 Oct 2026: filters are one row of dropdowns, as in the app, on the board and in the schools directory
+        for hook in ('class="filterrow"', 'id="fieldSel"', 'id="levelSel"', 'id="kindSel"', 'id="regionSel"',
+                     'id="deadlineSel"', 'id="typeSel"', 'id="dirRegionSel"', 'id="dirCountrySel"', 'id="dirLevelSel"',
+                     'id="dirFieldSel"', 'id="boardMore"', 'class="vtxt"'):
+            self.assertIn(hook, html, f"layout hook missing: {hook}")
         css = (ROOT / "src" / "assets" / "app.css").read_text(encoding="utf-8")
         js = (ROOT / "src" / "assets" / "app.js").read_text(encoding="utf-8")
         # the script and the stylesheet must agree on what counts as a phone
         js_bp = re.search(r'PHONE_MQ = window\.matchMedia\("\(max-width: (\d+)px\)"\)', js)
         self.assertIsNotNone(js_bp, "phone breakpoint missing from app.js")
         self.assertIn(f"@media (max-width: {js_bp.group(1)}px) {{\n  /* hero", css, "app.js and app.css disagree on the phone breakpoint")
-        # phone-only controls stay out of the desktop layout
-        self.assertIn(".filtersbtn, .flabel, .panelfoot { display: none; }", css)
+        # on a phone the dropdown row scrolls sideways instead of wrapping
+        self.assertIn(".filterrow { flex-wrap: nowrap; overflow-x: auto;", css)
         # the board's row limits in the script match the stylesheet (8 on desktop, 5 on phones)
         rows = {k: int(v) for k, v in re.findall(r"var (BOARD_\w+_ROWS) = (\d+);", js)}
         self.assertEqual(rows, {"BOARD_PHONE_ROWS": 5, "BOARD_DESKTOP_ROWS": 8})
@@ -252,6 +254,13 @@ class BuiltSite(unittest.TestCase):
         self.assertGreater(by_continent.get("Africa", 0), 300)
         self.assertGreater(by_continent.get("Asia", 0), 1000)
         self.assertTrue((self.dir / "data" / "world_universities.LICENSE.txt").exists(), "the MIT licence must travel with the list")
+        # US universities say which degree levels and subjects they award (IPEDS); nowhere else has open data for it
+        doc = json.loads((self.site / "app" / "schools.json").read_text(encoding="utf-8"))
+        offering = [s for s in doc["schools"] if s.get("offers")]
+        self.assertGreater(len(offering), 1000)
+        self.assertEqual({s["country"] for s in offering}, {"United States"})
+        self.assertEqual(doc["levels"], {"b": "Bachelor's", "m": "Master's", "d": "PhD"})
+        self.assertTrue(all(0 <= f < len(doc["fields"]) for s in offering for fs in s["offers"].values() for f in fs))
         ads = (self.site / "app-ads.txt").read_text(encoding="utf-8")
         self.assertEqual(ads, (self.site / "ads.txt").read_text(encoding="utf-8"))
         self.assertIn("pub-6851724780839114, DIRECT", ads)

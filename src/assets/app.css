@@ -154,6 +154,24 @@ select {
   transition: all .15s;
 }
 .pill.active { color: var(--bg); }
+/* filters: one row of dropdowns, as in the app; a chosen filter turns brass */
+.filterrow { display: flex; flex-wrap: wrap; gap: 8px; }
+.fsel { flex: 0 0 auto; max-width: 100%; min-height: 40px; padding: 0 34px 0 14px; border: 1px solid var(--line); border-radius: 999px;
+  background: var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23A4B4CC' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 13px center; color: var(--text);
+  font-size: 14px; font-weight: 500; cursor: pointer; appearance: none; -webkit-appearance: none; transition: border-color .15s, background-color .15s, color .15s; }
+.fsel:hover { border-color: var(--brass); }
+.fsel:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.fsel.on { border-color: var(--brass); background-color: var(--brass-soft); color: var(--brass); }
+:root[data-theme="light"] .fsel { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2344536B' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); }
+.toolrow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.toolrow .fieldguide { margin-top: 0; margin-left: 4px; }
+.dir-note { margin: -4px 0 12px; font-size: 13px; color: var(--faint); }
+@media (max-width: 640px) {
+  /* the dropdown row scrolls sideways on a phone, like the app's filters */
+  .filterrow { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 -12px; padding: 2px 12px; }
+  .filterrow::-webkit-scrollbar { display: none; }
+  .fsel { min-height: 44px; font-size: 16px; }
+}
 .countline { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; font-size: 14px; color: var(--faint); }
 .countline .clear { color: var(--brass); text-decoration: underline; text-underline-offset: 3px; font-size: 14px; }
 .approaching-count { color: var(--approaching); }
@@ -234,15 +252,6 @@ select {
 .fieldbar.in { opacity: 1; transform: none; }
 .fieldbar-lab { font-family: var(--mono); font-size: 9px; letter-spacing: .3em; text-transform: uppercase;
   color: var(--faint); margin-bottom: 8px; }
-.fieldchips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
-.fieldchips::-webkit-scrollbar { height: 4px; }
-.fieldchips::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
-.fchip { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; flex-shrink: 0;
-  background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 9px 14px;
-  font-size: 13px; color: var(--dim); transition: all .18s; }
-.fchip:hover { border-color: var(--brass); color: var(--text); transform: translateY(-2px); }
-.fchip.active { border-color: var(--brass); background: var(--brass-soft); color: var(--brass); }
-.fchip .fi { font-size: 14px; opacity: .85; }
 .fieldline { flex-wrap: wrap; gap: 6px !important; }
 .fscope { font-family: var(--mono); font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
   color: var(--rolling); border: 1px solid var(--rolling); background: var(--rolling-soft); border-radius: 3px; padding: 1px 5px; }
@@ -261,7 +270,6 @@ body.loaded .heronav { opacity: 1; }
 .directory { margin-top: 48px; }
 .dir-intro { color: var(--dim); font-size: 14px; line-height: 1.6; margin-bottom: 12px; }
 .dir-head { display: flex; flex-direction: column; gap: 12px; margin-bottom: 12px; }
-@media (min-width: 768px) { .dir-head { flex-direction: row; align-items: center; } }
 .dir-list { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--card); }
 .dir-row { display: grid; grid-template-columns: 1.5fr 1fr auto; gap: 10px; align-items: center;
   padding: 12px 16px; border-bottom: 1px solid var(--rule);
@@ -382,24 +390,12 @@ body.premium .lockdot { display: none; }
 @media (max-width: 360px) { .pager { gap: 3px; } .pager button { min-width: 29px; padding: 0 5px; font-size: 11px; } .pager .pg-gap { padding: 0; } }
 
 /* -  -  - Phones and touch screens -  -  - Everything below applies only to narrow or touch screens, except the board's "Show all" button. */
-#typePills { display: contents; }
-.filtersbtn, .flabel, .panelfoot { display: none; }
 /* the board shows the soonest eight (five on phones); the rest are one tap away */
 .board:not(.expanded) #boardBody > .brow.r:nth-child(n+9) { display: none; }
 .board-more { display: block; width: 100%; margin-top: 10px; min-height: 44px; border: 1px solid var(--line); border-radius: 10px;
   background: var(--card); color: var(--brass); font-size: 14px; font-weight: 600; transition: border-color .15s; }
 .board-more:hover { border-color: var(--brass); }
 .board-more[hidden] { display: none; }
-.filtersbtn { align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 0 14px;
-  border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--text); font-size: 14px; font-weight: 600; }
-.filtersbtn .fcount { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; padding: 0 6px;
-  border-radius: 999px; background: var(--brass); color: var(--bg); font-size: 11px; font-weight: 700; }
-.filtersbtn .fcount[hidden] { display: none; }
-.controls.open .filtersbtn { border-color: var(--brass); color: var(--brass); }
-.flabel { font-family: var(--mono); font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: var(--faint); }
-.panelclear { min-height: 44px; padding: 0 16px; border: 1px solid var(--line); border-radius: 8px; color: var(--dim); font-size: 14px; font-weight: 600; }
-.showres { flex: 1; min-height: 44px; border-radius: 8px; background: var(--brass); color: var(--bg); font-size: 14px; font-weight: 700; }
-.showres:disabled { opacity: .5; cursor: default; }
 
 @media (pointer: coarse) {
   .searchbox input, select { font-size: 16px; }   /* 16px stops iPhones zooming into the field */
@@ -407,9 +403,8 @@ body.premium .lockdot { display: none; }
   .apply { min-height: 44px; }
   .dvisit { min-height: 40px; }
   .seg button { min-height: 40px; }
-  .fchip { min-height: 40px; }
   .pager button { height: 44px; }
-  .filtersbtn, .savedbtn, .searchbox input { min-height: 44px; }
+  .savedbtn, .searchbox input { min-height: 44px; }
   button, a, [role="button"] { -webkit-tap-highlight-color: rgba(215,169,76,.18); }
 }
 
@@ -452,33 +447,6 @@ body.premium .lockdot { display: none; }
   .dvisit { width: 44px; height: 44px; padding: 0; justify-content: center; }
   .dvisit .vtxt { display: none; }
 
-  /* the level picker shows it is a dropdown */
-  #levelSel { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23A4B4CC' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-    background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px; }
-
-  /* study fields: a swipeable row that visibly continues */
-  .fieldchips { -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent); mask-image: linear-gradient(90deg, #000 88%, transparent); padding-right: 24px; }
-
-  /* filters: search and the toolbar stay; everything else folds into a panel */
-  .controls { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 8px; padding: 12px; }
-  .row1, .row2 { display: contents; }
-  .searchbox { order: 1; flex: 1 1 100%; min-width: 0; }
-  .filtersbtn { order: 2; display: inline-flex; flex: 1 1 auto; }
-  #savedBtn, #btnCompare, #btnCalendar { order: 2; min-height: 44px; }
-  #btnCompare, #btnCalendar { min-width: 44px; justify-content: center; }
-  .savedbtn .btxt { display: none; }
-  .divider { display: none !important; }
-  #regionSeg, #levelSel, #kindSeg, #deadlineSeg { display: none; }
-  #typePills { display: none !important; }
-  #lbRegion { order: 3; } #regionSeg { order: 4; } #lbLevel { order: 5; } #levelSel { order: 6; }
-  #lbKind { order: 7; } #kindSeg { order: 8; } #lbDeadline { order: 9; } #deadlineSeg { order: 10; }
-  #lbFunding { order: 11; } #typePills { order: 12; } .panelfoot { order: 13; }
-  .controls.open .flabel { display: block; flex: 1 1 100%; margin-top: 6px; }
-  .controls.open #regionSeg, .controls.open #kindSeg, .controls.open #deadlineSeg { display: flex; flex: 1 1 100%; }
-  .controls.open #regionSeg { overflow-x: auto; }
-  .controls.open #levelSel { display: block; flex: 1 1 100%; }
-  .controls.open #typePills { display: flex !important; flex-wrap: wrap; gap: 6px; flex: 1 1 100%; }
-  .controls.open .panelfoot { display: flex; flex: 1 1 100%; gap: 10px; margin-top: 8px; padding-top: 12px; border-top: 1px solid var(--line); }
   .countline { flex-wrap: wrap; font-size: 13px; }
 
   /* route cards */
@@ -509,10 +477,6 @@ body.premium .lockdot { display: none; }
 .card.slim .bookmark { grid-area: save; justify-self: end; position: relative; z-index: 2; padding: 6px; }
 .brow.r { color: inherit; text-decoration: none; }
 
-/* light theme: the level menu's chevron in the darker ink */
-@media (max-width: 640px) {
-  :root[data-theme="light"] #levelSel { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2344536B' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); }
-}
 
 /* your nationality: the first question most visitors have, so it sits above the study fields */
 .natbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-bottom: 14px; padding: 12px 14px;
