@@ -44,6 +44,12 @@ TYPE_COLORS = {"Tuition-Free": "#7FD1AE", "Full Scholarship": "#B3A1E8", "Need-B
                "Merit": "#E3C892", "Low Tuition": "#6FC7C0", "Fee Waiver": "#E8919E"}
 LEVELS = ["Bachelor's", "Master's", "PhD"]
 REGIONS = ["Europe", "USA", "Canada", "Global"]
+# One spelling per country, so search, filters and grouping never split a country in two (the update robot
+# once filed Bowdoin under "USA" while every other US school said "United States").
+COUNTRY_NAMES = {"USA": "United States", "US": "United States", "U.S.": "United States", "U.S.A.": "United States",
+                 "United States of America": "United States", "UK": "United Kingdom", "U.K.": "United Kingdom",
+                 "Great Britain": "United Kingdom", "Britain": "United Kingdom", "Czech Republic": "Czechia",
+                 "Turkey": "Türkiye", "Turkiye": "Türkiye", "Holland": "Netherlands", "The Netherlands": "Netherlands"}
 FIELDS = ["Engineering & Tech", "Computer Science", "Natural Sciences", "Medicine & Health",
           "Business & Economics", "Social Sciences & Law", "Arts & Humanities", "Agriculture & Environment"]
 MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August",
@@ -129,6 +135,8 @@ def load_routes():
         for key in ("name", "flag", "country", "region", "funding", "deadline", "link", "kind", "scope"):
             if not isinstance(r.get(key), str) or not r[key].strip():
                 fail(f"{where}: missing text field '{key}'")
+        if isinstance(r.get("country"), str):
+            r["country"] = COUNTRY_NAMES.get(r["country"].strip(), r["country"].strip())
         for key in ("name", "country", "funding", "deadline"):
             v = r.get(key) or ""
             if len(v) > 400 or re.search(r"[<>\x00-\x1f]", v):

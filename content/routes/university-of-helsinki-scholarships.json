@@ -1,10 +1,9 @@
 {
-  "summary": "Finland charges non-EU/EEA students tuition for English-taught degrees, but the University of Helsinki, Finland's largest and highest-ranked university, waives half or all of it for excellent applicants. Each master's programme can also award one Finland Scholarship.",
-  "meta_description": "The University of Helsinki waives half or all tuition for excellent non-EU master's applicants, plus Finland Scholarships. Eligibility and deadlines.",
+  "summary": "Finland charges non-EU/EEA students tuition for English-taught degrees, but the University of Helsinki, Finland's largest and highest-ranked university, waives half or all of it for excellent applicants.",
+  "meta_description": "The University of Helsinki waives half or all tuition for excellent non-EU master's applicants. Eligibility, the January deadline and how to apply.",
   "covers": [
     "A tuition-fee waiver of 50% or 100%. Master's fees are €13,000, €15,000 or €18,000 a year depending on the programme, so the waiver is worth up to €36,000 over two years.",
     "Most awards are 50% waivers; full waivers are few.",
-    "One Finland Scholarship per master's programme for a newly admitted student, which adds a €5,000 grant to the waiver in the first year.",
     "Waivers run for two years if you make full-time progress (at least 55 ECTS credits a year). They do not pay living costs."
   ],
   "eligibility": [
@@ -15,7 +14,7 @@
   "how_to_apply": [
     "Choose up to the permitted number of master's programmes and check each one's entry requirements.",
     "Apply for the programme and the scholarship on the same online application form; tick the scholarship option.",
-    "Upload your degree certificates, transcripts, language certificate and any programme-specific documents by the application deadline (the main round closes in early January).",
+    "Upload your degree certificates, transcripts, language certificate and any programme-specific documents by the application deadline (for autumn 2027 the international master's round runs 5–19 January 2027).",
     "Scholarship decisions arrive with, or shortly after, the admission results in spring."
   ],
   "watch_out": [
@@ -39,5 +38,5 @@
       "url": "https://www.helsinki.fi/en/admissions-and-education/international-students/student-life-helsinki/cost-living-and-financial-matters"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-10-11"
 }

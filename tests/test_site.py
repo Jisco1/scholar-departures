@@ -225,6 +225,8 @@ class BuiltSite(unittest.TestCase):
         # to open the website), so each one travels whole, with no HTML left for the app to stumble over
         for r in feed["routes"]:
             self.assertTrue(r["how_to_apply"] and r["eligibility"], f"{r['slug']}: no how-to-apply or eligibility")
+            # 11 Oct 2026: "USA" and "United States" split the US schools in the app's search
+            self.assertNotIn(r["country"], {"USA", "US", "UK", "Czech Republic", "Turkey", "Holland"}, r["slug"])
         for s in feed["subjects"]:
             self.assertGreaterEqual(len(s["picks"]), 5, s["slug"])
             self.assertTrue(s["faq"], s["slug"])

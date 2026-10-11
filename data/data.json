@@ -25,7 +25,7 @@
       }
     ],
     "link": "https://www.rwth-aachen.de",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "bbf8ab7d6abcd1b38477135decdb172bf9a460db34ee09da042f1d67b37c8b78",
     "needs_review": true,
     "kind": "school",
@@ -69,7 +69,7 @@
       }
     ],
     "link": "https://www.fu-berlin.de/en/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "05b0059df3fdcd867d438c83162233ddb800c653d728aed64ad95d575fe8c60b",
     "needs_review": true,
     "kind": "school",
@@ -113,7 +113,7 @@
       }
     ],
     "link": "https://www.uni-hamburg.de/en.html",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "8961edd51ff63c60da52441af8dbe62536ce90060a5e322b13d65be087178d42",
     "needs_review": true,
     "kind": "school",
@@ -154,7 +154,7 @@
     ],
     "approx": true,
     "link": "https://www.daad.de/en/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "daedb033e19e2f35686d72f79d56002d79770eef9f28d29ca8bab8c94a8ea4c5",
     "needs_review": true,
     "kind": "program",
@@ -198,7 +198,7 @@
       }
     ],
     "link": "https://www.univie.ac.at/en/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "e5b9451a3bc0d9a7c4065f3db8e3757518e2e23aa19e6000f2023f6e35baece9",
     "needs_review": true,
     "kind": "school",
@@ -238,7 +238,7 @@
       }
     ],
     "link": "https://www.tuwien.at/en/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "541dbf21a1aefcb2f470c53dcb82fa89c2b06f6c59801ba2b7d8840dafc3a938",
     "needs_review": true,
     "kind": "school",
@@ -273,7 +273,7 @@
     ],
     "approx": true,
     "link": "https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "f7672b4928132f1522a9a2784a38cdda1e5d005f99c049547521951edb3ab0cf",
     "needs_review": false,
     "kind": "program",
@@ -304,16 +304,16 @@
       "PhD"
     ],
     "funding": "France's flagship award pays €1,200 a month for master's (€2,100 for PhD) plus travel and insurance; public-university tuition there is already modest.",
-    "deadline": "Deadline for the reception of applications by Campus France: January 8, 2026 included",
+    "deadline": "Through a French university, by its own earlier date (often Oct–Nov 2026); Campus France closes in early Jan 2027 (Jan 8 in 2026)",
     "deadlines": [
       {
         "m": 1,
         "d": 8
       }
     ],
-    "approx": false,
+    "approx": true,
     "link": "https://www.campusfrance.org/en/eiffel-scholarship-program-of-excellence",
-    "last_verified": "2026-10-01",
+    "last_verified": "2026-10-11",
     "content_hash": "73b8ab33bbe5852b1518040a19999e1c8537df086c0e5f978146d2e2a486358a",
     "needs_review": false,
     "kind": "program",
@@ -339,7 +339,7 @@
       "Master's"
     ],
     "funding": "Full tuition, SEK 12,000 a month, a travel grant and insurance for early-career professionals from SI's list of eligible countries.",
-    "deadline": "University round mid-Jan · SI scholarship window in Feb",
+    "deadline": "University round mid-Jan · SI scholarship window in Feb (Feb 9–25 in 2026)",
     "deadlines": [
       {
         "m": 1,
@@ -347,12 +347,12 @@
       },
       {
         "m": 2,
-        "d": 20
+        "d": 25
       }
     ],
     "approx": true,
     "link": "https://si.se/en/apply/scholarships/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "2b069e13ca5dd050803f1921c125ca03916bdb0beb6ba9f016ac6c4e7e08e358",
     "needs_review": false,
     "kind": "program",
@@ -380,16 +380,16 @@
       "PhD"
     ],
     "funding": "The Hungarian state covers tuition, a monthly stipend, a dorm place or housing contribution and insurance across thousands of places each year.",
-    "deadline": "Jan 15 (online application, 2 pm CET)",
+    "deadline": "Jan 15, 2 pm CET in 2026 (the 2027 date is published with the call)",
     "deadlines": [
       {
         "m": 1,
         "d": 15
       }
     ],
-    "approx": false,
+    "approx": true,
     "link": "https://stipendiumhungaricum.hu/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "1c48a6e4d260eb8df98a1fe74580d228a53aa02f24cf5d30e9026b2d94d1befa",
     "needs_review": false,
     "kind": "program",
@@ -430,7 +430,7 @@
     ],
     "approx": true,
     "link": "https://studyinromania.gov.ro/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "a62951f734799821a41295304d4d06e1d624e3d308033a710029d7f5b6f1029d",
     "needs_review": false,
     "kind": "program",
@@ -462,7 +462,7 @@
     "funding": "PhD programmes stay tuition-free (only the ISK 100,000 annual registration fee), after non-EEA bachelor's and master's students start paying tuition in autumn 2027.",
     "deadline": "Varies; PhD places are usually tied to advertised research projects",
     "link": "https://english.hi.is/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "255f55c5d2014672a369f331116cfd53ff887f48b57d3089896fb13905c84b67",
     "needs_review": false,
     "kind": "school",
@@ -488,17 +488,17 @@
     "levels": [
       "Master's"
     ],
-    "funding": "50% or 100% tuition waivers on €13,000–18,000 fees for excellent non-EU master's admits, plus one €5,000 Finland Scholarship per programme.",
-    "deadline": "Master's application round closes early Jan",
+    "funding": "50% or 100% tuition waivers on €13,000–18,000 fees for excellent non-EU master's admits; most awards are 50% waivers.",
+    "deadline": "International master's round Jan 5–19, 2027 (one round a year)",
     "deadlines": [
       {
         "m": 1,
-        "d": 8
+        "d": 19
       }
     ],
-    "approx": true,
+    "approx": false,
     "link": "https://www.helsinki.fi/en",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "fb31148ead05d1baf6ada6d3ca7e8816d02b63397899a70220967e0ce863a708",
     "needs_review": false,
     "kind": "school",
@@ -533,7 +533,7 @@
       }
     ],
     "link": "https://ethz.ch/en.html",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "41194d5f34c6fa72a87a6ef3968feaef08aca36bc70836394a7c6822a4f0b101",
     "needs_review": true,
     "kind": "school",
@@ -568,7 +568,7 @@
     ],
     "approx": true,
     "link": "https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "95061143f3ccfa382ef06ba2336ae8a24522ceab63b0f11e69ca4be227918c0c",
     "needs_review": false,
     "kind": "program",
@@ -603,7 +603,7 @@
     ],
     "approx": false,
     "link": "https://www.chevening.org/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "d07b243db51ff2cc7363a61568901fca4ac1c78943ed2a75b07d837f55f33dba",
     "needs_review": false,
     "kind": "program",
@@ -651,7 +651,7 @@
     ],
     "approx": true,
     "link": "https://www.gatescambridge.org/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "df79d2a053beaca628899437290f5a8b6bb913de251057605c0702abecabaca7",
     "needs_review": true,
     "kind": "program",
@@ -682,7 +682,7 @@
       "PhD"
     ],
     "funding": "All Oxford fees plus a £20,400-a-year stipend, flights and visa costs; constituencies cover most of the world, with a Global scholarship for the rest.",
-    "deadline": "Jun–Oct depending on your constituency",
+    "deadline": "Closed for 2027 entry; the next round opens in 2027 (Jun–Oct, by constituency)",
     "deadlines": [
       {
         "m": 10,
@@ -691,7 +691,7 @@
     ],
     "approx": true,
     "link": "https://www.rhodeshouse.ox.ac.uk/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "df3f84f6524e45856ef7747b0e4abc988f1dea120d4d3e87c73155b53810d22a",
     "needs_review": false,
     "kind": "program",
@@ -730,7 +730,7 @@
     ],
     "approx": true,
     "link": "https://www.polimi.it/en",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "e48b06073e7ce0641b0f613e8625cff439298ff8f9a632d291ed2a8c6d652409",
     "needs_review": true,
     "kind": "school",
@@ -767,7 +767,7 @@
     ],
     "approx": true,
     "link": "https://www.unibo.it/en",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "4eb8a7014c0f19e4ae320bc57659e257096dedb9903e83502909780e6ede1b1f",
     "needs_review": true,
     "kind": "school",
@@ -807,7 +807,7 @@
     ],
     "approx": false,
     "link": "https://www.tudelft.nl/en/education/practical-matters/scholarships",
-    "last_verified": "2026-10-01",
+    "last_verified": "2026-10-11",
     "content_hash": "c50f8fbed6a4900b82d30e81fd50d8457c811b8f6624bb154eff9ad7059a4ca4",
     "needs_review": false,
     "kind": "school",
@@ -821,7 +821,7 @@
     "last_checked": "2026-10-01"
   },
   {
-    "name": "Maastricht University: Holland-High Potential",
+    "name": "Maastricht University: NL-High Potential",
     "flag": "🇳🇱",
     "country": "Netherlands",
     "region": "Europe",
@@ -832,7 +832,7 @@
     "levels": [
       "Master's"
     ],
-    "funding": "18 full scholarships for non-EU/EEA master's students: tuition, living costs (€15,925 for a 13-month programme), insurance and visa costs.",
+    "funding": "18 full scholarships for non-EU/EEA master's students: tuition, living costs (€20,150 for a 13-month programme), insurance and visa costs.",
     "deadline": "Master's application Dec 10 · scholarship Feb 1",
     "deadlines": [
       {
@@ -846,7 +846,7 @@
     ],
     "approx": false,
     "link": "https://www.maastrichtuniversity.nl/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "12a218bc8a7aaae1a81572c1e360d01aaa84e71688110e74b82e292ab659e7fb",
     "needs_review": true,
     "kind": "school",
@@ -873,7 +873,7 @@
     "funding": "€10,225 a year plus a tuition waiver for master's study in Flanders; scheme under review for 2027–28, with recent places focused on priority countries.",
     "deadline": "2027–28 call not yet announced (scheme under review)",
     "link": "https://www.studyinflanders.be/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "50e42e009280ba1f6d0b8bcbb8f8521fae41af7c5ad6efe0625013853c34d657",
     "needs_review": false,
     "kind": "program",
@@ -915,7 +915,7 @@
     ],
     "approx": true,
     "link": "https://cuni.cz/UKEN-1.html",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "e7284de4bfbe11c8beda8529eb0d54114f1cb699819c944225d884b4076405c4",
     "needs_review": true,
     "kind": "school",
@@ -943,16 +943,16 @@
       "PhD"
     ],
     "funding": "Tuition, a monthly stipend, dorm housing, flights, insurance and a Turkish language year, one of the broadest full awards anywhere.",
-    "deadline": "Jan 10 – Feb 20 (one window a year)",
+    "deadline": "Jan 10 – Feb 20 in 2026 (one window a year; 2027 dates follow in late December)",
     "deadlines": [
       {
         "m": 2,
         "d": 20
       }
     ],
-    "approx": false,
+    "approx": true,
     "link": "https://www.turkiyeburslari.gov.tr/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "62f76bbd41ebb6974d6143de09f28968de75d7f4dd56d61d970747790b99ee8e",
     "needs_review": false,
     "kind": "program",
@@ -995,7 +995,7 @@
       }
     ],
     "link": "https://college.harvard.edu/admissions",
-    "last_verified": "2026-10-01",
+    "last_verified": "2026-10-11",
     "content_hash": "873a108094e7197fe6df498a9c3cc073e131ad52592b1f503756d6d30bfa72a3",
     "needs_review": false,
     "kind": "school",
@@ -1027,7 +1027,7 @@
       "Bachelor's"
     ],
     "funding": "Need-blind for every applicant on earth and meets 100% of need; families under $200k pay no tuition, under $100k pay nothing.",
-    "deadline": "Nov 1 (Early Action) · early Jan (Regular Action)",
+    "deadline": "Nov 1 (Early Action) · Jan 4 (Regular Action)",
     "deadlines": [
       {
         "m": 11,
@@ -1039,7 +1039,7 @@
       }
     ],
     "link": "https://mitadmissions.org/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "8c90f447c6080335b7b8869dd19989e5e0a294ecdde3b9a11d36bc31ed225bf8",
     "needs_review": true,
     "kind": "school",
@@ -1051,7 +1051,7 @@
       "Business & Economics"
     ],
     "slug": "mit",
-    "approx": true,
+    "approx": false,
     "last_checked": "2026-10-01"
   },
   {
@@ -1079,7 +1079,7 @@
       }
     ],
     "link": "https://admissions.yale.edu/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "9018a92808de8cd57ee1cdbee632736bfd04decd007686496895c2d500004294",
     "needs_review": false,
     "kind": "school",
@@ -1123,7 +1123,7 @@
       }
     ],
     "link": "https://admission.princeton.edu/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "25deb801d7f0ce471b416afb671b979788ceca3d7ba96cd0020c8124ea81b2e4",
     "needs_review": false,
     "kind": "school",
@@ -1163,7 +1163,7 @@
       }
     ],
     "link": "https://www.amherst.edu/admission",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "d139da20c2a04970a274efbf60cab2a7da180764d6a34f70521e3cb7f9121035",
     "needs_review": false,
     "kind": "school",
@@ -1189,7 +1189,7 @@
       "Bachelor's"
     ],
     "funding": "Need-blind for international applicants since the Class of 2026; full need met with no loans, and families under $125k pay nothing.",
-    "deadline": "Nov 1 (Early Decision) · Jan 2 (Regular)",
+    "deadline": "Nov 1 (Early Decision) · Jan 1 (Regular)",
     "deadlines": [
       {
         "m": 11,
@@ -1197,11 +1197,11 @@
       },
       {
         "m": 1,
-        "d": 2
+        "d": 1
       }
     ],
     "link": "https://admissions.dartmouth.edu/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "0f0c8373231254319282f0d71a01dfe5a8c33afd630b77bb61a964409e02d51d",
     "needs_review": true,
     "kind": "school",
@@ -1240,7 +1240,7 @@
       }
     ],
     "link": "https://admission.brown.edu/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "cb921d6594255e137710c5c12b20c5f61d8825e3dcbc56570f21922f7a688b9a",
     "needs_review": false,
     "kind": "school",
@@ -1280,7 +1280,7 @@
     ],
     "approx": false,
     "link": "https://www.berea.edu/admissions",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "6cd6b8bbcd687dc9484df4c4c5998b708e7244f3df61c5cd0a245acbd8a6186c",
     "needs_review": true,
     "kind": "school",
@@ -1320,7 +1320,7 @@
     ],
     "approx": false,
     "link": "https://admissions.duke.edu/",
-    "last_verified": "2026-09-25",
+    "last_verified": "2026-10-11",
     "content_hash": "8c2b90e6e4151c185df65461717d127182316b0b9f7ba5d13d2a11dee7391699",
     "needs_review": false,
     "kind": "school",
@@ -1358,7 +1358,7 @@
       }
     ],
     "link": "https://admissions.vanderbilt.edu/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "e5051c1e36841c2657a45c20dfdc62224021acca0225bbe5136123a7d5015c5f",
     "needs_review": false,
     "kind": "school",
@@ -1398,7 +1398,7 @@
       }
     ],
     "link": "https://www.colby.edu/admission/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": null,
     "needs_review": false,
     "kind": "school",
@@ -1436,7 +1436,7 @@
     ],
     "approx": false,
     "link": "https://knight-hennessy.stanford.edu/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "c5bb1fdab83269aa5d024b86b3b16a918f2dd386865a54a87d53eaffc170d98f",
     "needs_review": false,
     "kind": "program",
@@ -1476,7 +1476,7 @@
     ],
     "approx": true,
     "link": "https://foreign.fulbrightonline.org/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "d0873753d05ed67059e93d974487fad4594d055b69fd5a1686146c4e530bf8d2",
     "needs_review": false,
     "kind": "program",
@@ -1525,7 +1525,7 @@
     ],
     "approx": false,
     "link": "https://future.utoronto.ca/pearson/",
-    "last_verified": "2026-10-01",
+    "last_verified": "2026-10-11",
     "content_hash": "2f45b8fb5a128d690144625ccdace78e7fb5fbee4e078a938a1a4f2dfa79d290",
     "needs_review": false,
     "scope": "all",
@@ -1565,7 +1565,7 @@
     ],
     "approx": false,
     "link": "https://you.ubc.ca/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "3f14b4d6c30e42401ce16d2599780b6806eaa4287af73118272987f4ca7df5ba",
     "needs_review": true,
     "scope": "all",
@@ -1595,16 +1595,20 @@
       "PhD"
     ],
     "funding": "$40,000 a year for three years for doctoral students of any citizenship already registered in a PhD at a Canadian university (Vanier's successor).",
-    "deadline": "University internal deadlines Sep–Oct",
+    "deadline": "Oct 19, 2026, 8 pm ET if applying directly · otherwise your Canadian university's internal date (agencies take university files until Dec 7)",
     "deadlines": [
       {
-        "m": 9,
-        "d": 30
+        "m": 10,
+        "d": 19
+      },
+      {
+        "m": 12,
+        "d": 7
       }
     ],
-    "approx": true,
+    "approx": false,
     "link": "https://nserc-crsng.canada.ca/en/canada-graduate-research-scholarship-doctoral-or-canada-postdoctoral-research-award-programs",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "33a3ecf4317dde4345c91703a6261e92e57291e3b07142546963e1b3c896eb33",
     "needs_review": false,
     "scope": "limited",
@@ -1640,7 +1644,7 @@
     ],
     "approx": true,
     "link": "https://hea.ie/policy/internationalisation/goi-ies/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "e7a15bd88e226eb27b4064727f73fb49f1e4b93a52775ac4ba92b55bbd924577",
     "needs_review": false,
     "scope": "all",
@@ -1673,7 +1677,7 @@
     "funding": "Ireland's national research postgraduate award: a €25,000 stipend plus fees and research costs, open to all nationalities; no 2027 call announced yet.",
     "deadline": "2027 call not yet announced (2026 call closed Oct 23, 2025)",
     "link": "https://www.researchireland.ie/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "a42cdabca691279ccab28cd579f672a08f23f8280e6b185d8cafc5102f5e963b",
     "needs_review": true,
     "scope": "all",
@@ -1705,7 +1709,7 @@
     "approx": false,
     "rolling": true,
     "link": "https://www.jobbnorge.no/en",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "f869ade88cb37c5dc75aec8016ad2e414f06c6319ff4370b63cc03dd8405a7d9",
     "needs_review": false,
     "scope": "all",
@@ -1740,7 +1744,7 @@
     ],
     "approx": false,
     "link": "https://www.ugent.be/en/research/funding/bof/dos",
-    "last_verified": "2026-10-10",
+    "last_verified": "2026-10-11",
     "content_hash": "246e2fc660aa4bbf54f4e7b7cef0926852d7f0ff3a6603afea9b75de69db9834",
     "needs_review": false,
     "scope": "all",
@@ -1810,20 +1814,24 @@
       "Engineering & Tech"
     ],
     "funding": "A fully funded one-year master's at Cambridge for young Africans, with leadership training and fee waivers for eligible applicants.",
-    "deadline": "Closes Jan 5 · fee-waiver request by Nov 18",
+    "deadline": "Your course's funding deadline, Dec 8, 2026 or Jan 6, 2027 · fee-waiver request by Nov 18",
     "deadlines": [
       {
         "m": 11,
         "d": 18
       },
       {
+        "m": 12,
+        "d": 8
+      },
+      {
         "m": 1,
-        "d": 5
+        "d": 6
       }
     ],
     "approx": false,
     "link": "https://www.mastercardfoundation.fund.cam.ac.uk/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "a48c0bf52681817ee6a4f955cc12c97512649707a3bfaad22c1487c42911deae",
     "needs_review": false,
     "slug": "mastercard-foundation-scholars-cambridge",
@@ -1862,7 +1870,7 @@
     ],
     "approx": true,
     "link": "https://mcfscholarsprogram.berkeley.edu/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "ab806fc1d1aff054ffb027930f41560df2b7b4ff2e1c9931dc5540a05423aaaf",
     "needs_review": false,
     "slug": "mastercard-foundation-scholars-uc-berkeley",
@@ -1897,7 +1905,7 @@
     ],
     "approx": false,
     "link": "https://mcfscholars.asu.edu/phase-three-innovation-and-technology",
-    "last_verified": "2026-09-25",
+    "last_verified": "2026-10-11",
     "content_hash": "b7df287fddd840aaba0ae4b0204cda88c6e8f21c2644caf2321206d00a60d72c",
     "needs_review": false,
     "slug": "mastercard-foundation-scholars-asu",
@@ -1936,7 +1944,7 @@
     ],
     "approx": true,
     "link": "https://www.mcgill.ca/mastercardfdn-scholars/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "b3ea9c8c71bd9caa44a141dc36f66e2f3db493433ca8b2c7ecd95ca4e43259a4",
     "needs_review": false,
     "slug": "mastercard-foundation-scholars-mcgill",
@@ -1975,7 +1983,7 @@
     ],
     "approx": false,
     "link": "https://cscuk.fcdo.gov.uk/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "0e2a28453d82b4121d71006f7e8a93ed2fde3bf673987006b61aeb57097b8304",
     "needs_review": true,
     "slug": "commonwealth-masters-scholarships",
@@ -2014,7 +2022,7 @@
     ],
     "approx": true,
     "link": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-shared-scholarships/",
-    "last_verified": "2026-09-24",
+    "last_verified": "2026-10-11",
     "content_hash": "92dd0edf20c3e4c4d68afbffda56c1441be61c20e5534b885994c01f2a9009c7",
     "needs_review": false,
     "slug": "commonwealth-shared-scholarships",

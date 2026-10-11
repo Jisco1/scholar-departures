@@ -34,10 +34,6 @@
       "url": "https://www.jobbnorge.no/en"
     },
     {
-      "title": "NTNU doctoral candidates' organisation: Employment and salary",
-      "url": "https://dion.org.ntnu.no/employment-and-salary/"
-    },
-    {
       "title": "UDI (Norwegian Directorate of Immigration): Vocational training and research",
       "url": "https://www.udi.no/en/want-to-apply/work-immigration/vocational-training-and-research/"
     },
@@ -46,7 +42,7 @@
       "url": "https://www.udi.no/en/want-to-apply/work-immigration/skilled-workers/"
     }
   ],
-  "reviewed": "2026-09-25",
+  "reviewed": "2026-10-11",
   "costs": [
     [
       "Tuition",
