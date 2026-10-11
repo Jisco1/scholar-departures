@@ -634,12 +634,8 @@
       "PhD"
     ],
     "funding": "Covers Cambridge fees, a £22,050-a-year maintenance allowance, flights and visa costs for postgraduate study in any subject.",
-    "deadline": "Oct 14 (US round) · Dec 8 or Jan 6 (international, by course)",
+    "deadline": "Dec 8 or Jan 6, by course (US citizens living in the US: Oct 14)",
     "deadlines": [
-      {
-        "m": 10,
-        "d": 14
-      },
       {
         "m": 12,
         "d": 8
