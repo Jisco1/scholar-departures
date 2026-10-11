@@ -525,3 +525,5 @@ body.premium .lockdot { display: none; }
 .natcheck { margin-left: 8px; padding: 1px 8px; border: 1px solid var(--approaching); border-radius: 999px; color: var(--approaching);
   font-size: 10.5px; white-space: nowrap; }
 @media (max-width: 640px) { #natSel { flex: 1 1 100%; } }
+.fieldguide { display: inline-block; margin-top: 8px; font-size: 13px; font-weight: 600; color: var(--brass); text-decoration: none; }
+.fieldguide:hover { text-decoration: underline; text-underline-offset: 3px; }

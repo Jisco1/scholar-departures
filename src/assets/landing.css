@@ -11,7 +11,6 @@
 .lp-hero-shade { position: absolute; inset: 0; z-index: -1;
   background: linear-gradient(180deg, var(--hero-warm) 0%, transparent 34%),
               linear-gradient(180deg, var(--hero-shade-mid) 0%, var(--hero-shade) 58%); }
-.lp-hero-credit { position: absolute; right: 16px; top: 10px; font-size: 11px; color: var(--hero-dim); opacity: .75; }
 .lp-hero .eyebrow-s { color: var(--hero-gold); }
 .lp-hero h1 { color: var(--hero-ink); }
 .lp-hero .lede { color: var(--hero-dim); }

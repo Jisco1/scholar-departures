@@ -390,3 +390,8 @@ img, svg { max-width: 100%; }
 .nat-box details { margin-top: 10px; }
 .nat-box summary { cursor: pointer; color: var(--brass); font-weight: 600; }
 .nat-box .nat-list { margin-top: 8px; font-size: 14px; line-height: 1.7; color: var(--dim); }
+
+/* subject pages: each best-fit route with the reason it suits the field */
+.picks .pick { display: flex; flex-direction: column; }
+.picks .pick + .pick { border-top: 1px solid var(--rule); }
+.pick-why { margin: -4px 0 0; padding: 0 18px 14px; font-size: 14px; line-height: 1.55; color: var(--dim); }

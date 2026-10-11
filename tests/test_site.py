@@ -198,14 +198,34 @@ class BuiltSite(unittest.TestCase):
 
     def test_home_hero_sits_on_the_golden_hour_photo(self):
         # the owner approved the app's graduation photo behind the hero (10 Oct 2026); phones get the smaller file,
-        # and a public-domain photo still carries its credit
+        # and the public-domain photo carries no credit line
         home = (self.site / "index.html").read_text(encoding="utf-8")
         hero = re.search(r'<section class="lp-hero">.*?</section>', home, re.S).group(0)
         self.assertRegex(hero, r'<img class="lp-hero-photo" src="assets/hero-graduation-1920\.jpg\?v=\w+" '
                                r'srcset="assets/hero-graduation-960\.jpg\?v=\w+ 960w, assets/hero-graduation-1920\.jpg\?v=\w+ 1920w"')
-        self.assertIn("Photo: U.S. Army / Bryan Gatchell, public domain", hero)
+        self.assertNotIn("lp-hero-credit", hero)  # public domain, and the owner wants no credit line over the photo (11 Oct 2026)
         for name in ("hero-graduation-1920.jpg", "hero-graduation-960.jpg"):
             self.assertLess((self.site / "assets" / name).stat().st_size, 300_000, name)
+
+    def test_every_field_has_a_subject_page(self):
+        # the owner asked for browse-by-subject pages (10 Oct 2026); each needs real guidance, not just a list
+        index = self.pages[self.site / "subjects" / "index.html"]
+        fields = ["Engineering & Tech", "Computer Science", "Natural Sciences", "Medicine & Health",
+                  "Business & Economics", "Social Sciences & Law", "Arts & Humanities", "Agriculture & Environment"]
+        for f in fields:
+            self.assertIn(f"<h2>{html_mod.escape(f, quote=False)}</h2>", index, f)
+        pages = sorted(p for p in (self.site / "subjects").glob("*/index.html"))
+        self.assertEqual(len(pages), 8)
+        for p in pages:
+            text = p.read_text(encoding="utf-8")
+            name = p.parent.name
+            prose = re.search(r'<article class="prose">(.*?)</article>', text, re.S).group(1)
+            self.assertGreater(len(re.sub(r"<[^>]+>", " ", prose).split()), 150, f"{name}: the guidance is too thin")
+            self.assertGreaterEqual(text.count('<p class="pick-why">'), 5, f"{name}: too few best fits")
+            self.assertIn('"@type": "FAQPage"', text, name)
+            self.assertIn('href="../../scholarships/?field=', text, f"{name}: no link to the board's field filter")
+        self.assertIn('id="fieldGuide"', self.pages[self.site / "scholarships" / "index.html"])
+        self.assertIn('href="subjects/">Funding by subject</a>', self.pages[self.site / "index.html"])
 
     def test_board_knows_which_nationalities_can_apply(self):
         # the owner asked for a "who can apply" filter (10 Oct 2026); the lists copy each scheme's official page
@@ -878,6 +898,18 @@ class PoisonedData(unittest.TestCase):
             shutil.rmtree(tmp, ignore_errors=True)
         self.assertNotEqual(result.returncode, 0, "markup in a country glance was accepted")
         self.assertIn("plain text", result.stderr)
+
+    def test_subject_pick_outside_its_field_rejected(self):
+        tmp = make_copy()
+        try:
+            path = tmp / "content" / "subjects" / "medicine-health.html"
+            raw = path.read_text(encoding="utf-8")
+            path.write_text(raw.replace('"slug": "charles-university"', '"slug": "rwth-aachen-university"', 1), encoding="utf-8")
+            result = build(tmp)
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+        self.assertNotEqual(result.returncode, 0, "a pick outside the subject was accepted")
+        self.assertIn("rwth-aachen-university does not list Medicine & Health", result.stderr)
 
     def test_unknown_country_in_eligibility_rejected(self):
         tmp = make_copy()

@@ -48,6 +48,12 @@
   var KINDS = ["All kinds", "Universities", "Programmes"];
   var FIELDS = ["Engineering & Tech", "Computer Science", "Natural Sciences", "Medicine & Health",
                 "Business & Economics", "Social Sciences & Law", "Arts & Humanities", "Agriculture & Environment"];
+  // each field's guide page, at subjects/<slug>/ (content/subjects/<slug>.html)
+  var FIELD_PAGE = {
+    "Engineering & Tech": "engineering-technology", "Computer Science": "computer-science", "Natural Sciences": "natural-sciences",
+    "Medicine & Health": "medicine-health", "Business & Economics": "business-economics", "Social Sciences & Law": "social-sciences-law",
+    "Arts & Humanities": "arts-humanities", "Agriculture & Environment": "agriculture-environment"
+  };
   var FIELD_ICON = {
     "Engineering & Tech": "\u2699", "Computer Science": "\u2328", "Natural Sciences": "\u269B",
     "Medicine & Health": "\u2695", "Business & Economics": "\u25F4", "Social Sciences & Law": "\u2696",
@@ -711,6 +717,12 @@
     document.querySelectorAll("#fieldChips .fchip").forEach(function (b) {
       b.classList.toggle("active", (b.dataset.field || "") === state.field);
     });
+    var guide = document.getElementById("fieldGuide");
+    guide.hidden = !FIELD_PAGE[state.field];
+    if (FIELD_PAGE[state.field]) {
+      guide.href = ROOT + "subjects/" + FIELD_PAGE[state.field] + "/";
+      guide.textContent = "Read our guide to funding in " + state.field + " →";
+    }
     document.querySelectorAll("#typePills .pill").forEach(function (b) {
       var t = b.dataset.type, active = t === state.type;
       b.classList.toggle("active", active);

@@ -448,7 +448,7 @@ def menu_html(root, here):
             '<div class="menu-panel"><nav aria-label="Main"><ul class="menu-list">'
             + link("", "Home") + link("scholarships/", "Scholarship board") + link("routes/", "Funded routes")
             + link("deadlines/", "Deadlines") + link("positions/", "Funded positions") + link("news/", "Research news")
-            + link("scholarships/#directory", "Schools directory")
+            + link("scholarships/#directory", "Schools directory") + link("subjects/", "Funding by subject")
             + drop("Countries", countries) + drop("Guides", guides) + drop("About", about)
             + "</ul></nav></div></details>")
 
@@ -1286,7 +1286,6 @@ def build_home(routes, schools, updates, positions, research):
     {pass_html}
   </div>
 </div>
-<small class="lp-hero-credit">Photo: U.S. Army / Bryan Gatchell, public domain</small>
 </section>
 
 <div class="wrap"><section class="lp-stats" aria-label="DegreeStep in numbers">
@@ -1624,6 +1623,104 @@ def build_countries(routes, countries):
                              body, root=root, nav="countries/", jsonld=[breadcrumb_ld([("", "Home"), ("countries/", "Countries")])]))
 
 
+def build_subjects(subjects, routes, positions):
+    """One page per study field: written guidance, the routes that suit the field best and why, its open PhD and
+    postdoc posts, then every other route that funds it. The board's field filter links here and back."""
+    by_slug = {r["slug"]: r for r in routes}
+    live = open_positions(positions)
+    seen = set()
+    for s in subjects:
+        where = f"content/subjects/{s['slug']}.html"
+        field = s.get("field")
+        if field not in FIELDS:
+            fail(f"{where}: 'field' must be one of {FIELDS}")
+            continue
+        if field in seen:
+            fail(f"{where}: another subject page already covers {field}")
+        seen.add(field)
+        for k in ("noun", "lede", "updated"):
+            if not isinstance(s.get(k), str) or not s[k].strip():
+                fail(f"{where}: front matter needs '{k}'")
+        picks = []
+        for p in s.get("picks") or []:
+            r = by_slug.get(p.get("slug"))
+            if not r:
+                continue  # the update robot can retire a route; the page simply shows one fewer pick
+            if field not in r["fields"]:
+                fail(f"{where}: pick {r['slug']} does not list {field} among its fields, so the board filter would hide it")
+            elif not isinstance(p.get("why"), str) or not p["why"].strip() or re.search(r"[<>]", p["why"]):
+                fail(f"{where}: pick {r['slug']} needs a plain-text 'why'")
+            else:
+                picks.append((r, p["why"]))
+        faq = s.get("faq") or []
+        for q in faq:
+            if not all(isinstance(q.get(k), str) and q[k].strip() and not re.search(r"[<>]", q[k]) for k in ("q", "a")):
+                fail(f"{where}: each 'faq' item needs plain-text 'q' and 'a'")
+        s["picked"], s["posts"] = picks, [p for p in live if p["field"] == field]
+        s["others"] = sorted((r for r in routes if field in r["fields"] and r["slug"] not in {x["slug"] for x, _ in picks}),
+                             key=lambda r: r["name"].lower())
+    if ERRORS:
+        return
+    for s in subjects:
+        root = "../../"
+        field, noun = s["field"], s["noun"]
+        where = f"content/subjects/{s['slug']}.html"
+        board = f'{root}scholarships/?field={quote(field)}'
+        picks_html = "".join(f'<div class="pick">{route_row(r, root)}<p class="pick-why">{e(why)}</p></div>' for r, why in s["picked"])
+        posts_html = ""
+        if s["posts"]:
+            rows = "".join(
+                f'<a class="row" href="{root}positions/{e(p["id"])}/"><div><div class="row-name">{e(p["title"])}</div>'
+                f'<div class="row-meta">{e(p["flag"])} {e(p["institution"])} · {e(p["level"])} · {e(p["funding"])}</div></div>'
+                f'<div class="row-side"><span class="chip approaching" data-closes="{p["deadline"]}">{closes_text(dt.date.fromisoformat(p["deadline"]))}</span>'
+                f'<span class="row-arrow">Details →</span></div></a>' for p in s["posts"])
+            posts_html = f'<h2 class="group-title">Funded PhD and postdoc positions</h2><div class="rows">{rows}</div>'
+        others_html = ""
+        if s["others"]:
+            names = ", ".join(f'<a href="{root}routes/{r["slug"]}/">{e(r["name"])}</a>' for r in s["others"])
+            others_html = (f'<h2>Also open to {e(noun)}</h2><p>{len(s["others"])} more routes fund {e(noun)} among other subjects: {names}.</p>'
+                           f'<p><a href="{board}">See them all on the scholarship board →</a></p>')
+        faq = s.get("faq") or []
+        faq_html = ('<h2 id="common-questions">Common questions</h2>'
+                    + "".join(f"<h3>{e(q['q'])}</h3><p>{e(q['a'])}</p>" for q in faq)) if faq else ""
+        faq_ld = ([{"@context": "https://schema.org", "@type": "FAQPage",
+                    "mainEntity": [{"@type": "Question", "name": q["q"], "acceptedAnswer": {"@type": "Answer", "text": q["a"]}}
+                                   for q in faq]}] if faq else [])
+        path = f"subjects/{s['slug']}/"
+        body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("subjects/", "Subjects"), ("", field)])}
+<div class="eyebrow-s">{len(s["picked"]) + len(s["others"])} funded routes · {len(s["posts"])} open position{"s" if len(s["posts"]) != 1 else ""}</div>
+<h1>{e(s["title"])}</h1><p class="lede">{e(s["lede"])}</p>
+<div class="byline"><span>By <b>{author_link(root)}</b></span><span>Updated <b>{e(fmt_date(dt.date.fromisoformat(s["updated"])))}</b></span></div></div>
+<div class="layout has-rail"><div>
+<article class="prose">{s["body"].replace("{{root}}", root)}</article>
+<h2 class="group-title">The best fits for {e(noun)}</h2><div class="rows picks">{picks_html}</div>
+{posts_html}
+{ad_bay("article")}
+<article class="prose" style="margin-top:12px">{others_html}{faq_html}</article>
+</div><aside class="rail" aria-label="Advertisements">{ad_bay("rail")}</aside></div></div>"""
+        LASTMOD[path] = s["updated"]
+        write(path, page(path, search_title(s.get("meta_title"), s["title"], where),
+                         search_description(s.get("meta_description") or s["description"], "", where), body, root=root,
+                         nav="subjects/", og_type="article",
+                         jsonld=[breadcrumb_ld([("", "Home"), ("subjects/", "Subjects"), (path, field)]),
+                                 {"@context": "https://schema.org", "@type": "Article", "headline": s["title"],
+                                  "description": s["description"], "dateModified": s["updated"], "author": author_ld(),
+                                  "publisher": {"@type": "Organization", "name": SITE, "url": BASE}, "mainEntityOfPage": BASE + path}] + faq_ld))
+    root = "../"
+    tiles = "".join(
+        f'<a class="tile" href="{s["slug"]}/"><span class="tile-kicker">{len(s["picked"]) + len(s["others"])} routes · '
+        f'{len(s["posts"])} position{"s" if len(s["posts"]) != 1 else ""}</span><h2>{e(s["field"])}</h2><p>{e(s["lede"])}</p>'
+        f'<span class="more">Read the guide →</span></a>' for s in sorted(subjects, key=lambda s: FIELDS.index(s["field"])))
+    body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("", "Subjects")])}
+<div class="eyebrow-s">Funding by subject</div><h1>Fully funded study, subject by subject</h1>
+<p class="lede">Which tuition-free universities, scholarships and paid PhD posts suit your field, and what to know before you apply.</p></div>
+<div class="tiles three">{tiles}</div><div style="height:48px"></div></div>"""
+    LASTMOD["subjects/"] = latest(*(s["updated"] for s in subjects))
+    write("subjects/", page("subjects/", "Fully funded study by subject",
+                            "Fully funded routes for each field: engineering, computer science, the sciences, medicine, business, social sciences, the humanities and agriculture.",
+                            body, root=root, nav="subjects/", jsonld=[breadcrumb_ld([("", "Home"), ("subjects/", "Subjects")])]))
+
+
 def add_heading_ids(body):
     toc = []
 
@@ -1850,6 +1947,7 @@ def main():
     countries = sorted(countries_raw.items(), key=lambda kv: kv[1]["name"])
     guides = sorted(load_html_docs("guides"), key=lambda g: g.get("order", 99))
     static_pages = load_html_docs("pages")
+    subjects = load_html_docs("subjects")
     AUTHOR.update(load_author())
     MENU_GUIDES[:] = [g for g in guides if g.get("featured")][:6] or guides[:6]
     MENU_COUNTRIES[:] = [(slug, c["name"]) for slug, c in countries]
@@ -1880,6 +1978,7 @@ def main():
     build_route_pages(ROUTES, notes, dict(countries))
     build_routes_index(ROUTES, dict(countries))
     build_countries(ROUTES, countries)
+    build_subjects(subjects, ROUTES, positions)
     build_guides(guides, ROUTES)
     build_deadlines(ROUTES)
     build_static_pages(static_pages)
