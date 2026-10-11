@@ -461,9 +461,15 @@ def menu_html(root, here):
             + drop("Countries", countries) + drop("Guides", guides) + drop("About", about)
             + "</ul></nav></div></details>")
 
-SEAL = ('<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
-        'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/>'
-        '<path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>')
+def brand_mark():
+    """The DegreeStep mark (a diamond with three steps and a caped figure cut out of it), inline so the diamond takes
+    the text colour: navy on the light theme, white on the dark one. The head stays brass."""
+    body, head = re.findall(r' d="([^"]+)"', (SRC / "assets" / "logo-mark.svg").read_text(encoding="utf-8"))
+    return ('<svg width="36" height="28" viewBox="128 128 776 612" aria-hidden="true">'
+            f'<path fill="currentColor" fill-rule="evenodd" d="{body}"/><path fill="#D7A94C" d="{head}"/></svg>')
+
+
+BRAND_MARK = brand_mark()
 NL = "\n"
 SHARE_ICON = ('<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
               'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/>'
@@ -575,7 +581,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
 <body class="{body_class}">
 <a class="skip" href="#main">Skip to content</a>
 <header class="topbar"><div class="wrap">
-  <a class="brand" href="{root or './'}" aria-label="{e(SITE)} home"><span class="brand-mark">{SEAL}</span><span class="brand-name">Degree<b>Step</b></span></a>
+  <a class="brand" href="{root or './'}" aria-label="{e(SITE)} home"><span class="brand-mark">{BRAND_MARK}</span><span class="brand-name">Degree<b>Step</b></span></a>
   <div class="top-actions">{THEME_TOGGLE}{nav_html}</div>
 </div></header>
 <main id="main">
@@ -584,7 +590,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
 <footer class="sitefoot"><div class="wrap">
   <div class="foot-grid">
     <div class="foot-brand">
-      <a class="brand" href="{root or './'}"><span class="brand-mark">{SEAL}</span><span class="brand-name">Degree<b>Step</b></span></a>
+      <a class="brand" href="{root or './'}"><span class="brand-mark">{BRAND_MARK}</span><span class="brand-name">Degree<b>Step</b></span></a>
       <p>Independent listings of tuition-free universities and fully funded scholarships. We are not affiliated with any university or scholarship provider.</p>
     </div>
     <div><h2>Explore</h2><ul>
@@ -2140,6 +2146,7 @@ def write_meta_files(routes):
     (OUT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
                                      + urls + "</urlset>\n", encoding="utf-8")
     (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n", encoding="utf-8")
+    shutil.copy2(SRC / "assets" / "favicon.ico", OUT / "favicon.ico")  # browsers and crawlers ask for /favicon.ico
     client = adsense_client()
     if client:
         # AdSense reads ads.txt; AdMob reads app-ads.txt for the DegreeStep app. Same account, same line.
