@@ -1721,6 +1721,53 @@ def build_subjects(subjects, routes, positions):
                             body, root=root, nav="subjects/", jsonld=[breadcrumb_ld([("", "Home"), ("subjects/", "Subjects")])]))
 
 
+APP_FEED_VERSION = 1
+
+
+def write_app_feed(routes, notes, positions, news, subjects, guides):
+    """app/feed.json: everything the DegreeStep iPhone app shows, so its content updates with every deploy and never
+    needs a new App Store version. The app keeps the last copy for offline use and works out each route's next
+    deadline itself, so a feed a few days old still counts down correctly."""
+    order = {name: i for i, name in enumerate(ELIGIBILITY["countries"])}
+
+    def open_rule(slug):
+        kind, names, rule = who_can_apply(slug)
+        idx = sorted(order[n] for n in names)
+        return {"x": idx} if kind == "all" else {"o": idx} if kind == "only" else {"c": rule.get("check", "")}
+
+    feed = {
+        "version": APP_FEED_VERSION,
+        "generated": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "site": BASE,
+        "countries": ELIGIBILITY["countries"],
+        "routes": [{
+            "slug": r["slug"], "name": r["name"], "flag": r["flag"], "country": r["country"], "region": r["region"],
+            "kind": r["kind"], "levels": r["levels"], "types": r["types"], "fields": r["fields"],
+            "funding": r["funding"], "summary": (notes.get(r["slug"]) or {}).get("summary", ""),
+            "deadline": r["deadline"], "deadlines": r.get("deadlines", []), "approx": bool(r.get("approx")),
+            "rolling": bool(r.get("rolling")), "tbc": bool(r.get("tbc")),
+            "url": BASE + f"routes/{r['slug']}/", "official": r["link"], "open": open_rule(r["slug"]),
+        } for r in routes],
+        "positions": [{
+            "id": p["id"], "title": p["title"], "institution": p["institution"], "country": p["country"], "flag": p["flag"],
+            "level": p["level"], "field": p["field"], "funding": p["funding"], "summary": p["summary"],
+            "deadline": p["deadline"], "url": BASE + f"positions/{p['id']}/",
+        } for p in open_positions(positions)],
+        "news": [{
+            "id": n["id"], "title": n["title"], "summary": n["summary"], "date": n["date"], "category": n.get("category", ""),
+            "url": BASE + f"news/{n['id']}/",
+            "image": (BASE + "assets/" + n["images"][0]["file"]) if n.get("images") else None,
+            "credit": (f'{n["images"][0]["credit"]}, {n["images"][0]["license"]}') if n.get("images") else None,
+        } for n in sorted(news, key=lambda n: n["date"], reverse=True)[:30]],
+        "subjects": [{"slug": s["slug"], "field": s["field"], "title": s["title"], "lede": s["lede"],
+                      "url": BASE + f"subjects/{s['slug']}/"} for s in sorted(subjects, key=lambda s: FIELDS.index(s["field"]))],
+        "guides": [{"slug": g["slug"], "title": g["title"], "description": g["description"],
+                    "url": BASE + f"guides/{g['slug']}/"} for g in guides],
+    }
+    (OUT / "app").mkdir(exist_ok=True)
+    (OUT / "app" / "feed.json").write_text(json.dumps(feed, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+
+
 def add_heading_ids(body):
     toc = []
 
@@ -1885,7 +1932,10 @@ def write_meta_files(routes):
     (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n", encoding="utf-8")
     client = adsense_client()
     if client:
-        (OUT / "ads.txt").write_text(f"google.com, {client.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n", encoding="utf-8")
+        # AdSense reads ads.txt; AdMob reads app-ads.txt for the DegreeStep app. Same account, same line.
+        line = f"google.com, {client.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n"
+        (OUT / "ads.txt").write_text(line, encoding="utf-8")
+        (OUT / "app-ads.txt").write_text(line, encoding="utf-8")
     (OUT / ".well-known").mkdir(exist_ok=True)
     expires = (dt.datetime.now(dt.timezone.utc) + dt.timedelta(days=365)).strftime("%Y-%m-%dT00:00:00Z")
     (OUT / ".well-known" / "security.txt").write_text(
@@ -1985,6 +2035,7 @@ def main():
     build_author(guides, countries)
     build_404()
     write_meta_files(ROUTES)
+    write_app_feed(ROUTES, notes, positions, news, subjects, guides)
     check_links()
     return report()
 

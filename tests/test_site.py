@@ -209,6 +209,22 @@ class BuiltSite(unittest.TestCase):
         for name in ("hero-graduation-1920.jpg", "hero-graduation-960.jpg"):
             self.assertLess((self.site / "assets" / name).stat().st_size, 300_000, name)
 
+    def test_app_feed_and_app_ads_txt(self):
+        # the DegreeStep iPhone app reads app/feed.json, so its content updates without a new App Store version,
+        # and AdMob checks app-ads.txt on the developer's site before it serves ads in the app
+        feed = json.loads((self.site / "app" / "feed.json").read_text(encoding="utf-8"))
+        self.assertEqual(feed["version"], 1)
+        self.assertEqual(len(feed["routes"]), len(source_routes(self.dir)))
+        for r in feed["routes"]:
+            for k in ("slug", "name", "country", "deadlines", "url", "official", "open", "summary"):
+                self.assertIn(k, r, f"{r.get('slug')}: no {k}")
+            self.assertTrue(r["url"].startswith("https://degreestep.com/routes/"), r["slug"])
+        self.assertEqual(len(feed["subjects"]), 8)
+        self.assertTrue(feed["news"] and feed["positions"] and feed["guides"])
+        ads = (self.site / "app-ads.txt").read_text(encoding="utf-8")
+        self.assertEqual(ads, (self.site / "ads.txt").read_text(encoding="utf-8"))
+        self.assertIn("pub-6851724780839114, DIRECT", ads)
+
     def test_every_field_has_a_subject_page(self):
         # the owner asked for browse-by-subject pages (10 Oct 2026); each needs real guidance, not just a list
         index = self.pages[self.site / "subjects" / "index.html"]
