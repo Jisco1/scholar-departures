@@ -261,6 +261,13 @@ class BuiltSite(unittest.TestCase):
         self.assertEqual({s["country"] for s in offering}, {"United States"})
         self.assertEqual(doc["levels"], {"b": "Bachelor's", "m": "Master's", "d": "PhD"})
         self.assertTrue(all(0 <= f < len(doc["fields"]) for s in offering for fs in s["offers"].values() for f in fs))
+        # 12 Oct 2026: every route has its own photo in the app (the university, or the host country for a national
+        # programme), free-licensed and credited, so the lists look the same everywhere
+        feed_routes = json.loads((self.site / "app" / "feed.json").read_text(encoding="utf-8"))["routes"]
+        for r in feed_routes:
+            self.assertTrue(r.get("image", "").startswith("https://degreestep.com/assets/route-"), r["slug"])
+            self.assertTrue(r.get("credit") and r.get("image_source", "").startswith("https://commons.wikimedia.org/"), r["slug"])
+            self.assertTrue((self.site / "assets" / r["image"].rsplit("/", 1)[1]).exists(), r["slug"])
         # 11 Oct 2026: every university gets a page on DegreeStep before its website (school/?s=<slug>)
         slugs = [s["slug"] for s in doc["schools"]]
         self.assertEqual(len(slugs), len(set(slugs)), "each university needs its own page address")

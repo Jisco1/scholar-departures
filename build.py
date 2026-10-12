@@ -1869,7 +1869,31 @@ def app_blocks(body):
     return parser.blocks
 
 
-def write_app_feed(routes, notes, positions, news, subjects, guides):
+def load_route_photos(slugs):
+    """data/route_photos.json: one photograph per route for the app, of the university itself or, for a national
+    programme, of its host country or city, never one university standing in for others. Each is free-licensed on
+    Wikimedia Commons and credited where it is shown."""
+    path = DATA / "route_photos.json"
+    if not path.exists():
+        return {}
+    photos = json.loads(path.read_text(encoding="utf-8"))
+    for slug, ph in photos.items():
+        where = f"route_photos.json: {slug}"
+        if slug not in slugs:  # a photo can wait in the file for a route that is still being folded in
+            continue
+        f = ph.get("file") or ""
+        if f != f"route-{slug}.jpg" or not (SRC / "assets" / f).exists():
+            fail(f"{where}: file must be an existing src/assets/route-{slug}.jpg")
+        if not IMAGE_LICENCE.match(ph.get("license") or ""):
+            fail(f"{where}: licence {ph.get('license')!r} is not one we may use (CC0, public domain, CC BY or CC BY-SA)")
+        if not isinstance(ph.get("credit"), str) or not ph["credit"].strip() or re.search(r"[<>\x00-\x1f]", ph["credit"]):
+            fail(f"{where}: credit must be plain text")
+        if not URL_RE.match(ph.get("source_url") or ""):
+            fail(f"{where}: source_url must be a plain https:// URL")
+    return photos
+
+
+def write_app_feed(routes, notes, positions, news, subjects, guides, photos=None):
     """app/feed.json: everything the DegreeStep iPhone app shows, so its content updates with every deploy and never
     needs a new App Store version. The app keeps the last copy for offline use and works out each route's next
     deadline itself, so a feed a few days old still counts down correctly. Every guide, story, subject page and
@@ -1895,6 +1919,13 @@ def write_app_feed(routes, notes, positions, news, subjects, guides):
     def note(slug, key):
         return [md(x) for x in (notes.get(slug) or {}).get(key) or []]
 
+    photos = photos or {}
+
+    def photo(slug):
+        ph = photos.get(slug)
+        return {"image": BASE + "assets/" + ph["file"], "credit": f'{ph["credit"]}, {ph["license"]}',
+                "image_source": ph["source_url"]} if ph else {}
+
     feed = {
         "version": APP_FEED_VERSION,
         "generated": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -1911,6 +1942,7 @@ def write_app_feed(routes, notes, positions, news, subjects, guides):
             "how_to_apply": note(r["slug"], "how_to_apply"), "watch_out": note(r["slug"], "watch_out"),
             "sources": [{"title": s["title"], "url": s["url"]} for s in (notes.get(r["slug"]) or {}).get("sources") or []],
             "related": [x for x in (notes.get(r["slug"]) or {}).get("related") or [] if x in slugs],
+            **photo(r["slug"]),
         } for r in routes],
         "positions": [{
             "id": p["id"], "title": p["title"], "institution": p["institution"], "country": p["country"], "flag": p["flag"],
@@ -2355,7 +2387,7 @@ def main():
     build_author(guides, countries)
     build_404()
     write_meta_files(ROUTES)
-    write_app_feed(ROUTES, notes, positions, news, subjects, guides)
+    write_app_feed(ROUTES, notes, positions, news, subjects, guides, load_route_photos({r['slug'] for r in ROUTES}))
     write_app_schools(directory, programs)
     check_links()
     return report()
