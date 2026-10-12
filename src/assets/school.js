@@ -1,6 +1,6 @@
 /* DegreeStep: one university's page, school/?s=<slug>, filled in from app/schools.json (the same directory as the
    app). Where it is, the degrees it awards (US universities), our funding guide for it, funded routes and our guide
-   for its country, and other universities there, then its official website at the end. */
+   for its country, then its official website, then other universities in the same country. */
 (function () {
   "use strict";
   var cfg = JSON.parse(document.getElementById("schoolConfig").textContent);
@@ -114,7 +114,7 @@
           (others.length + 1).toLocaleString("en-US") + " universities in " + esc(inCountry(s.country)) + " in the directory →</a></p>" : ""));
     }
 
-    // the official website, last
+    // the official website, before the other universities in its country
     show("schOfficial", '<a class="btn btn-primary route-official-btn" href="' + esc(safeUrl(s.url)) +
       '" target="_blank" rel="noopener noreferrer">Official website: ' + esc(host(s.url)) + " " + cfg.ext + "</a>" +
       "<small>Programmes, entry requirements, fees and how to apply are on the university’s own site.</small>");

@@ -2036,7 +2036,7 @@ def write_app_schools(directory, programs=None):
 def build_school_page(country_pages):
     """school/?s=<slug>: one page for every university in the directory, filled in by school.js from
     app/schools.json. Location, degrees (US), our funding guide for it, funded routes and our guide for its country,
-    and other universities there come before its official website. Kept out of search results and the sitemap:
+    come before its official website; other universities there follow it. Kept out of search results and the sitemap:
     ten thousand pages built from one template would read as thin content."""
     root = "../"
     config = {"root": root, "base": BASE, "ext": EXT,
@@ -2065,9 +2065,9 @@ def build_school_page(country_pages):
 <li>Apply through the university or the official national portal it names. Never pay an agent who promises admission.</li>
 </ul>
 </section>
-<section id="schMore" hidden></section>
 </div>
 <div class="route-official" id="schOfficial" hidden></div>
+<div class="prose school-body"><section id="schMore" hidden></section></div>
 </div>
 <script type="application/json" id="schoolConfig">{config_json}</script>"""
     write("school/", page("school/", "University", "A university in the DegreeStep schools directory: where it is, "
