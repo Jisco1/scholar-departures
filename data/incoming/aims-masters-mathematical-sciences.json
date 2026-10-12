@@ -1,8 +1,5 @@
 {
-  "rolling": false,
-  "tbc": false,
-  "approx": true,
-  "last_verified": "2026-10-11",
+  "last_verified": "2026-10-12",
   "content_hash": null,
   "needs_review": false,
   "slug": "aims-masters-mathematical-sciences",
@@ -24,12 +21,8 @@
     "Master's"
   ],
   "funding": "A one-year master's at an African Institute for Mathematical Sciences centre, with full scholarships for selected students covering tuition, accommodation and meals.",
-  "deadline": "Applications open Dec 1 and close Mar 31 each year (centres can differ)",
-  "deadlines": [
-    {
-      "m": 3,
-      "d": 31
-    }
-  ],
-  "link": "https://nexteinstein.org/application/aims-masters-degree/"
+  "deadline": "2027–28 intake dates not yet published",
+  "link": "https://nexteinstein.org/application/aims-masters-degree/",
+  "tbc": true,
+  "approx": false
 }

@@ -69,13 +69,21 @@ OFFICIAL PAGE TEXT (fetched just now, may be truncated):
 {page_text}
 ---
 
-Task: from the page text alone, determine the application deadline(s) and whether the record's funding summary is still consistent with what the page says. Do not guess beyond the page text. If the page does not state a deadline, keep confidence low.
+Today is {today}. Task: from the page text alone, determine the status and deadline(s) of the COMING application round (the next intake that has not closed yet), and whether the record's funding summary is still consistent with what the page says. Do not guess beyond the page text.
+
+Rules for dates:
+- Give a date only if the page states it for the coming round. Every date needs its year: take it from the page, or from the intake the page names (for example "apply by 1 March for winter semester 2027/28").
+- Never carry a past round's date forward. If the page only shows a round that has closed, the status is "tbc".
+- "varies" when each programme, faculty, embassy or country sets its own deadline and the page gives no single date.
+- "rolling" only when positions or applications are accepted all year.
 
 Respond with ONLY a JSON object, no markdown fences, no commentary:
 {{
-  "deadline_text": "<short human-readable deadline line, or null if page doesn't say>",
-  "deadlines": [{{"m": <month 1-12>, "d": <day 1-31>}}],
-  "approx": <true if the date varies by course/country or is stated vaguely>,
+  "status": "<dated | tbc | varies | rolling>",
+  "deadline_text": "<short human-readable deadline line for the coming round with years, or what the page says about the next round>",
+  "deadlines": [{{"y": <year>, "m": <month 1-12>, "d": <day 1-31>}}],
+  "opens": {{"y": <year>, "m": <month>, "d": <day>}} or null if the window is already open or the page does not say,
+  "approx": <true only if the page itself calls the date provisional>,
   "funding_consistent": <true if nothing on the page contradicts the record's funding summary>,
   "contradiction": "<one sentence describing any contradiction, or null>",
   "confidence": <0.0-1.0, how sure you are about the deadline extraction>
@@ -103,6 +111,7 @@ def call_claude(record, page_text):
     prompt = EXTRACTION_PROMPT.format(
         record=json.dumps(slim, ensure_ascii=False, indent=2),
         page_text=page_text,
+        today=date.today().isoformat(),
     )
     body = {
         "model": MODEL,
@@ -127,18 +136,29 @@ def call_claude(record, page_text):
         return None, f"unparseable extraction: {e}"
 
 
+def real_date(dl):
+    """{y, m, d} that names a real day."""
+    try:
+        date(int(dl["y"]), int(dl["m"]), int(dl["d"]))
+        return True
+    except (KeyError, TypeError, ValueError):
+        return False
+
+
 def valid_extraction(x):
-    if not isinstance(x, dict):
+    if not isinstance(x, dict) or x.get("status") not in ("dated", "tbc", "varies", "rolling"):
         return False
-    dls = x.get("deadlines")
-    if not isinstance(dls, list) or not dls:
+    dls = x.get("deadlines") or []
+    if not isinstance(dls, list):
         return False
-    for dl in dls:
-        if not isinstance(dl, dict):
+    if x["status"] == "dated":
+        # a dated round needs confirmed dates, and at least one still ahead
+        if not dls or not all(isinstance(dl, dict) and real_date(dl) for dl in dls):
             return False
-        m, d = dl.get("m"), dl.get("d")
-        if not (isinstance(m, int) and 1 <= m <= 12 and isinstance(d, int) and 1 <= d <= 31):
+        if all(date(int(dl["y"]), int(dl["m"]), int(dl["d"])) < date.today() for dl in dls):
             return False
+    if x.get("opens") is not None and not real_date(x["opens"]):
+        return False
     conf = x.get("confidence")
     return isinstance(conf, (int, float)) and 0 <= conf <= 1
 
@@ -224,11 +244,17 @@ def main():
         )
         if ok:
             stats["applied"] += 1
-            entry["deadlines"] = extraction["deadlines"]
+            for k in ("deadlines", "opens", "tbc", "varies", "rolling"):
+                entry.pop(k, None)
+            if extraction["status"] == "dated":
+                entry["deadlines"] = [{"y": int(dl["y"]), "m": int(dl["m"]), "d": int(dl["d"])} for dl in extraction["deadlines"]]
+                if extraction.get("opens"):
+                    entry["opens"] = {k: int(extraction["opens"][k]) for k in ("y", "m", "d")}
+            else:
+                entry[extraction["status"]] = True
             if extraction.get("deadline_text"):
                 entry["deadline"] = extraction["deadline_text"]
             entry["approx"] = bool(extraction.get("approx"))
-            entry.pop("tbc", None)
             entry["last_verified"] = today
             entry["needs_review"] = False
             log(f"   ✓ verified (confidence {extraction['confidence']:.2f})")

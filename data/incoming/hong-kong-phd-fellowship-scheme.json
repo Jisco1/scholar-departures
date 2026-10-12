@@ -1,8 +1,5 @@
 {
-  "rolling": false,
-  "tbc": false,
-  "approx": false,
-  "last_verified": "2026-10-11",
+  "last_verified": "2026-10-12",
   "content_hash": null,
   "needs_review": false,
   "slug": "hong-kong-phd-fellowship-scheme",
@@ -29,12 +26,14 @@
     "PhD"
   ],
   "funding": "400 fellowships a year paying HK$344,400 a year plus HK$14,400 for conferences and research travel, for up to three years of PhD study at a Hong Kong university.",
-  "deadline": "Initial application Sep 1 – Dec 1, 2026, 12:00 noon Hong Kong time",
+  "deadline": "Initial application to the RGC Sep 1 – Dec 1, 2026, 12:00 noon HKT, then the university's own application",
+  "link": "https://cerg1.ugc.edu.hk/hkpfs/index.html",
   "deadlines": [
     {
+      "y": 2026,
       "m": 12,
       "d": 1
     }
   ],
-  "link": "https://cerg1.ugc.edu.hk/hkpfs/index.html"
+  "approx": false
 }

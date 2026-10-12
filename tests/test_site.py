@@ -6,6 +6,7 @@ Each test builds the site (or a poisoned copy of it) and inspects the output,
 so a regression in the builder, the data or the page scripts fails here
 instead of on the live site.
 """
+import datetime as dt
 import html as html_mod
 import json
 import re
@@ -100,10 +101,43 @@ class BuiltSite(unittest.TestCase):
         js = (self.site / "data" / "data.js").read_text(encoding="utf-8")
         data = json.loads(js[len("window.SCHOLAR_DATA = "):].rstrip().rstrip(";"))
         source = source_routes(self.dir)
-        for key in ("tbc", "rolling", "approx", "slug"):
+        for key in ("rolling", "varies", "approx", "slug"):
             want = sum(1 for r in source if key in r)
             have = sum(1 for r in data if key in r)
             self.assertEqual(want, have, f"data.js dropped '{key}'")
+        # tbc is kept, and a route whose confirmed dates have all passed joins it
+        src_tbc = {r["slug"] for r in source if r.get("tbc")}
+        have_tbc = {r["slug"] for r in data if r.get("tbc")}
+        self.assertLessEqual(src_tbc, have_tbc, "data.js dropped 'tbc'")
+        today = dt.date.today()
+        for r in source:
+            if r["slug"] in have_tbc - src_tbc:
+                self.assertTrue(all(dt.date(dl["y"], dl["m"], dl["d"]) < today for dl in r.get("deadlines") or []), r["slug"])
+
+    def test_deadlines_are_confirmed_dates_only(self):
+        # 12 Oct 2026: a route counted down to last year's date ("due in 64 days") for a round nobody had
+        # announced. Every deadline carries the year the official page gave, and nothing rolls forward.
+        today = dt.date.today()
+        for r in source_routes(self.dir):
+            for dl in r.get("deadlines") or []:
+                self.assertIn("y", dl, f"{r['slug']}: a deadline without its year")
+            self.assertEqual(sum(bool(r.get(k)) for k in ("rolling", "tbc", "varies")) <= 1, True, r["slug"])
+        feed = json.loads((self.site / "app" / "feed.json").read_text(encoding="utf-8"))
+        for r in feed["routes"]:
+            for dl in r["deadlines"]:
+                self.assertGreaterEqual(dt.date(dl["y"], dl["m"], dl["d"]), today, r["slug"])
+            if r["rolling"] or r["tbc"] or r["varies"]:
+                self.assertEqual(r["deadlines"], [], r["slug"])
+            else:
+                self.assertTrue(r["deadlines"], f"{r['slug']}: no confirmed date, so it must say why")
+        for name in ("site.js", "app.js"):
+            js = (self.site / "assets" / name).read_text(encoding="utf-8")
+            self.assertNotIn("getFullYear() + 1", js, f"{name} moves a passed deadline to next year")
+        cal = (self.site / "deadlines" / "index.html").read_text(encoding="utf-8")
+        self.assertIn("Next call not yet announced:", cal)
+        self.assertIn("Deadline set by each programme", cal)
+        for stale in ("usual annual", "typical deadline", "Typical deadline"):
+            self.assertNotIn(stale, cal)
 
     def test_no_ads_without_publisher_id(self):
         cfg = json.loads((self.dir / "site.json").read_text(encoding="utf-8"))
@@ -851,7 +885,7 @@ class MonthlyRefresh(unittest.TestCase):
         cand = {"name": "Example Tech University Scholarship", "flag": "🇳🇱", "country": "Netherlands", "kind": "school",
                 "scope": "all", "fields": ["Engineering & Tech"], "region": "Europe", "types": ["Full Scholarship"],
                 "levels": ["Master's"], "funding": "Full tuition and a living allowance for non-EU master's students.",
-                "deadline": "Feb 1", "deadlines": [{"m": 2, "d": 1}], "approx": False,
+                "deadline": "Feb 1, 2027", "deadlines": [{"y": 2027, "m": 2, "d": 1}], "approx": False,
                 "link": "https://www.example.edu/scholarship", "last_verified": "2026-09-26",
                 "content_hash": None, "needs_review": False, "status": "pending", "theme": "test", "confidence": 0.9}
         cand_path.write_text(json.dumps([cand]), encoding="utf-8")
@@ -1114,7 +1148,48 @@ class PoisonedData(unittest.TestCase):
         self.assertIn("'category' must be one of", result.stderr)
 
     def test_impossible_deadline_rejected(self):
-        self.assertRejected(lambda d: d[0].__setitem__("deadlines", [{"m": 2, "d": 31}]), "impossible deadline")
+        self.assertRejected(lambda d: d[0].__setitem__("deadlines", [{"y": 2027, "m": 2, "d": 31}]), "impossible deadline")
+
+    def built_route(self, mutate):
+        """Build with the first route changed; return its page, its feed entry and the build's stderr."""
+        tmp = make_copy()
+        try:
+            path = tmp / "data" / "data.json"
+            data = json.loads(path.read_text(encoding="utf-8"))
+            for k in ("tbc", "varies", "rolling", "opens"):
+                data[0].pop(k, None)
+            mutate(data[0])
+            path.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+            result = build(tmp)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            slug = data[0]["slug"]
+            html = (tmp / "_site" / "routes" / slug / "index.html").read_text(encoding="utf-8")
+            feed = json.loads((tmp / "_site" / "app" / "feed.json").read_text(encoding="utf-8"))
+            return html, next(r for r in feed["routes"] if r["slug"] == slug), result.stderr
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+    def test_passed_deadline_waits_for_the_next_announcement(self):
+        html, entry, _ = self.built_route(lambda r: r.__setitem__("deadlines", [{"y": 2020, "m": 3, "d": 1}]))
+        self.assertIn("Next call not yet announced", html)
+        self.assertTrue(entry["tbc"])
+        self.assertEqual(entry["deadlines"], [])
+
+    def test_deadline_without_its_year_is_never_counted_down(self):
+        html, entry, err = self.built_route(lambda r: r.__setitem__("deadlines", [{"m": 12, "d": 1}]))
+        self.assertIn("has no year", err)
+        glance = html.split('<section class="glance"', 1)[1].split("</section>", 1)[0]
+        self.assertIn("Next call not yet announced", glance)
+        self.assertNotIn("Due in", glance)
+        self.assertTrue(entry["tbc"])
+
+    def test_window_not_yet_open_says_when_it_opens(self):
+        ahead = dt.date.today() + dt.timedelta(days=20)
+        due = dt.date.today() + dt.timedelta(days=50)
+        html, entry, _ = self.built_route(lambda r: r.update(
+            deadlines=[{"y": due.year, "m": due.month, "d": due.day}], opens={"y": ahead.year, "m": ahead.month, "d": ahead.day}))
+        self.assertIn(f"Opens {ahead.strftime('%b')} {ahead.day}", html)
+        self.assertEqual(entry["opens"], {"y": ahead.year, "m": ahead.month, "d": ahead.day})
 
     def test_unknown_funding_type_rejected(self):
         self.assertRejected(lambda d: d[0].__setitem__("types", ["Free Money"]), "'types'")

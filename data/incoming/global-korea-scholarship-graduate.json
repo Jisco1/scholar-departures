@@ -1,8 +1,5 @@
 {
-  "rolling": false,
-  "tbc": false,
-  "approx": true,
-  "last_verified": "2026-10-11",
+  "last_verified": "2026-10-12",
   "content_hash": null,
   "needs_review": false,
   "slug": "global-korea-scholarship-graduate",
@@ -30,12 +27,8 @@
     "PhD"
   ],
   "funding": "Korea's government pays tuition, return airfare, a monthly living allowance, health insurance, a settlement allowance and up to a year of Korean language training.",
-  "deadline": "Through a Korean embassy or a designated university; the 2026 round ran Feb 12–25 online (the 2027 call follows early in 2027)",
-  "deadlines": [
-    {
-      "m": 2,
-      "d": 25
-    }
-  ],
-  "link": "https://www.niied.go.kr/web/niied/contents/niiedEng/eng_gksDegree"
+  "deadline": "2027 graduate call not yet announced",
+  "link": "https://www.niied.go.kr/web/niied/contents/niiedEng/eng_gksDegree",
+  "tbc": true,
+  "approx": false
 }

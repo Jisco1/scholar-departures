@@ -29,7 +29,7 @@
     },
     {
       "h": "Graduate study",
-      "html": "<p>For master's and doctoral study, look at <a href=\"{{root}}routes/knight-hennessy-scholars/\">Knight-Hennessy Scholars</a> at Stanford (deadline 6 October 2026), the <a href=\"{{root}}routes/fulbright-foreign-student-program/\">Fulbright Foreign Student Program</a> (apply in your home country), and, for young Africans, the Mastercard Foundation programmes at <a href=\"{{root}}routes/mastercard-foundation-scholars-uc-berkeley/\">UC Berkeley</a> and <a href=\"{{root}}routes/mastercard-foundation-scholars-asu/\">Arizona State</a>. Many US PhD programmes also fund admitted students through assistantships.</p>"
+      "html": "<p>For master's and doctoral study, look at <a href=\"{{root}}routes/knight-hennessy-scholars/\">Knight-Hennessy Scholars</a> at Stanford (the 2027 cohort closed on 6 October 2026; the 2028 round is not yet announced), the <a href=\"{{root}}routes/fulbright-foreign-student-program/\">Fulbright Foreign Student Program</a> (apply in your home country), and, for young Africans, the Mastercard Foundation programmes at <a href=\"{{root}}routes/mastercard-foundation-scholars-uc-berkeley/\">UC Berkeley</a> and <a href=\"{{root}}routes/mastercard-foundation-scholars-asu/\">Arizona State</a>. Many US PhD programmes also fund admitted students through assistantships.</p>"
     },
     {
       "h": "Timeline",

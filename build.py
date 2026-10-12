@@ -154,16 +154,21 @@ def load_routes():
             vals = r.get(key)
             if not isinstance(vals, list) or not vals or any(v not in allowed for v in vals):
                 fail(f"{where}: '{key}' must be a non-empty list drawn from {allowed}")
-        if not r.get("rolling") and not r.get("tbc"):
+        if not r.get("rolling") and not r.get("tbc") and not r.get("varies"):
             dls = r.get("deadlines")
             if not isinstance(dls, list) or not dls:
-                fail(f"{where}: needs deadlines (or rolling: true, or tbc: true)")
+                fail(f"{where}: needs deadlines (or rolling, tbc or varies: true)")
             else:
                 for dl in dls:
                     try:
-                        dt.date(2024, int(dl["m"]), int(dl["d"]))  # 2024 is a leap year
+                        dt.date(int(dl.get("y", 2024)), int(dl["m"]), int(dl["d"]))  # 2024 is a leap year
                     except Exception:
                         fail(f"{where}: impossible deadline {dl!r}")
+        if r.get("opens"):
+            try:
+                dt.date(int(r["opens"]["y"]), int(r["opens"]["m"]), int(r["opens"]["d"]))
+            except Exception:
+                fail(f"{where}: opens must be a real date with its year, got {r['opens']!r}")
         if r.get("last_verified"):
             try:
                 dt.date.fromisoformat(r["last_verified"])
@@ -175,7 +180,46 @@ def load_routes():
         if r["slug"] in seen:
             fail(f"{where}: duplicate slug {r['slug']}")
         seen.add(r["slug"])
+        settle_deadlines(r, where)
     return routes
+
+
+def settle_deadlines(route, where="", today=TODAY):
+    """Only dates the official page confirmed for the coming round count, so every deadline carries its year.
+    A date without one is never projected forward, and once every confirmed date has passed the route says
+    its next call is not yet announced until someone checks the official page again."""
+    if route.get("rolling") or route.get("tbc") or route.get("varies"):
+        route["deadlines"] = []
+        route.pop("opens", None)
+        return
+    ahead = []
+    for dl in route.get("deadlines") or []:
+        if "y" not in dl:
+            print(f"  ! {where}: deadline {dl!r} has no year, so it is not shown as a date", file=sys.stderr)
+            continue
+        try:
+            when = dt.date(int(dl["y"]), int(dl["m"]), int(dl["d"]))
+        except (KeyError, TypeError, ValueError):
+            continue  # already reported as an impossible deadline
+        if when >= today:
+            ahead.append({"y": when.year, "m": when.month, "d": when.day})
+    ahead.sort(key=lambda x: (x["y"], x["m"], x["d"]))
+    route["deadlines"] = ahead
+    try:
+        opens = opens_date(route)
+    except (KeyError, TypeError, ValueError):
+        opens = None  # already reported
+        route.pop("opens", None)
+    if not ahead:
+        route["tbc"] = True
+        route.pop("opens", None)
+    elif opens and opens <= today:
+        route.pop("opens")
+
+
+def opens_date(route):
+    o = route.get("opens")
+    return dt.date(int(o["y"]), int(o["m"]), int(o["d"])) if o else None
 
 
 def load_schools(route_names):
@@ -194,22 +238,14 @@ def load_schools(route_names):
 
 
 def next_deadline(route, today=TODAY):
+    """The next confirmed deadline. "closed" here means confirmed, but more than HORIZON_DAYS away."""
     if route.get("rolling"):
         return None, None, "rolling"
-    if route.get("tbc"):
+    if route.get("varies"):
+        return None, None, "varies"
+    if route.get("tbc") or not route.get("deadlines"):
         return None, None, "tbc"
-    best = None
-    for dl in route["deadlines"]:
-        m, d = int(dl["m"]), int(dl["d"])
-        for year in (today.year, today.year + 1):
-            try:
-                cand = dt.date(year, m, d)
-            except ValueError:  # 29 Feb in a non-leap year
-                cand = dt.date(year, m, 28)
-            if cand >= today:
-                break
-        if best is None or cand < best:
-            best = cand
+    best = min(dt.date(int(dl["y"]), int(dl["m"]), int(dl["d"])) for dl in route["deadlines"])
     days = (best - today).days
     return best, days, ("approaching" if days <= HORIZON_DAYS else "closed")
 
@@ -221,15 +257,22 @@ def fmt_date(d, year=True):
 def status_chip(route):
     nd, days, status = next_deadline(route)
     approx = "≈ " if route.get("approx") else ""
+    opens = opens_date(route)
     if status == "rolling":
         text = "Rolling · open year-round"
     elif status == "tbc":
         return '<span class="chip closed">Next call not yet announced</span>'
+    elif status == "varies":
+        return '<span class="chip closed">Deadline set by each programme</span>'
+    elif opens:
+        text = f"Opens {fmt_date(opens, False)} · due {fmt_date(nd)}"
     elif status == "approaching":
         text = f"Due {approx}in {days} day{'s' if days != 1 else ''}"
     else:
-        text = f"Closed · next {approx}{fmt_date(nd)}"
+        text = f"Next deadline {approx}{fmt_date(nd)}"
     attrs = f' data-dl="{e(json.dumps(route.get("deadlines") or []))}"'
+    if opens:
+        attrs += f' data-opens="{opens.isoformat()}"'
     if route.get("rolling"):
         attrs += ' data-rolling="1"'
     if route.get("approx"):
@@ -1430,19 +1473,23 @@ def build_route_pages(routes, notes, country_pages):
                      "An external award: you win the scholarship and take it to a university that admits you.")
         scope_text = ("Any discipline may apply" if r["scope"] == "all" else "Only certain fields are eligible")
         fields_sub = "" if r["scope"] == "all" else f'<span class="sub">Eligible: {e(", ".join(r["fields"]))}</span>'
+        opens = opens_date(r)
         next_text = ("Positions open year-round" if status == "rolling"
                      else "Not yet announced" if status == "tbc"
-                     else f"{'≈ ' if r.get('approx') else ''}{fmt_date(nd)}")
+                     else "Set by each programme or country" if status == "varies"
+                     else f"{'≈ ' if r.get('approx') else ''}{fmt_date(nd)}"
+                          + (f" (applications open {fmt_date(opens)})" if opens else ""))
         # one short line each, the way it reads in a WhatsApp chat; the link goes underneath
         share_when = ("Applications open year-round" if status == "rolling"
                       else "Next call not yet announced" if status == "tbc"
+                      else "Deadline set by each programme or country" if status == "varies"
                       else f"Next deadline: {'around ' if r.get('approx') else ''}{fmt_date(nd)}")
         share_text = NL.join([f"\U0001F393 {r['name']}", f"{r['country']} · {and_list(r['types'])} · {and_list(r['levels'])}", share_when])
         glance = f"""<section class="glance" aria-label="At a glance">
 <dl class="glance-grid">
   <div><dt>Funding</dt><dd>{tags_html(r["types"])}</dd></div>
   <div><dt>Status</dt><dd>{status_chip(r)}</dd></div>
-  <div><dt>Typical deadline</dt><dd>{e(r["deadline"])}<span class="sub">Next: <span data-next>{e(next_text)}</span>{' · varies by course or country' if r.get('approx') else ''}</span></dd></div>
+  <div><dt>Deadline</dt><dd>{e(r["deadline"])}<span class="sub">Next: <span data-next>{e(next_text)}</span>{' · varies by course or country' if r.get('approx') else ''}</span></dd></div>
   <div><dt>Study levels</dt><dd>{e(" · ".join(r["levels"]))}</dd></div>
   <div><dt>Fields</dt><dd>{e(scope_text)}{fields_sub}</dd></div>
   <div><dt>Who pays</dt><dd>{e(kind_text)}</dd></div>
@@ -1486,14 +1533,14 @@ def build_route_pages(routes, notes, country_pages):
                      (4, "Second draft: get feedback from someone who reads critically"),
                      (2, "Finalise every document and complete the online form"),
                      (1, "Submit, but never on the last day"),
-                     (0, "Typical deadline")]
+                     (0, "Deadline")]
             items = ""
             for w, text in steps:
                 d = nd - dt.timedelta(weeks=w)
                 cls = " final" if w == 0 else (" due" if d <= TODAY else "")
                 items += (f'<div class="plan-item{cls}"><span class="plan-date">{fmt_date(d)}{" · NOW" if cls == " due" else ""}</span>'
                           f'<span class="plan-dot"></span><span class="plan-text">{e(text)}</span></div>')
-            plan_html = (f'<h2>A working timeline</h2><p>Counting back from the next typical deadline '
+            plan_html = (f'<h2>A working timeline</h2><p>Counting back from the next deadline '
                          f'({"≈ " if r.get("approx") else ""}{fmt_date(nd)}). Steps marked NOW are already due if you start today.</p>'
                          f'<div class="plan-list" data-plan="{e(json.dumps(r["deadlines"]))}">{items}</div>')
 
@@ -1542,7 +1589,7 @@ def build_route_pages(routes, notes, country_pages):
 </div>"""
         where = f"content/routes/{r['slug']}.json"
         desc = search_description(n.get("meta_description"),
-                                  f"{r['name']} ({r['country']}): {r['funding']} Eligibility, how to apply and the typical deadline ({r['deadline']}).",
+                                  f"{r['name']} ({r['country']}): {r['funding']} Eligibility, how to apply and the deadline ({r['deadline']}).",
                                   where)
         # the update robot adds routes without a meta_title, so fall back to the longest wording that fits
         title = search_title(n.get("meta_title"), next((t for t in (f"{r['name']}: funding, eligibility and deadlines",
@@ -1935,8 +1982,11 @@ def write_app_feed(routes, notes, positions, news, subjects, guides, photos=None
             "slug": r["slug"], "name": r["name"], "flag": r["flag"], "country": r["country"], "region": r["region"],
             "kind": r["kind"], "levels": r["levels"], "types": r["types"], "fields": r["fields"],
             "funding": r["funding"], "summary": (notes.get(r["slug"]) or {}).get("summary", ""),
+            # deadlines are confirmed dates still ahead, each with its year. The 1.0 app knows only rolling and tbc:
+            # a route with neither and no dates shows its deadline text, which is how "varies" reads there
             "deadline": r["deadline"], "deadlines": r.get("deadlines", []), "approx": bool(r.get("approx")),
-            "rolling": bool(r.get("rolling")), "tbc": bool(r.get("tbc")),
+            "rolling": bool(r.get("rolling")), "tbc": bool(r.get("tbc")), "varies": bool(r.get("varies")),
+            **({"opens": r["opens"]} if r.get("opens") else {}),
             "url": BASE + f"routes/{r['slug']}/", "official": r["link"], "open": open_rule(r["slug"]),
             "covers": note(r["slug"], "covers"), "eligibility": note(r["slug"], "eligibility"),
             "how_to_apply": note(r["slug"], "how_to_apply"), "watch_out": note(r["slug"], "watch_out"),
@@ -2166,42 +2216,48 @@ def build_guides(guides, routes):
 
 def build_deadlines(routes):
     root = "../"
-    by_month = {m: [] for m in range(1, 13)}
-    rolling, tbc = [], []
+    by_month = {k: [] for k in range(12)}  # k = months from now
+    rolling, tbc, varies = [], [], []
     for r in routes:
         if r.get("rolling"):
             rolling.append(r)
+            continue
+        if r.get("varies"):
+            varies.append(r)
             continue
         if r.get("tbc"):
             tbc.append(r)
             continue
         for dl in r["deadlines"]:
-            by_month[int(dl["m"])].append((int(dl["d"]), r))
+            k = (int(dl["y"]) - TODAY.year) * 12 + int(dl["m"]) - TODAY.month
+            if 0 <= k < 12:
+                by_month[k].append((int(dl["d"]), r))
     cards = ""
-    start = TODAY.month
     for k in range(12):
-        m = (start - 1 + k) % 12 + 1
-        items = sorted(by_month[m], key=lambda x: (x[0], x[1]["name"]))
+        m = (TODAY.month - 1 + k) % 12 + 1
+        items = sorted(by_month[k], key=lambda x: (x[0], x[1]["name"]))
         lis = ""
         for d, r in items:
-            past = k == 0 and d < TODAY.day
-            lis += (f'<li{PAST_CLASS if past else ""}><span class="day">{"≈" if r.get("approx") else ""}{d}</span>'
+            lis += (f'<li><span class="day">{"≈" if r.get("approx") else ""}{d}</span>'
                     f'<span><a href="{root}routes/{r["slug"]}/">{e(r["name"])}</a>'
-                    f'<span class="note">{e(r["flag"])} {e(r["country"])} · {"passed this year: " if past else ""}{e(r["deadline"])}</span></span></li>')
+                    f'<span class="note">{e(r["flag"])} {e(r["country"])} · {e(r["deadline"])}</span></span></li>')
         cards += (f'<section class="month{" now" if k == 0 else ""}" data-month="{m}"><h2>{MONTHS[m - 1]} <small>{len(items)} deadline{"s" if len(items) != 1 else ""}</small></h2>'
-                  + (f"<ul>{lis}</ul>" if lis else '<p class="empty-m">No typical deadlines this month; a good month to prepare documents.</p>') + "</section>")
+                  + (f"<ul>{lis}</ul>" if lis else '<p class="empty-m">No confirmed deadlines this month; a good month to prepare documents.</p>') + "</section>")
         if k == 5:
             cards += "</div>" + ad_bay("between", wide=True) + '<div class="months">'
-    roll = ", ".join(f'<a href="{root}routes/{r["slug"]}/" style="color:var(--brass)">{e(r["name"])}</a>' for r in rolling)
+
+    def names(rs):
+        return ", ".join(f'<a href="{root}routes/{r["slug"]}/" style="color:var(--brass)">{e(r["name"])}</a>' for r in rs) or "none"
     body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("", "Deadlines")])}<div class="eyebrow-s">Deadline calendar</div>
-<h1>Every typical deadline, month by month</h1>
-<p class="lede">The next twelve months, starting now. Dates are each route's usual annual deadline. ≈ marks dates that vary by course or country, so always confirm on the official page. Plan to submit at least a week early.</p></div>
+<h1>Every confirmed deadline, month by month</h1>
+<p class="lede">The next twelve months, starting now. Each date is the deadline the official page gives for the coming round. When a round has not been announced yet, the route is listed below the calendar instead of being given a guessed date. Plan to submit at least a week early.</p></div>
 <div class="months">{cards}</div>
-<p class="muted" style="margin:24px 0 8px;line-height:1.7">Open year-round (no fixed deadline): {roll}.</p>
-<p class="muted" style="margin:0 0 48px;line-height:1.7">Next call not yet announced: {", ".join(f'<a href="{root}routes/{r["slug"]}/" style="color:var(--brass)">{e(r["name"])}</a>' for r in tbc) or "none"}.</p></div>"""
+<p class="muted" style="margin:24px 0 8px;line-height:1.7">Open year-round (no fixed deadline): {names(rolling)}.</p>
+<p class="muted" style="margin:0 0 8px;line-height:1.7">Deadline set by each programme, faculty or country: {names(varies)}.</p>
+<p class="muted" style="margin:0 0 48px;line-height:1.7">Next call not yet announced: {names(tbc)}.</p></div>"""
     LASTMOD["deadlines/"] = DATES.get("routes")
     write("deadlines/", page("deadlines/", "Scholarship and admission deadline calendar",
-                             "Month-by-month calendar of typical deadlines for tuition-free universities and fully funded scholarships for international students.",
+                             "Month-by-month calendar of confirmed deadlines for tuition-free universities and fully funded scholarships for international students.",
                              body, root=root, nav="deadlines/", jsonld=[breadcrumb_ld([("", "Home"), ("deadlines/", "Deadlines")])]))
 
 
@@ -2254,7 +2310,7 @@ def build_404():
 def write_meta_files(routes):
     # data files for the live board — only the fields the page uses
     keep = ("name", "slug", "flag", "country", "region", "kind", "scope", "types", "levels", "fields", "funding",
-            "deadline", "deadlines", "approx", "rolling", "tbc", "link", "last_verified")
+            "deadline", "deadlines", "opens", "approx", "rolling", "tbc", "varies", "link", "last_verified")
     slim = [{k: r[k] for k in keep if k in r} for r in ROUTES]
     # who can apply, as positions in SCHOLAR_COUNTRIES: x = everyone except these, o = only these, c = check, with why
     order = {name: i for i, name in enumerate(ELIGIBILITY["countries"])}

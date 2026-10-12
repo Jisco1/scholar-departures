@@ -9,7 +9,7 @@
   "sections": [
     {
       "h": "Undergraduate: apply early, with your school's help",
-      "html": "<p>Canada's biggest undergraduate awards need your secondary school's involvement and deadlines far earlier than normal admissions. The <a href=\"{{root}}routes/university-of-toronto-pearson-scholarship/\">Lester B. Pearson Scholarship</a> at the University of Toronto requires a school nomination by <strong>9 October 2026</strong>. UBC's <a href=\"{{root}}routes/ubc-international-scholars/\">International Scholars Program</a> needs a nominator and an application by <strong>15 November 2026</strong>.</p>"
+      "html": "<p>Canada's biggest undergraduate awards need your secondary school's involvement and deadlines far earlier than normal admissions. The <a href=\"{{root}}routes/university-of-toronto-pearson-scholarship/\">Lester B. Pearson Scholarship</a> at the University of Toronto requires a school nomination; nominations for 2027 entry closed on <strong>9 October 2026</strong>. UBC's <a href=\"{{root}}routes/ubc-international-scholars/\">International Scholars Program</a> needs a nominator and an application by <strong>15 November 2026</strong>.</p>"
     },
     {
       "h": "Master's: Mastercard Foundation at McGill",

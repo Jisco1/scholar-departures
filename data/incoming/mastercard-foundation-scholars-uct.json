@@ -1,8 +1,5 @@
 {
-  "rolling": false,
-  "tbc": false,
-  "approx": false,
-  "last_verified": "2026-10-11",
+  "last_verified": "2026-10-12",
   "content_hash": null,
   "needs_review": false,
   "slug": "mastercard-foundation-scholars-uct",
@@ -30,16 +27,14 @@
     "Master's"
   ],
   "funding": "Tuition, a laptop, campus accommodation, living costs, medical aid, visa costs and annual travel for African students at Africa's top-ranked university.",
-  "deadline": "Postgraduate Oct 31, 2026 · undergraduate closed Sep 30, 2026 (2027 intake)",
+  "deadline": "Postgraduate (diploma, honours, coursework master's): Oct 31, 2026 · undergraduate 2027 intake closed Sep 30, 2026",
+  "link": "https://uct.ac.za/mastercardfdn/apply-mastercard-foundation-scholars-program",
+  "approx": false,
   "deadlines": [
     {
-      "m": 9,
-      "d": 30
-    },
-    {
+      "y": 2026,
       "m": 10,
       "d": 31
     }
-  ],
-  "link": "https://uct.ac.za/mastercardfdn/apply-mastercard-foundation-scholars-program"
+  ]
 }

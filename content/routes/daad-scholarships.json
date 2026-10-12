@@ -23,7 +23,7 @@
   ],
   "watch_out": [
     "DAAD is many programmes, not one scholarship. Applying to the wrong call is the most common mistake.",
-    "Most calls close between August and November for study starting the following October, about a year ahead.",
+    "Each programme's call sets its own deadline, often about a year before funding starts, so check yours in the DAAD database.",
     "DAAD never charges application fees and never contacts applicants through social media. See our guide to [spotting scholarship scams]({{root}}guides/scholarship-scams/).",
     "EPOS applications go through the individual course, which sets its own deadline; applications sent to DAAD directly will not be forwarded."
   ],
@@ -77,7 +77,7 @@
     },
     {
       "q": "When does the next master's funding round start?",
-      "a": "Study Scholarships funding must begin in 2027, usually on 1 October 2027, with calls typically closing in autumn 2026."
+      "a": "Study Scholarships funding must begin in 2027, usually on 1 October 2027, and each call sets its own closing date."
     }
   ],
   "sources": [
@@ -100,5 +100,5 @@
     "erasmus-mundus-joint-masters",
     "swiss-government-excellence-scholarships"
   ],
-  "reviewed": "2026-10-01"
+  "reviewed": "2026-10-12"
 }

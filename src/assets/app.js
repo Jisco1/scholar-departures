@@ -74,11 +74,13 @@
   /* ============ data + status ============ */
   var now = new Date();
   var t0 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  // only confirmed dates count: each carries its year, and a date that has passed is never moved to next year
   function computeStatus(deadlines) {
     var next = null;
     (deadlines || []).forEach(function (dl) {
-      var d = new Date(t0.getFullYear(), dl.m - 1, dl.d);
-      if (d < t0) d = new Date(t0.getFullYear() + 1, dl.m - 1, dl.d);
+      if (!dl.y) return;
+      var d = new Date(dl.y, dl.m - 1, dl.d);
+      if (d < t0) return;
       if (!next || d < next) next = d;
     });
     if (!next) return { daysUntil: 9999, status: "closed", nextDate: null };
@@ -1052,7 +1054,7 @@
     picked.sort(function (a, b) { return a.daysUntil - b.daysUntil; });
     var rows = picked.map(function (s) {
       return "<tr><td><b>" + esc(s.name) + "</b><br><span style=\"color:var(--faint);font-size:11px\">" + esc(s.flag) + " " + esc(s.country) + " \u00B7 " + (s.kind === "program" ? "Programme" : "University") + "</span></td>" +
-        '<td class="cmp-days">' + (s.nextDate ? s.daysUntil + "d" : s.status === "rolling" ? "Rolling" : "TBC") + "</td>" +
+        '<td class="cmp-days">' + (s.nextDate ? s.daysUntil + "d" : s.status === "rolling" ? "Rolling" : s.varies ? "Varies" : "TBC") + "</td>" +
         "<td>" + esc(s.deadline) + "</td>" +
         "<td>" + esc((s.types || []).join(", ")) + "</td>" +
         "<td>" + esc((s.levels || []).join(", ")) + "</td>" +
@@ -1061,7 +1063,7 @@
     openModal(
       mhead("Compare saved routes") +
       '<p class="msub">Sorted by urgency: soonest deadline first.</p>' +
-      '<div class="cmp-wrap"><table class="cmp-table"><tr><th>Route</th><th>Days</th><th>Typical deadline</th><th>Funding</th><th>Levels</th><th></th></tr>' + rows + "</table></div>"
+      '<div class="cmp-wrap"><table class="cmp-table"><tr><th>Route</th><th>Days</th><th>Deadline</th><th>Funding</th><th>Levels</th><th></th></tr>' + rows + "</table></div>"
     );
   }
 
@@ -1079,9 +1081,11 @@
   function planModal(name) {
     var s = enriched.find(function (x) { return x.name === name; });
     if (!s) return;
-    if (!s.nextDate) return toast(s.tbc
-      ? "The next call hasn't been announced yet; check the official page for dates."
-      : "Rolling deadline: positions post year-round. Apply when one fits; nothing to count down.");
+    if (!s.nextDate) return toast(s.rolling
+      ? "Rolling deadline: positions post year-round. Apply when one fits; nothing to count down."
+      : s.varies
+      ? "Each programme or country sets its own deadline; find yours on the official page, then count back from it."
+      : "The next call hasn't been announced yet; check the official page for dates.");
     var today = new Date(); today.setHours(0, 0, 0, 0);
     var items = PLAN_STEPS.map(function (st) {
       var d = new Date(s.nextDate); d.setDate(d.getDate() - st.w * 7);

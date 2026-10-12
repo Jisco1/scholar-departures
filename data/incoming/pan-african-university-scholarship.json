@@ -1,8 +1,5 @@
 {
-  "rolling": false,
-  "tbc": true,
-  "approx": false,
-  "last_verified": "2026-10-11",
+  "last_verified": "2026-10-12",
   "content_hash": null,
   "needs_review": false,
   "slug": "pan-african-university-scholarship",
@@ -30,7 +27,8 @@
     "PhD"
   ],
   "funding": "The African Union Commission gives full scholarships for master's and PhD study at its Pan African University institutes in Nigeria, Cameroon, Kenya and Algeria.",
-  "deadline": "2027 call not yet announced (the last call ran Nov 15 – Dec 15, 2025)",
-  "deadlines": [],
-  "link": "https://au.int/sw/announcements/20251115/pan-african-university-call-scholarships-applications-academic-year-2026-2027"
+  "deadline": "2027/28 call not yet announced",
+  "link": "https://au.int/sw/announcements/20251115/pan-african-university-call-scholarships-applications-academic-year-2026-2027",
+  "tbc": true,
+  "approx": false
 }

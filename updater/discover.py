@@ -132,9 +132,10 @@ Return AT MOST 3 candidates. End your reply with ONLY a JSON array inside a ```j
   "types": [<subset of {valid_types}>],
   "levels": [<subset of {valid_levels}>],
   "funding": "<one concrete sentence: what is covered, for whom>",
-  "deadline": "<human-readable typical deadline>",
-  "deadlines": [{{"m": <1-12>, "d": <1-31>}}],
-  "approx": <true if date varies>,
+  "status": "dated" if the official page gives the coming round's deadline, "tbc" if the next round is not announced, "varies" if each programme or country sets its own, "rolling" if applications are taken all year,
+  "deadline": "<the coming round's deadline line with years, as the official page states it>",
+  "deadlines": [{{"y": <year>, "m": <1-12>, "d": <1-31>}}] (only dates the official page gives for the coming round; [] unless status is "dated"; never last year's date),
+  "approx": <true only if the page calls the date provisional>,
   "official_link": "<the official university/government page URL>",
   "source_note": "<one line: how you confirmed it>"
 }}]
@@ -156,11 +157,26 @@ Respond with ONLY a JSON object:
   "accept": <true/false>,
   "reason": "<one sentence>",
   "funding": "<refined one-sentence funding summary based on the page>",
-  "deadline_text": "<deadline line from the page, or the candidate's if page omits it>",
-  "deadlines": [{{"m": <1-12>, "d": <1-31>}}],
-  "approx": <true/false>,
+  "status": "<dated | tbc | varies | rolling>, judged from the page alone: dated only if the page gives the coming round's deadline",
+  "deadline_text": "<the coming round's deadline line from the page with years, or what the page says about the next round>",
+  "deadlines": [{{"y": <year>, "m": <1-12>, "d": <1-31>}}] (only for status dated; never a past round's date),
+  "approx": <true only if the page calls the date provisional>,
   "confidence": <0.0-1.0>
 }}"""
+
+
+def dated_or_flag(v, c):
+    """The verifier's reading of the official page decides: confirmed dates still ahead, each with its year, or the flag
+    that says why there is no date. Anything else is shown as not yet announced rather than guessed."""
+    status = v.get("status") or c.get("status") or "tbc"
+    if status == "dated":
+        try:
+            dls = [{"y": int(dl["y"]), "m": int(dl["m"]), "d": int(dl["d"])} for dl in (v.get("deadlines") or [])]
+            dls = [dl for dl in dls if date(dl["y"], dl["m"], dl["d"]) >= date.today()]
+        except (KeyError, TypeError, ValueError):
+            dls = []
+        return {"deadlines": dls} if dls else {"tbc": True}
+    return {status if status in ("tbc", "varies", "rolling") else "tbc": True}
 
 
 def log(msg):
@@ -236,10 +252,12 @@ def valid_shape(c):
             return False
         if not c.get("levels") or not set(c["levels"]).issubset(VALID_LEVELS):
             return False
+        status = c.get("status", "dated")
+        if status not in ("dated", "tbc", "varies", "rolling"):
+            return False
         for dl in c.get("deadlines", []):
-            if not (1 <= int(dl["m"]) <= 12 and 1 <= int(dl["d"]) <= 31):
-                return False
-        return bool(c.get("deadlines"))
+            date(int(dl["y"]), int(dl["m"]), int(dl["d"]))  # every date carries its year
+        return bool(c.get("deadlines")) if status == "dated" else True
     except (KeyError, TypeError, ValueError):
         return False
 
@@ -343,8 +361,8 @@ def main():
                 "region": c["region"], "types": c["types"], "levels": c["levels"],
                 "funding": v.get("funding") or c["funding"],
                 "deadline": v.get("deadline_text") or c["deadline"],
-                "deadlines": v.get("deadlines") or c["deadlines"],
-                "approx": bool(v.get("approx", c.get("approx", True))),
+                **dated_or_flag(v, c),
+                "approx": bool(v.get("approx", False)),
                 "link": c["official_link"],
                 "last_verified": today, "content_hash": None, "needs_review": False,
             }

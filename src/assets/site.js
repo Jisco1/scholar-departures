@@ -11,32 +11,45 @@
   var today = new Date(); today.setHours(0, 0, 0, 0);
 
   function fmt(d) { return MONTHS[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear(); }
+  function fmtShort(d) { return MONTHS[d.getMonth()] + " " + d.getDate(); }
+  // only confirmed dates count: each carries its year, and a date that has passed is never moved to next year
   function nextDate(deadlines) {
     var best = null;
     (deadlines || []).forEach(function (dl) {
-      var d = new Date(today.getFullYear(), dl.m - 1, dl.d);
-      if (d < today) d = new Date(today.getFullYear() + 1, dl.m - 1, dl.d);
+      if (!dl.y) return;
+      var d = new Date(dl.y, dl.m - 1, dl.d);
+      if (d < today) return;
       if (!best || d < best) best = d;
     });
     return best;
   }
+  function isoDate(s) { var p = (s || "").split("-"); return p.length === 3 ? new Date(+p[0], +p[1] - 1, +p[2]) : null; }
   function parse(json) { try { return JSON.parse(json); } catch (e) { return null; } }
 
   /* ---- 1. live deadline chips ---- */
   document.querySelectorAll("[data-dl]").forEach(function (chip) {
     if (chip.hasAttribute("data-rolling")) return;
     var nd = nextDate(parse(chip.getAttribute("data-dl")));
-    if (!nd) return;
-    var days = Math.round((nd - today) / 86400000);
-    var approx = chip.hasAttribute("data-approx") ? "≈ " : "";
-    var status = days <= HORIZON_DAYS ? "approaching" : "closed";
-    chip.className = "chip " + status;
-    chip.textContent = status === "approaching"
-      ? "Due " + approx + "in " + days + " day" + (days === 1 ? "" : "s")
-      : "Closed · next " + approx + fmt(nd);
     var glance = chip.closest(".glance");
     var next = glance && glance.querySelector("[data-next]");
-    if (next) next.textContent = approx + fmt(nd);
+    if (!nd) {  // every confirmed date has passed since the page was built
+      chip.className = "chip closed";
+      chip.textContent = "Next call not yet announced";
+      if (next) next.textContent = "Not yet announced";
+      return;
+    }
+    var days = Math.round((nd - today) / 86400000);
+    var approx = chip.hasAttribute("data-approx") ? "≈ " : "";
+    var opens = isoDate(chip.getAttribute("data-opens"));
+    if (opens && opens <= today) opens = null;
+    var status = days <= HORIZON_DAYS ? "approaching" : "closed";
+    chip.className = "chip " + status;
+    chip.textContent = opens
+      ? "Opens " + fmtShort(opens) + " · due " + fmt(nd)
+      : status === "approaching"
+      ? "Due " + approx + "in " + days + " day" + (days === 1 ? "" : "s")
+      : "Next deadline " + approx + fmt(nd);
+    if (next) next.textContent = approx + fmt(nd) + (opens ? " (applications open " + fmt(opens) + ")" : "");
   });
 
   document.querySelectorAll("[data-plan]").forEach(function (list) {

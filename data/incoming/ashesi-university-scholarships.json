@@ -1,8 +1,5 @@
 {
-  "rolling": false,
-  "tbc": false,
-  "approx": true,
-  "last_verified": "2026-10-11",
+  "last_verified": "2026-10-12",
   "content_hash": null,
   "needs_review": false,
   "slug": "ashesi-university-scholarships",
@@ -26,24 +23,8 @@
     "Bachelor's"
   ],
   "funding": "Need-based scholarships at one of Ghana's most respected universities, including full Mastercard Foundation awards for African students that cover all fees, room, board and learning resources.",
-  "deadline": "Four undergraduate rounds a year: June, August, October and December (classes start in September or January)",
-  "deadlines": [
-    {
-      "m": 6,
-      "d": 30
-    },
-    {
-      "m": 8,
-      "d": 31
-    },
-    {
-      "m": 10,
-      "d": 31
-    },
-    {
-      "m": 12,
-      "d": 31
-    }
-  ],
-  "link": "https://ashesi.edu.gh/scholarships/"
+  "deadline": "Four undergraduate rounds a year, closing in June, August, October and December; admissions confirms the exact dates",
+  "link": "https://ashesi.edu.gh/scholarships/",
+  "varies": true,
+  "approx": false
 }

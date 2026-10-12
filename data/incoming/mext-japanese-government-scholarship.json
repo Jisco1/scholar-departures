@@ -1,8 +1,5 @@
 {
-  "rolling": false,
-  "tbc": false,
-  "approx": true,
-  "last_verified": "2026-10-11",
+  "last_verified": "2026-10-12",
   "content_hash": null,
   "needs_review": false,
   "slug": "mext-japanese-government-scholarship",
@@ -30,12 +27,8 @@
     "PhD"
   ],
   "funding": "Japan's government pays tuition, ¥144,000 a month in a master's course or ¥145,000 in a doctoral course, and the flight to Japan, through the Japanese embassy in your country.",
-  "deadline": "Through your Japanese embassy, most rounds close in May–June (the 2027 round has closed; the 2028 round opens around April 2027)",
-  "deadlines": [
-    {
-      "m": 5,
-      "d": 31
-    }
-  ],
-  "link": "https://www.studyinjapan.go.jp/en/planning/scholarships/mext-scholarships/"
+  "deadline": "The embassy round for 2028 is not yet announced; each Japanese embassy sets its own dates",
+  "link": "https://www.studyinjapan.go.jp/en/planning/scholarships/mext-scholarships/",
+  "tbc": true,
+  "approx": false
 }

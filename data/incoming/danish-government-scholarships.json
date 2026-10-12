@@ -22,13 +22,12 @@
     "Master's"
   ],
   "funding": "Full or partial tuition fee waivers and/or grants towards covering living costs for highly qualified non-EU/EEA students, administered by individual Danish universities.",
-  "deadline": "Varies; each Danish university sets its own",
-  "deadlines": [],
-  "rolling": true,
-  "approx": false,
+  "deadline": "Set by each Danish university, with its own admission process",
   "link": "https://studyindenmark.dk/study-options/scholarships",
-  "last_verified": "2026-10-01",
+  "last_verified": "2026-10-12",
   "content_hash": null,
   "needs_review": false,
-  "slug": "danish-government-scholarships"
+  "slug": "danish-government-scholarships",
+  "varies": true,
+  "approx": false
 }
