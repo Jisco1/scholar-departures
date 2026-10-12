@@ -135,7 +135,11 @@ class BuiltSite(unittest.TestCase):
             self.assertNotIn("getFullYear() + 1", js, f"{name} moves a passed deadline to next year")
         cal = (self.site / "deadlines" / "index.html").read_text(encoding="utf-8")
         self.assertIn("Next call not yet announced:", cal)
-        self.assertIn("Deadline set by each programme", cal)
+        self.assertIn("No single deadline", cal)
+        # a route without one date shares its own deadline line, never a guessed date
+        ashesi = (self.site / "routes" / "ashesi-university-scholarships" / "index.html").read_text(encoding="utf-8")
+        self.assertIn("Deadline: Four undergraduate rounds a year", html_mod.unescape(ashesi))
+        self.assertNotIn("Next deadline: around", html_mod.unescape(ashesi))
         for stale in ("usual annual", "typical deadline", "Typical deadline"):
             self.assertNotIn(stale, cal)
 

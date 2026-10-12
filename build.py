@@ -263,7 +263,7 @@ def status_chip(route):
     elif status == "tbc":
         return '<span class="chip closed">Next call not yet announced</span>'
     elif status == "varies":
-        return '<span class="chip closed">Deadline set by each programme</span>'
+        return '<span class="chip closed">Deadline varies</span>'
     elif opens:
         text = f"Opens {fmt_date(opens, False)} · due {fmt_date(nd)}"
     elif status == "approaching":
@@ -1476,13 +1476,13 @@ def build_route_pages(routes, notes, country_pages):
         opens = opens_date(r)
         next_text = ("Positions open year-round" if status == "rolling"
                      else "Not yet announced" if status == "tbc"
-                     else "Set by each programme or country" if status == "varies"
+                     else "No single date; see the line above" if status == "varies"
                      else f"{'≈ ' if r.get('approx') else ''}{fmt_date(nd)}"
                           + (f" (applications open {fmt_date(opens)})" if opens else ""))
         # one short line each, the way it reads in a WhatsApp chat; the link goes underneath
         share_when = ("Applications open year-round" if status == "rolling"
                       else "Next call not yet announced" if status == "tbc"
-                      else "Deadline set by each programme or country" if status == "varies"
+                      else f"Deadline: {r['deadline']}" if status == "varies"
                       else f"Next deadline: {'around ' if r.get('approx') else ''}{fmt_date(nd)}")
         share_text = NL.join([f"\U0001F393 {r['name']}", f"{r['country']} · {and_list(r['types'])} · {and_list(r['levels'])}", share_when])
         glance = f"""<section class="glance" aria-label="At a glance">
@@ -2253,7 +2253,7 @@ def build_deadlines(routes):
 <p class="lede">The next twelve months, starting now. Each date is the deadline the official page gives for the coming round. When a round has not been announced yet, the route is listed below the calendar instead of being given a guessed date. Plan to submit at least a week early.</p></div>
 <div class="months">{cards}</div>
 <p class="muted" style="margin:24px 0 8px;line-height:1.7">Open year-round (no fixed deadline): {names(rolling)}.</p>
-<p class="muted" style="margin:0 0 8px;line-height:1.7">Deadline set by each programme, faculty or country: {names(varies)}.</p>
+<p class="muted" style="margin:0 0 8px;line-height:1.7">No single deadline (set by each programme, round, faculty or country): {names(varies)}.</p>
 <p class="muted" style="margin:0 0 48px;line-height:1.7">Next call not yet announced: {names(tbc)}.</p></div>"""
     LASTMOD["deadlines/"] = DATES.get("routes")
     write("deadlines/", page("deadlines/", "Scholarship and admission deadline calendar",
