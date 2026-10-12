@@ -435,7 +435,9 @@ THEME_TOGGLE = ('<button type="button" class="theme-toggle" aria-label="Switch t
                 'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/>'
                 '<path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>')
 # runs before the first paint so a saved dark choice never flashes light
-THEME_BOOT = ("try{var t=localStorage.getItem('sd-theme');if(t==='dark'){document.documentElement.removeAttribute('data-theme');"
+# Dark when the visitor chose it with the toggle, or, with no choice saved, when their phone or computer is in dark mode.
+THEME_BOOT = ("try{var t=localStorage.getItem('sd-theme');if(t==='dark'||(!t&&window.matchMedia&&"
+              "matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.removeAttribute('data-theme');"
               "document.querySelector('meta[name=theme-color]').setAttribute('content','#0B1322')}}catch(e){}")
 
 

@@ -550,9 +550,11 @@ class BuiltSite(unittest.TestCase):
         rest = re.sub(r'url\("data:[^"]*"\)', "", rest)
         stray = set(re.findall(r"#[0-9A-Fa-f]{6}\b|rgba\((?!215,169,76)[^)]*\)", rest)) - {"#000"}
         self.assertFalse(stray, f"hard-coded colours outside the theme tokens: {sorted(stray)}")
-        # the saved theme is applied before first paint, by a nonced script
+        # the saved theme, or else the device's dark mode (12 Oct 2026), is applied before first paint by a nonced script
         home = (self.site / "index.html").read_text(encoding="utf-8")
-        self.assertRegex(home, r'<script nonce="[^"]+">try\{var t=localStorage\.getItem\(.sd-theme.\);if\(t===.dark.\)')
+        self.assertRegex(home, r'<script nonce="[^"]+">try\{var t=localStorage\.getItem\(.sd-theme.\);if\(t===.dark.\|\|')
+        self.assertIn("prefers-color-scheme: dark", home)
+        self.assertIn('osDark.addEventListener("change", followDevice)', (ROOT / "src" / "assets" / "site.js").read_text(encoding="utf-8"))
 
     def test_share_on_every_route_guide_and_story(self):
         from urllib.parse import parse_qs, urlsplit

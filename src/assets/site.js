@@ -106,8 +106,8 @@
     menu.addEventListener("click", function (e) { if (e.target.closest(".menu-panel a")) menu.open = false; });
   }
 
-  /* ---- theme: light first; the button beside Menu switches to dark and back, remembered on this device
-     (a saved choice is applied before first paint by the head script) ---- */
+  /* ---- theme: follows the phone or computer's light or dark mode until the visitor picks one with the button
+     beside Menu, which is remembered on this device (the head script applies it before first paint) ---- */
   var toggle = document.querySelector(".theme-toggle");
   if (toggle) {
     var themeMeta = document.querySelector('meta[name="theme-color"]');
@@ -128,6 +128,18 @@
       try { localStorage.setItem("sd-theme", theme); } catch (err) {}
       try { document.dispatchEvent(new CustomEvent("sd-theme", { detail: theme })); } catch (err) {}
     });
+    // no saved choice: switch along with the device when its light or dark mode changes
+    var osDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)");
+    var followDevice = function () {
+      var saved = null;
+      try { saved = localStorage.getItem("sd-theme"); } catch (err) {}
+      if (saved) return;
+      var theme = osDark.matches ? "dark" : "light";
+      paintTheme(theme);
+      try { document.dispatchEvent(new CustomEvent("sd-theme", { detail: theme })); } catch (err) {}
+    };
+    if (osDark && osDark.addEventListener) osDark.addEventListener("change", followDevice);
+    else if (osDark && osDark.addListener) osDark.addListener(followDevice);
   }
 
   /* ---- share: the phone's own share sheet where there is one, otherwise the short list ---- */
