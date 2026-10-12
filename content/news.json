@@ -1,5 +1,123 @@
 [
   {
+    "id": "nobel-economics-2026-hall-woodford",
+    "date": "2026-10-12",
+    "category": "Award",
+    "title": "Nobel Prize in Economic Sciences 2026 goes to Robert Hall and Michael Woodford for the models behind modern stabilisation policy",
+    "summary": "Robert E. Hall of Stanford University and Michael Woodford of Columbia University share the 2026 prize in economic sciences for building macroeconomic models on the decisions of households and firms, the models central banks and governments now use to soften downturns and inflation spikes.",
+    "meta_title": "Nobel Prize in Economic Sciences 2026: Hall and Woodford",
+    "meta_description": "Stanford's Robert E. Hall and Columbia's Michael Woodford win the 2026 economics prize for the microeconomic foundations of macroeconomic stabilisation.",
+    "why": "The laureates' models are a core part of graduate macroeconomics and are used by central banks, which hire economists from funded master's and PhD programmes around the world.",
+    "images": [
+      {
+        "file": "news-royal-swedish-academy.jpg",
+        "kind": "wide",
+        "name": "The Royal Swedish Academy of Sciences, Stockholm",
+        "credit": "Hackspett",
+        "license": "CC BY-SA 2.5",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Main_building_of_the_Royal_Swedish_Academy_of_Sciences_(Kungliga_Vetenskapsakademien),_Frescati,_Norra_Djurg%C3%A5rden,_Stockholm.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.5/"
+      }
+    ],
+    "source_title": "NobelPrize.org: Press release, 12 October 2026",
+    "source_url": "https://www.nobelprize.org/prizes/economic-sciences/2026/press-release/",
+    "body": [
+      "The Royal Swedish Academy of Sciences has awarded the 2026 Sveriges Riksbank Prize in Economic Sciences in Memory of Alfred Nobel to Robert E. Hall of Stanford University and Michael Woodford of Columbia University \"for microeconomic foundations of macroeconomic stabilisation\". The academy announced the prize in Stockholm on 12 October.",
+      "Economies move through downturns and upturns, and ever since John Maynard Keynes, governments and central banks have tried to even them out: cutting interest rates and running larger budget deficits in a recession, and doing the opposite when an economy overheats. During the oil crises of the 1970s the models behind those decisions stopped working. Instead of bringing unemployment down, policy fed inflation, and many economists concluded that stabilisation policy did more harm than good.",
+      "Hall and Woodford showed how to rebuild those models. Rather than resting on statistical links between figures such as inflation, output and consumption, their models start from how individual households and businesses behave and add those decisions up to the level of the whole economy. A central part is that households and firms look ahead when they decide how much to save or what prices to set.",
+      "That forward-looking behaviour gives policy another lever: when a government or central bank explains its plans, it changes what people expect, and that alone can move the economy in the right direction. The prize committee says models built on this foundation are now used by central banks and governments around the world, and have helped them deal with recent downturns.",
+      "The economics prize is the last of this year's Nobel announcements. For students drawn to the field, our guide to [fully funded study in business and economics]({{root}}subjects/business-economics/) lists routes that pay for a master's or PhD."
+    ]
+  },
+  {
+    "id": "nvidia-1-billion-us-science-2026",
+    "date": "2026-10-08",
+    "category": "Funding",
+    "title": "NVIDIA commits $1 billion over five years to US science, from university research computing to quantum",
+    "summary": "NVIDIA says it will put commitments worth $1 billion over the next five years into computing for US scientific research, covering the country's higher-education research institutions, quantum computing and cloud providers that serve government work.",
+    "meta_title": "NVIDIA commits $1 billion to US science over five years",
+    "meta_description": "NVIDIA plans $1 billion over five years for US research computing, covering university research institutions, quantum computing and national-lab collaborations.",
+    "why": "Part of the computing is meant for universities' research institutions, in fields such as AI, quantum computing and energy where US PhD places in science usually come with a stipend.",
+    "images": [
+      {
+        "file": "news-nvidia-headquarters.jpg",
+        "kind": "wide",
+        "name": "NVIDIA headquarters in Santa Clara, California",
+        "credit": "Coolcaesar",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:NVIDIA_Headquarters.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    ],
+    "source_title": "NVIDIA: Press release, 8 October 2026",
+    "source_url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Commits-1-Billion-to-Advance-US-Science-Over-the-Next-Five-Years/default.aspx",
+    "body": [
+      "NVIDIA has announced commitments valued at $1 billion to expand US research computing over the next five years, in fields it names as quantum computing, healthcare and energy security. The company made the announcement on 8 October at an event in Washington, D.C. that brought together government officials, industry leaders and scientists.",
+      "According to NVIDIA, the money will go to three areas: computing support for the country's higher-education research institutions, investment in quantum computing, and support for cloud providers that serve US government work. The company has not published how the total will be divided between them.",
+      "The event marked an expansion of the Genesis Mission, the federal programme to speed up scientific discovery with AI, in which NVIDIA is an industry partner. NVIDIA is also a collaborator on several projects in the programme's second round of awards, in quantum computing, fusion, accelerator design and microelectronics. The plan builds on two decades of work with US national laboratories, including the scientific supercomputer the company is helping the Department of Energy build at Argonne National Laboratory.",
+      "The United States has more routes on our board than any other country. Our [guide to studying in the United States]({{root}}countries/united-states/) covers how funding works there for international students."
+    ]
+  },
+  {
+    "id": "tu-wien-self-stabilising-nuclear-clock",
+    "date": "2026-10-07",
+    "category": "Breakthrough",
+    "title": "TU Wien runs the first self-stabilising nuclear clock, ticking on thorium nuclei for more than a day",
+    "summary": "Physicists at TU Wien in Vienna have built the first nuclear clock that keeps its own laser on frequency, using thorium nuclei in a crystal made at the university. It ran stably for more than 24 hours without intervention, a step towards clocks that could outdo today's best atomic clocks.",
+    "meta_title": "TU Wien builds the first self-stabilising nuclear clock",
+    "meta_description": "A thorium-229 nuclear clock at TU Wien keeps its laser on frequency by itself and ran for over 24 hours without intervention, according to a study in Nature.",
+    "why": "The clock was built at TU Wien, one of the low-tuition universities on our board, and precision measurement is a field where many PhD places in Europe come as paid research posts.",
+    "images": [
+      {
+        "file": "news-atominstitut-vienna.jpg",
+        "kind": "wide",
+        "name": "The Atominstitut of TU Wien in Vienna's Prater",
+        "credit": "Gugerell",
+        "license": "CC0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wien_02_Praterreaktor_a.jpg",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "source_title": "TU Wien press release (in German), 7 October 2026",
+    "source_url": "https://idw-online.de/en/news878443",
+    "body": [
+      "A team led by Thorsten Schumm at the Atominstitut of TU Wien has built the first nuclear clock that stabilises itself, as atomic clocks do. The university announced the result on 7 October, with the study published in Nature. The prototype ran for more than 24 hours without anyone stepping in.",
+      "The clock relies on an unusual property of the thorium-229 nucleus: it has two energy states so close together that a laser can switch the nucleus from one to the other, while other nuclei need far more energy than laser light carries. In April 2024 Schumm's team, working with Ekkehard Peik's group at PTB, Germany's national metrology institute, showed for the first time that thorium nuclei can be excited this way. That autumn they used them to time a conventional optical atomic clock.",
+      "That earlier set-up still depended on an atomic clock. In the new one, a laser shines on a crystal containing thorium atoms, grown at TU Wien, and the nuclei keep the laser on frequency themselves: they absorb its light only when the frequency is exactly right, so any drift shows up as weaker absorption and the laser is corrected automatically.",
+      "Nuclei are more than ten thousand times smaller than atoms and far less disturbed by their surroundings, which is why nuclear clocks could in principle be more precise than atomic ones. Measured over a day, the Vienna prototype reached a precision of about one part in a million billion, roughly one second of error in 30 million years. Schumm says this is not yet at the level of the best optical atomic clocks, but a fantastic result for a first prototype, and the team plans stronger lasers and better thorium crystals.",
+      "TU Wien is on our board as a [low-tuition university for international students]({{root}}routes/tu-wien/)."
+    ]
+  },
+  {
+    "id": "global-chip-sales-top-1-trillion-2026",
+    "date": "2026-10-05",
+    "category": "Industry",
+    "title": "Global chip sales pass $1 trillion in the first eight months of 2026, a first for the semiconductor industry",
+    "summary": "Worldwide semiconductor sales reached $159.7 billion in August 2026, 144% more than a year earlier, taking the year's total past $1 trillion for the first time, according to the Semiconductor Industry Association, which expects more than $1.6 trillion for the full year.",
+    "meta_title": "Global chip sales top $1 trillion through August 2026",
+    "meta_description": "August 2026 chip sales reached $159.7 billion, up 144.3% on a year earlier, pushing sales for the year past $1 trillion for the first time, the SIA reports.",
+    "why": "Chips are designed and made by electrical engineers, physicists, chemists and materials scientists, and engineering has more funded master's and PhD routes than almost any other subject.",
+    "images": [
+      {
+        "file": "news-semiconductor-wafer.jpg",
+        "kind": "wide",
+        "name": "A semiconductor wafer of microelectronic chips",
+        "credit": "DrHughManning",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Semiconductor_Wafer_of_Microelectronics.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    ],
+    "source_title": "Semiconductor Industry Association: Press release, 5 October 2026",
+    "source_url": "https://www.semiconductors.org/year-to-date-global-semiconductor-sales-top-1-trillion-through-august/",
+    "body": [
+      "Global semiconductor sales came to $159.7 billion in August 2026, the Semiconductor Industry Association (SIA) said on 5 October. That is 8% more than July's $147.9 billion and 144.3% more than in August 2025, when sales were $65.4 billion. The monthly figures are compiled by World Semiconductor Trade Statistics and are three-month moving averages.",
+      "With August counted, sales for 2026 so far have passed $1 trillion, a total the industry had never reached in a year before. SIA president and chief executive Michael Robbins said the market had grown for 18 months in a row, and the association expects sales of more than $1.6 trillion for the whole of 2026.",
+      "Every region grew strongly on a year earlier: sales into the Americas rose 180.9%, Asia Pacific and other markets 143.0%, China 131.3%, Europe 98.5% and Japan 62.3%. Compared with July, all five regions were up, by between 6.6% and 9.1%.",
+      "Chip design, fabrication and testing draw on electrical engineers, physicists, chemists and materials scientists. Our guide to [fully funded engineering degrees]({{root}}subjects/engineering-technology/) lists the routes that pay for a master's or PhD in these fields."
+    ]
+  },
+  {
     "id": "nobel-peace-2026-navi-pillay",
     "date": "2026-10-09",
     "category": "Award",

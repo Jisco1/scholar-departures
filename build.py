@@ -978,7 +978,7 @@ def build_position_page(p, live):
                      jsonld=[breadcrumb_ld([("", "Home"), ("positions/", "Funded positions"), (path, p["title"])])]))
 
 
-NEWS_CATEGORIES = ["Award", "Breakthrough", "Funding", "Policy"]
+NEWS_CATEGORIES = ["Award", "Breakthrough", "Funding", "Industry", "Policy"]
 
 
 def load_news():
@@ -1066,7 +1066,8 @@ NEWS_ART = {
     "award": _svg('<path d="M64 14l12 26M96 14 84 40"/><circle cx="80" cy="62" r="22"/><circle cx="80" cy="62" r="13"/>'
                   '<path d="M80 54l2.5 5 5.5.8-4 3.9 1 5.5-5-2.6-5 2.6 1-5.5-4-3.9 5.5-.8z" fill="currentColor"/>'),
 }
-NEWS_ART_FOR = {"Award": "award", "Breakthrough": "breakthrough", "Funding": "scholarship", "Policy": "scholarship"}
+NEWS_ART_FOR = {"Award": "award", "Breakthrough": "breakthrough", "Funding": "scholarship", "Industry": "breakthrough",
+                "Policy": "scholarship"}
 IMAGE_LICENCE = re.compile(r"^(CC0|Public domain|CC BY(-SA)? \d\.\d( [A-Z]{2,3})?)$")  # never NC or ND
 
 
