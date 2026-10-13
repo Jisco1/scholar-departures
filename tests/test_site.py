@@ -140,6 +140,23 @@ class BuiltSite(unittest.TestCase):
         self.assertNotIn("typical annual date", policy)
         self.assertIn("Deadline verified", policy)
 
+    def test_us_university_profiles_carry_their_own_facts(self):
+        # 13 Oct 2026: profiles were the same advice for every school; US ones now carry IPEDS facts of their own
+        doc = json.loads((self.site / "app" / "us-profiles.json").read_text(encoding="utf-8"))
+        profiles = doc["profiles"]
+        self.assertGreater(len(profiles), 1500)
+        mit = profiles["mit"]
+        self.assertEqual((mit["city"], mit["state"]), ("Cambridge", "MA"))
+        self.assertIn("R1", mit["kind"])
+        self.assertTrue(all(u.startswith("https://") for p in profiles.values() for u in (p.get("links") or {}).values()))
+        page = (self.site / "school" / "index.html").read_text(encoding="utf-8")
+        for section in ("schProfile", "schFacts", "schPages"):
+            self.assertIn(f'id="{section}"', page)
+        self.assertIn("countryFacts", page)
+        cfg = json.loads((self.dir / "site.json").read_text(encoding="utf-8"))
+        if cfg["adsense"]["client"] and (cfg["adsense"].get("slots") or {}).get("article"):
+            self.assertIn('class="ad-bay', page)  # the profile page keeps its ad slot
+
     def test_deadlines_are_confirmed_dates_only(self):
         # 12 Oct 2026: a route counted down to last year's date ("due in 64 days") for a round nobody had
         # announced. Every deadline carries the year the official page gave, and nothing rolls forward.

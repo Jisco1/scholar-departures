@@ -179,6 +179,10 @@ img, svg { max-width: 100%; }
 .glance dt { font-family: var(--mono); font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--faint); margin-bottom: 5px; }
 .glance dd { font-size: 15px; line-height: 1.5; color: var(--text); }
 .glance dd .sub { display: block; color: var(--dim); font-size: 13px; margin-top: 3px; }
+.school-dl { display: grid; grid-template-columns: 1fr; gap: 10px 24px; margin: 12px 0 6px; }
+@media (min-width: 620px) { .school-dl { grid-template-columns: 1fr 1fr; } }
+.school-dl dt { font-family: var(--mono); font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase; color: var(--faint); margin-bottom: 3px; }
+.school-dl dd { margin: 0; font-size: 15px; line-height: 1.5; color: var(--text); }
 .glance dd .sub.warn { color: var(--approaching); font-weight: 600; }
 .rounds { max-width: 720px; margin: 8px 0 8px; padding: 16px 20px; border: 1px solid var(--line); border-radius: 14px; background: var(--card); }
 .rounds h2 { font-size: 15px; margin: 0 0 6px; }

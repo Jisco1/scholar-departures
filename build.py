@@ -2142,6 +2142,42 @@ def make_directory(schools, routes, world=(), programs=None):
     return out
 
 
+def load_us_profiles():
+    """data/us_profiles.json: one US university's own facts (type, setting, size, research classification, degrees
+    awarded, its admissions, aid, application and net price pages), keyed by website host, made by tools/us_profiles.py
+    from IPEDS (U.S. Department of Education, public domain)."""
+    path = DATA / "us_profiles.json"
+    if not path.exists():
+        return {}
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    out = {}
+    for h, p in (doc.get("profiles") or {}).items():
+        where = f"us_profiles.json {h}"
+        if not re.match(r"^[a-z0-9.-]+$", h) or not isinstance(p, dict):
+            fail(f"{where}: bad entry")
+            continue
+        for key in ("city", "state", "control", "setting", "size", "kind"):
+            v = p.get(key)
+            if v is not None and (not isinstance(v, str) or len(v) > 120 or re.search(r"[<>\x00-\x1f]", v)):
+                fail(f"{where}: bad '{key}'")
+        for v in (p.get("links") or {}).values():
+            if not URL_RE.match(v or ""):
+                fail(f"{where}: links must be plain https:// URLs, got {v!r}")
+        out[h] = p
+    return out
+
+
+def write_us_profiles(directory, profiles):
+    """app/us-profiles.json, by school slug: fetched only by US university pages, so the directory stays light."""
+    by_slug = {s["slug"]: profiles[url_host(s["url"])] for s in directory
+               if s["country"] == "United States" and url_host(s["url"]) in profiles}
+    doc = {"source": "U.S. Department of Education, IPEDS: institutional directory 2024-25 and completions 2022-23",
+           "profiles": by_slug}
+    (OUT / "app").mkdir(exist_ok=True)
+    (OUT / "app" / "us-profiles.json").write_text(json.dumps(doc, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    return len(by_slug)
+
+
 def write_app_schools(directory, programs=None):
     """app/schools.json: the schools directory for the app and for the site's directory and school pages, kept apart
     from feed.json because it is large and only needed when someone opens it."""
@@ -2160,7 +2196,9 @@ def build_school_page(country_pages):
     ten thousand pages built from one template would read as thin content."""
     root = "../"
     config = {"root": root, "base": BASE, "ext": EXT,
-              "countryPages": {c["name"]: slug for slug, c in country_pages.items()}}
+              "countryPages": {c["name"]: slug for slug, c in country_pages.items()},
+              # each guide country's essentials (tuition, application fee, proof of funds, work, after graduating)
+              "countryFacts": {c["name"]: [[a, b] for a, b in (c.get("glance") or [])] for c in country_pages.values()}}
     config_json = json.dumps(config, ensure_ascii=False).replace("</", "<\\/")
     body = f"""<div class="wrap school-page">
 <header class="page-head">
@@ -2173,9 +2211,12 @@ def build_school_page(country_pages):
 <noscript><p class="lede">This page needs JavaScript. <a href="{root}scholarships/#directory">Open the schools directory</a>.</p></noscript>
 <div class="prose school-body">
 <section id="schGuide" hidden></section>
+<section id="schProfile" hidden></section>
 <section id="schDegrees" hidden></section>
 {ad_bay("article")}
 <section id="schFunding" hidden></section>
+<section id="schFacts" hidden></section>
+<section id="schPages" hidden></section>
 <section id="schApply" hidden>
 <h2>Before you apply</h2>
 <ul>
@@ -2480,6 +2521,7 @@ def main():
     write_meta_files(ROUTES)
     write_app_feed(ROUTES, notes, positions, news, subjects, guides, load_route_photos({r['slug'] for r in ROUTES}))
     write_app_schools(directory, programs)
+    write_us_profiles(directory, load_us_profiles())
     check_links()
     return report()
 

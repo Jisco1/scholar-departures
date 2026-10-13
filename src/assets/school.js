@@ -22,6 +22,19 @@
   var WITH_THE = /^(United States|United Kingdom|United Arab Emirates|Netherlands|Philippines|Bahamas|Gambia|Maldives|Czech Republic|Dominican Republic|Central African Republic|Democratic Republic of the Congo|Republic of the Congo|Holy See|Solomon Islands|Marshall Islands|Cayman Islands|British Virgin Islands)$/;
   function inCountry(c) { return (WITH_THE.test(c) ? "the " : "") + c; }  // "in the United States", "in Ghana"
   function show(id, html) { var el = $(id); el.innerHTML = html; el.hidden = false; }
+  function cap(t) { return t ? t.charAt(0).toUpperCase() + t.slice(1) : t; }
+  function num(n) { return Number(n).toLocaleString("en-US"); }
+  var STATES = { AL: "Alabama", AK: "Alaska", AZ: "Arizona", AR: "Arkansas", CA: "California", CO: "Colorado", CT: "Connecticut",
+    DE: "Delaware", DC: "Washington, DC", FL: "Florida", GA: "Georgia", HI: "Hawaii", ID: "Idaho", IL: "Illinois", IN: "Indiana",
+    IA: "Iowa", KS: "Kansas", KY: "Kentucky", LA: "Louisiana", ME: "Maine", MD: "Maryland", MA: "Massachusetts", MI: "Michigan",
+    MN: "Minnesota", MS: "Mississippi", MO: "Missouri", MT: "Montana", NE: "Nebraska", NV: "Nevada", NH: "New Hampshire",
+    NJ: "New Jersey", NM: "New Mexico", NY: "New York", NC: "North Carolina", ND: "North Dakota", OH: "Ohio", OK: "Oklahoma",
+    OR: "Oregon", PA: "Pennsylvania", RI: "Rhode Island", SC: "South Carolina", SD: "South Dakota", TN: "Tennessee", TX: "Texas",
+    UT: "Utah", VT: "Vermont", VA: "Virginia", WA: "Washington", WV: "West Virginia", WI: "Wisconsin", WY: "Wyoming",
+    PR: "Puerto Rico", GU: "Guam", VI: "the U.S. Virgin Islands", AS: "American Samoa", MP: "the Northern Mariana Islands",
+    FM: "Micronesia", MH: "the Marshall Islands", PW: "Palau" };
+  var DEGREE = { a: ["associate degree", "associate degrees"], b: ["bachelor's degree", "bachelor's degrees"], m: ["master's degree", "master's degrees"],
+    d: ["research doctorate", "research doctorates"], p: ["professional doctorate (such as an MD or JD)", "professional doctorates (such as MD or JD)"] };
 
   function notFound() {
     $("schName").textContent = "We couldn’t find that university";
@@ -98,6 +111,24 @@
     show("schFunding", html + '<p class="school-links">' + links.join("") + "</p>");
     $("schApply").hidden = false;
 
+    // the essentials of studying in its country, from our country guide
+    var facts = (cfg.countryFacts || {})[s.country];
+    if (facts && facts.length) {
+      show("schFacts", "<h2>Studying in " + esc(inCountry(s.country)) + ": the essentials</h2>" +
+        '<div class="table-wrap"><table>' + facts.map(function (f) {
+          return "<tr><th scope=\"row\">" + esc(f[0]) + "</th><td>" + esc(f[1]) + "</td></tr>";
+        }).join("") + "</table></div>" +
+        (guide ? '<p class="school-links"><a href="' + ROOT + "countries/" + guide + '/">Visas, costs and work rules in our guide →</a></p>' : ""));
+    }
+
+    // US universities: their own facts and pages, from U.S. Department of Education data
+    if (s.country === "United States") {
+      fetch(ROOT + "app/us-profiles.json")
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function (d) { var p = (d.profiles || {})[s.slug]; if (p) profile(s, p); })
+        .catch(function () {});
+    }
+
     // other universities in the same country: ones with a funding guide or degree data first
     var others = all.filter(function (x) { return x.country === s.country && x.slug !== s.slug; });
     others.sort(function (a, b) {
@@ -118,6 +149,48 @@
     show("schOfficial", '<a class="btn btn-primary route-official-btn" href="' + esc(safeUrl(s.url)) +
       '" target="_blank" rel="noopener noreferrer">Official website: ' + esc(host(s.url)) + " " + cfg.ext + "</a>" +
       "<small>Programmes, entry requirements, fees and how to apply are on the university’s own site.</small>");
+  }
+
+  function profile(s, p) {
+    if (p.city && !s.city) {  // the directory only knows the country; IPEDS knows the town
+      var lede = $("schPlace").textContent;
+      $("schPlace").textContent = p.city + ", " + (STATES[p.state] || p.state) + ", " + lede;
+    }
+    var rows = [];
+    if (p.control) rows.push(["Type", cap(p.control)]);
+    if (p.kind) rows.push(["Classification", cap(p.kind.replace(/^an? /, ""))]);
+    if (p.city) rows.push(["Location", p.city + ", " + (STATES[p.state] || p.state) + (p.setting ? " (" + p.setting + ")" : "")]);
+    if (p.size) rows.push(["Students", p.size]);
+    if (p.flags) rows.push(["Also", cap(p.flags.join("; "))]);
+    var deg = ["a", "b", "m", "d", "p"].filter(function (k) { return p.degrees && p.degrees[k]; }).map(function (k) {
+      return num(p.degrees[k]) + " " + DEGREE[k][p.degrees[k] === 1 ? 0 : 1];
+    });
+    if (deg.length) rows.push(["Degrees awarded in 2022-23", deg.join(" · ")]);
+    if (p.top_fields) rows.push(["Most graduates in", p.top_fields.join(", ")]);
+    if (rows.length) {
+      show("schProfile", "<h2>At a glance</h2>" + '<dl class="school-dl">' + rows.map(function (r) {
+        return "<div><dt>" + esc(r[0]) + "</dt><dd>" + esc(r[1]) + "</dd></div>";
+      }).join("") + "</dl>" +
+        '<p class="school-src">From U.S. Department of Education data (IPEDS): institutional directory 2024-25, degrees awarded 2022-23.</p>');
+    }
+    var L = p.links || {}, pages = [
+      ["admissions", "Admissions", "entry requirements, tests and deadlines"],
+      ["aid", "Financial aid", "what it offers and how to apply for it"],
+      ["apply", "How to apply", "the application itself"],
+      ["netprice", "Net price calculator", "an estimate of what you would pay after aid"]
+    ].filter(function (x) { return L[x[0]]; });
+    if (pages.length) {
+      show("schPages", "<h2>" + esc(s.name) + "’s own pages</h2>" + '<ul class="school-routes">' + pages.map(function (x) {
+        return '<li><a href="' + esc(safeUrl(L[x[0]])) + '" target="_blank" rel="noopener noreferrer">' + esc(x[1]) + " " + cfg.ext + "</a>" +
+          '<span class="school-route-meta">' + esc(x[2]) + "</span></li>";
+      }).join("") + "</ul>");
+      var steps = [];
+      if (L.admissions) steps.push("Check entry requirements, English tests and deadlines on " + esc(s.name) + "’s admissions page above.");
+      if (L.netprice) steps.push("Run its net price calculator to estimate what you would pay after aid, before you spend on an application.");
+      if (L.aid) steps.push("Read its financial aid page for what it offers international students, and the forms it asks for.");
+      steps.push("Apply through the university or the portal it names. Never pay an agent who promises admission.");
+      show("schApply", "<h2>Before you apply</h2><ul>" + steps.map(function (t) { return "<li>" + t + "</li>"; }).join("") + "</ul>");
+    }
   }
 
   // the Share button carries this university's own link and message
