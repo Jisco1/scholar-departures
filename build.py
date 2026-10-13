@@ -2178,6 +2178,37 @@ def write_us_profiles(directory, profiles):
     return len(by_slug)
 
 
+def load_world_profiles():
+    """data/world_profiles.json: founding year, student numbers with their year, town and kind of institution for
+    universities outside the US, keyed by website host, made by tools/world_profiles.py from Wikidata (CC0)."""
+    path = DATA / "world_profiles.json"
+    if not path.exists():
+        return {}
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    out = {}
+    for h, p in (doc.get("profiles") or {}).items():
+        where = f"world_profiles.json {h}"
+        ok = (re.match(r"^[a-z0-9.-]+$", h) and isinstance(p, dict) and re.match(r"^Q[0-9]{1,12}$", p.get("qid") or "")
+              and all(isinstance(p.get(k, 0), int) for k in ("founded", "students", "students_year"))
+              and all(p.get(k) is None or (isinstance(p[k], str) and len(p[k]) <= 80 and not re.search(r"[<>\x00-\x1f]", p[k]))
+                      for k in ("city", "type")))
+        if not ok:
+            fail(f"{where}: bad entry")
+            continue
+        out[h] = p
+    return out
+
+
+def write_world_profiles(directory, profiles):
+    """app/world-profiles.json, by school slug: fetched only by pages of universities outside the US."""
+    by_slug = {s["slug"]: profiles[url_host(s["url"])] for s in directory
+               if s["country"] != "United States" and url_host(s["url"]) in profiles}
+    doc = {"source": "Wikidata (CC0)", "profiles": by_slug}
+    (OUT / "app").mkdir(exist_ok=True)
+    (OUT / "app" / "world-profiles.json").write_text(json.dumps(doc, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    return len(by_slug)
+
+
 def write_app_schools(directory, programs=None):
     """app/schools.json: the schools directory for the app and for the site's directory and school pages, kept apart
     from feed.json because it is large and only needed when someone opens it."""
@@ -2522,6 +2553,7 @@ def main():
     write_app_feed(ROUTES, notes, positions, news, subjects, guides, load_route_photos({r['slug'] for r in ROUTES}))
     write_app_schools(directory, programs)
     write_us_profiles(directory, load_us_profiles())
+    write_world_profiles(directory, load_world_profiles())
     check_links()
     return report()
 

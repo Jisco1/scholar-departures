@@ -157,6 +157,18 @@ class BuiltSite(unittest.TestCase):
         if cfg["adsense"]["client"] and (cfg["adsense"].get("slots") or {}).get("article"):
             self.assertIn('class="ad-bay', page)  # the profile page keeps its ad slot
 
+    def test_world_university_profiles_come_from_wikidata(self):
+        # 13 Oct 2026: universities outside the US get founding year, students (with their year), town and type
+        doc = json.loads((self.site / "app" / "world-profiles.json").read_text(encoding="utf-8"))
+        profiles = doc["profiles"]
+        self.assertGreater(len(profiles), 3000)
+        self.assertTrue(all(re.fullmatch(r"Q[0-9]+", p["qid"]) for p in profiles.values()))
+        self.assertTrue(all(("students" in p) == ("students_year" in p) for p in profiles.values()))
+        knust = profiles["kwame-nkrumah-university-of-science-and-technology"]
+        self.assertEqual((knust["founded"], knust["city"]), (1952, "Kumasi"))
+        js = (self.site / "assets" / "school.js").read_text(encoding="utf-8")
+        self.assertIn("wikidata.org/wiki/", js)
+
     def test_deadlines_are_confirmed_dates_only(self):
         # 12 Oct 2026: a route counted down to last year's date ("due in 64 days") for a round nobody had
         # announced. Every deadline carries the year the official page gave, and nothing rolls forward.

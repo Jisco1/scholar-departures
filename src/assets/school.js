@@ -121,13 +121,12 @@
         (guide ? '<p class="school-links"><a href="' + ROOT + "countries/" + guide + '/">Visas, costs and work rules in our guide →</a></p>' : ""));
     }
 
-    // US universities: their own facts and pages, from U.S. Department of Education data
-    if (s.country === "United States") {
-      fetch(ROOT + "app/us-profiles.json")
-        .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
-        .then(function (d) { var p = (d.profiles || {})[s.slug]; if (p) profile(s, p); })
-        .catch(function () {});
-    }
+    // its own facts: US universities from U.S. Department of Education data, the rest from Wikidata
+    var us = s.country === "United States";
+    fetch(ROOT + (us ? "app/us-profiles.json" : "app/world-profiles.json"))
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function (d) { var p = (d.profiles || {})[s.slug]; if (p) (us ? profile : worldProfile)(s, p); })
+      .catch(function () {});
 
     // other universities in the same country: ones with a funding guide or degree data first
     var others = all.filter(function (x) { return x.country === s.country && x.slug !== s.slug; });
@@ -191,6 +190,21 @@
       steps.push("Apply through the university or the portal it names. Never pay an agent who promises admission.");
       show("schApply", "<h2>Before you apply</h2><ul>" + steps.map(function (t) { return "<li>" + t + "</li>"; }).join("") + "</ul>");
     }
+  }
+
+  function worldProfile(s, p) {
+    if (p.city && !s.city) $("schPlace").textContent = p.city + ", " + $("schPlace").textContent;
+    var rows = [];
+    if (p.type) rows.push(["Type", cap(p.type)]);
+    if (p.founded) rows.push(["Founded", String(p.founded)]);
+    if (p.city) rows.push(["Location", p.city + ", " + s.country]);
+    if (p.students) rows.push(["Students", "About " + num(p.students) + " (" + p.students_year + ")"]);
+    if (!rows.length) return;
+    show("schProfile", "<h2>At a glance</h2>" + '<dl class="school-dl">' + rows.map(function (r) {
+      return "<div><dt>" + esc(r[0]) + "</dt><dd>" + esc(r[1]) + "</dd></div>";
+    }).join("") + "</dl>" +
+      '<p class="school-src">From <a href="https://www.wikidata.org/wiki/' + esc(p.qid) + '" target="_blank" rel="noopener noreferrer">Wikidata</a>' +
+      " (CC0). Check figures on the university’s own site.</p>");
   }
 
   // the Share button carries this university's own link and message
