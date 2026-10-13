@@ -150,8 +150,10 @@ class BuiltSite(unittest.TestCase):
         self.assertIn("R1", mit["kind"])
         self.assertTrue(all(u.startswith("https://") for p in profiles.values() for u in (p.get("links") or {}).values()))
         page = (self.site / "school" / "index.html").read_text(encoding="utf-8")
-        for section in ("schProfile", "schFacts", "schPages"):
-            self.assertIn(f'id="{section}"', page)
+        # the university first: about it, its own funding and pages, then the apply button, then the extras
+        order = [page.index(f'id="{x}"') for x in ("schAbout", "schOwn", "schPages", "schApply", "schOfficial", "schFacts",
+                                                   "schFunding", "schMore")]
+        self.assertEqual(order, sorted(order), "the university's own content must come before the country and other schools")
         self.assertIn("countryFacts", page)
         cfg = json.loads((self.dir / "site.json").read_text(encoding="utf-8"))
         if cfg["adsense"]["client"] and (cfg["adsense"].get("slots") or {}).get("article"):
@@ -167,7 +169,13 @@ class BuiltSite(unittest.TestCase):
         knust = profiles["kwame-nkrumah-university-of-science-and-technology"]
         self.assertEqual((knust["founded"], knust["city"]), (1952, "Kumasi"))
         js = (self.site / "assets" / "school.js").read_text(encoding="utf-8")
-        self.assertIn("wikidata.org/wiki/", js)
+        self.assertNotIn("wikidata.org/wiki/", js)  # keep readers on the page: no link out to Wikidata
+        aberdeen = profiles["university-of-aberdeen"]
+        self.assertEqual((aberdeen["founded"], aberdeen["city"], aberdeen.get("among_oldest")), (1495, "Aberdeen", True))
+        # an award tied to one university is shown on that university's page, not on others in the country
+        data = json.loads((self.site / "data" / "data.js").read_text(encoding="utf-8")[len("window.SCHOLAR_DATA = "):].rstrip().rstrip(";"))
+        only = {r["slug"]: r.get("only_at") for r in data}
+        self.assertEqual((only["gates-cambridge-scholarship"], only["rhodes-scholarship"]), ("cam.ac.uk", "ox.ac.uk"))
 
     def test_deadlines_are_confirmed_dates_only(self):
         # 12 Oct 2026: a route counted down to last year's date ("due in 64 days") for a round nobody had

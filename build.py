@@ -167,6 +167,8 @@ def load_routes():
         for dl in r.get("deadlines") or []:
             if dl.get("for") is not None and (not isinstance(dl["for"], str) or len(dl["for"]) > 90 or re.search(r"[<>\x00-\x1f]", dl["for"])):
                 fail(f"{where}: a deadline's 'for' must be a short plain label")
+        if r.get("only_at") is not None and not re.match(r"^[a-z0-9-]+(\.[a-z0-9-]+)+$", str(r["only_at"])):
+            fail(f"{where}: 'only_at' must be the website host of the one university the award is for")
         if r.get("depends") is not None and (not isinstance(r["depends"], str) or len(r["depends"]) > 120 or re.search(r"[<>\x00-\x1f]", r["depends"])):
             fail(f"{where}: 'depends' must be a short plain phrase")
         if r.get("opens"):
@@ -2241,12 +2243,9 @@ def build_school_page(country_pages):
 </header>
 <noscript><p class="lede">This page needs JavaScript. <a href="{root}scholarships/#directory">Open the schools directory</a>.</p></noscript>
 <div class="prose school-body">
-<section id="schGuide" hidden></section>
-<section id="schProfile" hidden></section>
+<section id="schAbout" hidden></section>
 <section id="schDegrees" hidden></section>
-{ad_bay("article")}
-<section id="schFunding" hidden></section>
-<section id="schFacts" hidden></section>
+<section id="schOwn" hidden></section>
 <section id="schPages" hidden></section>
 <section id="schApply" hidden>
 <h2>Before you apply</h2>
@@ -2259,7 +2258,13 @@ def build_school_page(country_pages):
 </section>
 </div>
 <div class="route-official" id="schOfficial" hidden></div>
-<div class="prose school-body"><section id="schMore" hidden></section></div>
+<div class="prose school-body">
+{ad_bay("article")}
+<section id="schFacts" hidden></section>
+<section id="schFunding" hidden></section>
+<section id="schMore" hidden></section>
+<p class="school-src" id="schSource" hidden></p>
+</div>
 </div>
 <script type="application/json" id="schoolConfig">{config_json}</script>"""
     write("school/", page("school/", "University", "A university in the DegreeStep schools directory: where it is, "
@@ -2417,7 +2422,7 @@ def build_404():
 def write_meta_files(routes):
     # data files for the live board — only the fields the page uses
     keep = ("name", "slug", "flag", "country", "region", "kind", "scope", "types", "levels", "fields", "funding",
-            "deadline", "deadlines", "rounds", "depends", "opens", "approx", "rolling", "tbc", "varies", "link", "last_verified")
+            "deadline", "deadlines", "rounds", "depends", "opens", "approx", "rolling", "tbc", "varies", "only_at", "link", "last_verified")
     slim = [{k: r[k] for k in keep if k in r} for r in ROUTES]
     # who can apply, as positions in SCHOLAR_COUNTRIES: x = everyone except these, o = only these, c = check, with why
     order = {name: i for i, name in enumerate(ELIGIBILITY["countries"])}

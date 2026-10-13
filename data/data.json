@@ -616,7 +616,8 @@
       }
     ],
     "approx": false,
-    "depends": "your residence and your course"
+    "depends": "your residence and your course",
+    "only_at": "cam.ac.uk"
   },
   {
     "name": "Rhodes Scholarships (Oxford)",
@@ -651,7 +652,8 @@
     "slug": "rhodes-scholarship",
     "last_checked": "2026-10-01",
     "tbc": true,
-    "approx": false
+    "approx": false,
+    "only_at": "ox.ac.uk"
   },
   {
     "name": "Politecnico di Milano",
@@ -1447,7 +1449,8 @@
         "d": 6
       }
     ],
-    "approx": false
+    "approx": false,
+    "only_at": "stanford.edu"
   },
   {
     "name": "Fulbright Foreign Student Program",

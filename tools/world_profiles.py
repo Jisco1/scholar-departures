@@ -66,7 +66,7 @@ items = {}
 for path in sorted(src.glob("*.json")):
     for r in json.loads(path.read_text(encoding="utf-8")):
         qid = r["item"]["value"].rsplit("/", 1)[-1]
-        it = items.setdefault(qid, {"qid": qid, "name": r.get("itemLabel", {}).get("value", ""), "hosts": set(),
+        it = items.setdefault(qid, {"qid": qid, "cc": path.stem, "name": r.get("itemLabel", {}).get("value", ""), "hosts": set(),
                                     "years": set(), "students": {}, "towns": collections.Counter(), "types": set()})
         it["hosts"].add(host(r["site"]["value"]))
         if "inception" in r and year(r["inception"]["value"]):
@@ -100,9 +100,12 @@ def describe(it):
         y = max(it["students"])
         if 2000 <= y <= 2026 and it["students"][y] > 0:
             p["students"], p["students_year"] = it["students"][y], y
-    towns = [t for t, n in sorted(it["towns"].items(), key=lambda x: (-x[1], x[0])) if not ADMIN.search(t) and t not in REGIONS]
+    towns = [t for t, n in sorted(it["towns"].items(), key=lambda x: (-x[1], x[0])) if not ADMIN.search(t) and t not in REGIONS and not t.endswith("shire")]
     if towns and len(towns[0]) <= 60:
-        p["city"] = towns[0]
+        town = towns[0]
+        if it["cc"] == "GB":  # UK council areas: "Aberdeen City", "City of Edinburgh"
+            town = re.sub(r"^City of |\s+City$", "", town)
+        p["city"] = town
     types = sorted((t for t in it["types"] if SCHOOLISH.search(t) and not SKIP_TYPES.match(t)),
                    key=lambda t: (0 if re.search(r"public|private", t) else 1, len(t)))
     if types:
@@ -112,8 +115,9 @@ def describe(it):
 
 world = json.loads((repo / "data" / "world_universities.json").read_text(encoding="utf-8"))
 curated = json.loads((repo / "data" / "schools.json").read_text(encoding="utf-8"))
-ours = [(u["name"], u["url"]) for u in world if u["country"] != "United States"]
-ours += [(s["name"], s["link"]) for s in curated if s["country"] != "United States"]
+ours_c = [(u["name"], u["url"], u["country"]) for u in world if u["country"] != "United States"]
+ours_c += [(s["name"], s["link"], s["country"]) for s in curated if s["country"] != "United States"]
+ours = [(n, u) for n, u, _ in ours_c]
 
 out, how = {}, collections.Counter()
 for name, url in ours:
@@ -138,6 +142,19 @@ for name, url in ours:
         continue
     how["matched"] += 1
     out[h] = p
+
+# "one of the oldest universities in <country>": within the oldest few of that country's universities here
+country_of = {host(url): c for _, url, c in ours_c}
+by_country = collections.defaultdict(list)
+for h, p in out.items():
+    if p.get("founded"):
+        by_country[country_of.get(h)].append((p["founded"], h))
+for c, xs in by_country.items():
+    if len(xs) >= 8:
+        xs.sort()
+        cut = max(3, -(-len(xs) * 5 // 100))
+        for y, h in xs[:cut]:
+            out[h]["among_oldest"] = True
 
 doc = {"source": "Wikidata (CC0), fetched 13 October 2026", "profiles": dict(sorted(out.items()))}
 (repo / "data" / "world_profiles.json").write_text(json.dumps(doc, ensure_ascii=False, separators=(",", ":")) + "\n",
