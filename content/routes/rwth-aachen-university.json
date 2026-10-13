@@ -2,10 +2,7 @@
   "summary": "One of Germany's leading technical universities, RWTH Aachen charges no tuition to any student, German or international. What you pay is a semester contribution of roughly €350, most of which buys the Deutschlandsemesterticket for local and regional transport across Germany.",
   "meta_description": "RWTH Aachen charges no tuition to any nationality, only a semester contribution that includes a Germany-wide transit pass. Eligibility and deadlines.",
   "covers": [
-    "No tuition fees for any nationality, at bachelor's, master's or doctoral level.",
-    "A semester contribution is due every semester: about €350 in 2026/27, and the figure changes slightly each semester. It funds student services and includes the Deutschlandsemesterticket (the mobility component alone is €234.57 for winter 2026/27).",
-    "RWTH does not pay living costs. For a German student visa you normally have to show €11,904 for your first year (€992 a month), usually through a blocked account.",
-    "To cover living costs as well, pair admission with a scholarship such as the [DAAD scholarships]({{root}}routes/daad-scholarships/)."
+    "No tuition fees for any nationality, at bachelor's, master's or doctoral level."
   ],
   "eligibility": [
     "Open to every nationality. Admission is competitive and set programme by programme.",
@@ -50,5 +47,19 @@
       "url": "https://www.daad.de/en/studying-in-germany/requirements/overview/"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-10-13",
+  "costs": [
+    [
+      "Tuition",
+      "None, for any nationality"
+    ],
+    [
+      "Semester contribution: about €350 in 2026/27, changing slightly each semester. It funds student services and includes the Deutschlandsemesterticket (the mobility component alone is €234.57 for winter 2026/27)",
+      "You, every semester"
+    ],
+    [
+      "Living costs: for a German student visa you normally have to show €11,904 for your first year (€992 a month), usually through a blocked account",
+      "You; RWTH does not pay living costs, so pair admission with a scholarship such as the [DAAD scholarships]({{root}}routes/daad-scholarships/)"
+    ]
+  ]
 }

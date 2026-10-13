@@ -27,13 +27,16 @@
     {
       "y": 2026,
       "m": 11,
-      "d": 15
+      "d": 15,
+      "for": "Early Decision I"
     },
     {
       "y": 2027,
       "m": 1,
-      "d": 5
+      "d": 5,
+      "for": "Early Decision II and Regular Decision"
     }
   ],
-  "approx": false
+  "approx": false,
+  "depends": "the admission round you choose"
 }

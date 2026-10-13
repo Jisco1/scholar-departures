@@ -114,6 +114,32 @@ class BuiltSite(unittest.TestCase):
             if r["slug"] in have_tbc - src_tbc:
                 self.assertTrue(all(dt.date(dl["y"], dl["m"], dl["d"]) < today for dl in r.get("deadlines") or []), r["slug"])
 
+    def test_review_13_oct_findings_stay_fixed(self):
+        # an outside review on 13 Oct 2026 found these; each stays fixed
+        def text(rel):
+            return html_mod.unescape(re.sub(r"<[^>]+>", " ", (self.site / rel).read_text(encoding="utf-8")))
+        # 1. a date only some applicants can use is listed by round, and never drives the headline countdown
+        gates = (self.site / "routes" / "gates-cambridge-scholarship" / "index.html").read_text(encoding="utf-8")
+        self.assertIn('class="rounds"', gates)
+        self.assertIn("Depends on your residence and your course", html_mod.unescape(gates))
+        feed = json.loads((self.site / "app" / "feed.json").read_text(encoding="utf-8"))
+        for r in feed["routes"]:
+            self.assertFalse(any(dl.get("restricted") for dl in r["deadlines"]), r["slug"])
+        # 2-3. the plan's months add up, it does not promise a board planner, and there is no age filter
+        plan = text("guides/application-timeline/index.html")
+        self.assertIn("October to December 2026 (11 to 9 months before)", plan)
+        self.assertNotIn("8–6 months before", plan)
+        self.assertNotIn("planner on our", plan)
+        self.assertNotRegex(plan.lower(), r"age.{0,40}filter|filter.{0,60}age")
+        # 4. a tuition-free university is not described as funding you
+        hamburg = text("routes/universitat-hamburg/index.html")
+        self.assertIn("Tuition-free study, not a scholarship", hamburg)
+        self.assertNotIn("The university itself funds you", hamburg)
+        # 6. the editorial policy describes the deadlines the way the site shows them
+        policy = text("editorial-policy/index.html")
+        self.assertNotIn("typical annual date", policy)
+        self.assertIn("Deadline verified", policy)
+
     def test_deadlines_are_confirmed_dates_only(self):
         # 12 Oct 2026: a route counted down to last year's date ("due in 64 days") for a round nobody had
         # announced. Every deadline carries the year the official page gave, and nothing rolls forward.
@@ -827,7 +853,7 @@ class MonthlyRefresh(unittest.TestCase):
         v = self.drafts.validate_writeup
         for path in sorted((self.dir / "content" / "routes").glob("*.json")):
             w = json.loads(path.read_text(encoding="utf-8"))
-            if "costs" in w:
+            if all(k in w for k in ("costs", "documents", "faq")):  # the full format the monthly drafts write
                 self.assertEqual(v(w), [], path.stem)
         good = json.loads((self.dir / "content" / "routes" / "brown-university.json").read_text(encoding="utf-8"))
         self.assertTrue(v({**good, "summary": "<script>x</script>"}))

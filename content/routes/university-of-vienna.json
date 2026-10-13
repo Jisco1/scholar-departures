@@ -2,10 +2,8 @@
   "summary": "Austria's largest university charges non-EU students €726.72 per semester, a fraction of what comparable universities charge elsewhere. And citizens of about 50 of the world's least developed countries pay no tuition at all, only the €26.20 students' union fee.",
   "meta_description": "The University of Vienna charges non-EU students low tuition, and none for citizens of the least developed countries. Eligibility, how to apply and deadlines.",
   "covers": [
-    "Non-EU/EEA students pay a tuition fee of €726.72 plus the students' union (ÖH) fee of €26.20, making €752.92 per semester in total.",
     "Tuition exemption for citizens of countries on Austria's list of least developed countries (the list runs from Afghanistan, Angola, Bangladesh, Benin and Bhutan to around 45 more). Exempt students pay only the ÖH fee.",
-    "Non-EU citizens who hold certain non-student Austrian residence permits can be treated like EU students and pay only the ÖH fee.",
-    "No living allowance: you need your own funds for Vienna's living costs and for the residence permit."
+    "Non-EU citizens who hold certain non-student Austrian residence permits can be treated like EU students and pay only the ÖH fee."
   ],
   "eligibility": [
     "Open to all nationalities with a school-leaving certificate (bachelor's) or degree (master's) recognised as equivalent.",
@@ -40,5 +38,15 @@
       "url": "https://studieren.univie.ac.at/en/tuition-fee/amount-tution-fee"
     }
   ],
-  "reviewed": "2026-10-11"
+  "reviewed": "2026-10-13",
+  "costs": [
+    [
+      "Tuition for non-EU/EEA students: €726.72 per semester, plus the students' union (ÖH) fee of €26.20, €752.92 in total",
+      "You, every semester, unless you are exempt"
+    ],
+    [
+      "Living costs and the residence permit's proof of funds",
+      "You; the university pays no living allowance"
+    ]
+  ]
 }

@@ -1036,15 +1036,22 @@
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
   }
+  // every round still ahead becomes its own event, named for who or which round it is for
   function exportSavedICS() {
-    var picked = enriched.filter(function (s) { return state.saved.has(s.name) && s.nextDate; });
-    if (!picked.length) return toast("Bookmark some routes first, then export them.");
-    downloadICS(picked.map(function (s) {
-      return { date: s.nextDate, title: "Deadline: " + s.name,
-               desc: s.funding + " Deadline: " + s.deadline + (s.approx ? " (date varies; confirm on the official page)" : ""),
-               url: s.link, alarms: [30, 14, 7, 1] };
-    }), "degreestep-deadlines.ics");
-    toast(picked.length + " deadline" + (picked.length === 1 ? "" : "s") + " exported with reminders.");
+    var events = [];
+    enriched.filter(function (s) { return state.saved.has(s.name) && s.nextDate; }).forEach(function (s) {
+      var rounds = (s.rounds && s.rounds.length ? s.rounds : s.deadlines) || [];
+      rounds.forEach(function (dl) {
+        var d = new Date(dl.y, dl.m - 1, dl.d);
+        if (d < t0) return;
+        events.push({ date: d, title: "Deadline: " + s.name + (dl["for"] ? " (" + dl["for"] + ")" : ""),
+                      desc: s.funding + " Deadline: " + s.deadline + (s.depends ? " Which date applies depends on " + s.depends + "." : ""),
+                      url: s.link, alarms: [30, 14, 7, 1] });
+      });
+    });
+    if (!events.length) return toast("Bookmark some routes first, then export them.");
+    downloadICS(events, "degreestep-deadlines.ics");
+    toast(events.length + " deadline" + (events.length === 1 ? "" : "s") + " exported with reminders.");
   }
 
   /* ============ premium feature: compare saved ============ */
@@ -1054,7 +1061,8 @@
     picked.sort(function (a, b) { return a.daysUntil - b.daysUntil; });
     var rows = picked.map(function (s) {
       return "<tr><td><b>" + esc(s.name) + "</b><br><span style=\"color:var(--faint);font-size:11px\">" + esc(s.flag) + " " + esc(s.country) + " \u00B7 " + (s.kind === "program" ? "Programme" : "University") + "</span></td>" +
-        '<td class="cmp-days">' + (s.nextDate ? s.daysUntil + "d" : s.status === "rolling" ? "Rolling" : s.varies ? "Varies" : "TBC") + "</td>" +
+        '<td class="cmp-days">' + (s.nextDate ? s.daysUntil + "d" : s.status === "rolling" ? "Rolling" : s.varies ? "Varies" : "TBC") +
+        (s.depends && s.nextDate ? '<br><span style="color:var(--faint);font-size:11px">depends on ' + esc(s.depends) + "</span>" : "") + "</td>" +
         "<td>" + esc(s.deadline) + "</td>" +
         "<td>" + esc((s.types || []).join(", ")) + "</td>" +
         "<td>" + esc((s.levels || []).join(", ")) + "</td>" +

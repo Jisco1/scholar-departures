@@ -597,16 +597,26 @@
     "deadlines": [
       {
         "y": 2026,
+        "m": 10,
+        "d": 14,
+        "for": "US citizens living in the US",
+        "restricted": true
+      },
+      {
+        "y": 2026,
         "m": 12,
-        "d": 8
+        "d": 8,
+        "for": "courses with an 8 December funding deadline"
       },
       {
         "y": 2027,
         "m": 1,
-        "d": 6
+        "d": 6,
+        "for": "courses with a 6 January funding deadline"
       }
     ],
-    "approx": false
+    "approx": false,
+    "depends": "your residence and your course"
   },
   {
     "name": "Rhodes Scholarships (Oxford)",
@@ -782,12 +792,14 @@
       {
         "y": 2026,
         "m": 12,
-        "d": 10
+        "d": 10,
+        "for": "master's application"
       },
       {
         "y": 2027,
         "m": 2,
-        "d": 1
+        "d": 1,
+        "for": "scholarship application"
       }
     ],
     "approx": false
@@ -930,15 +942,18 @@
       {
         "y": 2026,
         "m": 11,
-        "d": 1
+        "d": 1,
+        "for": "Restrictive Early Action"
       },
       {
         "y": 2027,
         "m": 1,
-        "d": 1
+        "d": 1,
+        "for": "Regular Decision"
       }
     ],
-    "approx": false
+    "approx": false,
+    "depends": "the admission round you choose"
   },
   {
     "name": "MIT",
@@ -972,15 +987,18 @@
       {
         "y": 2026,
         "m": 11,
-        "d": 1
+        "d": 1,
+        "for": "Early Action"
       },
       {
         "y": 2027,
         "m": 1,
-        "d": 4
+        "d": 4,
+        "for": "Regular Action"
       }
     ],
-    "approx": false
+    "approx": false,
+    "depends": "the admission round you choose"
   },
   {
     "name": "Yale University",
@@ -1018,15 +1036,18 @@
       {
         "y": 2026,
         "m": 11,
-        "d": 1
+        "d": 1,
+        "for": "Single-Choice Early Action"
       },
       {
         "y": 2027,
         "m": 1,
-        "d": 2
+        "d": 2,
+        "for": "Regular Decision"
       }
     ],
-    "approx": false
+    "approx": false,
+    "depends": "the admission round you choose"
   },
   {
     "name": "Princeton University",
@@ -1060,15 +1081,18 @@
       {
         "y": 2026,
         "m": 11,
-        "d": 1
+        "d": 1,
+        "for": "Single-Choice Early Action"
       },
       {
         "y": 2027,
         "m": 1,
-        "d": 1
+        "d": 1,
+        "for": "Regular Decision"
       }
     ],
-    "approx": false
+    "approx": false,
+    "depends": "the admission round you choose"
   },
   {
     "name": "Amherst College",
@@ -1101,15 +1125,18 @@
       {
         "y": 2026,
         "m": 11,
-        "d": 9
+        "d": 9,
+        "for": "Early Decision"
       },
       {
         "y": 2027,
         "m": 1,
-        "d": 5
+        "d": 5,
+        "for": "Regular Decision"
       }
     ],
-    "approx": false
+    "approx": false,
+    "depends": "the admission round you choose"
   },
   {
     "name": "Dartmouth College",
@@ -1142,15 +1169,18 @@
       {
         "y": 2026,
         "m": 11,
-        "d": 1
+        "d": 1,
+        "for": "Early Decision"
       },
       {
         "y": 2027,
         "m": 1,
-        "d": 1
+        "d": 1,
+        "for": "Regular Decision"
       }
     ],
-    "approx": false
+    "approx": false,
+    "depends": "the admission round you choose"
   },
   {
     "name": "Brown University",
@@ -1187,15 +1217,18 @@
       {
         "y": 2026,
         "m": 11,
-        "d": 1
+        "d": 1,
+        "for": "Early Decision"
       },
       {
         "y": 2027,
         "m": 1,
-        "d": 5
+        "d": 5,
+        "for": "Regular Decision"
       }
     ],
-    "approx": false
+    "approx": false,
+    "depends": "the admission round you choose"
   },
   {
     "name": "Berea College",
@@ -1203,7 +1236,8 @@
     "country": "United States",
     "region": "USA",
     "types": [
-      "Tuition-Free"
+      "Tuition-Free",
+      "Full Scholarship"
     ],
     "levels": [
       "Bachelor's"
@@ -1265,15 +1299,18 @@
       {
         "y": 2026,
         "m": 11,
-        "d": 2
+        "d": 2,
+        "for": "Early Decision"
       },
       {
         "y": 2027,
         "m": 1,
-        "d": 4
+        "d": 4,
+        "for": "Regular Decision"
       }
     ],
-    "approx": false
+    "approx": false,
+    "depends": "the admission round you choose"
   },
   {
     "name": "Vanderbilt University",
@@ -1305,16 +1342,25 @@
     "deadlines": [
       {
         "y": 2026,
+        "m": 11,
+        "d": 1,
+        "for": "Early Decision I admission"
+      },
+      {
+        "y": 2026,
         "m": 12,
-        "d": 1
+        "d": 1,
+        "for": "merit scholarship application"
       },
       {
         "y": 2027,
         "m": 1,
-        "d": 1
+        "d": 1,
+        "for": "Early Decision II and Regular Decision admission"
       }
     ],
-    "approx": false
+    "approx": false,
+    "depends": "the admission round you choose; the merit scholarship application is due on 1 December in every round"
   },
   {
     "name": "Colby College",
@@ -1349,15 +1395,18 @@
       {
         "y": 2026,
         "m": 11,
-        "d": 15
+        "d": 15,
+        "for": "Early Decision I"
       },
       {
         "y": 2027,
         "m": 1,
-        "d": 4
+        "d": 4,
+        "for": "Early Decision II and Regular Decision"
       }
     ],
-    "approx": false
+    "approx": false,
+    "depends": "the admission round you choose"
   },
   {
     "name": "Knight-Hennessy Scholars (Stanford)",
@@ -1714,16 +1763,26 @@
     "deadlines": [
       {
         "y": 2026,
+        "m": 11,
+        "d": 18,
+        "for": "fee-waiver request, if your country is not on Cambridge's automatic list",
+        "restricted": true
+      },
+      {
+        "y": 2026,
         "m": 12,
-        "d": 8
+        "d": 8,
+        "for": "courses with an 8 December funding deadline"
       },
       {
         "y": 2027,
         "m": 1,
-        "d": 6
+        "d": 6,
+        "for": "courses with a 6 January funding deadline"
       }
     ],
-    "approx": false
+    "approx": false,
+    "depends": "your course"
   },
   {
     "name": "Mastercard Foundation Scholars: UC Berkeley",

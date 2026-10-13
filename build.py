@@ -164,6 +164,11 @@ def load_routes():
                         dt.date(int(dl.get("y", 2024)), int(dl["m"]), int(dl["d"]))  # 2024 is a leap year
                     except Exception:
                         fail(f"{where}: impossible deadline {dl!r}")
+        for dl in r.get("deadlines") or []:
+            if dl.get("for") is not None and (not isinstance(dl["for"], str) or len(dl["for"]) > 90 or re.search(r"[<>\x00-\x1f]", dl["for"])):
+                fail(f"{where}: a deadline's 'for' must be a short plain label")
+        if r.get("depends") is not None and (not isinstance(r["depends"], str) or len(r["depends"]) > 120 or re.search(r"[<>\x00-\x1f]", r["depends"])):
+            fail(f"{where}: 'depends' must be a short plain phrase")
         if r.get("opens"):
             try:
                 dt.date(int(r["opens"]["y"]), int(r["opens"]["m"]), int(r["opens"]["d"]))
@@ -189,7 +194,7 @@ def settle_deadlines(route, where="", today=TODAY):
     A date without one is never projected forward, and once every confirmed date has passed the route says
     its next call is not yet announced until someone checks the official page again."""
     if route.get("rolling") or route.get("tbc") or route.get("varies"):
-        route["deadlines"] = []
+        route["deadlines"], route["rounds"] = [], []
         route.pop("opens", None)
         return
     ahead = []
@@ -202,8 +207,15 @@ def settle_deadlines(route, where="", today=TODAY):
         except (KeyError, TypeError, ValueError):
             continue  # already reported as an impossible deadline
         if when >= today:
-            ahead.append({"y": when.year, "m": when.month, "d": when.day})
+            item = {"y": when.year, "m": when.month, "d": when.day}
+            if dl.get("for"):
+                item["for"] = dl["for"]
+            if dl.get("restricted"):
+                item["restricted"] = True  # only some applicants can use it, so it is listed but never the countdown
+            ahead.append(item)
     ahead.sort(key=lambda x: (x["y"], x["m"], x["d"]))
+    route["rounds"] = ahead
+    ahead = [x for x in ahead if not x.get("restricted")]
     route["deadlines"] = ahead
     try:
         opens = opens_date(route)
@@ -1468,9 +1480,30 @@ def build_route_pages(routes, notes, country_pages):
         if has_country:
             crumb_items.append((f"countries/{cslug}/", r["country"]))
         crumb_items.append(("", r["name"]))
-        kind_text = ("The university itself funds you: you apply for admission and the funding together."
-                     if r["kind"] == "school" else
-                     "An external award: you win the scholarship and take it to a university that admits you.")
+        tuition_only = r["kind"] == "school" and not ({"Full Scholarship", "Merit", "Need-Based Aid"} & set(r["types"]))
+        low = "Low Tuition" in r["types"] and "Tuition-Free" not in r["types"]
+        if n.get("who_pays"):
+            kind_text = n["who_pays"]
+        elif r["kind"] == "program":
+            kind_text = "An external award: you win the scholarship and take it to a university that admits you."
+        elif tuition_only:
+            kind_text = (f"{'Low-tuition' if low else 'Tuition-free'} study, not a scholarship: you apply for admission, "
+                         "and living costs need separate funding.")
+        else:
+            kind_text = "The university's own funding: you apply to the university, and its scholarship or aid process decides the award."
+        covers_title = ("Fee exemptions" if low else "What is free") if tuition_only else "What the funding covers"
+        depends = r.get("depends")
+        rounds = r.get("rounds") or []
+        rounds_html = ""
+        if len(rounds) > 1 or any(x.get("for") for x in rounds):
+            lis = ""
+            for x in rounds:
+                when = dt.date(x["y"], x["m"], x["d"])
+                lis += (f'<li><span class="rd-date">{fmt_date(when)}</span><span class="rd-for">{e(x.get("for") or "Deadline")}</span>'
+                        f'{status_chip({"deadlines": [x]})}</li>')
+            note = f'<p class="rounds-note">Which date applies depends on {e(depends)}.</p>' if depends else ""
+            rounds_html = f'<section class="rounds" aria-label="Deadlines by round"><h2>Deadlines by round</h2>{note}<ul>{lis}</ul></section>'
+
         scope_text = ("Any discipline may apply" if r["scope"] == "all" else "Only certain fields are eligible")
         fields_sub = "" if r["scope"] == "all" else f'<span class="sub">Eligible: {e(", ".join(r["fields"]))}</span>'
         opens = opens_date(r)
@@ -1488,14 +1521,14 @@ def build_route_pages(routes, notes, country_pages):
         glance = f"""<section class="glance" aria-label="At a glance">
 <dl class="glance-grid">
   <div><dt>Funding</dt><dd>{tags_html(r["types"])}</dd></div>
-  <div><dt>Status</dt><dd>{status_chip(r)}</dd></div>
+  <div><dt>Status</dt><dd>{status_chip(r)}{f'<span class="sub warn">Depends on {e(depends)}: see the deadlines by round</span>' if depends else ''}</dd></div>
   <div><dt>Deadline</dt><dd>{e(r["deadline"])}<span class="sub">Next: <span data-next>{e(next_text)}</span>{' · varies by course or country' if r.get('approx') else ''}</span></dd></div>
   <div><dt>Study levels</dt><dd>{e(" · ".join(r["levels"]))}</dd></div>
   <div><dt>Fields</dt><dd>{e(scope_text)}{fields_sub}</dd></div>
   <div><dt>Who pays</dt><dd>{e(kind_text)}</dd></div>
 </dl>
 <div class="glance-cta">{share_box(f"routes/{r['slug']}/", r["name"], share_text, "opportunity")}
-<small>Last verified {e(fmt_date(dt.date.fromisoformat(r["last_verified"])) if r.get("last_verified") else "unknown")}.</small></div>
+<small>Deadline verified {e(fmt_date(dt.date.fromisoformat(r["last_verified"])) if r.get("last_verified") else "unknown")}.</small></div>
 </section>"""
 
         def section(title, items, ordered=False):
@@ -1566,8 +1599,9 @@ def build_route_pages(routes, notes, country_pages):
 </div>
 <div class="layout has-rail"><div>
 {glance}
+{rounds_html}
 <article class="prose">
-{section("What the funding covers", n.get("covers"))}
+{section(covers_title, n.get("covers"))}
 {costs_html}
 {section("Who can apply", n.get("eligibility"))}
 {nationality_html(r["slug"])}
@@ -1583,7 +1617,7 @@ def build_route_pages(routes, notes, country_pages):
 <div class="prose">
 {related_html}
 {sources_html}
-<p class="muted">Page reviewed {e(fmt_date(dt.date.fromisoformat(reviewed)) if reviewed else "unknown")}. Spotted something out of date? <a href="{root}contact/">Tell us</a> and we will check it against the official source.</p>
+<p class="muted">Write-up reviewed {e(fmt_date(dt.date.fromisoformat(reviewed)) if reviewed else "unknown")}; deadline verified {e(fmt_date(dt.date.fromisoformat(r["last_verified"])) if r.get("last_verified") else "unknown")}. Spotted something out of date? <a href="{root}contact/">Tell us</a> and we will check it against the official source.</p>
 </div>
 </div><aside class="rail" aria-label="Advertisements">{ad_bay("rail")}</aside></div>
 </div>"""
@@ -1986,6 +2020,7 @@ def write_app_feed(routes, notes, positions, news, subjects, guides, photos=None
             # a route with neither and no dates shows its deadline text, which is how "varies" reads there
             "deadline": r["deadline"], "deadlines": r.get("deadlines", []), "approx": bool(r.get("approx")),
             "rolling": bool(r.get("rolling")), "tbc": bool(r.get("tbc")), "varies": bool(r.get("varies")),
+            "rounds": r.get("rounds") or [], **({"depends": r["depends"]} if r.get("depends") else {}),
             **({"opens": r["opens"]} if r.get("opens") else {}),
             "url": BASE + f"routes/{r['slug']}/", "official": r["link"], "open": open_rule(r["slug"]),
             "covers": note(r["slug"], "covers"), "eligibility": note(r["slug"], "eligibility"),
@@ -2228,19 +2263,19 @@ def build_deadlines(routes):
         if r.get("tbc"):
             tbc.append(r)
             continue
-        for dl in r["deadlines"]:
+        for dl in r.get("rounds") or r["deadlines"]:
             k = (int(dl["y"]) - TODAY.year) * 12 + int(dl["m"]) - TODAY.month
             if 0 <= k < 12:
-                by_month[k].append((int(dl["d"]), r))
+                by_month[k].append((int(dl["d"]), r, dl.get("for")))
     cards = ""
     for k in range(12):
         m = (TODAY.month - 1 + k) % 12 + 1
         items = sorted(by_month[k], key=lambda x: (x[0], x[1]["name"]))
         lis = ""
-        for d, r in items:
+        for d, r, label in items:
             lis += (f'<li><span class="day">{"≈" if r.get("approx") else ""}{d}</span>'
                     f'<span><a href="{root}routes/{r["slug"]}/">{e(r["name"])}</a>'
-                    f'<span class="note">{e(r["flag"])} {e(r["country"])} · {e(r["deadline"])}</span></span></li>')
+                    f'<span class="note">{e(r["flag"])} {e(r["country"])} · {e(label or r["deadline"])}</span></span></li>')
         cards += (f'<section class="month{" now" if k == 0 else ""}" data-month="{m}"><h2>{MONTHS[m - 1]} <small>{len(items)} deadline{"s" if len(items) != 1 else ""}</small></h2>'
                   + (f"<ul>{lis}</ul>" if lis else '<p class="empty-m">No confirmed deadlines this month; a good month to prepare documents.</p>') + "</section>")
         if k == 5:
@@ -2310,7 +2345,7 @@ def build_404():
 def write_meta_files(routes):
     # data files for the live board — only the fields the page uses
     keep = ("name", "slug", "flag", "country", "region", "kind", "scope", "types", "levels", "fields", "funding",
-            "deadline", "deadlines", "opens", "approx", "rolling", "tbc", "varies", "link", "last_verified")
+            "deadline", "deadlines", "rounds", "depends", "opens", "approx", "rolling", "tbc", "varies", "link", "last_verified")
     slim = [{k: r[k] for k in keep if k in r} for r in ROUTES]
     # who can apply, as positions in SCHOLAR_COUNTRIES: x = everyone except these, o = only these, c = check, with why
     order = {name: i for i, name in enumerate(ELIGIBILITY["countries"])}

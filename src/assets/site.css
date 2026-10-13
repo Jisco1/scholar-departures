@@ -179,6 +179,15 @@ img, svg { max-width: 100%; }
 .glance dt { font-family: var(--mono); font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--faint); margin-bottom: 5px; }
 .glance dd { font-size: 15px; line-height: 1.5; color: var(--text); }
 .glance dd .sub { display: block; color: var(--dim); font-size: 13px; margin-top: 3px; }
+.glance dd .sub.warn { color: var(--approaching); font-weight: 600; }
+.rounds { max-width: 720px; margin: 8px 0 8px; padding: 16px 20px; border: 1px solid var(--line); border-radius: 14px; background: var(--card); }
+.rounds h2 { font-size: 15px; margin: 0 0 6px; }
+.rounds-note { color: var(--dim); font-size: 13.5px; margin: 0 0 8px; }
+.rounds ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.rounds li { display: grid; grid-template-columns: 9.5em 1fr auto; gap: 4px 12px; align-items: center; font-size: 14px; }
+.rounds .rd-date { font-variant-numeric: tabular-nums; font-weight: 600; }
+.rounds .rd-for { color: var(--dim); }
+@media (max-width: 560px) { .rounds li { grid-template-columns: 1fr auto; } .rounds .rd-for { grid-column: 1 / -1; } }
 .glance-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
 .glance-cta small { color: var(--faint); font-size: 12.5px; line-height: 1.5; }
 /* the official link comes after the write-up, so the page is read before the visitor leaves */

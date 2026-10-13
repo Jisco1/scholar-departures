@@ -53,7 +53,8 @@ MAX_PAGES = 4          # official pages read per route
 MAX_PAGE_CHARS = 12000
 
 LINK_MD = re.compile(r"\[([^\]]+)\]\(([^)\s]+)\)")
-LIST_KEYS = {"covers": (2, 6), "eligibility": (2, 6), "how_to_apply": (2, 6), "watch_out": (2, 6), "documents": (2, 7)}
+# a tuition-free university can have exactly one thing that is free (tuition); fees go in costs
+LIST_KEYS = {"covers": (1, 6), "eligibility": (2, 6), "how_to_apply": (2, 6), "watch_out": (2, 6), "documents": (2, 7)}
 
 UPDATE_PROMPT = """You maintain one page of DegreeStep, a free directory of funded study routes for international students. Today is {today}.
 
