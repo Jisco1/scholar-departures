@@ -90,6 +90,11 @@ for it in items.values():
             by_host[h].append(it)
 
 
+# hosts whose institution changed since Wikidata's record: adelaide.edu.au is now Adelaide University (the University of
+# Adelaide and UniSA merged on 1 January 2026), so the old university's founding year would mislead
+SKIP_HOSTS = {"adelaide.edu.au"}
+
+
 def describe(it):
     p = {"qid": it["qid"]}
     if len(it["years"]) == 1:
@@ -122,6 +127,9 @@ ours = [(n, u) for n, u, _ in ours_c]
 out, how = {}, collections.Counter()
 for name, url in ours:
     h = host(url)
+    if h in SKIP_HOSTS:
+        how["institution changed"] += 1
+        continue
     cands = by_host.get(h, [])
     if not cands:
         how["no item with this website"] += 1

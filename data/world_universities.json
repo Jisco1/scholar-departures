@@ -2040,14 +2040,6 @@
 "url": "https://www.latrobe.edu.au/"
 },
 {
-"name": "Linuwel School",
-"code": "AU",
-"country": "Australia",
-"region": "New South Wales",
-"continent": "Oceania",
-"url": "https://www.linuwel.nsw.edu.au/"
-},
-{
 "name": "Macquarie University",
 "code": "AU",
 "country": "Australia",
@@ -2120,14 +2112,6 @@
 "url": "https://www.scu.edu.au/"
 },
 {
-"name": "St. George's University (Australia)",
-"code": "AU",
-"country": "Australia",
-"region": "",
-"continent": "Oceania",
-"url": "https://stgc.uwa.edu.au/"
-},
-{
 "name": "Swinburne University of Technology",
 "code": "AU",
 "country": "Australia",
@@ -2152,12 +2136,12 @@
 "url": "https://www.torrens.edu.au/"
 },
 {
-"name": "University of Adelaide",
+"name": "Adelaide University",
 "code": "AU",
 "country": "Australia",
 "region": "South Australia",
 "continent": "Oceania",
-"url": "https://www.adelaide.edu.au/"
+"url": "https://adelaide.edu.au/"
 },
 {
 "name": "University of Canberra",
@@ -2216,14 +2200,6 @@
 "url": "https://www.uq.edu.au/"
 },
 {
-"name": "University of South Australia",
-"code": "AU",
-"country": "Australia",
-"region": "South Australia",
-"continent": "Oceania",
-"url": "https://www.unisa.edu.au/"
-},
-{
 "name": "University of Southern Queensland",
 "code": "AU",
 "country": "Australia",
@@ -2262,14 +2238,6 @@
 "region": "Western Australia",
 "continent": "Oceania",
 "url": "https://www.uwa.edu.au/"
-},
-{
-"name": "University of Western Sydney",
-"code": "AU",
-"country": "Australia",
-"region": "New South Wales",
-"continent": "Oceania",
-"url": "https://www.uws.edu.au/"
 },
 {
 "name": "University of Wollongong",

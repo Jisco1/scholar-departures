@@ -41,7 +41,7 @@
     "Low Tuition": "#6FC7C0",
     "Fee Waiver": "#E8919E"
   };
-  var REGIONS = ["All", "Europe", "USA", "Canada", "Asia", "Africa", "Global"];
+  var REGIONS = ["All", "Europe", "USA", "Canada", "Asia", "Africa", "Oceania", "Global"];
   var LEVELS = ["All levels", "Bachelor's", "Master's", "PhD"];
   var TYPES = ["All funding"].concat(Object.keys(TYPE_COLORS));
   var DFILTERS = ["All deadlines", "Approaching", "Closed"];

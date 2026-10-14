@@ -13,12 +13,33 @@
   "license_url": "https://creativecommons.org/licenses/by/3.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:Johnson_Chapel_at_the_Amhest_College_Main_Quad._-_panoramio.jpg"
  },
+ "anu-research-scholarships": {
+  "file": "route-anu-research-scholarships.jpg",
+  "credit": "Nick-D",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Driveway_leading_to_the_Chancelry_Building_at_the_ANU_July_2026.jpg"
+ },
  "ashesi-university-scholarships": {
   "file": "route-ashesi-university-scholarships.jpg",
   "credit": "Gwumah",
   "license": "CC BY-SA 4.0",
   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:Ashesi%27s_Archer_Cornfield_Courtyard.jpg"
+ },
+ "australia-awards-scholarships": {
+  "file": "route-australia-awards-scholarships.jpg",
+  "credit": "Thennicke",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Parliament_House_at_dusk,_Canberra_ACT.jpg"
+ },
+ "australian-research-training-program": {
+  "file": "route-australian-research-training-program.jpg",
+  "credit": "Benh LIEU SONG (Flickr)",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Sydney_Opera_House_and_Harbour_Bridge_Dusk_(3)_2019-06-21.jpg"
  },
  "berea-college": {
   "file": "route-berea-college.jpg",
@@ -397,6 +418,27 @@
   "license": "Public domain",
   "license_url": "",
   "source_url": "https://commons.wikimedia.org/wiki/File:UniversityIceland.JPG"
+ },
+ "university-of-melbourne-graduate-research-scholarships": {
+  "file": "route-university-of-melbourne-graduate-research-scholarships.jpg",
+  "credit": "Polly clip",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Old_Arts_Building._Parkville_Campus_of_University_of_Melbourne_(cropped).JPG"
+ },
+ "university-of-queensland-research-scholarships": {
+  "file": "route-university-of-queensland-research-scholarships.jpg",
+  "credit": "Chris Olszewski",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Steele_Building_surrounding_the_Great_Court,_University_of_Queensland_01.jpg"
+ },
+ "university-of-sydney-research-scholarships": {
+  "file": "route-university-of-sydney-research-scholarships.jpg",
+  "credit": "Jason Tong",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:The_University_of_Sydney%27s_Main_Quadrangle.jpg"
  },
  "university-of-toronto-pearson-scholarship": {
   "file": "route-university-of-toronto-pearson-scholarship.jpg",

@@ -177,6 +177,17 @@ class BuiltSite(unittest.TestCase):
         only = {r["slug"]: r.get("only_at") for r in data}
         self.assertEqual((only["gates-cambridge-scholarship"], only["rhodes-scholarship"]), ("cam.ac.uk", "ox.ac.uk"))
 
+    def test_australia_is_covered(self):
+        # 13 Oct 2026: the board had no Australian routes, region or country guide
+        feed = json.loads((self.site / "app" / "feed.json").read_text(encoding="utf-8"))
+        au = {r["slug"]: r for r in feed["routes"] if r["country"] == "Australia"}
+        self.assertGreaterEqual(len(au), 6)
+        self.assertTrue(all(r["region"] == "Oceania" for r in au.values()))
+        ghana = feed["countries"].index("Ghana")
+        self.assertIn(ghana, au["australia-awards-scholarships"]["open"]["o"])
+        self.assertTrue((self.site / "countries" / "australia" / "index.html").exists())
+        self.assertIn('"Oceania", "Global"', (self.site / "assets" / "app.js").read_text(encoding="utf-8"))
+
     def test_deadlines_are_confirmed_dates_only(self):
         # 12 Oct 2026: a route counted down to last year's date ("due in 64 days") for a round nobody had
         # announced. Every deadline carries the year the official page gave, and nothing rolls forward.

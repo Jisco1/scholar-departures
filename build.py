@@ -43,7 +43,7 @@ TYPES = ["Tuition-Free", "Full Scholarship", "Need-Based Aid", "Merit", "Low Tui
 TYPE_COLORS = {"Tuition-Free": "#7FD1AE", "Full Scholarship": "#B3A1E8", "Need-Based Aid": "#7EB8E8",
                "Merit": "#E3C892", "Low Tuition": "#6FC7C0", "Fee Waiver": "#E8919E"}
 LEVELS = ["Bachelor's", "Master's", "PhD"]
-REGIONS = ["Europe", "USA", "Canada", "Asia", "Africa", "Global"]
+REGIONS = ["Europe", "USA", "Canada", "Asia", "Africa", "Oceania", "Global"]
 # One spelling per country, so search, filters and grouping never split a country in two (the update robot
 # once filed Bowdoin under "USA" while every other US school said "United States").
 COUNTRY_NAMES = {"USA": "United States", "US": "United States", "U.S.": "United States", "U.S.A.": "United States",
@@ -1646,7 +1646,7 @@ def build_routes_index(routes, country_pages):
     groups = {}
     for r in routes:
         groups.setdefault(r["region"], {}).setdefault(r["country"], []).append(r)
-    order = ["Europe", "USA", "Canada", "Asia", "Africa", "Global"]
+    order = ["Europe", "USA", "Canada", "Asia", "Africa", "Oceania", "Global"]
     body = ""
     for region in order:
         if region not in groups:
@@ -2062,7 +2062,8 @@ def write_app_feed(routes, notes, positions, news, subjects, guides, photos=None
     (OUT / "app" / "feed.json").write_text(json.dumps(feed, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
 
-CONTINENTS = {"Europe": "Europe", "USA": "North America", "Canada": "North America", "Asia": "Asia", "Africa": "Africa"}
+CONTINENTS = {"Europe": "Europe", "USA": "North America", "Canada": "North America", "Asia": "Asia", "Africa": "Africa",
+              "Oceania": "Oceania"}
 
 
 def url_host(url):

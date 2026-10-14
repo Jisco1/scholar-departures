@@ -1,0 +1,110 @@
+{
+  "name": "Australia",
+  "flag": "🇦🇺",
+  "title": "Study in Australia: scholarships, student visas and work rules",
+  "meta_title": "Study in Australia: scholarships and student visas",
+  "lede": "Australia funds international students mainly through the Australia Awards and, for research degrees, the Research Training Program that every university runs. This guide covers both, what a student visa costs, the money you must show, and how long you can stay and work afterwards.",
+  "description": "Funded study in Australia: Australia Awards, research scholarships at Melbourne, Sydney, UQ and ANU, student visa costs, proof of funds and work rules.",
+  "card": "Australia Awards pay everything for partner countries; research degrees are funded through each university.",
+  "sections": [
+    {
+      "h": "Fully funded: the Australia Awards",
+      "html": "<p>The <a href=\"{{root}}routes/australia-awards-scholarships/\">Australia Awards Scholarships</a> pay full tuition, a return airfare, a living allowance and health cover for citizens of partner countries, including <strong>Ghana, Nigeria, Kenya</strong> and 22 other African countries. Applications for study starting in 2027 ran from 1 February to 30 April 2026; the round for 2028 has not been announced yet. Scholars must leave Australia for at least two years after the award.</p>"
+    },
+    {
+      "h": "Research degrees: the Research Training Program",
+      "html": "<p>The Australian Government funds research master's and PhD students, domestic and international, through the <a href=\"{{root}}routes/australian-research-training-program/\">Research Training Program</a>. You apply through the university, not the government, and each sets its own dates. The base stipend is <strong>AUD 35,550 a year in 2027</strong>, and universities may pay more: the <a href=\"{{root}}routes/university-of-sydney-research-scholarships/\">University of Sydney</a> pays AUD 44,293 (next international deadline 18 December 2026), the <a href=\"{{root}}routes/university-of-melbourne-graduate-research-scholarships/\">University of Melbourne</a> AUD 41,100, <a href=\"{{root}}routes/anu-research-scholarships/\">ANU</a> AUD 40,475 (next round 15 April 2027) and the <a href=\"{{root}}routes/university-of-queensland-research-scholarships/\">University of Queensland</a> AUD 39,220 in 2026 (international round closes 19 October 2026).</p>"
+    },
+    {
+      "h": "Application fees",
+      "html": "<p>Australian universities set their own application fees. The University of Melbourne charges international applicants <strong>AUD 154</strong> per application but nothing for graduate research courses, and ANU charges <strong>AUD 150</strong>. Fully sponsored applicants can often have the fee waived. Our guide to <a href=\"{{root}}guides/universities-with-no-application-fee/\">universities with no application fee</a> covers other countries.</p>"
+    },
+    {
+      "h": "Student visas and proof of funds",
+      "html": "<p>The Student visa (subclass 500) costs from <strong>AUD 2,500</strong>. You must be able to pay for your travel, the first 12 months of course fees and 12 months of living costs, set at <strong>AUD 29,710</strong> for a student, and hold Overseas Student Health Cover. Instead of savings, you can show that your parents or partner earned at least AUD 87,856 in the past 12 months. Under new rules from 2 October 2026, most students can no longer bring a partner or children on their Student visa.</p>"
+    },
+    {
+      "h": "Working while you study",
+      "html": "<p>A Student visa lets you work up to <strong>48 hours a fortnight</strong> while your course is in session, with no limit in scheduled breaks.</p>"
+    },
+    {
+      "h": "After you graduate: the Temporary Graduate visa",
+      "html": "<p>The Temporary Graduate visa (subclass 485), Post-Higher Education Work stream, lets you stay and work after your degree: <strong>2 years</strong> after a bachelor's or coursework master's, and <strong>3 years</strong> after a research master's or PhD. You must be 35 or under when you apply, and the visa costs from AUD 5,750.</p>"
+    }
+  ],
+  "sources": [
+    {
+      "title": "DFAT: Australia Awards Scholarships",
+      "url": "https://www.dfat.gov.au/people-to-people/australia-awards/australia-awards-scholarships"
+    },
+    {
+      "title": "DFAT: Australia Awards opening and closing dates",
+      "url": "https://www.dfat.gov.au/people-to-people/australia-awards/australia-awards-scholarships-opening-and-closing-dates"
+    },
+    {
+      "title": "Department of Education: Research Training Program",
+      "url": "https://www.education.gov.au/research-block-grants/research-training-program"
+    },
+    {
+      "title": "Department of Home Affairs: Student visa (subclass 500)",
+      "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500"
+    },
+    {
+      "title": "Department of Home Affairs: Temporary Graduate visa, Post-Higher Education Work stream",
+      "url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/temporary-graduate-485/post-higher-education-work"
+    },
+    {
+      "title": "University of Melbourne: International application fee",
+      "url": "https://study.unimelb.edu.au/how-to-apply/fees/application-fee"
+    },
+    {
+      "title": "ANU: International applications",
+      "url": "https://study.anu.edu.au/apply/international-applications"
+    }
+  ],
+  "reviewed": "2026-10-13",
+  "glance": [
+    [
+      "Tuition",
+      "Set by each university; a research scholarship can cover research-degree fees"
+    ],
+    [
+      "Application fee",
+      "Often AUD 150 to 154 (ANU AUD 150, Melbourne AUD 154; none for Melbourne research degrees)"
+    ],
+    [
+      "Proof of funds",
+      "AUD 29,710 a year for living costs, plus the first year's fees and travel"
+    ],
+    [
+      "Work while studying",
+      "Up to 48 hours a fortnight while your course is in session"
+    ],
+    [
+      "After you graduate",
+      "2 years after a bachelor's or coursework master's, 3 after a research degree; apply at 35 or under"
+    ]
+  ],
+  "faq": [
+    {
+      "q": "How much is the application fee for Australian universities?",
+      "a": "Each university sets its own. The University of Melbourne charges international applicants AUD 154 per application but nothing for graduate research courses, and ANU charges AUD 150."
+    },
+    {
+      "q": "Can Ghanaians apply for Australia Awards Scholarships?",
+      "a": "Yes. Ghana is one of 25 African countries in the programme, run through Australia Awards Africa. The 2027 round closed on 30 April 2026; the 2028 round has not been announced."
+    },
+    {
+      "q": "How much money do I need to show for an Australian student visa?",
+      "a": "Enough for your travel, the first 12 months of course fees and AUD 29,710 for 12 months of living costs, or evidence that your parents or partner earned at least AUD 87,856 in the past year."
+    },
+    {
+      "q": "Can I work while studying in Australia?",
+      "a": "Yes, up to 48 hours a fortnight while your course is in session."
+    },
+    {
+      "q": "How long can I stay in Australia after graduating?",
+      "a": "On the Temporary Graduate visa, 2 years after a bachelor's or coursework master's and 3 years after a research master's or PhD, if you are 35 or under when you apply."
+    }
+  ]
+}

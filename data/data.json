@@ -1958,5 +1958,239 @@
     "last_checked": "2026-10-01",
     "tbc": true,
     "approx": false
+  },
+  {
+    "name": "Australia Awards Scholarships",
+    "flag": "🇦🇺",
+    "country": "Australia",
+    "region": "Oceania",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's",
+      "PhD"
+    ],
+    "funding": "The Australian Government's scholarships for citizens of partner countries: full tuition, return airfare, a living allowance and health cover at participating universities.",
+    "deadline": "Applications for 2027 study closed Apr 30, 2026; the round for 2028 study is not yet announced",
+    "link": "https://www.dfat.gov.au/people-to-people/australia-awards/australia-awards-scholarships",
+    "last_verified": "2026-10-13",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "australia-awards-scholarships",
+    "approx": false,
+    "tbc": true
+  },
+  {
+    "name": "Research Training Program (Australian Government)",
+    "flag": "🇦🇺",
+    "country": "Australia",
+    "region": "Oceania",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "funding": "Government-funded scholarships for research master's and PhD students, international or domestic, paid through each university: tuition fee offset, a stipend and allowances.",
+    "deadline": "Set by each university: you apply through the university where you want to do your research degree",
+    "link": "https://www.education.gov.au/research-block-grants/research-training-program",
+    "last_verified": "2026-10-13",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "australian-research-training-program",
+    "approx": false,
+    "varies": true
+  },
+  {
+    "name": "University of Melbourne: Graduate Research Scholarships",
+    "flag": "🇦🇺",
+    "country": "Australia",
+    "region": "Oceania",
+    "types": [
+      "Full Scholarship",
+      "Merit"
+    ],
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "funding": "Full fee offset, a living allowance of AUD 41,100 a year (2027 rate), a relocation grant and health cover for research master's and PhD students.",
+    "deadline": "You are considered when you apply for a graduate research degree by its closing date, which each faculty sets",
+    "link": "https://scholarships.unimelb.edu.au/awards/graduate-research-scholarships",
+    "last_verified": "2026-10-13",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "university-of-melbourne-graduate-research-scholarships",
+    "approx": false,
+    "varies": true
+  },
+  {
+    "name": "University of Sydney: research scholarships (RTP and USYDIS)",
+    "flag": "🇦🇺",
+    "country": "Australia",
+    "region": "Oceania",
+    "types": [
+      "Full Scholarship",
+      "Merit"
+    ],
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "funding": "A stipend of AUD 44,293 a year (2027 rate), full tuition for up to 14 research periods and health cover for international research students.",
+    "deadline": "Dec 18, 2026 for research periods 3 and 4 of 2027 (the round for periods 1 and 2 closed Sep 11, 2026)",
+    "link": "https://www.sydney.edu.au/scholarships/australian-government-research-training-program/rtp-international.html",
+    "last_verified": "2026-10-13",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "university-of-sydney-research-scholarships",
+    "approx": false,
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 12,
+        "d": 18
+      }
+    ]
+  },
+  {
+    "name": "University of Queensland: Graduate Research School Scholarships",
+    "flag": "🇦🇺",
+    "country": "Australia",
+    "region": "Oceania",
+    "types": [
+      "Full Scholarship",
+      "Merit"
+    ],
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "funding": "A tax-free living stipend of AUD 39,220 a year (2026 rate, indexed), tuition fees and health cover for PhD and MPhil students.",
+    "deadline": "International round closes Oct 19, 2026, for a start in research quarter 4 of 2027 or early 2028",
+    "link": "https://scholarships.uq.edu.au/scholarship/graduate-school-scholarships-uqgss-%E2%80%93-includes-rtp",
+    "last_verified": "2026-10-13",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "university-of-queensland-research-scholarships",
+    "approx": false,
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 10,
+        "d": 19
+      }
+    ]
+  },
+  {
+    "name": "Australian National University: research scholarships",
+    "flag": "🇦🇺",
+    "country": "Australia",
+    "region": "Oceania",
+    "types": [
+      "Merit"
+    ],
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "funding": "A tax-free stipend of AUD 40,475 a year (2027 base rate) for three and a half years, with allowances; tuition is covered only if you also win a tuition fee scholarship.",
+    "deadline": "Apr 15, 2027 (round 2, for a start by Aug 31, 2027) · round 1 for international applicants closes Aug 31 each year",
+    "link": "https://research.anu.edu.au/postgraduate-research-candidates/research-degree-scholarships",
+    "last_verified": "2026-10-13",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "anu-research-scholarships",
+    "approx": false,
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 4,
+        "d": 15,
+        "for": "round 2, for a start by 31 August 2027"
+      },
+      {
+        "y": 2027,
+        "m": 8,
+        "d": 31,
+        "for": "round 1 for international applicants, for a start by 31 March 2028"
+      }
+    ],
+    "depends": "when you want to start"
   }
 ]

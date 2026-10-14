@@ -1050,10 +1050,85 @@
         "Zambia",
         "Zimbabwe"
       ]
+    },
+    "australia_awards": {
+      "name": "Australia Awards participating countries",
+      "source": "https://www.dfat.gov.au/people-to-people/australia-awards/australia-awards-scholarships-opening-and-closing-dates",
+      "as_of": "2026-10-13",
+      "note": "Countries with an Australia Awards round for study starting in 2027 (French Polynesia, New Caledonia, Niue and Wallis and Futuna also take part but are not on the board's nationality list).",
+      "countries": [
+        "Algeria",
+        "Angola",
+        "Botswana",
+        "Côte d'Ivoire",
+        "Democratic Republic of the Congo",
+        "Egypt",
+        "Ethiopia",
+        "Gambia",
+        "Ghana",
+        "Guinea",
+        "Kenya",
+        "Madagascar",
+        "Malawi",
+        "Mauritius",
+        "Morocco",
+        "Mozambique",
+        "Namibia",
+        "Nigeria",
+        "Rwanda",
+        "Sierra Leone",
+        "South Africa",
+        "Tanzania",
+        "Uganda",
+        "Zambia",
+        "Zimbabwe",
+        "Bangladesh",
+        "Bhutan",
+        "Brunei",
+        "Cambodia",
+        "Micronesia",
+        "Fiji",
+        "Indonesia",
+        "Kiribati",
+        "Laos",
+        "Maldives",
+        "Mongolia",
+        "Myanmar",
+        "Nepal",
+        "Pakistan",
+        "Palau",
+        "Papua New Guinea",
+        "Philippines",
+        "Marshall Islands",
+        "Samoa",
+        "Singapore",
+        "Solomon Islands",
+        "Sri Lanka",
+        "Timor-Leste",
+        "Tonga",
+        "Tuvalu",
+        "Vanuatu",
+        "Vietnam"
+      ]
     }
   },
   "routes": {
+    "aims-masters-mathematical-sciences": {
+      "check": "Designed for African students; each AIMS centre's call says who else it admits."
+    },
     "amherst-college": {
+      "all": true
+    },
+    "anu-research-scholarships": {
+      "all": true
+    },
+    "ashesi-university-scholarships": {
+      "all": true
+    },
+    "australia-awards-scholarships": {
+      "list": "australia_awards"
+    },
+    "australian-research-training-program": {
       "all": true
     },
     "berea-college": {
@@ -1130,6 +1205,9 @@
     "ghent-university-doctoral-scholarships": {
       "list": "ghent"
     },
+    "global-korea-scholarship-graduate": {
+      "check": "Open to citizens of the countries NIIED invites each year, with a quota per country; check the year's guidelines."
+    },
     "government-of-ireland-international-education-scholarships": {
       "all": true,
       "except_groups": [
@@ -1144,6 +1222,12 @@
       ]
     },
     "harvard-university": {
+      "all": true
+    },
+    "hong-kong-phd-fellowship-scheme": {
+      "all": true
+    },
+    "kaust-fellowship": {
       "all": true
     },
     "knight-hennessy-scholars": {
@@ -1188,11 +1272,27 @@
         "africa"
       ]
     },
+    "mastercard-foundation-scholars-uct": {
+      "groups": [
+        "africa"
+      ]
+    },
+    "mext-japanese-government-scholarship": {
+      "all": true,
+      "except": [
+        "Japan"
+      ]
+    },
     "mit": {
       "all": true
     },
     "norwegian-phd-fellowships": {
       "all": true
+    },
+    "pan-african-university-scholarship": {
+      "groups": [
+        "africa"
+      ]
     },
     "politecnico-di-milano-merit-scholarships": {
       "all": true
@@ -1255,6 +1355,15 @@
     "university-of-iceland": {
       "all": true
     },
+    "university-of-melbourne-graduate-research-scholarships": {
+      "all": true
+    },
+    "university-of-queensland-research-scholarships": {
+      "all": true
+    },
+    "university-of-sydney-research-scholarships": {
+      "all": true
+    },
     "university-of-toronto-pearson-scholarship": {
       "all": true,
       "except": [
@@ -1269,37 +1378,6 @@
     },
     "yale-university": {
       "all": true
-    },
-    "mext-japanese-government-scholarship": {
-      "all": true,
-      "except": [
-        "Japan"
-      ]
-    },
-    "global-korea-scholarship-graduate": {
-      "check": "Open to citizens of the countries NIIED invites each year, with a quota per country; check the year's guidelines."
-    },
-    "kaust-fellowship": {
-      "all": true
-    },
-    "hong-kong-phd-fellowship-scheme": {
-      "all": true
-    },
-    "mastercard-foundation-scholars-uct": {
-      "groups": [
-        "africa"
-      ]
-    },
-    "ashesi-university-scholarships": {
-      "all": true
-    },
-    "aims-masters-mathematical-sciences": {
-      "check": "Designed for African students; each AIMS centre's call says who else it admits."
-    },
-    "pan-african-university-scholarship": {
-      "groups": [
-        "africa"
-      ]
     }
   }
 }

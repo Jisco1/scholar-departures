@@ -6,7 +6,7 @@
   "use strict";
   var cfg = JSON.parse(document.getElementById("schoolConfig").textContent);
   var ROOT = cfg.root, ROUTES = window.SCHOLAR_DATA || [];
-  var REGION_OF = { Europe: "Europe", Asia: "Asia", Africa: "Africa" };  // continent to the board's region filter
+  var REGION_OF = { Europe: "Europe", Asia: "Asia", Africa: "Africa", Oceania: "Oceania" };  // continent to the board's region filter
   var slug = "";
   try { slug = new URLSearchParams(window.location.search).get("s") || ""; } catch (e) { slug = ""; }
 
