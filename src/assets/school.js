@@ -188,7 +188,7 @@
     var text = [subject(s.name) + " is " + an(type) + " " + type + " in " + where + "."];
     if (p.founded) {
       var age = new Date().getFullYear() - p.founded;
-      var years = age >= 200 ? Math.floor(age / 100) * 100 : age >= 100 ? 100 : 0;
+      var years = age >= 100 ? Math.floor(age / 10) * 10 : 0;  // 1850 reads "more than 170 years", 1495 "more than 530"
       if (p.among_oldest) text.push("Founded in " + p.founded + ", it is one of the oldest universities in " + inCountry(s.country) +
         (years ? ", with more than " + years + " years of teaching behind it." : "."));
       else text.push("It was founded in " + p.founded + (years ? " and has more than " + years + " years of history." : "."));
