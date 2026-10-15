@@ -1,5 +1,128 @@
 [
   {
+    "id": "machine-learning-subseasonal-weather-forecasts",
+    "date": "2026-10-14",
+    "category": "Breakthrough",
+    "title": "A machine-learning add-on doubles the accuracy of weather forecasts two to six weeks ahead",
+    "summary": "Researchers from MIT, Microsoft, Harvard, the University of Toronto, ECMWF and others report in Nature that a model which learns and corrects the errors of an existing forecasting system doubled its accuracy two to six weeks ahead, a range where forecasts have struggled to beat long-term climate averages.",
+    "meta_title": "Machine learning doubles the accuracy of 2-6 week weather forecasts",
+    "meta_description": "A correction model from MIT, Microsoft and others doubled the accuracy of ECMWF forecasts two to six weeks ahead, according to a study in Nature.",
+    "why": "Forecasting now joins atmospheric science with machine learning, two fields with funded master's and PhD routes, and the method is open source, so students can build on it.",
+    "images": [
+      {
+        "file": "news-hurricane-isabel-iss.jpg",
+        "kind": "wide",
+        "name": "Hurricane Isabel seen from the International Space Station, September 2003",
+        "credit": "NASA Johnson Space Center",
+        "license": "Public domain",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Hurricane_Isabel_from_ISS.jpg",
+        "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+      }
+    ],
+    "source_title": "MIT News: Researchers improve weather forecasts looking two to six weeks out, 14 October 2026",
+    "source_url": "https://news.mit.edu/2026/researchers-improve-weather-forecasts-looking-two-six-weeks-out-1014",
+    "body": [
+      "A team from MIT, Microsoft, Harvard, the University of Toronto, the European Centre for Medium-Range Weather Forecasts (ECMWF), Brazil's National Institute for Pure and Applied Mathematics and the weather company DTN has shown that machine learning can sharpen forecasts for two to six weeks ahead, the range forecasters call subseasonal. The study is published in Nature, and MIT announced it on 14 October.",
+      "Rather than build a new weather model, the team trained a model to learn, from historical data, the errors an existing forecasting system makes, and to correct its output. Applied to ECMWF's forecasting model, a gold standard in the field, the correction doubled its accuracy in the subseasonal range. MIT says that for the first time the result improved on simply relying on climate averages for that period, and that it also predicts extreme weather better.",
+      "The method works as an add-on that can sit on top of any forecasting model. It is open source and cheap to run, and the team's entry placed first in a forecasting competition run by ECMWF.",
+      "Energy operators, farmers and emergency managers plan on this timescale. Judah Cohen of MIT's Department of Civil and Environmental Engineering, one of the authors, says the atmosphere tends to fall into favourite patterns again and again, which is why prediction this far ahead may be possible. Kenya's meteorological office has already asked about using the model to plan for its rainy season and harvests.",
+      "Work like this sits between [computer science]({{root}}subjects/computer-science/) and the [environmental sciences]({{root}}subjects/agriculture-environment/); both pages list routes that fund a master's or PhD. Earlier this month, a [Nobel Prize]({{root}}news/nobel-physics-2026-icecube/) went to another field built on huge datasets, neutrino astronomy."
+    ]
+  },
+  {
+    "id": "perseverance-off-world-driving-record",
+    "date": "2026-10-12",
+    "category": "Breakthrough",
+    "title": "NASA's Perseverance rover passes Opportunity to set the record for the longest drive on another world",
+    "summary": "On 11 October, its 2,006th day on Mars, Perseverance's total distance reached 45.22 kilometres, beating the 45.16 kilometres Opportunity covered between 2004 and 2018. The rover drove more than 90% of that distance with its own navigation software.",
+    "meta_title": "NASA's Perseverance sets the record for driving on another world",
+    "meta_description": "NASA's Perseverance rover reached 45.22 km on Mars on 11 October 2026, passing Opportunity's 45.16 km, and drove over 90% of it with its own navigation.",
+    "why": "Self-driving rovers draw on robotics, computer vision and planetary geology, and our computer science and engineering pages list funded master's and PhD routes in those fields.",
+    "images": [
+      {
+        "file": "news-perseverance-selfie.jpg",
+        "kind": "wide",
+        "focus": 40,
+        "name": "Perseverance's selfie over a rock nicknamed Rochette, 10 September 2021",
+        "credit": "NASA",
+        "license": "Public domain",
+        "source_url": "https://commons.wikimedia.org/wiki/File:PIA24836_Perseverance%27s_Selfie_at_Rochette.jpg",
+        "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/"
+      }
+    ],
+    "source_title": "NASA Science: NASA's Perseverance Sets Off-World Record for Total Distance Driven, 12 October 2026",
+    "source_url": "https://science.nasa.gov/blogs/perseverance-mars-rover/2026/10/12/nasas-perseverance-sets-off-world-record-for-total-distance-driven/",
+    "body": [
+      "NASA's Perseverance rover has now driven farther than any vehicle on another world. On 11 October 2026, the 2,006th Martian day of its mission, its total distance reached 45.22 kilometres (28.10 miles), passing the 45.16 kilometres (28.06 miles) driven by NASA's Opportunity rover between 2004 and 2018. NASA announced the record on 12 October.",
+      "Perseverance landed in Jezero Crater in February 2021. Steven Lee, project manager for the Curiosity and Perseverance rovers at NASA's Jet Propulsion Laboratory, says the original mission called for no more than 12.4 miles (about 20 kilometres) of driving, and he expects the rover to keep adding to the record for many years.",
+      "Most of the distance was covered by AutoNav, the rover's self-driving system. As it drives, Perseverance photographs the ground ahead, builds a 3D map of hazards and plans its own route between waypoints set by the team on Earth, which the team calls \"thinking while driving\". More than 90% of its distance was driven this way, against about 5% for Spirit and Opportunity, which carried the first Martian version. Sojourner, the first Mars rover, judged the path ahead from 20 measurement points; Perseverance processes 600,000 each time it looks, and can cover up to 412 metres in a single Martian day.",
+      "The rover is now heading for an area called Idubi, beyond the western rim of Jezero Crater, where the team hopes to find traces of ancient hydrothermal systems in some of the oldest terrain yet explored. It will then follow the crater rim south towards a site called Rainbow Falls.",
+      "Rover autonomy sits where [computer science]({{root}}subjects/computer-science/) meets [engineering]({{root}}subjects/engineering-technology/), and both pages list funded routes. For more from NASA this month, see the last test telescope for the [LISA gravitational-wave observatory]({{root}}news/nasa-lisa-test-telescope-2026/)."
+    ]
+  },
+  {
+    "id": "us-opt-fee-proposal-2026",
+    "date": "2026-10-08",
+    "category": "Policy",
+    "title": "US proposes charging universities $70,000 for each international student they recommend for OPT work",
+    "summary": "The US Department of Homeland Security has proposed that universities pay $70,000 for each F-1 student they recommend for Optional Practical Training, and $30,000 for any later OPT, such as the STEM extension. It is only a proposal: public comments close on 9 November 2026, and nothing changes unless a final rule is published.",
+    "meta_title": "US proposes a $70,000 fee for each international student's OPT",
+    "meta_description": "DHS proposes that universities pay $70,000 for each F-1 student they recommend for OPT and $30,000 for later OPT. Comments close on 9 November 2026.",
+    "why": "OPT is how many international graduates in the US gain their first work experience. The proposal says universities could pass the fee on to students, so it bears on the true cost of a US degree.",
+    "images": [
+      {
+        "file": "news-foellinger-auditorium.jpg",
+        "kind": "wide",
+        "focus": 15,
+        "name": "Foellinger Auditorium, University of Illinois Urbana-Champaign",
+        "credit": "Beyond My Ken",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Foellinger_Auditorium_University_of_Illinois_at_Urbana-Champaign_closer.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    ],
+    "source_title": "Federal Register: Optional Practical Training Fees (proposed rule), 8 October 2026",
+    "source_url": "https://www.federalregister.gov/documents/2026/10/08/2026-20660/optional-practical-training-fees",
+    "body": [
+      "The US Department of Homeland Security (DHS) published a proposed rule in the Federal Register on 8 October 2026 that would put a fee on Optional Practical Training (OPT), the programme that lets F-1 students work in their field during or after their degree. A university would pay $70,000 for each student it recommends for OPT for the first time, and $30,000 for each later OPT recommendation, including the 24-month extension for STEM graduates.",
+      "The fee would fall on the school, not the student: a school official could not enter an OPT recommendation until the school had paid. DHS says schools could pass the cost on to international students, to all students or to employers, or decline to recommend a student. The money would go to the US Treasury, not to the immigration programme.",
+      "DHS gives fraud and the protection of US workers as its reasons. Its figures show 165,524 F-1 students on STEM OPT in 2024 and another 194,554 on OPT before or after graduation. For a student's first five calendar years in F-1 status, employers pay no Social Security or Medicare tax on their wages, which critics cited in the proposal say gives employers a reason to hire students over US workers.",
+      "Nothing has changed yet. Anyone can comment until 9 November 2026 on regulations.gov, under docket ICEB-2026-0100. DHS would then have to publish a final rule, which it proposes would take effect 60 days later and apply to OPT recommendations dated on or after that day.",
+      "Until then, OPT works as our [United States guide]({{root}}countries/united-states/) describes: up to 12 months after graduating, plus 24 months for STEM degrees. Our guide to [visas, money and work rules]({{root}}guides/visa-money-work-compared/) compares post-study work in ten countries, and [US financial aid for international students]({{root}}guides/us-financial-aid-international/) covers what US universities pay."
+    ]
+  },
+  {
+    "id": "australia-student-visa-family-rules-2026",
+    "date": "2026-10-02",
+    "category": "Policy",
+    "title": "Australia's new Student visa rules: most students can no longer bring a partner or children",
+    "summary": "Since 2 October 2026, most people applying for an Australian Student visa cannot include family members, and family can no longer join a student later. PhD students, students sponsored by Australia's foreign affairs or defence departments, holders of fully funded foreign government scholarships and Pacific and ASEAN nationals are exempt.",
+    "meta_title": "Australia's Student visa: most students can no longer bring family",
+    "meta_description": "From 2 October 2026 most Australian Student visa applicants cannot include a partner or children. PhD students and some scholarship holders are exempt.",
+    "why": "If you plan to study in Australia with a partner or children, your degree and how it is funded now decide whether they can come: a PhD qualifies on its own, a master's by research does not.",
+    "images": [
+      {
+        "file": "news-sydney-airport.jpg",
+        "kind": "wide",
+        "focus": 60,
+        "name": "Sydney Airport's international terminal at dusk",
+        "credit": "MDRX",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Sydney_Airport_Terminal_1h.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    ],
+    "source_title": "Department of Home Affairs: Changes to Student visa application rules (subclasses 500 and 590)",
+    "source_url": "https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/changes-to-student-visa-application-rules-500-590",
+    "body": [
+      "New rules for Australia's Student visa (subclass 500) and Student Guardian visa (subclass 590) took effect on 2 October 2026. The Department of Home Affairs says they change two things: who can apply for a visa while already in Australia, and whether family members can be included.",
+      "Most Student visa applicants can no longer include a partner or children, and this applies to people applying for a further Student visa too. Family members also cannot apply later, separately from the student, in any circumstance. Applications lodged before 2 October are assessed under the rules in place when they were made.",
+      "Five groups can still include family. PhD students qualify, but students on a master's by research do not. So do students sponsored by the Department of Foreign Affairs and Trade or the Department of Defence; students on a foreign government scholarship that fully funds their studies; nationals of 12 Pacific Island countries and the 11 ASEAN countries; and some people who already held or applied for a Student visa before 2 October and need more time to finish or are moving up to a higher-level course. Family members who qualify must apply at the same time as the student and from the same place.",
+      "The rules on applying from inside Australia changed as well. Applicants must now apply from outside Australia unless they hold an eligible visa and meet one of six exemptions, which include needing up to 12 more months to finish a course, DFAT or Defence sponsorship, and starting a PhD.",
+      "The [Australia Awards Scholarships]({{root}}routes/australia-awards-scholarships/) are run by the Department of Foreign Affairs and Trade, but their health cover is for the scholar only, so check the programme's rules before planning for family. Our [Australia guide]({{root}}countries/australia/) covers the visa's costs, proof of funds and work rights, and the [Research Training Program]({{root}}routes/australian-research-training-program/) funds PhDs at Australian universities."
+    ]
+  },
+  {
     "id": "nobel-economics-2026-hall-woodford",
     "date": "2026-10-12",
     "category": "Award",
