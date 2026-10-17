@@ -1,5 +1,36 @@
 [
   {
+    "id": "university-of-toronto-presidents-impact-phd-scholarships",
+    "date": "2026-10-05",
+    "category": "Funding",
+    "title": "University of Toronto launches a $100 million PhD scholarship paying $80,000 a year for four years",
+    "summary": "The Presidents' Impact Scholarship Program will fund 12 or more PhD students a year from Canada and around the world, starting in September 2027, each with $80,000 a year for four years. Applications open in late fall 2026.",
+    "meta_title": "University of Toronto's $100 million PhD scholarship: $80,000 a year",
+    "meta_description": "U of T's Presidents' Impact Scholarship pays PhD students $80,000 a year for four years, open to applicants worldwide. Applications open in late fall 2026.",
+    "why": "It is one of the largest PhD awards anywhere, it is open to international applicants, and the first call opens within weeks, so now is the time to prepare.",
+    "images": [
+      {
+        "file": "news-university-college-toronto.jpg",
+        "kind": "wide",
+        "focus": 40,
+        "name": "University College and its lawn, University of Toronto",
+        "credit": "Ken Eckert",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:University_College_Lawn,_University_of_Toronto,_Canada.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
+      }
+    ],
+    "source_title": "University of Toronto: U of T transforms PhD education with launch of Presidents' Impact Scholarship Program, 5 October 2026",
+    "source_url": "https://www.utoronto.ca/news/u-t-transforms-phd-education-launch-presidents-impact-scholarship-program",
+    "body": [
+      "The University of Toronto announced the Presidents' Impact Scholarship Program on 5 October 2026, a $100 million fund for PhD students. An anonymous Canadian family foundation gave $50 million, and the university is matching it. Each scholar will receive $80,000 a year for four years, and the university says the program is meant to attract top PhD applicants from Canada and around the world.",
+      "The first cohort of 12 or more scholars starts in September 2027. Each year's group works on one societal challenge chosen for that year; the university gives \"AI and Health\" and \"Sovereignty and the Arctic\" as examples of the kind of theme it has in mind. The theme for 2027 has not been named yet.",
+      "The program is built differently from a standard PhD. Each scholar has two supervisors from different disciplines and spends time outside the university, for example in a government partnership, an international placement or an industry internship. Scholars also meet researchers working on the same theme across the university.",
+      "Candidates will be judged on academic excellence and on a record of innovation and solving real-world problems. The School of Graduate Studies says applications open in late fall 2026, and that eligibility rules, the application process and deadlines will be published then. Its program page lets you sign up for an email when the call opens.",
+      "While you wait for the call, our [Canada guide]({{root}}countries/canada/) covers study permits, proof of funds and work rights, and the [Canada Graduate Research Scholarships]({{root}}routes/canada-graduate-research-scholarships-doctoral/) are another doctoral route in Canada. Our guide to [contacting PhD supervisors]({{root}}guides/contacting-phd-supervisors/) helps with the first step of most PhD applications."
+    ]
+  },
+  {
     "id": "machine-learning-subseasonal-weather-forecasts",
     "date": "2026-10-14",
     "category": "Breakthrough",
