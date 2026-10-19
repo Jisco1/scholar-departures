@@ -13,7 +13,7 @@
     },
     {
       "h": "The big full awards compared",
-      "html": "<div class=\"table-wrap\"><table><tr><th>Scholarship</th><th>Level</th><th>Who</th><th>Deadline</th></tr><tr><td><a href=\"{{root}}routes/chevening-scholarships/\">Chevening</a></td><td>One-year master's</td><td>160+ countries, 2 years' work experience</td><td>2027–28 closed 6 Oct 2026; next round not announced</td></tr><tr><td><a href=\"{{root}}routes/commonwealth-masters-scholarships/\">Commonwealth Master's</a></td><td>One-year master's</td><td>Eligible Commonwealth countries, via national nominating agency</td><td>20 Oct 2026</td></tr><tr><td><a href=\"{{root}}routes/commonwealth-shared-scholarships/\">Commonwealth Shared</a></td><td>Selected master's</td><td>Lower-income Commonwealth countries, via UK universities</td><td>2027–28 round not yet announced</td></tr><tr><td><a href=\"{{root}}routes/gates-cambridge-scholarship/\">Gates Cambridge</a></td><td>Any Cambridge postgraduate degree</td><td>Any country outside the UK</td><td>8 Dec 2026 or 6 Jan 2027</td></tr><tr><td><a href=\"{{root}}routes/rhodes-scholarship/\">Rhodes</a></td><td>Oxford postgraduate</td><td>By constituency</td><td>2028 entry not yet announced</td></tr><tr><td><a href=\"{{root}}routes/mastercard-foundation-scholars-cambridge/\">Mastercard Foundation at Cambridge</a></td><td>One-year master's</td><td>Young Africans</td><td>8 Dec 2026 or 6 Jan 2027, by course</td></tr></table></div>"
+      "html": "<div class=\"table-wrap\"><table><tr><th>Scholarship</th><th>Level</th><th>Who</th><th>Deadline</th></tr><tr><td><a href=\"{{root}}routes/chevening-scholarships/\">Chevening</a></td><td>One-year master's</td><td>160+ countries, 2 years' work experience</td><td>2027–28 closed 6 Oct 2026; next round not announced</td></tr><tr><td><a href=\"{{root}}routes/commonwealth-masters-scholarships/\">Commonwealth Master's</a></td><td>One-year master's</td><td>Eligible Commonwealth countries, via national nominating agency</td><td>20 Oct 2026</td></tr><tr><td><a href=\"{{root}}routes/commonwealth-shared-scholarships/\">Commonwealth Shared</a></td><td>Selected master's</td><td>Lower-income Commonwealth countries, via UK universities</td><td>2027–28 round not yet announced</td></tr><tr><td><a href=\"{{root}}routes/gates-cambridge-scholarship/\">Gates Cambridge</a></td><td>Any Cambridge postgraduate degree</td><td>Any country outside the UK</td><td>8 Dec 2026 or 6 Jan 2027</td></tr><tr><td><a href=\"{{root}}routes/clarendon-scholarships/\">Clarendon (Oxford)</a></td><td>Any Oxford master's or DPhil</td><td>Any country; no separate application</td><td>Your course's December or January deadline</td></tr><tr><td><a href=\"{{root}}routes/rhodes-scholarship/\">Rhodes</a></td><td>Oxford postgraduate</td><td>By constituency</td><td>2028 entry not yet announced</td></tr><tr><td><a href=\"{{root}}routes/mastercard-foundation-scholars-cambridge/\">Mastercard Foundation at Cambridge</a></td><td>One-year master's</td><td>Young Africans</td><td>8 Dec 2026 or 6 Jan 2027, by course</td></tr></table></div>"
     },
     {
       "h": "Application fees and waivers",
@@ -21,7 +21,7 @@
     },
     {
       "h": "Visa costs and proof of funds",
-      "html": "<p>A UK Student visa requires you to show money for living costs for up to nine months: <strong>£1,529 a month in London or £1,171 a month elsewhere</strong> for applications from 11 November 2025. You also pay the <strong>Immigration Health Surcharge</strong> (£776 a year for students) and the visa fee. Full scholarships such as Chevening and Commonwealth normally cover these or count as your financial evidence. Check your award letter.</p>"
+      "html": "<p>A UK Student visa requires you to show money for living costs for up to nine months: <strong>£1,570 a month in London or £1,203 a month elsewhere</strong> for applications made from 30 November 2026 (£1,529 and £1,171 for applications made before then). You also pay the <strong>Immigration Health Surcharge</strong> (£776 a year for students) and the visa fee. Full scholarships such as Chevening and Commonwealth normally cover these or count as your financial evidence. Check your award letter.</p>"
     },
     {
       "h": "Return commitments",
@@ -56,6 +56,10 @@
     {
       "title": "GOV.UK: Student visa: money you need",
       "url": "https://www.gov.uk/student-visa/money"
+    },
+    {
+      "title": "GOV.UK: Statement of changes to the Immigration Rules HC 584 (new Student maintenance amounts from 30 November 2026)",
+      "url": "https://www.gov.uk/government/publications/statement-of-changes-to-the-immigration-rules-hc-584-3-september-2026/statement-of-changes-to-the-immigration-rules-hc-584-3-september-2026-accessible"
     },
     {
       "title": "GOV.UK: Graduate visa",
@@ -110,7 +114,7 @@
     ],
     [
       "Proof of funds",
-      "£1,529 a month in London, £1,171 elsewhere, for up to 9 months"
+      "£1,570 a month in London, £1,203 elsewhere, for up to 9 months (from 30 Nov 2026)"
     ],
     [
       "Work while studying",
@@ -132,7 +136,7 @@
     },
     {
       "q": "How much money do I need for a UK Student visa?",
-      "a": "£1,529 a month for up to nine months in London, or £1,171 a month elsewhere, on top of any unpaid tuition. A full scholarship often counts as your evidence."
+      "a": "For applications made from 30 November 2026, £1,570 a month for up to nine months in London, or £1,203 a month elsewhere (£1,529 and £1,171 before then), on top of any unpaid tuition. A full scholarship often counts as your evidence."
     },
     {
       "q": "Can I work while studying in the UK?",

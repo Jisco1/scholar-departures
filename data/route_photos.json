@@ -83,6 +83,13 @@
   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:London_Skyline_from_Waterloo_Bridge,_London,_UK_-_Diliff.jpg"
  },
+ "clarendon-scholarships": {
+  "file": "route-clarendon-scholarships.jpg",
+  "credit": "Julian Herzog",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Radcliffe_Camera_Oxford_2018_02.jpg"
+ },
  "colby-college": {
   "file": "route-colby-college.jpg",
   "credit": "Nickline4",
@@ -460,6 +467,13 @@
   "license": "Public domain",
   "license_url": "",
   "source_url": "https://commons.wikimedia.org/wiki/File:Central_Library_of_Vanderbilt_University.JPG"
+ },
+ "vlir-uos-icp-connect-scholarships": {
+  "file": "route-vlir-uos-icp-connect-scholarships.jpg",
+  "credit": "Anton Raath",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Ghent_from_the_Boekentoren_belvedere_3.jpg"
  },
  "yale-university": {
   "file": "route-yale-university.jpg",

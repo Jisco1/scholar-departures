@@ -1756,9 +1756,9 @@
       "Engineering & Tech"
     ],
     "funding": "A fully funded one-year master's at Cambridge for young Africans, with leadership training and fee waivers for eligible applicants.",
-    "deadline": "Your course's funding deadline, Dec 8, 2026 or Jan 6, 2027 · fee-waiver request, if you need one, by Nov 18, 2026",
+    "deadline": "Your course's funding deadline, Dec 8, 2026 or Jan 6, 2027 · fee-waiver request, if you need one, by Nov 20, 2026",
     "link": "https://www.mastercardfoundation.fund.cam.ac.uk/",
-    "last_verified": "2026-10-12",
+    "last_verified": "2026-10-19",
     "content_hash": "a48c0bf52681817ee6a4f955cc12c97512649707a3bfaad22c1487c42911deae",
     "needs_review": false,
     "slug": "mastercard-foundation-scholars-cambridge",
@@ -1767,7 +1767,7 @@
       {
         "y": 2026,
         "m": 11,
-        "d": 18,
+        "d": 20,
         "for": "fee-waiver request, if your country is not on Cambridge's automatic list",
         "restricted": true
       },
@@ -2192,5 +2192,72 @@
       }
     ],
     "depends": "when you want to start"
+  },
+  {
+    "name": "Clarendon Scholarships (University of Oxford)",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "funding": "Full course fees for Home and Overseas students and a living grant of at least the UKRI minimum doctoral stipend (£20,780 in 2025–26) for any Oxford master's or DPhil; no separate application.",
+    "deadline": "Apply to your Oxford course by its December or January deadline for October 2027 entry (for example, MSc in Social Data Science: Nov 13, 2026 or Jan 7, 2027)",
+    "link": "https://www.ox.ac.uk/admissions/graduate/fees-and-funding/funding/clarendon",
+    "last_verified": "2026-10-19",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "slug": "clarendon-scholarships",
+    "approx": false,
+    "varies": true,
+    "depends": "your course",
+    "only_at": "ox.ac.uk"
+  },
+  {
+    "name": "VLIR-UOS ICP Connect Scholarships (Belgium)",
+    "flag": "🇧🇪",
+    "country": "Belgium",
+    "region": "Europe",
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's"
+    ],
+    "funding": "Tuition, travel, insurance and living costs (board and lodging) for a full English-taught bachelor's or master's at a Flemish university, for nationals of 25 countries in Africa, Asia and Latin America.",
+    "deadline": "2027–28 call expected to open by the end of October 2026; each programme then sets its own deadline",
+    "link": "https://www.vliruos.be/get-funded/study-scholarships",
+    "last_verified": "2026-10-19",
+    "content_hash": null,
+    "needs_review": false,
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Computer Science",
+      "Natural Sciences",
+      "Agriculture & Environment",
+      "Business & Economics",
+      "Social Sciences & Law"
+    ],
+    "slug": "vlir-uos-icp-connect-scholarships",
+    "approx": false,
+    "tbc": true
   }
 ]

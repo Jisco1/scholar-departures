@@ -1,5 +1,37 @@
 [
   {
+    "id": "uk-student-visa-money-rises-30-november-2026",
+    "date": "2026-10-19",
+    "category": "Policy",
+    "title": "UK raises the money international students must show for a Student visa from 30 November 2026",
+    "summary": "From 30 November 2026, Student visa applicants must show £1,570 a month for living costs in London and £1,203 a month elsewhere, up from £1,529 and £1,171, for up to nine months. Applications made before that date are decided under the old amounts.",
+    "meta_title": "UK Student visa money rises on 30 November 2026: £1,570 and £1,203",
+    "meta_description": "From 30 November 2026 UK Student visa applicants must show £1,570 a month in London or £1,203 elsewhere, for up to nine months. What changes and who it affects.",
+    "why": "If you will apply for a UK Student visa for 2027, budget for the new amounts: up to £14,130 for nine months in London or £10,827 elsewhere, on top of any course fees you have not paid.",
+    "images": [
+      {
+        "file": "news-home-office-marsham-street.jpg",
+        "kind": "wide",
+        "focus": 40,
+        "name": "The Home Office building on Marsham Street, London",
+        "credit": "Steve Cadman",
+        "license": "CC BY-SA 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Marsham_Street.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/"
+      }
+    ],
+    "source_title": "GOV.UK: Statement of changes to the Immigration Rules HC 584, 3 September 2026",
+    "source_url": "https://www.gov.uk/government/publications/statement-of-changes-to-the-immigration-rules-hc-584-3-september-2026/statement-of-changes-to-the-immigration-rules-hc-584-3-september-2026-accessible",
+    "body": [
+      "The UK government has raised the amount of money international students must show for living costs when they apply for a Student visa. The change was laid before Parliament on 3 September 2026 in a Statement of Changes to the Immigration Rules, HC 584, and applies to applications made on or after 30 November 2026.",
+      "Applicants will need £1,570 a month if they study in London, up from £1,529, and £1,203 a month elsewhere in the UK, up from £1,171. As before, you show the money for up to nine months, depending on the length of your course: up to £14,130 in London or £10,827 elsewhere. This is on top of any course fees you have not yet paid.",
+      "If you have paid your university a deposit for accommodation it arranges, the most you can count against the required funds also rises, from £1,529 to £1,570.",
+      "The date you apply decides which amount you need, not the date your course starts. Applications made before 30 November 2026 are decided under the rules in force on 29 November, so the old amounts still apply to them.",
+      "The same Statement of Changes exempts Erasmus+ participants studying at a UK sponsor from the usual limits on how long a work placement on their course can last.",
+      "Our [United Kingdom guide]({{root}}countries/united-kingdom/) covers the other visa costs, including the Immigration Health Surcharge, and the work rules. Full scholarships such as [Clarendon at Oxford]({{root}}routes/clarendon-scholarships/) and [Gates Cambridge]({{root}}routes/gates-cambridge-scholarship/) pay a living allowance on top of fees."
+    ]
+  },
+  {
     "id": "university-of-toronto-presidents-impact-phd-scholarships",
     "date": "2026-10-05",
     "category": "Funding",

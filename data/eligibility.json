@@ -1110,6 +1110,39 @@
         "Vanuatu",
         "Vietnam"
       ]
+    },
+    "vlir_uos": {
+      "name": "VLIR-UOS ICP Connect scholarship countries",
+      "source": "https://www.vliruos.be/icp-connect-scholarship-country-list",
+      "as_of": "2026-10-19",
+      "note": "Nationals of these countries who also live in one of them when they apply.",
+      "countries": [
+        "Benin",
+        "Bolivia",
+        "Burkina Faso",
+        "Burundi",
+        "Cameroon",
+        "Cuba",
+        "Democratic Republic of the Congo",
+        "Ecuador",
+        "Ethiopia",
+        "Guinea",
+        "Indonesia",
+        "Kenya",
+        "Madagascar",
+        "Morocco",
+        "Mozambique",
+        "Niger",
+        "Palestine",
+        "Peru",
+        "Philippines",
+        "Senegal",
+        "South Africa",
+        "Tanzania",
+        "Uganda",
+        "Vietnam",
+        "Zimbabwe"
+      ]
     }
   },
   "routes": {
@@ -1151,6 +1184,9 @@
     },
     "chevening-scholarships": {
       "list": "chevening"
+    },
+    "clarendon-scholarships": {
+      "all": true
     },
     "colby-college": {
       "all": true
@@ -1375,6 +1411,9 @@
     },
     "vanderbilt-university": {
       "all": true
+    },
+    "vlir-uos-icp-connect-scholarships": {
+      "list": "vlir_uos"
     },
     "yale-university": {
       "all": true
