@@ -485,7 +485,7 @@ class BuiltSite(unittest.TestCase):
             self.assertLessEqual(len(title), 70, f"{where}: {title}")
             self.assertTrue(25 <= len(desc) <= 160, f"{where}: {len(desc)} characters: {desc}")
         nl = self.pages[self.site / "countries" / "netherlands" / "index.html"]
-        self.assertIn("<title>Netherlands: tuition, application fees and scholarships · DegreeStep</title>", nl)
+        self.assertIn("<title>Netherlands tuition fees for international students, by university</title>", nl)
         self.assertIn("<h1>The Netherlands: tuition, application fees and the scholarships that cover them</h1>", nl)
 
     def test_country_guides_answer_application_fees(self):
