@@ -677,7 +677,9 @@ class BuiltSite(unittest.TestCase):
 
     def test_share_on_every_route_guide_and_story(self):
         from urllib.parse import parse_qs, urlsplit
-        shared = [p for p in self.pages if p.parent.parent.name in ("routes", "guides", "news", "positions")]
+        retired = {f.stem for f in (self.dir / "content" / "retired").glob("*.json")}  # closed schemes: no Share
+        shared = [p for p in self.pages if p.parent.parent.name in ("routes", "guides", "news", "positions")
+                  and not (p.parent.parent.name == "routes" and p.parent.name in retired)]
         self.assertGreaterEqual(len([p for p in shared if p.parent.parent.name == "positions"]), 10, "every funded position can be shared")
         self.assertGreaterEqual(len([p for p in shared if p.parent.parent.name == "news"]), 9, "every news story can be shared")
         self.assertGreaterEqual(len(shared), 70)
@@ -700,7 +702,8 @@ class BuiltSite(unittest.TestCase):
 
     def test_official_page_button_comes_after_the_write_up(self):
         # the owner asked (6 Oct 2026) for the official link at the end, so visitors read the page before leaving
-        routes = sorted(self.site.glob("routes/*/index.html"))
+        retired = {f.stem for f in (self.dir / "content" / "retired").glob("*.json")}  # closed: nothing to apply to
+        routes = sorted(p for p in self.site.glob("routes/*/index.html") if p.parent.name not in retired)
         self.assertGreaterEqual(len(routes), 50)
         for path in routes:
             html = self.pages[path]
@@ -756,6 +759,15 @@ class BuiltSite(unittest.TestCase):
             self.assertTrue((self.site / "assets" / img.rsplit("/", 1)[1]).exists(), img)
         home = self.pages[self.site / "index.html"]
         self.assertIn('<meta property="og:image" content="https://degreestep.com/assets/og.png">', home)
+
+    def test_closed_scheme_keeps_its_address(self):
+        # Search Console (19 Oct 2026) still showed the removed Research Ireland route 107 times a month; a closed scheme
+        # keeps its address and says what replaced it, instead of a 404
+        page = self.pages[self.site / "routes" / "research-ireland-postgraduate-scholarships" / "index.html"]
+        self.assertIn("has closed", page)
+        self.assertNotIn('content="noindex"', page)
+        self.assertIn('href="../../countries/ireland/"', page)
+        self.assertIn("routes/research-ireland-postgraduate-scholarships/", (self.site / "sitemap.xml").read_text(encoding="utf-8"))
 
     def test_shared_pages_show_their_own_card(self):
         # scholarships, guides, country guides and positions each preview their own card when shared

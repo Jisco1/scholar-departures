@@ -1,0 +1,20 @@
+{
+  "name": "Research Ireland postgraduate scholarships",
+  "flag": "🇮🇪",
+  "title": "Research Ireland's Government of Ireland Postgraduate Scholarship has closed: what replaced it",
+  "meta_title": "Research Ireland postgraduate scholarship closed: what replaced it",
+  "description": "Research Ireland's Government of Ireland Postgraduate Scholarship has closed and moved into Empower, which funds universities. Where to find PhD funding now.",
+  "lede": "Research students can no longer apply to Research Ireland directly. The Government of Ireland Postgraduate Scholarship Programme has closed and been folded into Empower, which funds Irish universities instead of individual students.",
+  "body": "<h2>What changed</h2><p>Research Ireland says the Government of Ireland Postgraduate Scholarship Programme is now closed and has been integrated into its new Empower programme. Under Empower, funding goes to institutions, not to individual scholars: Research Ireland assesses one application from each eligible higher education institution, and each institution decides how to allocate what it receives. A key focus is PhD studentships and postdoctoral fellowships.</p><p>Empower is an invited call for 18 Irish higher education institutions. Their applications are due on 6 November 2026, with decisions expected in January 2027 and funding starting in March 2027.</p><h2>Where to find PhD funding in Ireland now</h2><ul><li>Look for funded PhD positions advertised by the Irish university or research group you want to join, and ask the university's graduate school what PhD funding it offers.</li><li>The <a href=\"{{root}}routes/government-of-ireland-international-education-scholarships/\">Government of Ireland International Education Scholarships</a> still fund one year of master's or PhD study for students from outside the EU/EEA, Switzerland and the UK; the 2027 call has not yet been announced.</li><li>Our <a href=\"{{root}}countries/ireland/\">Ireland guide</a> covers application fees, proof of funds, work rules and Stamp 1G after graduation.</li><li>For salaried PhD posts elsewhere in Europe, see our guide to <a href=\"{{root}}guides/funded-phd-europe/\">how funded PhDs work in Europe</a> and our list of <a href=\"{{root}}positions/\">funded positions</a>.</li></ul>",
+  "sources": [
+    {
+      "title": "Research Ireland: Government of Ireland Postgraduate Scholarship Programme",
+      "url": "https://www.researchireland.ie/funding/government-ireland-postgraduate/"
+    },
+    {
+      "title": "Research Ireland: Empower Programme",
+      "url": "https://www.researchireland.ie/funding/empower/"
+    }
+  ],
+  "reviewed": "2026-10-19"
+}

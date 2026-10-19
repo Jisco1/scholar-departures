@@ -2390,6 +2390,31 @@ def build_static_pages(pages):
                                      nav=f"{p['slug']}/" if p["slug"] == "about" else None, ads=p.get("ads", False)))
 
 
+def build_retired_routes(routes):
+    """content/retired/<slug>.json: a scheme that has closed keeps its old address, so people (and search engines)
+    who still look for it learn what happened and where to go instead, rather than meeting a 404."""
+    live = {r["slug"] for r in routes}
+    for path in sorted((CONTENT / "retired").glob("*.json")):
+        slug, p = path.stem, json.loads(path.read_text(encoding="utf-8"))
+        where = f"content/retired/{slug}.json"
+        if slug in live:
+            fail(f"{where}: '{slug}' is a live route; a retired page would overwrite it")
+            continue
+        root = "../../"
+        html_body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("routes/", "Routes"), ("", p["name"])])}
+<div class="eyebrow-s">{e(p.get("flag", ""))} Closed</div>
+<h1>{e(p["title"])}</h1><p class="lede">{e(p["lede"])}</p>
+<div class="byline"><span>By <b>{author_link(root)}</b></span><span>Reviewed <b>{e(fmt_date(dt.date.fromisoformat(p["reviewed"])))}</b></span></div></div>
+<div class="layout"><article class="prose">{p["body"].replace("{{root}}", root)}
+<h2>Sources</h2><ul>{"".join(f'<li><a href="{e(s["url"])}" target="_blank" rel="noopener">{e(s["title"])}</a></li>' for s in p["sources"])}</ul>
+</article></div></div>"""
+        LASTMOD[f"routes/{slug}/"] = p["reviewed"]
+        write(f"routes/{slug}/", page(f"routes/{slug}/", search_title(p.get("meta_title"), p["title"], where),
+                                      search_description(p["description"], "", where), html_body, root=root, nav="routes/",
+                                      jsonld=[breadcrumb_ld([("", "Home"), ("routes/", "Routes"), (f"routes/{slug}/", p["name"])])],
+                                      og_type="article"))
+
+
 def build_author(guides, countries):
     root = "../../"
     a = AUTHOR
@@ -2548,6 +2573,7 @@ def main():
     build_updates(updates)
     build_route_pages(ROUTES, notes, dict(countries))
     build_routes_index(ROUTES, dict(countries))
+    build_retired_routes(ROUTES)
     build_countries(ROUTES, countries)
     build_subjects(subjects, ROUTES, positions)
     build_guides(guides, ROUTES)
