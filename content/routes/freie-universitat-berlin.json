@@ -1,19 +1,22 @@
 {
   "summary": "Berlin's public universities charge no tuition, and Freie Universität, one of Germany's 'universities of excellence', is strongest in the humanities, social sciences and natural sciences. You pay only the semester contribution: €376.80 for a new student in winter 2026/27.",
-  "meta_description": "Freie Universität Berlin charges no tuition, only a semester contribution that includes a transit pass. Eligibility, how to apply and deadlines.",
+  "meta_description": "Freie Universität Berlin charges no tuition. 25 English-taught master's, the €376.80 semester contribution, uni-assist VPD steps and deadlines.",
   "covers": [
     "No tuition fees for international students on standard (consecutive) degree programmes."
   ],
   "eligibility": [
     "Open to all nationalities, with a school-leaving certificate or degree recognised as equivalent for the level you apply to.",
     "Applicants with non-German qualifications first request a preliminary review document (VPD) from uni-assist, then apply through FU's own portal.",
-    "Many bachelor's programmes are taught in German and require German proficiency; a growing number of master's programmes are in English."
+    "You can apply for a master's before you graduate if you have completed at least two thirds of your bachelor's coursework; you then prove the degree by the end of your first semester at FU.",
+    "English-taught programmes ask for English at level B2 or C1, depending on the programme. On FU's scale B2 means IELTS 5.5 to 6.5 or TOEFL iBT 72 to 94, and C1 means IELTS 7.0 or TOEFL iBT 95 and above. A degree taught in English counts as proof.",
+    "Many bachelor's programmes are taught in German and require German proficiency. Language proof is submitted with the application, not later."
   ],
   "how_to_apply": [
     "Find your programme and check whether it has restricted (capped) or unrestricted admission; the deadlines differ.",
-    "Request your VPD on uni-assist at least six weeks before the deadline, so it arrives in time.",
-    "Apply on FU Berlin's application portal and upload the VPD with your other documents.",
-    "Winter 2026/27 deadlines were: master's with restricted admission 20 April – 31 May; master's with unrestricted admission until 15 August; bachelor's with restricted admission 1 June – 15 July; bachelor's with unrestricted admission until 1 September. FU publishes each round's dates on its application deadlines page; the 2027/28 dates are due in March.",
+    "Join one of FU's online info sessions for international applicants, held on Webex with no registration: 11 November 2026, 13 January 2027 and 10 February 2027, each 1 to 3 pm Berlin time, in English.",
+    "Request your VPD on uni-assist up to eight weeks before your deadline. uni-assist usually needs four to six weeks, longer at peak times, and starts only once its fee is paid. A VPD stays valid for one year.",
+    "Create an account on FU Berlin's application portal within the application period, upload the VPD with your other documents and submit online.",
+    "Winter 2026/27 deadlines were: master's with restricted admission 20 April to 31 May; master's with unrestricted admission until 15 August; bachelor's with restricted admission 1 June to 15 July; bachelor's with unrestricted admission until 1 September. The same deadlines apply to applicants with foreign qualifications. FU has not yet published the 2027/28 dates.",
     "After admission, enrol, pay the semester contribution and apply for your visa."
   ],
   "watch_out": [
@@ -33,6 +36,22 @@
       "url": "https://www.fu-berlin.de/en/studium/bewerbung/bewerbungsfristen/index.html"
     },
     {
+      "title": "Freie Universität Berlin: Master's applicants with foreign qualifications (uni-assist)",
+      "url": "https://www.fu-berlin.de/en/studium/bewerbung/master/konsekutive-masterstudiengaenge/uni-assist/index.html"
+    },
+    {
+      "title": "Freie Universität Berlin: Language requirements for master's programmes",
+      "url": "https://www.fu-berlin.de/en/studium/bewerbung/master/konsekutive-masterstudiengaenge/sprachliche-zugangsvoraussetzungen/index.html"
+    },
+    {
+      "title": "Freie Universität Berlin: Programs in English",
+      "url": "https://www.fu-berlin.de/en/studium/studienangebot/english/index.html"
+    },
+    {
+      "title": "Freie Universität Berlin: Deutschlandstipendium",
+      "url": "https://www.fu-berlin.de/en/sites/deutschlandstipendium/index.html"
+    },
+    {
       "title": "Freie Universität Berlin: Fees (Gebühren)",
       "url": "https://www.fu-berlin.de/studium/studieren/studienorganisation/gebuehren/index.html"
     },
@@ -41,7 +60,7 @@
       "url": "https://www.daad.de/en/studying-in-germany/requirements/overview/"
     }
   ],
-  "reviewed": "2026-10-13",
+  "reviewed": "2026-10-26",
   "costs": [
     [
       "Tuition",
@@ -56,5 +75,31 @@
       "You; the university pays no living allowance"
     ]
   ],
-  "meta_title": "Freie Universität Berlin: tuition-free study, fees and deadlines"
+  "meta_title": "Freie Universität Berlin: tuition-free study, fees and deadlines",
+  "documents": [
+    "For the uni-assist VPD: the university certificates and transcripts your master's admission rests on, with official translations of anything not in German or English (by a sworn translator or an authorised institution).",
+    "An APS certificate if your certificates are from China, India or Vietnam.",
+    "For FU's portal: the VPD issued for Freie Universität Berlin, your degree certificate with its final grade, or a current official transcript with your overall grade if you have not finished yet.",
+    "The other school and university certificates uni-assist evaluated, plus any country-specific documents.",
+    "Proof of English or German if your programme requires it.",
+    "Anything extra your programme lists, such as proof of study-related skills where that is a selection criterion."
+  ],
+  "faq": [
+    {
+      "q": "Does Freie Universität Berlin charge tuition to international students?",
+      "a": "Not on standard (consecutive) bachelor's and master's programmes. Every student pays the semester contribution, €376.80 for new students in winter 2026/27, which includes the Deutschlandsemesterticket for Berlin's public transport. Some continuing-education master's programmes charge fees."
+    },
+    {
+      "q": "Which master's programmes are taught in English?",
+      "a": "FU lists 25 consecutive master's programmes taught entirely in English, among them Data Science, Bioinformatics, Computational Sciences, Physics, Chemistry, Mathematics, Cognitive Neuroscience, Global History and Sociology – European Societies. Only one bachelor's, North American Studies, is taught in English."
+    },
+    {
+      "q": "When are the 2027/28 application deadlines?",
+      "a": "FU has not published them yet. For winter 2026/27, restricted master's programmes took applications from 20 April to 31 May 2026 and unrestricted ones until 15 August; bachelor's programmes ran from 1 June to 15 July (restricted) or 1 September (unrestricted)."
+    },
+    {
+      "q": "Are there scholarships at FU Berlin for international students?",
+      "a": "With no tuition to cover, funding goes to living costs. FU awards the Deutschlandstipendium, €300 a month for at least two semesters from October, to students of all nationalities; the 2026/27 round has closed and the next one has not been announced. The [DAAD]({{root}}routes/daad-scholarships/) funds international master's and PhD students through its own programmes."
+    }
+  ]
 }

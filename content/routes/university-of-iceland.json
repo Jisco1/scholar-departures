@@ -1,7 +1,7 @@
 {
   "summary": "Iceland's public universities used to charge every student only a registration fee. That is ending for bachelor's and master's students from outside the EEA: from autumn 2027 they will pay tuition. Doctoral programmes are exempt, so the University of Iceland stays on the board as a tuition-free route for PhD candidates.",
   "meta_title": "University of Iceland PhD: funding, eligibility and deadlines",
-  "meta_description": "University of Iceland PhD programmes stay tuition-free, with only a registration fee, while non-EEA bachelor's and master's students start paying in 2027.",
+  "meta_description": "University of Iceland PhDs stay tuition-free for every nationality. Fees, the Doctoral Grant Fund, deadlines by school and the 2027 non-EEA change.",
   "covers": [
     "No tuition for doctoral programmes; PhD programmes are exempt from the new non-EEA fees."
   ],
@@ -12,7 +12,8 @@
   ],
   "how_to_apply": [
     "Find a supervisor and a research topic; most funded PhD places are tied to a specific project, so watch for advertised positions.",
-    "Apply to the doctoral programme through the University of Iceland's online application system, with a research proposal agreed with your supervisor.",
+    "Check your school's deadline. International applicants to doctoral programmes in Education, Humanities and Social Sciences apply by 1 February; Engineering and Natural Sciences and Health Sciences take applications all year; interdisciplinary programmes follow the deadline of the supervisor's school.",
+    "Apply through the University of Iceland's online application system. In Engineering and Natural Sciences, for example, the application names your administrative and academic supervisors, gives a short statement of your research interests and expectations, and says how your studies will be funded.",
     "Pay the non-EEA handling fee with the application and the registration fee once admitted.",
     "Apply for your Icelandic residence permit as soon as you are admitted; processing can take months."
   ],
@@ -33,27 +34,57 @@
       "url": "https://english.hi.is/study/apply/university-fees"
     },
     {
+      "title": "University of Iceland: Doctoral studies",
+      "url": "https://english.hi.is/study/doctoral-studies"
+    },
+    {
+      "title": "University of Iceland: Regulation on doctoral study at the School of Engineering and Natural Sciences",
+      "url": "https://english.hi.is/node/15450"
+    },
+    {
+      "title": "University of Iceland: Regulation on the Doctoral Grant Fund",
+      "url": "https://english.hi.is/node/28373"
+    },
+    {
       "title": "University of Iceland: Higher registration fees next academic year",
       "url": "https://english.hi.is/news/higher-registration-fees-university-iceland-next-academic-year"
     }
   ],
-  "reviewed": "2026-10-13",
+  "reviewed": "2026-10-26",
   "costs": [
     [
       "Tuition (doctoral programmes)",
       "None; PhD programmes are exempt from the new non-EEA fees"
     ],
     [
-      "Annual registration fee: ISK 100,000 for 2026–27 (ISK 75,000 if you start in the spring semester)",
+      "Annual registration fee: ISK 100,000 (ISK 75,000 if you start in the spring semester)",
       "You, every year"
     ],
     [
-      "Application handling fee for non-EEA applicants: ISK 20,000 (about €135)",
+      "Application handling fee for non-EEA applicants: ISK 20,000 (about €145), non-refundable",
       "You, once, when you apply"
     ],
     [
       "Living costs",
-      "You; the university does not cover them. PhD funding usually comes from research grants attached to an advertised project, or from doctoral grants such as those of the University of Iceland Research Fund"
+      "You, unless you hold a grant or a paid position. PhD funding usually comes from research grants attached to an advertised project, or from the University of Iceland's Doctoral Grant Fund"
     ]
+  ],
+  "faq": [
+    {
+      "q": "Is a PhD at the University of Iceland free for international students?",
+      "a": "There is no tuition for doctoral programmes, whatever your nationality; they are exempt from the fees non-EEA bachelor's and master's students will pay from autumn 2027. PhD students pay the annual registration fee of ISK 100,000, and non-EEA applicants pay a ISK 20,000 handling fee when they apply."
+    },
+    {
+      "q": "How much will non-EEA bachelor's and master's students pay from 2027?",
+      "a": "The amounts have not been set. The university says they may differ by programme and are subject to final decisions by the Icelandic authorities. Students who start in autumn 2026, and students already enrolled, will not pay them."
+    },
+    {
+      "q": "How are PhD students funded?",
+      "a": "Mostly through grants tied to a research project. The university's Doctoral Grant Fund pays monthly for up to three years of full-time study. Under its regulation, calls go out at the beginning of December for the next academic year, applications are generally due on 15 February and awards are made by mid-May. Supervisors can apply without a student and then advertise the place, so many funded PhDs appear as job adverts. Grant holders study full time with no other job, though they may teach or do research for the university for up to 20% of a full-time post, paid separately."
+    },
+    {
+      "q": "How long does a PhD take?",
+      "a": "Normally three to six years, according to the University of Iceland."
+    }
   ]
 }
