@@ -1,6 +1,6 @@
 {
   "summary": "Romania's Ministry of Foreign Affairs offers scholarships to citizens of non-EU countries for bachelor's, master's and doctoral study at Romanian public universities. The award waives fees, pays a monthly scholarship and funds a place in student housing, and starts with a year learning Romanian.",
-  "meta_description": "Romania's government scholarship waives fees and pays a monthly allowance and student housing for non-EU students, after a Romanian language year.",
+  "meta_description": "Romania's government scholarship for non-EU students: no fees, a monthly allowance and a dorm place, with no age limit. Documents, dates and the language year.",
   "covers": [
     "No registration, tuition or other fees, for the standard length of the programme.",
     "A preparatory year of Romanian language, also fee-free.",
@@ -22,7 +22,8 @@
   "watch_out": [
     "Plan for five years for a bachelor's degree (one preparatory year plus four years of study) unless you can prove Romanian at B1 or previous study in Romanian.",
     "Programmes are taught in Romanian, so commit fully to the language year; you will study your degree in it.",
-    "The monthly amount is modest; check the current figure on the portal's FAQ and budget accordingly."
+    "The official pages do not publish the monthly amount, so ask through the portal's contact form before relying on it for living costs.",
+    "You can send only one application per call, and it cannot be edited or added to after you submit it. Check every document first."
   ],
   "related": [
     "stipendium-hungaricum",
@@ -36,9 +37,61 @@
       "url": "https://scholarships.studyinromania.gov.ro/scholarship-about"
     },
     {
+      "title": "Study in Romania: Government scholarships: FAQ",
+      "url": "https://scholarships.studyinromania.gov.ro/scholarship-faq"
+    },
+    {
       "title": "Study in Romania",
       "url": "https://studyinromania.gov.ro/"
     }
   ],
-  "reviewed": "2026-09-24"
+  "reviewed": "2026-10-27",
+  "costs": [
+    [
+      "Tuition, registration and other study fees, for the standard length of the programme",
+      "None: the scholarship waives them"
+    ],
+    [
+      "Romanian language preparatory year",
+      "The scholarship pays the tuition, and the monthly allowance runs during the year"
+    ],
+    [
+      "Monthly allowance",
+      "The Romanian state, at the rate set by law; the programme pages do not give the figure"
+    ],
+    [
+      "Student dormitory place",
+      "Subsidised by the scholarship, while places last"
+    ],
+    [
+      "Long-stay visa and travel to Romania",
+      "You; applicants bear all visa costs, and travel is not among the listed benefits"
+    ]
+  ],
+  "documents": [
+    "Diplomas and transcripts from your previous studies, with authorised translations where needed, apostilled under the Hague Convention or otherwise authenticated.",
+    "Your birth certificate and the first three pages of a valid passport; you cannot apply without one.",
+    "A CV in English, French or Romanian.",
+    "For a PhD: a letter of intent and your prospective supervisor's agreement.",
+    "Where they apply: proof of a name change, a certificate for exams still pending, a Romanian language certificate at B1 or above (to skip the preparatory year), and parental consent if you are under 18.",
+    "Once selected: a medical certificate confirming you are fit to study."
+  ],
+  "faq": [
+    {
+      "q": "Is there an age limit for the Romanian Government scholarship?",
+      "a": "No. The official FAQ says there is no age limit to apply. You do need an average of at least 7 out of 10, or 'Good', in your most recently completed studies."
+    },
+    {
+      "q": "Can I study in English?",
+      "a": "Not at bachelor's or master's level: those programmes are taught only in Romanian, after a fee-free preparatory year of Romanian unless you hold a B1 certificate or pass the Romanian test. Doctoral schools may teach in another language."
+    },
+    {
+      "q": "When is the 2027/28 deadline?",
+      "a": "The 2027/28 call has not been published. For 2026/27, applications ran from 16 February to 31 March 2026 on the Study in Romania platform, the only accepted route, and results were emailed around 15 July 2026."
+    },
+    {
+      "q": "Can I defer the scholarship to a later year?",
+      "a": "No. It cannot be suspended or transferred to the next academic year. Applicants who already hold a Romanian state scholarship for the same study cycle are excluded, and medicine, dental medicine and pharmacy are not offered."
+    }
+  ]
 }

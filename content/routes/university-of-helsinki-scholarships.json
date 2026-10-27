@@ -1,6 +1,6 @@
 {
   "summary": "Finland charges non-EU/EEA students tuition for English-taught degrees, but the University of Helsinki, Finland's largest and highest-ranked university, waives half or all of it for excellent applicants.",
-  "meta_description": "The University of Helsinki waives half or all tuition for excellent non-EU master's applicants. Eligibility, the January deadline and how to apply.",
+  "meta_description": "University of Helsinki: 50% or 100% tuition waivers for non-EU master's students, €13,000-€18,000 fees, the 5-19 January 2027 round and English rules.",
   "covers": [
     "A tuition-fee waiver of 50% or 100%. Master's fees are €13,000, €15,000 or €18,000 a year depending on the programme, so the waiver is worth up to €36,000 over two years.",
     "Most awards are 50% waivers; full waivers are few.",
@@ -9,18 +9,21 @@
   "eligibility": [
     "Citizens of non-EU/EEA countries who are liable for tuition fees (those without permanent EU/EEA residence).",
     "Excellent results in previous studies; the scholarship is merit-based and decided by each programme.",
-    "Admission to an English-taught master's programme at the University of Helsinki."
+    "Admission to an English-taught master's programme at the University of Helsinki.",
+    "A bachelor's taught and assessed entirely in English in Ghana, Nigeria, Kenya, South Africa, India or another country on Helsinki's list exempts you from an English test, provided your documents state the language of instruction."
   ],
   "how_to_apply": [
-    "Choose up to the permitted number of master's programmes and check each one's entry requirements.",
-    "Apply for the programme and the scholarship on the same online application form; tick the scholarship option.",
-    "Upload your degree certificates, transcripts, language certificate and any programme-specific documents by the application deadline (for autumn 2027 the international master's round runs 5–19 January 2027).",
-    "Scholarship decisions arrive with, or shortly after, the admission results in spring."
+    "Choose your programmes and check each one's entry requirements and programme-specific attachments on Studyinfo.",
+    "Apply on Studyinfo between 5 and 19 January 2027 for autumn 2027, ticking the tuition-waiver request on the same form. Non-EU/EEA applicants pay a one-time €100 application fee while filling in the form, unless they are in an exempt category.",
+    "Upload every attachment by the supplementing deadline shortly after the round closes; for autumn 2026 it was 23 January 2026 at 15:00 Finnish time. Applications missing a mandatory attachment are rejected.",
+    "Waiver decisions arrive with the admission results or the acceptance email. You sign a scholarship agreement before the waiver takes effect.",
+    "Pay the first year's fee, or your half of it, by the deadline in your acceptance letter (31 August for autumn 2026 starters); students who have not paid cannot register as attending."
   ],
   "watch_out": [
     "Plan your budget around a 50% waiver unless you are told otherwise; a full waiver is the exception.",
-    "Finnish residence permits require proof of funds for living costs, separate from tuition.",
-    "You must keep a full-time pace (55 ECTS a year) or you lose the waiver in year two."
+    "A Finnish residence permit needs €9,600 a year in funds (the level since 1 November 2024), separate from tuition, and the university warns that living on that amount in Helsinki is tight.",
+    "You must keep a full-time pace (55 ECTS a year) or you lose the waiver in year two.",
+    "Waivers are for master's students only. English-taught bachelor's programmes cost €13,000 a year with no waiver, though second- and third-year students may receive a €1,000 Dean's award."
   ],
   "related": [
     "swedish-institute-scholarships",
@@ -34,6 +37,18 @@
       "url": "https://www.helsinki.fi/en/admissions-and-education/apply-bachelors-and-masters-programmes/tuition-fees-and-scholarship-programme"
     },
     {
+      "title": "University of Helsinki: Apply to international master's programmes",
+      "url": "https://www.helsinki.fi/en/admissions-and-education/apply-bachelors-and-masters-programmes/apply-international-masters-programmes"
+    },
+    {
+      "title": "University of Helsinki: Required application attachments",
+      "url": "https://www.helsinki.fi/en/admissions-and-education/apply-bachelors-and-masters-programmes/apply-international-masters-programmes/required-application-attachments"
+    },
+    {
+      "title": "University of Helsinki: Proving your English language skills",
+      "url": "https://www.helsinki.fi/en/admissions-and-education/apply-bachelors-and-masters-programmes/apply-international-masters-programmes/proving-your-english-language-skills"
+    },
+    {
       "title": "University of Helsinki: Cost of living and financial matters",
       "url": "https://www.helsinki.fi/en/admissions-and-education/international-students/student-life-helsinki/cost-living-and-financial-matters"
     },
@@ -42,6 +57,58 @@
       "url": "https://www.helsinki.fi/en/admissions-and-education/apply-bachelors-and-masters-programmes"
     }
   ],
-  "reviewed": "2026-10-12",
-  "meta_title": "University of Helsinki master's scholarships 2027: dates and amounts"
+  "reviewed": "2026-10-27",
+  "meta_title": "University of Helsinki master's scholarships 2027: dates and amounts",
+  "costs": [
+    [
+      "Tuition for English-taught master's: €13,000, €15,000 or €18,000 a year, depending on the programme",
+      "You, minus any waiver; your fee stays the same for the whole programme"
+    ],
+    [
+      "Tuition with a 50% waiver: €6,500 to €9,000 a year",
+      "You pay half; the university waives the rest"
+    ],
+    [
+      "Application fee: €100, once per intake, for non-EU/EEA applicants",
+      "You, when you fill in the Studyinfo form; it cannot be waived"
+    ],
+    [
+      "Student union fee: €85 for 2026-27",
+      "You, every year"
+    ],
+    [
+      "Student healthcare fee (FSHS): €35.35 a term in 2026",
+      "You, paid to Kela twice a year"
+    ],
+    [
+      "Living costs: about €1,000 to €1,300 a month, with student housing at €450 to €800",
+      "You; no University of Helsinki scholarship covers living costs"
+    ]
+  ],
+  "documents": [
+    "Your bachelor's degree certificate and transcript of records, with official translations if they are not in English, Finnish or Swedish. Translations need the translator's stamp and signature, and a copy of the original must be attached.",
+    "Certificates and transcripts for any other higher education you have completed, including any studies in Finland.",
+    "Proof of English: IELTS Academic 6.5 with 6.0 in each section, TOEFL iBT 4.5 with 4 in each section (92 with 22 in writing for tests before 21 January 2026), PTE Academic 68 with 61 in writing, or Cambridge C1 Advanced or C2 Proficiency. Scores must be under two years old. An English-taught degree from a listed country replaces the test.",
+    "A copy of your passport, residence permit or photo ID.",
+    "The programme-specific attachments listed in its admission criteria on Studyinfo. Waiver decisions also weigh your motivation letter.",
+    "If you are conditionally admitted: officially certified or verified copies of your degree documents, shared through a credential service such as Parchment or sent by post. In 2026 these were due by 29 May, or by 31 August for applicants still finishing their degree."
+  ],
+  "faq": [
+    {
+      "q": "Is the University of Helsinki free for international students?",
+      "a": "Not for citizens of non-EU/EEA countries without permanent residence in Finland: English-taught master's programmes cost €13,000, €15,000 or €18,000 a year, and bachelor's programmes €13,000. EU/EEA and Swiss citizens, EU Blue Card holders and Erasmus Mundus scholarship holders pay no tuition, and doctoral students are not charged."
+    },
+    {
+      "q": "How likely is a full tuition waiver?",
+      "a": "Most waivers are 50%; full waivers are few. Programmes weigh your overall academic record, previous results, motivation letter and their own strategic goals. Graduates of an English-taught University of Helsinki bachelor's who finish on time get 100% with a GPA of 3.8/5 or higher, or 50% with 3.4 to 3.7."
+    },
+    {
+      "q": "Do I need IELTS if my degree was taught in English in Ghana or Nigeria?",
+      "a": "No, if the degree was taught and assessed entirely in English and your documents state the language of instruction. For the autumn 2027 intake Helsinki lists Ghana, Nigeria, Kenya, Cameroon, Ethiopia, Uganda, Tanzania, Zambia, Zimbabwe, South Africa and India among the countries whose English-taught degrees count."
+    },
+    {
+      "q": "Does the waiver cover living costs?",
+      "a": "No. The University of Helsinki has no scholarship for living costs. It estimates a student's monthly costs in Helsinki at €1,000 to €1,300, and a residence permit requires €9,600 a year in funds. Look at programmes such as [Erasmus Mundus]({{root}}routes/erasmus-mundus-joint-masters/) if you need a stipend as well."
+    }
+  ]
 }

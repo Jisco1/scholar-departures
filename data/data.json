@@ -360,7 +360,7 @@
     "funding": "Fee-free study, a monthly scholarship and dorm accommodation for non-EU citizens; bachelor's and master's are taught in Romanian after a language year.",
     "deadline": "2027/28 call not yet published (the 2026 window ran Feb 16 – Mar 31, 2026)",
     "link": "https://studyinromania.gov.ro/",
-    "last_verified": "2026-10-12",
+    "last_verified": "2026-10-27",
     "content_hash": "a62951f734799821a41295304d4d06e1d624e3d308033a710029d7f5b6f1029d",
     "needs_review": false,
     "kind": "program",
@@ -424,7 +424,7 @@
     "funding": "50% or 100% tuition waivers on €13,000–18,000 fees for excellent non-EU master's admits; most awards are 50% waivers.",
     "deadline": "International master's, autumn 2027: Jan 5–19, 2027 (one round a year)",
     "link": "https://www.helsinki.fi/en",
-    "last_verified": "2026-10-12",
+    "last_verified": "2026-10-27",
     "content_hash": "fb31148ead05d1baf6ada6d3ca7e8816d02b63397899a70220967e0ce863a708",
     "needs_review": false,
     "kind": "school",
@@ -666,10 +666,10 @@
     "levels": [
       "Master's"
     ],
-    "funding": "Merit awards waive tuition in full for top international master's applicants; the highest tiers add up to €10,000 a year.",
-    "deadline": "Early Bird window for the 2027/28 merit call: Oct 1 – Dec 1, 2026",
+    "funding": "Merit awards waive tuition in full for top international master's applicants; most of the 64 awards for 2027/28 add €2,500 to €10,000 a year.",
+    "deadline": "2027/28: apply in the Early Bird window, Oct 1 – Dec 1, 2026; scholarship form by Dec 15, 2026 (noon, Italian time)",
     "link": "https://www.polimi.it/en",
-    "last_verified": "2026-10-12",
+    "last_verified": "2026-10-27",
     "content_hash": "e48b06073e7ce0641b0f613e8625cff439298ff8f9a632d291ed2a8c6d652409",
     "needs_review": false,
     "kind": "school",
@@ -686,6 +686,11 @@
         "y": 2026,
         "m": 12,
         "d": 1
+      },
+      {
+        "y": 2026,
+        "m": 12,
+        "d": 15
       }
     ],
     "approx": false
