@@ -1,6 +1,6 @@
 {
   "summary": "Europe's oldest university is also one of the most accessible for international students with limited means. Through the Emilia-Romagna region's ER.GO agency, students whose family income falls below set thresholds can study with no tuition and receive a yearly grant of up to about €7,000.",
-  "meta_description": "At the University of Bologna, regional ER.GO grants give lower-income students free tuition, a yearly grant and housing access. Eligibility and deadlines.",
+  "meta_description": "University of Bologna for international students: ER.GO grants up to €7,171, full fee exemption, and flat fees from €1,000 for non-OECD citizens. 2026/27 rules.",
   "covers": [
     "A total exemption from university fees for students who qualify for, and apply for, the ER.GO scholarship.",
     "A yearly ER.GO scholarship that depends on family income and where you live: up to €7,171.11 for students living away from home (the 2026–27 rate for the lowest income band).",
@@ -16,12 +16,14 @@
     "Apply for admission to your degree programme at the University of Bologna.",
     "Collect your family's income and asset documents from your home country early; they usually need official translation and legalisation or an apostille.",
     "Apply to ER.GO online during its window: for 2026–27 it ran from 23 June to 24 August 2026 (until 4 pm on the last day), for both the scholarship and the fee exemption.",
+    "If you are not applying for the ER.GO scholarship, you can still ask the university for an income-based fee exemption, or choose the flat fee if your country is on the lists. For 2026–27 the economic data was due on the ER.GO portal by 30 October 2026 at 18:00 (16 November with a €100 late fee), and the income documents by 20 November 2026.",
     "Complete enrolment by the university's deadline to keep your eligibility; rankings are published afterwards."
   ],
   "watch_out": [
     "In 2026 the ER.GO window closed on 24 August, before many international students had arrived. Start the income paperwork in spring.",
     "This is need-based: applicants from higher-income families do not qualify, however strong their grades.",
-    "Late applications are not accepted, and missing documents are a common reason for exclusion."
+    "Late applications are not accepted, and missing documents are a common reason for exclusion.",
+    "The flat fee and the income-based exemption cannot be combined. If you apply for the exemption and your foreign documents turn out incomplete or incorrect, you lose the flat fee as well and pay the maximum fee."
   ],
   "related": [
     "politecnico-di-milano-merit-scholarships",
@@ -35,15 +37,78 @@
       "url": "https://www.er-go.it/cosa-fare-per/bandi-di-concorso/leggi-il-bando/guide-to-application-announcement-a-y-2025_26/@@download/file"
     },
     {
+      "title": "ER.GO: Focus on scholarship (international students)",
+      "url": "https://www.er-go.it/international-students/benefits/focus-on-scholarship"
+    },
+    {
       "title": "University of Bologna: Study grants and subsidies",
       "url": "https://www.unibo.it/en/study/study-grants-and-subsidies"
     },
     {
       "title": "University of Bologna: Fees and exemptions",
       "url": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions"
+    },
+    {
+      "title": "University of Bologna: Reduced fixed fee for citizens of particularly poor and developing or non-OECD countries",
+      "url": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/reduced-fixed-fee-for-citizens-of-particularly-poor-and-developing-countries-or-non-eu-non-oecd-countries"
+    },
+    {
+      "title": "University of Bologna: Submitting the ISEE or documents for foreign income",
+      "url": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures/degree-programmes/tuition-fees-and-exemptions/submitting-the-isee-or-documents-for-foreign-income-for-university-fee-exemptions"
     }
   ],
-  "reviewed": "2026-10-12",
+  "reviewed": "2026-10-27",
   "who_pays": "Tuition-free with a regional grant: you apply to the university for admission and to ER.GO, Emilia-Romagna's student agency, for the grant and the fee exemption.",
-  "meta_title": "University of Bologna scholarships: ER.GO grants and fee waivers"
+  "meta_title": "University of Bologna scholarships: ER.GO grants and fee waivers",
+  "costs": [
+    [
+      "Fixed first instalment: €157.04 (regional tax €140, stamp duty €16, insurance €1.04)",
+      "You, every year, even with a full exemption or an ER.GO scholarship"
+    ],
+    [
+      "University fees for ER.GO scholarship holders",
+      "None: winners get a total fee exemption, and ER.GO refunds the €140 regional tax"
+    ],
+    [
+      "Flat fee for citizens of non-OECD countries such as Ghana, Nigeria, India or Kenya, with family income and assets only abroad: €1,000 a year for a bachelor's, €1,200 for a master's, plus €157.04",
+      "You, in the second and third instalments (2026/27 first-year rates)"
+    ],
+    [
+      "Flat fee for citizens of the particularly poor countries on Italy's list, such as Ethiopia, Senegal or Uganda: €500 for a bachelor's, €600 for a master's, plus €157.04",
+      "You (2026/27 first-year rates)"
+    ],
+    [
+      "Full fees",
+      "Set per programme in the university's maximum-fee table; charged if you neither qualify for an exemption nor take the flat fee"
+    ],
+    [
+      "Living costs",
+      "Partly covered by the ER.GO scholarship, up to €7,171.11 a year for a student living away from home in the lowest income band (2026/27), including any part taken as meals"
+    ]
+  ],
+  "documents": [
+    "A certificate of your family's composition, issued by the authorities of the country where the income is earned. Self-declarations are not accepted.",
+    "Proof of each family member's activity and total gross income for the previous year (2025 for the 2026/27 call), including proof of non-employment for members who did not work.",
+    "Real estate owned on 31 December of that year, with square metres: a certificate for every adult in the family, even one who owns no property, plus any mortgage still outstanding.",
+    "The value of each family member's movable assets, such as savings, at the end of that year.",
+    "Official translations into Italian, legalised by the Italian embassy or consulate for your area, or apostilled where that applies. Amounts stay in local currency; they are converted at the Bank of Italy's average rate."
+  ],
+  "faq": [
+    {
+      "q": "Is the University of Bologna free for international students?",
+      "a": "It can be. Students whose family economic indicator is at or below €27,000 pay only the €157.04 fixed instalment, and ER.GO scholarship winners are fully exempt as well. Without an exemption you pay the programme's full fee, or a reduced flat fee if your country is on Italy's lists."
+    },
+    {
+      "q": "What is the flat fee, and who can choose it?",
+      "a": "Citizens of the particularly poor countries on Italy's list pay €500 (bachelor's) or €600 (master's) a year plus €157.04; citizens of non-OECD countries, Ghana, Nigeria, India and Kenya among them, pay €1,000 or €1,200 plus €157.04 (2026/27 first-year rates). Your family's income and assets must be only outside Italy. You declare this on the ER.GO portal without attaching income documents, which makes the flat fee the simpler route if you are not applying for a grant."
+    },
+    {
+      "q": "When does the next ER.GO call open?",
+      "a": "ER.GO has not published its 2027/28 call yet. For 2026/27 the scholarship and fee-exemption window ran from 23 June to 24 August 2026, closing at 4 pm, and late applications were not accepted. The translated, legalised income documents take months to gather, so start them in spring."
+    },
+    {
+      "q": "Can I lose the ER.GO scholarship after receiving it?",
+      "a": "Yes. Under the 2026/27 call, first-year students keep the award only if they earn at least 20 credits by 30 November 2027; otherwise the instalments already received, in cash and services, must be paid back. Later instalments depend on reaching 9 credits by 28 February 2027 and 25 (bachelor's) or 30 (master's) by 10 August 2027."
+    }
+  ]
 }
