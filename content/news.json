@@ -1,5 +1,99 @@
 [
   {
+    "id": "vlir-uos-icp-connect-2027-28-open",
+    "date": "2026-10-27",
+    "category": "Funding",
+    "title": "Belgium's VLIR-UOS opens 2027–28 scholarships for 12 bachelor's and master's programmes in Flanders",
+    "summary": "VLIR-UOS has opened its ICP Connect call for 2027–28. The scholarships pay €1,400 a month plus flights for a full bachelor's or master's in Flanders, for nationals of 25 countries in Africa, Asia and Latin America. Each programme sets its own deadline.",
+    "meta_title": "VLIR-UOS 2027–28 scholarships open: 12 programmes in Belgium",
+    "meta_description": "VLIR-UOS ICP Connect 2027–28 is open: €1,400 a month plus flights for 12 programmes in Flanders, for nationals of 25 countries. Who can apply and how.",
+    "why": "It is one of the few full scholarships for a bachelor's degree in Europe. If you are from an eligible country, choose one programme and apply by its own deadline.",
+    "art": "scholarship",
+    "source_title": "VLIR-UOS: ICP Connect 2027-2028 call",
+    "source_url": "https://www.vliruos.be/get-funded/calls/icp-connect-scholarships-2026-2027",
+    "body": [
+      "VLIR-UOS, the agency through which Flemish universities and colleges fund development cooperation, has opened its ICP Connect scholarship call for the 2027–28 academic year. The scholarships are for students starting in September 2027 on one of 12 English-taught programmes in Flanders, Belgium.",
+      "Two are three-year bachelor's degrees, in Hotel Management and Applied Computer Science. Seven are two-year master's degrees: Aquaculture, Food Technology, Marine and Lacustrine Science and Management, Transportation Sciences (Road Safety), Nutrition and Food Systems, Sustainable Land Management, and Tropical Biodiversity and Ecosystems. Three are one-year advanced master's degrees, in Development Evaluation and Management, Globalisation and Development, and Governance and Development.",
+      "Eight programmes that took scholarship holders before no longer do for 2027–28, among them the Master of Statistics and Data Science, the Master of Epidemiology, the Master of Human Settlements and the Master of Science in Water Resources Engineering.",
+      "A scholarship pays €1,400 a month for the full length of the programme, plus an economy flight to Belgium and home. Under VLIR-UOS's rules the allowance includes tuition, health insurance and board and lodging, so depending on the institution you pay these from it or they are deducted first.",
+      "Applicants must be nationals of one of 25 countries and live in one of them when they apply. In Africa these are Benin, Burkina Faso, Burundi, Cameroon, DR Congo, Ethiopia, Guinea, Kenya, Madagascar, Morocco, Mozambique, Niger, Senegal, South Africa, Tanzania, Uganda and Zimbabwe; the others are Palestine, Bolivia, Cuba, Ecuador, Peru, Indonesia, the Philippines and Vietnam. Ghana and Nigeria are not on the list.",
+      "You apply to the programme through the university or college that runs it, by its own deadline, and you may apply for only one ICP Connect programme a year. The age limit is 35 on 1 January 2027 for a bachelor's or two-year master's, and 45 for a one-year master's. VLIR-UOS holds an online information session on 26 November 2026, and results reach candidates by mid-May 2027.",
+      "Our [VLIR-UOS page]({{root}}routes/vlir-uos-icp-connect-scholarships/) has the full costs and conditions. If your country is not on the list, [Erasmus Mundus]({{root}}routes/erasmus-mundus-joint-masters/) joint master's scholarships are open to every nationality."
+    ]
+  },
+  {
+    "id": "commonwealth-shared-scholarships-2027-28-dates",
+    "date": "2026-10-27",
+    "category": "Funding",
+    "title": "Commonwealth Shared Scholarships for 2027–28 open on 10 November and close on 8 December",
+    "summary": "Students from 43 lower-income Commonwealth countries, including Ghana, Nigeria, Kenya and India, can apply on CSC Central from 10 November to 16:00 GMT on 8 December 2026 for a fully funded one-year master's at a UK university.",
+    "meta_title": "Commonwealth Shared Scholarships 2027–28: 10 November to 8 December",
+    "meta_description": "Commonwealth Shared Scholarships 2027–28 open on 10 November 2026 and close on 8 December. Fees, flights and £1,712 a month for a UK master's.",
+    "why": "The window is only four weeks. Choose an approved course and apply for admission now, so your references and transcripts are ready when CSC Central opens.",
+    "art": "scholarship",
+    "source_title": "Commonwealth Scholarship Commission: Commonwealth Shared Scholarships",
+    "source_url": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-shared-scholarships-applications/",
+    "body": [
+      "The Commonwealth Scholarship Commission (CSC) has set the dates for its 2027–28 Commonwealth Shared Scholarships. Applications open on CSC Central on Tuesday 10 November 2026 and close at 16:00 GMT on Tuesday 8 December 2026, for master's courses starting in the UK in September 2027.",
+      "The scholarships are funded jointly by the CSC and UK universities, for students from lower-income Commonwealth countries who could not otherwise afford to study in the UK. They cover tuition fees in full, an approved return flight and a stipend of £1,712 a month, or £2,000 at universities in the London area, at current rates.",
+      "43 countries are eligible, among them Ghana, Nigeria, Kenya, Uganda, Tanzania, Zambia, Malawi, Rwanda, Sierra Leone, South Africa, India, Pakistan and Bangladesh. Applicants need at least an upper second-class degree, or a lower second plus a relevant postgraduate qualification, by September 2027, and must not have studied or worked for more than a year in a high-income country. There is no age limit.",
+      "Only approved master's courses at participating universities qualify, and the CSC publishes the 2027 list before applications open. You apply for admission to the course, and for the scholarship on CSC Central; the CSC accepts applications no other way. Each university then runs its own selection and nominates its chosen candidates to the CSC.",
+      "Our [Commonwealth Shared Scholarships page]({{root}}routes/commonwealth-shared-scholarships/) has the costs and documents. The CSC's [Commonwealth Master's Scholarships]({{root}}routes/commonwealth-masters-scholarships/), which go through national nominating agencies, closed for 2027–28 on 20 October."
+    ]
+  },
+  {
+    "id": "eiffel-2027-university-deadlines",
+    "date": "2026-10-27",
+    "category": "Funding",
+    "title": "Eiffel scholarships for 2027: university deadlines start in November, ahead of Campus France's 6 January date",
+    "summary": "The 2027 Eiffel call is open. Campus France must receive nominations from French universities by 6 January 2027, but students apply through their university first, and some close in November: Université Paris-Saclay on 6 November for PhD and 26 November for master's.",
+    "meta_title": "Eiffel scholarship 2027: university deadlines come before 6 January",
+    "meta_description": "Campus France takes Eiffel 2027 nominations until 6 January 2027, but universities close first. €1,200 a month for master's, €2,000 for PhD.",
+    "why": "If you want an Eiffel scholarship for September 2027, find your French university's internal deadline now; at some it is less than two weeks away.",
+    "art": "scholarship",
+    "source_title": "Campus France: Eiffel scholarship programme of excellence",
+    "source_url": "https://www.campusfrance.org/en/eiffel-scholarship-program-of-excellence",
+    "body": [
+      "France's Eiffel Excellence Scholarship programme, run by Campus France for the Ministry for Europe and Foreign Affairs, has opened its 2027 call. French universities and research organisations must submit their candidates to Campus France by 6 January 2027, and results are published from 12 April 2027.",
+      "Students cannot apply to Campus France themselves. You apply through the French institution where you want to study, which runs its own selection first and closes well before January. At Université Paris-Saclay the internal deadline is 6 November 2026 for PhD candidates and 26 November 2026 for master's candidates.",
+      "Under the programme rules for the 2027 session, scholars receive €1,200 a month at master's level and €2,000 a month at PhD level, although Campus France's overview page and some universities give €2,100 for PhD. The scholarship also refunds part of the flights to France and home, enrols scholars in health insurance and helps them find housing. It does not pay tuition fees.",
+      "Master's awards last up to 24 months from the first year of a master's, 12 months from the second and 36 months for an engineering degree. PhD awards last 12, 18 or 36 months; the 36-month award is only for new candidates starting a doctorate in France. Funded studies must start between 1 September and 30 November 2027.",
+      "The programme encourages applicants up to 29 at master's level and 35 at PhD level, in seven fields: biology and health, ecological transition, mathematics and digital technology, engineering sciences, French history, language and civilisation, law and political science, and economics and management. It cannot be combined with another French government scholarship, an Erasmus+ scholarship or an award from the Agence Universitaire de la Francophonie.",
+      "Our [Eiffel Excellence Scholarship page]({{root}}routes/eiffel-excellence-scholarship/) lists the documents universities ask for. For what a year in France costs beyond the allowance, see our guide to [the real cost of free tuition]({{root}}guides/real-cost-of-free-tuition/)."
+    ]
+  },
+  {
+    "id": "germany-record-international-students-2026",
+    "date": "2026-10-14",
+    "category": "Policy",
+    "title": "Germany hosts a record 426,200 international students, with engineering the first choice",
+    "summary": "International students and doctoral candidates at German universities rose by about 6% to 426,200 in the 2025/26 winter semester, and first-year international students reached a new high of about 130,000, according to the DAAD and DZHW's Wissenschaft weltoffen 2026.",
+    "meta_title": "Germany hosts a record 426,200 international students in 2025/26",
+    "meta_description": "Wissenschaft weltoffen 2026: 426,200 international students in Germany, about 130,000 first-years, and 44% studying engineering. What the figures show.",
+    "why": "Most public universities in Germany charge little or no tuition, and more international students apply each year, so apply early and check each programme's deadline.",
+    "images": [
+      {
+        "file": "news-rwth-aachen-superc.jpg",
+        "kind": "wide",
+        "focus": 45,
+        "name": "The SuperC building of RWTH Aachen University at night",
+        "credit": "Euku",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:SuperC_-_bei_Nacht.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+      }
+    ],
+    "source_title": "DAAD: Germany remains a sought-after destination worldwide for undergraduate and postgraduate study, 14 October 2026",
+    "source_url": "https://www.daad.de/en/press-releases/2026/germany-remains-a-sought-after-destination-worldwide-for-undergraduate-and-postgraduate-study/",
+    "body": [
+      "Germany had 426,200 international students and doctoral candidates at its universities in the 2025/26 winter semester, about 6% more than a year earlier. The figures come from Wissenschaft weltoffen 2026, the annual report of the German Academic Exchange Service (DAAD) and the German Centre for Higher Education Research and Science Studies (DZHW), published on 14 October 2026.",
+      "The number of international first-year students also reached a new high, at about 130,000. India is the largest country of origin, with about 69,000 students, followed by China with about 39,000. By region, 34% come from Asia and the Pacific, 20% from North Africa and the Middle East and 14% from Western Europe.",
+      "Half of all international students are on master's programmes and 37% on bachelor's programmes. Engineering is by far the most popular subject group, with 44% of international students, and 56% study a STEM subject overall, against 33% of German students.",
+      "The report ranks Germany fourth in the world as a host country for international students, behind the United States, the United Kingdom and Australia, and DAAD President Joybrato Mukherjee called it the most important non-English-speaking host country. For international researchers Germany ranks second, behind the United States. About 50,700 international doctoral candidates were in Germany in 2024.",
+      "Our [Germany guide]({{root}}countries/germany/) covers tuition, the blocked account and the work rules. [RWTH Aachen]({{root}}routes/rwth-aachen-university/), [Freie Universität Berlin]({{root}}routes/freie-universitat-berlin/) and the [DAAD scholarships]({{root}}routes/daad-scholarships/) each have their own page on our board."
+    ]
+  },
+  {
     "id": "uk-student-visa-money-rises-30-november-2026",
     "date": "2026-10-19",
     "category": "Policy",

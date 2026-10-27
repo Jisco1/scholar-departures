@@ -1,13 +1,13 @@
 {
   "summary": "VLIR-UOS, the Flemish universities' development cooperation agency, gives full scholarships for English-taught International Course Programmes (ICP Connect) at universities and colleges in Flanders, Belgium. They are open to nationals of 25 countries in Africa, Asia and Latin America who also live in one of those countries.",
   "meta_title": "VLIR-UOS scholarships 2027–28 in Belgium: countries and how to apply",
-  "meta_description": "VLIR-UOS ICP Connect scholarships pay tuition, travel, insurance and living costs for a bachelor's or master's in Flanders. Eligible countries and how to apply.",
+  "meta_description": "VLIR-UOS ICP Connect 2027–28 is open: full scholarships for 12 bachelor's and master's programmes in Flanders. Eligible countries and how to apply.",
   "covers": [
-    "Tuition fees.",
-    "Travel to and from Belgium.",
-    "Insurance.",
-    "Living expenses, including board and lodging.",
-    "Scholarships cover the full programme only (12, 24 or 36 months); there are no partial scholarships or extensions."
+    "A monthly allowance of €1,400 for 12, 24 or 36 complete months, depending on the length of the programme.",
+    "The allowance includes tuition, health insurance, housing, meals and settling-in costs; depending on the institution, you pay these from it or the institution deducts them first.",
+    "An economy flight to Belgium at the start and home at the end; three-year bachelor's students get one extra return ticket.",
+    "If you graduate after the first exam period, the rest of the allowance is still paid after you return home.",
+    "Scholarships cover the full programme only; there are no partial scholarships or extensions."
   ],
   "eligibility": [
     "Nationals of Benin, Burkina Faso, Burundi, Cameroon, DR Congo, Ethiopia, Guinea, Kenya, Madagascar, Mozambique, Niger, Senegal, South Africa, Tanzania, Uganda, Zimbabwe, Morocco, Palestine, Bolivia, Cuba, Ecuador, Peru, Indonesia, the Philippines or Vietnam.",
@@ -16,15 +16,15 @@
     "You must not have held a Belgian government study scholarship before, or have been enrolled at a Belgian higher education institution before 1 January of the intake year."
   ],
   "how_to_apply": [
-    "Check the eligible countries and the list of ICP Connect programmes on the VLIR-UOS site when the 2027–28 call opens, expected by the end of October 2026.",
-    "Apply to the programme through the university or college that runs it, and ask for the scholarship in that same application.",
+    "The 2027–28 call is open for 12 programmes: bachelor's degrees in Hotel Management and Applied Computer Science; two-year master's degrees in Aquaculture, Food Technology, Oceans and Lakes, Road Safety, Nutrition and Food Systems, Sustainable Land Management and Tropical Biodiversity; and one-year master's degrees in Development Evaluation, Globalisation and Development, and Governance and Development.",
+    "Apply to the programme through the university or college that runs it, by that programme's own deadline, and ask for the scholarship in the same application.",
     "Apply for only one ICP Connect programme a year; more than one and your application will not be considered.",
-    "VLIR-UOS emails selected and waiting-list candidates no later than mid-May."
+    "VLIR-UOS holds an online information session on 26 November 2026, 14:30 to 16:30 CET, and emails selected and waiting-list candidates no later than mid-May 2027."
   ],
   "watch_out": [
     "Ghana and Nigeria are not on the current list of eligible countries.",
-    "Each programme sets its own deadline, so check the programme page as soon as the call opens.",
-    "Several programmes will not offer scholarships in 2027–28, including the Master of Human Settlements and the Master of Statistics and Data Science."
+    "Each programme sets its own deadline, so check the programme page now that the call is open.",
+    "Eight programmes no longer offer scholarships in 2027–28, including the Master of Statistics and Data Science, the Master of Epidemiology and the Master of Science in Water Resources Engineering."
   ],
   "related": [
     "master-mind-scholarships-flanders",
@@ -38,9 +38,57 @@
       "url": "https://www.vliruos.be/get-funded/study-scholarships"
     },
     {
+      "title": "VLIR-UOS: Framework for scholarships in Belgium, revised December 2025 (PDF)",
+      "url": "https://www.vliruos.be/sites/default/files/2026-02/Framework%20for%20scholarships%20in%20Belgium%20%28update%20December%202025%29.pdf"
+    },
+    {
+      "title": "VLIR-UOS: ICP Connect 2027-2028 call",
+      "url": "https://www.vliruos.be/get-funded/calls/icp-connect-scholarships-2026-2027"
+    },
+    {
       "title": "VLIR-UOS: ICP Connect scholarship country list",
-      "url": "https://www.vliruos.be/icp-connect-scholarship-country-list"
+      "url": "https://www.vliruos.be/country-list-icp-scholarships"
     }
   ],
-  "reviewed": "2026-10-19"
+  "reviewed": "2026-10-27",
+  "costs": [
+    [
+      "Monthly allowance: €1,400 for 12, 24 or 36 complete months",
+      "VLIR-UOS, paid through the Flemish university or college"
+    ],
+    [
+      "Tuition, health insurance, housing, meals and settling-in costs",
+      "Included in the €1,400: you pay them from the allowance, or the institution deducts them first"
+    ],
+    [
+      "An economy flight to Belgium at the start and home at the end",
+      "The scholarship, on top of the allowance"
+    ],
+    [
+      "Flights home during a summer break",
+      "You"
+    ],
+    [
+      "Visa fees, and any travel or visa costs for family members",
+      "You: your own visa fee counts as part of the allowance, and family costs are not covered"
+    ],
+    [
+      "Language classes",
+      "You, from the allowance"
+    ]
+  ],
+  "faq": [
+    {
+      "q": "Can Ghanaians or Nigerians apply for VLIR-UOS scholarships?",
+      "a": "Not for ICP Connect in 2027–28. The 25 eligible countries include Kenya, Uganda, Tanzania, Ethiopia, Cameroon, Senegal and South Africa in Africa, but not Ghana or Nigeria. You must also live in one of the 25 countries when you apply."
+    },
+    {
+      "q": "Is there an age limit?",
+      "a": "Yes. For 2027–28 you can be at most 35 on 1 January 2027 for a bachelor's or two-year master's, and at most 45 for a one-year advanced master's. Bachelor's applicants must be at least 19 on that date."
+    },
+    {
+      "q": "How many credits do I need to keep the scholarship?",
+      "a": "In a two- or three-year programme you need at least 42 ECTS credits after the first year, including the resit period, to keep the scholarship in year two, and at least 84 after the second year of a three-year programme."
+    }
+  ]
 }

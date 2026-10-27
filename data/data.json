@@ -259,10 +259,10 @@
       "Master's",
       "PhD"
     ],
-    "funding": "France's flagship award pays €1,200 a month for master's (€2,100 for PhD) plus travel and insurance; public-university tuition there is already modest.",
-    "deadline": "Through a French university, which sets an earlier internal deadline (Paris-Saclay: Nov 26, 2026); Campus France has not published its 2027 dates yet",
+    "funding": "France's flagship award pays €1,200 a month for master's and €2,000 for PhD under the 2027 rules, plus flights and insurance; tuition is not included.",
+    "deadline": "2027 call open: your French university's internal date comes first (Paris-Saclay: Nov 6, 2026 for PhD, Nov 26 for master's); universities submit to Campus France by Jan 6, 2027",
     "link": "https://www.campusfrance.org/en/eiffel-scholarship-program-of-excellence",
-    "last_verified": "2026-10-12",
+    "last_verified": "2026-10-27",
     "content_hash": "73b8ab33bbe5852b1518040a19999e1c8537df086c0e5f978146d2e2a486358a",
     "needs_review": false,
     "kind": "program",
@@ -290,9 +290,9 @@
       "Master's"
     ],
     "funding": "Full tuition, SEK 12,000 a month, a travel grant and insurance for early-career professionals from SI's list of eligible countries.",
-    "deadline": "2027 dates not yet published (in 2026: university application by Jan 15, SI scholarship portal Feb 9–25)",
+    "deadline": "Step 1 open: apply to programmes on universityadmissions.se by Jan 15, 2027; SI's 2027 scholarship window is not yet published (Feb 9–25 in 2026)",
     "link": "https://si.se/en/apply/scholarships/",
-    "last_verified": "2026-10-12",
+    "last_verified": "2026-10-27",
     "content_hash": "2b069e13ca5dd050803f1921c125ca03916bdb0beb6ba9f016ac6c4e7e08e358",
     "needs_review": false,
     "kind": "program",
@@ -1581,9 +1581,9 @@
       "PhD"
     ],
     "funding": "$40,000 a year for three years for doctoral students of any citizenship already registered in a PhD at a Canadian university (Vanier's successor).",
-    "deadline": "Oct 19, 2026, 8 pm ET if applying directly · otherwise your Canadian university's earlier internal date",
+    "deadline": "The 2026 competition closed Oct 19, 2026; the next competition's dates are not yet announced",
     "link": "https://nserc-crsng.canada.ca/en/canada-graduate-research-scholarship-doctoral-or-canada-postdoctoral-research-award-programs",
-    "last_verified": "2026-10-12",
+    "last_verified": "2026-10-27",
     "content_hash": "33a3ecf4317dde4345c91703a6261e92e57291e3b07142546963e1b3c896eb33",
     "needs_review": false,
     "scope": "limited",
@@ -1914,9 +1914,9 @@
       "Agriculture & Environment"
     ],
     "funding": "UK government funding for a one-year master's for candidates from eligible Commonwealth countries: tuition, airfare and £1,712 a month (£2,000 in London).",
-    "deadline": "Oct 20, 2026, 16:00 BST on CSC Central, plus your national nominating agency's own (often earlier) deadline",
+    "deadline": "2027–28 round closed Oct 20, 2026, 16:00 BST; the 2028–29 round is not yet announced",
     "link": "https://cscuk.fcdo.gov.uk/",
-    "last_verified": "2026-10-12",
+    "last_verified": "2026-10-27",
     "content_hash": "0e2a28453d82b4121d71006f7e8a93ed2fde3bf673987006b61aeb57097b8304",
     "needs_review": false,
     "slug": "commonwealth-masters-scholarships",
@@ -1953,16 +1953,27 @@
       "Arts & Humanities",
       "Agriculture & Environment"
     ],
-    "funding": "Jointly funded by the CSC and UK universities for students from lower-income Commonwealth countries: tuition, airfare and a living allowance on selected master's courses.",
-    "deadline": "2027–28 round not yet announced by the CSC",
-    "link": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-shared-scholarships/",
-    "last_verified": "2026-10-12",
+    "funding": "Jointly funded by the CSC and UK universities for students from lower-income Commonwealth countries: tuition, airfare and £1,712 a month (£2,000 in London) on selected master's courses.",
+    "deadline": "2027–28: CSC Central opens Nov 10 and closes Dec 8, 2026, 16:00 GMT; apply for admission to your UK course as well",
+    "link": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-shared-scholarships-applications/",
+    "last_verified": "2026-10-27",
     "content_hash": "92dd0edf20c3e4c4d68afbffda56c1441be61c20e5534b885994c01f2a9009c7",
     "needs_review": false,
     "slug": "commonwealth-shared-scholarships",
     "last_checked": "2026-10-01",
-    "tbc": true,
-    "approx": false
+    "approx": false,
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 12,
+        "d": 8
+      }
+    ],
+    "opens": {
+      "y": 2026,
+      "m": 11,
+      "d": 10
+    }
   },
   {
     "name": "Australia Awards Scholarships",
@@ -2123,9 +2134,9 @@
       "PhD"
     ],
     "funding": "A tax-free living stipend of AUD 39,220 a year (2026 rate, indexed), tuition fees and health cover for PhD and MPhil students.",
-    "deadline": "International round closes Oct 19, 2026, for a start in research quarter 4 of 2027 or early 2028",
+    "deadline": "International round closed Oct 19, 2026 (outcomes from Feb 22, 2027); the next round is not yet announced",
     "link": "https://scholarships.uq.edu.au/scholarship/graduate-school-scholarships-uqgss-%E2%80%93-includes-rtp",
-    "last_verified": "2026-10-13",
+    "last_verified": "2026-10-27",
     "content_hash": null,
     "needs_review": false,
     "kind": "school",
@@ -2246,10 +2257,10 @@
       "Bachelor's",
       "Master's"
     ],
-    "funding": "Tuition, travel, insurance and living costs (board and lodging) for a full English-taught bachelor's or master's at a Flemish university, for nationals of 25 countries in Africa, Asia and Latin America.",
-    "deadline": "2027–28 call expected to open by the end of October 2026; each programme then sets its own deadline",
+    "funding": "€1,400 a month, which includes tuition, insurance and board and lodging, plus flights, for a full English-taught bachelor's or master's in Flanders, for nationals of 25 countries in Africa, Asia and Latin America.",
+    "deadline": "2027–28 call open for 12 programmes; each programme sets its own deadline, so apply through its university",
     "link": "https://www.vliruos.be/get-funded/study-scholarships",
-    "last_verified": "2026-10-19",
+    "last_verified": "2026-10-27",
     "content_hash": null,
     "needs_review": false,
     "kind": "program",
@@ -2263,6 +2274,6 @@
     ],
     "slug": "vlir-uos-icp-connect-scholarships",
     "approx": false,
-    "tbc": true
+    "varies": true
   }
 ]

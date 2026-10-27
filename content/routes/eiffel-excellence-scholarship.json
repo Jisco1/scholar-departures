@@ -1,27 +1,31 @@
 {
   "summary": "France's flagship scholarship for international master's and PhD students, funded by the Ministry for Europe and Foreign Affairs. It pays a monthly allowance plus travel, insurance and housing help, and because public-university tuition in France is modest, it can fund an entire degree.",
-  "meta_description": "France's Eiffel Excellence Scholarship pays a monthly allowance plus travel and insurance for master's and PhD students. Eligibility and deadlines.",
+  "meta_description": "Eiffel Excellence Scholarship 2027: €1,200 a month for master's, €2,000 for PhD, plus travel and insurance. Universities submit by 6 January 2027.",
   "covers": [
-    "A monthly allowance of €1,200 at master's level and €2,100 at PhD level (rates from January 2026).",
-    "Additional services: international and national travel, health insurance, help finding housing and cultural activities.",
-    "Master's awards run for the length of the programme (up to 24 months); doctoral awards run for 12 to 36 months."
+    "A monthly allowance of €1,200 at master's level and €2,000 at PhD level under the programme rules for the 2027 session (Campus France's overview page gives €2,100 for PhD).",
+    "Flights to France and home again in the cheapest class, refunded on receipts up to 50% of a maximum rate the French foreign ministry sets for your country, plus a second-class train or bus fare to your city.",
+    "Health insurance, help finding housing (a CROUS residence or a private home) and cultural activities.",
+    "Master's awards last up to 24 months from the first year (M1), 12 months from the second (M2) and 36 months for an engineering programme; PhD awards last 12, 18 or 36 months, with 36 months only for new first-year doctoral candidates.",
+    "Tuition and fees are not paid by the programme at either level."
   ],
   "eligibility": [
-    "Non-French nationals applying to a master's or PhD at a French higher-education institution.",
+    "Non-French nationals applying to a master's, a nationally accredited engineering programme or a PhD at a French higher-education institution.",
     "Age guidance: up to 29 at master's level and up to 35 at PhD level.",
-    "Priority is given to applicants who are likely to become future decision-makers, in the programme's priority fields.",
+    "Seven eligible fields: biology and health, ecological transition, mathematics and digital technology, engineering sciences, French history, language and civilisation, law and political science, and economics and management.",
     "You cannot apply yourself: only French institutions can submit candidates to Campus France."
   ],
   "how_to_apply": [
     "Apply for admission to your chosen master's or PhD at a French institution, and ask its international office whether it nominates Eiffel candidates.",
-    "Meet the institution's internal Eiffel deadline, which comes well before Campus France's.",
-    "The institution selects candidates and submits their files to Campus France. For the 2026 campaign, the call opened on 1 October 2025 and files were due by 8 January 2026. For the 2027 campaign, each university sets an earlier internal deadline (Paris-Saclay's is 26 November 2026), and Campus France has not published its 2027 closing date yet.",
-    "Results are published from late March."
+    "Meet the institution's internal Eiffel deadline. At Université Paris-Saclay it is 6 November 2026 for PhD candidates (through ADUM) and 26 November 2026 for master's candidates.",
+    "The institution selects its candidates and submits their files to Campus France, which must receive them by 6 January 2027. The 2027 call opened in October 2026.",
+    "Results are published from 12 April 2027. Funded studies must start between 1 September and 30 November 2027, and the start cannot be postponed."
   ],
   "watch_out": [
     "Your real deadline is your university's internal one, often two months before the Campus France date.",
     "The institution decides whom to nominate, so a strong admission file and early contact with the programme matter most.",
-    "The ages are guidance the programme 'encourages', but applicants well above them are rarely nominated."
+    "An Eiffel scholarship cannot be combined with another French government scholarship, an Erasmus+ scholarship or an award from the Agence Universitaire de la Francophonie; if you hold two, you must give one up.",
+    "The ages are guidance the programme 'encourages', but applicants well above them are rarely nominated.",
+    "Each institution sets its own document list; the one on this page is Université Paris-Saclay's for 2027."
   ],
   "related": [
     "erasmus-mundus-joint-masters",
@@ -31,18 +35,66 @@
   ],
   "sources": [
     {
-      "title": "Campus France: France Excellence Eiffel scholarship programme",
-      "url": "https://www.campusfrance.org/en/france-excellence-eiffel-scholarship-program"
-    },
-    {
       "title": "Campus France: Eiffel scholarship programme of excellence",
       "url": "https://www.campusfrance.org/en/eiffel-scholarship-program-of-excellence"
     },
     {
-      "title": "Université Paris-Saclay: France Excellence Eiffel scholarship (current rates)",
+      "title": "Campus France: Eiffel programme rules, 2027 session (PDF)",
+      "url": "https://www.campusfrance.org/system/files/medias/documents/2026-10/reglementation_bourse_eiffel_2027_EN.pdf"
+    },
+    {
+      "title": "Campus France: France Excellence Eiffel scholarship programme",
+      "url": "https://www.campusfrance.org/en/france-excellence-eiffel-scholarship-program"
+    },
+    {
+      "title": "Université Paris-Saclay: France Excellence Eiffel scholarship",
       "url": "https://www.universite-paris-saclay.fr/en/admission/bourses-et-aides-financieres/france-excellence-eiffel-scholarship"
     }
   ],
-  "reviewed": "2026-10-12",
-  "meta_title": "Eiffel Excellence Scholarship 2027–28: eligibility and deadlines"
+  "reviewed": "2026-10-27",
+  "meta_title": "Eiffel Excellence Scholarship 2027–28: eligibility and deadlines",
+  "documents": [
+    "A copy of your passport or national ID card.",
+    "A CV of one or two pages in French or English, listing every university you attended and your work experience, with dates.",
+    "Your degrees so far and your transcripts from the first year of higher education, plus an official ranking certificate for your last degree at master's level.",
+    "A professional project or motivation letter of one or two pages in French or English; a recommendation from someone outside your home university, such as an internship supervisor, can support it.",
+    "A French language certificate if your programme is taught in French and you did not study in French.",
+    "For a PhD: a research project of one to five pages, a financing plan, an evaluation of the project by a senior researcher who has not published with your supervisor, and, for a 12- or 18-month award, the joint-supervision (cotutelle) agreement."
+  ],
+  "costs": [
+    [
+      "Monthly allowance: €1,200 (master's) or €2,000 (PhD)",
+      "The French Ministry for Europe and Foreign Affairs, paid through Campus France"
+    ],
+    [
+      "Tuition and university fees",
+      "You; the programme does not pay them at either level"
+    ],
+    [
+      "Flights to France and home",
+      "The scholarship refunds them on receipts, up to 50% of the ministry's maximum rate for your country. The flight home is covered once your final-year results are in"
+    ],
+    [
+      "Health insurance",
+      "Campus France enrols you in temporary cover until the French national scheme starts, then in a supplementary plan at no cost to you (family members excluded)"
+    ],
+    [
+      "A French language course before your studies",
+      "You; the allowance can start up to one month early, from August, if the course is in your application, but the course itself is not paid"
+    ]
+  ],
+  "faq": [
+    {
+      "q": "When is the Eiffel scholarship deadline for 2027?",
+      "a": "Campus France must receive files from French institutions by 6 January 2027, but you apply through your university by its own earlier date: at Université Paris-Saclay, 6 November 2026 for PhD and 26 November 2026 for master's. Results are published from 12 April 2027."
+    },
+    {
+      "q": "Does the Eiffel scholarship pay tuition?",
+      "a": "No. Tuition and fees are not paid at master's or PhD level, so check your programme's fees. The scholarship pays a monthly allowance, part of your flights, health insurance and help with housing."
+    },
+    {
+      "q": "Can I apply directly to Campus France?",
+      "a": "No. Only French higher-education institutions and research organisations can submit candidates. Apply for admission first, then ask the programme or international office about its internal Eiffel selection."
+    }
+  ]
 }

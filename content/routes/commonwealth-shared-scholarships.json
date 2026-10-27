@@ -1,28 +1,28 @@
 {
   "summary": "Commonwealth Shared Scholarships are jointly funded by the Commonwealth Scholarship Commission and UK universities for students from lower-income Commonwealth countries who could not otherwise afford to study in the UK. They fund selected one-year master's courses.",
-  "meta_description": "Commonwealth Shared Scholarships fund selected UK master's courses for students from lower-income Commonwealth countries. Eligibility and how to apply.",
+  "meta_description": "Commonwealth Shared Scholarships 2027–28: apply from 10 November to 8 December 2026 for a UK master's with fees, flights and £1,712 a month.",
   "covers": [
     "Full tuition fees.",
-    "Approved return airfare.",
-    "A monthly stipend (£1,452, or £1,781 in London, at the most recently published rates).",
-    "Thesis and study travel grants, and child allowances for eligible single parents."
+    "Approved return airfare between your home country and the UK.",
+    "A monthly stipend of £1,712, or £2,000 at universities in the London metropolitan area (current rates).",
+    "Thesis and study travel grants and a warm clothing allowance where they apply, and a child allowance for widowed, divorced or single-parent scholars (£622 a month for the first child)."
   ],
   "eligibility": [
-    "Citizens of one of the 44 eligible Commonwealth countries.",
+    "Citizens of one of the 43 eligible Commonwealth countries, including Ghana, Nigeria, Kenya, India and Bangladesh.",
     "Proof that you cannot afford to study in the UK without the scholarship.",
     "No more than one academic year of study or work in a high-income country.",
-    "A 2:1 first degree, or a 2:2 plus a relevant postgraduate qualification. There is no age limit."
+    "A 2:1 first degree, or a 2:2 plus a relevant postgraduate qualification, by September 2027, and able to start in the UK that month. There is no age limit."
   ],
   "how_to_apply": [
-    "Find the participating UK universities and the specific master's courses they offer under the scheme.",
-    "Apply for admission and for the scholarship directly to the university, by its own deadline.",
-    "Universities select candidates and nominate them to the CSC in March.",
-    "Results follow in the late spring or summer."
+    "Find the participating UK universities and their approved master's courses; the CSC publishes the 2027 list before applications open.",
+    "Apply for admission to your chosen course at the university and secure a place.",
+    "Apply for the scholarship on CSC Central between Tuesday 10 November 2026 and 16:00 GMT on Tuesday 8 December 2026. The CSC accepts no applications or documents sent any other way.",
+    "Each university runs its own selection and nominates its chosen candidates to the CSC. If you are selected, the university tells you, and the CSC confirms the award once your admission is agreed and your health form is in."
   ],
   "watch_out": [
-    "Only selected courses are eligible, and each university sets its own deadline.",
+    "Only approved courses are eligible, and the 2027 list can differ from 2026's, so check it when it is published.",
     "The financial-need test is central; explain clearly why you cannot study in the UK without it.",
-    "Applying to the university for admission alone is not enough; you must also complete its Shared Scholarship application."
+    "The window is only four weeks, so have your references and transcripts ready before 10 November."
   ],
   "related": [
     "commonwealth-masters-scholarships",
@@ -33,10 +33,10 @@
   "sources": [
     {
       "title": "Commonwealth Scholarship Commission: Commonwealth Shared Scholarships",
-      "url": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-shared-scholarships/"
+      "url": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-shared-scholarships-applications/"
     }
   ],
-  "reviewed": "2026-09-25",
+  "reviewed": "2026-10-27",
   "costs": [
     [
       "Tuition fees",
@@ -47,7 +47,7 @@
       "The CSC"
     ],
     [
-      "Monthly stipend (£1,452, or £1,781 in London), plus thesis, warm-clothing and study-travel grants where they apply",
+      "Monthly stipend (£1,712, or £2,000 in London), plus thesis, warm-clothing and study-travel grants where they apply",
       "Your university"
     ],
     [
@@ -68,6 +68,10 @@
   ],
   "faq": [
     {
+      "q": "When can I apply for 2027–28?",
+      "a": "On CSC Central from Tuesday 10 November 2026 until 16:00 GMT on Tuesday 8 December 2026, for master's courses starting in September 2027. You must also apply for admission to the course at the university."
+    },
+    {
       "q": "I have studied abroad before. Can I still apply?",
       "a": "Only if you have not studied or worked for more than one academic year in a high-income country. The scheme is for people who have not had that opportunity."
     },
@@ -77,7 +81,7 @@
     },
     {
       "q": "Which countries are eligible?",
-      "a": "43 lower-income Commonwealth countries, including Ghana, Nigeria, Kenya, Uganda, Tanzania, Zambia, Malawi, Rwanda, Sierra Leone, The Gambia, Cameroon, India, Pakistan and Bangladesh. Check the CSC page for the full list each year."
+      "a": "43 lower-income Commonwealth countries, including Ghana, Nigeria, Kenya, Uganda, Tanzania, Zambia, Malawi, Rwanda, Sierra Leone, The Gambia, India, Pakistan and Bangladesh. Check the CSC page for the full list each year."
     }
   ],
   "meta_title": "Commonwealth Shared Scholarships 2027–28: eligibility and dates"
