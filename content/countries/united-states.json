@@ -17,7 +17,7 @@
     },
     {
       "h": "Full need, but need-aware",
-      "html": "<p><a href=\"{{root}}routes/duke-university/\">Duke</a> and <a href=\"{{root}}routes/colby-college/\">Colby</a> meet the full need of the international students they admit, but consider financial need in admission. <a href=\"{{root}}routes/vanderbilt-university/\">Vanderbilt</a> offers full-tuition merit scholarships that international applicants can win, with a separate application due 1 December.</p>"
+      "html": "<p><a href=\"{{root}}routes/stanford-university/\">Stanford</a>, <a href=\"{{root}}routes/duke-university/\">Duke</a> and <a href=\"{{root}}routes/colby-college/\">Colby</a> meet the full need of the international students they admit, but consider financial need in admission. <a href=\"{{root}}routes/vanderbilt-university/\">Vanderbilt</a> offers full-tuition merit scholarships that international applicants can win, with a separate application due 1 December.</p>"
     },
     {
       "h": "No tuition: Berea College",
@@ -78,7 +78,7 @@
       "url": "https://admissions.berea.edu/"
     }
   ],
-  "reviewed": "2026-10-09",
+  "reviewed": "2026-10-28",
   "glance": [
     [
       "Tuition",

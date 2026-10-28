@@ -1,11 +1,11 @@
 {
   "name": "Switzerland",
   "flag": "🇨🇭",
-  "title": "Switzerland: tuition, application fees and two ways to have them paid for",
-  "meta_title": "Switzerland: tuition, application fees and two funded routes",
-  "lede": "Swiss federal institutes of technology charge modest fees by international standards, but Switzerland is expensive to live in. The funded routes are ETH Zürich's ESOP for master's students and the Swiss Government Excellence Scholarships for researchers.",
-  "description": "Tuition and application fees at ETH Zürich, EPFL, Zurich, Geneva, Lausanne, Basel and Bern, plus ETH's ESOP and the Swiss Government Excellence Scholarships.",
-  "card": "ETH and EPFL charge foreign students CHF 2,190 a semester; ESOP and federal scholarships cover the costs.",
+  "title": "Switzerland: tuition, application fees and three ways to have them paid for",
+  "meta_title": "Switzerland: tuition, application fees and three funded routes",
+  "lede": "Swiss federal institutes of technology charge modest fees by international standards, but Switzerland is expensive to live in. The funded routes are ETH Zürich's ESOP and EPFL's Excellence Fellowships for master's students, and the Swiss Government Excellence Scholarships for researchers.",
+  "description": "Tuition and application fees at ETH Zürich, EPFL, Zurich, Geneva, Lausanne, Basel and Bern, plus ESOP, EPFL fellowships and Swiss Government scholarships.",
+  "card": "ETH and EPFL charge foreign students CHF 2,190 a semester; ESOP, EPFL fellowships and federal scholarships cover the costs.",
   "sections": [
     {
       "h": "Tuition",
@@ -22,6 +22,10 @@
     {
       "h": "For master's students: ETH's ESOP",
       "html": "<p>The <a href=\"{{root}}routes/eth-zurich-excellence-scholarship/\">Excellence Scholarship &amp; Opportunity Programme</a> pays <strong>CHF 13,500 per semester</strong> (from autumn 2027) and waives tuition, for about 60 master's students a year who were in the top 10% of their bachelor's cohort. The application window is <strong>1–30 November</strong>, earlier than ETH's regular master's deadline.</p>"
+    },
+    {
+      "h": "For master's students: EPFL's Excellence Fellowships",
+      "html": "<p>EPFL's <a href=\"{{root}}routes/epfl-excellence-fellowships/\">Excellence Fellowships</a> pay <strong>CHF 10,000 per semester</strong> for up to four semesters to a limited number of outstanding master's applicants, which more than covers EPFL's tuition. You are considered only if your master's application is paid for and validated by <strong>15 December</strong>; applications in the second window, to 31 March, do not qualify. The fellowship cannot be combined with other substantial scholarships.</p>"
     },
     {
       "h": "For researchers: the Swiss Government Excellence Scholarships",
@@ -102,7 +106,7 @@
       "url": "https://www.unibe.ch/studies/organizational_matters/renewal_of_semester_registration/fees/index_eng.html"
     }
   ],
-  "reviewed": "2026-10-09",
+  "reviewed": "2026-10-28",
   "glance": [
     [
       "Tuition",

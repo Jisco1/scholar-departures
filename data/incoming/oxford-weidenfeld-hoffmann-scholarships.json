@@ -1,0 +1,32 @@
+{
+  "last_verified": "2026-10-28",
+  "content_hash": null,
+  "needs_review": false,
+  "slug": "oxford-weidenfeld-hoffmann-scholarships",
+  "name": "Oxford Weidenfeld-Hoffmann Scholarships",
+  "flag": "🇬🇧",
+  "country": "United Kingdom",
+  "region": "Europe",
+  "kind": "school",
+  "scope": "limited",
+  "fields": [
+    "Social Sciences & Law",
+    "Business & Economics",
+    "Computer Science",
+    "Medicine & Health",
+    "Agriculture & Environment",
+    "Engineering & Tech",
+    "Arts & Humanities"
+  ],
+  "types": [
+    "Full Scholarship"
+  ],
+  "levels": [
+    "Master's"
+  ],
+  "funding": "Full course fees and a living grant of at least £21,805, plus a leadership programme, for one of 40 Oxford master's courses, for graduates from 188 eligible countries, mainly developing and emerging economies.",
+  "deadline": "2027–28: apply to an eligible Oxford course by its December or January deadline (on the course page), with the scholarship statement",
+  "link": "https://www.ox.ac.uk/admissions/graduate/fees-and-funding/fees-funding-and-scholarship-search/weidenfeld-hoffmann-scholarships-and-leadership-programme",
+  "varies": true,
+  "approx": false
+}

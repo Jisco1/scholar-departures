@@ -146,6 +146,13 @@
   "license_url": "https://creativecommons.org/licenses/by/2.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:Eiffel_Tower_and_Pont_Alexandre_III_at_night.jpg"
  },
+ "epfl-excellence-fellowships": {
+  "file": "route-epfl-excellence-fellowships.jpg",
+  "credit": "Fridolin freudenfett",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:EPFL_Rolex_Learning_Center-008.jpg"
+ },
  "erasmus-mundus-joint-masters": {
   "file": "route-erasmus-mundus-joint-masters.jpg",
   "credit": "Gioele Serra",
@@ -230,6 +237,13 @@
   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:Stanford_Memorial_Church_(2025)-L1007381.jpg"
  },
+ "kth-scholarship": {
+  "file": "route-kth-scholarship.jpg",
+  "credit": "Jason Li",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Main_Building,_KTH_Royal_Institute_of_Technology,_June_29_2023.jpg"
+ },
  "maastricht-holland-high-potential": {
   "file": "route-maastricht-holland-high-potential.jpg",
   "credit": "Kleon3",
@@ -307,6 +321,13 @@
   "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
   "source_url": "https://commons.wikimedia.org/wiki/File:Oslo_Opera_House_-_2025.jpg"
  },
+ "oxford-weidenfeld-hoffmann-scholarships": {
+  "file": "route-oxford-weidenfeld-hoffmann-scholarships.jpg",
+  "credit": "Remi Mathis",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Oxford_-_Bodleian_Library_from_Radcliffe_Square.JPG"
+ },
  "pan-african-university-scholarship": {
   "file": "route-pan-african-university-scholarship.jpg",
   "credit": "Gedankenstuecke",
@@ -348,6 +369,13 @@
   "license": "CC BY-SA 2.5",
   "license_url": "https://creativecommons.org/licenses/by-sa/2.5",
   "source_url": "https://commons.wikimedia.org/wiki/File:RWTH_Aachen_Hauptgeb%C3%A4ude.jpg"
+ },
+ "stanford-university": {
+  "file": "route-stanford-university.jpg",
+  "credit": "Jawed",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Stanford_University_Arches_with_Memorial_Church_in_the_background.jpg"
  },
  "stipendium-hungaricum": {
   "file": "route-stipendium-hungaricum.jpg",
@@ -481,5 +509,12 @@
   "license": "CC BY-SA 4.0",
   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:Sterling_Memorial_Library_seen_from_the_front,_Yale_University,_New_Haven,_Connecticut.jpg"
+ },
+ "yenching-academy-peking-university": {
+  "file": "route-yenching-academy-peking-university.jpg",
+  "credit": "Michael Gritzbach",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Yenching_Entrance.jpg"
  }
 }

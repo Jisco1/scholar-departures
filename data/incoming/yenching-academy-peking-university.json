@@ -1,0 +1,34 @@
+{
+  "last_verified": "2026-10-28",
+  "content_hash": null,
+  "needs_review": false,
+  "slug": "yenching-academy-peking-university",
+  "name": "Yenching Academy of Peking University (Yenching Scholars)",
+  "flag": "🇨🇳",
+  "country": "China",
+  "region": "Asia",
+  "kind": "school",
+  "scope": "all",
+  "fields": [
+    "Social Sciences & Law",
+    "Business & Economics",
+    "Arts & Humanities"
+  ],
+  "types": [
+    "Full Scholarship"
+  ],
+  "levels": [
+    "Master's"
+  ],
+  "funding": "Every admitted scholar gets a fellowship covering tuition, campus housing, a monthly stipend, medical insurance, one round trip to Beijing and research costs, for a two-year master's in China Studies.",
+  "deadline": "2027 cohort: Nov 30, 2026, 9:00 am Beijing time (students at partner universities go through their university's pre-selection first)",
+  "link": "https://yenchingacademy.pku.edu.cn/ADMISSIONS.htm",
+  "deadlines": [
+    {
+      "y": 2026,
+      "m": 11,
+      "d": 30
+    }
+  ],
+  "approx": false
+}

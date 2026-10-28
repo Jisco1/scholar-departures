@@ -1,0 +1,86 @@
+{
+  "summary": "Stanford University, in California, admits a number of international undergraduates with financial aid each year. It meets the full demonstrated need of every admitted student regardless of citizenship, but for international applicants a request for aid is weighed in the admission decision, and Stanford offers no merit scholarships apart from a few athletic awards.",
+  "meta_title": "Stanford financial aid for international students: how it works",
+  "meta_description": "Stanford meets full demonstrated need for admitted international undergraduates, but asking for aid counts in admission. Deadlines, tests and costs.",
+  "covers": [
+    "Need-based aid that meets your family's full demonstrated need, as Stanford calculates it.",
+    "Aid is based on your family's own financial circumstances. The income levels Stanford publishes for US families (no parent contribution below $100,000, tuition covered below $150,000) may not apply to families living outside the United States.",
+    "No merit scholarships, apart from a limited number of athletic scholarships."
+  ],
+  "eligibility": [
+    "International first-year applicants. Fluency in English is a prerequisite, but no English test is required.",
+    "You must say on your application that you will apply for financial aid: international students who do not cannot apply for aid at any point in their four years at Stanford.",
+    "ACT or SAT scores are a required part of the first-year application."
+  ],
+  "how_to_apply": [
+    "Apply through the Common Application by 1 November for Restrictive Early Action or by 5 January for Regular Decision. Stanford's page gives these dates without a year; with the optional arts portfolio they are 15 October and 5 December.",
+    "Indicate on the application that you will apply for financial aid, then complete the financial aid application Stanford asks for.",
+    "Pay the $100 non-refundable application fee or request a fee waiver.",
+    "Early Action decisions come by mid-December and Regular Decision by early April; admitted students reply by 1 May."
+  ],
+  "watch_out": [
+    "Stanford is need-aware for international applicants: asking for aid makes admission more selective, and its aid for international students is limited.",
+    "Decide about aid before you apply. You cannot ask for it later unless your citizenship changes in a way that makes you eligible for US federal aid.",
+    "To receive scholarship money you will need a US Social Security number or an ITIN, though you do not need one to apply."
+  ],
+  "costs": [
+    [
+      "Application fee: $100",
+      "You, unless Stanford grants a fee waiver"
+    ],
+    [
+      "Tuition, room and board",
+      "Your family, less Stanford's need-based aid, which meets the full demonstrated need it calculates"
+    ],
+    [
+      "ACT or SAT",
+      "You"
+    ]
+  ],
+  "documents": [
+    "The Common Application.",
+    "ACT or SAT scores.",
+    "Your request for financial aid, made on the admission application, then the financial aid forms Stanford asks for.",
+    "The $100 application fee or a fee waiver request.",
+    "An arts portfolio, if you choose to send one: it moves your deadline to 15 October or 5 December."
+  ],
+  "faq": [
+    {
+      "q": "Does Stanford give full scholarships to international students?",
+      "a": "Stanford meets the full demonstrated need of every admitted student, whatever their citizenship, with need-based aid. It does not offer merit scholarships, apart from a few athletic awards, and its aid for international students is limited."
+    },
+    {
+      "q": "Is Stanford need-blind for international students?",
+      "a": "No. For international applicants who say they will apply for financial aid, that request is a factor in the admission decision, which makes admission more selective."
+    },
+    {
+      "q": "Do I need IELTS or TOEFL for Stanford?",
+      "a": "No. Stanford does not require an English proficiency test, but fluency in English is a prerequisite for admission. ACT or SAT scores are required."
+    }
+  ],
+  "related": [
+    "harvard-university",
+    "mit",
+    "yale-university",
+    "duke-university"
+  ],
+  "sources": [
+    {
+      "title": "Stanford Undergraduate Admission: International applicants",
+      "url": "https://admission.stanford.edu/apply/international/"
+    },
+    {
+      "title": "Stanford Undergraduate Admission: First-year requirements and deadlines",
+      "url": "https://admission.stanford.edu/apply/first-year/index.html"
+    },
+    {
+      "title": "Stanford Financial Aid: International students",
+      "url": "https://financialaid.stanford.edu/undergrad/how/international.html"
+    },
+    {
+      "title": "Stanford Financial Aid: Parent contribution",
+      "url": "https://financialaid.stanford.edu/undergrad/how/parent.html"
+    }
+  ],
+  "reviewed": "2026-10-28"
+}
