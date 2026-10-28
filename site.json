@@ -15,6 +15,11 @@
     }
   },
 
+  "indexnow": {
+    "_help": "IndexNow tells Bing, Yandex, Seznam, Naver and Yep that a page changed. The build publishes the key at /<key>.txt; tools/indexnow.py submits the pages changed in the last day after each deploy.",
+    "key": "ff65ff2b97ed215e39ce050dcfd89a45"
+  },
+
   "premium": {
     "_help": "Leave gumroad_product_id empty and the calendar, compare and planner tools are free for everyone. Fill both fields to put them behind a Gumroad license key.",
     "gumroad_product_id": "",

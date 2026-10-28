@@ -25,7 +25,7 @@
     },
     {
       "h": "Application fees and waivers",
-      "html": "<p>Selective US colleges usually charge <strong>$50 to $90</strong> to apply: $50 at Vanderbilt, $75 at Amherst, $80 at Brown, and $85 at Dartmouth and Duke. Two colleges on this board charge nothing: <a href=\"{{root}}routes/colby-college/\">Colby</a> has no application fee for anyone, and <a href=\"{{root}}routes/berea-college/\">Berea</a>'s application is free.</p><p>Harvard, MIT, Yale and Princeton waive their fee for applicants who cannot afford it, international applicants included. Ask for the waiver in the Common App (or in MIT's own application) instead of paying; MIT says asking has no effect on your chances.</p><p>Compare other countries in our guide to <a href=\"{{root}}guides/universities-with-no-application-fee/\">universities with no application fee</a>.</p>"
+      "html": "<p>Selective US colleges usually charge <strong>$50 to $100</strong> to apply: $50 at Vanderbilt, $75 at Amherst, $80 at Brown, $85 at Dartmouth and Duke, and $100 at <a href=\"{{root}}routes/stanford-university/\">Stanford</a>. Two colleges on this board charge nothing: <a href=\"{{root}}routes/colby-college/\">Colby</a> has no application fee for anyone, and <a href=\"{{root}}routes/berea-college/\">Berea</a>'s application is free. Smith College and Tulane University also let first-year applicants apply without a fee.</p><p>Harvard, MIT, Yale and Princeton waive their fee for applicants who cannot afford it, international applicants included. Ask for the waiver in the Common App (or in MIT's own application) instead of paying; MIT says asking has no effect on your chances.</p><p>Compare other countries in our guide to <a href=\"{{root}}guides/universities-with-no-application-fee/\">universities with no application fee</a>.</p>"
     },
     {
       "h": "Graduate study",
@@ -76,6 +76,14 @@
     {
       "title": "Berea College: Admissions",
       "url": "https://admissions.berea.edu/"
+    },
+    {
+      "title": "Tulane University: Apply",
+      "url": "https://tulane.edu/apply"
+    },
+    {
+      "title": "Smith College: First-year applicants",
+      "url": "https://www.smith.edu/admission-aid/apply-smith/first-year-applicants"
     }
   ],
   "reviewed": "2026-10-28",
@@ -104,7 +112,7 @@
   "faq": [
     {
       "q": "Which US colleges have no application fee for international students?",
-      "a": "Colby College charges no application fee to anyone, and Berea College's application is free. Harvard, MIT, Yale and Princeton waive their fee for applicants who cannot afford it, including international applicants."
+      "a": "Colby College charges no application fee to anyone, Berea College's application is free, and Smith College and Tulane University charge first-year applicants nothing. Harvard, MIT, Yale and Princeton waive their fee for applicants who cannot afford it, including international applicants."
     },
     {
       "q": "Can international students study in the US for free?",

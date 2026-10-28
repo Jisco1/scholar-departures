@@ -1635,6 +1635,10 @@ def build_route_pages(routes, notes, country_pages):
                             + [(f"routes/{r['slug']}/", r["name"])]),
               {"@context": "https://schema.org", "@type": "WebPage", "name": r["name"], "description": desc,
                "dateModified": reviewed or None, "url": BASE + f"routes/{r['slug']}/"}]
+        if faq:
+            ld.append({"@context": "https://schema.org", "@type": "FAQPage",
+                       "mainEntity": [{"@type": "Question", "name": x["q"],
+                                       "acceptedAnswer": {"@type": "Answer", "text": LINK_MD.sub(r"", x["a"])}} for x in faq]})
         LASTMOD[f"routes/{r['slug']}/"] = latest(reviewed, r.get("last_verified"))
         write(f"routes/{r['slug']}/", page(f"routes/{r['slug']}/", title, desc,
                                             article, root=root, nav="routes/", jsonld=ld, og_type="article",
@@ -2290,6 +2294,15 @@ def build_guides(guides, routes):
         root = "../../"
         body, toc = add_heading_ids(g["body"].replace("{{root}}", root))
         body = body.replace("<!--ad-->", ad_bay("article"))
+        faq = g.get("faq") or []
+        if not all(isinstance(q, dict) and isinstance(q.get("q"), str) and isinstance(q.get("a"), str)
+                   and q["q"].strip() and q["a"].strip() for q in faq):
+            fail(f"content/guides/{g['slug']}.html: each 'faq' item needs plain-text 'q' and 'a'")
+            faq = []
+        if faq:
+            body += ('<h2 id="common-questions">Common questions</h2>'
+                     + "".join(f"<h3>{e(q['q'])}</h3><p>{e(q['a'])}</p>" for q in faq))
+            toc.append(("common-questions", "Common questions"))
         mins = max(1, round(words(body) / 220))
         toc_html = ('<nav class="toc" aria-label="On this page"><p>On this page</p><ol>' +
                     "".join(f'<li><a href="#{hid}">{e(t)}</a></li>' for hid, t in toc) + "</ol></nav>") if len(toc) >= 4 else ""
@@ -2308,6 +2321,10 @@ def build_guides(guides, routes):
                "dateModified": g["updated"], "datePublished": g.get("published", g["updated"]),
                "author": author_ld(), "publisher": {"@type": "Organization", "name": SITE, "url": BASE},
                "mainEntityOfPage": BASE + f"guides/{g['slug']}/"}]
+        if faq:
+            ld.append({"@context": "https://schema.org", "@type": "FAQPage",
+                       "mainEntity": [{"@type": "Question", "name": q["q"], "acceptedAnswer": {"@type": "Answer", "text": q["a"]}}
+                                      for q in faq]})
         LASTMOD[f"guides/{g['slug']}/"] = g.get("updated")
         where = f"content/guides/{g['slug']}.html"
         write(f"guides/{g['slug']}/", page(f"guides/{g['slug']}/", search_title(g.get("meta_title"), g["title"], where),
@@ -2468,6 +2485,9 @@ def write_meta_files(routes):
                                      + urls + "</urlset>\n", encoding="utf-8")
     (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n", encoding="utf-8")
     shutil.copy2(SRC / "assets" / "favicon.ico", OUT / "favicon.ico")  # browsers and crawlers ask for /favicon.ico
+    indexnow_key = (CONFIG.get("indexnow") or {}).get("key")
+    if indexnow_key:
+        (OUT / f"{indexnow_key}.txt").write_text(indexnow_key, encoding="utf-8")  # proves to IndexNow that the site owns the key
     client = adsense_client()
     if client:
         # AdSense reads ads.txt; AdMob reads app-ads.txt for the DegreeStep app. Same account, same line.

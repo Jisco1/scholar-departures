@@ -60,3 +60,13 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5
+
+  # Free and never blocks the site: tells Bing and the other IndexNow engines which pages changed today.
+  indexnow:
+    needs: deploy
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - name: Submit changed pages to IndexNow
+        run: python tools/indexnow.py --days 1

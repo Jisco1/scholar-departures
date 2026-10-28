@@ -39,7 +39,7 @@
   "sources": [
     {
       "title": "University of Vienna: Amount of the tuition fee",
-      "url": "https://studieren.univie.ac.at/en/tuition-fee/amount-tuition-fee/"
+      "url": "https://studieren.univie.ac.at/en/studying-and-learning/financial-matters/amount-of-the-tuition-fee/students-union-fee"
     },
     {
       "title": "University of Vienna: Application and admission periods",
@@ -62,7 +62,7 @@
       "url": "https://aufnahmeverfahren.univie.ac.at/en/administration-fee"
     }
   ],
-  "reviewed": "2026-10-09",
+  "reviewed": "2026-10-28",
   "glance": [
     [
       "Tuition",
@@ -86,6 +86,10 @@
     ]
   ],
   "faq": [
+    {
+      "q": "Is university free in Austria for international students?",
+      "a": "For EU/EEA students, nearly: at the University of Vienna they pay only the €26.20 students' union fee each semester for the standard length of their degree plus two extra semesters. Non-EU students pay €726.72 a semester in tuition from their first semester, plus the same union fee, unless they are citizens of a country on Austria's list of least developed countries, who pay only the union fee."
+    },
     {
       "q": "Do Austrian universities charge an application fee?",
       "a": "At the University of Vienna, only bachelor's and diploma programmes with an entrance exam or aptitude test charge one: €50. Tuition for non-EU students is €726.72 a semester, and citizens of the least developed countries are exempt."
