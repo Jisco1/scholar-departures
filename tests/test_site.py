@@ -323,6 +323,16 @@ class BuiltSite(unittest.TestCase):
         for name in ("hero-graduation-1920.jpg", "hero-graduation-960.jpg"):
             self.assertLess((self.site / "assets" / name).stat().st_size, 300_000, name)
 
+    def test_app_download_links_reach_the_app_store(self):
+        # 31 Oct 2026: the app went live, so the home page and the app page offer the download, and Safari offers it too
+        url = "https://apps.apple.com/app/id6821526583"
+        home, app = self.pages[self.site / "index.html"], self.pages[self.site / "app" / "index.html"]
+        for text in (home, app):
+            self.assertIn(f'href="{url}"', text)
+            self.assertIn('alt="Download on the App Store"', text)
+            self.assertIn('<meta name="apple-itunes-app" content="app-id=6821526583">', text)
+        self.assertIn("/app/</loc>", (self.site / "sitemap.xml").read_text(encoding="utf-8"))
+
     def test_app_feed_and_app_ads_txt(self):
         # the DegreeStep iPhone app reads app/feed.json, so its content updates without a new App Store version,
         # and AdMob checks app-ads.txt on the developer's site before it serves ads in the app

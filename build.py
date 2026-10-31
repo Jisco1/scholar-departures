@@ -498,6 +498,74 @@ THEME_BOOT = ("try{var t=localStorage.getItem('sd-theme');if(t==='dark'||(!t&&wi
               "document.querySelector('meta[name=theme-color]').setAttribute('content','#0B1322')}}catch(e){}")
 
 
+APP_STORE_ID = (CONFIG.get("app_store") or {}).get("id", "")
+APP_STORE_URL = f"https://apps.apple.com/app/id{APP_STORE_ID}"
+# Apple's own badge, from its marketing tools: its artwork may not be redrawn, so the page loads it from Apple
+APP_STORE_BADGE = "https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+
+
+def app_badge():
+    return (f'<a class="appstore-badge" href="{e(APP_STORE_URL)}" target="_blank" rel="noopener">'
+            f'<img src="{e(APP_STORE_BADGE)}" width="162" height="54" alt="Download on the App Store" loading="lazy"></a>')
+
+
+def app_promo(root, heading, lede, level="h2"):
+    """The full-width download panel: the app's own screens rising in steps from the foot of a night photograph.
+    The screens are cropped above anything with a date, so no countdown here can go out of date."""
+    return f"""<section class="lp-app" aria-label="The DegreeStep iPhone app">
+<img class="lp-app-photo" src="{asset(root, "hero-graduation-960.jpg")}" width="960" height="640" alt="" loading="lazy" decoding="async">
+<div class="lp-app-shade" aria-hidden="true"></div>
+<div class="wrap lp-app-grid">
+  <div class="lp-app-text">
+    <p class="eyebrow-s">Free on the App Store</p>
+    <{level} class="lp-app-title">{heading}</{level}>
+    <p class="lede">{e(lede)}</p>
+    <div class="lp-app-get">{app_badge()}<span class="lp-app-note">For iPhone, iOS 17 or later</span></div>
+  </div>
+  <div class="lp-app-steps">
+    <div class="lp-phone lp-phone-explore"><img src="{asset(root, "app-screen-explore.jpg")}" width="480" height="339" alt="The app's Explore screen, with search and filters for subject, level and funder" loading="lazy"></div>
+    <div class="lp-phone lp-phone-today"><img src="{asset(root, "app-screen-today.jpg")}" width="500" height="511" alt="The app's Today screen" loading="lazy"></div>
+    <div class="lp-phone lp-phone-detail"><img src="{asset(root, "app-screen-detail.jpg")}" width="600" height="596" alt="A scholarship page in the app" loading="lazy"></div>
+  </div>
+</div>
+</section>"""
+
+
+def build_app_page():
+    root = "../"
+    features = [
+        ("Funded routes, filtered for you", "Browse fully funded scholarships and tuition-free universities. Add your nationality in Settings and the app shows only what citizens of your country can apply for."),
+        ("Every deadline, soonest first", "Deadlines sit in date order with a countdown. Rounds that are further off show when the next one opens."),
+        ("A working timeline", "Eight steps counted back from a scholarship's deadline, from research to submission. Add them to your Calendar in one tap, each with an alert on the day."),
+        ("Alerts for new opportunities", "Turn on alerts in Settings to hear about new scholarships, funded PhD positions and research news."),
+        ("The details that matter", "What each scholarship pays, who can apply, the study levels it covers, how to apply and what to watch out for, with a link to the official page."),
+        ("10,000 universities in one search", "Search universities in about 200 countries by name, city or country, and go straight to each school's own admissions pages."),
+        ("Paid PhD positions, news and guides", "Browse salaried PhD posts and fellowships with a deadline ahead, and read research news and practical guides inside the app."),
+        ("On your Home Screen", "The DegreeStep widget shows the deadlines closing soonest."),
+    ]
+    items = "".join(f'<div class="lp-app-feature"><h2>{e(h)}</h2><p>{e(t)}</p></div>' for h, t in features)
+    body = app_promo(root, "Every scholarship deadline, <em>in your pocket</em>",
+                     "Fully funded scholarships, tuition-free universities and paid PhD positions, with a countdown and a working timeline for every deadline.",
+                     level="h1") + f"""
+<div class="wrap">
+  <div class="lp-app-features">{items}</div>
+  {ad_bay("article")}
+  <div class="lp-app-foot">
+    <p>The app is free and shows ads. You do not need an account, and your nationality and saved list stay on your phone. It needs an iPhone with iOS 17 or later.</p>
+    {app_badge()}
+  </div>
+</div>"""
+    LASTMOD["app/"] = "2026-10-31"
+    ld = [breadcrumb_ld([("", "Home"), ("app/", "iPhone app")]),
+          {"@context": "https://schema.org", "@type": "MobileApplication", "name": SITE, "operatingSystem": "iOS 17 or later",
+           "applicationCategory": "EducationalApplication", "downloadUrl": APP_STORE_URL, "installUrl": APP_STORE_URL, "url": BASE + "app/",
+           "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}]
+    write("app/", page("app/", "DegreeStep iPhone app: scholarship deadlines, free download",
+                       "Download the free DegreeStep iPhone app: funded scholarships filtered for your nationality, deadline countdowns and a working timeline.",
+                       body, root=root, nav="app/", body_class="landing app-page", jsonld=ld,
+                       extra_head=f'<link rel="stylesheet" href="{asset(root, "landing.css")}">\n'))
+
+
 def menu_html(root, here):
     """The single Menu button and its panel: one short list, with Countries, Guides and About as drop-downs."""
     def link(href, label):
@@ -516,7 +584,7 @@ def menu_html(root, here):
             '<div class="menu-panel"><nav aria-label="Main"><ul class="menu-list">'
             + link("", "Home") + link("scholarships/", "Scholarship board") + link("routes/", "Funded routes")
             + link("deadlines/", "Deadlines") + link("positions/", "Funded positions") + link("news/", "Research news")
-            + link("scholarships/#directory", "Schools directory") + link("subjects/", "Funding by subject")
+            + link("scholarships/#directory", "Schools directory") + link("subjects/", "Funding by subject") + link("app/", "iPhone app")
             + drop("Countries", countries) + drop("Guides", guides) + drop("About", about)
             + "</ul></nav></div></details>")
 
@@ -628,6 +696,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
 <link rel="canonical" href="{e(canonical)}">
 {'<meta name="robots" content="noindex">' if noindex else ''}{f'<meta name="msvalidate.01" content="{BING_SITE_AUTH}">' if path == "" else ''}
 <meta name="theme-color" content="#F3F5F9">
+<meta name="apple-itunes-app" content="app-id={e(APP_STORE_ID)}">
 <script nonce="{NONCE}">{THEME_BOOT}</script>
 <meta property="og:site_name" content="{e(SITE)}">
 <meta property="og:title" content="{e(title)}">
@@ -663,7 +732,8 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
       <li><a href="{root}deadlines/">Deadline calendar</a></li><li><a href="{root}positions/">Funded positions</a></li>
       <li><a href="{root}news/">Research news</a></li>
       <li><a href="{root}updates/">What's new</a></li>
-      <li><a href="{root}countries/">Countries</a></li><li><a href="{root}guides/">Guides</a></li></ul></div>
+      <li><a href="{root}countries/">Countries</a></li><li><a href="{root}guides/">Guides</a></li>
+      <li><a href="{root}app/">iPhone app</a></li></ul></div>
     <div><h2>About</h2><ul>
       <li><a href="{root}about/">About us</a></li><li><a href="{root}editorial-policy/">How we verify</a></li>
       <li><a href="{root}contact/">Contact &amp; corrections</a></li></ul></div>
@@ -1391,6 +1461,8 @@ def build_home(routes, schools, updates, positions, research):
 </div></section>
 
 {ad_bay("between", wide=True)}
+
+{app_promo(root, "Every scholarship deadline, <em>in your pocket</em>", "Scholarships filtered for your nationality, a countdown for every deadline, and a working timeline you can add to your calendar.")}
 
 <section class="lp-section wrap lp-two">
   <div>
@@ -2586,6 +2658,7 @@ def main():
     for s in SCHOOLS:  # the board's built-in directory rows open the same university pages
         s["page"] = page_of[(s["name"], s["country"])]
     build_home(ROUTES, SCHOOLS, updates, positions, news)
+    build_app_page()
     build_positions(positions)
     build_news(news, {p["id"] for p in open_positions(positions)})
     build_board(ROUTES, SCHOOLS, directory)
