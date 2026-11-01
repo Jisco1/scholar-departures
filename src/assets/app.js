@@ -39,7 +39,8 @@
     "Need-Based Aid": "#7EB8E8",
     "Merit": "#E3C892",
     "Low Tuition": "#6FC7C0",
-    "Fee Waiver": "#E8919E"
+    "Fee Waiver": "#E8919E",
+    "Tuition Waiver": "#EDA56F"
   };
   var REGIONS = ["All", "Europe", "USA", "Canada", "Asia", "Africa", "Oceania", "Global"];
   var LEVELS = ["All levels", "Bachelor's", "Master's", "PhD"];

@@ -39,9 +39,9 @@ TODAY = dt.date.today()
 # Bing Webmaster Tools ownership check (9 Oct 2026): it reads this tag on the home page; removing it unverifies the site
 BING_SITE_AUTH = "3AB2C31D0CAC546EF960DE446F493EF4"
 
-TYPES = ["Tuition-Free", "Full Scholarship", "Need-Based Aid", "Merit", "Low Tuition", "Fee Waiver"]
+TYPES = ["Tuition-Free", "Full Scholarship", "Need-Based Aid", "Merit", "Low Tuition", "Fee Waiver", "Tuition Waiver"]
 TYPE_COLORS = {"Tuition-Free": "#7FD1AE", "Full Scholarship": "#B3A1E8", "Need-Based Aid": "#7EB8E8",
-               "Merit": "#E3C892", "Low Tuition": "#6FC7C0", "Fee Waiver": "#E8919E"}
+               "Merit": "#E3C892", "Low Tuition": "#6FC7C0", "Fee Waiver": "#E8919E", "Tuition Waiver": "#EDA56F"}
 LEVELS = ["Bachelor's", "Master's", "PhD"]
 REGIONS = ["Europe", "USA", "Canada", "Asia", "Africa", "Oceania", "Global"]
 # One spelling per country, so search, filters and grouping never split a country in two (the update robot
@@ -1600,8 +1600,9 @@ def build_route_pages(routes, notes, country_pages):
             note = f'<p class="rounds-note">Which date applies depends on {e(depends)}.</p>' if depends else ""
             rounds_html = f'<section class="rounds" aria-label="Deadlines by round"><h2>Deadlines by round</h2>{note}<ul>{lis}</ul></section>'
 
-        scope_text = ("Any discipline may apply" if r["scope"] == "all" else "Only certain fields are eligible")
-        fields_sub = "" if r["scope"] == "all" else f'<span class="sub">Eligible: {e(", ".join(r["fields"]))}</span>'
+        any_field = r["scope"] == "all" or len(r["fields"]) == len(FIELDS)   # "limited" can also mean limited by nationality
+        scope_text = "Any discipline may apply" if any_field else "Only certain fields are eligible"
+        fields_sub = "" if any_field else f'<span class="sub">Eligible: {e(", ".join(r["fields"]))}</span>'
         opens = opens_date(r)
         next_text = ("Positions open year-round" if status == "rolling"
                      else "Not yet announced" if status == "tbc"

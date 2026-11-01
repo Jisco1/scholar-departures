@@ -24,6 +24,10 @@
       "html": "<p>Some universities reward strong international applicants directly. <a href=\"{{root}}routes/politecnico-di-milano-merit-scholarships/\">Politecnico di Milano</a> waives tuition for top applicants to its English-taught master's programmes, and adds up to €10,000 a year for the highest-ranked, but only for applicants who apply in its Early Bird window (1 October to 1 December).</p>"
     },
     {
+      "h": "Tuition waivers",
+      "html": "<p>Some Italian universities also run their own waivers for international students. The <a href=\"{{root}}routes/padua-international-excellence-scholarship/\">University of Padua</a> waives student fees and adds €8,000 gross a year for up to 76 students on its 2026/27 terms, with no separate form. <a href=\"{{root}}routes/bocconi-tuition-waivers/\">Bocconi</a> offers 100%, 80% or 60% off to international first-year Bachelor's and Law students, based on family finances. The <a href=\"{{root}}routes/unicaladmission-university-of-calabria/\">University of Calabria</a> gave 132 non-EU master's students tuition, board, lodging and €3,600 in 2026/27, and expects its next call in January 2027.</p><p>Some fees also fall automatically. At the University of Pisa in 2026-27, students with income and assets outside Italy pay a flat fee set by their country's World Bank income group: €290 for low-income, €580 for lower-middle-income, €1,160 for upper-middle-income and €2,900 for high-income countries, before €156 in regional tax and stamp duty. See all of them in our guide to <a href=\"{{root}}guides/tuition-fee-waivers-europe/\">tuition fee waivers in Europe</a>.</p>"
+    },
+    {
       "h": "Paperwork is the hard part",
       "html": "<p>Income-based aid needs official documents about your family's income and property from your home country, usually translated and legalised. Start collecting them in spring: DSU windows close in late summer, often before international students arrive.</p>"
     },
@@ -68,9 +72,25 @@
     {
       "title": "Politecnico di Milano: Deadlines for applicants with a foreign qualification",
       "url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale/foreign-qualification/deadlines"
+    },
+    {
+      "title": "Bocconi University: 100% full tuition waivers 2027-28",
+      "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/funding/100-full-tuition-waivers-ay-2027-28"
+    },
+    {
+      "title": "University of Calabria: UnicalAdmission",
+      "url": "https://unical.it/internazionale/intenational-students/unical-admission/"
+    },
+    {
+      "title": "University of Padua: Padua International Excellence Scholarship",
+      "url": "https://www.unipd.it/en/padua-excellence"
+    },
+    {
+      "title": "University of Pisa: Reduction of tuition fees",
+      "url": "https://www.unipi.it/en/education/registration/enrolment-and-registration/enrolment-for-international-students/reduction-of-tuition-fees/"
     }
   ],
-  "reviewed": "2026-10-09",
+  "reviewed": "2026-11-01",
   "glance": [
     [
       "Tuition",

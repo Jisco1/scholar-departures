@@ -355,6 +355,30 @@ class BuiltSite(unittest.TestCase):
         self.assertNotIn("toUpperCase().slice(", app)
         self.assertIn('note.className = "round"', app)
 
+    def test_european_tuition_waivers_can_be_found(self):
+        # 1 Nov 2026: the owner could not find European fee waivers: the only "Fee Waiver" routes were American, because
+        # that label means the application fee. Tuition waivers now have their own filter and a guide, Italy included
+        routes = source_routes(self.dir)
+        waivers = [r for r in routes if "Tuition Waiver" in r["types"]]
+        self.assertGreaterEqual(len(waivers), 16)
+        for country in ("Italy", "Sweden", "Finland", "Netherlands"):
+            self.assertTrue(any(r["country"] == country for r in waivers), country)
+        self.assertGreaterEqual(sum(r["country"] == "Italy" for r in waivers), 4)
+        tagged = {r["slug"] for r in waivers}
+        self.assertLessEqual({"university-of-helsinki-scholarships", "politecnico-di-milano-merit-scholarships", "kth-scholarship"}, tagged)
+        self.assertFalse(tagged & {"university-of-bologna", "charles-university", "swiss-government-excellence-scholarships"})
+        guide = (self.site / "guides" / "tuition-fee-waivers-europe" / "index.html").read_text(encoding="utf-8")
+        for r in waivers:
+            if r["region"] == "Europe":
+                self.assertIn(f'routes/{r["slug"]}/', guide, r["slug"])
+        self.assertIn("guides/tuition-fee-waivers-europe/", (self.site / "countries" / "italy" / "index.html").read_text(encoding="utf-8"))
+        # the board stores each route's labels as positions in this list, so the builder and the page script must agree
+        script = (self.site / "assets" / "app.js").read_text(encoding="utf-8")
+        colours = re.search(r"var TYPE_COLORS = \{(.*?)\}", script, re.S).group(1)
+        builder = (self.dir / "build.py").read_text(encoding="utf-8")
+        types = json.loads(re.search(r"^TYPES = (\[.*?\])", builder, re.M).group(1))
+        self.assertEqual(re.findall(r'"([^"]+)":', colours), types)
+
     def test_axel_adler_keeps_the_dates_gothenburg_published(self):
         route = next(r for r in source_routes(self.dir) if r["slug"] == "axel-adler-scholarship")
         self.assertEqual([(d["y"], d["m"], d["d"]) for d in route["deadlines"]], [(2027, 1, 15), (2027, 2, 1), (2027, 3, 8)])

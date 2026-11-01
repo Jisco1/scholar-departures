@@ -1,0 +1,70 @@
+{
+  "summary": "Anders Wall's Scholarship pays the full tuition fee for an international bachelor's or master's at Uppsala University, and is currently open to citizens of African countries. It is supported by The Beijer Foundation and Uppsala University, and about 2% of applicants for Uppsala's scholarships receive one.",
+  "meta_title": "Anders Wall's Scholarship: full Uppsala tuition for African students",
+  "meta_description": "Citizens of African countries can win full tuition at Uppsala University with Anders Wall's Scholarship. Apply by 15 January 2027, then 16 Jan to 1 February.",
+  "covers": [
+    "The full tuition fee for an international bachelor's or master's programme.",
+    "Living expenses are not included."
+  ],
+  "eligibility": [
+    "Citizens of an African country.",
+    "Your Uppsala programme must be your first choice on University Admissions, and you must meet its entry requirements.",
+    "You must show academic talent and interest in an educational environment.",
+    "Some programmes are not eligible for Uppsala's scholarships; Uppsala lists them."
+  ],
+  "how_to_apply": [
+    "Apply to the programme on universityadmissions.se by 15 January 2027, with Uppsala first.",
+    "Pay the application fee and send complete documents by University Admissions' deadline of 1 February 2027.",
+    "Submit the scholarship application between 16 January and 1 February 2027, following Uppsala's application guide."
+  ],
+  "watch_out": [
+    "About 2% of applicants for Uppsala's scholarships receive one, so have another way to fund your studies.",
+    "It does not pay living costs, and Sweden asks for proof of money for a residence permit.",
+    "Check your programme is not on Uppsala's list of excluded programmes."
+  ],
+  "costs": [
+    [
+      "Tuition fee for your programme",
+      "The scholarship, in full, if you win it"
+    ],
+    [
+      "Swedish university application fee",
+      "You, when you apply on universityadmissions.se"
+    ],
+    [
+      "Living costs in Uppsala",
+      "You; the scholarship does not cover them"
+    ]
+  ],
+  "documents": [
+    "Your universityadmissions.se application, with the fee paid and documents complete.",
+    "The scholarship application, by 1 February 2027."
+  ],
+  "faq": [
+    {
+      "q": "Who can apply for Anders Wall's Scholarship?",
+      "a": "Citizens of African countries applying to an international bachelor's or master's at Uppsala University, with Uppsala as their first choice."
+    },
+    {
+      "q": "Does it cover living costs?",
+      "a": "No. It pays the full tuition fee only."
+    }
+  ],
+  "related": [
+    "uppsala-global-scholarship",
+    "mastercard-foundation-scholars-program",
+    "lund-university-global-scholarship",
+    "axel-adler-scholarship"
+  ],
+  "sources": [
+    {
+      "title": "Uppsala University: Master's scholarships",
+      "url": "https://www.uu.se/en/study/masters-studies/scholarships/uppsala-university-scholarships"
+    },
+    {
+      "title": "University Admissions in Sweden: autumn semester dates",
+      "url": "https://www.universityadmissions.se/en/key-dates-and-deadlines/autumn-semester-dates/"
+    }
+  ],
+  "reviewed": "2026-11-01"
+}

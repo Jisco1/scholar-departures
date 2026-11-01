@@ -418,6 +418,7 @@
     "country": "Finland",
     "region": "Europe",
     "types": [
+      "Tuition Waiver",
       "Merit"
     ],
     "levels": [
@@ -459,6 +460,7 @@
     "country": "Switzerland",
     "region": "Europe",
     "types": [
+      "Tuition Waiver",
       "Full Scholarship",
       "Merit"
     ],
@@ -663,6 +665,7 @@
     "country": "Italy",
     "region": "Europe",
     "types": [
+      "Tuition Waiver",
       "Merit"
     ],
     "levels": [
@@ -819,6 +822,7 @@
     "country": "Belgium",
     "region": "Europe",
     "types": [
+      "Tuition Waiver",
       "Merit"
     ],
     "levels": [
@@ -2405,6 +2409,7 @@
       "Natural Sciences"
     ],
     "types": [
+      "Tuition Waiver",
       "Merit"
     ],
     "levels": [
@@ -2473,7 +2478,7 @@
     "country": "Sweden",
     "region": "Europe",
     "kind": "school",
-    "scope": "all",
+    "scope": "limited",
     "fields": [
       "Agriculture & Environment",
       "Arts & Humanities",
@@ -2485,6 +2490,7 @@
       "Social Sciences & Law"
     ],
     "types": [
+      "Tuition Waiver",
       "Merit"
     ],
     "levels": [
@@ -2636,6 +2642,7 @@
     ],
     "region": "Europe",
     "types": [
+      "Tuition Waiver",
       "Full Scholarship",
       "Tuition-Free",
       "Merit"
@@ -2876,5 +2883,404 @@
     "tbc": true,
     "approx": false,
     "last_checked": "2026-11-01"
+  },
+  {
+    "last_verified": "2026-11-01",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "padua-international-excellence-scholarship",
+    "name": "Padua International Excellence Scholarship",
+    "flag": "🇮🇹",
+    "country": "Italy",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Agriculture & Environment",
+      "Arts & Humanities",
+      "Business & Economics",
+      "Computer Science",
+      "Engineering & Tech",
+      "Medicine & Health",
+      "Natural Sciences",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Tuition Waiver",
+      "Merit"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's"
+    ],
+    "funding": "A waiver of student fees plus €8,000 gross a year on the 2026/27 terms, for international students on the University of Padua's English-taught degrees, with no separate application.",
+    "deadline": "2027/28: first call Sep 15 to Nov 15, 2026 for programmes with unlimited places; Jan 7 to Mar 7, 2027 for limited-place programmes (non-EU applicants abroad). Padua's scholarship notice is due in November 2026",
+    "link": "https://www.unipd.it/en/padua-excellence",
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 11,
+        "d": 15,
+        "for": "First call, programmes with unlimited places"
+      },
+      {
+        "y": 2027,
+        "m": 3,
+        "d": 7,
+        "for": "First call, limited-place programmes (non-EU applicants abroad)"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-01",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "bocconi-tuition-waivers",
+    "name": "Bocconi University Tuition Waivers (Bocconi4Access)",
+    "flag": "🇮🇹",
+    "country": "Italy",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Business & Economics",
+      "Computer Science",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Tuition Waiver",
+      "Need-Based Aid"
+    ],
+    "levels": [
+      "Bachelor's"
+    ],
+    "funding": "100%, 80% or 60% waivers of tuition and fees for international first-year students on Bocconi's Bachelor's and Law programmes, based on family finances.",
+    "deadline": "2027/28: Early Session Nov 12 to 30, 2026; Winter Session Mar 15 to Apr 5, 2027, after you have enrolled",
+    "link": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/funding/100-full-tuition-waivers-ay-2027-28",
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 11,
+        "d": 30,
+        "for": "Early Session"
+      },
+      {
+        "y": 2027,
+        "m": 4,
+        "d": 5,
+        "for": "Winter Session"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-01",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "unicaladmission-university-of-calabria",
+    "name": "UnicalAdmission (University of Calabria)",
+    "flag": "🇮🇹",
+    "country": "Italy",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Agriculture & Environment",
+      "Arts & Humanities",
+      "Business & Economics",
+      "Computer Science",
+      "Engineering & Tech",
+      "Medicine & Health",
+      "Natural Sciences",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Tuition Waiver",
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "Tuition, free board and lodging and a €3,600 allowance for non-EU students living abroad on the University of Calabria's master's degrees, on the 2026/27 terms.",
+    "deadline": "2027/28 call not yet published; the university expects it in January 2027",
+    "link": "https://unical.it/internazionale/intenational-students/unical-admission/",
+    "tbc": true,
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-01",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "aalto-excellence-scholarship",
+    "name": "Aalto University Excellence Scholarship",
+    "flag": "🇫🇮",
+    "country": "Finland",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Arts & Humanities",
+      "Business & Economics",
+      "Computer Science",
+      "Engineering & Tech",
+      "Natural Sciences"
+    ],
+    "types": [
+      "Tuition Waiver",
+      "Merit"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's"
+    ],
+    "funding": "A full tuition fee waiver for the normal length of an Aalto degree, for fee-paying students who ask for it on the application form; living costs are not included.",
+    "deadline": "Master's, autumn 2027: apply Dec 7, 2026 to Jan 5, 2027, documents by Jan 12, 2027, and choose the scholarship on the form",
+    "link": "https://www.aalto.fi/en/admission-services/scholarships-and-tuition-fees",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 5,
+        "for": "Master's application, with the scholarship option chosen"
+      },
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 12,
+        "for": "Master's application documents"
+      }
+    ],
+    "opens": {
+      "y": 2026,
+      "m": 12,
+      "d": 7
+    },
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-01",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "tampere-university-scholarship",
+    "name": "Tampere University Tuition Fee Scholarship",
+    "flag": "🇫🇮",
+    "country": "Finland",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Agriculture & Environment",
+      "Arts & Humanities",
+      "Business & Economics",
+      "Computer Science",
+      "Engineering & Tech",
+      "Medicine & Health",
+      "Natural Sciences",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Tuition Waiver",
+      "Merit"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's"
+    ],
+    "funding": "50% of the tuition fee for the length of the programme for a few top applicants, and €2,000 off the first year for other fee-paying students who accept early.",
+    "deadline": "Master's: apply Dec 14, 2026 to Jan 7, 2027, 23:59 UTC+2, on Studyinfo.fi, with the scholarship in the same application",
+    "link": "https://www.tuni.fi/en/tau/financial-matters/tuition-fees-and-scholarships",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 7,
+        "for": "Master's application, with the scholarship"
+      }
+    ],
+    "opens": {
+      "y": 2026,
+      "m": 12,
+      "d": 14
+    },
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-01",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "uppsala-global-scholarship",
+    "name": "Uppsala University Global Scholarship",
+    "flag": "🇸🇪",
+    "country": "Sweden",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Agriculture & Environment",
+      "Arts & Humanities",
+      "Business & Economics",
+      "Computer Science",
+      "Engineering & Tech",
+      "Medicine & Health",
+      "Natural Sciences",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Tuition Waiver",
+      "Merit"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "The full tuition fee for one international master's at Uppsala, for citizens outside the EU/EEA and Switzerland who put Uppsala first; living costs are not included.",
+    "deadline": "Autumn 2027: apply to Uppsala as your first choice by Jan 15, 2027, then the scholarship application Jan 16 to Feb 1, 2027",
+    "link": "https://www.uu.se/en/study/masters-studies/scholarships/uppsala-university-scholarships",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 15,
+        "for": "University application, with Uppsala first"
+      },
+      {
+        "y": 2027,
+        "m": 2,
+        "d": 1,
+        "for": "Scholarship application, fee and documents"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-01",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "anders-wall-scholarship-uppsala",
+    "name": "Anders Wall's Scholarship (Uppsala, for African citizens)",
+    "flag": "🇸🇪",
+    "country": "Sweden",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Agriculture & Environment",
+      "Arts & Humanities",
+      "Business & Economics",
+      "Computer Science",
+      "Engineering & Tech",
+      "Medicine & Health",
+      "Natural Sciences",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Tuition Waiver",
+      "Merit"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's"
+    ],
+    "funding": "The full tuition fee for an international bachelor's or master's at Uppsala University, for citizens of African countries who put Uppsala first; living costs are not included.",
+    "deadline": "Autumn 2027: apply to Uppsala as your first choice by Jan 15, 2027, then the scholarship application Jan 16 to Feb 1, 2027",
+    "link": "https://www.uu.se/en/study/masters-studies/scholarships/uppsala-university-scholarships",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 15,
+        "for": "University application, with Uppsala first"
+      },
+      {
+        "y": 2027,
+        "m": 2,
+        "d": 1,
+        "for": "Scholarship application, fee and documents"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-01",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "lund-university-global-scholarship",
+    "name": "Lund University Global Scholarship",
+    "flag": "🇸🇪",
+    "country": "Sweden",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Agriculture & Environment",
+      "Arts & Humanities",
+      "Business & Economics",
+      "Computer Science",
+      "Engineering & Tech",
+      "Medicine & Health",
+      "Natural Sciences",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Tuition Waiver",
+      "Merit"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's"
+    ],
+    "funding": "Part or all of the tuition fee at Lund University, for citizens outside the EU/EEA and Switzerland who put Lund first; living costs are not included.",
+    "deadline": "Autumn 2027: apply to Lund as your first choice by Jan 15, 2027. Lund has not yet published its 2027 scholarship dates (the last deadline was Feb 16, 2026; it usually opens in early February)",
+    "link": "https://www.lunduniversity.lu.se/study/admission-degree-studies/scholarships-and-awards/lund-university-global-scholarship",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 15,
+        "for": "University application, with Lund first"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-01",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "leiden-excellence-scholarship",
+    "name": "Leiden University Excellence Scholarship (LExS)",
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Agriculture & Environment",
+      "Arts & Humanities",
+      "Business & Economics",
+      "Computer Science",
+      "Engineering & Tech",
+      "Medicine & Health",
+      "Natural Sciences",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Tuition Waiver",
+      "Merit"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "€10,000 to €19,000 off the tuition fee for top non-EEA students on a Leiden master's starting in September; it is not a full scholarship.",
+    "deadline": "Dec 1, 2026, for master's programmes starting in September; late applications are not considered",
+    "link": "https://www.universiteitleiden.nl/en/scholarships/sea/leiden-university-excellence-scholarship-lexs",
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 12,
+        "d": 1,
+        "for": "LExS application, for a September start"
+      }
+    ],
+    "approx": false
   }
 ]

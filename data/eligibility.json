@@ -1626,6 +1626,71 @@
         "ch"
       ]
     },
+    "padua-international-excellence-scholarship": {
+      "all": true,
+      "except": [
+        "Italy"
+      ]
+    },
+    "bocconi-tuition-waivers": {
+      "all": true,
+      "except": [
+        "Italy"
+      ]
+    },
+    "unicaladmission-university-of-calabria": {
+      "all": true,
+      "except_groups": [
+        "eu",
+        "eea",
+        "ch"
+      ]
+    },
+    "aalto-excellence-scholarship": {
+      "all": true,
+      "except_groups": [
+        "eu",
+        "eea",
+        "ch"
+      ]
+    },
+    "tampere-university-scholarship": {
+      "all": true,
+      "except_groups": [
+        "eu",
+        "eea",
+        "ch"
+      ]
+    },
+    "uppsala-global-scholarship": {
+      "all": true,
+      "except_groups": [
+        "eu",
+        "eea",
+        "ch"
+      ]
+    },
+    "anders-wall-scholarship-uppsala": {
+      "groups": [
+        "africa"
+      ]
+    },
+    "lund-university-global-scholarship": {
+      "all": true,
+      "except_groups": [
+        "eu",
+        "eea",
+        "ch"
+      ]
+    },
+    "leiden-excellence-scholarship": {
+      "all": true,
+      "except_groups": [
+        "eu",
+        "eea",
+        "ch"
+      ]
+    },
     "kth-scholarship": {
       "all": true,
       "except_groups": [
