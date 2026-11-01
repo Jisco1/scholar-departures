@@ -76,16 +76,18 @@
   var t0 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   // only confirmed dates count: each carries its year, and a date that has passed is never moved to next year
   function computeStatus(deadlines) {
-    var next = null;
+    var ahead = [];
     (deadlines || []).forEach(function (dl) {
       if (!dl.y) return;
       var d = new Date(dl.y, dl.m - 1, dl.d);
-      if (d < t0) return;
-      if (!next || d < next) next = d;
+      if (d >= t0) ahead.push({ date: d, label: dl["for"] });
     });
-    if (!next) return { daysUntil: 9999, status: "closed", nextDate: null };
+    if (!ahead.length) return { daysUntil: 9999, status: "closed", nextDate: null };
+    ahead.sort(function (a, b) { return a.date - b.date; });
+    var next = ahead[0].date, then = ahead[1];
     var days = Math.round((next - t0) / 86400000);
-    return { daysUntil: days, status: days <= HORIZON_DAYS ? "approaching" : "closed", nextDate: next };
+    return { daysUntil: days, status: days <= HORIZON_DAYS ? "approaching" : "closed", nextDate: next,
+             round: ahead[0].label, thenRound: then && then.label, thenDate: then && then.date };
   }
   var enriched = SCHOOLS.map(function (s) {
     return Object.assign({}, s, s.rolling
@@ -190,12 +192,14 @@
   function flap(el, finalText, baseDelay) {
     el.textContent = "";
     var chars = finalText.split("");
+    var word = null;   /* a long name wraps between words, never inside one */
     chars.forEach(function (ch, i) {
       var s = document.createElement("span");
       s.className = "fchar";
-      if (ch === " ") { s.classList.add("sp"); s.innerHTML = "&nbsp;"; el.appendChild(s); return; }
+      if (ch === " ") { s.classList.add("sp"); s.innerHTML = "&nbsp;"; el.appendChild(s); word = null; return; }
       s.textContent = "\u00A0";
-      el.appendChild(s);
+      if (!word) { word = document.createElement("span"); word.className = "fword"; el.appendChild(word); }
+      word.appendChild(s);
       if (RM) { s.textContent = ch; s.classList.add("set"); return; }
       var ticks = 3 + Math.floor(i * 0.45) + Math.floor(Math.random() * 4);
       var n = 0;
@@ -437,6 +441,13 @@
       ["route", "country", "closes", "days"].forEach(function (cls) {
         var c = document.createElement("span"); c.className = cls; row.appendChild(c);
       });
+      /* a date closes one round, not the school: say which, and what comes after it */
+      if (s.round) {
+        var note = document.createElement("span");
+        note.className = "round";
+        note.textContent = s.round.charAt(0).toUpperCase() + s.round.slice(1) + (s.thenDate ? " \u00B7 then " + (s.thenRound ? s.thenRound + " " : "") + fmtDate(s.thenDate, false) : "");
+        row.appendChild(note);
+      }
       boardBody.appendChild(row);
       return { row: row, s: s };
     });
@@ -453,8 +464,8 @@
       flap(row.querySelector(".days"), s.daysUntil + "D", base);
       return;
     }
-    flap(row.querySelector(".route"), s.name.toUpperCase().slice(0, 26), base);
-    flap(row.querySelector(".country"), s.country.toUpperCase().slice(0, 12), base + 60);
+    flap(row.querySelector(".route"), s.name.toUpperCase(), base);
+    flap(row.querySelector(".country"), s.country.toUpperCase(), base + 60);
     flap(row.querySelector(".closes"), (s.approx ? "≈" : "") + fmtDate(s.nextDate, false).toUpperCase(), base + 120);
     flap(row.querySelector(".days"), s.daysUntil + "D", base + 170);
   }

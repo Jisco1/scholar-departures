@@ -1618,6 +1618,14 @@
     "epfl-excellence-fellowships": {
       "all": true
     },
+    "axel-adler-scholarship": {
+      "all": true,
+      "except_groups": [
+        "eu",
+        "eea",
+        "ch"
+      ]
+    },
     "kth-scholarship": {
       "all": true,
       "except_groups": [

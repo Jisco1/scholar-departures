@@ -264,6 +264,19 @@ def next_deadline(route, today=TODAY):
     return best, days, ("approaching" if days <= HORIZON_DAYS else "closed")
 
 
+def round_note(route):
+    """A date closes one round, not the school: which round it is, and the next one after it. Empty when dates have no round."""
+    dls = sorted(route.get("deadlines") or [], key=lambda x: (x["y"], x["m"], x["d"]))
+    if route.get("rolling") or route.get("tbc") or route.get("varies") or not dls or not dls[0].get("for"):
+        return ""
+    first = dls[0]["for"][0].upper() + dls[0]["for"][1:]
+    if len(dls) == 1:
+        return first
+    then = dls[1]
+    when = fmt_date(dt.date(int(then["y"]), int(then["m"]), int(then["d"])), False)
+    return f'{first} · then {then["for"] + " " if then.get("for") else ""}{when}'
+
+
 def fmt_date(d, year=True):
     return f"{d.strftime('%b')} {d.day}, {d.year}" if year else f"{d.strftime('%b')} {d.day}"
 
@@ -794,8 +807,9 @@ def tags_html(types):
 
 def route_row(r, root):
     return (f'<a class="row" href="{root}routes/{r["slug"]}/"><div><div class="row-name">{e(r["name"])}</div>'
-            f'<div class="row-meta">{e(r["flag"])} {e(r["country"])} · {e(" · ".join(r["levels"]))} · {e(", ".join(r["types"]))}</div></div>'
-            f'<div class="row-side">{status_chip(r)}<span class="row-arrow">Details →</span></div></a>')
+            f'<div class="row-meta">{e(r["flag"])} {e(r["country"])} · {e(" · ".join(r["levels"]))} · {e(", ".join(r["types"]))}</div>'
+            + (f'<div class="row-meta row-round">{e(round_note(r))}</div>' if round_note(r) else "") +
+            f'</div><div class="row-side">{status_chip(r)}<span class="row-arrow">Details →</span></div></a>')
 
 
 # ---------------------------------------------------------------- pages
@@ -1350,10 +1364,12 @@ def build_home(routes, schools, updates, positions, research):
         approx = "≈ " if r.get("approx") else ""
         when = "Today" if days == 0 else ("Tomorrow" if days == 1 else f"In {days} days")
         frm = "Any country" if r["scope"] == "all" else "Eligible countries"
+        note = round_note(r)
         pass_html = f"""<div class="pass-wrap">
   <a class="pass" href="routes/{r['slug']}/">
     <span class="pass-top"><span>Boarding pass</span><span>Next deadline</span></span>
     <span class="pass-name">{e(r['name'])}</span>
+    {f'<span class="pass-round">{e(note)}</span>' if note else ""}
     <span class="pass-grid">
       <span><small>From</small>{e(frm)}</span>
       <span><small>To</small>{e(r['flag'])} {e(r['country'])}</span>

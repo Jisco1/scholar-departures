@@ -2441,5 +2441,58 @@
     "link": "https://admission.stanford.edu/apply/international/",
     "varies": true,
     "approx": false
+  },
+  {
+    "last_verified": "2026-11-01",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "axel-adler-scholarship",
+    "name": "Axel Adler Scholarship (Gothenburg)",
+    "flag": "🇸🇪",
+    "country": "Sweden",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Agriculture & Environment",
+      "Arts & Humanities",
+      "Business & Economics",
+      "Computer Science",
+      "Engineering & Tech",
+      "Medicine & Health",
+      "Natural Sciences",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Merit"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's"
+    ],
+    "funding": "A waiver of the tuition fee for your whole programme at the University of Gothenburg, for fee-paying students who put it first; living costs are not included.",
+    "deadline": "Autumn 2027: apply to Gothenburg as your first choice by Jan 15, 2027, send documents by Feb 1, then the scholarship application Feb 10 to Mar 8, 2027",
+    "link": "https://www.gu.se/en/study-in-gothenburg/apply/scholarships-for-fee-paying-students/axel-adler-scholarship",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 15,
+        "for": "University application, with Gothenburg first"
+      },
+      {
+        "y": 2027,
+        "m": 2,
+        "d": 1,
+        "for": "Application fee and documents"
+      },
+      {
+        "y": 2027,
+        "m": 3,
+        "d": 8,
+        "for": "Scholarship application"
+      }
+    ],
+    "approx": false
   }
 ]

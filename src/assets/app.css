@@ -100,6 +100,8 @@ body.scrolled .cue { opacity: 0; }
 .brow.r { cursor: pointer; transition: background .15s, transform .15s; }
 .brow.r:hover { background: var(--wash); transform: translateX(3px); }
 .brow .days { color: var(--approaching); }
+.brow .round { grid-column: 1 / -1; margin-top: -4px; font-family: var(--sans); font-size: 12.5px; line-height: 1.4; color: var(--faint); }
+.fword { display: inline-block; white-space: nowrap; }
 .brow:last-child { border-bottom: none; }
 .board-note { font-family: var(--mono); font-size: 9px; letter-spacing: .25em; text-transform: uppercase; color: var(--faint); margin-top: 8px; text-align: right; }
 
@@ -430,11 +432,12 @@ body.premium .lockdot { display: none; }
   .board { overflow: hidden; }
   .board-inner { min-width: 0; }
   .brow.h { display: none; }
-  .brow.r { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "route days" "country days"; gap: 3px 12px; padding: 12px 14px; }
+  .brow.r { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "route days" "country days" "round days"; gap: 3px 12px; padding: 12px 14px; }
   .brow.r:hover { transform: none; }
   .brow .route { grid-area: route; font-family: var(--sans); font-size: 15px; line-height: 1.3; color: var(--text); }
   .brow .country { grid-area: country; font-family: var(--sans); font-size: 12.5px; line-height: 1.4; color: var(--faint); }
   .brow .closes { display: none; }
+  .brow .round { grid-area: round; margin-top: 0; }
   .brow .days { grid-area: days; font-size: 14px; }
   .board:not(.expanded) #boardBody > .brow.r:nth-child(n+6) { display: none; }
   .board-note { text-align: left; letter-spacing: .16em; }

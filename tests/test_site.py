@@ -344,6 +344,23 @@ class BuiltSite(unittest.TestCase):
         self.assertNotIn('<section class="lp-app"', home)
         self.assertIn('<section class="lp-app"', app)
 
+    def test_a_deadline_says_which_round_it_closes(self):
+        # 1 Nov 2026: the owner saw Harvard "closing" on its early date; the board, the pass and the route rows now name
+        # the round and the next one, and the board no longer cuts names short ("UNITED STATE")
+        code = ("import build; a = dict(y=2026, m=11, d=1); a['for'] = 'Restrictive Early Action'; b = dict(y=2027, m=1, d=1); b['for'] = 'Regular Decision'; "
+                "print(build.round_note(dict(deadlines=[a, b]))); print(build.round_note(dict(deadlines=[b]))); print(repr(build.round_note(dict(deadlines=[dict(y=2027, m=1, d=1)]))))")
+        out = subprocess.run([sys.executable, "-X", "utf8", "-c", code], cwd=self.dir, capture_output=True, text=True, encoding="utf-8")
+        self.assertEqual(out.stdout.splitlines()[-3:], ["Restrictive Early Action · then Regular Decision Jan 1", "Regular Decision", "''"], out.stderr)
+        app = (self.site / "assets" / "app.js").read_text(encoding="utf-8")
+        self.assertNotIn("toUpperCase().slice(", app)
+        self.assertIn('note.className = "round"', app)
+
+    def test_axel_adler_keeps_the_dates_gothenburg_published(self):
+        route = next(r for r in source_routes(self.dir) if r["slug"] == "axel-adler-scholarship")
+        self.assertEqual([(d["y"], d["m"], d["d"]) for d in route["deadlines"]], [(2027, 1, 15), (2027, 2, 1), (2027, 3, 8)])
+        page = (self.site / "routes" / "axel-adler-scholarship" / "index.html").read_text(encoding="utf-8")
+        self.assertIn("gu.se/en/study-in-gothenburg/apply/scholarships-for-fee-paying-students/axel-adler-scholarship", page)
+
     def test_app_feed_and_app_ads_txt(self):
         # the DegreeStep iPhone app reads app/feed.json, so its content updates without a new App Store version,
         # and AdMob checks app-ads.txt on the developer's site before it serves ads in the app
