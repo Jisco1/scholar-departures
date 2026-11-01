@@ -7,7 +7,7 @@
 
   "analytics": {
     "_help": "The Google Analytics measurement ID (G-...) that counts visitors. Leave it empty for no counter. When you set it, the privacy policy must say so too.",
-    "id": ""
+    "id": "G-P2Q3FGWGCY"
   },
 
   "adsense": {
