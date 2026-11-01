@@ -1,23 +1,26 @@
 {
   "tu-wien": {
-    "status": "open",
+    "status": "merged",
     "branch": "bot/page-update/tu-wien",
     "page_hash": "99a3942d5c419d54",
     "opened": "2026-09-26",
-    "pr": "https://github.com/Jisco1/scholar-departures/pull/1"
+    "pr": "https://github.com/Jisco1/scholar-departures/pull/1",
+    "resolved": "2026-11-01"
   },
   "daad-scholarships": {
-    "status": "open",
+    "status": "merged",
     "branch": "bot/page-update/daad-scholarships",
     "page_hash": "28c717d29458d42d",
     "opened": "2026-10-01",
-    "pr": "https://github.com/Jisco1/scholar-departures/pull/4"
+    "pr": "https://github.com/Jisco1/scholar-departures/pull/4",
+    "resolved": "2026-11-01"
   },
   "mastercard-foundation-scholars-asu": {
-    "status": "open",
+    "status": "merged",
     "branch": "bot/page-update/mastercard-foundation-scholars-asu",
     "page_hash": "0fa613242901591f",
     "opened": "2026-10-01",
-    "pr": "https://github.com/Jisco1/scholar-departures/pull/5"
+    "pr": "https://github.com/Jisco1/scholar-departures/pull/5",
+    "resolved": "2026-11-01"
   }
 }

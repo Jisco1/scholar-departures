@@ -263,5 +263,257 @@
       "contradiction": null,
       "confidence": 0.1
     }
+  },
+  {
+    "name": "RWTH Aachen University",
+    "url": "https://www.rwth-aachen.de",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFMaK9FykamPA6b5gv6\"}",
+    "extraction": null
+  },
+  {
+    "name": "Freie Universität Berlin",
+    "url": "https://www.fu-berlin.de/en/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFMffMFg68Spk4q5E6J\"}",
+    "extraction": null
+  },
+  {
+    "name": "Universität Hamburg",
+    "url": "https://www.uni-hamburg.de/en.html",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFMkbGCisa73X3U8rwx\"}",
+    "extraction": null
+  },
+  {
+    "name": "University of Vienna",
+    "url": "https://www.univie.ac.at/en/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFMuLNpGv7Uyc7EzEaR\"}",
+    "extraction": null
+  },
+  {
+    "name": "TU Wien",
+    "url": "https://www.tuwien.at/en/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFN15QuoS4aG9q1o8jY\"}",
+    "extraction": null
+  },
+  {
+    "name": "Eiffel Excellence Scholarship",
+    "url": "https://www.campusfrance.org/en/eiffel-scholarship-program-of-excellence",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFN92ttk97u9d4Fvmnq\"}",
+    "extraction": null
+  },
+  {
+    "name": "Swedish Institute Scholarships (SISGP)",
+    "url": "https://si.se/en/apply/scholarships/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFNCQYgWUPB4WZ2UKcD\"}",
+    "extraction": null
+  },
+  {
+    "name": "University of Iceland: doctoral study",
+    "url": "https://english.hi.is/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFNW1TVYQknQje7H3zx\"}",
+    "extraction": null
+  },
+  {
+    "name": "University of Helsinki",
+    "url": "https://www.helsinki.fi/en",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFNZeyJoNFaiQzsmZtB\"}",
+    "extraction": null
+  },
+  {
+    "name": "ETH Zürich: Excellence Scholarship",
+    "url": "https://ethz.ch/en.html",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFNd7bEj2ESPv8A6Lkc\"}",
+    "extraction": null
+  },
+  {
+    "name": "Swiss Government Excellence Scholarships",
+    "url": "https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFNhYFFJtEMUcF8X7PG\"}",
+    "extraction": null
+  },
+  {
+    "name": "Chevening Scholarships",
+    "url": "https://www.chevening.org/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFNm6YsfdzbwniXxiPF\"}",
+    "extraction": null
+  },
+  {
+    "name": "Gates Cambridge Scholarship",
+    "url": "https://www.gatescambridge.org/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFNpnK2uGQgJUHQpHC4\"}",
+    "extraction": null
+  },
+  {
+    "name": "Rhodes Scholarships (Oxford)",
+    "url": "https://www.rhodeshouse.ox.ac.uk/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFNv44K8qEikfzWXSq9\"}",
+    "extraction": null
+  },
+  {
+    "name": "Politecnico di Milano",
+    "url": "https://www.polimi.it/en",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFP17AnPvC9q9ShTban\"}",
+    "extraction": null
+  },
+  {
+    "name": "University of Bologna",
+    "url": "https://www.unibo.it/en",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFP6Yb8AoSWCxtvD8me\"}",
+    "extraction": null
+  },
+  {
+    "name": "TU Delft: Van Effen Excellence",
+    "url": "https://www.tudelft.nl/en/education/practical-matters/scholarships",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFPFLfxYBZmnVWdWWAi\"}",
+    "extraction": null
+  },
+  {
+    "name": "Maastricht University: NL-High Potential",
+    "url": "https://www.maastrichtuniversity.nl/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFPL2Tp3ZYY8phTP8y9\"}",
+    "extraction": null
+  },
+  {
+    "name": "Charles University (Czech-taught)",
+    "url": "https://cuni.cz/UKEN-1.html",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFPWj9DQ8D819DLmVAq\"}",
+    "extraction": null
+  },
+  {
+    "name": "Türkiye Bursları",
+    "url": "https://www.turkiyeburslari.gov.tr/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFPbRfTABNCqtA4ASJq\"}",
+    "extraction": null
+  },
+  {
+    "name": "MIT",
+    "url": "https://mitadmissions.org/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFPddrwZd9Hfksej3m6\"}",
+    "extraction": null
+  },
+  {
+    "name": "Princeton University",
+    "url": "https://admission.princeton.edu/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFPfahNv9yun37XwcJb\"}",
+    "extraction": null
+  },
+  {
+    "name": "Amherst College",
+    "url": "https://www.amherst.edu/admission",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFPh4F5bsxMknzhhud2\"}",
+    "extraction": null
+  },
+  {
+    "name": "Dartmouth College",
+    "url": "https://admissions.dartmouth.edu/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFPiseESS7zP2Cbvrbg\"}",
+    "extraction": null
+  },
+  {
+    "name": "Berea College",
+    "url": "https://www.berea.edu/admissions",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFPm5qpXqqphBFrtKwx\"}",
+    "extraction": null
+  },
+  {
+    "name": "Vanderbilt University",
+    "url": "https://admissions.vanderbilt.edu/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFPqAAAod5s4DhcG8tY\"}",
+    "extraction": null
+  },
+  {
+    "name": "Knight-Hennessy Scholars (Stanford)",
+    "url": "https://knight-hennessy.stanford.edu/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFPrbjSTTkXnmkCv8TU\"}",
+    "extraction": null
+  },
+  {
+    "name": "University of British Columbia: International Scholars",
+    "url": "https://you.ubc.ca/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFPvdow7MCKuSy7sD9Q\"}",
+    "extraction": null
+  },
+  {
+    "name": "Government of Ireland: International Education Scholarships",
+    "url": "https://hea.ie/policy/internationalisation/goi-ies/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFQ2srVLYMqtm8q5HsA\"}",
+    "extraction": null
+  },
+  {
+    "name": "Ghent University: Doctoral Scholarships (Global South)",
+    "url": "https://www.ugent.be/en/research/funding/bof/dos",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFQCDgwJ1dW3vKyp8JF\"}",
+    "extraction": null
+  },
+  {
+    "name": "Mastercard Foundation Scholars Program",
+    "url": "https://mastercardfdn.org/en/what-we-do/our-programs/mastercard-foundation-scholars-program/where-to-apply/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFQDogHGx2B2B7utXiU\"}",
+    "extraction": null
+  },
+  {
+    "name": "Mastercard Foundation Scholars: Cambridge",
+    "url": "https://www.mastercardfoundation.fund.cam.ac.uk/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFQHQUhHXn4sY8r4stC\"}",
+    "extraction": null
+  },
+  {
+    "name": "Mastercard Foundation Scholars: UC Berkeley",
+    "url": "https://mcfscholarsprogram.berkeley.edu/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFQJJoEJiAvLHEpes1u\"}",
+    "extraction": null
+  },
+  {
+    "name": "Mastercard Foundation Scholars: ASU",
+    "url": "https://mcfscholars.asu.edu/phase-three-innovation-and-technology",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFQLS3AmCr9uhrBjpSS\"}",
+    "extraction": null
+  },
+  {
+    "name": "Commonwealth Master's Scholarships",
+    "url": "https://cscuk.fcdo.gov.uk/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFQTH3crd7kdhUukecZ\"}",
+    "extraction": null
+  },
+  {
+    "name": "Commonwealth Shared Scholarships",
+    "url": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-shared-scholarships-applications/",
+    "date": "2026-11-01",
+    "reason": "API 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CgcFQUmqpMx62AZHyJ9Rc\"}",
+    "extraction": null
   }
 ]

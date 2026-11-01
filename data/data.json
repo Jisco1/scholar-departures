@@ -16,8 +16,8 @@
     "deadline": "Non-EU master's, winter 2027/28: Mar 1, 2027 (admission-restricted programmes Jul 15, 2027; summer 2027 restricted programmes Jan 15, 2027)",
     "link": "https://www.rwth-aachen.de",
     "last_verified": "2026-10-12",
-    "content_hash": "bbf8ab7d6abcd1b38477135decdb172bf9a460db34ee09da042f1d67b37c8b78",
-    "needs_review": false,
+    "content_hash": "a838300f55fd5f09d74ed4df703538f709282ab0633891bdb140136ffac4d879",
+    "needs_review": true,
     "kind": "school",
     "scope": "all",
     "fields": [
@@ -26,7 +26,7 @@
       "Natural Sciences"
     ],
     "slug": "rwth-aachen-university",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2027,
@@ -53,8 +53,8 @@
     "deadline": "2027/28 dates not yet published (FU posts them each March; in 2026 capped master's closed May 31 and capped bachelor's Jul 15)",
     "link": "https://www.fu-berlin.de/en/",
     "last_verified": "2026-10-26",
-    "content_hash": "05b0059df3fdcd867d438c83162233ddb800c653d728aed64ad95d575fe8c60b",
-    "needs_review": false,
+    "content_hash": "6fa3ff7a9a3a5855b23aebbcf6f0c6ecdf228fe2a56cfaf2217856b00fe7f1d2",
+    "needs_review": true,
     "kind": "school",
     "scope": "all",
     "fields": [
@@ -63,7 +63,7 @@
       "Natural Sciences"
     ],
     "slug": "freie-universitat-berlin",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "tbc": true,
     "approx": false
   },
@@ -84,8 +84,8 @@
     "deadline": "Winter 2027/28 dates not yet published (in 2026: master's May 1 – Jun 15, bachelor's Jun 1 – Jul 15)",
     "link": "https://www.uni-hamburg.de/en.html",
     "last_verified": "2026-10-12",
-    "content_hash": "8961edd51ff63c60da52441af8dbe62536ce90060a5e322b13d65be087178d42",
-    "needs_review": false,
+    "content_hash": "b0693b96606d621e7766f59c6bbb67f2911c377290553c466807f893d751df41",
+    "needs_review": true,
     "kind": "school",
     "scope": "all",
     "fields": [
@@ -99,7 +99,7 @@
       "Agriculture & Environment"
     ],
     "slug": "universitat-hamburg",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "tbc": true,
     "approx": false
   },
@@ -130,9 +130,10 @@
       "Medicine & Health"
     ],
     "slug": "daad-scholarships",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "varies": true,
-    "approx": false
+    "approx": false,
+    "fetch_error": "403 Client Error: Forbidden for url: https://www.daad.de/en/"
   },
   {
     "name": "University of Vienna",
@@ -151,8 +152,8 @@
     "deadline": "Non-EU, summer semester 2027: Nov 16, 2026 – Jan 7, 2027 (winter 2027/28 dates not yet published)",
     "link": "https://www.univie.ac.at/en/",
     "last_verified": "2026-10-12",
-    "content_hash": "e5b9451a3bc0d9a7c4065f3db8e3757518e2e23aa19e6000f2023f6e35baece9",
-    "needs_review": false,
+    "content_hash": "73428df8397c1ed3350e9b04aec4121bf88af853cc30480528bab652cf2caf28",
+    "needs_review": true,
     "kind": "school",
     "scope": "all",
     "fields": [
@@ -161,7 +162,7 @@
       "Natural Sciences"
     ],
     "slug": "university-of-vienna",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2027,
@@ -193,8 +194,8 @@
     "deadline": "Non-EU, summer semester 2027: open until Jan 15, 2027 (winter 2027/28 dates not yet published)",
     "link": "https://www.tuwien.at/en/",
     "last_verified": "2026-10-12",
-    "content_hash": "541dbf21a1aefcb2f470c53dcb82fa89c2b06f6c59801ba2b7d8840dafc3a938",
-    "needs_review": false,
+    "content_hash": "3863858f8b2f8e72d29ff373beb43a2f079c92825267d0a320fc1c4fedde266d",
+    "needs_review": true,
     "kind": "school",
     "scope": "limited",
     "fields": [
@@ -203,7 +204,7 @@
       "Natural Sciences"
     ],
     "slug": "tu-wien",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2027,
@@ -243,7 +244,7 @@
       "Agriculture & Environment"
     ],
     "slug": "erasmus-mundus-joint-masters",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "varies": true,
     "approx": false
   },
@@ -263,8 +264,8 @@
     "deadline": "2027 call open: your French university's internal date comes first (Paris-Saclay: Nov 6, 2026 for PhD, Nov 26 for master's); universities submit to Campus France by Jan 6, 2027",
     "link": "https://www.campusfrance.org/en/eiffel-scholarship-program-of-excellence",
     "last_verified": "2026-10-27",
-    "content_hash": "73b8ab33bbe5852b1518040a19999e1c8537df086c0e5f978146d2e2a486358a",
-    "needs_review": false,
+    "content_hash": "29bf6051aca4720dfe1db66ac9fc6328473acc935cd23d2c7b9851e06ffe39a8",
+    "needs_review": true,
     "kind": "program",
     "scope": "limited",
     "fields": [
@@ -274,7 +275,7 @@
       "Business & Economics"
     ],
     "slug": "eiffel-excellence-scholarship",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "approx": false,
     "varies": true
   },
@@ -293,8 +294,8 @@
     "deadline": "Step 1 open: apply to programmes on universityadmissions.se by Jan 15, 2027; SI's 2027 scholarship window is not yet published (Feb 9–25 in 2026)",
     "link": "https://si.se/en/apply/scholarships/",
     "last_verified": "2026-10-27",
-    "content_hash": "2b069e13ca5dd050803f1921c125ca03916bdb0beb6ba9f016ac6c4e7e08e358",
-    "needs_review": false,
+    "content_hash": "8efcd3a3bd21a6cb76dce604d217bd7071897d73e596472ebcf4d43ad0900d7e",
+    "needs_review": true,
     "kind": "program",
     "scope": "all",
     "fields": [
@@ -304,7 +305,7 @@
       "Medicine & Health"
     ],
     "slug": "swedish-institute-scholarships",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "tbc": true,
     "approx": false
   },
@@ -340,7 +341,7 @@
       "Agriculture & Environment"
     ],
     "slug": "stipendium-hungaricum",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "tbc": true,
     "approx": false
   },
@@ -376,9 +377,10 @@
       "Agriculture & Environment"
     ],
     "slug": "romanian-government-scholarship",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "tbc": true,
-    "approx": false
+    "approx": false,
+    "fetch_error": "500 Server Error: Internal Error reference overload for url: https://studyinromania.gov.ro/"
   },
   {
     "name": "University of Iceland: doctoral study",
@@ -395,8 +397,8 @@
     "deadline": "Rolling in Engineering, Natural and Health Sciences; 1 February for international applicants in Education, Humanities and Social Sciences",
     "link": "https://english.hi.is/",
     "last_verified": "2026-10-26",
-    "content_hash": "255f55c5d2014672a369f331116cfd53ff887f48b57d3089896fb13905c84b67",
-    "needs_review": false,
+    "content_hash": "85db39826caa421912a4df130d3e678e95c9d1e86c0ce5589355fcdd71438a93",
+    "needs_review": true,
     "kind": "school",
     "scope": "all",
     "fields": [
@@ -406,7 +408,7 @@
       "Arts & Humanities"
     ],
     "slug": "university-of-iceland",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "varies": true,
     "approx": false
   },
@@ -425,8 +427,8 @@
     "deadline": "International master's, autumn 2027: Jan 5–19, 2027 (one round a year)",
     "link": "https://www.helsinki.fi/en",
     "last_verified": "2026-10-27",
-    "content_hash": "fb31148ead05d1baf6ada6d3ca7e8816d02b63397899a70220967e0ce863a708",
-    "needs_review": false,
+    "content_hash": "4aaecdbc2fb484fd2964ea90b9d3c9777b0ff48409039b176e9ed806d0aefff4",
+    "needs_review": true,
     "kind": "school",
     "scope": "all",
     "fields": [
@@ -436,7 +438,7 @@
       "Agriculture & Environment"
     ],
     "slug": "university-of-helsinki-scholarships",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2027,
@@ -467,8 +469,8 @@
     "deadline": "ESOP for an autumn 2027 start: Nov 1–30, 2026, with your master's application",
     "link": "https://ethz.ch/en.html",
     "last_verified": "2026-10-12",
-    "content_hash": "41194d5f34c6fa72a87a6ef3968feaef08aca36bc70836394a7c6822a4f0b101",
-    "needs_review": false,
+    "content_hash": "8d715be855761013e58fb3b8048b01644a6e824cb12b65451d14371e73f2aaf1",
+    "needs_review": true,
     "kind": "school",
     "scope": "limited",
     "fields": [
@@ -477,7 +479,7 @@
       "Natural Sciences"
     ],
     "slug": "eth-zurich-excellence-scholarship",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2026,
@@ -507,8 +509,8 @@
     "deadline": "Call open since Aug 20, 2026; the deadline is set by the Swiss embassy in your country",
     "link": "https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html",
     "last_verified": "2026-10-12",
-    "content_hash": "95061143f3ccfa382ef06ba2336ae8a24522ceab63b0f11e69ca4be227918c0c",
-    "needs_review": false,
+    "content_hash": "f72f304f66d00013a62cbede324ad0b3eb995685b15bdad3d9daf6a28ac592d2",
+    "needs_review": true,
     "kind": "program",
     "scope": "all",
     "fields": [
@@ -518,7 +520,7 @@
       "Medicine & Health"
     ],
     "slug": "swiss-government-excellence-scholarships",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "varies": true,
     "approx": false
   },
@@ -537,8 +539,8 @@
     "deadline": "2027–28 applications closed Oct 6, 2026, 11:00 UTC; the 2028–29 round is not yet announced",
     "link": "https://www.chevening.org/",
     "last_verified": "2026-10-12",
-    "content_hash": "d07b243db51ff2cc7363a61568901fca4ac1c78943ed2a75b07d837f55f33dba",
-    "needs_review": false,
+    "content_hash": "abd6ba40e256c4be9613afb3a85e9f220c56701299e6e141550d21dacff73de3",
+    "needs_review": true,
     "kind": "program",
     "scope": "all",
     "fields": [
@@ -552,7 +554,7 @@
       "Agriculture & Environment"
     ],
     "slug": "chevening-scholarships",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2026,
@@ -578,8 +580,8 @@
     "deadline": "Dec 8, 2026 or Jan 6, 2027, by course (US citizens living in the US: Oct 14, 2026)",
     "link": "https://www.gatescambridge.org/",
     "last_verified": "2026-10-12",
-    "content_hash": "df79d2a053beaca628899437290f5a8b6bb913de251057605c0702abecabaca7",
-    "needs_review": false,
+    "content_hash": "725c9948b04cb2ae20fb4b7bc71b8a7e0da3d8501d70b6d9905b47c507e0f601",
+    "needs_review": true,
     "kind": "program",
     "scope": "all",
     "fields": [
@@ -593,7 +595,7 @@
       "Agriculture & Environment"
     ],
     "slug": "gates-cambridge-scholarship",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2026,
@@ -635,8 +637,8 @@
     "deadline": "2027 entry has closed; applications reopen in 2027 for 2028 entry, with dates set by constituency",
     "link": "https://www.rhodeshouse.ox.ac.uk/",
     "last_verified": "2026-10-12",
-    "content_hash": "df3f84f6524e45856ef7747b0e4abc988f1dea120d4d3e87c73155b53810d22a",
-    "needs_review": false,
+    "content_hash": "e16c6e47f4bbb35b9416739752cc95a31fa7c28960348d20ce3a37dd3ff3d50d",
+    "needs_review": true,
     "kind": "program",
     "scope": "all",
     "fields": [
@@ -650,7 +652,7 @@
       "Agriculture & Environment"
     ],
     "slug": "rhodes-scholarship",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "tbc": true,
     "approx": false,
     "only_at": "ox.ac.uk"
@@ -670,8 +672,8 @@
     "deadline": "2027/28: apply in the Early Bird window, Oct 1 – Dec 1, 2026; scholarship form by Dec 15, 2026 (noon, Italian time)",
     "link": "https://www.polimi.it/en",
     "last_verified": "2026-10-27",
-    "content_hash": "e48b06073e7ce0641b0f613e8625cff439298ff8f9a632d291ed2a8c6d652409",
-    "needs_review": false,
+    "content_hash": "9f40d1c5510f0cdac4870dfc7861a4cd020b7c0f34c0d36395737d0b23a813fa",
+    "needs_review": true,
     "kind": "school",
     "scope": "limited",
     "fields": [
@@ -680,7 +682,7 @@
       "Arts & Humanities"
     ],
     "slug": "politecnico-di-milano-merit-scholarships",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2026,
@@ -713,8 +715,8 @@
     "deadline": "2027/28 ER.GO and university calls not yet published; the 2026/27 calls have closed",
     "link": "https://www.unibo.it/en",
     "last_verified": "2026-10-27",
-    "content_hash": "4eb8a7014c0f19e4ae320bc57659e257096dedb9903e83502909780e6ede1b1f",
-    "needs_review": false,
+    "content_hash": "8fa0864b0eb44bef6977fab1e23ba07679a5844dafd8647c6f6b545d2938b448",
+    "needs_review": true,
     "kind": "school",
     "scope": "all",
     "fields": [
@@ -728,7 +730,7 @@
       "Agriculture & Environment"
     ],
     "slug": "university-of-bologna",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "tbc": true,
     "approx": false
   },
@@ -748,8 +750,8 @@
     "deadline": "Dec 1, 2026, 23:59 CET, with a complete MSc application submitted first",
     "link": "https://www.tudelft.nl/en/education/practical-matters/scholarships",
     "last_verified": "2026-10-12",
-    "content_hash": "c50f8fbed6a4900b82d30e81fd50d8457c811b8f6624bb154eff9ad7059a4ca4",
-    "needs_review": false,
+    "content_hash": "f25375769e3abb057f24481b96e8e36b5685c142ce3df60dd03b720363b48e78",
+    "needs_review": true,
     "kind": "school",
     "scope": "limited",
     "fields": [
@@ -758,7 +760,7 @@
       "Natural Sciences"
     ],
     "slug": "tu-delft-van-effen-excellence",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2026,
@@ -784,8 +786,8 @@
     "deadline": "Master's application by Dec 10, 2026 · scholarship application Oct 1, 2026 – Feb 1, 2027",
     "link": "https://www.maastrichtuniversity.nl/",
     "last_verified": "2026-10-12",
-    "content_hash": "12a218bc8a7aaae1a81572c1e360d01aaa84e71688110e74b82e292ab659e7fb",
-    "needs_review": false,
+    "content_hash": "8b877d0887f12642ea6f0959ba21d00fcc5709c89b39ece7c2f1cee4fb1b433b",
+    "needs_review": true,
     "kind": "school",
     "scope": "all",
     "fields": [
@@ -794,7 +796,7 @@
       "Medicine & Health"
     ],
     "slug": "maastricht-holland-high-potential",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2026,
@@ -841,7 +843,7 @@
       "Agriculture & Environment"
     ],
     "slug": "master-mind-scholarships-flanders",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "tbc": true,
     "approx": false
   },
@@ -862,8 +864,8 @@
     "deadline": "Set by each faculty: check your faculty's admission page",
     "link": "https://cuni.cz/UKEN-1.html",
     "last_verified": "2026-10-12",
-    "content_hash": "e7284de4bfbe11c8beda8529eb0d54114f1cb699819c944225d884b4076405c4",
-    "needs_review": false,
+    "content_hash": "731e333bf81fcd04abeaa3598e4ccba283fec46fe1eca01ca74e41587720e5f3",
+    "needs_review": true,
     "kind": "school",
     "scope": "all",
     "fields": [
@@ -873,7 +875,7 @@
       "Arts & Humanities"
     ],
     "slug": "charles-university",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "varies": true,
     "approx": false
   },
@@ -894,8 +896,8 @@
     "deadline": "2027 application period not yet announced",
     "link": "https://www.turkiyeburslari.gov.tr/",
     "last_verified": "2026-10-12",
-    "content_hash": "62f76bbd41ebb6974d6143de09f28968de75d7f4dd56d61d970747790b99ee8e",
-    "needs_review": false,
+    "content_hash": "12e784a5a596e8e08d33f3de06a05f105313abdf95cfb79a231982cbbfed598f",
+    "needs_review": true,
     "kind": "program",
     "scope": "all",
     "fields": [
@@ -909,7 +911,7 @@
       "Agriculture & Environment"
     ],
     "slug": "turkiye-burslari",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "tbc": true,
     "approx": false
   },
@@ -944,7 +946,7 @@
       "Agriculture & Environment"
     ],
     "slug": "harvard-university",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2026,
@@ -978,8 +980,8 @@
     "deadline": "Nov 1, 2026 (Early Action) · Jan 4, 2027 (Regular Action)",
     "link": "https://mitadmissions.org/",
     "last_verified": "2026-10-12",
-    "content_hash": "8c90f447c6080335b7b8869dd19989e5e0a294ecdde3b9a11d36bc31ed225bf8",
-    "needs_review": false,
+    "content_hash": "9d2fb972b5d2d075fc5ce6508140193459dcd93c59b6d6ed9e3e630ba7392410",
+    "needs_review": true,
     "kind": "school",
     "scope": "all",
     "fields": [
@@ -989,7 +991,7 @@
       "Business & Economics"
     ],
     "slug": "mit",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2026,
@@ -1038,7 +1040,7 @@
       "Agriculture & Environment"
     ],
     "slug": "yale-university",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2026,
@@ -1072,8 +1074,8 @@
     "deadline": "Nov 1, 2026 (Single-Choice Early Action) · Jan 1, 2027 (Regular Decision)",
     "link": "https://admission.princeton.edu/",
     "last_verified": "2026-10-12",
-    "content_hash": "25deb801d7f0ce471b416afb671b979788ceca3d7ba96cd0020c8124ea81b2e4",
-    "needs_review": false,
+    "content_hash": "0f518f0ab628ead00c1d1f687dd0d76aefbb027e47585c508aca8eec0d2e409c",
+    "needs_review": true,
     "kind": "school",
     "scope": "all",
     "fields": [
@@ -1083,7 +1085,7 @@
       "Arts & Humanities"
     ],
     "slug": "princeton-university",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2026,
@@ -1117,8 +1119,8 @@
     "deadline": "Nov 9, 2026 (Early Decision) · Jan 5, 2027 (Regular Decision)",
     "link": "https://www.amherst.edu/admission",
     "last_verified": "2026-10-12",
-    "content_hash": "d139da20c2a04970a274efbf60cab2a7da180764d6a34f70521e3cb7f9121035",
-    "needs_review": false,
+    "content_hash": "5e3866fd44b0cd8dc38febf2133c75ca5b413f5acadff09568db4ffe37218fde",
+    "needs_review": true,
     "kind": "school",
     "scope": "all",
     "fields": [
@@ -1127,7 +1129,7 @@
       "Natural Sciences"
     ],
     "slug": "amherst-college",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2026,
@@ -1160,8 +1162,8 @@
     "deadline": "Nov 1, 2026 (Early Decision) · Jan 1, 2027 (Regular Decision)",
     "link": "https://admissions.dartmouth.edu/",
     "last_verified": "2026-10-12",
-    "content_hash": "0f0c8373231254319282f0d71a01dfe5a8c33afd630b77bb61a964409e02d51d",
-    "needs_review": false,
+    "content_hash": "8232bd46b6c8cc29e5c37e4febf0f23b3d226e7460d74d2b29261608df5f6889",
+    "needs_review": true,
     "kind": "school",
     "scope": "all",
     "fields": [
@@ -1171,7 +1173,7 @@
       "Engineering & Tech"
     ],
     "slug": "dartmouth-college",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2026,
@@ -1219,7 +1221,7 @@
       "Agriculture & Environment"
     ],
     "slug": "brown-university",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2026,
@@ -1253,8 +1255,8 @@
     "deadline": "Nov 30, 2026 (international applicants, all documents)",
     "link": "https://www.berea.edu/admissions",
     "last_verified": "2026-10-12",
-    "content_hash": "6cd6b8bbcd687dc9484df4c4c5998b708e7244f3df61c5cd0a245acbd8a6186c",
-    "needs_review": false,
+    "content_hash": "8a1c1ba47a83c58da42318c2b23ca5f24d491f14ef29d6e7bf06fc3ab181fdc8",
+    "needs_review": true,
     "kind": "school",
     "scope": "all",
     "fields": [
@@ -1264,7 +1266,7 @@
       "Agriculture & Environment"
     ],
     "slug": "berea-college",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2026,
@@ -1301,7 +1303,7 @@
       "Business & Economics"
     ],
     "slug": "duke-university",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2026,
@@ -1334,8 +1336,8 @@
     "deadline": "Merit scholarship application Dec 1, 2026 · admission Nov 1, 2026 (Early Decision I) or Jan 1, 2027 (Early Decision II and Regular)",
     "link": "https://admissions.vanderbilt.edu/",
     "last_verified": "2026-10-12",
-    "content_hash": "e5051c1e36841c2657a45c20dfdc62224021acca0225bbe5136123a7d5015c5f",
-    "needs_review": false,
+    "content_hash": "a460bbaee77a1d3e889d3321e382734f073569e90447c4f03d2fc9b99fa6368a",
+    "needs_review": true,
     "kind": "school",
     "scope": "all",
     "fields": [
@@ -1345,7 +1347,7 @@
       "Arts & Humanities"
     ],
     "slug": "vanderbilt-university",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2026,
@@ -1396,7 +1398,7 @@
       "Agriculture & Environment"
     ],
     "slug": "colby-college",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "fetch_error": "403 Client Error: Forbidden for url: https://www.colby.edu/admission/",
     "deadlines": [
       {
@@ -1431,8 +1433,8 @@
     "deadline": "2027 cohort closed Oct 6, 2026, 1 pm Pacific; the 2028 round is not yet announced",
     "link": "https://knight-hennessy.stanford.edu/",
     "last_verified": "2026-10-12",
-    "content_hash": "c5bb1fdab83269aa5d024b86b3b16a918f2dd386865a54a87d53eaffc170d98f",
-    "needs_review": false,
+    "content_hash": "46db76a6c0f98928063f0ae5f3603202db10f24e35c9d67137dd0257a1023551",
+    "needs_review": true,
     "kind": "program",
     "scope": "all",
     "fields": [
@@ -1446,7 +1448,7 @@
       "Agriculture & Environment"
     ],
     "slug": "knight-hennessy-scholars",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2026,
@@ -1488,7 +1490,7 @@
       "Agriculture & Environment"
     ],
     "slug": "fulbright-foreign-student-program",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "varies": true,
     "approx": false
   },
@@ -1523,7 +1525,7 @@
       "Agriculture & Environment"
     ],
     "slug": "university-of-toronto-pearson-scholarship",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "tbc": true,
     "approx": false
   },
@@ -1544,8 +1546,8 @@
     "deadline": "Scholars application Nov 15, 2026 (opened Oct 5; submit your UBC admission application first)",
     "link": "https://you.ubc.ca/",
     "last_verified": "2026-10-12",
-    "content_hash": "3f14b4d6c30e42401ce16d2599780b6806eaa4287af73118272987f4ca7df5ba",
-    "needs_review": false,
+    "content_hash": "d0e6d094bc31ed02b1a69e89a1cbb7ff9f6c4f69fd6d273f173b177c6dff502b",
+    "needs_review": true,
     "scope": "all",
     "fields": [
       "Engineering & Tech",
@@ -1558,7 +1560,7 @@
       "Agriculture & Environment"
     ],
     "slug": "ubc-international-scholars",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2026,
@@ -1594,7 +1596,7 @@
       "Social Sciences & Law"
     ],
     "slug": "canada-graduate-research-scholarships-doctoral",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2026,
@@ -1621,8 +1623,8 @@
     "deadline": "2027 call not yet announced (the 2026 call closed Mar 12, 2026)",
     "link": "https://hea.ie/policy/internationalisation/goi-ies/",
     "last_verified": "2026-10-12",
-    "content_hash": "e7a15bd88e226eb27b4064727f73fb49f1e4b93a52775ac4ba92b55bbd924577",
-    "needs_review": false,
+    "content_hash": "d893cf682bd07bc7f88fbad87253bd62acf686752a2d162b7343e3cc052fbdf2",
+    "needs_review": true,
     "scope": "all",
     "fields": [
       "Engineering & Tech",
@@ -1635,7 +1637,7 @@
       "Agriculture & Environment"
     ],
     "slug": "government-of-ireland-international-education-scholarships",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "tbc": true,
     "approx": false
   },
@@ -1665,7 +1667,7 @@
       "Medicine & Health"
     ],
     "slug": "norwegian-phd-fellowships",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "rolling": true,
     "approx": false
   },
@@ -1685,8 +1687,8 @@
     "deadline": "2027 call closes Feb 9, 2027",
     "link": "https://www.ugent.be/en/research/funding/bof/dos",
     "last_verified": "2026-10-12",
-    "content_hash": "246e2fc660aa4bbf54f4e7b7cef0926852d7f0ff3a6603afea9b75de69db9834",
-    "needs_review": false,
+    "content_hash": "097904cfc323b61b20a4a28baf268de80e9c8981d8ff778fd6ecb2c883c2083e",
+    "needs_review": true,
     "scope": "all",
     "fields": [
       "Agriculture & Environment",
@@ -1695,7 +1697,7 @@
       "Engineering & Tech"
     ],
     "slug": "ghent-university-doctoral-scholarships",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2027,
@@ -1734,10 +1736,10 @@
     "deadline": "Each partner university sets its own dates",
     "link": "https://mastercardfdn.org/en/what-we-do/our-programs/mastercard-foundation-scholars-program/where-to-apply/",
     "last_verified": "2026-10-12",
-    "content_hash": "dba57e319f07a49744c31bdb032d12dd8e097a97350a3bb1ebfbec98d50dcd0c",
-    "needs_review": false,
+    "content_hash": "2ce56969e0c3830eacb06101e9dd75fc3fadffd00c0c66c30e3c34fdeae40b47",
+    "needs_review": true,
     "slug": "mastercard-foundation-scholars-program",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "varies": true,
     "approx": false
   },
@@ -1764,10 +1766,10 @@
     "deadline": "Your course's funding deadline, Dec 8, 2026 or Jan 6, 2027 · fee-waiver request, if you need one, by Nov 20, 2026",
     "link": "https://www.mastercardfoundation.fund.cam.ac.uk/",
     "last_verified": "2026-10-19",
-    "content_hash": "a48c0bf52681817ee6a4f955cc12c97512649707a3bfaad22c1487c42911deae",
-    "needs_review": false,
+    "content_hash": "2bd69ea91c50b84549428ef6cc049bc40ef6291f6c7fb2fcf61b4dbdc3ed49c4",
+    "needs_review": true,
     "slug": "mastercard-foundation-scholars-cambridge",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2026,
@@ -1819,10 +1821,10 @@
     "deadline": "Apply to an eligible Berkeley master's programme by its first-round deadline (dates vary by programme)",
     "link": "https://mcfscholarsprogram.berkeley.edu/",
     "last_verified": "2026-10-12",
-    "content_hash": "ab806fc1d1aff054ffb027930f41560df2b7b4ff2e1c9931dc5540a05423aaaf",
-    "needs_review": false,
+    "content_hash": "c021e99dce9f385533a97eae773fe7a2220f6d0500b7311e95b877bd397f43c7",
+    "needs_review": true,
     "slug": "mastercard-foundation-scholars-uc-berkeley",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "varies": true,
     "approx": false
   },
@@ -1849,10 +1851,10 @@
     "deadline": "The 2027–28 cohort call has closed; the next call is not yet announced",
     "link": "https://mcfscholars.asu.edu/phase-three-innovation-and-technology",
     "last_verified": "2026-10-12",
-    "content_hash": "b7df287fddd840aaba0ae4b0204cda88c6e8f21c2644caf2321206d00a60d72c",
-    "needs_review": false,
+    "content_hash": "ffd4cb99af77a84a4b362365510636a010232e5dbc477afd4303740b68fbb4a1",
+    "needs_review": true,
     "slug": "mastercard-foundation-scholars-asu",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "tbc": true,
     "approx": false
   },
@@ -1886,7 +1888,7 @@
     "content_hash": "b3ea9c8c71bd9caa44a141dc36f66e2f3db493433ca8b2c7ecd95ca4e43259a4",
     "needs_review": false,
     "slug": "mastercard-foundation-scholars-mcgill",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "tbc": true,
     "approx": false
   },
@@ -1917,10 +1919,10 @@
     "deadline": "2027–28 round closed Oct 20, 2026, 16:00 BST; the 2028–29 round is not yet announced",
     "link": "https://cscuk.fcdo.gov.uk/",
     "last_verified": "2026-10-27",
-    "content_hash": "0e2a28453d82b4121d71006f7e8a93ed2fde3bf673987006b61aeb57097b8304",
-    "needs_review": false,
+    "content_hash": "c893f5e34355065316b42b2782b3658cffbd06d92d0123c78dde8d2ca76f98c0",
+    "needs_review": true,
     "slug": "commonwealth-masters-scholarships",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "deadlines": [
       {
         "y": 2026,
@@ -1957,10 +1959,10 @@
     "deadline": "2027–28: CSC Central opens Nov 10 and closes Dec 8, 2026, 16:00 GMT; apply for admission to your UK course as well",
     "link": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-shared-scholarships-applications/",
     "last_verified": "2026-10-27",
-    "content_hash": "92dd0edf20c3e4c4d68afbffda56c1441be61c20e5534b885994c01f2a9009c7",
-    "needs_review": false,
+    "content_hash": "be5861e523ef659d2ca0a77f2cf2238629a189741b4c685660931d22ca7aeb2e",
+    "needs_review": true,
     "slug": "commonwealth-shared-scholarships",
-    "last_checked": "2026-10-01",
+    "last_checked": "2026-11-01",
     "approx": false,
     "deadlines": [
       {
@@ -2008,7 +2010,9 @@
     ],
     "slug": "australia-awards-scholarships",
     "approx": false,
-    "tbc": true
+    "tbc": true,
+    "last_checked": "2026-11-01",
+    "fetch_error": "HTTPSConnectionPool(host='www.dfat.gov.au', port=443): Read timed out. (read timeout=25)"
   },
   {
     "name": "Research Training Program (Australian Government)",
@@ -2042,7 +2046,9 @@
     ],
     "slug": "australian-research-training-program",
     "approx": false,
-    "varies": true
+    "varies": true,
+    "last_checked": "2026-11-01",
+    "fetch_error": "HTTPSConnectionPool(host='www.education.gov.au', port=443): Read timed out. (read timeout=25)"
   },
   {
     "name": "University of Melbourne: Graduate Research Scholarships",
@@ -2077,7 +2083,9 @@
     ],
     "slug": "university-of-melbourne-graduate-research-scholarships",
     "approx": false,
-    "varies": true
+    "varies": true,
+    "last_checked": "2026-11-01",
+    "fetch_error": "403 Client Error: Forbidden for url: https://scholarships.unimelb.edu.au/awards/graduate-research-scholarships"
   },
   {
     "name": "University of Sydney: research scholarships (RTP and USYDIS)",
@@ -2096,7 +2104,7 @@
     "deadline": "Dec 18, 2026 for research periods 3 and 4 of 2027 (the round for periods 1 and 2 closed Sep 11, 2026)",
     "link": "https://www.sydney.edu.au/scholarships/australian-government-research-training-program/rtp-international.html",
     "last_verified": "2026-10-13",
-    "content_hash": null,
+    "content_hash": "9d4edd9bf8b729385c8cca66038198a1bc19fc69dc8b08be94aef5c8b05c3a8a",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -2118,7 +2126,8 @@
         "m": 12,
         "d": 18
       }
-    ]
+    ],
+    "last_checked": "2026-11-01"
   },
   {
     "name": "University of Queensland: Graduate Research School Scholarships",
@@ -2137,7 +2146,7 @@
     "deadline": "International round closed Oct 19, 2026 (outcomes from Feb 22, 2027); the next round is not yet announced",
     "link": "https://scholarships.uq.edu.au/scholarship/graduate-school-scholarships-uqgss-%E2%80%93-includes-rtp",
     "last_verified": "2026-10-27",
-    "content_hash": null,
+    "content_hash": "1f8c47b2074abe72e70e13e00aeb703ecef9e1b4fc4e2196b1bd5e64326bb3df",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -2159,7 +2168,8 @@
         "m": 10,
         "d": 19
       }
-    ]
+    ],
+    "last_checked": "2026-11-01"
   },
   {
     "name": "Australian National University: research scholarships",
@@ -2177,7 +2187,7 @@
     "deadline": "Apr 15, 2027 (round 2, for a start by Aug 31, 2027) · round 1 for international applicants closes Aug 31 each year",
     "link": "https://research.anu.edu.au/postgraduate-research-candidates/research-degree-scholarships",
     "last_verified": "2026-10-13",
-    "content_hash": null,
+    "content_hash": "0a91b398bbb239783cf7e4934b3c41aba83e5c8a465f33947c75e962bfdea60a",
     "needs_review": false,
     "kind": "school",
     "scope": "all",
@@ -2207,7 +2217,8 @@
         "for": "round 1 for international applicants, for a start by 31 March 2028"
       }
     ],
-    "depends": "when you want to start"
+    "depends": "when you want to start",
+    "last_checked": "2026-11-01"
   },
   {
     "name": "Clarendon Scholarships (University of Oxford)",
@@ -2243,7 +2254,9 @@
     "approx": false,
     "varies": true,
     "depends": "your course",
-    "only_at": "ox.ac.uk"
+    "only_at": "ox.ac.uk",
+    "last_checked": "2026-11-01",
+    "fetch_error": "403 Client Error: Forbidden for url: https://www.ox.ac.uk/admissions/graduate/fees-and-funding/funding/clarendon"
   },
   {
     "name": "VLIR-UOS ICP Connect Scholarships (Belgium)",
@@ -2261,7 +2274,7 @@
     "deadline": "2027–28 call open for 12 programmes; each programme sets its own deadline, so apply through its university",
     "link": "https://www.vliruos.be/get-funded/study-scholarships",
     "last_verified": "2026-10-27",
-    "content_hash": null,
+    "content_hash": "52547d142c732dd74b4d3dda7de8b76c10c997cfe1f598edbc48ea47f6071de7",
     "needs_review": false,
     "kind": "program",
     "scope": "all",
@@ -2274,11 +2287,12 @@
     ],
     "slug": "vlir-uos-icp-connect-scholarships",
     "approx": false,
-    "varies": true
+    "varies": true,
+    "last_checked": "2026-11-01"
   },
   {
     "last_verified": "2026-10-28",
-    "content_hash": null,
+    "content_hash": "11e536737d666a4c677dcc98584f08db198ecc673b1eea1f55362cf5dce4e9a7",
     "needs_review": false,
     "slug": "yenching-academy-peking-university",
     "name": "Yenching Academy of Peking University (Yenching Scholars)",
@@ -2308,7 +2322,8 @@
         "d": 30
       }
     ],
-    "approx": false
+    "approx": false,
+    "last_checked": "2026-11-01"
   },
   {
     "last_verified": "2026-10-28",
@@ -2340,11 +2355,13 @@
     "deadline": "2027–28: apply to an eligible Oxford course by its December or January deadline (on the course page), with the scholarship statement",
     "link": "https://www.ox.ac.uk/admissions/graduate/fees-and-funding/fees-funding-and-scholarship-search/weidenfeld-hoffmann-scholarships-and-leadership-programme",
     "varies": true,
-    "approx": false
+    "approx": false,
+    "last_checked": "2026-11-01",
+    "fetch_error": "403 Client Error: Forbidden for url: https://www.ox.ac.uk/admissions/graduate/fees-and-funding/fees-funding-and-scholarship-search/weidenfeld-hoffmann-scholarships-and-leadership-programme"
   },
   {
     "last_verified": "2026-10-28",
-    "content_hash": null,
+    "content_hash": "5de15a8a12323196b336ab9b8fad5b6fed30df52d7072b1b098fd249d360eabd",
     "needs_review": false,
     "slug": "epfl-excellence-fellowships",
     "name": "EPFL Excellence Fellowships (Master's)",
@@ -2368,11 +2385,12 @@
     "deadline": "Master's application paid and validated by December 15, reference letters a week later (EPFL gives no year; the first window opens in mid-November)",
     "link": "https://www.epfl.ch/education/master/master-excellence-fellowships/how-to-apply/",
     "varies": true,
-    "approx": false
+    "approx": false,
+    "last_checked": "2026-11-01"
   },
   {
     "last_verified": "2026-10-28",
-    "content_hash": null,
+    "content_hash": "5e87930b86cc4e49122c93162850f70115fff6fd3e79f615df803a0b498e4ffa",
     "needs_review": false,
     "slug": "kth-scholarship",
     "name": "KTH Scholarship (Sweden)",
@@ -2407,7 +2425,8 @@
       "m": 12,
       "d": 1
     },
-    "approx": false
+    "approx": false,
+    "last_checked": "2026-11-01"
   },
   {
     "last_verified": "2026-10-28",
@@ -2440,11 +2459,13 @@
     "deadline": "Restrictive Early Action Nov 1 · Regular Decision Jan 5 (Stanford's page gives no year; decisions by mid-December and early April)",
     "link": "https://admission.stanford.edu/apply/international/",
     "varies": true,
-    "approx": false
+    "approx": false,
+    "last_checked": "2026-11-01",
+    "fetch_error": "HTTPSConnectionPool(host='admission.stanford.edu', port=443): Max retries exceeded with url: /apply/international/ (Caused by ConnectTimeoutError(<HTTPSConnection(host='admission.stanford.edu', port=4"
   },
   {
     "last_verified": "2026-11-01",
-    "content_hash": null,
+    "content_hash": "01e17f8442166ce0371f0abd6a655cd126aece1cb5fa4e0243c448fdfbe431f5",
     "needs_review": false,
     "slug": "axel-adler-scholarship",
     "name": "Axel Adler Scholarship (Gothenburg)",
@@ -2493,6 +2514,367 @@
         "for": "Scholarship application"
       }
     ],
-    "approx": false
+    "approx": false,
+    "last_checked": "2026-11-01"
+  },
+  {
+    "last_verified": "2026-10-12",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "aims-masters-mathematical-sciences",
+    "name": "AIMS Master's in Mathematical Sciences",
+    "flag": "🌍",
+    "country": "Africa-wide",
+    "region": "Africa",
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "A one-year master's at an African Institute for Mathematical Sciences centre, with full scholarships for selected students covering tuition, accommodation and meals.",
+    "deadline": "2027–28 intake dates not yet published",
+    "link": "https://nexteinstein.org/application/aims-masters-degree/",
+    "tbc": true,
+    "approx": false,
+    "last_checked": "2026-11-01",
+    "fetch_error": "HTTPSConnectionPool(host='nexteinstein.org', port=443): Max retries exceeded with url: /application/aims-masters-degree/ (Caused by SSLError(SSLError(1, '[SSL: TLSV1_UNRECOGNIZED_NAME] tlsv1 unrecogni"
+  },
+  {
+    "last_verified": "2026-10-12",
+    "content_hash": "c6a315d319bc37642772e01ec6939de426f246573b627de54abd8361a71af339",
+    "needs_review": false,
+    "slug": "ashesi-university-scholarships",
+    "name": "Ashesi University: need-based scholarships",
+    "flag": "🇬🇭",
+    "country": "Ghana",
+    "region": "Africa",
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Computer Science",
+      "Engineering & Tech",
+      "Business & Economics",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Need-Based Aid",
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Bachelor's"
+    ],
+    "funding": "Need-based scholarships at one of Ghana's most respected universities, including full Mastercard Foundation awards for African students that cover all fees, room, board and learning resources.",
+    "deadline": "Four undergraduate rounds a year, closing in June, August, October and December; admissions confirms the exact dates",
+    "link": "https://ashesi.edu.gh/scholarships/",
+    "varies": true,
+    "approx": false,
+    "last_checked": "2026-11-01"
+  },
+  {
+    "name": "Bowdoin College",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Natural Sciences",
+      "Social Sciences & Law",
+      "Arts & Humanities"
+    ],
+    "region": "USA",
+    "types": [
+      "Need-Based Aid"
+    ],
+    "levels": [
+      "Bachelor's"
+    ],
+    "funding": "Need-blind admission for international applicants; meets 100% of calculated need with $0 loans in financial aid packages.",
+    "deadline": "Nov 15, 2026 (Early Decision I) · Jan 5, 2027 (Early Decision II and Regular)",
+    "link": "https://www.bowdoin.edu/admissions/apply/international-students/index.html",
+    "last_verified": "2026-10-12",
+    "content_hash": "7d59db9f7c1f5772cf7e59c1c51f4a80dbb9350b8f5f236b12828c37a731a30f",
+    "needs_review": false,
+    "slug": "bowdoin-college",
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 11,
+        "d": 15,
+        "for": "Early Decision I"
+      },
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 5,
+        "for": "Early Decision II and Regular Decision"
+      }
+    ],
+    "approx": false,
+    "depends": "the admission round you choose",
+    "last_checked": "2026-11-01"
+  },
+  {
+    "name": "Danish Government Scholarships",
+    "flag": "🇩🇰",
+    "country": "Denmark",
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Social Sciences & Law",
+      "Business & Economics"
+    ],
+    "region": "Europe",
+    "types": [
+      "Full Scholarship",
+      "Tuition-Free",
+      "Merit"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's"
+    ],
+    "funding": "Full or partial tuition fee waivers and/or grants towards covering living costs for highly qualified non-EU/EEA students, administered by individual Danish universities.",
+    "deadline": "Set by each Danish university, with its own admission process",
+    "link": "https://studyindenmark.dk/study-options/scholarships",
+    "last_verified": "2026-10-12",
+    "content_hash": "df605f34c9fde4d537094fe599867505d88c0288f899d478463b00d69fa2afdf",
+    "needs_review": false,
+    "slug": "danish-government-scholarships",
+    "varies": true,
+    "approx": false,
+    "last_checked": "2026-11-01"
+  },
+  {
+    "last_verified": "2026-10-12",
+    "content_hash": "1424cde63bc6d4a98f0cfce138950104ff1a3cdb533b351c33463395934f1694",
+    "needs_review": false,
+    "slug": "global-korea-scholarship-graduate",
+    "name": "Global Korea Scholarship (GKS) for graduate degrees",
+    "flag": "🇰🇷",
+    "country": "South Korea",
+    "region": "Asia",
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "funding": "Korea's government pays tuition, return airfare, a monthly living allowance, health insurance, a settlement allowance and up to a year of Korean language training.",
+    "deadline": "2027 graduate call not yet announced",
+    "link": "https://www.niied.go.kr/web/niied/contents/niiedEng/eng_gksDegree",
+    "tbc": true,
+    "approx": false,
+    "last_checked": "2026-11-01"
+  },
+  {
+    "last_verified": "2026-10-12",
+    "content_hash": "3389adc51863932d001f267807cbf9c12df3d6f665c787cbbd3c1de2f0a706de",
+    "needs_review": false,
+    "slug": "hong-kong-phd-fellowship-scheme",
+    "name": "Hong Kong PhD Fellowship Scheme",
+    "flag": "🇭🇰",
+    "country": "Hong Kong",
+    "region": "Asia",
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "PhD"
+    ],
+    "funding": "400 fellowships a year paying HK$344,400 a year plus HK$14,400 for conferences and research travel, for up to three years of PhD study at a Hong Kong university.",
+    "deadline": "Initial application to the RGC Sep 1 – Dec 1, 2026, 12:00 noon HKT, then the university's own application",
+    "link": "https://cerg1.ugc.edu.hk/hkpfs/index.html",
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 12,
+        "d": 1
+      }
+    ],
+    "approx": false,
+    "last_checked": "2026-11-01"
+  },
+  {
+    "last_verified": "2026-10-12",
+    "content_hash": "1ec73a0386972bb1d2a4aa2b83024b90bb580b1e276583fbfd6894e19e9a60db",
+    "needs_review": false,
+    "slug": "kaust-fellowship",
+    "name": "KAUST Fellowship (Saudi Arabia)",
+    "flag": "🇸🇦",
+    "country": "Saudi Arabia",
+    "region": "Asia",
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "funding": "Most admitted KAUST students get full tuition, a stipend of $20,000 a year for a master's or $25,000–30,000 for a PhD, campus housing, health insurance and relocation costs.",
+    "deadline": "Fall 2027, round 2: Sep 28, 2026 – Jan 3, 2027 (KAUST calls these dates tentative)",
+    "link": "https://admissions.kaust.edu.sa/fees-funding",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 3
+      }
+    ],
+    "approx": false,
+    "last_checked": "2026-11-01"
+  },
+  {
+    "last_verified": "2026-10-12",
+    "content_hash": "2d7b5c89bc6234994550cf1e209377f81d669ba5bff0c5c4e21f2b7a57a89f8e",
+    "needs_review": false,
+    "slug": "mastercard-foundation-scholars-uct",
+    "name": "Mastercard Foundation Scholars: University of Cape Town",
+    "flag": "🇿🇦",
+    "country": "South Africa",
+    "region": "Africa",
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's"
+    ],
+    "funding": "Tuition, a laptop, campus accommodation, living costs, medical aid, visa costs and annual travel for African students at Africa's top-ranked university.",
+    "deadline": "Postgraduate (diploma, honours, coursework master's): Oct 31, 2026 · undergraduate 2027 intake closed Sep 30, 2026",
+    "link": "https://uct.ac.za/mastercardfdn/apply-mastercard-foundation-scholars-program",
+    "approx": false,
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 10,
+        "d": 31
+      }
+    ],
+    "last_checked": "2026-11-01"
+  },
+  {
+    "last_verified": "2026-10-12",
+    "content_hash": "8cc0aac4339302435ac34e5bf967afa39982279e3aee74c0b17c839b37c643d6",
+    "needs_review": false,
+    "slug": "mext-japanese-government-scholarship",
+    "name": "MEXT Japanese Government Scholarship",
+    "flag": "🇯🇵",
+    "country": "Japan",
+    "region": "Asia",
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "funding": "Japan's government pays tuition, ¥144,000 a month in a master's course or ¥145,000 in a doctoral course, and the flight to Japan, through the Japanese embassy in your country.",
+    "deadline": "The embassy round for 2028 is not yet announced; each Japanese embassy sets its own dates",
+    "link": "https://www.studyinjapan.go.jp/en/planning/scholarships/mext-scholarships/",
+    "tbc": true,
+    "approx": false,
+    "last_checked": "2026-11-01"
+  },
+  {
+    "last_verified": "2026-10-12",
+    "content_hash": "6ecb1dec3cf537b3ddecd7811d15998725a8b25bf16004c6ebd6dd35e5fb7de4",
+    "needs_review": false,
+    "slug": "pan-african-university-scholarship",
+    "name": "Pan African University (African Union) Scholarships",
+    "flag": "🌍",
+    "country": "Africa-wide",
+    "region": "Africa",
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities",
+      "Agriculture & Environment"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "funding": "The African Union Commission gives full scholarships for master's and PhD study at its Pan African University institutes in Nigeria, Cameroon, Kenya and Algeria.",
+    "deadline": "2027/28 call not yet announced",
+    "link": "https://au.int/sw/announcements/20251115/pan-african-university-call-scholarships-applications-academic-year-2026-2027",
+    "tbc": true,
+    "approx": false,
+    "last_checked": "2026-11-01"
   }
 ]
