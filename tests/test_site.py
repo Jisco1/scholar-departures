@@ -332,6 +332,17 @@ class BuiltSite(unittest.TestCase):
             self.assertIn('alt="Download on the App Store"', text)
             self.assertIn('<meta name="apple-itunes-app" content="app-id=6821526583">', text)
         self.assertIn("/app/</loc>", (self.site / "sitemap.xml").read_text(encoding="utf-8"))
+        # 1 Nov 2026: the owner chose the design with the download button and phones in the hero, under the boarding pass,
+        # with no line of text beside the button, and the panel lower down the page went
+        hero = re.search(r'<section class="lp-hero">.*?</section>', home, re.S).group(0)
+        side = hero[hero.index('class="lp-hero-side"'):]
+        self.assertLess(side.index('class="pass"'), side.index('class="lp-hero-get"'))
+        self.assertLess(side.index('class="lp-hero-get"'), side.index('class="lp-hero-phones"'))
+        self.assertRegex(hero, r'<div class="lp-hero-get"><a class="appstore-badge"[^>]*><img [^>]*></a></div>')
+        self.assertNotIn("DegreeStep for iPhone", hero)
+        self.assertEqual(len(re.findall(r'class="lp-phone lp-phone-', hero)), 3)
+        self.assertNotIn('<section class="lp-app"', home)
+        self.assertIn('<section class="lp-app"', app)
 
     def test_app_feed_and_app_ads_txt(self):
         # the DegreeStep iPhone app reads app/feed.json, so its content updates without a new App Store version,

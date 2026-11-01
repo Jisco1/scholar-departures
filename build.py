@@ -509,9 +509,15 @@ def app_badge():
             f'<img src="{e(APP_STORE_BADGE)}" width="162" height="54" alt="Download on the App Store" loading="lazy"></a>')
 
 
+def app_phones(root):
+    """The app's own screens, rising in steps. They are cropped above anything with a date, so no countdown here can go out of date."""
+    return f"""<div class="lp-phone lp-phone-explore"><img src="{asset(root, "app-screen-explore.jpg")}" width="480" height="339" alt="The app's Explore screen, with search and filters for subject, level and funder" loading="lazy"></div>
+    <div class="lp-phone lp-phone-today"><img src="{asset(root, "app-screen-today.jpg")}" width="500" height="511" alt="The app's Today screen" loading="lazy"></div>
+    <div class="lp-phone lp-phone-detail"><img src="{asset(root, "app-screen-detail.jpg")}" width="600" height="596" alt="A scholarship page in the app" loading="lazy"></div>"""
+
+
 def app_promo(root, heading, lede, level="h2"):
-    """The full-width download panel: the app's own screens rising in steps from the foot of a night photograph.
-    The screens are cropped above anything with a date, so no countdown here can go out of date."""
+    """The full-width download panel that opens the app page: the phones stand at the foot of a night photograph."""
     return f"""<section class="lp-app" aria-label="The DegreeStep iPhone app">
 <img class="lp-app-photo" src="{asset(root, "hero-graduation-960.jpg")}" width="960" height="640" alt="" loading="lazy" decoding="async">
 <div class="lp-app-shade" aria-hidden="true"></div>
@@ -523,9 +529,7 @@ def app_promo(root, heading, lede, level="h2"):
     <div class="lp-app-get">{app_badge()}<span class="lp-app-note">For iPhone, iOS 17 or later</span></div>
   </div>
   <div class="lp-app-steps">
-    <div class="lp-phone lp-phone-explore"><img src="{asset(root, "app-screen-explore.jpg")}" width="480" height="339" alt="The app's Explore screen, with search and filters for subject, level and funder" loading="lazy"></div>
-    <div class="lp-phone lp-phone-today"><img src="{asset(root, "app-screen-today.jpg")}" width="500" height="511" alt="The app's Today screen" loading="lazy"></div>
-    <div class="lp-phone lp-phone-detail"><img src="{asset(root, "app-screen-detail.jpg")}" width="600" height="596" alt="A scholarship page in the app" loading="lazy"></div>
+    {app_phones(root)}
   </div>
 </div>
 </section>"""
@@ -1438,6 +1442,10 @@ def build_home(routes, schools, updates, positions, research):
   </div>
   <div class="lp-hero-side">
     {pass_html}
+    <div class="lp-hero-get">{app_badge()}</div>
+    <div class="lp-hero-phones">
+    {app_phones(root)}
+    </div>
   </div>
 </div>
 </section>
@@ -1461,8 +1469,6 @@ def build_home(routes, schools, updates, positions, research):
 </div></section>
 
 {ad_bay("between", wide=True)}
-
-{app_promo(root, "Every scholarship deadline, <em>in your pocket</em>", "Scholarships filtered for your nationality, a countdown for every deadline, and a working timeline you can add to your calendar.")}
 
 <section class="lp-section wrap lp-two">
   <div>
