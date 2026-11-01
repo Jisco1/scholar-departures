@@ -328,6 +328,16 @@ class BuiltSite(unittest.TestCase):
         self.assertNotIn("Research news", hero)
         self.assertIn('href="editorial-policy/">How we verify</a>', band)
 
+    def test_home_page_has_a_search_bar(self):
+        # 1 Nov 2026: the owner asked for search on the home page; it opens the board with the results showing
+        home = (self.site / "index.html").read_text(encoding="utf-8")
+        hero = re.search(r'<section class="lp-hero">.*?</section>', home, re.S).group(0)
+        self.assertRegex(hero, r'<form class="lp-search" action="scholarships/" method="get" role="search">')
+        self.assertRegex(hero, r'<input type="search" name="q"[^>]*aria-label=')
+        script = (self.site / "assets" / "app.js").read_text(encoding="utf-8")
+        self.assertIn('p.get("q")', script)
+        self.assertIn('dirState.q = q', script)
+
     def test_home_hero_sits_on_the_golden_hour_photo(self):
         # the owner approved the app's graduation photo behind the hero (10 Oct 2026); phones get the smaller file,
         # and the public-domain photo carries no credit line

@@ -121,6 +121,7 @@ body.scrolled .cue { opacity: 0; }
 .controls.in { opacity: 1; transform: none; }
 .row1 { display: flex; flex-direction: column; gap: 12px; }
 @media (min-width: 768px) { .row1 { flex-direction: row; flex-wrap: wrap; } }
+#controls { scroll-margin-top: 16px; }
 .searchbox { position: relative; flex: 1; min-width: 220px; }
 .searchbox svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--faint); }
 .searchbox input {

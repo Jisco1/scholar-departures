@@ -1474,6 +1474,11 @@ def build_home(routes, schools, updates, positions, research):
     <p class="eyebrow-s">Funded study abroad · Europe · USA · Canada</p>
     <h1>The world’s scholarships, <em>one step away</em></h1>
     <p class="lede">{len(routes)} tuition-free universities and fully funded scholarships in {countries_n} countries, for international students from anywhere, with live deadline countdowns.</p>
+    <form class="lp-search" action="scholarships/" method="get" role="search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" name="q" placeholder="Search a school or country" aria-label="Search scholarships and universities" autocomplete="off" maxlength="80" required>
+      <button type="submit">Search</button>
+    </form>
     <div class="lp-cta"><a class="btn btn-primary btn-lg" href="scholarships/">View scholarships →</a></div>
   </div>
   <div class="lp-hero-side">

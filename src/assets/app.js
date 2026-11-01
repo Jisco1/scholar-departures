@@ -257,7 +257,9 @@
   }
   var introSeen = false;
   try { introSeen = sessionStorage.getItem("scholar-departures:intro") === "1"; } catch (e) {}
-  if (RM || (PHONE && introSeen)) {
+  /* someone who searched from the home page came for results, not the intro */
+  var searched = /[?&]q=/.test(window.location.search);
+  if (RM || (PHONE && introSeen) || searched) {
     if (pre) pre.remove();
     document.body.classList.add("loaded");
   } else {
@@ -1156,8 +1158,21 @@
     if (type && TYPES.indexOf(type) > 0) state.type = type;
     if (kind && KINDS.indexOf(kind) > 0) state.kind = kind;
     if (region && REGIONS.indexOf(region) > 0) state.region = region;
+    /* a search from the home page looks through the routes and all the universities */
+    var q = (p.get("q") || "").trim().slice(0, 80);
+    if (q) {
+      state.q = q; document.getElementById("q").value = q;
+      dirState.q = q; document.getElementById("dirQ").value = q;
+      loadFullDir();
+    }
   })();
 
   render();
   renderDir();
+  if (searched) {
+    setTimeout(function () {
+      var controls = document.getElementById("controls");
+      if (controls) controls.scrollIntoView({ behavior: "auto", block: "start" });
+    }, 80);
+  }
 })();
