@@ -5,6 +5,11 @@
   "contact_email": "hello@degreestep.com",
   "repo_url": "https://github.com/Jisco1/scholar-departures",
 
+  "analytics": {
+    "_help": "The Google Analytics measurement ID (G-...) that counts visitors. Leave it empty for no counter. When you set it, the privacy policy must say so too.",
+    "id": ""
+  },
+
   "adsense": {
     "_help": "Leave client empty until AdSense gives you a publisher ID (ca-pub-...). With a client set, the build adds the AdSense tag, the site-verification meta tag and ads.txt. Slots are the numeric ad-unit IDs you create in AdSense > Ads > By ad unit; a bay whose slot is empty is not rendered.",
     "client": "ca-pub-6851724780839114",

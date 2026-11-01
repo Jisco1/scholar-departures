@@ -67,6 +67,22 @@ class BuiltSite(unittest.TestCase):
             for secret in ("change-me-now", "DEMO-PREMIUM", "adminKey", "ADM_KEY", "?key="):
                 self.assertNotIn(secret, text, f"{secret} found in {path.name}")
 
+    def test_visitor_counter_follows_the_setting(self):
+        # 1 Nov 2026: the owner wants to see real visitor numbers. With no ID there is no tag, and with one it is on
+        # every page, carries the nonce, and sets the consent defaults for Europe before the ad tag loads
+        cfg = json.loads((self.dir / "site.json").read_text(encoding="utf-8"))
+        mid = cfg["analytics"]["id"]
+        privacy = (self.site / "privacy" / "index.html").read_text(encoding="utf-8")
+        if not mid:
+            self.assertFalse([p for p, h in self.pages.items() if "googletagmanager.com" in h])
+            self.assertIn("no analytics of our own", privacy)
+            return
+        for path, page in self.pages.items():
+            if "<head>" in page and 'http-equiv="refresh"' not in page:
+                self.assertIn(f"gtag/js?id={mid}", page, path)
+                self.assertLess(page.index("gtag('consent','default'"), page.index("gtag('config'"), path)
+        self.assertIn("Google Analytics", privacy)
+
     def test_strict_csp_and_nonced_scripts(self):
         for path, html in self.pages.items():
             m = re.search(r'Content-Security-Policy" content="([^"]+)"', html)

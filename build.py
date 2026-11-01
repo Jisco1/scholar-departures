@@ -654,6 +654,26 @@ EXT = ('<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="curr
        'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>')
 
 
+# Visitors in these places are not counted with cookies until they agree in the consent message
+CONSENT_REGIONS = ("AT BE BG HR CY CZ DK EE FI FR DE GR HU IE IT LV LT LU MT NL PL PT RO SK SI ES SE IS LI NO GB CH").split()
+
+
+def analytics_tag():
+    """The visitor counter, on every page once site.json has a measurement ID. It loads before the ad tag so the
+    consent defaults are set first."""
+    mid = (CONFIG.get("analytics") or {}).get("id", "").strip()
+    if not mid:
+        return ""
+    if not re.match(r"^G-[A-Z0-9]{4,16}$", mid):
+        fail(f"site.json analytics.id must look like G-ABC123DEF4, got {mid!r}")
+        return ""
+    return (f'<script async nonce="{NONCE}" src="https://www.googletagmanager.com/gtag/js?id={mid}"></script>\n'
+            f'<script nonce="{NONCE}">window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}'
+            f"gtag('consent','default',{{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',"
+            f"region:{json.dumps(CONSENT_REGIONS)},wait_for_update:500}});"
+            f"gtag('js',new Date());gtag('config','{mid}');</script>\n")
+
+
 def adsense_client():
     c = (CONFIG.get("adsense") or {}).get("client", "").strip()
     if c and not re.match(r"^ca-pub-\d{10,20}$", c):
@@ -728,7 +748,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
 <link rel="icon" href="{root}assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="{root}assets/apple-touch-icon.png">
 <link rel="stylesheet" href="{asset(root, 'site.css')}">
-{extra_head}{head_ads}{ld}</head>
+{extra_head}{analytics_tag()}{head_ads}{ld}</head>
 <body class="{body_class}">
 <a class="skip" href="#main">Skip to content</a>
 <header class="topbar"><div class="wrap">
