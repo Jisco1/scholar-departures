@@ -1,5 +1,99 @@
 [
   {
+    "id": "mastercard-asu-50-online-masters-kigali-2027",
+    "date": "2026-11-01",
+    "category": "Funding",
+    "art": "scholarship",
+    "title": "ASU and the Mastercard Foundation open 50 online master's places for young Africans, based in Kigali",
+    "summary": "Arizona State University's Mastercard Foundation Scholars Program is taking applications until Sunday 22 November for 50 full-time ASU Online master's places, studied while living in Kigali, Rwanda. The scholarship covers tuition, housing and healthcare.",
+    "meta_title": "ASU Mastercard Foundation: 50 online master's places in Kigali",
+    "meta_description": "ASU's Mastercard Foundation Scholars Program offers 50 online master's places for young Africans, based in Kigali. Applications close 22 November 2026.",
+    "why": "It is a fully supported master's for young African professionals who can move to Kigali, and it closes in three weeks. This call replaces on-campus study with an online degree, so read the terms first.",
+    "source_title": "Arizona State University: Mastercard Foundation Scholars, Phase III",
+    "source_url": "https://mcfscholars.asu.edu/phase-three-innovation-and-technology",
+    "body": [
+      "Arizona State University's Mastercard Foundation Scholars Program has opened Phase III, Innovation and Technology, with 50 graduate study places for young African professionals. Applications close on Sunday 22 November at 23:59 GMT.",
+      "Scholars take a full-time ASU Online master's degree while living in Kigali, Rwanda, and must relocate there for the whole programme. The degrees on offer are the MS Business Analytics, MCS Computer Science, MS Engineering in Sustainable Engineering, MS Global Technology and Development, MS Information Technology and MS User Experience.",
+      "The scholarship covers full tuition, housing, healthcare coverage and support during the programme. ASU also lists visa processing costs, an English test voucher if one is required, an application fee waiver, transport to and from Kigali, required books and student fees, and medical support.",
+      "This is a different offer from the program's earlier call for on-campus master's study, which closed on 27 September 2026. The page for Phase III lists no detailed eligibility criteria, so read its FAQ and flyer before applying.",
+      "Our [ASU listing]({{root}}routes/mastercard-foundation-scholars-asu/) has the details, and our [Mastercard Foundation page]({{root}}routes/mastercard-foundation-scholars-program/) lists the other partner universities."
+    ]
+  },
+  {
+    "id": "swedish-institute-scholarships-2027-dates",
+    "date": "2026-11-01",
+    "category": "Funding",
+    "art": "scholarship",
+    "title": "Swedish Institute sets its 2027 scholarship window: 8 to 24 February",
+    "summary": "The Swedish Institute has published its dates for autumn 2027. Applicants must first apply to master's programmes by 15 January 2027, then apply for the scholarship between 8 and 24 February. Results come on 22 April.",
+    "meta_title": "Swedish Institute Scholarships 2027: apply 8 to 24 February",
+    "meta_description": "The Swedish Institute's 2027 scholarship portal opens 8 to 24 February. Apply to your master's by 15 January first. Key dates and what the award pays.",
+    "why": "The scholarship window is only about two weeks, and you cannot use it unless you applied to a Swedish master's first. The step that catches people out is the one due on 15 January.",
+    "source_title": "Swedish Institute: Scholarships for Global Professionals",
+    "source_url": "https://si.se/en/apply/scholarships/swedish-institute-scholarships-for-global-professionals/",
+    "body": [
+      "The Swedish Institute has published the key dates for its Scholarships for Global Professionals for study starting in autumn 2027.",
+      "Applicants first apply to Swedish master's programmes through University Admissions between 16 October 2026 and 15 January 2027. The SI scholarship portal then opens from 8 to 24 February 2027. University admission results come on 1 April 2027, and SI announces its scholarships on 22 April 2027.",
+      "The scholarship pays full tuition, SEK 12,000 a month, a travel grant and insurance, for early-career professionals from the countries on SI's list. That list can change each year, so check it for this intake.",
+      "Our [Swedish Institute listing]({{root}}routes/swedish-institute-scholarships/) has the steps. Sweden's universities also offer their own tuition waivers, which we list in our guide to [tuition fee waivers in Europe]({{root}}guides/tuition-fee-waivers-europe/)."
+    ]
+  },
+  {
+    "id": "uk-graduate-visa-two-years-31-december-2026",
+    "date": "2026-11-01",
+    "category": "Policy",
+    "title": "UK Graduate visa: apply by 31 December 2026 to get two years instead of 18 months",
+    "summary": "The UK's Graduate visa drops from two years to 18 months for bachelor's and master's graduates who apply on or after 1 January 2027. The date that counts is the day you apply. Doctoral graduates still get three years.",
+    "meta_title": "UK Graduate visa falls to 18 months from 1 January 2027",
+    "meta_description": "Apply for the UK Graduate visa by 31 December 2026 to get two years. From 1 January 2027 it lasts 18 months, while doctoral graduates still get three years.",
+    "why": "If you finish a UK degree in time to apply this year, applying before 1 January could give you six more months of work rights. If you are choosing a UK master's for 2027, plan around 18 months.",
+    "source_title": "GOV.UK: Graduate visa",
+    "source_url": "https://www.gov.uk/graduate-visa",
+    "body": [
+      "GOV.UK now sets out the change plainly. A Graduate visa lasts two years if you apply on or before 31 December 2026, and 18 months if you apply on or after 1 January 2027. If you have a PhD or other doctoral qualification, it lasts three years.",
+      "The visa starts on the day your application is approved, and you cannot extend it. So the date of your application decides how long you get, and that makes the last weeks of 2026 matter for anyone who has just finished a course.",
+      "Students on a one-year master's that began in autumn 2026 will finish in 2027, so they should plan on 18 months. The same goes for anyone starting a UK master's or bachelor's in 2027.",
+      "The change comes on top of the [higher money requirement for UK Student visas]({{root}}news/uk-student-visa-money-rises-30-november-2026/) from 30 November 2026. Our [United Kingdom guide]({{root}}countries/united-kingdom/) covers visa costs and the scholarships that can pay them."
+    ]
+  },
+  {
+    "id": "us-four-year-student-visa-rule-on-hold-2026",
+    "date": "2026-11-01",
+    "category": "Policy",
+    "title": "US rule capping student stays at four years is on hold after a federal court order",
+    "summary": "A US rule that would give F-1 and J-1 visitors a fixed stay of up to four years, instead of duration of status, was due to start on 15 September 2026. A federal court issued a nationwide preliminary injunction the day before, so current rules stay in place for now.",
+    "meta_title": "US four-year student visa rule on hold after court order",
+    "meta_description": "A court paused the US rule replacing duration of status with stays of up to four years. What it means for F-1 and J-1 students, and why it may not be final.",
+    "why": "If you plan to study in the US in 2027, the duration of status system still applies today. But an injunction is a pause rather than a final decision, so check your university's international office before you rely on it.",
+    "source_title": "Ohio State University: Duration of Status final rule",
+    "source_url": "https://oia.osu.edu/international-students/immigration-information/duration-status-final-rule",
+    "body": [
+      "The US Department of Homeland Security published a final rule on 17 July 2026 that would end duration of status for F-1 and J-1 visitors. Admission today lasts as long as a student keeps studying. Under the rule, it would be a fixed period of up to four years, with a formal extension needed beyond that.",
+      "The rule was due to take effect on 15 September 2026. On 14 September, a federal court issued a nationwide preliminary injunction that stopped it. Ohio State University's international office says F-1 and J-1 regulations remain unchanged while the case continues, and describes the injunction as a pause rather than a final decision.",
+      "DHS also said the rule would cut the grace period after a course ends from 60 days to 30. That has not taken effect either while the rule is blocked.",
+      "The case could still go either way, so the safest step is to follow your own university's international office. Our [United States guide]({{root}}countries/united-states/) covers funding and costs, and we reported separately on the proposed [fee for OPT work recommendations]({{root}}news/us-opt-fee-proposal-2026/)."
+    ]
+  },
+  {
+    "id": "mit-m13-nanoparticle-personalized-cancer-vaccines",
+    "date": "2026-11-01",
+    "category": "Breakthrough",
+    "title": "MIT engineers tune a virus-based nanofiber to deliver personalized cancer vaccines",
+    "summary": "MIT researchers have built a vaccine particle from the harmless M13 virus and shown they can control how densely it carries cancer antigens. In mice, higher-density versions were much better at preventing melanoma and colon tumours. No human trials are reported.",
+    "meta_title": "MIT's virus-based nanofiber for personalized cancer vaccines",
+    "meta_description": "MIT engineers built a cancer vaccine particle from the harmless M13 virus. In mice, more densely coated versions better prevented melanoma and colon tumours.",
+    "why": "The work joins materials engineering and immunology, a mix behind many funded master's and PhD places. It is early: the results come from mice, not people.",
+    "source_title": "MIT News: MIT engineers create nanoparticles for delivering personalized cancer vaccines",
+    "source_url": "https://news.mit.edu/2026/mit-engineers-create-nanoparticles-delivering-personalized-cancer-vaccines-1030",
+    "body": [
+      "Researchers at MIT have developed a nanoscale vaccine delivery particle from the M13 bacteriophage, a harmless virus that forms a long nanofiber. The fiber can be coated with cancer antigens, the molecules that teach the immune system what to attack, and the team can adapt it to carry different antigens for personalized vaccines.",
+      "The team attaches each antigen to one of the virus's coat proteins, usually by adding the antigen's gene to the virus's DNA, and found ways to adjust how densely it is displayed. The virus's own single-stranded DNA also stimulates the immune system, so the particle does not need a separate adjuvant.",
+      "In mice, phages carrying a model antigen at 35% density protected better than those at 6%, and vaccinated mice made more T cells targeting that antigen and were much less likely to develop melanoma. A higher-density vaccine carrying a colon tumour antigen also made colon tumours much less likely.",
+      "The study tested prevention, in mice only, and no human trials are reported. The paper appears in Advanced Healthcare Materials, with research scientist Shengnan Huang as lead author and Angela Belcher as senior author.",
+      "Our subject pages for [medicine and health]({{root}}subjects/medicine-health/) and [engineering and technology]({{root}}subjects/engineering-technology/) list routes that fund a master's or PhD in fields like these."
+    ]
+  },
+  {
     "id": "vlir-uos-icp-connect-2027-28-open",
     "date": "2026-10-27",
     "category": "Funding",
