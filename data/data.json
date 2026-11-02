@@ -3307,5 +3307,95 @@
       }
     ],
     "approx": false
+  },
+  {
+    "last_verified": "2026-11-02",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "imperial-presidents-phd-scholarships",
+    "name": "Imperial College London President's PhD Scholarships",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics"
+    ],
+    "types": [
+      "Full Scholarship",
+      "Merit"
+    ],
+    "levels": [
+      "PhD"
+    ],
+    "funding": "50 places: full tuition for 3.5 years, a stipend of £27,036 a year (2027-28 rate) and £2,000 a year for research consumables for the first 3 years.",
+    "deadline": "Three rounds for 2027-28: Nov 2, 2026; Jan 11, 2027; Mar 1, 2027 (23:59 UK time)",
+    "link": "https://www.imperial.ac.uk/study/fees-and-funding/postgraduate-doctoral/grants-scholarships/presidents-phd/",
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 11,
+        "d": 2,
+        "for": "Round 1"
+      },
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 11,
+        "for": "Round 2"
+      },
+      {
+        "y": 2027,
+        "m": 3,
+        "d": 1,
+        "for": "Round 3"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-02",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "mbzuai-graduate-scholarships",
+    "name": "MBZUAI funded master's and PhD (Abu Dhabi)",
+    "flag": "🇦🇪",
+    "country": "United Arab Emirates",
+    "region": "Asia",
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Computer Science"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "funding": "Free tuition, a monthly stipend of AED 15,500 (M.Sc.) or AED 17,500 (Ph.D.) for international students, a yearly return flight home and health insurance.",
+    "deadline": "Dec 15, 2026, 5 p.m. Gulf time, for fall 2027 (Computational Biology: Jan 22, 2027)",
+    "link": "https://mbzuai.ac.ae/admissions/graduate-masters-admissions",
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 12,
+        "d": 15,
+        "for": "Graduate programmes"
+      },
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 22,
+        "for": "Computational Biology"
+      }
+    ],
+    "approx": false
   }
 ]

@@ -1,5 +1,290 @@
 [
   {
+    "id": "max-planck-biomedical-ai-25-phd",
+    "title": "25 PhD positions in biomedical AI, Max Planck School of Biomedical AI",
+    "institution": "Max Planck School of Biomedical AI",
+    "country": "Germany",
+    "flag": "🇩🇪",
+    "level": "PhD",
+    "field": "Computer Science",
+    "funding": "Fully funded three-year PhD on an employment contract, with a yearly international conference paid",
+    "summary": "A new German graduate school joining artificial intelligence and the life sciences takes 25 PhD students for September 2027. You work with more than 30 research groups across Germany and are matched to a project and two supervisors.",
+    "meta_title": "25 funded PhD positions in biomedical AI, Max Planck School",
+    "meta_description": "25 fully funded three-year PhD places in Germany joining AI and the life sciences. Starts September 2027; apply by 1 December 2026.",
+    "deadline": "2026-12-01",
+    "posted": "2026-11-02",
+    "link": "https://biomedicalai.maxplanckschools.org/4056/application-process",
+    "source": "Official programme page",
+    "details": {
+      "about": [
+        "The Max Planck School of Biomedical AI is a three-year interdisciplinary PhD programme at the meeting point of AI and the life sciences, with more than 30 participating research groups at universities and institutes across Germany.",
+        "Research falls into four connected areas: molecular and cellular systems, protein and molecule design, complex biological traits, and neural networks. Each student is matched to a project with a dual-supervision team."
+      ],
+      "requirements": [
+        "A master's degree, or current master's enrolment, in computer science, mathematics, statistics, engineering, physics or the life sciences. Work experience does not count as equivalent.",
+        "A strong computational component in both your bachelor's and your master's studies.",
+        "Evidence of English proficiency if you are not a native speaker; the school's FAQ gives the details."
+      ],
+      "offer": [
+        "A fully funded three-year PhD on an employment contract, starting in September 2027.",
+        "Funding to attend one international scientific conference each year."
+      ],
+      "apply": [
+        "Apply only through the Max Planck Schools portal by 1 December 2026. Email applications are not accepted.",
+        "Upload bachelor's and master's certificates and transcripts, a passport or ID copy, an academic CV, a motivation letter and up to three potential supervisors from the list of Fellows.",
+        "Give two referees, whose recommendations are due by 10 December.",
+        "Selection runs through screening (December to January), scientific interviews (January to March) and final matching (March to April)."
+      ]
+    }
+  },
+  {
+    "id": "max-planck-school-of-photonics-phd",
+    "title": "Funded MSc and PhD or PhD in photonics, Max Planck School of Photonics",
+    "institution": "Max Planck School of Photonics",
+    "country": "Germany",
+    "flag": "🇩🇪",
+    "level": "PhD",
+    "field": "Natural Sciences",
+    "funding": "Grants in the MSc phase and an employment position in the PhD phase",
+    "summary": "A German graduate school in the science of light, from attosecond physics to quantum optics, across 14 locations. Enter with a bachelor's for a two-year MSc then a three-year PhD, or with a qualifying MSc for the PhD alone.",
+    "meta_title": "Funded PhD in photonics, Max Planck School of Photonics",
+    "meta_description": "Funded MSc and PhD, or PhD only, in photonics across 14 locations in Germany. For autumn 2027; the portal is open until 1 December 2026.",
+    "deadline": "2026-12-01",
+    "posted": "2026-11-02",
+    "link": "https://photonics.maxplanckschools.org/application",
+    "source": "Official programme page",
+    "details": {
+      "about": [
+        "The Max Planck School of Photonics is an interdisciplinary graduate school in Germany with 14 locations and 23 partner institutions. Its work runs from attosecond physics to quantum optics, across fundamental research and industry-oriented applications.",
+        "The study phase is a two-year MSc at one of three teaching universities, and the research phase is a three-year PhD."
+      ],
+      "requirements": [
+        "A bachelor's degree to enter the study phase, or a qualifying MSc to enter the research phase directly. The school looks for excellent graduates, particularly in physics, engineering or related fields.",
+        "Proof of English: TOEFL or IELTS at CEFR B2 or above, Cambridge CPE or CAE, or an examination office statement that your degree was taught and examined only in English."
+      ],
+      "offer": [
+        "Grants during the MSc phase, then an employment position during the PhD phase.",
+        "PhD starts in autumn 2027. Max Planck Schools charge no tuition fees."
+      ],
+      "apply": [
+        "Apply through the Max Planck Schools portal by 1 December 2026.",
+        "For the study phase the school lists degree certificates and transcripts, a CV, a motivation letter of up to 500 words, a passport or ID copy and proof of English. Check the portal for what the PhD route needs.",
+        "Invite at least two referees by 1 December. Their responses are due by 15 December.",
+        "Selection includes an online test on a research article and an interview with Fellows."
+      ]
+    }
+  },
+  {
+    "id": "max-planck-school-matter-to-life-phd",
+    "title": "Funded master's and PhD in five years, Max Planck School Matter to Life",
+    "institution": "Max Planck School Matter to Life",
+    "country": "Germany",
+    "flag": "🇩🇪",
+    "level": "PhD",
+    "field": "Natural Sciences",
+    "funding": "No tuition fees, a stipend during the master's and a working contract during the PhD",
+    "summary": "A five-year route from a bachelor's degree to a PhD, taught in English, across biology, chemistry and physics. You study in Göttingen or Heidelberg, then research in one of more than 80 faculty labs. Starts September 2027.",
+    "meta_title": "Funded master's and PhD, Max Planck School Matter to Life",
+    "meta_description": "A funded five-year master's and PhD in Germany for bachelor's graduates in science or engineering. No tuition; apply by 1 December 2026.",
+    "deadline": "2026-12-01",
+    "posted": "2026-11-02",
+    "link": "https://mattertolife.maxplanckschools.org/application",
+    "source": "Official programme page",
+    "details": {
+      "about": [
+        "Matter to Life is an interdisciplinary field that draws on biology, chemistry and physics, with topics such as self-organisation in biological systems. The school runs an integrated programme: a two-year master's in English, followed by a PhD in one of more than 80 faculty labs.",
+        "You choose a focus in Complex Systems and Biological Physics in Göttingen, or Molecular Systems Chemistry and Engineering in Heidelberg."
+      ],
+      "requirements": [
+        "A bachelor's degree of at least six semesters in a relevant natural science or engineering subject. Master's graduates may apply, but entry is at the master's phase only, not directly at the PhD.",
+        "A GPA of 1.7 or better on the German scale, or a place in the top 5% of your graduating class.",
+        "Half of your credits in natural sciences including mathematics, and a third of those in physics, chemistry or mathematics.",
+        "Proof of English for non-native speakers, unless your earlier programme was taught in English. Results are due by 15 July 2027.",
+        "Degrees from China, India or Vietnam need verification by the Academic Evaluation Center (APS)."
+      ],
+      "offer": [
+        "No tuition fees and no application fee.",
+        "A stipend during the master's phase and a working contract during the PhD phase."
+      ],
+      "apply": [
+        "Apply through the Max Planck Schools portal by 1 December 2026.",
+        "Upload degree certificates and official transcripts in English or German, and a motivation letter written in the portal's template. Reference letters are not accepted.",
+        "Interview rounds run in February and March, and in March and April 2027."
+      ]
+    }
+  },
+  {
+    "id": "lund-epigenetics-chromatin-dynamics",
+    "title": "PhD in epigenetics and chromatin dynamics of the human brain",
+    "institution": "Lund University",
+    "country": "Sweden",
+    "flag": "🇸🇪",
+    "level": "PhD",
+    "field": "Medicine & Health",
+    "funding": "Salaried four-year doctoral post, with annual leave and an occupational pension",
+    "summary": "Study how repetitive stretches of the genome are controlled in human brain development and disease, using stem cell models of the brain and a mix of lab and computational work. Applications are considered as they arrive.",
+    "meta_title": "PhD in epigenetics and chromatin dynamics, Lund University",
+    "meta_description": "Salaried four-year PhD at Lund University on repetitive elements in human brain development, with stem cell models. Apply by 13 November 2026.",
+    "deadline": "2026-11-13",
+    "posted": "2026-11-02",
+    "link": "https://lu.varbi.com/en/what:job/jobID:982964/type:job/where:4/apply:1",
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "The Laboratory of Epigenetics and Chromatin Dynamics, led by Christopher Douse in the Department of Experimental Medical Science, studies how repetitive elements are regulated in human brain development and disease.",
+        "The project looks at clustered protocadherin repeat genes, retrotransposons and CGG microsatellite repeats, combining chromatin biochemistry with functional genomics in stem cell models of the brain."
+      ],
+      "tasks": [
+        "Work with stem cell cultures, including iPSCs and 2D and 3D neural progenitors.",
+        "Run RNA-seq, CUT&RUN or CUT&Tag and Oxford Nanopore sequencing, and analyse the data.",
+        "Use co-immunoprecipitation or proximity labelling proteomics.",
+        "You may also supervise bachelor's or master's students."
+      ],
+      "requirements": [
+        "A second-cycle degree, or at least 240 credits with at least 60 at second-cycle level, or equivalent knowledge from Sweden or abroad.",
+        "Experience in functional genomics or chromatin biochemistry, and in stem cell culture and differentiation.",
+        "Excellent molecular biology and genetics knowledge, and excellent spoken and written English."
+      ],
+      "offer": [
+        "A salaried, fixed-term, full-time doctoral post at Lund University. The vacancy gives no salary figure.",
+        "Up to four years, starting on 1 December 2026 or as agreed."
+      ],
+      "apply": [
+        "Apply through Lund's vacancy portal by 13 November 2026. Candidates are considered on an ongoing basis during the application period, so apply early.",
+        "Send a personal letter, a CV and degree certificates. Transcripts, referees and recommendation letters are optional."
+      ]
+    }
+  },
+  {
+    "id": "lund-applied-nuclear-physics-lundium",
+    "title": "PhD in applied nuclear physics: a device to identify radioactive sources",
+    "institution": "Lund University",
+    "country": "Sweden",
+    "flag": "🇸🇪",
+    "level": "PhD",
+    "field": "Natural Sciences",
+    "funding": "Salaried four-year doctoral post, funded by the Swedish Radiation Safety Authority",
+    "summary": "Rebuild parts of a detector used to study superheavy elements into a new device that identifies unknown radioactive sources and monitors the environment. Includes simulation, construction and work with environmental samples.",
+    "meta_title": "PhD in applied nuclear physics, Lund University",
+    "meta_description": "Salaried four-year PhD at Lund University building a device to identify radioactive sources and monitor the environment. Apply by 20 November 2026.",
+    "deadline": "2026-11-20",
+    "posted": "2026-11-02",
+    "link": "https://lu.varbi.com/en/what:job/jobID:972103/type:job/where:4/apply:1",
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "The project, From Lundium to L.U.N.D.I.U.M., is funded by the Swedish Radiation Safety Authority. It reuses components of the Lundium decay station, built for superheavy element studies, in a new device with strong alpha, beta and gamma resolving capabilities.",
+        "The post sits in the Nuclear Structure Group, works with the Biospheric and Anthropogenic Radioactivity group, and has links at certain stages with the University of Jyväskylä in Finland."
+      ],
+      "tasks": [
+        "Optimise the device's geometry and elements with Geant4 Monte Carlo simulations.",
+        "Coordinate its mechanical construction, and develop the data acquisition system and analysis framework.",
+        "Validate measurements with simulated contamination samples from the IAEA's yearly proficiency tests.",
+        "Develop methods to analyse radioactive aerosols from environmental samples.",
+        "Publish, report to the funder and present at conferences. Teaching and departmental work can take up to 20% of your time."
+      ],
+      "requirements": [
+        "At least 45 second-cycle credits in physics, engineering physics or a related field, or a master's degree in one of these. Equivalent education is assessed individually.",
+        "Courses totalling at least 60 credits directly relevant to the PhD.",
+        "Very good spoken and written English, and the ability to work independently.",
+        "Radiation detector lab skills, multi-parameter data acquisition and object-oriented programming count in your favour."
+      ],
+      "offer": [
+        "A salaried, fixed-term, full-time doctoral post at Lund University. The vacancy gives no salary figure.",
+        "Four years of full-time study, starting no earlier than 1 January 2027. Teaching extends the employment accordingly."
+      ],
+      "apply": [
+        "Apply through Lund's vacancy portal by 20 November 2026, in English.",
+        "Send a CV, a cover letter on your interest and how the project fits your background, and copies of your study or degree certificates. Transcripts, referees and recommendation letters are optional."
+      ]
+    }
+  },
+  {
+    "id": "lund-turbulent-heat-transfer-rough-surfaces",
+    "title": "PhD in numerical simulation of turbulent heat transfer over rough surfaces",
+    "institution": "Lund University",
+    "country": "Sweden",
+    "flag": "🇸🇪",
+    "level": "PhD",
+    "field": "Engineering & Tech",
+    "funding": "Salaried four-year doctoral post, with industrial partners",
+    "summary": "Use high-fidelity simulation on supercomputers to find how surface roughness changes turbulent flow, friction and heat transfer, then turn the results into simpler models. Industrial partners include Siemens Energy, Ericsson and TRATON.",
+    "meta_title": "PhD in turbulent heat transfer simulation, Lund University",
+    "meta_description": "Salaried four-year PhD at Lund University simulating turbulent heat transfer over rough surfaces, with industrial partners. Apply by 29 November 2026.",
+    "deadline": "2026-11-29",
+    "posted": "2026-11-02",
+    "link": "https://lu.varbi.com/en/what:job/jobID:982431/type:job/where:4/apply:1",
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "The Division of Heat Transfer in LTH's Department of Energy Sciences studies how surface roughness affects turbulent flow, wall friction and heat transfer, especially when the momentum and thermal boundary layers differ in thickness.",
+        "The work relies on DNS and LES using OpenFOAM, CaNS and nekRS on GPU and CPU systems, with industrial partners Siemens Energy AB, Ericsson AB, TRATON AB and RISE."
+      ],
+      "tasks": [
+        "Run and analyse DNS and LES of rough-surface flow and heat transfer on high-performance computers.",
+        "Study the effects of roughness geometry, fluid properties and thermal conditions.",
+        "Derive scaling relations, and develop and validate reduced-order and RANS models.",
+        "Publish in journals, present at conferences and write your thesis. Teaching can take up to 20% of your time."
+      ],
+      "requirements": [
+        "A master's or equivalent in a field such as mechanical or energy engineering, engineering physics, aerospace engineering, applied mathematics or computational science.",
+        "A substantial research project or thesis in CFD, turbulence, heat transfer or a close area.",
+        "A record of running and validating simulations independently, shown through research rather than coursework alone.",
+        "Programming experience such as C/C++, Fortran, Python or Matlab, practical high-performance computing, and very good spoken and written English."
+      ],
+      "offer": [
+        "A salaried, fixed-term, full-time doctoral post at Lund University. The vacancy gives no salary figure.",
+        "Four years of full-time study, starting as agreed. Teaching extends the employment accordingly."
+      ],
+      "apply": [
+        "Apply through Lund's vacancy portal by 29 November 2026, in English.",
+        "Send a CV, a cover letter, study and degree certificates, transcripts, your master's thesis or a summary of ongoing work, and contact details for at least two references."
+      ]
+    }
+  },
+  {
+    "id": "lund-medical-radiation-physics-diffusion-mri",
+    "title": "PhD in medical radiation physics: new diffusion MRI methods",
+    "institution": "Lund University",
+    "country": "Sweden",
+    "flag": "🇸🇪",
+    "level": "PhD",
+    "field": "Medicine & Health",
+    "funding": "Salaried four-year doctoral post, with annual leave and an occupational pension",
+    "summary": "Develop ways to enhance and analyse diffusion MRI images, so that features of tissue such as cell density, shape and size can serve as imaging biomarkers. The work includes deep learning and programming the scanner.",
+    "meta_title": "PhD in diffusion MRI, medical radiation physics, Lund University",
+    "meta_description": "Salaried four-year PhD at Lund University developing diffusion MRI methods to measure tissue microstructure. Apply by 1 December 2026.",
+    "deadline": "2026-12-01",
+    "posted": "2026-11-02",
+    "link": "https://lu.varbi.com/en/what:job/jobID:983786/type:job/where:4/apply:1",
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "The MR physics group in the Department of Medical Radiation Physics works on new techniques for quantitative MRI.",
+        "This project develops methods for enhancing and analysing diffusion MRI images, aiming to identify tissue features such as cell density, cell shape, cell size, blood volume and membrane permeability as possible imaging biomarkers."
+      ],
+      "tasks": [
+        "Work on image reconstruction, deep learning and programming of the MRI scanner.",
+        "Carry out experiments and analyse patient data.",
+        "Publish your results as journal articles that form part of your thesis. Teaching and departmental work can take up to 20% of your time."
+      ],
+      "requirements": [
+        "A second-cycle qualification, or at least 240 credits with at least 60 at second-cycle level, or equivalent knowledge from Sweden or abroad.",
+        "A degree in medical physics or an equivalent foreign qualification, or another 240-credit programme with at least 60 credits directly relevant to the subject and an independent master's project of at least 30 credits.",
+        "Spoken and written English are assessed, with no minimum test score stated.",
+        "Selection also weighs grades, mathematics, statistics, physics, signal processing and computing, your master's project, and knowledge of MRI, modelling, programming and deep learning."
+      ],
+      "offer": [
+        "A salaried, fixed-term, full-time doctoral post at Lund University. The vacancy gives no salary figure.",
+        "Four years of full-time study, from 1 January 2027 or as agreed. Teaching extends the employment accordingly."
+      ],
+      "apply": [
+        "Apply through Lund's vacancy portal by 1 December 2026, in Swedish or English.",
+        "Send a CV, a personal letter on your interest and how the project matches your background, certificates showing you meet the requirements, and a copy of your master's thesis. Top-ranked candidates may be interviewed."
+      ]
+    }
+  },
+  {
     "id": "lund-minaret-women-legal-agency",
     "title": "PhD in Sociology of Law: women's legal agency in Central Asia and the Middle East",
     "institution": "Lund University",
