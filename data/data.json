@@ -2676,10 +2676,10 @@
       "Bachelor's",
       "Master's"
     ],
-    "funding": "Full or partial tuition fee waivers and/or grants towards covering living costs for highly qualified non-EU/EEA students, administered by individual Danish universities.",
-    "deadline": "Set by each Danish university, with its own admission process",
+    "funding": "Tuition waivers for a few top non-EU students at each Danish university, often with a monthly grant: DKK 11,225 at Aalborg, DKK 8,000 at CBS, DKK 7,800 at Roskilde.",
+    "deadline": "Set by each university: 15 January at Copenhagen, Aarhus, DTU, Aalborg, CBS and Roskilde; 1 February at SDU; 1 March at ITU",
     "link": "https://studyindenmark.dk/study-options/scholarships",
-    "last_verified": "2026-10-12",
+    "last_verified": "2026-11-03",
     "content_hash": "df605f34c9fde4d537094fe599867505d88c0288f899d478463b00d69fa2afdf",
     "needs_review": false,
     "slug": "danish-government-scholarships",

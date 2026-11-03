@@ -171,6 +171,9 @@
     },
     "united-states": {
       "route": "fulbright-foreign-student-program"
+    },
+    "denmark": {
+      "route": "danish-government-scholarships"
     }
   }
 }

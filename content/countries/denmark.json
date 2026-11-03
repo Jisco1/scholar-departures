@@ -1,0 +1,194 @@
+{
+  "name": "Denmark",
+  "flag": "🇩🇰",
+  "title": "Denmark: tuition, application fees and the waivers at each university",
+  "meta_title": "Denmark university tuition fees, waivers and application fees",
+  "lede": "Students from outside the EU/EEA and Switzerland pay tuition at Danish universities: from €7,450 a year for some Aalborg programmes to DKK 130,000 at Copenhagen, plus an application fee of €100 to €200. Every university also hands out a few Danish Government Scholarships that waive tuition, and most add a monthly grant.",
+  "description": "Non-EU tuition at all 8 Danish universities, from €7,450 a year, the €100 to €200 application fees, and the tuition waivers each one offers.",
+  "card": "Non-EU tuition from €7,450 a year at Aalborg; €100 to €200 to apply; a few tuition waivers at every university.",
+  "glance": [
+    [
+      "Tuition",
+      "From €7,450 a year at Aalborg to DKK 130,000 at Copenhagen; free for EU/EEA and Swiss citizens"
+    ],
+    [
+      "Application fee",
+      "€100 to €200 for non-EU applicants; no Danish university waives it for financial need"
+    ],
+    [
+      "Proof of funds",
+      "DKK 7,426 a month in 2026, up to DKK 89,112; paying your first semester's tuition counts"
+    ],
+    [
+      "Work while studying",
+      "90 hours a month from September to May, full time in June, July and August"
+    ],
+    [
+      "After you graduate",
+      "A job-seeking permit, now 1 year for students who apply from 1 October 2026"
+    ]
+  ],
+  "sections": [
+    {
+      "h": "Who pays tuition",
+      "html": "<p>Citizens of the EU, the EEA and Switzerland study for free. Everyone else pays tuition, unless they hold a Danish permanent residence permit or one of the few other permits that exempt them, such as refugee status or family reunification. Most universities now ask for the <strong>whole first year</strong> before you start: Aarhus and SDU say so for new applicants, Copenhagen wants the first two semesters by 15 April, and Aalborg by 20 April.</p>"
+    },
+    {
+      "h": "Tuition fees at each Danish university",
+      "html": "<p>These are the yearly fees for full-time master's students from outside the EU/EEA, as each university publishes them. Some universities quote a semester rate; it is doubled here. Euro figures for Copenhagen are approximate, because it charges in kroner.</p><div class=\"table-wrap\"><table><tr><th>University</th><th>Rates for</th><th>Master's tuition a year, non-EU</th></tr><tr><td>University of Copenhagen</td><td>Current rates</td><td>DKK 100,000 (about €13,400) or DKK 130,000 (about €17,400) for most science, health and environment programmes</td></tr><tr><td>Aarhus University</td><td>2026–27</td><td>€13,000 in Arts and Business and Social Sciences; €17,300 in Natural Sciences, Technical Sciences and Health</td></tr><tr><td>Technical University of Denmark (DTU)</td><td>Current rates</td><td>€15,000 (€7,500 a semester); about €30,000 for the two-year MSc</td></tr><tr><td>University of Southern Denmark (SDU)</td><td>From the September 2026 intake</td><td>€10,800 in Humanities; €15,000 in Business and Social Sciences and in Health; €17,300 in Science and Engineering</td></tr><tr><td>Aalborg University</td><td>2026</td><td>€7,450 for business, international relations, culture and tourism; €10,590 for geography, information studies and techno-anthropology; €15,490 for engineering and science</td></tr><tr><td>Copenhagen Business School (CBS)</td><td>Current rates</td><td>€16,000 (€8,000 a semester, DKK 120,000 a year)</td></tr><tr><td>Roskilde University</td><td>From September 2026</td><td>€10,000 to €16,000 for the four English-taught master's open to new international applicants</td></tr><tr><td>IT University of Copenhagen (ITU)</td><td>Admitted in 2026</td><td>€16,500 (€8,250 a semester); €33,000 for the two years</td></tr></table></div><p>The cheapest are Aalborg's business and social-science master's at <strong>€7,450 a year</strong>, followed by Roskilde's Nordic Urban Planning Studies and some Aalborg programmes at about €10,000. Engineering and science cost €15,000 to €17,400 almost everywhere.</p>"
+    },
+    {
+      "h": "Application fees, and who is exempt",
+      "html": "<p>Every Danish university charges applicants from outside the EU/EEA and Switzerland, and will not look at your application until it is paid. Each university charges separately, so applying to three universities means three fees.</p><div class=\"table-wrap\"><table><tr><th>University</th><th>Application fee</th><th>Good to know</th></tr><tr><td>University of Copenhagen</td><td>DKK 1,120 (about €150)</td><td>Paid once per application round, for up to three programmes; not refunded once you submit</td></tr><tr><td>Aarhus University</td><td>€150 (DKK 1,125)</td><td>Covers up to three applications; for applications made after 1 November 2026 it is not refunded, even if you are admitted</td></tr><tr><td>DTU</td><td>€100</td><td>Covers one intake, first and second choice; taken off your first tuition payment if you enrol</td></tr><tr><td>SDU</td><td>€200 application deposit</td><td>Paid before you submit</td></tr><tr><td>Aalborg University</td><td>€150 (DKK 1,150)</td><td>Covers up to three applications for one intake; never refunded</td></tr><tr><td>CBS</td><td>€150</td><td>Paid once per admission round, whatever the number of programmes</td></tr><tr><td>Roskilde University</td><td>€165 (DKK 1,230)</td><td>Covers up to three applications; refunded if you are admitted and start</td></tr><tr><td>ITU</td><td>€150 (DKK 1,125)</td><td>Taken off your first tuition payment if you are admitted</td></tr></table></div><p><strong>No fee waivers for financial need.</strong> Aarhus says plainly that a waiver is not possible for lack of means, and none of the others lists one. You are exempt only if you hold a Danish bachelor's degree, a Danish permanent residence permit or certain other Danish permits, or EU citizen status. Copenhagen also exempts applicants who apply only for an Erasmus Mundus programme. At Roskilde, applicants for the tuition waiver still pay the fee.</p><p>The one exception we found is CBS's Africa, Business and Society scholarship below, which pays the application fee along with everything else. For other countries, see <a href=\"{{root}}guides/universities-with-no-application-fee/\">universities with no application fee</a>.</p>"
+    },
+    {
+      "h": "Tuition waivers and scholarships at each university",
+      "html": "<p>Denmark has no national application for its <a href=\"{{root}}routes/danish-government-scholarships/\">Danish Government Scholarships</a>. The money goes to each university, which picks a few of its best non-EU applicants. At most, you do not fill in a form: applying for the master's on time is how you are considered.</p><div class=\"table-wrap\"><table><tr><th>University</th><th>What it pays</th><th>How you are considered</th></tr><tr><td>University of Copenhagen</td><td>A full or partial tuition waiver and/or a grant for basic living costs</td><td>Automatically, if you are a non-EU applicant offered a master's place; apply by 15 January</td></tr><tr><td>Aarhus University</td><td>Arts and Aarhus BSS: tuition waiver plus a monthly grant. Natural and Technical Sciences: a 100% tuition waiver. Usually one or two per programme</td><td>Automatically, if you apply by 15 January; offers continue through March, and the last is made by 1 April</td></tr><tr><td>DTU</td><td>Tuition for both years of the MSc</td><td>Apply by 15 January with a separate statement on your bachelor's results saying you are applying for the waiver; judged on grades, your university's ranking and research. Awards come in April, for the September intake only</td></tr><tr><td>SDU</td><td>A full tuition waiver, with no living grant</td><td>Only for the MSc in Engineering Physics, Electrical Engineering or Mechanical Engineering in Sønderborg. Apply by 1 February with every document attached and the programme as your first choice; the best are interviewed online from 19 to 27 February</td></tr><tr><td>Aalborg University</td><td>Tuition plus DKK 11,225 (€1,503) a month for four semesters (2026 rate). About 15 a year</td><td>Automatically; apply by 15 January. Decisions come by early July, and tuition already paid is refunded</td></tr><tr><td>CBS</td><td>Tuition plus DKK 8,000 a month for up to 22 months</td><td>Tick the scholarship in the application portal and upload a personal statement by 15 January; answers by 15 March</td></tr><tr><td>Roskilde University</td><td>Tuition plus DKK 7,800 a month for up to 22 months</td><td>Only on programmes chosen each year (for 2026: Media and Communication, Environmental Science, Nordic Urban Planning Studies and Computer Science). Upload a one-page motivational letter and a CV with your application. The 2027 list is due before 15 December 2026</td></tr><tr><td>ITU</td><td>Free tuition and part of your living costs. Three or four a year</td><td>Automatically; winners are told in their letter of admission</td></tr></table></div><p>A waiver-only award still leaves your living costs to you, and to get your residence permit you must then show the funds yourself.</p>"
+    },
+    {
+      "h": "CBS Africa, Business and Society scholarship",
+      "html": "<p>Students from the <strong>University of Ghana Business School</strong>, the <strong>University of Nairobi</strong> and the <strong>University of Johannesburg</strong> who apply for CBS's MSc in Business, Language and Culture (Business and the Global South) can apply for one of about <strong>15 scholarships a year</strong>. They cover the application fee, visa costs, tuition, insurance, travel, housing and living expenses. CBS asks applicants to email absproject.stu@cbs.dk for the application process.</p>"
+    },
+    {
+      "h": "Deadlines: most fall on 15 January",
+      "html": "<p>Fee-paying applicants apply earlier than EU students, who usually have until 1 March. These are the deadlines each university gives for a September start:</p><div class=\"table-wrap\"><table><tr><th>University</th><th>Deadline for non-EU applicants, September start</th></tr><tr><td>University of Copenhagen</td><td>15 January, 23:59 CET; the portal opens on 15 November, and answers come by 13 March</td></tr><tr><td>Aarhus University</td><td>15 January to be considered for a scholarship</td></tr><tr><td>DTU</td><td>15 January; the portal opens on 1 December</td></tr><tr><td>Aalborg University</td><td>15 January, 23:59 CET; the portal opens in mid-December, and answers come by 10 April</td></tr><tr><td>CBS</td><td>15 January, 23:59 CET, including proof of English; the portal opens on 15 December</td></tr><tr><td>Roskilde University</td><td>15 January, 23:59 CET</td></tr><tr><td>SDU</td><td>1 February</td></tr><tr><td>ITU</td><td>1 March, 23:59 CET</td></tr></table></div><p>The scholarship deadline is the same date or earlier, so plan for 15 January, and pay the application fee before you submit.</p>"
+    },
+    {
+      "h": "Proof of funds for your residence permit",
+      "html": "<p>Denmark's immigration agency, SIRI, asks students to show <strong>DKK 7,426 a month</strong> (2026 level) for each month of study, up to 12 months: <strong>DKK 89,112</strong>. The money must be in a bank account in your own name, or come from a granted scholarship or loan; a parent's statement is not accepted. If you have already paid your first semester's tuition, that counts as proof and you need nothing more. The permit costs <strong>DKK 3,060</strong> and normally takes two months.</p>"
+    },
+    {
+      "h": "Working while you study",
+      "html": "<p>Students on state-approved programmes may work <strong>90 hours a month</strong> from September to May and <strong>full time in June, July and August</strong>. Hours are counted per calendar month.</p>"
+    },
+    {
+      "h": "After you graduate: the job-seeking permit",
+      "html": "<p>Graduates of a state-approved Danish bachelor's or master's get a job-seeking permit together with their study permit. If you applied for your study permit <strong>on or after 1 October 2026</strong>, it is generally <strong>1 year</strong>; students who applied before then got 3 years, and PhD graduates still get 3. While job seeking you may work 90 hours a month, or apply for a work permit without limitations.</p>"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Which Danish universities have no application fee?",
+      "a": "None, for applicants from outside the EU/EEA and Switzerland with a foreign degree. DTU charges €100, Copenhagen DKK 1,120 (about €150), Aarhus, Aalborg, CBS and ITU €150, Roskilde €165 and SDU a €200 deposit. DTU and ITU take it off your first tuition payment, and Roskilde refunds it if you start."
+    },
+    {
+      "q": "Can I get the application fee waived in Denmark?",
+      "a": "Not for financial need. You are exempt only with a Danish bachelor's degree, a Danish permanent residence permit or certain other Danish permits. CBS's Africa, Business and Society scholarship pays the fee for students from the University of Ghana Business School, Nairobi and Johannesburg."
+    },
+    {
+      "q": "Do Danish universities waive tuition for international students?",
+      "a": "Yes, a few each year, through Danish Government Scholarships. Copenhagen, Aarhus, Aalborg and ITU consider every non-EU applicant automatically; DTU and CBS ask for a statement, Roskilde for a motivational letter and CV. Most deadlines are 15 January."
+    },
+    {
+      "q": "What is the cheapest Danish university for international students?",
+      "a": "Aalborg University, where business, international relations, culture and tourism master's cost €7,450 a year (2026 rates). Roskilde's Nordic Urban Planning Studies costs €10,000, and SDU's humanities programmes €10,800."
+    },
+    {
+      "q": "How much money do I need for a Danish student residence permit?",
+      "a": "DKK 7,426 a month in 2026, up to DKK 89,112 for a year. If you have paid your first semester's tuition, that counts as proof instead."
+    }
+  ],
+  "sources": [
+    {
+      "title": "University of Copenhagen: Application and tuition fees",
+      "url": "https://www.ku.dk/studies/masters/application-and-admission/tuition-fees-and-scholarships"
+    },
+    {
+      "title": "University of Copenhagen: Scholarships for full degree students",
+      "url": "https://www.ku.dk/studies/admission/scholarships-for-full-degree-students"
+    },
+    {
+      "title": "University of Copenhagen: Master's application deadlines",
+      "url": "https://www.ku.dk/studies/masters/application-and-admission"
+    },
+    {
+      "title": "Aarhus University: Tuition fees and application fee",
+      "url": "https://masters.au.dk/tuitionfees"
+    },
+    {
+      "title": "Aarhus University: Current tuition fee rates",
+      "url": "https://masters.au.dk/tuitionfees/current-tuition-fee-rates"
+    },
+    {
+      "title": "Aarhus University: Scholarships and grants",
+      "url": "https://masters.au.dk/scholarships-and-grants"
+    },
+    {
+      "title": "DTU: Tuition fees",
+      "url": "https://www.dtu.dk/english/education/graduate/application-and-admission/fees-and-funding/tuition-fees"
+    },
+    {
+      "title": "DTU: Application fee",
+      "url": "https://www.dtu.dk/english/education/graduate/application-and-admission/fees-and-funding/application-fee"
+    },
+    {
+      "title": "DTU: Tuition fee waivers",
+      "url": "https://www.dtu.dk/english/education/graduate/fees-and-funding/tuition_fee_waivers"
+    },
+    {
+      "title": "DTU: Exemption from fees",
+      "url": "https://www.dtu.dk/english/education/graduate/application-and-admission/fees-and-funding/exemption-from-fees"
+    },
+    {
+      "title": "DTU: Deadlines and intake periods",
+      "url": "https://dtu.dk/english/education/graduate/admission-and-deadlines/application_procedure/apply/Important-dates-and-deadlines-Autumn"
+    },
+    {
+      "title": "University of Southern Denmark: Tuition fees",
+      "url": "https://www.sdu.dk/en/uddannelse/fees_and_funding/tuition"
+    },
+    {
+      "title": "University of Southern Denmark: Scholarships",
+      "url": "https://www.sdu.dk/en/uddannelse/fees_and_funding/scholarships"
+    },
+    {
+      "title": "University of Southern Denmark: Master's admission for non-EU applicants",
+      "url": "https://www.sdu.dk/en/uddannelse/ansoegning-optagelse/kandidat-erhvervskandidat/non-eu-admission"
+    },
+    {
+      "title": "Aalborg University: Finance and fees",
+      "url": "https://www.en.aau.dk/education/apply/master/finance-and-fees"
+    },
+    {
+      "title": "Aalborg University: How and when to apply",
+      "url": "https://www.en.aau.dk/education/apply/master/how-and-when-to-apply"
+    },
+    {
+      "title": "Copenhagen Business School: Application and admission, master",
+      "url": "https://www.cbs.dk/en/study-programmes/master-programmes/application-and-admission"
+    },
+    {
+      "title": "Roskilde University: Tuition fee rates",
+      "url": "https://ruc.dk/en/tuition-fee-rates"
+    },
+    {
+      "title": "Roskilde University: Tuition fee waivers and scholarships",
+      "url": "https://ruc.dk/en/step-5-tuition-fees-tuition-fee-waivers-and-scholarships"
+    },
+    {
+      "title": "Roskilde University: Application fee",
+      "url": "https://ruc.dk/en/step-4-pay-application-fee"
+    },
+    {
+      "title": "Roskilde University: Application deadlines",
+      "url": "https://ruc.dk/en/step-1-application-deadlines"
+    },
+    {
+      "title": "IT University of Copenhagen: Non-EU/EEA applicants",
+      "url": "https://en.itu.dk/Programmes/MSc-Programmes/Applying-to-an-MSc-programme/Non-EU-EOES"
+    },
+    {
+      "title": "IT University of Copenhagen: Applying for an MSc programme",
+      "url": "https://en.itu.dk/Programmes/MSc-Programmes/Applying-to-an-MSc-programme"
+    },
+    {
+      "title": "New to Denmark (SIRI): Higher educational programmes",
+      "url": "https://www.nyidanmark.dk/en-GB/You-want-to-apply/Study/Higher-Education"
+    },
+    {
+      "title": "New to Denmark (SIRI): Job seeking permit for 1 or 3 years",
+      "url": "https://www.nyidanmark.dk/en-GB/You-want-to-apply/Study/Study---job-seeking/Study---3-years-job-seeking"
+    }
+  ],
+  "reviewed": "2026-11-03"
+}
