@@ -835,18 +835,19 @@ class BuiltSite(unittest.TestCase):
                 self.assertGreaterEqual(links, least, f"{folder}/{name}: linked from only {links} other {folder} pages")
 
     def test_shared_stories_show_their_own_photo(self):
-        # a link shared on WhatsApp or Facebook should preview the story's photo, not the site-wide card
+        # a link shared on WhatsApp or Facebook should preview the story's photo, not the site-wide card.
+        # 3 Nov 2026: every story has a real photo, so none falls back to a drawing or the DegreeStep card
         items = json.loads((self.dir / "content" / "news.json").read_text(encoding="utf-8"))
-        with_photo = [n for n in items if n.get("images")]
-        self.assertGreaterEqual(len(with_photo), 5)
         for n in items:
+            self.assertTrue(n.get("images"), f"{n['id']} needs a photo")
             html = self.pages[self.site / "news" / n["id"] / "index.html"]
             img = re.search(r'<meta property="og:image" content="([^"]+)">', html).group(1)
-            want = "https://degreestep.com/assets/" + (f"share-{n['id']}.jpg" if n.get("images") else "og.png")
-            self.assertEqual(img, want, n["id"])
+            self.assertEqual(img, f"https://degreestep.com/assets/share-{n['id']}.jpg", n["id"])
             self.assertTrue((self.site / "assets" / img.rsplit("/", 1)[1]).exists(), img)
+        # pages with no picture of their own share the home page's graduation photo, not a drawn card
         home = self.pages[self.site / "index.html"]
-        self.assertIn('<meta property="og:image" content="https://degreestep.com/assets/og.png">', home)
+        self.assertIn('<meta property="og:image" content="https://degreestep.com/assets/og.jpg">', home)
+        self.assertTrue((self.site / "assets" / "og.jpg").exists())
 
     def test_closed_scheme_keeps_its_address(self):
         # Search Console (19 Oct 2026) still showed the removed Research Ireland route 107 times a month; a closed scheme
@@ -857,19 +858,24 @@ class BuiltSite(unittest.TestCase):
         self.assertIn('href="../../countries/ireland/"', page)
         self.assertIn("routes/research-ireland-postgraduate-scholarships/", (self.site / "sitemap.xml").read_text(encoding="utf-8"))
 
-    def test_shared_pages_show_their_own_card(self):
-        # scholarships, guides, country guides and positions each preview their own card when shared
+    def test_shared_pages_show_their_own_photo(self):
+        # 3 Nov 2026: scholarships, guides, country guides and positions each preview a real photograph when shared
+        # (the owner asked for actual pictures, not drawn cards), and the page credits the photographer
         checked = 0
         for folder, kind in (("routes", "route"), ("guides", "guide"), ("countries", "country"), ("positions", "position")):
             for path in self.site.glob(f"{folder}/*/index.html"):
-                img = re.search(r'<meta property="og:image" content="([^"]+)">', self.pages[path]).group(1)
+                html = self.pages[path]
+                img = re.search(r'<meta property="og:image" content="([^"]+)">', html).group(1)
                 card = f"share-{kind}-{path.parent.name}.jpg"
-                if (self.site / "assets" / card).exists():
-                    self.assertEqual(img, "https://degreestep.com/assets/" + card, path.parent.name)
-                    checked += 1
-                else:
-                    self.assertEqual(img, "https://degreestep.com/assets/og.png", path.parent.name)
-        self.assertGreaterEqual(checked, 80, "most pages should have their own card")
+                if not (self.site / "assets" / card).exists():
+                    # added since tools/share_cards.py last ran (the update robot can't run it): the site-wide photo
+                    self.assertEqual(img, "https://degreestep.com/assets/og.jpg", f"{folder}/{path.parent.name}")
+                    continue
+                self.assertEqual(img, "https://degreestep.com/assets/" + card, f"{folder}/{path.parent.name}")
+                credit = re.search(r'<p class="photo-credit wrap">Photo shown when this page is shared: <a href="(https://commons\.wikimedia\.org/[^"]+)"', html)
+                self.assertTrue(credit, f"{folder}/{path.parent.name} must credit its share photo")
+                checked += 1
+        self.assertGreaterEqual(checked, 100, "almost every page should have its own photo")
 
     def test_shared_positions_say_where_and_when(self):
         # a shared position reads like the shared scholarships: title, then where and what level, then when it closes

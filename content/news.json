@@ -17,6 +17,17 @@
       "Ph.D. funding comes from the university in year 1, then moves to the student's faculty advisor. It depends on a confirmed advisor match by the end of that year and on satisfactory progress. The Master in Applied Artificial Intelligence is different: it charges AED 170,000 in total and has no university funding.",
       "Applicants need a STEM degree and a CGPA of at least 3.0 or 3.5, depending on the programme. The process includes a screening exam, an AED 200 fee and a technical interview, and decisions are due by 31 March 2027.",
       "Our [MBZUAI listing]({{root}}routes/mbzuai-graduate-scholarships/) has the details, and our [KAUST page]({{root}}routes/kaust-fellowship/) covers a similar funded route in Saudi Arabia."
+    ],
+    "images": [
+      {
+        "file": "news-masdar-city-abu-dhabi.jpg",
+        "kind": "wide",
+        "name": "Masdar City, Abu Dhabi, home to MBZUAI",
+        "credit": "Renek78",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Masdar_City_in_March_2022_01.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
     ]
   },
   {
@@ -37,6 +48,17 @@
       "Imperial sets no nationality limit, though some departments may be unable to support international candidates. Applicants need a first-class undergraduate or integrated master's degree, or a distinction in a standalone master's, and departments can put forward special cases.",
       "There is no separate form. Candidates find a supervisor who agrees to take them, apply for a PhD place and select the scholarship in the funding section. The supervisor cannot also act as a referee.",
       "Our [Imperial listing]({{root}}routes/imperial-presidents-phd-scholarships/) has the details, and our [Gates Cambridge page]({{root}}routes/gates-cambridge-scholarship/) covers another UK PhD route."
+    ],
+    "images": [
+      {
+        "file": "news-imperial-queens-lawn.jpg",
+        "kind": "wide",
+        "name": "Queen's Lawn at Imperial College London",
+        "credit": "Shadowssettle",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Queen%27s_Lawn_and_Imperial_College_Road_looking_west.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
     ]
   },
   {
@@ -57,6 +79,17 @@
       "The School of Photonics takes graduates with a bachelor's into a two-year MSc followed by a three-year PhD, and those with a qualifying MSc straight into the PhD. Matter to Life takes bachelor's graduates into a five-year master's and PhD, with entry at the master's phase only.",
       "The School of Cognition's own page gives a different window, running to the end of March, so check it directly if that is your field. Recommendations for Biomedical AI are due by 10 December, and those for Photonics by 15 December.",
       "Our pages have the details for [Biomedical AI]({{root}}positions/max-planck-biomedical-ai-25-phd/), [Photonics]({{root}}positions/max-planck-school-of-photonics-phd/) and [Matter to Life]({{root}}positions/max-planck-school-matter-to-life-phd/), and the [DAAD page]({{root}}routes/daad-scholarships/) covers other funding for Germany."
+    ],
+    "images": [
+      {
+        "file": "news-mpi-biochemistry-martinsried.jpg",
+        "kind": "wide",
+        "name": "The Max Planck Institute of Biochemistry in Martinsried, near Munich",
+        "credit": "PRmpib",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:MPIB_institut_header2.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
     ]
   },
   {
@@ -76,6 +109,17 @@
       "That is less than in gold collisions, as expected for a much smaller system, and the Large Hadron Collider's oxygen collisions ran above 5,000 billion electron volts. The new result therefore sets a lower boundary for the conditions that can produce this plasma in a small system.",
       "The collider stopped running earlier this year, and its final oxygen collisions ended on 6 February 2026. More results are expected from that run. The paper appears in Physical Review Letters.",
       "Our subject page for [natural sciences]({{root}}subjects/natural-sciences/) lists routes that fund a master's or PhD in fields like this one."
+    ],
+    "images": [
+      {
+        "file": "news-star-detector-rhic.jpg",
+        "kind": "wide",
+        "name": "The STAR detector at the Relativistic Heavy Ion Collider",
+        "credit": "Z22",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:STAR_Detector_at_Relativistic_Heavy_Ion_Collider.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
     ]
   },
   {
@@ -96,6 +140,17 @@
       "The scholarship covers full tuition, housing, healthcare coverage and support during the programme. ASU also lists visa processing costs, an English test voucher if one is required, an application fee waiver, transport to and from Kigali, required books and student fees, and medical support.",
       "This is a different offer from the program's earlier call for on-campus master's study, which closed on 27 September 2026. The page for Phase III lists no detailed eligibility criteria, so read its FAQ and flyer before applying.",
       "Our [ASU listing]({{root}}routes/mastercard-foundation-scholars-asu/) has the details, and our [Mastercard Foundation page]({{root}}routes/mastercard-foundation-scholars-program/) lists the other partner universities."
+    ],
+    "images": [
+      {
+        "file": "news-kigali-at-dusk.jpg",
+        "kind": "wide",
+        "name": "Kigali, Rwanda, at dusk",
+        "credit": "Adrien K",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kigali2018Cropped.jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      }
     ]
   },
   {
@@ -115,6 +170,17 @@
       "Applicants first apply to Swedish master's programmes through University Admissions between 16 October 2026 and 15 January 2027. The SI scholarship portal then opens from 8 to 24 February 2027. University admission results come on 1 April 2027, and SI announces its scholarships on 22 April 2027.",
       "The scholarship pays full tuition, SEK 12,000 a month, a travel grant and insurance, for early-career professionals from the countries on SI's list. That list can change each year, so check it for this intake.",
       "Our [Swedish Institute listing]({{root}}routes/swedish-institute-scholarships/) has the steps. Sweden's universities also offer their own tuition waivers, which we list in our guide to [tuition fee waivers in Europe]({{root}}guides/tuition-fee-waivers-europe/)."
+    ],
+    "images": [
+      {
+        "file": "news-stockholm-gamla-stan.jpg",
+        "kind": "wide",
+        "name": "Gamla Stan, Stockholm's old town, at dusk",
+        "credit": "Richardmaackphotography",
+        "license": "CC BY 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Sweden,_Stockholm,_Gamla_Stan_(Old_Town),_Dusk_150628-69.jpg",
+        "license_url": "https://creativecommons.org/licenses/by/4.0"
+      }
     ]
   },
   {
@@ -133,6 +199,17 @@
       "The visa starts on the day your application is approved, and you cannot extend it. So the date of your application decides how long you get, and that makes the last weeks of 2026 matter for anyone who has just finished a course.",
       "Students on a one-year master's that began in autumn 2026 will finish in 2027, so they should plan on 18 months. The same goes for anyone starting a UK master's or bachelor's in 2027.",
       "The change comes on top of the [higher money requirement for UK Student visas]({{root}}news/uk-student-visa-money-rises-30-november-2026/) from 30 November 2026. Our [United Kingdom guide]({{root}}countries/united-kingdom/) covers visa costs and the scholarships that can pay them."
+    ],
+    "images": [
+      {
+        "file": "news-palace-of-westminster.jpg",
+        "kind": "wide",
+        "name": "The Palace of Westminster, London",
+        "credit": "Diliff",
+        "license": "CC BY-SA 2.5",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Palace_of_Westminster,_London_-_Feb_2007.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.5"
+      }
     ]
   },
   {
@@ -151,6 +228,17 @@
       "The rule was due to take effect on 15 September 2026. On 14 September, a federal court issued a nationwide preliminary injunction that stopped it. Ohio State University's international office says F-1 and J-1 regulations remain unchanged while the case continues, and describes the injunction as a pause rather than a final decision.",
       "DHS also said the rule would cut the grace period after a course ends from 60 days to 30. That has not taken effect either while the rule is blocked.",
       "The case could still go either way, so the safest step is to follow your own university's international office. Our [United States guide]({{root}}countries/united-states/) covers funding and costs, and we reported separately on the proposed [fee for OPT work recommendations]({{root}}news/us-opt-fee-proposal-2026/)."
+    ],
+    "images": [
+      {
+        "file": "news-us-capitol.jpg",
+        "kind": "wide",
+        "name": "The United States Capitol, Washington",
+        "credit": "Martin Falbisoner",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:US_Capitol_east_side.JPG",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      }
     ]
   },
   {
@@ -170,6 +258,17 @@
       "In mice, phages carrying a model antigen at 35% density protected better than those at 6%, and vaccinated mice made more T cells targeting that antigen and were much less likely to develop melanoma. A higher-density vaccine carrying a colon tumour antigen also made colon tumours much less likely.",
       "The study tested prevention, in mice only, and no human trials are reported. The paper appears in Advanced Healthcare Materials, with research scientist Shengnan Huang as lead author and Angela Belcher as senior author.",
       "Our subject pages for [medicine and health]({{root}}subjects/medicine-health/) and [engineering and technology]({{root}}subjects/engineering-technology/) list routes that fund a master's or PhD in fields like these."
+    ],
+    "images": [
+      {
+        "file": "news-mit-killian-court.jpg",
+        "kind": "wide",
+        "name": "Killian Court at MIT",
+        "credit": "Madcoverboy",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:MIT_Killian_Court.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      }
     ]
   },
   {
@@ -192,6 +291,17 @@
       "Applicants must be nationals of one of 25 countries and live in one of them when they apply. In Africa these are Benin, Burkina Faso, Burundi, Cameroon, DR Congo, Ethiopia, Guinea, Kenya, Madagascar, Morocco, Mozambique, Niger, Senegal, South Africa, Tanzania, Uganda and Zimbabwe; the others are Palestine, Bolivia, Cuba, Ecuador, Peru, Indonesia, the Philippines and Vietnam. Ghana and Nigeria are not on the list.",
       "You apply to the programme through the university or college that runs it, by its own deadline, and you may apply for only one ICP Connect programme a year. The age limit is 35 on 1 January 2027 for a bachelor's or two-year master's, and 45 for a one-year master's. VLIR-UOS holds an online information session on 26 November 2026, and results reach candidates by mid-May 2027.",
       "Our [VLIR-UOS page]({{root}}routes/vlir-uos-icp-connect-scholarships/) has the full costs and conditions. If your country is not on the list, [Erasmus Mundus]({{root}}routes/erasmus-mundus-joint-masters/) joint master's scholarships are open to every nationality."
+    ],
+    "images": [
+      {
+        "file": "news-ghent-from-the-boekentoren.jpg",
+        "kind": "wide",
+        "name": "Ghent, seen from the Boekentoren",
+        "credit": "Anton Raath",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ghent_from_the_Boekentoren_belvedere_3.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
     ]
   },
   {
@@ -212,6 +322,17 @@
       "43 countries are eligible, among them Ghana, Nigeria, Kenya, Uganda, Tanzania, Zambia, Malawi, Rwanda, Sierra Leone, South Africa, India, Pakistan and Bangladesh. Applicants need at least an upper second-class degree, or a lower second plus a relevant postgraduate qualification, by September 2027, and must not have studied or worked for more than a year in a high-income country. There is no age limit.",
       "Only approved master's courses at participating universities qualify, and the CSC publishes the 2027 list before applications open. You apply for admission to the course, and for the scholarship on CSC Central; the CSC accepts applications no other way. Each university then runs its own selection and nominates its chosen candidates to the CSC.",
       "Our [Commonwealth Shared Scholarships page]({{root}}routes/commonwealth-shared-scholarships/) has the costs and documents. The CSC's [Commonwealth Master's Scholarships]({{root}}routes/commonwealth-masters-scholarships/), which go through national nominating agencies, closed for 2027–28 on 20 October."
+    ],
+    "images": [
+      {
+        "file": "news-tower-bridge-london.jpg",
+        "kind": "wide",
+        "name": "Tower Bridge, London",
+        "credit": "Colin",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Tower_Bridge_from_London_City_Hall_2015.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
     ]
   },
   {
@@ -233,6 +354,17 @@
       "Master's awards last up to 24 months from the first year of a master's, 12 months from the second and 36 months for an engineering degree. PhD awards last 12, 18 or 36 months; the 36-month award is only for new candidates starting a doctorate in France. Funded studies must start between 1 September and 30 November 2027.",
       "The programme encourages applicants up to 29 at master's level and 35 at PhD level, in seven fields: biology and health, ecological transition, mathematics and digital technology, engineering sciences, French history, language and civilisation, law and political science, and economics and management. It cannot be combined with another French government scholarship, an Erasmus+ scholarship or an award from the Agence Universitaire de la Francophonie.",
       "Our [Eiffel Excellence Scholarship page]({{root}}routes/eiffel-excellence-scholarship/) lists the documents universities ask for. For what a year in France costs beyond the allowance, see our guide to [the real cost of free tuition]({{root}}guides/real-cost-of-free-tuition/)."
+    ],
+    "images": [
+      {
+        "file": "news-eiffel-tower-at-night.jpg",
+        "kind": "wide",
+        "name": "The Eiffel Tower and Pont Alexandre III, Paris, at night",
+        "credit": "Getfunky Paris",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Eiffel_Tower_and_Pont_Alexandre_III_at_night.jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      }
     ]
   },
   {
@@ -800,6 +932,17 @@
       "The [Max Planck ETH Center for Learning Systems]({{root}}positions/eth-max-planck-learning-systems/) gives each fellow one advisor at ETH Zurich and one at a Max Planck Institute in Stuttgart, Tübingen or Saarbrücken, or at the ELLIS Institute Tübingen, with a compulsory 12-month exchange between the two. The deadline is 23:59 Central European Time on 2 November 2026, and shortlisted applicants are invited to a selection symposium in Tübingen in March 2027.",
       "The [RobotX PhD Fellowship]({{root}}positions/eth-robotx-phd-fellowship/) lets you apply once and name up to three robotics professors, who then review your application. It suits applicants who have already built something that works on real hardware, and it closes on 27 November 2026.",
       "All three need a master's degree by the time you start, and ETH accepts applications only through its online portal. Our guide to [how funded PhDs work in Europe]({{root}}guides/funded-phd-europe/) explains how fellowship programmes like these differ from single-project PhD posts. If you still need the master's, the [ETH Zurich Excellence Scholarship]({{root}}routes/eth-zurich-excellence-scholarship/) funds master's study at ETH."
+    ],
+    "images": [
+      {
+        "file": "news-eth-zurich-main-building.jpg",
+        "kind": "wide",
+        "name": "ETH Zurich's main building",
+        "credit": "roland zh",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:ETH_Z%C3%BCrich_-_Hauptgeb%C3%A4ude_-_Polyterrasse_2012-09-27_14-40-49_ShiftN.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      }
     ]
   },
   {
@@ -820,6 +963,17 @@
       "After the deadline, applications are checked against the eligibility criteria, and independent reading committees assess the eligible ones from mid-October 2026 to January 2027. British embassies and high commissions draw up shortlists in mid-February 2027 and interview candidates in March and April.",
       "Shortlisted candidates must upload their documents, including photo ID, their undergraduate certificate and their reference letters, at least seven working days before the interview. Results are announced from mid-June 2027. Successful candidates must then secure at least one unconditional offer from a UK university by 17:00 UK time on 8 July 2027, and start their studies in September or October 2027.",
       "If you are aiming for the 2028–29 round, which has not been announced yet, our [application timeline]({{root}}guides/application-timeline/) and [document checklist]({{root}}guides/document-checklist/) help you prepare early."
+    ],
+    "images": [
+      {
+        "file": "news-london-from-waterloo-bridge.jpg",
+        "kind": "wide",
+        "name": "London from Waterloo Bridge",
+        "credit": "Diliff",
+        "license": "CC BY-SA 3.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:London_Skyline_from_Waterloo_Bridge,_London,_UK_-_Diliff.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      }
     ]
   },
   {

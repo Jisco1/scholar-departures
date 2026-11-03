@@ -703,7 +703,7 @@ def ad_bay(kind, wide=False):
 
 
 def page(path, title, description, body, *, root, nav=None, body_class="", jsonld=None, extra_head="",
-         scripts=(), og_type="website", noindex=False, ads=True, og_image=None):
+         scripts=(), og_type="website", noindex=False, ads=True, og_image=None, og_photo=None):
     canonical = BASE + path
     branded = f"{title} · {SITE}"
     full_title = title if title.endswith(SITE) or title.startswith(SITE) or len(branded) > TITLE_MAX else branded
@@ -740,7 +740,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
 <meta property="og:description" content="{e(description)}">
 <meta property="og:type" content="{og_type}">
 <meta property="og:url" content="{e(canonical)}">
-<meta property="og:image" content="{e(og_image or BASE + 'assets/og.png')}">
+<meta property="og:image" content="{e(og_image or BASE + 'assets/og.jpg')}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -757,7 +757,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
 </div></header>
 <main id="main">
 {body}
-</main>
+{photo_credit(og_photo) if og_image and og_photo else ''}</main>
 <footer class="sitefoot"><div class="wrap">
   <div class="foot-grid">
     <div class="foot-brand">
@@ -794,9 +794,62 @@ def latest(*dates):
 
 
 def share_image(key):
-    """The page's own 1200 x 630 share picture, made by tools/share_cards.py; None keeps the site-wide card."""
+    """The page's own 1200 x 630 share picture, made by tools/share_cards.py; None keeps the site-wide one."""
     name = f"share-{key}.jpg"
     return BASE + "assets/" + name if (SRC / "assets" / name).exists() else None
+
+
+_PHOTO_FILES = {}
+
+
+def photo_sources():
+    """data/route_photos.json and data/share_photos.json, read and checked once."""
+    if not _PHOTO_FILES:
+        for name in ("route_photos", "share_photos"):
+            path = DATA / f"{name}.json"
+            _PHOTO_FILES[name] = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+        route_photos, shares = _PHOTO_FILES["route_photos"], _PHOTO_FILES["share_photos"]
+        for group in ("institutions", "guides", "countries"):
+            for key, ph in (shares.get(group) or {}).items():
+                where = f"share_photos.json: {group} / {key}"
+                if "route" in ph:
+                    if ph["route"] not in route_photos:
+                        fail(f"{where}: route_photos.json has no photo for {ph['route']!r}")
+                    continue
+                if not str(ph.get("commons", "")).startswith("File:"):
+                    fail(f"{where}: 'commons' must be a Wikimedia Commons file name starting File:")
+                if not IMAGE_LICENCE.match(ph.get("license") or ""):
+                    fail(f"{where}: licence {ph.get('license')!r} is not one we may use (CC0, public domain, CC BY or CC BY-SA)")
+                if not isinstance(ph.get("credit"), str) or not ph["credit"].strip() or re.search(r"[<>\x00-\x1f]", ph["credit"]):
+                    fail(f"{where}: credit must be plain text")
+                for key2 in ("source_url", "license_url"):
+                    if (key2 == "source_url" or ph.get(key2)) and not URL_RE.match(ph.get(key2) or ""):
+                        fail(f"{where}: '{key2}' must be a plain https:// URL")
+    return _PHOTO_FILES["route_photos"], _PHOTO_FILES["share_photos"]
+
+
+def share_photo(kind, slug, institution=None):
+    """A page's share picture and the photo it was cut from, so the page can credit it. A scholarship uses its own
+    photo; a guide, a country guide or a position (by its institution) uses data/share_photos.json. (None, None)
+    keeps the site-wide picture, until tools/share_cards.py has made the page its own."""
+    route_photos, shares = photo_sources()
+    if kind == "route":
+        ph = route_photos.get(slug)
+    else:
+        group = {"guide": "guides", "country": "countries", "position": "institutions"}[kind]
+        ph = (shares.get(group) or {}).get(institution if kind == "position" else slug)
+        if ph and "route" in ph:
+            ph = route_photos.get(ph["route"])
+    img = share_image(f"{kind}-{slug}")
+    return (img, ph) if img and ph else (None, None)
+
+
+def photo_credit(ph):
+    """The credit line for the photo a page shows when it is shared."""
+    who = f'<a href="{e(ph["source_url"])}" target="_blank" rel="noopener">{e(ph["credit"])}</a>'
+    lic = (f'<a href="{e(ph["license_url"])}" target="_blank" rel="noopener">{e(ph["license"])}</a>'
+           if ph.get("license_url") else e(ph["license"]))
+    return f'<p class="photo-credit wrap">Photo shown when this page is shared: {who} ({lic}), via Wikimedia Commons.</p>'
 
 
 def write(path, text):
@@ -1136,8 +1189,8 @@ def build_position_page(p, live):
                               where)
     title = search_title(p.get("meta_title"), f"{p['title']}, {p['institution']}", where)
     LASTMOD[path] = p.get("posted")
-    write(path, page(path, title, desc, body, root=root, nav="positions/",
-                     og_image=share_image(f"position-{p['id']}"),
+    og_image, og_photo = share_photo("position", p["id"], p["institution"])
+    write(path, page(path, title, desc, body, root=root, nav="positions/", og_image=og_image, og_photo=og_photo,
                      body_class="position-page", extra_head=f'<link rel="stylesheet" href="{asset(root, "landing.css")}">\n',
                      scripts=[asset(root, "positions.js")],
                      jsonld=[breadcrumb_ld([("", "Home"), ("positions/", "Funded positions"), (path, p["title"])])]))
@@ -1760,9 +1813,10 @@ def build_route_pages(routes, notes, country_pages):
                        "mainEntity": [{"@type": "Question", "name": x["q"],
                                        "acceptedAnswer": {"@type": "Answer", "text": LINK_MD.sub(r"", x["a"])}} for x in faq]})
         LASTMOD[f"routes/{r['slug']}/"] = latest(reviewed, r.get("last_verified"))
+        og_image, og_photo = share_photo("route", r["slug"])
         write(f"routes/{r['slug']}/", page(f"routes/{r['slug']}/", title, desc,
                                             article, root=root, nav="routes/", jsonld=ld, og_type="article",
-                                            og_image=share_image(f"route-{r['slug']}")))
+                                            og_image=og_image, og_photo=og_photo))
 
 
 def build_routes_index(routes, country_pages):
@@ -1832,6 +1886,7 @@ def build_countries(routes, countries):
 </div><aside class="rail" aria-label="Advertisements">{ad_bay("rail")}</aside></div></div>"""
         LASTMOD[f"countries/{slug}/"] = c.get("reviewed")
         where = f"content/countries/{slug}.json"
+        og_image, og_photo = share_photo("country", slug)
         write(f"countries/{slug}/", page(f"countries/{slug}/", search_title(c.get("meta_title"), c["title"], where),
                                           search_description(c["description"], "", where), body, root=root, nav="countries/",
                                           jsonld=[breadcrumb_ld([("", "Home"), ("countries/", "Countries"), (f"countries/{slug}/", c["name"])]),
@@ -1839,7 +1894,7 @@ def build_countries(routes, countries):
                                                    "description": c["description"], "dateModified": c["reviewed"],
                                                    "author": author_ld(), "publisher": {"@type": "Organization", "name": SITE, "url": BASE},
                                                    "mainEntityOfPage": BASE + f"countries/{slug}/"}] + faq_ld,
-                                          og_type="article", og_image=share_image(f"country-{slug}")))
+                                          og_type="article", og_image=og_image, og_photo=og_photo))
     root = "../"
     tiles = "".join(
         f'<a class="tile" href="{slug}/"><span class="tile-kicker">{e(c.get("flag", ""))} {len([r for r in routes if slugify(r["country"]) == slug])} routes</span>'
@@ -2447,10 +2502,11 @@ def build_guides(guides, routes):
                                       for q in faq]})
         LASTMOD[f"guides/{g['slug']}/"] = g.get("updated")
         where = f"content/guides/{g['slug']}.html"
+        og_image, og_photo = share_photo("guide", g["slug"])
         write(f"guides/{g['slug']}/", page(f"guides/{g['slug']}/", search_title(g.get("meta_title"), g["title"], where),
                                             search_description(g.get("meta_description"), g["description"], where), html_body, root=root,
                                             nav="guides/", jsonld=ld, og_type="article",
-                                            og_image=share_image(f"guide-{g['slug']}")))
+                                            og_image=og_image, og_photo=og_photo))
     root = "../"
     tiles = "".join(
         f'<a class="tile" href="{g["slug"]}/"><span class="tile-kicker">{e(g.get("kicker", "Guide"))}</span><h2>{e(g["title"])}</h2>'

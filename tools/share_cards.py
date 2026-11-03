@@ -1,110 +1,84 @@
-"""Make the picture a shared link shows for each scholarship, guide, country guide and funded position.
+"""Make the picture a shared link shows for each scholarship, guide, country guide and funded position, and the
+site-wide one: a real photograph, cropped to 1200 x 630, the shape WhatsApp, LinkedIn, Facebook and X show large.
 
     python tools/share_cards.py
 
-Run it after adding or renaming a route, guide, country guide or position. It needs Google Chrome (to draw the
-card, so the fonts and colours match the site) and Pillow (to save it small). It writes
-src/assets/share-<kind>-<slug>.jpg at 1200 x 630: the page's name, what it is, and a boarding-pass strip,
-in the same style as the site-wide card. Pages without a card keep the site-wide one.
+Run it after adding or renaming a route, guide, country guide or position. It needs Pillow (pip install pillow) and
+a connection, since guide, country and institution photos come from Wikimedia Commons. It writes
+src/assets/share-<kind>-<slug>.jpg and src/assets/og.jpg. Where the photos come from:
+- a scholarship: its own photo in data/route_photos.json
+- a guide, a country guide, a position's institution: data/share_photos.json
+- everything else: the home page's graduation photo (public domain)
+News stories have their own pictures, made by tools/share_images.py.
 """
 import datetime as dt
-import html
+import io
 import json
-import os
 import pathlib
-import re
-import subprocess
-import tempfile
+import sys
+import urllib.parse
+import urllib.request
 
 from PIL import Image
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from share_images import cover  # noqa: E402
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 ASSETS = ROOT / "src" / "assets"
-CHROME = os.environ.get("CHROME", r"C:\Program Files\Google\Chrome\Application\chrome.exe")
-CAP = ('<svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#D7A94C" stroke-width="2" stroke-linecap="round" '
-       'stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>')
-e = lambda s: html.escape(str(s), quote=True)
+UA = {"User-Agent": "DegreeStepBot/1.0 (https://degreestep.com; share pictures)"}
+W, H = 1200, 630
+_downloads = {}
 
 
-def fit(text, width):
-    return max(16, min(30, int(width / (max(len(text), 1) * 1.25))))
+def commons(title):
+    """A Commons file at 1600 px wide, fetched once per run."""
+    if title not in _downloads:
+        u = "https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode(
+            {"action": "query", "format": "json", "titles": title, "prop": "imageinfo", "iiprop": "url", "iiurlwidth": 1600})
+        info = json.load(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=60))
+        url = next(iter(info["query"]["pages"].values()))["imageinfo"][0]["thumburl"]
+        raw = urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=120).read()
+        _downloads[title] = Image.open(io.BytesIO(raw)).convert("RGB")
+    return _downloads[title]
 
 
-def tiles(text, size, brass=False):
-    text = text.upper()
-    color = "#E9A53F" if brass else "#E9EEF7"
-    return "".join(f'<span style="display:inline-block;min-width:{size * 0.95:.0f}px;margin-right:{size * 0.22:.0f}px;'
-                   f'padding:3px 0;text-align:center;background:#0E1A2E;border-radius:3px;color:{color};'
-                   f'font:700 {size}px Consolas,monospace">{"&nbsp;" if ch == " " else e(ch)}</span>' for ch in text)
+def photo(entry, route_photos):
+    if "route" in entry:
+        return Image.open(ASSETS / route_photos[entry["route"]]["file"]).convert("RGB")
+    return commons(entry["commons"])
 
 
-def card_html(title, subtitle, left, right):
-    head, _, tail = title.partition(": ")
-    size = 66 if len(title) <= 38 else 58 if len(title) <= 60 else 50 if len(title) <= 85 else 44
-    tile = min(fit(left[1], 560), fit(right[1], 380))
-    label = "font:13px Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;color:#7D8EAD;margin-bottom:10px"
-    title_html = (f'{e(head)}<br><em style="color:#D7A94C">{e(tail)}</em>' if tail else e(title))
-    return f"""<html><head><meta charset="utf-8"></head><body style="margin:0;width:1200px;height:630px;overflow:hidden;
-background:#0B1322 repeating-linear-gradient(115deg, rgba(255,255,255,.022) 0 1px, transparent 1px 30px)">
-<div style="position:absolute;left:80px;top:78px;display:flex;align-items:center;gap:22px">{CAP}
-<span style="font:17px Consolas,monospace;letter-spacing:.55em;color:#D7A94C">DEGREESTEP</span></div>
-<div style="position:absolute;left:80px;right:80px;top:166px;height:270px;display:flex;flex-direction:column;justify-content:center;gap:26px">
-<div style="font:400 {size}px/1.12 Georgia,serif;color:#E9EEF7;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden">{title_html}</div>
-<div style="font:27px 'Segoe UI',sans-serif;color:#A4B4CC;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{e(subtitle)}</div></div>
-<div style="position:absolute;left:80px;right:80px;bottom:56px;height:104px;background:#121F35;border:1px solid #243450;
-border-radius:12px;display:flex;align-items:center;padding:0 30px;gap:40px">
-<div style="flex:1.45;min-width:0"><div style="{label}">{e(left[0])}</div>{tiles(left[1], tile)}</div>
-<div style="flex:1;min-width:0"><div style="{label}">{e(right[0])}</div>{tiles(right[1], tile, brass=True)}</div>
-</div></body></html>"""
-
-
-def front(path):
-    return json.loads(re.match(r"\s*<!--\s*(\{.*?\})\s*-->", path.read_text(encoding="utf-8"), re.S).group(1))
-
-
-def pages():
-    routes = json.loads((ROOT / "data" / "data.json").read_text(encoding="utf-8"))
-    routes += [json.loads(p.read_text(encoding="utf-8")) for p in sorted((ROOT / "data" / "incoming").glob("*.json"))]
-    for r in routes:
-        sub = " · ".join([r["country"], *r["types"], *r["levels"]])
-        yield f"route-{r['slug']}", r["name"], sub, ("Destination", r["country"]), ("Funding", r["types"][0])
-    for f in sorted((ROOT / "content" / "guides").glob("*.html")):
-        g = front(f)
-        words = len(re.sub(r"<[^>]+>", " ", f.read_text(encoding="utf-8")).split())
-        mins = max(1, round(words / 220))
-        yield (f"guide-{f.stem}", g["title"], f"Guide · {g.get('kicker', 'Guide')} · {mins} min read",
-               ("Guide", g.get("kicker", "Guide")), ("Reading time", f"{mins} min"))
-    slugify = lambda s: re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
-    for f in sorted((ROOT / "content" / "countries").glob("*.json")):
-        c = json.loads(f.read_text(encoding="utf-8"))
-        n = sum(1 for r in routes if slugify(r["country"]) == f.stem)
-        yield f"country-{f.stem}", c["title"], c.get("card", ""), ("Country", c["name"]), ("Funded routes", str(n))
-    today = dt.date.today()
-    for p in json.loads((ROOT / "content" / "positions.json").read_text(encoding="utf-8")):
-        d = dt.date.fromisoformat(p["deadline"])
-        if d >= today:
-            yield (f"position-{p['id']}", p["title"], f"{p['institution']} · {p['country']}",
-                   ("Position", p["level"]), ("Closes", f"{d.day} {d.strftime('%b %Y')}"))
+def save(im, name, focus=50):
+    out = ASSETS / name
+    cover(im, W, H, focus).save(out, "JPEG", quality=84, optimize=True, progressive=True)
+    print(f"{name}  {out.stat().st_size // 1024} KB")
+    return out.name
 
 
 def main():
+    route_photos = json.loads((ROOT / "data" / "route_photos.json").read_text(encoding="utf-8"))
+    shares = json.loads((ROOT / "data" / "share_photos.json").read_text(encoding="utf-8"))
+    routes = json.loads((ROOT / "data" / "data.json").read_text(encoding="utf-8"))
     made = set()
-    with tempfile.TemporaryDirectory() as tmp:
-        for key, title, sub, left, right in pages():
-            page = pathlib.Path(tmp) / f"{key}.html"
-            png = pathlib.Path(tmp) / f"{key}.png"
-            page.write_text(card_html(title, sub, left, right), encoding="utf-8")
-            subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars", "--force-device-scale-factor=1",
-                            "--window-size=1200,630", f"--screenshot={png}", page.as_uri()],
-                           check=True, capture_output=True, timeout=60)
-            out = ASSETS / f"share-{key}.jpg"
-            Image.open(png).convert("RGB").crop((0, 0, 1200, 630)).save(out, "JPEG", quality=86, optimize=True, progressive=True)
-            made.add(out.name)
-            print(out.name)
-    # a position that has closed no longer has a page, so its card goes too
-    for old in ASSETS.glob("share-position-*.jpg"):
-        if old.name not in made:
+    for r in routes:
+        ph = route_photos.get(r["slug"])
+        if ph:
+            made.add(save(Image.open(ASSETS / ph["file"]).convert("RGB"), f"share-route-{r['slug']}.jpg", ph.get("focus", 50)))
+    for kind, group in (("guide", "guides"), ("country", "countries")):
+        for slug, entry in shares[group].items():
+            made.add(save(photo(entry, route_photos), f"share-{kind}-{slug}.jpg", entry.get("focus", 50)))
+    today = dt.date.today()
+    for p in json.loads((ROOT / "content" / "positions.json").read_text(encoding="utf-8")):
+        entry = shares["institutions"].get(p["institution"])
+        if entry and dt.date.fromisoformat(p["deadline"]) >= today:
+            made.add(save(photo(entry, route_photos), f"share-position-{p['id']}.jpg", entry.get("focus", 50)))
+    save(Image.open(ASSETS / "hero-graduation-1920.jpg").convert("RGB"), "og.jpg", 40)
+    # a card nothing uses any more (a position that has closed, a route that was renamed) goes
+    for old in ASSETS.glob("share-*-*.jpg"):
+        if old.name.split("-")[1] in ("route", "guide", "country", "position") and old.name not in made:
             old.unlink()
+            print(f"removed {old.name}")
 
 
 if __name__ == "__main__":

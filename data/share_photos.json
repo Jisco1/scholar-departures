@@ -1,0 +1,173 @@
+{
+  "_help": "The photo each shared link previews (WhatsApp, LinkedIn, Facebook, X), for pages that are not a scholarship (those use data/route_photos.json) or a news story (those use their own images). Each entry is {\"route\": slug} to reuse that scholarship's photo, or a Wikimedia Commons file ('commons') with its credit and licence. tools/share_cards.py turns them into src/assets/share-*.jpg; 'focus' (0 top to 100 bottom) moves the crop.",
+  "institutions": {
+    "Lund University": {
+      "route": "lund-university-global-scholarship"
+    },
+    "Uppsala University": {
+      "route": "uppsala-global-scholarship"
+    },
+    "ETH Zurich": {
+      "route": "eth-zurich-excellence-scholarship"
+    },
+    "University of Oslo": {
+      "commons": "File:Universitetet i Oslo Blindern plassen foran Frederikke.jpg",
+      "credit": "Helge Høifødt",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Universitetet_i_Oslo_Blindern_plassen_foran_Frederikke.jpg"
+    },
+    "Max Planck School of Biomedical AI": {
+      "commons": "File:MPIB institut header2.jpg",
+      "credit": "PRmpib",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:MPIB_institut_header2.jpg"
+    },
+    "Max Planck School of Photonics": {
+      "commons": "File:New building of the Max Planck Institute for the Science of Light in Erlangen February 2016.jpg",
+      "credit": "MPL Presse",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:New_building_of_the_Max_Planck_Institute_for_the_Science_of_Light_in_Erlangen_February_2016.jpg"
+    },
+    "Max Planck School Matter to Life": {
+      "commons": "File:MPI dyn s.jpg",
+      "credit": "Nn ozyjo",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:MPI_dyn_s.jpg"
+    }
+  },
+  "guides": {
+    "application-timeline": {
+      "commons": "File:ASC Leiden - NSAG - van Dis 4 - 160 - University of Nsukka. Students in western clothes in the library reading room - Nsukka, Enugu State, South East Nigeria - 22-30 January 1962.tif",
+      "credit": "Maarten van Dis",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:ASC_Leiden_-_NSAG_-_van_Dis_4_-_160_-_University_of_Nsukka._Students_in_western_clothes_in_the_library_reading_room_-_Nsukka,_Enugu_State,_South_East_Nigeria_-_22-30_January_1962.tif"
+    },
+    "contacting-phd-supervisors": {
+      "commons": "File:Knight-Crane Convergence Lab - Flickr - Knight Foundation.jpg",
+      "credit": "Knight Foundation",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Knight-Crane_Convergence_Lab_-_Flickr_-_Knight_Foundation.jpg"
+    },
+    "document-checklist": {
+      "commons": "File:Brazil, Iceland, UK, US passport stamps.jpg",
+      "credit": "Jon Evans",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Brazil,_Iceland,_UK,_US_passport_stamps.jpg"
+    },
+    "funded-phd-europe": {
+      "commons": "File:Precision pipetting in biology research.jpg",
+      "credit": "Aidar Turlanov",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Precision_pipetting_in_biology_research.jpg"
+    },
+    "funding-labels-explained": {
+      "commons": "File:MBA graduation ceremony, June 2008.JPG",
+      "credit": "Sbmt",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:MBA_graduation_ceremony,_June_2008.JPG"
+    },
+    "government-scholarships-compared": {
+      "commons": "File:Palais des Nations, United Nations, Geneva.jpg",
+      "credit": "MediaSociety",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Palais_des_Nations,_United_Nations,_Geneva.jpg"
+    },
+    "motivation-letter": {
+      "commons": "File:Writing-1209121 1920.jpg",
+      "credit": "Free-Photos",
+      "license": "CC0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Writing-1209121_1920.jpg"
+    },
+    "real-cost-of-free-tuition": {
+      "commons": "File:Living and Learning Residence Hall, Gallaudet University.jpg",
+      "credit": "Sdkb",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Living_and_Learning_Residence_Hall,_Gallaudet_University.jpg"
+    },
+    "recommendation-letters": {
+      "commons": "File:Office of Naval Research Global Visit to University College London (5455298).jpg",
+      "credit": "U.S. Navy photo by John Williams",
+      "license": "Public domain",
+      "license_url": "",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Office_of_Naval_Research_Global_Visit_to_University_College_London_(5455298).jpg"
+    },
+    "scholarship-scams": {
+      "commons": "File:Backlit keyboard.jpg",
+      "credit": "Colin",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Backlit_keyboard.jpg"
+    },
+    "tuition-fee-waivers-europe": {
+      "route": "padua-international-excellence-scholarship"
+    },
+    "universities-with-no-application-fee": {
+      "commons": "File:Students walking towards Komaba Campus, University of Tokyo.jpg",
+      "credit": "Tokyo538",
+      "license": "CC0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Students_walking_towards_Komaba_Campus,_University_of_Tokyo.jpg"
+    },
+    "us-financial-aid-international": {
+      "commons": "File:Harvard Yard im Sommer.jpg",
+      "credit": "Marco Almbauer",
+      "license": "Public domain",
+      "license_url": "",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Harvard_Yard_im_Sommer.jpg"
+    },
+    "visa-money-work-compared": {
+      "commons": "File:47 Airport departures board free photo - Melbourne Airport timetable - Creative Commons Attribution.jpg",
+      "credit": "Marek Ślusarczyk (Tupungato)",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:47_Airport_departures_board_free_photo_-_Melbourne_Airport_timetable_-_Creative_Commons_Attribution.jpg"
+    }
+  },
+  "countries": {
+    "australia": {
+      "route": "australia-awards-scholarships"
+    },
+    "austria": {
+      "route": "university-of-vienna"
+    },
+    "belgium": {
+      "route": "vlir-uos-icp-connect-scholarships"
+    },
+    "canada": {
+      "route": "canada-graduate-research-scholarships-doctoral"
+    },
+    "germany": {
+      "route": "daad-scholarships"
+    },
+    "ireland": {
+      "route": "government-of-ireland-international-education-scholarships"
+    },
+    "italy": {
+      "route": "university-of-bologna"
+    },
+    "netherlands": {
+      "route": "maastricht-holland-high-potential"
+    },
+    "switzerland": {
+      "route": "swiss-government-excellence-scholarships"
+    },
+    "united-kingdom": {
+      "route": "chevening-scholarships"
+    },
+    "united-states": {
+      "route": "fulbright-foreign-student-program"
+    }
+  }
+}
