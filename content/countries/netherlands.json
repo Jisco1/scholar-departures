@@ -3,7 +3,7 @@
   "flag": "🇳🇱",
   "title": "The Netherlands: tuition, application fees and the scholarships that cover them",
   "meta_title": "Netherlands university fees and costs for international students",
-  "lede": "Dutch universities teach hundreds of programmes in English. Students from outside the EU/EEA pay institutional fees: from about €9,300 a year at universities of applied sciences, and mostly €18,000–€26,000 for a research-university master's. The funded routes are university scholarships such as TU Delft's Van Effen and Maastricht's NL-High Potential.",
+  "lede": "Dutch universities teach hundreds of programmes in English. Students from outside the EU/EEA pay institutional fees: from about €9,300 a year at universities of applied sciences, and mostly €18,000–€26,000 for a research-university master's. The funded routes are university scholarships such as TU Delft's Van Effen, Maastricht's NL-High Potential and Groningen's Eric Bleumink Fellowship.",
   "description": "Non-EU tuition at each Dutch research university and 11 universities of applied sciences for 2026–27, the cheapest from €9,314, and the €100 application fee.",
   "card": "Non-EU fees from €9,314 at universities of applied sciences; research-university master's mostly €18,000–€26,000.",
   "sections": [
@@ -25,11 +25,11 @@
     },
     {
       "h": "The cheapest options",
-      "html": "<p>The lowest non-EU fees in the Netherlands are at universities of applied sciences. For a 2026–27 bachelor's, <strong>Windesheim</strong> (€9,314), <strong>HAN</strong> (€9,320 for Communication, International Business and International Social Work), <strong>Saxion</strong> (€9,360), <strong>HZ</strong> (€9,893) and <strong>Van Hall Larenstein</strong> (€9,950) charge least, and Van Hall Larenstein's International Agribusiness and Trade costs €8,830.</p><p>Among research universities, the lowest non-EU master's fees for 2026–27 are at the <strong>University of Twente</strong> (€18,200 for its lower-rate programmes), <strong>Groningen</strong> (€19,900 in arts, philosophy and religion) and <strong>Tilburg</strong> (€19,900). For a bachelor's, Maastricht (from €13,200), Tilburg (€13,400), Utrecht (from €13,415) and Erasmus (€13,500) cost least. Wageningen charges non-EU master's students <strong>€21,900</strong> for 2026–27, with €22,500 expected for 2027–28.</p><p>The only way to study in the Netherlands for nothing is a full scholarship, such as the two below.</p>"
+      "html": "<p>The lowest non-EU fees in the Netherlands are at universities of applied sciences. For a 2026–27 bachelor's, <strong>Windesheim</strong> (€9,314), <strong>HAN</strong> (€9,320 for Communication, International Business and International Social Work), <strong>Saxion</strong> (€9,360), <strong>HZ</strong> (€9,893) and <strong>Van Hall Larenstein</strong> (€9,950) charge least, and Van Hall Larenstein's International Agribusiness and Trade costs €8,830.</p><p>Among research universities, the lowest non-EU master's fees for 2026–27 are at the <strong>University of Twente</strong> (€18,200 for its lower-rate programmes), <strong>Groningen</strong> (€19,900 in arts, philosophy and religion) and <strong>Tilburg</strong> (€19,900). For a bachelor's, Maastricht (from €13,200), Tilburg (€13,400), Utrecht (from €13,415) and Erasmus (€13,500) cost least. Wageningen charges non-EU master's students <strong>€21,900</strong> for 2026–27, with €22,500 expected for 2027–28.</p><p>The only way to study in the Netherlands for nothing is a full scholarship, such as the three below.</p>"
     },
     {
       "h": "Full scholarships",
-      "html": "<p>Two routes on this board cover tuition and living costs:</p><ul><li><a href=\"{{root}}routes/tu-delft-van-effen-excellence/\">TU Delft's Justus &amp; Louise van Effen Excellence Scholarship</a>: about 16 awards across two-year MSc programmes; apply with a complete MSc application by <strong>1 December</strong>.</li><li><a href=\"{{root}}routes/maastricht-holland-high-potential/\">Maastricht University's NL-High Potential Scholarship</a>: 18 awards for 2027–28 covering tuition, living expenses (€20,150 for a 13-month programme), insurance and visa costs; master's application by <strong>10 December</strong>, scholarship by <strong>1 February</strong>.</li></ul>"
+      "html": "<p>Three routes on this board cover tuition and living costs:</p><ul><li><a href=\"{{root}}routes/tu-delft-van-effen-excellence/\">TU Delft's Justus &amp; Louise van Effen Excellence Scholarship</a>: about 16 awards across two-year MSc programmes; apply with a complete MSc application by <strong>1 December</strong>.</li><li><a href=\"{{root}}routes/maastricht-holland-high-potential/\">Maastricht University's NL-High Potential Scholarship</a>: 18 awards for 2027–28 covering tuition, living expenses (€20,150 for a 13-month programme), insurance and visa costs; master's application by <strong>10 December</strong>, scholarship by <strong>1 February</strong>.</li><li><a href=\"{{root}}routes/eric-bleumink-fellowship-groningen/\">The University of Groningen's Eric Bleumink Fellowship</a>: four awards a year for students from 79 developing countries, covering tuition, €1,250 a month, flights and insurance; complete your Groningen master's application before <strong>1 December</strong>.</li></ul>"
     },
     {
       "h": "Apply early",
@@ -260,7 +260,7 @@
     },
     {
       "q": "Which are the cheapest universities in the Netherlands for international students?",
-      "a": "Universities of applied sciences: for a 2026–27 bachelor's, Windesheim charges non-EU students €9,314, HAN from €9,320, Saxion €9,360 and HZ €9,893. Among research universities, Twente, Groningen and Tilburg have the lowest master's fees. A full scholarship such as TU Delft's Van Effen or Maastricht's NL-High Potential covers tuition and living costs."
+      "a": "Universities of applied sciences: for a 2026–27 bachelor's, Windesheim charges non-EU students €9,314, HAN from €9,320, Saxion €9,360 and HZ €9,893. Among research universities, Twente, Groningen and Tilburg have the lowest master's fees. A full scholarship such as TU Delft's Van Effen, Maastricht's NL-High Potential or Groningen's Eric Bleumink Fellowship covers tuition and living costs."
     },
     {
       "q": "How much money do I need for a Dutch student residence permit?",

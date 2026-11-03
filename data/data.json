@@ -3432,5 +3432,46 @@
       }
     ],
     "approx": false
+  },
+  {
+    "last_verified": "2026-11-03",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "eric-bleumink-fellowship-groningen",
+    "name": "University of Groningen: Eric Bleumink Fellowship",
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Agriculture & Environment",
+      "Arts & Humanities",
+      "Business & Economics",
+      "Computer Science",
+      "Engineering & Tech",
+      "Medicine & Health",
+      "Natural Sciences",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Full Scholarship",
+      "Merit"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "Full tuition, €1,250 a month, return flights, books and insurance for a one- or two-year Groningen master's, for students from 79 developing countries.",
+    "deadline": "Before Dec 1, 2026: a complete Groningen master's application for a September 2027 start. There is no separate scholarship form",
+    "link": "https://www.rug.nl/education/scholarships/eric-bleumink-fellowship?lang=en",
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 11,
+        "d": 30,
+        "for": "last day to complete your master's application"
+      }
+    ],
+    "approx": false
   }
 ]
