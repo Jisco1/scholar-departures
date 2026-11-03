@@ -3397,5 +3397,40 @@
       }
     ],
     "approx": false
+  },
+  {
+    "last_verified": "2026-11-03",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "oist-phd-program",
+    "name": "OIST PhD Program (Okinawa, Japan)",
+    "flag": "🇯🇵",
+    "country": "Japan",
+    "region": "Asia",
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Natural Sciences",
+      "Computer Science",
+      "Engineering & Tech"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "PhD"
+    ],
+    "funding": "Financial support of about 2.6 million yen in the first year, rising with progress to about 3.6 million yen (taxable), with subsidised campus housing.",
+    "deadline": "Nov 15, 2026, 23:59 Japan time, for entry in May 2027, September 2027 or January 2028",
+    "link": "https://www.oist.jp/admissions/phd-program/apply-phd",
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 11,
+        "d": 15,
+        "for": "Admissions Workshop 2027"
+      }
+    ],
+    "approx": false
   }
 ]

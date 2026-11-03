@@ -1,5 +1,88 @@
 [
   {
+    "id": "lund-huntingtons-circadian-biomarkers",
+    "title": "PhD in biomarkers for neurodegenerative diseases: the body clock in Huntington's disease",
+    "institution": "Lund University",
+    "country": "Sweden",
+    "flag": "🇸🇪",
+    "level": "PhD",
+    "field": "Medicine & Health",
+    "funding": "Salaried four-year doctoral post in Lund's Faculty of Medicine",
+    "summary": "Find out whether disruptions to the body's circadian clock change the course of Huntington's disease, and whether adjusting the clock could slow it. The work mixes lab experiments with data analysis, including RNA sequencing.",
+    "meta_title": "PhD on Huntington's disease and the body clock, Lund University",
+    "meta_description": "Salaried four-year PhD at Lund University on circadian clock disruption in Huntington's disease. Starts 1 January 2027; apply by 23 November 2026.",
+    "deadline": "2026-11-23",
+    "posted": "2026-11-03",
+    "link": "https://lu.varbi.com/en/what:job/jobID:986215/type:job/where:4/apply:1",
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "The Biomarkers in Brain Disease group, in Lund's Department of Experimental Medical Science, works in a shared environment of five neurodegeneration groups and is active in the European Huntington's Disease Network and the Lund University Huntington Centre.",
+        "This project asks whether disruptions to the circadian clock affect how Huntington's disease progresses, and whether changing clock function could alter that course. It combines in vitro and in vivo work with methods such as RNA sequencing."
+      ],
+      "tasks": [
+        "Carry out lab experiments in cells and in animal models, and analyse the data.",
+        "Use methods such as RNA sequencing to follow how the disease changes.",
+        "You may also supervise bachelor's or master's students."
+      ],
+      "requirements": [
+        "A second-cycle degree, or at least 240 credits with at least 60 at second-cycle level, or equivalent knowledge.",
+        "Applicants who graduated no more than three years before the closing date are given priority.",
+        "Knowledge of molecular biology and neurodegeneration, in vivo and in vitro experience, and primer design and RT-PCR work count in your favour, as do good spoken and written English."
+      ],
+      "offer": [
+        "A salaried, fixed-term, full-time doctoral post at Lund University. The vacancy gives no salary figure.",
+        "Four years of full-time study, starting on 1 January 2027 or as agreed."
+      ],
+      "apply": [
+        "Apply through Lund's vacancy portal by 23 November 2026. Applications are reviewed as they arrive, so apply early.",
+        "Send a cover letter on your interest and how your background matches, a CV and your degree certificate. Transcripts, referees and recommendation letters are optional."
+      ]
+    }
+  },
+  {
+    "id": "lund-autonomous-gis-spatial-intelligence",
+    "title": "PhD in geographical information science: autonomous GIS and spatial AI",
+    "institution": "Lund University",
+    "country": "Sweden",
+    "flag": "🇸🇪",
+    "level": "PhD",
+    "field": "Computer Science",
+    "funding": "Salaried four-year doctoral post at Lund's GIS Centre",
+    "summary": "Research how large language models and multi-agent AI systems can plan and run geographic analyses on their own, and how far their results can be trusted. You shape the questions with your supervisors.",
+    "meta_title": "PhD in autonomous GIS and spatial AI, Lund University",
+    "meta_description": "Salaried four-year PhD at Lund University on LLM agents that plan geospatial analyses. Starts 7 January 2027; apply by 25 November 2026.",
+    "deadline": "2026-11-25",
+    "posted": "2026-11-03",
+    "link": "https://lu.varbi.com/en/what:job/jobID:984146/type:job/where:4/apply:1",
+    "source": "Official university vacancy",
+    "details": {
+      "about": [
+        "The GIS Centre in Lund's Department of Earth and Environmental Sciences (MGeo) runs research in GeoAI and spatial intelligence. This post is on autonomous GIS: using large language models and multi-agent systems to plan geospatial workflows, and judging how reliable AI-generated analyses are.",
+        "The specific research questions are developed with your supervisors."
+      ],
+      "tasks": [
+        "Carry out independent research leading to a thesis, mainly published in peer-reviewed journals.",
+        "Take doctoral courses and seminars, and travel to conferences.",
+        "Teaching and departmental work can take up to 20% of your time, which extends the employment."
+      ],
+      "requirements": [
+        "A second-cycle qualification, or at least 240 credits with at least 60 at second-cycle level, or equivalent knowledge, including an independent degree project of at least 30 credits.",
+        "A master's in GIS, geoinformatics, computer science, AI or a close field.",
+        "Skills in Python, machine learning and deep learning.",
+        "Good written and spoken English. The application must be in English."
+      ],
+      "offer": [
+        "A salaried, fixed-term, full-time doctoral post at Lund University. The vacancy gives no salary figure.",
+        "Four years of full-time study, starting on 7 January 2027 or as agreed."
+      ],
+      "apply": [
+        "Apply through Lund's vacancy portal by 25 November 2026.",
+        "Send a CV, a personal letter on your interest and how the topic fits your background, and copies of your certificates or diplomas. Grades, references and recommendation letters are welcome."
+      ]
+    }
+  },
+  {
     "id": "max-planck-biomedical-ai-25-phd",
     "title": "25 PhD positions in biomedical AI, Max Planck School of Biomedical AI",
     "institution": "Max Planck School of Biomedical AI",

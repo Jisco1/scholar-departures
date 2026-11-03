@@ -1,5 +1,64 @@
 [
   {
+    "id": "oist-phd-program-deadline-15-november-2026",
+    "date": "2026-11-03",
+    "category": "Funding",
+    "art": "scholarship",
+    "title": "OIST's funded PhD in Okinawa closes on 15 November, and a bachelor's is enough to apply",
+    "summary": "The Okinawa Institute of Science and Technology takes PhD applications until 15 November 2026 for entry in 2027. Students receive about 2.6 million yen in the first year, rising to about 3.6 million yen, with subsidised campus housing.",
+    "meta_title": "OIST PhD in Japan: applications close 15 November 2026",
+    "meta_description": "OIST's funded PhD in Okinawa takes applicants with a bachelor's or master's. Support starts at about 2.6 million yen a year. Apply by 15 November 2026.",
+    "why": "Few funded PhDs take students straight from a bachelor's. The deadline is under two weeks away, and you need at least two recommendation letters in before you can submit.",
+    "source_title": "OIST: Apply to PhD",
+    "source_url": "https://www.oist.jp/admissions/phd-program/apply-phd",
+    "images": [
+      {
+        "file": "news-oist-campus-onna.jpg",
+        "kind": "wide",
+        "name": "The OIST campus in Onna, Okinawa, looking towards student housing",
+        "credit": "OIST from Onna Village, Japan",
+        "license": "CC BY 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:View_from_Campus_to_Accommodation_and_CDC_(41601157692).jpg",
+        "license_url": "https://creativecommons.org/licenses/by/2.0"
+      }
+    ],
+    "body": [
+      "The Okinawa Institute of Science and Technology, a graduate university in Japan that teaches in English, is taking applications for its PhD until 23:59 Japan time on 15 November 2026. Successful applicants can enrol on 1 May 2027, 1 September 2027 or 1 January 2028.",
+      "Applicants need a bachelor's or master's degree, or must expect to finish one before enrolling. OIST says its students receive financial support of about 2.6 million yen in the first year, rising with progress to about 3.6 million yen, and that this is enough for a comfortable standard of living, including the tuition fee. Campus housing is subsidised, from 21,600 yen a month for a furnished single apartment.",
+      "The application asks for transcripts, a statement of purpose of up to 800 words, a CV and 2 to 5 recommendation letters from professors. You can submit only once at least two letters have arrived. The fee is 5,000 yen and is not refundable.",
+      "Shortlisted applicants hear in late December 2026 and take part in online interviews between 18 January and 7 February 2027. Final results are due in mid-February.",
+      "Our [OIST listing]({{root}}routes/oist-phd-program/) has the details, and our [KAUST page]({{root}}routes/kaust-fellowship/) covers another funded science PhD in Asia."
+    ]
+  },
+  {
+    "id": "voyager-1-one-light-day-18-november-2026",
+    "date": "2026-11-03",
+    "category": "Breakthrough",
+    "title": "Voyager 1 is about to become the first spacecraft a full light-day from Earth",
+    "summary": "NASA expects Voyager 1 to reach one light-day from Earth on 18 November, about 25.89 billion kilometres away. Engineers recently cut its power use and recovered contact after a two-day pause in October.",
+    "meta_title": "Voyager 1 reaches one light-day from Earth on 18 November",
+    "meta_description": "NASA's Voyager 1, launched in 1977, is due to reach one light-day from Earth on 18 November 2026, about 25.89 billion km away.",
+    "why": "Voyager still returns data from interstellar space almost 50 years after launch. Keeping it running is a live engineering problem, the kind that space science graduate programmes train people for.",
+    "source_title": "NASA JPL: NASA's Voyager 1 Conserves Power, Resolves Brief Communications Pause",
+    "source_url": "https://www.jpl.nasa.gov/news/nasas-voyager-1-conserves-power-resolves-brief-communications-pause/",
+    "images": [
+      {
+        "file": "news-voyager-2-testing.jpg",
+        "kind": "wide",
+        "name": "Voyager 2, Voyager 1's twin, during testing before launch",
+        "credit": "NASA/JPL",
+        "license": "Public domain",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Voyager_2_Testing_PIA21736.jpg"
+      }
+    ],
+    "body": [
+      "NASA's Jet Propulsion Laboratory says Voyager 1 should be 25.89 billion kilometres (16.09 billion miles) from Earth on 18 November, the distance light travels in one day. A radio command will then take 24 hours to arrive and the reply another 24 to come back.",
+      "The spacecraft launched in 1977. In early September, engineers turned off three devices and replaced them with lower-power ones, a step they nicknamed the Big Bang. Without it, another science instrument would have had to be switched off by summer 2027. Two have already been turned off in recent years.",
+      "On 18 and 19 October, two attempts to hear from Voyager 1 found no signal. It returned on 20 October. One set of thrusters had gone offline and the backups had switched on by themselves, leaving the spacecraft stable. The cause is still being investigated.",
+      "Our subject page for [engineering and technology]({{root}}subjects/engineering-technology/) lists routes that fund a master's or PhD in fields like this one."
+    ]
+  },
+  {
     "id": "mbzuai-funded-ai-masters-phd-15-december-2026",
     "date": "2026-11-02",
     "category": "Funding",
