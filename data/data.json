@@ -3473,5 +3473,988 @@
       }
     ],
     "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "wageningen-africa-scholarship-programme",
+    "name": "Wageningen University: Africa Scholarship Programme",
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Agriculture & Environment",
+      "Natural Sciences",
+      "Engineering & Tech",
+      "Social Sciences & Law",
+      "Business & Economics",
+      "Medicine & Health"
+    ],
+    "types": [
+      "Full Scholarship",
+      "Merit"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "Tuition, a living allowance, travel, visa and health insurance for the full two years of a Wageningen MSc, for African citizens with a First Class degree.",
+    "deadline": "Before Dec 1, 2026: a complete Wageningen MSc application for September 2027. There is no separate scholarship form",
+    "link": "https://www.wur.nl/en/education/master/study-expenses-masters/scholarships",
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 11,
+        "d": 30,
+        "for": "last day to submit a complete MSc application"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "wageningen-anne-van-den-ban-fund",
+    "name": "Wageningen University: Anne van den Ban Fund",
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Agriculture & Environment",
+      "Natural Sciences",
+      "Engineering & Tech",
+      "Social Sciences & Law",
+      "Business & Economics",
+      "Medicine & Health"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "Tuition, a living allowance, travel, visa and health insurance for the full two years of a Wageningen MSc, for students from 64 developing countries.",
+    "deadline": "Before Dec 1, 2026: a complete Wageningen MSc application for September 2027. There is no separate scholarship form",
+    "link": "https://www.wur.nl/en/education/master/study-expenses-masters/scholarships",
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 11,
+        "d": 30,
+        "for": "last day to submit a complete MSc application"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "mundus-mapp-public-policy",
+    "name": "Mundus MAPP: Erasmus Mundus Master in Public Policy",
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Social Sciences & Law",
+      "Business & Economics"
+    ],
+    "types": [
+      "Full Scholarship",
+      "Merit"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "A full tuition waiver, €1,400 a month for 24 months and health insurance for a two-year public policy master's in Vienna or The Hague, then Barcelona or York.",
+    "deadline": "Dec 1, 2026, 23:59 CET: scholarship deadline for the 2027–2029 cohort",
+    "link": "https://www.mundusmapp.org/admissions-calendar/",
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 12,
+        "d": 1,
+        "for": "scholarship deadline, 23:59 CET"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "emmir-erasmus-mundus-migration",
+    "name": "EMMIR: Erasmus Mundus Master in Migration and Intercultural Relations",
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Social Sciences & Law",
+      "Arts & Humanities"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "€1,400 a month for 24 months plus insurance, registration and student fees for a two-year migration master's in Germany, Norway and a partner in Europe, Africa or Asia.",
+    "deadline": "Dec 20, 2026, 23:59 CET: scholarship deadline for Edition 14 (2027–2029)",
+    "link": "https://www.emmir.org/applications/applications",
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 12,
+        "d": 20,
+        "for": "scholarship deadline, 23:59 CET"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "strathclyde-hass-deans-international-excellence",
+    "name": "University of Strathclyde: HaSS Dean's International Excellence Scholarship",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Social Sciences & Law",
+      "Arts & Humanities"
+    ],
+    "types": [
+      "Merit"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "£10,000 off the tuition of a full-time taught master's in Humanities & Social Sciences starting in January 2027, for international (non-EU) students.",
+    "deadline": "Nov 30, 2026: January 2027 start; eligible offer holders are considered automatically",
+    "link": "https://www.strath.ac.uk/studywithus/scholarships/humanitiessocialsciencesdeansinternationalexcellencescholarship-january2027/",
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 11,
+        "d": 30,
+        "for": "deadline for the January 2027 intake"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "joint-japan-world-bank-graduate-scholarship",
+    "name": "Joint Japan/World Bank Graduate Scholarship Program (JJ/WBGSP)",
+    "flag": "🌍",
+    "country": "Worldwide",
+    "region": "Global",
+    "kind": "program",
+    "scope": "limited",
+    "fields": [
+      "Social Sciences & Law",
+      "Business & Economics",
+      "Medicine & Health",
+      "Agriculture & Environment",
+      "Engineering & Tech"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "Tuition, a monthly living allowance, return flights plus US$600 a trip and medical insurance for a development master's at 23 partner universities, for professionals from 87 countries.",
+    "deadline": "2027 windows: Jan 18 – Feb 26 and Mar 29 – May 21, 2027, only after admission to a participating master's",
+    "link": "https://www.worldbank.org/en/programs/scholarships/jj-wbgsp",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 2,
+        "d": 26,
+        "for": "application window 1 closes"
+      },
+      {
+        "y": 2027,
+        "m": 5,
+        "d": 21,
+        "for": "application window 2 closes"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "glasgow-african-excellence-award",
+    "name": "University of Glasgow: African Excellence Award",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Agriculture & Environment",
+      "Arts & Humanities",
+      "Business & Economics",
+      "Computer Science",
+      "Engineering & Tech",
+      "Medicine & Health",
+      "Natural Sciences",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Tuition Waiver",
+      "Merit"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "A 75% tuition fee waiver on a one-year taught master's starting in September 2027, for up to 16 students from Africa with First Class grades.",
+    "deadline": "Mar 31, 2027, 23:59 UK time: award application for September 2027",
+    "link": "https://www.gla.ac.uk/scholarships/universityofglasgowafricanexcellenceaward/",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 3,
+        "d": 31,
+        "for": "award deadline, 23:59 UK time"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "greenano-erasmus-mundus-green-nanotechnology",
+    "name": "GREENANO: Erasmus Mundus Master in Green Nanotechnology",
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Natural Sciences",
+      "Engineering & Tech"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "Free tuition and registration, €1,400 a month and health insurance for a two-year nanotechnology master's in France, Italy and Slovenia.",
+    "deadline": "Jan 6, 2027: applications for the 2027 intake (opened Oct 15, 2026)",
+    "link": "https://www.greenanomaster.eu/application-and-selection",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 6,
+        "for": "application deadline"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "human-response-erasmus-mundus",
+    "name": "Human Response: Erasmus Mundus Master in Humanitarian Response, Health and Displacement",
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Social Sciences & Law",
+      "Medicine & Health"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "No fees, €1,400 a month and 24 months of insurance for a two-year humanitarian response master's in Portugal, Norway and Uganda.",
+    "deadline": "Jan 7, 2027: scholarship round for the 2027–2029 edition",
+    "link": "https://humanresponse.eu/applications1/",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 7,
+        "for": "scholarship round closes"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "steps-erasmus-mundus-electric-power",
+    "name": "STEPS: Erasmus Mundus Master in Sustainable Transportation and Electrical Power Systems",
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech"
+    ],
+    "types": [
+      "Full Scholarship",
+      "Tuition Waiver"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "Tuition plus €1,400 a month for up to 24 months for a two-year electrical power and transport master's in Spain, Germany and Italy or Portugal.",
+    "deadline": "Jan 8, 2027 on the programme's home page (its admission page says Jan 15): 2027 intake",
+    "link": "https://www.emjmdstepsrock.eu/",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 8,
+        "for": "application deadline on the programme's home page"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "mundus-journalism",
+    "name": "Mundus Journalism: Erasmus Mundus Master in Journalism, Media and Globalisation",
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Social Sciences & Law",
+      "Arts & Humanities"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "Free tuition, €1,400 a month for up to 24 months and insurance for a two-year journalism master's starting in Aarhus, Denmark. 10 to 15 scholarships.",
+    "deadline": "Jan 10, 2027, 13:00 CET: applications for 2027–2029 (opened Nov 1, 2026)",
+    "link": "https://mundusjournalism.com/admissions",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 10,
+        "for": "application deadline, 13:00 CET"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "globe-erasmus-mundus-biodiversity",
+    "name": "GLOBE: Erasmus Mundus Master in Global Change Ecology and Biodiversity Management",
+    "fields": [
+      "Natural Sciences",
+      "Agriculture & Environment"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "funding": "All participation fees plus €1,400 a month for 24 months for a two-year biodiversity master's in Madrid, Bangor, Lisbon and Mexico.",
+    "deadline": "Jan 4, 2027: stage 1 online form for the 2027–2029 edition (opened Sep 28, 2026)",
+    "link": "https://globe-master.eu/apply/",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 4,
+        "for": "stage 1 application deadline"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "grenfin-erasmus-mundus-energy-finance",
+    "name": "GrEnFIn: Erasmus Mundus Master in Greening Energy Market and Finance",
+    "fields": [
+      "Business & Economics",
+      "Engineering & Tech",
+      "Natural Sciences"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "funding": "Up to 18 Erasmus Mundus scholarships of €1,400 a month for a two-year energy and green finance master's in Bologna, Munich and Paris.",
+    "deadline": "Jan 7, 2027, 11:00 CET: applications for 2027–2028 (opened Oct 14, 2026)",
+    "link": "https://site.unibo.it/grenfin-emjm/en",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 7,
+        "for": "application deadline, 11:00 CET"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "ediss-erasmus-mundus-software-systems",
+    "name": "EDISS: Erasmus Mundus Master in Data-intensive Intelligent Software Systems",
+    "fields": [
+      "Computer Science",
+      "Engineering & Tech"
+    ],
+    "types": [
+      "Full Scholarship",
+      "Tuition Waiver"
+    ],
+    "funding": "Participation costs plus €1,400 a month (€51,600 in all) for a two-year software engineering master's in Finland, Spain, Italy and Sweden.",
+    "deadline": "Jan 12, 2027, 15:00 Helsinki time: scholarship round (opens Nov 16, 2026)",
+    "link": "https://www.master-ediss.eu/admission/",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 12,
+        "for": "scholarship round closes, 15:00 Helsinki time"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "glocal-erasmus-mundus-global-markets",
+    "name": "GLOCAL: Erasmus Mundus Master in Global Markets, Local Creativities",
+    "fields": [
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "funding": "Full tuition, insurance and €1,400 a month for a two-year master's in global markets across Glasgow, Barcelona, Uppsala, Rotterdam, Göttingen, Kyoto or Bogotá.",
+    "deadline": "Jan 14, 2027, 13:00 UK time: scholarship deadline for 2027–2029",
+    "link": "https://globallocal-erasmusmundus.eu/how-to-apply/",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 14,
+        "for": "scholarship deadline, 13:00 UK time"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "euroculture-erasmus-mundus",
+    "name": "Euroculture: Erasmus Mundus Master in European Studies",
+    "fields": [
+      "Arts & Humanities",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "funding": "A full tuition waiver, health insurance and €1,400 a month for 24 months for a two-year European studies master's across 7 European and 4 overseas universities.",
+    "deadline": "Jan 15, 2027: complete scholarship application for 2027–2029 (opened Oct 15, 2026)",
+    "link": "https://www.euroculturemaster.eu/application-procedure",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 15,
+        "for": "scholarship application deadline"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "terra-erasmus-mundus-earthen-architecture",
+    "name": "TERRA: Erasmus Mundus Master in Earthen Architecture and Construction",
+    "fields": [
+      "Engineering & Tech",
+      "Arts & Humanities"
+    ],
+    "types": [
+      "Full Scholarship",
+      "Tuition Waiver"
+    ],
+    "funding": "The €9,000 fee plus €1,400 a month for 12 months (up to €25,800) for a one-year master's in earthen construction in Portugal, Spain, France and Italy.",
+    "deadline": "Jan 15, 2027: first call, the only one with Erasmus Mundus scholarships, for 2027–2028",
+    "link": "https://msc-terra.org/applications/",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 15,
+        "for": "first call deadline"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "mipdal-erasmus-mundus-ip-data-law",
+    "name": "MIPDaL: Erasmus Mundus Master in Intellectual Property and Data Law",
+    "fields": [
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "funding": "No fees (including UK top-ups) plus €1,400 a month for a one-year IP and data law master's in two of Germany, Estonia, Spain, France and the UK. 12 a year.",
+    "deadline": "Jan 15, 2027: scholarship and early applications for 2027–2028",
+    "link": "https://mipdal.eu/admission/",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 15,
+        "for": "scholarship application deadline"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "waves-erasmus-mundus-water",
+    "name": "WAVES: Erasmus Mundus Master in Water Vulnerability Engineering in Spatial Sciences",
+    "fields": [
+      "Engineering & Tech",
+      "Natural Sciences",
+      "Agriculture & Environment"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "funding": "Tuition, insurance, field work and €1,400 a month for 24 months for a two-year water engineering master's in the Netherlands, Italy and Slovenia. 18 scholarships.",
+    "deadline": "Jan 15, 2027, 23:59 CET: scholarship and self-funded applications for the October 2027 start",
+    "link": "https://msc-waves.eu/admissions/how-to-apply",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 15,
+        "for": "application deadline, 23:59 CET"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "clmce-erasmus-mundus-childrens-literature",
+    "name": "CLMCE: Erasmus Mundus Master in Children's Literature, Media and Cultural Entrepreneurship",
+    "fields": [
+      "Arts & Humanities",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "funding": "All tuition, travel insurance and €1,400 a month for 24 months for a two-year children's literature master's from Glasgow to Aarhus, Nantes, Tilburg or Wrocław.",
+    "deadline": "Jan 22, 2027, 13:00 UK time: scholarship applications for September 2027",
+    "link": "https://www.gla.ac.uk/postgraduate/erasmusmundus/clmce/howtoapply/",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 22,
+        "for": "scholarship deadline, 13:00 UK time"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "epog-erasmus-mundus-economic-policies",
+    "name": "EPOG-JM: Erasmus Mundus Master in Economic Policies for the Global Bifurcation",
+    "fields": [
+      "Business & Economics",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "funding": "Tuition, insurance and €1,400 a month for both years of an economic policy master's that starts in Europe, Johannesburg or Brazil and ends in Paris.",
+    "deadline": "Jan 27, 2027, 13:00 Paris time: applications for 2027–2029",
+    "link": "https://www.epog.eu/admission-and-scholarships/admission/",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 27,
+        "for": "application deadline, 13:00 Paris time"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "reanima-erasmus-mundus-animation",
+    "name": "RE:Anima: Erasmus Mundus Joint Master in Animation",
+    "fields": [
+      "Arts & Humanities"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "funding": "The €15,000 tuition plus €1,400 a month for up to 24 months for a two-year animation master's in Genk, Dublin and Lisbon. 15 to 18 scholarships.",
+    "deadline": "Jan 27, 2027, 23:59 WET: applications with portfolio and showreel",
+    "link": "https://www.reanima.eu/",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 27,
+        "for": "application deadline, 23:59 WET"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "frp-erasmus-mundus-composite-structures",
+    "name": "FRP++: Erasmus Mundus Master in Structural Analysis and Design with Composite Materials",
+    "fields": [
+      "Engineering & Tech"
+    ],
+    "types": [
+      "Full Scholarship",
+      "Tuition Waiver"
+    ],
+    "funding": "The €9,000 fee plus €1,400 a month (up to €25,800) for a one-year composites engineering master's in Portugal, Spain, Italy and France.",
+    "deadline": "Jan 31, 2027, 23:59 UTC: first call, the only one with Erasmus Mundus scholarships",
+    "link": "https://msc-frp.org/applications/",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 31,
+        "for": "first call deadline, 23:59 UTC"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "emlex-erasmus-mundus-lexicography",
+    "name": "EMLex: Erasmus Mundus European Master in Lexicography",
+    "fields": [
+      "Arts & Humanities"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "funding": "Participation costs plus €1,400 a month for up to 24 months for a two-year lexicography master's taught in English and German. About 20 scholarships.",
+    "deadline": "Feb 1, 2027 (inclusive): Erasmus Mundus scholarship applications for the 2027 intake",
+    "link": "https://www1.emlex.eu/web/application",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 2,
+        "d": 1,
+        "for": "scholarship application deadline"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "emildai-erasmus-mundus-law-data-ai",
+    "name": "EMILDAI: Erasmus Mundus European Master in Law, Data and AI",
+    "fields": [
+      "Social Sciences & Law",
+      "Computer Science"
+    ],
+    "types": [
+      "Full Scholarship",
+      "Tuition Waiver"
+    ],
+    "funding": "Up to 12 full scholarships (all tuition plus €1,400 a month for 24 months) and 10 fee waivers for a two-year law, data and AI master's starting in Dublin.",
+    "deadline": "Jan 17, 2027: round 1, the only round with scholarships (opens Nov 16, 2026)",
+    "link": "https://emildai.eu/admissions/how-to-apply/",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 17,
+        "for": "round 1 closes"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "imesc-erasmus-mundus-energy-materials",
+    "name": "i-MESC: Erasmus Mundus Master in Materials for Energy Storage and Conversion",
+    "fields": [
+      "Natural Sciences",
+      "Engineering & Tech"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "funding": "A full fee waiver plus €1,400 a month for 24 months for a two-year battery and energy materials master's in Poland, France, Slovenia or Spain.",
+    "deadline": "Jan 26, 2027, 12:00 Paris time (indicative): applications open Nov 9, 2026",
+    "link": "https://i-mesc.eu/application/student",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 26,
+        "for": "application deadline, 12:00 Paris time (indicative)"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "intermaths-erasmus-mundus-mathematics",
+    "name": "InterMaths: Erasmus Mundus Master in Interdisciplinary Mathematics",
+    "fields": [
+      "Natural Sciences",
+      "Engineering & Tech",
+      "Computer Science"
+    ],
+    "types": [
+      "Full Scholarship",
+      "Tuition Waiver"
+    ],
+    "funding": "18 scholarships: no fees, insurance and €1,400 a month for a two-year applied mathematics master's in Italy, Germany, Austria, Spain and France.",
+    "deadline": "Feb 17, 2027, 13:00 CET: scholarship deadline (form open since Nov 6, 2026)",
+    "link": "https://www.intermaths.eu/erasmus-mundus/apply",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 2,
+        "d": 17,
+        "for": "scholarship deadline, 13:00 CET"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇪🇺",
+    "country": "EU-wide",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "imagein-erasmus-mundus-biology-of-ageing",
+    "name": "ImAGEin: Erasmus Mundus Master in Biology of Ageing",
+    "fields": [
+      "Natural Sciences",
+      "Medicine & Health"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "funding": "€1,400 a month for 24 months for a two-year master's in the biology of ageing in France, Germany, Spain and Portugal.",
+    "deadline": "Mar 6, 2027, midnight Paris time: applications open Jan 6, 2027",
+    "link": "https://life.univ-cotedazur.eu/international/imagein/application-and-registration-to-emjm-imagein",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 3,
+        "d": 6,
+        "for": "application deadline, midnight Paris time"
+      }
+    ],
+    "approx": false
   }
 ]
