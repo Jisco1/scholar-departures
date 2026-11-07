@@ -2058,6 +2058,74 @@
     },
     "imagein-erasmus-mundus-biology-of-ageing": {
       "all": true
+    },
+    "maastricht-brightlands-talent-scholarship": {
+      "all": true,
+      "except_groups": [
+        "eu",
+        "eea",
+        "ch"
+      ],
+      "except": [
+        "Suriname"
+      ]
+    },
+    "radboud-scholarship-programme": {
+      "all": true,
+      "except_groups": [
+        "eu",
+        "eea"
+      ]
+    },
+    "university-of-twente-scholarship": {
+      "all": true,
+      "except_groups": [
+        "eu",
+        "eea"
+      ]
+    },
+    "utrecht-nl-scholarship": {
+      "all": true,
+      "except_groups": [
+        "eu",
+        "eea"
+      ]
+    },
+    "vu-amsterdam-fellowship-programme": {
+      "all": true,
+      "except_groups": [
+        "eu",
+        "eea"
+      ]
+    },
+    "flensburg-sustainable-energy-development": {
+      "check": "DAAD's development scholarships are for nationals of the countries on DAAD's list for each call; check the course's DAAD entry."
+    },
+    "ph-ludwigsburg-international-education-management": {
+      "check": "DAAD's development scholarships are for nationals of the countries on DAAD's list for each call; check the course's DAAD entry."
+    },
+    "edinburgh-law-school-masters-scholarships": {
+      "all": true
+    },
+    "unsw-international-research-scholarships": {
+      "all": true,
+      "except": [
+        "Australia",
+        "New Zealand"
+      ]
+    },
+    "western-sydney-city-campus-scholarship": {
+      "all": true,
+      "except": [
+        "Australia",
+        "New Zealand"
+      ]
+    },
+    "toronto-mse-ontario-graduate-scholarship": {
+      "all": true,
+      "except": [
+        "Canada"
+      ]
     }
   }
 }

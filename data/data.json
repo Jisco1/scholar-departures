@@ -4456,5 +4456,422 @@
       }
     ],
     "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "kind": "school",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "maastricht-brightlands-talent-scholarship",
+    "scope": "limited",
+    "name": "Maastricht University: UM NL Brightlands Talent Scholarship",
+    "fields": [
+      "Natural Sciences",
+      "Medicine & Health",
+      "Engineering & Tech"
+    ],
+    "types": [
+      "Full Scholarship",
+      "Merit"
+    ],
+    "funding": "Two full scholarships: tuition, €20,150 (13 months) or €38,750 (25 months) for living costs, insurance, visa and pre-academic training, for non-EU students.",
+    "deadline": "Master's application complete by Dec 10, 2026 · scholarship application Oct 1, 2026 – Feb 1, 2027, 23:59 CET",
+    "link": "https://www.maastrichtuniversity.nl/studeren/toelating-inschrijving/financing-your-studies/scholarships/um-nl-brightlands-talent",
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 12,
+        "d": 10,
+        "for": "complete master's application"
+      },
+      {
+        "y": 2027,
+        "m": 2,
+        "d": 1,
+        "for": "scholarship application, 23:59 CET"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "kind": "school",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "radboud-scholarship-programme",
+    "scope": "limited",
+    "name": "Radboud University: Radboud Scholarship Programme",
+    "fields": [
+      "Arts & Humanities",
+      "Social Sciences & Law",
+      "Business & Economics",
+      "Natural Sciences",
+      "Computer Science"
+    ],
+    "types": [
+      "Tuition Waiver",
+      "Merit"
+    ],
+    "funding": "Up to 26 awards that cut tuition to €2,771 (from about €19,000) and pay visa, residence permit and insurance, for non-EU master's students in Nijmegen.",
+    "deadline": "Jan 31, 2027, 23:59 CET: apply in OSIRIS · Feb 14, 2027: complete application",
+    "link": "https://www.ru.nl/en/education/scholarships/radboud-scholarship-programme",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 31,
+        "for": "scholarship application, 23:59 CET"
+      },
+      {
+        "y": 2027,
+        "m": 2,
+        "d": 14,
+        "for": "complete application, 23:59 CET"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "kind": "school",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "university-of-twente-scholarship",
+    "scope": "limited",
+    "name": "University of Twente Scholarship (UTS)",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Social Sciences & Law",
+      "Business & Economics"
+    ],
+    "types": [
+      "Merit"
+    ],
+    "funding": "€3,000 to €22,000 a year towards study costs for non-EU master's students in the top 5 to 10% of their class, with the same again in year two.",
+    "deadline": "Apr 1, 2027, 16:00 CET: scholarship form for September 2027 starts (open since Oct 15, 2026)",
+    "link": "https://www.utwente.nl/en/education/scholarship-finder/university-of-twente-scholarship/",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 4,
+        "d": 1,
+        "for": "scholarship form closes, 16:00 CET"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "kind": "school",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "utrecht-nl-scholarship",
+    "scope": "limited",
+    "name": "Utrecht University: NL Scholarship",
+    "fields": [
+      "Agriculture & Environment",
+      "Arts & Humanities",
+      "Business & Economics",
+      "Computer Science",
+      "Engineering & Tech",
+      "Medicine & Health",
+      "Natural Sciences",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Merit"
+    ],
+    "funding": "€5,000, €10,000 or €15,000 in the first year for non-EU students starting a participating international master's at Utrecht on 1 September 2027.",
+    "deadline": "Before Feb 1, 23:59 CET, for master's starting Sep 1, 2027 (the page gives no year)",
+    "link": "https://www.uu.nl/en/masters/general-information/application-and-admission/scholarships-and-grants/nl-scholarship",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 2,
+        "d": 1,
+        "for": "scholarship deadline, 23:59 CET"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "kind": "school",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "vu-amsterdam-fellowship-programme",
+    "scope": "limited",
+    "name": "Vrije Universiteit Amsterdam: VU Fellowship Programme",
+    "fields": [
+      "Agriculture & Environment",
+      "Arts & Humanities",
+      "Business & Economics",
+      "Computer Science",
+      "Engineering & Tech",
+      "Medicine & Health",
+      "Natural Sciences",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Tuition Waiver",
+      "Merit"
+    ],
+    "funding": "A tuition waiver for top non-EU master's students at VU Amsterdam, with a €5,000 NL Scholarship for 20 to 25 of them.",
+    "deadline": "Feb 1, 2027, 23:59 CET: VUFP application (opens Nov 1, 2026); master's application advised by Dec 1, 2026",
+    "link": "https://vu.nl/en/education/more-about/incoming-master-scholarships",
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 12,
+        "d": 1,
+        "for": "advised master's application date"
+      },
+      {
+        "y": 2027,
+        "m": 2,
+        "d": 1,
+        "for": "VU Fellowship application, 23:59 CET"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "flensburg-sustainable-energy-development",
+    "flag": "🇩🇪",
+    "country": "Germany",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "limited",
+    "levels": [
+      "Master's"
+    ],
+    "name": "Europa-Universität Flensburg: Sustainable Energy and Development (DAAD EPOS)",
+    "fields": [
+      "Engineering & Tech"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "funding": "A DAAD development scholarship for engineers with two years' work experience, on Flensburg's master's in sustainable energy and development.",
+    "deadline": "DAAD round for the 2027–2029 batch closed Aug 31, 2026; next round not yet announced. Self-funded applications: Nov 30, 2026",
+    "link": "https://www.uni-flensburg.de/sedev/admission/online-application",
+    "approx": false,
+    "tbc": true
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "ph-ludwigsburg-international-education-management",
+    "flag": "🇩🇪",
+    "country": "Germany",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "limited",
+    "levels": [
+      "Master's"
+    ],
+    "name": "PH Ludwigsburg: International Education Management (DAAD EPOS)",
+    "fields": [
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "funding": "Six DAAD development scholarships on PH Ludwigsburg's master's in International Education Management, for education and development professionals.",
+    "deadline": "Jan 2 – Mar 15, 2027: applications for the 2027 intake, DAAD and self-funded",
+    "link": "https://www.ph-ludwigsburg.de/fakultaet-1/institut-fuer-bildungsmanagement/international-educational-leadership-and-management/masters-program-international-education-management/admissions",
+    "opens": {
+      "y": 2027,
+      "m": 1,
+      "d": 2
+    },
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 3,
+        "d": 15,
+        "for": "application window closes"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "edinburgh-law-school-masters-scholarships",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "all",
+    "levels": [
+      "Master's"
+    ],
+    "name": "University of Edinburgh Law School: master's scholarships",
+    "fields": [
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Merit"
+    ],
+    "funding": "Full tuition on the LLM in European and Transnational Law, £10,000 off the LLM in Comparative Private Law, or one of three £5,000 awards for any taught law master's.",
+    "deadline": "Apr 30, 2027: all three awards, for 2027–28 entry",
+    "link": "https://www.law.ed.ac.uk/study/masters-degrees/scholarships-funding",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 4,
+        "d": 30,
+        "for": "scholarship deadline"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "unsw-international-research-scholarships",
+    "flag": "🇦🇺",
+    "country": "Australia",
+    "region": "Oceania",
+    "kind": "school",
+    "scope": "limited",
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "name": "UNSW Sydney: international research scholarships (RTPI and UIPA)",
+    "fields": [
+      "Agriculture & Environment",
+      "Arts & Humanities",
+      "Business & Economics",
+      "Computer Science",
+      "Engineering & Tech",
+      "Medicine & Health",
+      "Natural Sciences",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "funding": "Tuition plus a living stipend of A$39,991 a year (2027 rate) and health cover for international PhD and research master's candidates at UNSW Sydney.",
+    "deadline": "Apr 16, 2027: RTPI, UIPA and Tuition Fee Scholarship round",
+    "link": "https://www.unsw.edu.au/research/hdr/scholarships",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 4,
+        "d": 16,
+        "for": "international scholarship deadline"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "western-sydney-city-campus-scholarship",
+    "flag": "🇦🇺",
+    "country": "Australia",
+    "region": "Oceania",
+    "kind": "school",
+    "scope": "limited",
+    "levels": [
+      "Bachelor's",
+      "Master's"
+    ],
+    "name": "Western Sydney University: Sydney City Campus International Student Scholarship",
+    "fields": [
+      "Agriculture & Environment",
+      "Arts & Humanities",
+      "Business & Economics",
+      "Computer Science",
+      "Engineering & Tech",
+      "Medicine & Health",
+      "Natural Sciences",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Tuition Waiver",
+      "Merit"
+    ],
+    "funding": "A$5,000 or A$10,000 a year off tuition (up to A$20,000 for a master's, A$30,000 for a bachelor's) for new international students at Sydney City Campus in 2027.",
+    "deadline": "No closing date: automatic for 2027 starts, first come, first served until places run out",
+    "link": "https://city.westernsydney.edu.au/essential-information/scholarships/",
+    "rolling": true,
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-07",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "toronto-mse-ontario-graduate-scholarship",
+    "flag": "🇨🇦",
+    "country": "Canada",
+    "region": "Canada",
+    "kind": "school",
+    "scope": "limited",
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "name": "University of Toronto Materials Science and Engineering: Ontario Graduate Scholarship (international)",
+    "fields": [
+      "Engineering & Tech"
+    ],
+    "types": [
+      "Merit"
+    ],
+    "funding": "C$5,000 a session for two or three sessions (C$10,000 to C$15,000) for international master's or PhD students in Toronto's materials science and engineering department.",
+    "deadline": "Mar 1, 2027, 23:59 ET: department deadline for 2027–28 international OGS applications",
+    "link": "https://mse.utoronto.ca/current/graduate/scholarships/",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 3,
+        "d": 1,
+        "for": "department deadline, 23:59 ET"
+      }
+    ],
+    "approx": false
   }
 ]
