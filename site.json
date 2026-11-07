@@ -20,6 +20,13 @@
     }
   },
 
+  "app_ads_txt": {
+    "_help": "Extra sellers for app-ads.txt only (the iPhone app's AdMob bidding partners, not the website). Add a partner's line exactly as its onboarding email gives it; a partner that is not listed here cannot buy the app's ads.",
+    "sellers": [
+      "openx.com, 648611518, DIRECT, 6a698e2ec38604c6"
+    ]
+  },
+
   "app_store": {
     "_help": "The DegreeStep iPhone app. The id drives the download buttons and Safari's install banner.",
     "id": "6821526583"

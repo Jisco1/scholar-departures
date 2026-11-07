@@ -2666,10 +2666,15 @@ def write_meta_files(routes):
         (OUT / f"{indexnow_key}.txt").write_text(indexnow_key, encoding="utf-8")  # proves to IndexNow that the site owns the key
     client = adsense_client()
     if client:
-        # AdSense reads ads.txt; AdMob reads app-ads.txt for the DegreeStep app. Same account, same line.
+        # AdSense reads ads.txt; AdMob reads app-ads.txt for the DegreeStep app. Same account, same Google line.
         line = f"google.com, {client.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n"
         (OUT / "ads.txt").write_text(line, encoding="utf-8")
-        (OUT / "app-ads.txt").write_text(line, encoding="utf-8")
+        # the app's AdMob bidding partners (OpenX since 4 Nov 2026) only buy when app-ads.txt names them
+        sellers = [s.strip() for s in (CONFIG.get("app_ads_txt") or {}).get("sellers", [])]
+        for s in sellers:
+            if not re.match(r"^[a-z0-9.-]+\.[a-z]{2,}, [A-Za-z0-9-]+, (DIRECT|RESELLER)(, [a-z0-9]+)?$", s):
+                fail(f"site.json app_ads_txt.sellers: {s!r} is not an app-ads.txt line (domain, account, DIRECT|RESELLER, cert)")
+        (OUT / "app-ads.txt").write_text(line + "".join(s + "\n" for s in sellers), encoding="utf-8")
     (OUT / ".well-known").mkdir(exist_ok=True)
     expires = (dt.datetime.now(dt.timezone.utc) + dt.timedelta(days=365)).strftime("%Y-%m-%dT00:00:00Z")
     (OUT / ".well-known" / "security.txt").write_text(

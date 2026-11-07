@@ -480,8 +480,12 @@ class BuiltSite(unittest.TestCase):
         self.assertIn('href="../school/?s=', rows)
         self.assertNotIn("Visit site", rows)  # the directory opens our page; the official link sits at its end
         ads = (self.site / "app-ads.txt").read_text(encoding="utf-8")
-        self.assertEqual(ads, (self.site / "ads.txt").read_text(encoding="utf-8"))
+        self.assertTrue(ads.startswith((self.site / "ads.txt").read_text(encoding="utf-8")))
         self.assertIn("pub-6851724780839114, DIRECT", ads)
+        # 7 Nov 2026: OpenX onboarded the app via Open Bidding and deletes the inventory unless app-ads.txt names it;
+        # the website's ads.txt stays Google-only, because OpenX does not sell the website's ads
+        self.assertIn("openx.com, 648611518, DIRECT, 6a698e2ec38604c6\n", ads)
+        self.assertNotIn("openx", (self.site / "ads.txt").read_text(encoding="utf-8"))
 
     def test_every_field_has_a_subject_page(self):
         # the owner asked for browse-by-subject pages (10 Oct 2026); each needs real guidance, not just a list
