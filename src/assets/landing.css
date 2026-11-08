@@ -50,6 +50,12 @@
 .lp-hero-side { width: 100%; max-width: 480px; justify-self: center; display: flex; flex-direction: column; gap: 14px; }
 @media (min-width: 900px) { .lp-hero-side { max-width: none; } }
 .lp-hero-get { display: flex; justify-content: flex-end; }
+/* the app's chart position: on the app panel under the lede, and in the hero on its own row above the download button */
+.app-rank { display: inline-block; max-width: 100%; margin: 18px 0 0; padding: 8px 16px; border: 1px solid var(--hero-gold);
+  border-radius: 20px; background: var(--hero-night); color: var(--hero-ink); font-size: 14px; line-height: 1.45; }
+.app-rank strong { margin-right: 2px; font-family: var(--serif); font-size: 18px; font-weight: 400; color: var(--hero-gold); }
+.app-rank span { color: var(--hero-dim); white-space: nowrap; }
+.lp-hero-side > .app-rank { align-self: flex-end; margin: 0; }
 .lp-hero-get .appstore-badge img { width: 135px; height: 45px; }
 .lp-hero-phones { display: flex; align-items: flex-end; justify-content: center; margin-top: auto; padding-bottom: 28px; }   /* the bar overlaps the hero by this much */
 @media (min-width: 900px) { .lp-hero-phones { padding-bottom: 40px; } }

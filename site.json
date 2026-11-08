@@ -29,7 +29,13 @@
 
   "app_store": {
     "_help": "The DegreeStep iPhone app. The id drives the download buttons and Safari's install banner.",
-    "id": "6821526583"
+    "id": "6821526583",
+    "chart": {
+      "_help": "A chart position the app reached, shown on the home and app pages with its date, so it stays true when the chart moves. Change it only after seeing it on Apple's chart (apps.apple.com/<country>/iphone/charts/6017 for Education). An empty rank hides it.",
+      "rank": "No. 1",
+      "text": "free Education app on the App Store in Ghana",
+      "as_of": "2026-11-08"
+    }
   },
 
   "indexnow": {

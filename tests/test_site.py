@@ -369,6 +369,13 @@ class BuiltSite(unittest.TestCase):
         self.assertEqual(len(re.findall(r'class="lp-phone lp-phone-', hero)), 3)
         self.assertNotIn('<section class="lp-app"', home)
         self.assertIn('<section class="lp-app"', app)
+        # 8 Nov 2026: No. 1 free Education app in Ghana. Shown with its date, so it stays true when the chart moves; in the
+        # hero it sits on its own row above the button (the button still has no text beside it)
+        rank = '<p class="app-rank"><strong>No. 1</strong> free Education app on the App Store in Ghana <span>· Nov 8, 2026</span></p>'
+        self.assertIn(rank, hero)
+        self.assertLess(side.index('class="app-rank"'), side.index('class="lp-hero-get"'))
+        panel = re.search(r'<section class="lp-app".*?</section>', app, re.S).group(0)
+        self.assertIn(rank, panel)
 
     def test_a_deadline_says_which_round_it_closes(self):
         # 1 Nov 2026: the owner saw Harvard "closing" on its early date; the board, the pass and the route rows now name

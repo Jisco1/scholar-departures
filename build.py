@@ -522,6 +522,21 @@ def app_badge():
             f'<img src="{e(APP_STORE_BADGE)}" width="162" height="54" alt="Download on the App Store" loading="lazy"></a>')
 
 
+def app_rank():
+    """The app's best chart position, with the day it was reached, from site.json (app_store.chart)."""
+    chart = (CONFIG.get("app_store") or {}).get("chart") or {}
+    if not chart.get("rank"):
+        return ""
+    try:
+        day = dt.date.fromisoformat(chart.get("as_of", ""))
+    except ValueError:
+        fail(f"site.json app_store.chart.as_of must be a date like 2026-11-08, got {chart.get('as_of')!r}")
+    if not chart.get("text"):
+        fail("site.json app_store.chart needs text as well as a rank")
+    return (f'<p class="app-rank"><strong>{e(chart["rank"])}</strong> {e(chart["text"])} '
+            f'<span>· {fmt_date(day)}</span></p>')
+
+
 def app_phones(root):
     """The app's own screens, rising in steps. They are cropped above anything with a date, so no countdown here can go out of date."""
     return f"""<div class="lp-phone lp-phone-explore"><img src="{asset(root, "app-screen-explore.jpg")}" width="480" height="339" alt="The app's Explore screen, with search and filters for subject, level and funder" loading="lazy"></div>
@@ -539,6 +554,7 @@ def app_promo(root, heading, lede, level="h2"):
     <p class="eyebrow-s">Free on the App Store</p>
     <{level} class="lp-app-title">{heading}</{level}>
     <p class="lede">{e(lede)}</p>
+    {app_rank()}
     <div class="lp-app-get">{app_badge()}<span class="lp-app-note">For iPhone, iOS 17 or later</span></div>
   </div>
   <div class="lp-app-steps">
@@ -572,7 +588,7 @@ def build_app_page():
     {app_badge()}
   </div>
 </div>"""
-    LASTMOD["app/"] = "2026-10-31"
+    LASTMOD["app/"] = "2026-11-08"
     ld = [breadcrumb_ld([("", "Home"), ("app/", "iPhone app")]),
           {"@context": "https://schema.org", "@type": "MobileApplication", "name": SITE, "operatingSystem": "iOS 17 or later",
            "applicationCategory": "EducationalApplication", "downloadUrl": APP_STORE_URL, "installUrl": APP_STORE_URL, "url": BASE + "app/",
@@ -1536,6 +1552,7 @@ def build_home(routes, schools, updates, positions, research):
   </div>
   <div class="lp-hero-side">
     {pass_html}
+    {app_rank()}
     <div class="lp-hero-get">{app_badge()}</div>
     <div class="lp-hero-phones">
     {app_phones(root)}
