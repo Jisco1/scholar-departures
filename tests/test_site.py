@@ -138,7 +138,7 @@ class BuiltSite(unittest.TestCase):
         gates = (self.site / "routes" / "gates-cambridge-scholarship" / "index.html").read_text(encoding="utf-8")
         self.assertIn('class="rounds"', gates)
         self.assertIn("Depends on your residence and your course", html_mod.unescape(gates))
-        feed = json.loads((self.site / "app" / "feed.json").read_text(encoding="utf-8"))
+        feed = json.loads((self.site / "app" / "feed-v2.json").read_text(encoding="utf-8"))
         for r in feed["routes"]:
             self.assertFalse(any(dl.get("restricted") for dl in r["deadlines"]), r["slug"])
         # 2-3. the plan's months add up, it does not promise a board planner, and there is no age filter
@@ -195,7 +195,7 @@ class BuiltSite(unittest.TestCase):
 
     def test_australia_is_covered(self):
         # 13 Oct 2026: the board had no Australian routes, region or country guide
-        feed = json.loads((self.site / "app" / "feed.json").read_text(encoding="utf-8"))
+        feed = json.loads((self.site / "app" / "feed-v2.json").read_text(encoding="utf-8"))
         au = {r["slug"]: r for r in feed["routes"] if r["country"] == "Australia"}
         self.assertGreaterEqual(len(au), 6)
         self.assertTrue(all(r["region"] == "Oceania" for r in au.values()))
@@ -212,7 +212,7 @@ class BuiltSite(unittest.TestCase):
             for dl in r.get("deadlines") or []:
                 self.assertIn("y", dl, f"{r['slug']}: a deadline without its year")
             self.assertEqual(sum(bool(r.get(k)) for k in ("rolling", "tbc", "varies")) <= 1, True, r["slug"])
-        feed = json.loads((self.site / "app" / "feed.json").read_text(encoding="utf-8"))
+        feed = json.loads((self.site / "app" / "feed-v2.json").read_text(encoding="utf-8"))
         for r in feed["routes"]:
             for dl in r["deadlines"]:
                 self.assertGreaterEqual(dt.date(dl["y"], dl["m"], dl["d"]), today, r["slug"])
@@ -414,11 +414,18 @@ class BuiltSite(unittest.TestCase):
     def test_app_feed_and_app_ads_txt(self):
         # the DegreeStep iPhone app reads app/feed.json, so its content updates without a new App Store version,
         # and AdMob checks app-ads.txt on the developer's site before it serves ads in the app
-        feed = json.loads((self.site / "app" / "feed.json").read_text(encoding="utf-8"))
+        feed = json.loads((self.site / "app" / "feed-v2.json").read_text(encoding="utf-8"))
         self.assertEqual(feed["version"], 1)
-        hold_file = self.dir / "data" / "app_feed_hold.json"  # TEMPORARY crash test, 8 Nov 2026
-        held = set(json.loads(hold_file.read_text(encoding="utf-8"))["slugs"]) if hold_file.exists() else set()
-        self.assertEqual(len(feed["routes"]), len(source_routes(self.dir)) - len(held))
+        self.assertEqual(len(feed["routes"]), len(source_routes(self.dir)))
+        # 8 Nov 2026: app 1.0 (build 18) crashed on iOS 27.2 when its Explore list passed 88 routes. It reads
+        # app/feed.json, which keeps only the routes it had before 7 Nov; 1.0.1 and later read feed-v2.json
+        v1 = json.loads((self.site / "app" / "feed.json").read_text(encoding="utf-8"))
+        allowed = set(json.loads((self.dir / "data" / "app_feed_v1.json").read_text(encoding="utf-8"))["slugs"])
+        self.assertLessEqual(len(v1["routes"]), 88)
+        self.assertTrue(all(r["slug"] in allowed for r in v1["routes"]))
+        self.assertTrue(all(x in allowed for r in v1["routes"] for x in r["related"]))
+        self.assertGreater(len(feed["routes"]), len(v1["routes"]))
+        self.assertEqual({k: v for k, v in v1.items() if k != "routes"}, {k: v for k, v in feed.items() if k != "routes"})
         for r in feed["routes"]:
             for k in ("slug", "name", "country", "deadlines", "url", "official", "open", "summary"):
                 self.assertIn(k, r, f"{r.get('slug')}: no {k}")
@@ -465,7 +472,7 @@ class BuiltSite(unittest.TestCase):
         self.assertTrue(all(0 <= f < len(doc["fields"]) for s in offering for fs in s["offers"].values() for f in fs))
         # 12 Oct 2026: every route has its own photo in the app (the university, or the host country for a national
         # programme), free-licensed and credited, so the lists look the same everywhere
-        feed_routes = json.loads((self.site / "app" / "feed.json").read_text(encoding="utf-8"))["routes"]
+        feed_routes = json.loads((self.site / "app" / "feed-v2.json").read_text(encoding="utf-8"))["routes"]
         for r in feed_routes:
             self.assertTrue(r.get("image", "").startswith("https://degreestep.com/assets/route-"), r["slug"])
             self.assertTrue(r.get("credit") and r.get("image_source", "").startswith("https://commons.wikimedia.org/"), r["slug"])
@@ -1354,7 +1361,7 @@ class PoisonedData(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stderr)
             slug = data[0]["slug"]
             html = (tmp / "_site" / "routes" / slug / "index.html").read_text(encoding="utf-8")
-            feed = json.loads((tmp / "_site" / "app" / "feed.json").read_text(encoding="utf-8"))
+            feed = json.loads((tmp / "_site" / "app" / "feed-v2.json").read_text(encoding="utf-8"))
             return html, next(r for r in feed["routes"] if r["slug"] == slug), result.stderr
         finally:
             shutil.rmtree(tmp, ignore_errors=True)

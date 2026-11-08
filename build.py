@@ -2156,17 +2156,15 @@ def load_route_photos(slugs):
 
 
 def write_app_feed(routes, notes, positions, news, subjects, guides, photos=None):
-    """app/feed.json: everything the DegreeStep iPhone app shows, so its content updates with every deploy and never
+    """app/feed-v2.json: everything the DegreeStep iPhone app shows, so its content updates with every deploy and never
     needs a new App Store version. The app keeps the last copy for offline use and works out each route's next
     deadline itself, so a feed a few days old still counts down correctly. Every guide, story, subject page and
-    listing travels in full, so the app shows them itself instead of opening the website."""
+    listing travels in full, so the app shows them itself instead of opening the website.
+
+    app/feed.json is the same feed for app 1.0 (build 18), cut to the routes in data/app_feed_v1.json. That build
+    draws every Explore row at once, and on iOS 27.2 SwiftUI crashed (8 Nov 2026) once the list grew past the 88
+    routes it had before 7 Nov. App 1.0.1 and later read feed-v2.json, whose Explore makes rows as they scroll in."""
     order = {name: i for i, name in enumerate(ELIGIBILITY["countries"])}
-    # TEMPORARY (8 Nov 2026): data/app_feed_hold.json holds routes out of the app feed while we test whether the
-    # longer list makes the app's Explore tab crash. The website keeps every route. Delete the file to undo.
-    hold_file = DATA / "app_feed_hold.json"
-    if hold_file.exists():
-        hold = set(json.loads(hold_file.read_text(encoding="utf-8"))["slugs"])
-        routes = [r for r in routes if r["slug"] not in hold]
     slugs = {r["slug"] for r in routes}
     live = open_positions(positions)
     live_ids = {p["id"] for p in live}
@@ -2244,7 +2242,11 @@ def write_app_feed(routes, notes, positions, news, subjects, guides, photos=None
                     "minutes": max(1, round(words(g["body"]) / 220)), "blocks": app_blocks(g["body"])} for g in guides],
     }
     (OUT / "app").mkdir(exist_ok=True)
-    (OUT / "app" / "feed.json").write_text(json.dumps(feed, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    (OUT / "app" / "feed-v2.json").write_text(json.dumps(feed, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    v1_slugs = set(json.loads((DATA / "app_feed_v1.json").read_text(encoding="utf-8"))["slugs"])
+    v1_routes = [{**r, "related": [x for x in r["related"] if x in v1_slugs]} for r in feed["routes"] if r["slug"] in v1_slugs]
+    (OUT / "app" / "feed.json").write_text(json.dumps({**feed, "routes": v1_routes}, ensure_ascii=False, separators=(",", ":")),
+                                           encoding="utf-8")
 
 
 CONTINENTS = {"Europe": "Europe", "USA": "North America", "Canada": "North America", "Asia": "Asia", "Africa": "Africa",
