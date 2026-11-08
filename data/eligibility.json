@@ -1588,6 +1588,22 @@
         "Zambia",
         "Zimbabwe"
       ]
+    },
+    "manchester_global_futures_africa": {
+      "name": "Manchester Global Futures Scholarships for Africa",
+      "source": "https://www.manchester.ac.uk/study/international/country-specific-information/ghana/scholarships/",
+      "as_of": "2026-11-08",
+      "note": "Bachelor's: Botswana, Ghana, Kenya, Mauritius, Nigeria, South Africa and Zimbabwe. Master's: Botswana, Egypt, Ghana, Kenya, Nigeria, South Africa and Zimbabwe. September 2027 entry.",
+      "countries": [
+        "Botswana",
+        "Egypt",
+        "Ghana",
+        "Kenya",
+        "Mauritius",
+        "Nigeria",
+        "South Africa",
+        "Zimbabwe"
+      ]
     }
   },
   "routes": {
@@ -2126,6 +2142,12 @@
       "except": [
         "Canada"
       ]
+    },
+    "university-of-pennsylvania": {
+      "all": true
+    },
+    "manchester-global-futures-scholarships-africa": {
+      "list": "manchester_global_futures_africa"
     }
   }
 }

@@ -4873,5 +4873,104 @@
       }
     ],
     "approx": false
+  },
+  {
+    "last_verified": "2026-11-08",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "university-of-pennsylvania",
+    "name": "University of Pennsylvania",
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Medicine & Health",
+      "Business & Economics",
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Social Sciences & Law",
+      "Arts & Humanities"
+    ],
+    "types": [
+      "Need-Based Aid"
+    ],
+    "levels": [
+      "Bachelor's"
+    ],
+    "funding": "Meets 100% of demonstrated need for international students admitted as aid applicants, for all four years, in every school including the Nursing BSN.",
+    "deadline": "Jan 5, 2027 (Regular Decision) · financial aid documents Feb 1, 2027",
+    "link": "https://admissions.upenn.edu/affording-penn/international-aid",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 5,
+        "for": "Regular Decision application"
+      },
+      {
+        "y": 2027,
+        "m": 2,
+        "d": 1,
+        "for": "financial aid documents"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-08",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "manchester-global-futures-scholarships-africa",
+    "name": "University of Manchester: Global Futures Scholarships for Africa",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "limited",
+    "fields": [
+      "Agriculture & Environment",
+      "Arts & Humanities",
+      "Business & Economics",
+      "Computer Science",
+      "Engineering & Tech",
+      "Medicine & Health",
+      "Natural Sciences",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Tuition Waiver",
+      "Merit"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's"
+    ],
+    "funding": "£12,000 a year off international fees for three years of a bachelor's, or £19,000 off a master's, for self-funded students from Ghana, Nigeria, Kenya and other listed African countries.",
+    "deadline": "Bachelor's: Feb 25, 2027 (round 1) or Apr 8, 2027 (round 2) · Master's: Apr 20, 2027 (unconditional offer and award form)",
+    "link": "https://www.manchester.ac.uk/study/international/country-specific-information/ghana/scholarships/",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 2,
+        "d": 25,
+        "for": "bachelor's, round 1"
+      },
+      {
+        "y": 2027,
+        "m": 4,
+        "d": 8,
+        "for": "bachelor's, round 2"
+      },
+      {
+        "y": 2027,
+        "m": 4,
+        "d": 20,
+        "for": "master's, unconditional offer and award form"
+      }
+    ],
+    "approx": false
   }
 ]
