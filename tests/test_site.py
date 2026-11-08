@@ -416,7 +416,9 @@ class BuiltSite(unittest.TestCase):
         # and AdMob checks app-ads.txt on the developer's site before it serves ads in the app
         feed = json.loads((self.site / "app" / "feed.json").read_text(encoding="utf-8"))
         self.assertEqual(feed["version"], 1)
-        self.assertEqual(len(feed["routes"]), len(source_routes(self.dir)))
+        hold_file = self.dir / "data" / "app_feed_hold.json"  # TEMPORARY crash test, 8 Nov 2026
+        held = set(json.loads(hold_file.read_text(encoding="utf-8"))["slugs"]) if hold_file.exists() else set()
+        self.assertEqual(len(feed["routes"]), len(source_routes(self.dir)) - len(held))
         for r in feed["routes"]:
             for k in ("slug", "name", "country", "deadlines", "url", "official", "open", "summary"):
                 self.assertIn(k, r, f"{r.get('slug')}: no {k}")

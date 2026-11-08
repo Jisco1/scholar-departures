@@ -2161,6 +2161,12 @@ def write_app_feed(routes, notes, positions, news, subjects, guides, photos=None
     deadline itself, so a feed a few days old still counts down correctly. Every guide, story, subject page and
     listing travels in full, so the app shows them itself instead of opening the website."""
     order = {name: i for i, name in enumerate(ELIGIBILITY["countries"])}
+    # TEMPORARY (8 Nov 2026): data/app_feed_hold.json holds routes out of the app feed while we test whether the
+    # longer list makes the app's Explore tab crash. The website keeps every route. Delete the file to undo.
+    hold_file = DATA / "app_feed_hold.json"
+    if hold_file.exists():
+        hold = set(json.loads(hold_file.read_text(encoding="utf-8"))["slugs"])
+        routes = [r for r in routes if r["slug"] not in hold]
     slugs = {r["slug"] for r in routes}
     live = open_positions(positions)
     live_ids = {p["id"] for p in live}
