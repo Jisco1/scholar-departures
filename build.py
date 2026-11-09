@@ -342,6 +342,7 @@ def load_json_docs(folder):
 # ---------------------------------------------------------------- who can apply, by nationality
 
 ELIGIBILITY = {}  # filled in main(): data/eligibility.json
+NAT_PAGES = []  # filled in main(): data/nationality_pages.json
 TERRITORIES = {"Anguilla", "Bermuda", "British Virgin Islands", "Cayman Islands", "Cook Islands", "Falkland Islands", "Gibraltar",
                "Greenland", "Hong Kong", "Macao", "Montserrat", "Saint Helena", "Tokelau", "Turks and Caicos Islands"}
 
@@ -754,7 +755,7 @@ def ezoic_ads_txt():
 
 
 def page(path, title, description, body, *, root, nav=None, body_class="", jsonld=None, extra_head="",
-         scripts=(), og_type="website", noindex=False, ads=True, og_image=None, og_photo=None):
+         scripts=(), og_type="website", noindex=False, ads=True, og_image=None, og_photo=None, lang="en"):
     canonical = BASE + path
     branded = f"{title} · {SITE}"
     full_title = title if title.endswith(SITE) or title.startswith(SITE) or len(branded) > TITLE_MAX else branded
@@ -774,7 +775,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
     script_tags = "".join(f'<script nonce="{NONCE}" src="{src}"></script>\n' for src in
                           [asset(root, "site.js")] + list(scripts))
     return f"""<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="{lang}" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -783,7 +784,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
 {head_ezoic}<title>{e(full_title)}</title>
 <meta name="description" content="{e(description)}">
 <link rel="canonical" href="{e(canonical)}">
-{'<meta name="robots" content="noindex">' if noindex else ''}{f'<meta name="msvalidate.01" content="{BING_SITE_AUTH}">' if path == "" else ''}
+{'<meta name="robots" content="noindex">' if noindex else '<meta name="robots" content="max-image-preview:large">'}{f'<meta name="msvalidate.01" content="{BING_SITE_AUTH}">' if path == "" else ''}
 <meta name="theme-color" content="#F3F5F9">
 <meta name="apple-itunes-app" content="app-id={e(APP_STORE_ID)}">
 <script nonce="{NONCE}">{THEME_BOOT}</script>
@@ -821,11 +822,12 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
       <li><a href="{root}deadlines/">Deadline calendar</a></li><li><a href="{root}positions/">Funded positions</a></li>
       <li><a href="{root}news/">Research news</a></li>
       <li><a href="{root}updates/">What's new</a></li>
-      <li><a href="{root}countries/">Countries</a></li><li><a href="{root}guides/">Guides</a></li>
+      <li><a href="{root}countries/">Countries</a></li><li><a href="{root}for/">By nationality</a></li><li><a href="{root}guides/">Guides</a></li>
       <li><a href="{root}app/">iPhone app</a></li></ul></div>
     <div><h2>About</h2><ul>
       <li><a href="{root}about/">About us</a></li><li><a href="{root}editorial-policy/">How we verify</a></li>
-      <li><a href="{root}contact/">Contact &amp; corrections</a></li><li><a href="{root}advertise/">Advertise</a></li></ul></div>
+      <li><a href="{root}contact/">Contact &amp; corrections</a></li><li><a href="{root}advertise/">Advertise</a></li>
+      <li><a href="{root}embed/">Add to your website</a></li></ul></div>
     <div><h2>Legal</h2><ul>
       <li><a href="{root}privacy/">Privacy policy</a></li><li><a href="{root}terms/">Terms of use</a></li>{privacy_btn}</ul></div>
   </div>
@@ -1517,7 +1519,8 @@ def build_news_page(n, items, live_positions):
                   "publisher": {"@type": "Organization", "name": SITE, "url": BASE,
                                 "logo": {"@type": "ImageObject", "url": BASE + "assets/apple-touch-icon.png"}}}
     if n.get("images"):
-        article_ld["image"] = [BASE + "assets/" + im["file"] for im in n["images"]]
+        # Google Discover shows a story with a big picture only when one is at least 1200 px wide: the share card is
+        article_ld["image"] = [BASE + "assets/" + f"share-{n['id']}.jpg"] + [BASE + "assets/" + im["file"] for im in n["images"]]
     LASTMOD[path] = n["date"]
     # a shared link previews the story's own 1200 x 630 picture, made by tools/share_images.py
     share = f"share-{n['id']}.jpg"
@@ -2638,6 +2641,9 @@ def search_pages(no_fee, guides, countries, subjects):
     pages += [{"t": c.get("title") or c["name"], "u": f"countries/{slug}/", "d": c.get("description", ""), "k": c["name"]}
               for slug, c in countries]
     pages += [{"t": s["title"], "u": f"subjects/{s['slug']}/", "d": s["description"], "k": s.get("field", "")} for s in subjects]
+    pages += [{"t": f"Scholarships for {p['demonym']} students", "u": f"for/{p['slug']}/",
+               "d": f"What citizens of {the_country(p['country'])} can apply for.", "k": f"{p['demonym']} {p['country']}"}
+              for p in NAT_PAGES]
     return pages
 
 
@@ -2835,6 +2841,453 @@ def build_deadlines(routes):
                              body, root=root, nav="deadlines/", jsonld=[breadcrumb_ld([("", "Home"), ("deadlines/", "Deadlines")])]))
 
 
+# ---------------------------------------------------------------- scholarships by nationality
+
+NAT_REGIONS = ("Asia", "Africa", "Europe", "North America", "South America", "Oceania")
+
+
+def the_country(name):
+    return f"the {name}" if name.startswith("United ") or name in ("Netherlands", "Philippines") else name
+
+
+def load_nationality_pages():
+    doc = json.loads((DATA / "nationality_pages.json").read_text(encoding="utf-8"))
+    known = set(ELIGIBILITY.get("countries", []))
+    seen = set()
+    out = []
+    for i, p in enumerate(doc.get("pages", [])):
+        where = f"nationality_pages.json: entry {i + 1}"
+        if p.get("country") not in known:
+            fail(f"{where}: {p.get('country')!r} is not in eligibility.json's countries")
+            continue
+        if p["country"] in seen:
+            fail(f"{where}: {p['country']} appears twice")
+        seen.add(p["country"])
+        if not re.fullmatch(r"[A-Z][A-Za-z ]+", p.get("demonym") or ""):
+            fail(f"{where}: demonym must be plain words, like Indian")
+        if p.get("region") not in NAT_REGIONS:
+            fail(f"{where}: region must be one of {', '.join(NAT_REGIONS)}")
+        out.append(dict(p, slug=slugify(p["country"])))
+    return out
+
+
+def nationality_split(routes, country):
+    """open_: routes citizens of country can apply for; only: the open ones limited to some countries;
+    shut: routes they cannot apply for; check: routes whose call has to be read."""
+    open_, only, shut, check = [], [], [], []
+    for r in routes:
+        kind, names, rule = who_can_apply(r["slug"])
+        if kind == "check":
+            check.append((r, rule.get("check") or ""))
+        elif kind == "all":
+            (shut if country in names else open_).append(r)
+        elif country in names:
+            open_.append(r)
+            only.append(r)
+        else:
+            shut.append(r)
+    return open_, only, shut, check
+
+
+def build_nationality_pages(routes, nat_pages, country_pages):
+    groups = ELIGIBILITY.get("groups", {})
+    lists = ELIGIBILITY.get("lists", {})
+    named = sorted([r for r in routes if who_can_apply(r["slug"])[0] == "only"], key=lambda r: r["name"])
+    index = {}
+    for p in nat_pages:
+        root = "../../"
+        country, dem = p["country"], p["demonym"]
+        the = the_country(country)
+        open_, only, shut, check = nationality_split(routes, country)
+        board = f'{root}scholarships/?nat={quote(country)}'
+        soon = [r for r in by_urgency(open_) if next_deadline(r)[2] == "approaching"][:8]
+
+        table = ""
+        for r in sorted(named, key=lambda r: r not in only):
+            rule = who_can_apply(r["slug"])[2]
+            if "list" in rule:
+                lst = lists[rule["list"]]
+                src = (f'<a href="{e(lst["source"])}" target="_blank" rel="noopener">Official list</a>, '
+                       f'{e(fmt_date(dt.date.fromisoformat(lst["as_of"])))}')
+            else:
+                src = "Citizens of " + e(and_list([groups[g]["name"] for g in rule["groups"]]))
+            table += (f'<tr><td><a href="{root}routes/{r["slug"]}/">{e(r["name"])}</a></td>'
+                      f'<td>{"<b>Yes</b>" if r in only else "No"}</td><td>{src}</td></tr>')
+
+        by_dest = {}
+        for r in open_:
+            by_dest.setdefault(r["country"], []).append(r)
+        dest_html = ""
+        for dest in sorted(by_dest, key=lambda d: (-len(by_dest[d]), d)):
+            ds = slugify(dest)
+            head = f'<a href="{root}countries/{ds}/">{e(dest)}</a>' if ds in country_pages else e(dest)
+            dest_html += (f'<h3>{head} <small class="muted">{len(by_dest[dest])}</small></h3><ul>' + "".join(
+                f'<li><a href="{root}routes/{r["slug"]}/">{e(r["name"])}</a> <span class="muted">· '
+                f'{e(", ".join(r["levels"]))}</span></li>' for r in sorted(by_dest[dest], key=lambda x: x["name"])) + "</ul>")
+
+        shut_all = sorted([r for r in shut if who_can_apply(r["slug"])[0] == "all"], key=lambda x: x["name"])
+        shut_html = (f"<h2>Not open to {e(dem)} citizens</h2><ul>" + "".join(
+            f'<li><a href="{root}routes/{r["slug"]}/">{e(r["name"])}</a></li>' for r in shut_all) + "</ul>") if shut_all else ""
+        check_html = ("<h2>Read the call first</h2><ul>" + "".join(
+            f'<li><a href="{root}routes/{r["slug"]}/">{e(r["name"])}</a>{": " + e(why) if why else ""}</li>'
+            for r, why in sorted(check, key=lambda x: x[0]["name"])) + "</ul>") if check else ""
+        only_html = (f'<h2 class="section-title">Open to {e(the)}, not to everyone</h2><div class="rows">'
+                     + "".join(route_row(r, root) for r in sorted(only, key=lambda x: x["name"])) + "</div>") if only else ""
+        soon_html = ('<h2 class="section-title">Closing soonest</h2><div class="rows">'
+                     + "".join(route_row(r, root) for r in soon) + "</div>") if soon else ""
+        only_line = f" {len(only)} of them are open only to certain countries, and {e(the)} is one." if only else ""
+        langs = nat_languages(country)
+        lang_links = ('<p class="muted lang-links">' + " · ".join(
+            f'<a href="{root}{lang}/for/{p["slug"]}/" hreflang="{lang}" lang="{lang}">{e(L["name"])}</a>' for lang, L in langs)
+            + "</p>") if langs else ""
+
+        body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("for/", "By nationality"), ("", f"{dem} students")])}
+<div class="eyebrow-s">{len(open_)} routes open to citizens of {e(the)}</div>
+<h1>Scholarships for {e(dem)} students</h1>
+<p class="lede">{len(open_)} of the {len(routes)} tuition-free universities and fully funded scholarships on {SITE} accept applicants from {e(the)}.{only_line}</p>
+<p><a class="btn btn-primary" href="{board}">See them on the live board →</a></p>{lang_links}</div>
+<div class="layout">
+{only_html}
+{soon_html}
+{ad_bay("between", wide=True)}
+<div class="prose">
+<h2>Country-list scholarships: can {e(dem)} citizens apply?</h2>
+<div class="table-wrap"><table><thead><tr><th>Scholarship</th><th>{e(dem)} citizens</th><th>Who can apply</th></tr></thead><tbody>{table}</tbody></table></div>
+<h2>Every route open to {e(dem)} applicants</h2>
+{dest_html}
+{shut_html}
+{check_html}
+</div></div></div>"""
+        path = f"for/{p['slug']}/"
+        title = search_title(None, f"Fully funded scholarships for {dem} students", f"nationality_pages.json: {country}")
+        desc = search_description(None, f"{len(open_)} fully funded scholarships and tuition-free universities that accept "
+                                        f"applicants from {the}, with deadlines and which country lists include it.", path)
+        LASTMOD[path] = DATES.get("routes")
+        write(path, page(path, title, desc, body, root=root, nav="for/", extra_head=nat_alternates(p),
+                         jsonld=[breadcrumb_ld([("", "Home"), ("for/", "By nationality"), (path, f"{dem} students")])]))
+        index.setdefault(p["region"], []).append((p, len(open_)))
+
+    root = "../"
+    cards = ""
+    for region in NAT_REGIONS:
+        if region not in index:
+            continue
+        cards += f'<h2>{e(region)}</h2><ul class="nat-index">' + "".join(
+            f'<li><a href="{p["slug"]}/">{e(p["demonym"])} students</a> <span class="muted">· {n} routes</span>'
+            + "".join(f' · <a href="../{lang}/for/{p["slug"]}/" hreflang="{lang}" lang="{lang}">{e(L["name"])}</a>'
+                      for lang, L in nat_languages(p["country"])) + "</li>"
+            for p, n in sorted(index[region], key=lambda x: x[0]["demonym"])) + "</ul>"
+    body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("", "By nationality")])}
+<div class="eyebrow-s">{len(nat_pages)} nationalities</div>
+<h1>Scholarships by nationality</h1>
+<p class="lede">What citizens of each country can apply for. Not listed? Pick your country on the <a href="{root}scholarships/" style="color:var(--brass)">live board</a>.</p></div>
+<div class="prose">{cards}</div></div>"""
+    LASTMOD["for/"] = DATES.get("routes")
+    write("for/", page("for/", "Scholarships by nationality",
+                       "Fully funded scholarships and tuition-free universities sorted by the nationality of the applicant.",
+                       body, root=root, nav="for/", jsonld=[breadcrumb_ld([("", "Home"), ("for/", "By nationality")])]))
+
+
+# ---------------------------------------------------------------- deadlines widget for other websites
+
+WIDGET_CSS = """:root{--bg:#FFFFFF;--line:#D3DAE5;--text:#14213A;--dim:#5E6E87;--brass:#8C6414;--soon:#A55A00;--wash:rgba(140,100,20,.06)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1322;--line:#243450;--text:#E9EEF7;--dim:#A4B4CC;--brass:#D7A94C;--soon:#EFA94A;--wash:rgba(215,169,76,.06)}}
+:root[data-theme="dark"]{--bg:#0B1322;--line:#243450;--text:#E9EEF7;--dim:#A4B4CC;--brass:#D7A94C;--soon:#EFA94A;--wash:rgba(215,169,76,.06)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--text);font:14px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.w{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.hd h1{font-size:15px;font-weight:700}
+.hd p{font-size:12px;color:var(--dim)}
+.brand{color:var(--text);display:block;flex:none}
+.brand svg{height:24px;width:auto;display:block}
+ol{list-style:none}
+li a{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
+li a:hover,li a:focus-visible{background:var(--wash);outline:none}
+.nm{font-weight:600;display:block}
+.mt{font-size:12px;color:var(--dim);display:block}
+.dl{text-align:right;flex:none;font-variant-numeric:tabular-nums}
+.dl b{display:block;color:var(--soon);font-size:13px}
+.dl small{font-size:12px;color:var(--dim)}
+.empty{padding:16px 14px;color:var(--dim)}
+.ft{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;font-size:12.5px;font-weight:600}
+.ft a{color:var(--brass);text-decoration:none}
+.ft a:hover{text-decoration:underline}"""
+
+WIDGET_JS = """(function(){var C=window.DS_C,R=window.DS_R,B=window.DS_B,p;try{p=new URLSearchParams(location.search)}catch(e){return}
+var nat=p.get("nat")||"",ni=C.indexOf(nat),n=Math.min(Math.max(parseInt(p.get("n"),10)||6,1),20),th=p.get("theme");
+if(th==="dark"||th==="light")document.documentElement.setAttribute("data-theme",th);
+var M=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],today=new Date();today.setHours(0,0,0,0);
+var rows=[];R.forEach(function(r){if(ni>=0){if(r.k)return;if(r.o&&r.o.indexOf(ni)<0)return;if(r.x&&r.x.indexOf(ni)>=0)return}
+for(var i=0;i<r.d.length;i++){var t=new Date(r.d[i]+"T00:00:00");if(t>=today){rows.push({r:r,t:t});return}}});
+rows.sort(function(a,b){return a.t-b.t||(a.r.n<b.r.n?-1:1)});rows=rows.slice(0,n);
+var tag="utm_source=widget&utm_medium=embed",ol=document.getElementById("list");ol.textContent="";
+function el(k,c,t){var x=document.createElement(k);if(c)x.className=c;if(t!=null)x.textContent=t;return x}
+rows.forEach(function(w){var r=w.r,days=Math.round((w.t-today)/864e5),li=el("li"),a=el("a");
+a.href=B+"routes/"+r.s+"/?"+tag;a.target="_blank";a.rel="noopener";
+var l=el("span");l.appendChild(el("span","nm",r.n));l.appendChild(el("span","mt",r.f+" "+r.c));
+var d=el("span","dl");d.appendChild(el("b",null,(r.q?"\\u2248 ":"")+M[w.t.getMonth()]+" "+w.t.getDate()));
+d.appendChild(el("small",null,days===0?"today":"in "+days+" day"+(days===1?"":"s")));
+a.appendChild(l);a.appendChild(d);li.appendChild(a);ol.appendChild(li)});
+if(!rows.length)ol.appendChild(el("li","empty","No confirmed deadlines right now."));
+if(ni>=0)document.getElementById("sub").textContent="Open to applicants from "+nat;
+var all=document.getElementById("all");all.href=B+"scholarships/"+(ni>=0?"?nat="+encodeURIComponent(nat)+"&":"?")+tag})();"""
+
+
+def widget_data(routes):
+    countries = ELIGIBILITY.get("countries", [])
+    idx = {c: i for i, c in enumerate(countries)}
+    out = []
+    for r in routes:
+        if r.get("rolling") or r.get("varies") or r.get("tbc") or not r.get("deadlines"):
+            continue
+        dates = sorted({dt.date(int(d["y"]), int(d["m"]), int(d["d"])) for d in (r.get("rounds") or r["deadlines"])})
+        item = {"n": r["name"], "s": r["slug"], "f": r["flag"], "c": r["country"], "d": [d.isoformat() for d in dates]}
+        if r.get("approx"):
+            item["q"] = 1
+        kind, names, _ = who_can_apply(r["slug"])
+        if kind == "all":
+            item["x"] = sorted(idx[c] for c in names if c in idx)
+        elif kind == "only":
+            item["o"] = sorted(idx[c] for c in names if c in idx)
+        else:
+            item["k"] = 1
+        out.append(item)
+    return countries, out
+
+
+def build_widget(routes):
+    """embed/deadlines/: a small page other websites put in an iframe. ?nat=<country> keeps the deadlines that
+    country's citizens can apply for, ?n= sets how many (1-20), ?theme=dark|light overrides the reader's setting."""
+    countries, items = widget_data(routes)
+    upcoming = sorted(((d, it) for it in items if not it.get("k")
+                       for d in [next((x for x in it["d"] if x >= TODAY.isoformat()), None)] if d), key=lambda x: (x[0], x[1]["n"]))[:6]
+    tag = "utm_source=widget&amp;utm_medium=embed"
+    lis = "".join(f'<li><a href="{BASE}routes/{it["s"]}/?{tag}" target="_blank" rel="noopener"><span><span class="nm">{e(it["n"])}</span>'
+                  f'<span class="mt">{e(it["f"])} {e(it["c"])}</span></span><span class="dl"><b>{e(fmt_date(dt.date.fromisoformat(d), False))}</b></span></a></li>'
+                  for d, it in upcoming)
+
+    def js_json(x):
+        return json.dumps(x, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    html_text = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="{CSP}">
+<meta name="robots" content="noindex">
+<title>Scholarship deadlines · {SITE}</title>
+<meta name="description" content="Fully funded scholarship deadlines, closing soonest, from {SITE}.">
+<link rel="canonical" href="{BASE}embed/">
+<style>{WIDGET_CSS}</style>
+</head>
+<body>
+<div class="w" id="main">
+<div class="hd"><div><h1>Scholarship deadlines</h1><p id="sub">Fully funded, closing soonest</p></div>
+<a class="brand" href="{BASE}?{tag}" target="_blank" rel="noopener">{BRAND_LOGO}</a></div>
+<ol id="list">{lis}</ol>
+<div class="ft"><a id="all" href="{BASE}scholarships/?{tag}" target="_blank" rel="noopener">All scholarships →</a>
+<a href="{e(APP_STORE_URL)}" target="_blank" rel="noopener">Get the iPhone app</a></div>
+</div>
+<script nonce="{NONCE}">window.DS_C={js_json(countries)};window.DS_R={js_json(items)};window.DS_B={js_json(BASE)};</script>
+<script nonce="{NONCE}">{WIDGET_JS}</script>
+</body>
+</html>
+"""
+    NOINDEX.add("embed/deadlines/")
+    write("embed/deadlines/", html_text)
+
+    root = "../"
+    options = "".join(f'<option value="{e(c)}">{e(c)}</option>' for c in countries)
+    snippet = (f'<iframe src="{BASE}embed/deadlines/" width="100%" height="470" style="border:0;max-width:520px" '
+               f'title="Scholarship deadlines from {SITE}" loading="lazy"></iframe>')
+    body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("", "Add to your website")])}
+<div class="eyebrow-s">Free widget</div>
+<h1>Put live scholarship deadlines on your website</h1>
+<p class="lede">Free for schools, universities and blogs. It updates itself every day.</p></div>
+<div class="embed-tool">
+<div class="embed-controls">
+<label>Who is it for?<select id="emb-nat"><option value="">Every nationality</option>{options}</select></label>
+<label>How many deadlines?<select id="emb-n"><option>4</option><option selected>6</option><option>8</option><option>10</option></select></label>
+<label>Code to paste<textarea id="emb-code" rows="4" readonly>{e(snippet)}</textarea></label>
+<button type="button" class="btn btn-primary" id="emb-copy">Copy code</button>
+</div>
+<div class="embed-preview"><iframe id="emb-frame" src="{root}embed/deadlines/" width="100%" height="470" style="border:0" title="Preview of the deadlines widget" loading="lazy"></iframe></div>
+</div></div>
+<script nonce="{NONCE}">(function(){{var nat=document.getElementById("emb-nat"),n=document.getElementById("emb-n"),code=document.getElementById("emb-code"),
+frame=document.getElementById("emb-frame"),copy=document.getElementById("emb-copy"),base={js_json(BASE + "embed/deadlines/")};
+function q(){{var p=[];if(nat.value)p.push("nat="+encodeURIComponent(nat.value));if(n.value!=="6")p.push("n="+n.value);return p.length?"?"+p.join("&"):""}}
+function upd(){{var s=q(),h=Math.round(130+Number(n.value)*56);
+var f=document.createElement("iframe"),at={{src:base+s,width:"100%",height:String(h),style:"border:0;max-width:520px",title:"Scholarship deadlines from {SITE}",loading:"lazy"}};
+for(var k in at)f.setAttribute(k,at[k]);code.value=f.outerHTML;
+frame.src="../embed/deadlines/"+s;frame.height=h}}
+nat.addEventListener("change",upd);n.addEventListener("change",upd);
+copy.addEventListener("click",function(){{code.select();var done=function(){{copy.textContent="Copied"}};
+if(navigator.clipboard)navigator.clipboard.writeText(code.value).then(done,function(){{document.execCommand("copy");done()}});else{{document.execCommand("copy");done()}}}});}})();</script>"""
+    LASTMOD["embed/"] = DATES.get("routes")
+    write("embed/", page("embed/", "Free scholarship deadlines widget for your website",
+                         "Add live, fully funded scholarship deadlines to a school, university or blog website. Free, filtered by nationality, updated every day.",
+                         body, root=root, jsonld=[breadcrumb_ld([("", "Home"), ("embed/", "Add to your website")])]))
+
+
+# ---------------------------------------------------------------- nationality pages in other languages
+
+NAT_I18N = {}  # filled in main(): data/nationality_i18n.json, language code -> its words
+I18N_KEYS = ("title", "eyebrow", "lede", "only_line", "board", "only_head", "soon_head", "table_head", "th_name", "th_ok",
+             "th_src", "yes", "no", "official", "africa", "all_head", "shut_head", "check_head", "due", "rolling", "tbc",
+             "varies", "desc", "home", "by_nat", "note")
+I18N_COUNTRY_KEYS = ("country", "subj", "people", "citizens", "from")
+
+
+def load_nationality_i18n(nat_pages, routes):
+    doc = json.loads((DATA / "nationality_i18n.json").read_text(encoding="utf-8"))
+    have = {p["country"] for p in nat_pages}
+    dests = {r["country"] for r in routes}
+    levels = {lv for r in routes for lv in r["levels"]}
+
+    def strings(x):
+        if isinstance(x, str):
+            yield x
+        elif isinstance(x, dict):
+            for v in x.values():
+                yield from strings(v)
+        elif isinstance(x, list):
+            for v in x:
+                yield from strings(v)
+    for lang, L in doc.get("languages", {}).items():
+        where = f"nationality_i18n.json: {lang}"
+        if not re.fullmatch(r"[a-z]{2}", lang):
+            fail(f"{where}: a language code is two lower-case letters")
+        if any("<" in s or ">" in s for s in strings(L)):
+            fail(f"{where}: text may not contain markup")
+        gaps = [k for k in I18N_KEYS if not (L.get("t") or {}).get(k)]
+        if gaps:
+            fail(f"{where} has no text for {', '.join(gaps)}")
+        if len(L.get("months") or []) != 12 or not all(x in (L.get("date") or "") for x in ("{d}", "{M}", "{y}")):
+            fail(f"{where} needs 12 months and a date pattern with {{d}}, {{M}} and {{y}}")
+        for c, f in (L.get("countries") or {}).items():
+            if c not in have:
+                fail(f"{where}: {c} has no English page in nationality_pages.json")
+            missing = [k for k in I18N_COUNTRY_KEYS if not f.get(k)]
+            if missing:
+                fail(f"{where}: {c} has no {', '.join(missing)}")
+        for label, need, got in (("destination", dests, L.get("dest") or {}), ("level", levels, L.get("levels") or {})):
+            if need - set(got):
+                fail(f"{where} has no translation for {label} {', '.join(sorted(need - set(got)))}")
+    return doc.get("languages", {})
+
+
+def i18n_fill(text, **kw):
+    for k, v in kw.items():
+        text = text.replace("{" + k + "}", str(v))
+    return text
+
+
+def i18n_date(L, d):
+    return i18n_fill(L["date"], d=d.day, M=L["months"][d.month - 1], y=d.year)
+
+
+def i18n_row(r, root, L):
+    nd, days, status = next_deadline(r)
+    if status in ("rolling", "tbc", "varies"):
+        text, chip = L["t"][status], ("rolling" if status == "rolling" else "closed")
+    else:
+        text, chip = i18n_fill(L["t"]["due"], date=("≈ " if r.get("approx") else "") + i18n_date(L, nd)), status
+    levels = " · ".join(L["levels"][lv] for lv in r["levels"])
+    return (f'<a class="row" href="{root}routes/{r["slug"]}/"><div><div class="row-name">{e(r["name"])}</div>'
+            f'<div class="row-meta">{e(r["flag"])} {e(L["dest"][r["country"]])} · {e(levels)}</div></div>'
+            f'<div class="row-side"><span class="chip {chip}">{e(text)}</span><span class="row-arrow">→</span></div></a>')
+
+
+def nat_languages(country):
+    return [(lang, L) for lang, L in NAT_I18N.items() if country in (L.get("countries") or {})]
+
+
+def nat_alternates(p):
+    """hreflang links between a nationality page and its translations; empty when it has none."""
+    langs = nat_languages(p["country"])
+    if not langs:
+        return ""
+    links = [("en", f"{BASE}for/{p['slug']}/"), ("x-default", f"{BASE}for/{p['slug']}/")]
+    links += [(lang, f"{BASE}{lang}/for/{p['slug']}/") for lang, _ in langs]
+    return "".join(f'<link rel="alternate" hreflang="{h}" href="{e(u)}">\n' for h, u in links)
+
+
+def build_localized_nationality_pages(routes, nat_pages):
+    lists = ELIGIBILITY.get("lists", {})
+    named = sorted([r for r in routes if who_can_apply(r["slug"])[0] == "only"], key=lambda r: r["name"])
+    for p in nat_pages:
+        for lang, L in nat_languages(p["country"]):
+            root = "../../../"
+            t, f = L["t"], L["countries"][p["country"]]
+            words = dict(f)
+            open_, only, shut, check = nationality_split(routes, p["country"])
+            n, k = len(open_), len(only)
+            soon = [r for r in by_urgency(open_) if next_deadline(r)[2] == "approaching"][:8]
+            table = ""
+            for r in sorted(named, key=lambda r: r not in only):
+                rule = who_can_apply(r["slug"])[2]
+                if "list" in rule:
+                    lst = lists[rule["list"]]
+                    src = (f'<a href="{e(lst["source"])}" target="_blank" rel="noopener">{e(t["official"])}</a>, '
+                           f'{e(i18n_date(L, dt.date.fromisoformat(lst["as_of"])))}')
+                elif rule.get("groups") == ["africa"]:
+                    src = e(t["africa"])
+                else:
+                    src = e(and_list([ELIGIBILITY["groups"][g]["name"] for g in rule["groups"]]))
+                table += (f'<tr><td><a href="{root}routes/{r["slug"]}/">{e(r["name"])}</a></td>'
+                          f'<td>{"<b>" + e(t["yes"]) + "</b>" if r in only else e(t["no"])}</td><td>{src}</td></tr>')
+            by_dest = {}
+            for r in open_:
+                by_dest.setdefault(r["country"], []).append(r)
+            dest_html = "".join(
+                f'<h3>{e(L["dest"][d])} <small class="muted">{len(by_dest[d])}</small></h3><ul>' + "".join(
+                    f'<li><a href="{root}routes/{r["slug"]}/">{e(r["name"])}</a> <span class="muted">· '
+                    f'{e(", ".join(L["levels"][lv] for lv in r["levels"]))}</span></li>'
+                    for r in sorted(by_dest[d], key=lambda x: x["name"])) + "</ul>"
+                for d in sorted(by_dest, key=lambda d: (-len(by_dest[d]), L["dest"][d])))
+            shut_all = sorted([r for r in shut if who_can_apply(r["slug"])[0] == "all"], key=lambda x: x["name"])
+            shut_html = (f"<h2>{e(i18n_fill(t['shut_head'], **words))}</h2><ul>" + "".join(
+                f'<li><a href="{root}routes/{r["slug"]}/">{e(r["name"])}</a></li>' for r in shut_all) + "</ul>") if shut_all else ""
+            check_html = (f"<h2>{e(t['check_head'])}</h2><ul>" + "".join(
+                f'<li><a href="{root}routes/{r["slug"]}/">{e(r["name"])}</a></li>'
+                for r, _ in sorted(check, key=lambda x: x[0]["name"])) + "</ul>") if check else ""
+            only_html = (f'<h2 class="section-title">{e(i18n_fill(t["only_head"], **words))}</h2><div class="rows">'
+                         + "".join(i18n_row(r, root, L) for r in sorted(only, key=lambda x: x["name"])) + "</div>") if only else ""
+            soon_html = (f'<h2 class="section-title">{e(t["soon_head"])}</h2><div class="rows">'
+                         + "".join(i18n_row(r, root, L) for r in soon) + "</div>") if soon else ""
+            title = i18n_fill(t["title"], **words)
+            lede = i18n_fill(t["lede"], n=n, total=len(routes), **words) + (i18n_fill(t["only_line"], k=k, **words) if only else "")
+            board = f'{root}scholarships/?nat={quote(p["country"])}'
+            path = f"{lang}/for/{p['slug']}/"
+            crumbs_html = (f'<nav class="crumbs" aria-label="Breadcrumb"><a href="{root}">{e(t["home"])}</a>'
+                           f'<span aria-hidden="true">›</span><a href="{root}for/">{e(t["by_nat"])}</a>'
+                           f'<span aria-hidden="true">›</span><span>{e(title)}</span></nav>')
+            body = f"""<div class="wrap" lang="{lang}"><div class="page-head">{crumbs_html}
+<div class="eyebrow-s">{e(i18n_fill(t["eyebrow"], n=n, **words))}</div>
+<h1>{e(title)}</h1>
+<p class="lede">{e(lede)}</p>
+<p><a class="btn btn-primary" href="{board}">{e(t["board"])}</a></p>
+<p class="muted lang-links">{e(t["note"])} <a href="{root}for/{p['slug']}/" hreflang="en" lang="en">English</a></p></div>
+<div class="layout">
+{only_html}
+{soon_html}
+{ad_bay("between", wide=True)}
+<div class="prose">
+<h2>{e(i18n_fill(t["table_head"], **words))}</h2>
+<div class="table-wrap"><table><thead><tr><th>{e(t["th_name"])}</th><th>{e(i18n_fill(t["th_ok"], **words))}</th><th>{e(t["th_src"])}</th></tr></thead><tbody>{table}</tbody></table></div>
+<h2>{e(i18n_fill(t["all_head"], **words))}</h2>
+{dest_html}
+{shut_html}
+{check_html}
+</div></div></div>"""
+            desc = search_description(None, i18n_fill(t["desc"], n=n, **words), path)
+            LASTMOD[path] = DATES.get("routes")
+            write(path, page(path, search_title(None, title, path), desc, body, root=root, nav="for/", lang=lang,
+                             extra_head=nat_alternates(p),
+                             jsonld=[breadcrumb_ld([("", t["home"]), ("for/", t["by_nat"]), (path, title)])]))
+
+
 def build_static_pages(pages):
     for p in pages:
         root = "../"
@@ -3010,6 +3463,8 @@ def main():
     for g in guides:  # the application-fee guide's table comes from the same list as the no-application-fee/ page
         g["body"] = g["body"].replace("{{NO_FEE_TABLE}}", no_fee_table(no_fee))
     static_pages = load_html_docs("pages")
+    NAT_PAGES[:] = load_nationality_pages()
+    NAT_I18N.update(load_nationality_i18n(NAT_PAGES, ROUTES))
     subjects = load_html_docs("subjects")
     AUTHOR.update(load_author())
     MENU_GUIDES[:] = [g for g in guides if g.get("featured")][:6] or guides[:6]
@@ -3056,6 +3511,9 @@ def main():
     build_guides(guides, ROUTES)
     build_deadlines(ROUTES)
     build_no_fee_page(no_fee, {d["slug"] for d in directory})
+    build_nationality_pages(ROUTES, NAT_PAGES, dict(countries))
+    build_localized_nationality_pages(ROUTES, NAT_PAGES)
+    build_widget(ROUTES)
     build_static_pages(static_pages)
     build_author(guides, countries)
     build_404()

@@ -450,3 +450,17 @@ img, svg { max-width: 100%; }
 .school-src { color: var(--faint); font-size: 13.5px; }
 .photo-credit { margin-top: 28px; margin-bottom: 8px; font-size: 12px; color: var(--faint); }
 .photo-credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
+/* embed/: the deadlines widget's code and preview */
+.embed-tool { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 520px); gap: 32px; align-items: start; margin: 8px 0 56px; }
+.embed-controls { display: grid; gap: 16px; }
+.embed-controls label { display: grid; gap: 6px; font-size: 13px; color: var(--dim); }
+.embed-controls select, .embed-controls textarea { font: inherit; font-size: 14px; color: var(--text); background: var(--card);
+  border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; width: 100%; }
+.embed-controls textarea { font-family: var(--mono); font-size: 12px; line-height: 1.5; resize: vertical; }
+.embed-controls .btn { justify-self: start; border: 0; cursor: pointer; font-family: inherit; }
+@media (max-width: 800px) { .embed-tool { grid-template-columns: 1fr; } }
+.nat-index { list-style: none; padding-left: 0 !important; columns: 2 220px; column-gap: 32px; }
+.nat-index li { break-inside: avoid; margin-bottom: 6px; }
+.lang-links { margin-top: 12px; font-size: 14px; }
+.lang-links a { color: var(--brass); }

@@ -19,6 +19,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 COPY = ["build.py", "site.json", "src", "content", "data", "updater"]
+# the deadlines widget lives inside other websites' pages: no menu, and no analytics of ours in their visitors' browsers
+WIDGET = "embed/deadlines/index.html"
 
 
 def make_copy():
@@ -78,7 +80,7 @@ class BuiltSite(unittest.TestCase):
             self.assertIn("no analytics of our own", privacy)
             return
         for path, page in self.pages.items():
-            if "<head>" in page and 'http-equiv="refresh"' not in page:
+            if "<head>" in page and 'http-equiv="refresh"' not in page and not path.as_posix().endswith(WIDGET):
                 self.assertIn(f"gtag/js?id={mid}", page, path)
                 self.assertLess(page.index("gtag('consent','default'"), page.index("gtag('config'"), path)
         self.assertIn("Google Analytics", privacy)
@@ -280,6 +282,8 @@ class BuiltSite(unittest.TestCase):
     def test_one_menu_on_every_page(self):
         for path, html in self.pages.items():
             name = path.relative_to(self.site).as_posix()
+            if name == WIDGET:
+                continue
             self.assertEqual(html.count('<details class="menu">'), 1, f"{name}: needs exactly one Menu button")
             self.assertNotIn('class="nav"', html, f"{name}: the old link bar is back")
             menu = html[html.index('<details class="menu">'):html.index("</header>")]
@@ -289,7 +293,7 @@ class BuiltSite(unittest.TestCase):
             self.assertEqual(menu.count('<details class="menu-sub"'), 3, f"{name}: Countries, Guides and About drop-downs")
             self.assertNotIn("menu-theme", menu, f"{name}: the theme switch belongs beside the menu, not in it")
             # light is the first theme (no script needed); the one button beside Menu switches to dark and back
-            self.assertRegex(html, r'<html lang="en" data-theme="light">', f"{name}: light is not the default")
+            self.assertRegex(html, r'<html lang="[a-z]{2}" data-theme="light">', f"{name}: light is not the default")
             self.assertIn('<meta name="theme-color" content="#F3F5F9">', html, name)
             top = html[html.index('<header class="topbar">'):html.index('<details class="menu">')]
             self.assertIn('<button type="button" class="theme-toggle"', top, f"{name}: no theme button beside the menu")
@@ -676,6 +680,87 @@ class BuiltSite(unittest.TestCase):
         self.assertIn('href="../../routes/erasmus-mundus-joint-masters/"', page)
         self.assertIn('"@type": "FAQPage"', page)
         self.assertIn("pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=", page)
+
+    def test_nationality_pages_answer_who_can_apply(self):
+        # 9 Nov 2026: one page per nationality, for students in Asia, Europe and the Americas searching from their own
+        # country. Every yes and no comes from eligibility.json's official lists, so a page never offers a scholarship
+        # its readers cannot get
+        elig = json.loads((self.dir / "data" / "eligibility.json").read_text(encoding="utf-8"))
+        india = self.pages[self.site / "for" / "india" / "index.html"]
+        us = self.pages[self.site / "for" / "united-states" / "index.html"]
+        self.assertIn("<h1>Scholarships for Indian students</h1>", india)
+        self.assertIn("<title>Fully funded scholarships for Indian students · DegreeStep</title>", india)
+        for page, country in ((india, "India"), (us, "United States")):
+            for slug, lst in (("chevening-scholarships", "chevening"), ("australia-awards-scholarships", "australia_awards")):
+                ok = country in elig["lists"][lst]["countries"]
+                self.assertRegex(page, rf'routes/{slug}/">[^<]+</a></td><td>{"<b>Yes</b>" if ok else "No"}</td>', (country, slug))
+        self.assertIn('href="../../scholarships/?nat=India"', india)
+        self.assertIn('href="../../scholarships/?nat=United%20States"', us)
+        # a college whose aid excludes US citizens is listed as not open on the American page only
+        self.assertIn("<h2>Not open to American citizens</h2>", us)
+        self.assertIn('routes/bowdoin-college/', us.split("Not open to American citizens")[1])
+        self.assertNotIn("Not open to Indian citizens", india)
+        self.assertIn("pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=", india)
+        index = self.pages[self.site / "for" / "index.html"]
+        for slug in ("india", "vietnam", "indonesia", "united-states", "united-kingdom", "germany", "brazil", "ghana"):
+            self.assertIn(f'href="{slug}/"', index)
+        self.assertIn('<a href="../for/">By nationality</a>', self.pages[self.site / "guides" / "index.html"])
+        sitemap = (self.site / "sitemap.xml").read_text(encoding="utf-8")
+        self.assertIn("https://degreestep.com/for/vietnam/", sitemap)
+
+    def test_nationality_pages_in_the_readers_language(self):
+        # 9 Nov 2026: Vietnamese, Indonesian, Spanish, Portuguese, French, German, Japanese, Korean and Turkish readers
+        # search in their own language. Each translation says what the English page says, in the same yes/no, and the
+        # two point at each other with hreflang
+        vi = self.pages[self.site / "vi" / "for" / "vietnam" / "index.html"]
+        en = self.pages[self.site / "for" / "vietnam" / "index.html"]
+        self.assertIn('<html lang="vi"', vi)
+        self.assertIn("<h1>Học bổng toàn phần cho sinh viên Việt Nam</h1>", vi)
+        for page in (vi, en):
+            self.assertIn('<link rel="alternate" hreflang="vi" href="https://degreestep.com/vi/for/vietnam/">', page)
+            self.assertIn('<link rel="alternate" hreflang="en" href="https://degreestep.com/for/vietnam/">', page)
+        self.assertIn('href="../../vi/for/vietnam/" hreflang="vi" lang="vi">Tiếng Việt</a>', en)
+        yes_en = re.findall(r'routes/([^/]+)/">[^<]+</a></td><td><b>Yes</b>', en)
+        yes_vi = re.findall(r'routes/([^/]+)/">[^<]+</a></td><td><b>Có</b>', vi)
+        self.assertTrue(yes_en)
+        self.assertEqual(yes_en, yes_vi)
+        self.assertNotIn("Next call not yet announced", vi)
+        for path in ("id/for/indonesia", "es/for/mexico", "pt/for/brazil", "fr/for/senegal", "de/for/germany",
+                     "ja/for/japan", "ko/for/south-korea", "tr/for/turkiye"):
+            page = self.pages[self.site / path / "index.html"]
+            self.assertIn(f'<html lang="{path[:2]}"', page)
+            self.assertIn("pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=", page)
+        self.assertNotIn("hreflang", self.pages[self.site / "for" / "india" / "index.html"])
+        sitemap = (self.site / "sitemap.xml").read_text(encoding="utf-8")
+        self.assertIn("https://degreestep.com/ja/for/japan/", sitemap)
+
+    def test_deadlines_widget_for_other_websites(self):
+        # 9 Nov 2026: a free widget schools, universities and blogs put on their own sites. It stays out of search and
+        # carries no ads or trackers; it links back with utm tags; the page that hands out the code is in the footer
+        widget = self.pages[self.site / "embed" / "deadlines" / "index.html"]
+        self.assertIn('<meta name="robots" content="noindex">', widget)
+        for absent in ("googlesyndication", "googletagmanager", "ezojs", "gatekeeperconsent"):
+            self.assertNotIn(absent, widget)
+        self.assertIn("utm_source=widget", widget)
+        self.assertRegex(widget, r'<script nonce="[^"]+">window\.DS_C=\[')
+        self.assertIn('href="https://apps.apple.com/app/id', widget)
+        sitemap = (self.site / "sitemap.xml").read_text(encoding="utf-8")
+        self.assertNotIn("embed/deadlines/", sitemap)
+        self.assertIn("https://degreestep.com/embed/<", sitemap)
+        tool = self.pages[self.site / "embed" / "index.html"]
+        self.assertIn('<option value="India">India</option>', tool)
+        self.assertIn('src="../embed/deadlines/"', tool)
+        self.assertIn('<a href="../embed/">Add to your website</a>', self.pages[self.site / "guides" / "index.html"])
+
+    def test_pages_allow_large_image_previews(self):
+        # Google Discover shows a story with a big picture only when the page allows large previews and offers an
+        # image at least 1200 px wide; noindex pages keep their noindex
+        story = next(t for p, t in self.pages.items() if '"@type": "NewsArticle"' in t and "share-" in t)
+        self.assertIn('<meta name="robots" content="max-image-preview:large">', story)
+        img = re.search(r'"image": \["([^"]+)"', story).group(1)
+        self.assertRegex(img, r"/assets/share-[^/]+\.jpg$")
+        school = self.pages[self.site / "school" / "index.html"]
+        self.assertNotIn("max-image-preview", school)
 
     def test_country_guides_answer_application_fees(self):
         # Search Console (9 Oct 2026) showed people finding us for "netherlands universities without application fee"
@@ -1275,6 +1360,30 @@ class PoisonedData(unittest.TestCase):
                 shutil.rmtree(tmp, ignore_errors=True)
             self.assertNotEqual(result.returncode, 0, f"{entry} was accepted")
             self.assertIn(needle, result.stderr)
+
+    def test_translation_missing_a_destination_rejected(self):
+        tmp = make_copy()
+        try:
+            path = tmp / "data" / "nationality_i18n.json"
+            doc = json.loads(path.read_text(encoding="utf-8"))
+            del doc["languages"]["vi"]["dest"]["Germany"]
+            path.write_text(json.dumps(doc, ensure_ascii=False), encoding="utf-8")
+            result = build(tmp)
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("has no translation for destination Germany", result.stderr)
+
+    def test_nationality_page_for_an_unknown_country_rejected(self):
+        tmp = make_copy()
+        try:
+            (tmp / "data" / "nationality_pages.json").write_text(json.dumps({"pages": [
+                {"region": "Asia", "country": "Atlantis", "demonym": "Atlantean"}]}), encoding="utf-8")
+            result = build(tmp)
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("is not in eligibility.json's countries", result.stderr)
 
     def test_javascript_link_rejected(self):
         self.assertRejected(lambda d: d[0].__setitem__("link", "javascript:alert(1)"), "plain https:// URL")

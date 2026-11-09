@@ -1,0 +1,275 @@
+{
+ "_help": "Native-language versions of the /for/<country>/ pages, at /<lang>/for/<country>/. Each language lists the countries that get a page in it (names as in eligibility.json) with their own words: 'country' (the name), 'subj' (the name as the subject of a sentence, with its article), 'people' (students from there), 'citizens' (its citizens) and 'from' (applicants from there). 'dest' translates the destination names routes use, 'levels' the study levels. Placeholders: {n} {total} {k} {country} {subj} {people} {citizens} {from} {date}. Scholarship names stay as their official names.",
+ "languages": {
+  "vi": {
+   "name": "Tiếng Việt",
+   "months": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+   "date": "{d}/{M}/{y}",
+   "countries": {
+    "Vietnam": {"country": "Việt Nam", "subj": "Việt Nam", "people": "sinh viên Việt Nam", "citizens": "công dân Việt Nam", "from": "từ Việt Nam"}
+   },
+   "t": {
+    "title": "Học bổng toàn phần cho {people}",
+    "eyebrow": "{n} chương trình nhận ứng viên {from}",
+    "lede": "{n} trên {total} trường miễn học phí và học bổng toàn phần trên DegreeStep nhận ứng viên {from}.",
+    "only_line": " Trong đó {k} chương trình chỉ dành cho một số quốc gia, và {subj} có trong danh sách.",
+    "board": "Xem trên bảng học bổng →",
+    "only_head": "Chỉ dành cho một số quốc gia, có {subj}",
+    "soon_head": "Sắp hết hạn",
+    "table_head": "Học bổng theo danh sách quốc gia: {citizens} có được nộp không?",
+    "th_name": "Học bổng", "th_ok": "{citizens}", "th_src": "Ai được nộp",
+    "yes": "Có", "no": "Không", "official": "Danh sách chính thức", "africa": "Công dân các nước châu Phi",
+    "all_head": "Tất cả chương trình nhận {people}",
+    "shut_head": "Không dành cho {citizens}",
+    "check_head": "Đọc kỹ thông báo tuyển sinh trước khi nộp",
+    "due": "Hạn chót {date}", "rolling": "Nhận hồ sơ quanh năm", "tbc": "Chưa công bố đợt tiếp theo", "varies": "Hạn chót tùy chương trình",
+    "desc": "{n} học bổng toàn phần và trường miễn học phí nhận ứng viên {from}, kèm hạn chót và các danh sách quốc gia chính thức.",
+    "home": "Trang chủ", "by_nat": "Theo quốc tịch",
+    "note": "Trang chi tiết của từng học bổng được viết bằng tiếng Anh."
+   },
+   "levels": {"Bachelor's": "Cử nhân", "Master's": "Thạc sĩ", "PhD": "Tiến sĩ"},
+   "dest": {"62+ partners worldwide": "Hơn 62 đối tác toàn cầu", "Africa-wide": "Toàn châu Phi", "Australia": "Úc", "Austria": "Áo", "Belgium": "Bỉ", "Canada": "Canada", "China": "Trung Quốc", "Czechia": "Séc", "Denmark": "Đan Mạch", "EU-wide": "Toàn EU", "Finland": "Phần Lan", "France": "Pháp", "Germany": "Đức", "Ghana": "Ghana", "Hong Kong": "Hồng Kông", "Hungary": "Hungary", "Iceland": "Iceland", "Ireland": "Ireland", "Italy": "Ý", "Japan": "Nhật Bản", "Netherlands": "Hà Lan", "Norway": "Na Uy", "Romania": "Romania", "Saudi Arabia": "Ả Rập Xê Út", "South Africa": "Nam Phi", "South Korea": "Hàn Quốc", "Sweden": "Thụy Điển", "Switzerland": "Thụy Sĩ", "Türkiye": "Thổ Nhĩ Kỳ", "United Arab Emirates": "Các Tiểu vương quốc Ả Rập Thống nhất", "United Kingdom": "Anh", "United States": "Mỹ", "Worldwide": "Toàn cầu"}
+  },
+  "id": {
+   "name": "Bahasa Indonesia",
+   "months": ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
+   "date": "{d} {M} {y}",
+   "countries": {
+    "Indonesia": {"country": "Indonesia", "subj": "Indonesia", "people": "mahasiswa Indonesia", "citizens": "warga negara Indonesia", "from": "dari Indonesia"}
+   },
+   "t": {
+    "title": "Beasiswa penuh untuk {people}",
+    "eyebrow": "{n} program menerima pelamar {from}",
+    "lede": "{n} dari {total} universitas bebas biaya kuliah dan beasiswa penuh di DegreeStep menerima pelamar {from}.",
+    "only_line": " {k} di antaranya hanya untuk negara tertentu, dan {subj} termasuk di dalamnya.",
+    "board": "Lihat di papan beasiswa →",
+    "only_head": "Hanya untuk negara tertentu, termasuk {subj}",
+    "soon_head": "Segera ditutup",
+    "table_head": "Beasiswa dengan daftar negara: bisakah {citizens} mendaftar?",
+    "th_name": "Beasiswa", "th_ok": "{citizens}", "th_src": "Siapa yang bisa mendaftar",
+    "yes": "Ya", "no": "Tidak", "official": "Daftar resmi", "africa": "Warga negara-negara Afrika",
+    "all_head": "Semua program untuk {people}",
+    "shut_head": "Tidak terbuka untuk {citizens}",
+    "check_head": "Baca pengumuman resminya dulu",
+    "due": "Tenggat {date}", "rolling": "Dibuka sepanjang tahun", "tbc": "Periode berikutnya belum diumumkan", "varies": "Tenggat berbeda-beda",
+    "desc": "{n} beasiswa penuh dan universitas bebas biaya kuliah yang menerima pelamar {from}, lengkap dengan tenggat dan daftar negara resmi.",
+    "home": "Beranda", "by_nat": "Berdasarkan kewarganegaraan",
+    "note": "Halaman tiap beasiswa ditulis dalam bahasa Inggris."
+   },
+   "levels": {"Bachelor's": "S1", "Master's": "S2", "PhD": "S3"},
+   "dest": {"62+ partners worldwide": "Lebih dari 62 mitra di seluruh dunia", "Africa-wide": "Seluruh Afrika", "Australia": "Australia", "Austria": "Austria", "Belgium": "Belgia", "Canada": "Kanada", "China": "Tiongkok", "Czechia": "Ceko", "Denmark": "Denmark", "EU-wide": "Seluruh Uni Eropa", "Finland": "Finlandia", "France": "Prancis", "Germany": "Jerman", "Ghana": "Ghana", "Hong Kong": "Hong Kong", "Hungary": "Hongaria", "Iceland": "Islandia", "Ireland": "Irlandia", "Italy": "Italia", "Japan": "Jepang", "Netherlands": "Belanda", "Norway": "Norwegia", "Romania": "Rumania", "Saudi Arabia": "Arab Saudi", "South Africa": "Afrika Selatan", "South Korea": "Korea Selatan", "Sweden": "Swedia", "Switzerland": "Swiss", "Türkiye": "Turki", "United Arab Emirates": "Uni Emirat Arab", "United Kingdom": "Inggris", "United States": "Amerika Serikat", "Worldwide": "Seluruh dunia"}
+  },
+  "es": {
+   "name": "Español",
+   "months": ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
+   "date": "{d} de {M} de {y}",
+   "countries": {
+    "Mexico": {"country": "México", "subj": "México", "people": "estudiantes mexicanos", "citizens": "ciudadanos mexicanos", "from": "de México"},
+    "Colombia": {"country": "Colombia", "subj": "Colombia", "people": "estudiantes colombianos", "citizens": "ciudadanos colombianos", "from": "de Colombia"},
+    "Peru": {"country": "Perú", "subj": "Perú", "people": "estudiantes peruanos", "citizens": "ciudadanos peruanos", "from": "del Perú"},
+    "Argentina": {"country": "Argentina", "subj": "Argentina", "people": "estudiantes argentinos", "citizens": "ciudadanos argentinos", "from": "de Argentina"},
+    "Chile": {"country": "Chile", "subj": "Chile", "people": "estudiantes chilenos", "citizens": "ciudadanos chilenos", "from": "de Chile"},
+    "Spain": {"country": "España", "subj": "España", "people": "estudiantes españoles", "citizens": "ciudadanos españoles", "from": "de España"}
+   },
+   "t": {
+    "title": "Becas completas para {people}",
+    "eyebrow": "{n} programas aceptan candidatos {from}",
+    "lede": "{n} de las {total} universidades sin matrícula y becas completas de DegreeStep aceptan candidatos {from}.",
+    "only_line": " {k} están abiertas solo a algunos países, entre ellos {subj}.",
+    "board": "Verlas en el tablero de becas →",
+    "only_head": "Solo para algunos países, entre ellos {subj}",
+    "soon_head": "Cierran pronto",
+    "table_head": "Becas con lista de países: ¿pueden solicitarlas los {citizens}?",
+    "th_name": "Beca", "th_ok": "{citizens}", "th_src": "Quién puede solicitarla",
+    "yes": "Sí", "no": "No", "official": "Lista oficial", "africa": "Ciudadanos de países africanos",
+    "all_head": "Todos los programas abiertos a {people}",
+    "shut_head": "No abiertos a {citizens}",
+    "check_head": "Lee la convocatoria primero",
+    "due": "Cierra el {date}", "rolling": "Abierta todo el año", "tbc": "Próxima convocatoria sin anunciar", "varies": "La fecha varía",
+    "desc": "{n} becas completas y universidades sin matrícula que aceptan candidatos {from}, con fechas límite y las listas oficiales de países.",
+    "home": "Inicio", "by_nat": "Por nacionalidad",
+    "note": "La página de cada beca está en inglés."
+   },
+   "levels": {"Bachelor's": "Grado", "Master's": "Máster", "PhD": "Doctorado"},
+   "dest": {"62+ partners worldwide": "Más de 62 socios en todo el mundo", "Africa-wide": "Toda África", "Australia": "Australia", "Austria": "Austria", "Belgium": "Bélgica", "Canada": "Canadá", "China": "China", "Czechia": "Chequia", "Denmark": "Dinamarca", "EU-wide": "Toda la UE", "Finland": "Finlandia", "France": "Francia", "Germany": "Alemania", "Ghana": "Ghana", "Hong Kong": "Hong Kong", "Hungary": "Hungría", "Iceland": "Islandia", "Ireland": "Irlanda", "Italy": "Italia", "Japan": "Japón", "Netherlands": "Países Bajos", "Norway": "Noruega", "Romania": "Rumanía", "Saudi Arabia": "Arabia Saudí", "South Africa": "Sudáfrica", "South Korea": "Corea del Sur", "Sweden": "Suecia", "Switzerland": "Suiza", "Türkiye": "Turquía", "United Arab Emirates": "Emiratos Árabes Unidos", "United Kingdom": "Reino Unido", "United States": "Estados Unidos", "Worldwide": "Todo el mundo"}
+  },
+  "pt": {
+   "name": "Português",
+   "months": ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"],
+   "date": "{d} de {M} de {y}",
+   "countries": {
+    "Brazil": {"country": "Brasil", "subj": "o Brasil", "people": "estudantes brasileiros", "citizens": "cidadãos brasileiros", "from": "do Brasil"},
+    "Portugal": {"country": "Portugal", "subj": "Portugal", "people": "estudantes portugueses", "citizens": "cidadãos portugueses", "from": "de Portugal"}
+   },
+   "t": {
+    "title": "Bolsas integrais para {people}",
+    "eyebrow": "{n} programas aceitam candidatos {from}",
+    "lede": "{n} das {total} universidades gratuitas e bolsas integrais do DegreeStep aceitam candidatos {from}.",
+    "only_line": " {k} são só para alguns países, entre eles {subj}.",
+    "board": "Ver no quadro de bolsas →",
+    "only_head": "Só para alguns países, entre eles {subj}",
+    "soon_head": "Fecham em breve",
+    "table_head": "Bolsas com lista de países: {citizens} podem se candidatar?",
+    "th_name": "Bolsa", "th_ok": "{citizens}", "th_src": "Quem pode se candidatar",
+    "yes": "Sim", "no": "Não", "official": "Lista oficial", "africa": "Cidadãos de países africanos",
+    "all_head": "Todos os programas abertos a {people}",
+    "shut_head": "Não abertos a {citizens}",
+    "check_head": "Leia o edital primeiro",
+    "due": "Prazo: {date}", "rolling": "Aberto o ano todo", "tbc": "Próximo edital ainda não anunciado", "varies": "O prazo varia",
+    "desc": "{n} bolsas integrais e universidades gratuitas que aceitam candidatos {from}, com prazos e as listas oficiais de países.",
+    "home": "Início", "by_nat": "Por nacionalidade",
+    "note": "A página de cada bolsa está em inglês."
+   },
+   "levels": {"Bachelor's": "Graduação", "Master's": "Mestrado", "PhD": "Doutorado"},
+   "dest": {"62+ partners worldwide": "Mais de 62 parceiros no mundo", "Africa-wide": "Toda a África", "Australia": "Austrália", "Austria": "Áustria", "Belgium": "Bélgica", "Canada": "Canadá", "China": "China", "Czechia": "Chéquia", "Denmark": "Dinamarca", "EU-wide": "Toda a UE", "Finland": "Finlândia", "France": "França", "Germany": "Alemanha", "Ghana": "Gana", "Hong Kong": "Hong Kong", "Hungary": "Hungria", "Iceland": "Islândia", "Ireland": "Irlanda", "Italy": "Itália", "Japan": "Japão", "Netherlands": "Países Baixos", "Norway": "Noruega", "Romania": "Romênia", "Saudi Arabia": "Arábia Saudita", "South Africa": "África do Sul", "South Korea": "Coreia do Sul", "Sweden": "Suécia", "Switzerland": "Suíça", "Türkiye": "Turquia", "United Arab Emirates": "Emirados Árabes Unidos", "United Kingdom": "Reino Unido", "United States": "Estados Unidos", "Worldwide": "Mundo todo"}
+  },
+  "fr": {
+   "name": "Français",
+   "months": ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"],
+   "date": "{d} {M} {y}",
+   "countries": {
+    "France": {"country": "France", "subj": "la France", "people": "étudiants français", "citizens": "citoyens français", "from": "de France"},
+    "Senegal": {"country": "Sénégal", "subj": "le Sénégal", "people": "étudiants sénégalais", "citizens": "citoyens sénégalais", "from": "du Sénégal"},
+    "Cameroon": {"country": "Cameroun", "subj": "le Cameroun", "people": "étudiants camerounais", "citizens": "citoyens camerounais", "from": "du Cameroun"},
+    "Morocco": {"country": "Maroc", "subj": "le Maroc", "people": "étudiants marocains", "citizens": "citoyens marocains", "from": "du Maroc"}
+   },
+   "t": {
+    "title": "Bourses complètes pour les {people}",
+    "eyebrow": "{n} programmes ouverts aux candidats {from}",
+    "lede": "{n} des {total} universités sans frais de scolarité et bourses complètes de DegreeStep acceptent les candidats {from}.",
+    "only_line": " {k} sont réservées à certains pays, dont {subj}.",
+    "board": "Les voir sur le tableau des bourses →",
+    "only_head": "Réservées à certains pays, dont {subj}",
+    "soon_head": "Clôture prochaine",
+    "table_head": "Bourses avec liste de pays : les {citizens} peuvent-ils postuler ?",
+    "th_name": "Bourse", "th_ok": "{citizens}", "th_src": "Qui peut postuler",
+    "yes": "Oui", "no": "Non", "official": "Liste officielle", "africa": "Citoyens des pays africains",
+    "all_head": "Tous les programmes ouverts aux {people}",
+    "shut_head": "Fermés aux {citizens}",
+    "check_head": "Lisez l'appel avant de postuler",
+    "due": "Date limite : {date}", "rolling": "Ouvert toute l'année", "tbc": "Prochain appel non annoncé", "varies": "La date varie",
+    "desc": "{n} bourses complètes et universités sans frais de scolarité qui acceptent les candidats {from}, avec dates limites et listes officielles.",
+    "home": "Accueil", "by_nat": "Par nationalité",
+    "note": "La page de chaque bourse est en anglais."
+   },
+   "levels": {"Bachelor's": "Licence", "Master's": "Master", "PhD": "Doctorat"},
+   "dest": {"62+ partners worldwide": "Plus de 62 partenaires dans le monde", "Africa-wide": "Toute l'Afrique", "Australia": "Australie", "Austria": "Autriche", "Belgium": "Belgique", "Canada": "Canada", "China": "Chine", "Czechia": "Tchéquie", "Denmark": "Danemark", "EU-wide": "Toute l'UE", "Finland": "Finlande", "France": "France", "Germany": "Allemagne", "Ghana": "Ghana", "Hong Kong": "Hong Kong", "Hungary": "Hongrie", "Iceland": "Islande", "Ireland": "Irlande", "Italy": "Italie", "Japan": "Japon", "Netherlands": "Pays-Bas", "Norway": "Norvège", "Romania": "Roumanie", "Saudi Arabia": "Arabie saoudite", "South Africa": "Afrique du Sud", "South Korea": "Corée du Sud", "Sweden": "Suède", "Switzerland": "Suisse", "Türkiye": "Turquie", "United Arab Emirates": "Émirats arabes unis", "United Kingdom": "Royaume-Uni", "United States": "États-Unis", "Worldwide": "Monde entier"}
+  },
+  "de": {
+   "name": "Deutsch",
+   "months": ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+   "date": "{d}. {M} {y}",
+   "countries": {
+    "Germany": {"country": "Deutschland", "subj": "Deutschland", "people": "Studierende aus Deutschland", "citizens": "deutsche Staatsangehörige", "from": "aus Deutschland"}
+   },
+   "t": {
+    "title": "Vollstipendien für {people}",
+    "eyebrow": "{n} Programme für Bewerbungen {from}",
+    "lede": "{n} der {total} gebührenfreien Universitäten und Vollstipendien auf DegreeStep nehmen Bewerbungen {from} an.",
+    "only_line": " {k} davon stehen nur bestimmten Ländern offen, und {subj} gehört dazu.",
+    "board": "In der Stipendien-Übersicht ansehen →",
+    "only_head": "Nur für bestimmte Länder, darunter {subj}",
+    "soon_head": "Bald Bewerbungsschluss",
+    "table_head": "Stipendien mit Länderliste: Können sich {citizens} bewerben?",
+    "th_name": "Stipendium", "th_ok": "{citizens}", "th_src": "Wer sich bewerben kann",
+    "yes": "Ja", "no": "Nein", "official": "Offizielle Liste", "africa": "Staatsangehörige afrikanischer Länder",
+    "all_head": "Alle Programme für {people}",
+    "shut_head": "Nicht offen für {citizens}",
+    "check_head": "Erst die Ausschreibung lesen",
+    "due": "Frist: {date}", "rolling": "Ganzjährig offen", "tbc": "Nächste Runde noch nicht angekündigt", "varies": "Frist unterschiedlich",
+    "desc": "{n} Vollstipendien und gebührenfreie Universitäten, die Bewerbungen {from} annehmen, mit Fristen und offiziellen Länderlisten.",
+    "home": "Startseite", "by_nat": "Nach Staatsangehörigkeit",
+    "note": "Die Seite zu jedem Stipendium ist auf Englisch."
+   },
+   "levels": {"Bachelor's": "Bachelor", "Master's": "Master", "PhD": "Promotion"},
+   "dest": {"62+ partners worldwide": "Über 62 Partner weltweit", "Africa-wide": "Ganz Afrika", "Australia": "Australien", "Austria": "Österreich", "Belgium": "Belgien", "Canada": "Kanada", "China": "China", "Czechia": "Tschechien", "Denmark": "Dänemark", "EU-wide": "EU-weit", "Finland": "Finnland", "France": "Frankreich", "Germany": "Deutschland", "Ghana": "Ghana", "Hong Kong": "Hongkong", "Hungary": "Ungarn", "Iceland": "Island", "Ireland": "Irland", "Italy": "Italien", "Japan": "Japan", "Netherlands": "Niederlande", "Norway": "Norwegen", "Romania": "Rumänien", "Saudi Arabia": "Saudi-Arabien", "South Africa": "Südafrika", "South Korea": "Südkorea", "Sweden": "Schweden", "Switzerland": "Schweiz", "Türkiye": "Türkei", "United Arab Emirates": "Vereinigte Arabische Emirate", "United Kingdom": "Vereinigtes Königreich", "United States": "USA", "Worldwide": "Weltweit"}
+  },
+  "ja": {
+   "name": "日本語",
+   "months": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+   "date": "{y}年{M}月{d}日",
+   "countries": {
+    "Japan": {"country": "日本", "subj": "日本", "people": "日本人学生", "citizens": "日本国籍の方", "from": "日本から"}
+   },
+   "t": {
+    "title": "{people}向けの全額給付奨学金",
+    "eyebrow": "{from}応募できる{n}件",
+    "lede": "DegreeStepに掲載している授業料無料の大学と全額給付奨学金{total}件のうち、{n}件が{from}の応募を受け付けています。",
+    "only_line": "そのうち{k}件は対象国が限られており、{subj}も対象です。",
+    "board": "奨学金ボードで見る →",
+    "only_head": "対象国限定（{subj}を含む）",
+    "soon_head": "締切が近いもの",
+    "table_head": "対象国リストのある奨学金：{citizens}は応募できる？",
+    "th_name": "奨学金", "th_ok": "{citizens}", "th_src": "応募資格",
+    "yes": "可", "no": "不可", "official": "公式リスト", "africa": "アフリカ諸国の国籍者",
+    "all_head": "{people}が応募できるすべてのプログラム",
+    "shut_head": "{citizens}は対象外",
+    "check_head": "まず募集要項を確認",
+    "due": "締切 {date}", "rolling": "通年募集", "tbc": "次回募集は未発表", "varies": "締切はプログラムにより異なる",
+    "desc": "{from}応募できる全額給付奨学金と授業料無料の大学{n}件。締切と公式の対象国リスト付き。",
+    "home": "ホーム", "by_nat": "国籍別",
+    "note": "各奨学金のページは英語です。"
+   },
+   "levels": {"Bachelor's": "学士", "Master's": "修士", "PhD": "博士"},
+   "dest": {"62+ partners worldwide": "世界62以上の提携先", "Africa-wide": "アフリカ全域", "Australia": "オーストラリア", "Austria": "オーストリア", "Belgium": "ベルギー", "Canada": "カナダ", "China": "中国", "Czechia": "チェコ", "Denmark": "デンマーク", "EU-wide": "EU全域", "Finland": "フィンランド", "France": "フランス", "Germany": "ドイツ", "Ghana": "ガーナ", "Hong Kong": "香港", "Hungary": "ハンガリー", "Iceland": "アイスランド", "Ireland": "アイルランド", "Italy": "イタリア", "Japan": "日本", "Netherlands": "オランダ", "Norway": "ノルウェー", "Romania": "ルーマニア", "Saudi Arabia": "サウジアラビア", "South Africa": "南アフリカ", "South Korea": "韓国", "Sweden": "スウェーデン", "Switzerland": "スイス", "Türkiye": "トルコ", "United Arab Emirates": "アラブ首長国連邦", "United Kingdom": "イギリス", "United States": "アメリカ", "Worldwide": "世界各地"}
+  },
+  "ko": {
+   "name": "한국어",
+   "months": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+   "date": "{y}년 {M}월 {d}일",
+   "countries": {
+    "South Korea": {"country": "한국", "subj": "한국", "people": "한국 학생", "citizens": "한국 국적자", "from": "한국에서"}
+   },
+   "t": {
+    "title": "{people}을 위한 전액 장학금",
+    "eyebrow": "{from} 지원 가능한 프로그램 {n}개",
+    "lede": "DegreeStep에 소개된 등록금 무료 대학과 전액 장학금 {total}개 중 {n}개에 {from} 지원할 수 있습니다.",
+    "only_line": " 그중 {k}개는 일부 국가만 대상으로 하며, {subj}도 포함됩니다.",
+    "board": "장학금 보드에서 보기 →",
+    "only_head": "일부 국가 전용 ({subj} 포함)",
+    "soon_head": "곧 마감",
+    "table_head": "국가 목록이 있는 장학금: {citizens}도 지원할 수 있을까?",
+    "th_name": "장학금", "th_ok": "{citizens}", "th_src": "지원 자격",
+    "yes": "가능", "no": "불가", "official": "공식 목록", "africa": "아프리카 국가 국적자",
+    "all_head": "지원할 수 있는 모든 프로그램",
+    "shut_head": "지원할 수 없는 프로그램",
+    "check_head": "모집 요강을 먼저 확인하세요",
+    "due": "마감 {date}", "rolling": "연중 모집", "tbc": "다음 모집 미발표", "varies": "마감일은 프로그램마다 다름",
+    "desc": "{from} 지원할 수 있는 전액 장학금과 등록금 무료 대학 {n}개. 마감일과 공식 국가 목록 포함.",
+    "home": "홈", "by_nat": "국적별",
+    "note": "각 장학금 페이지는 영어로 되어 있습니다."
+   },
+   "levels": {"Bachelor's": "학사", "Master's": "석사", "PhD": "박사"},
+   "dest": {"62+ partners worldwide": "전 세계 62개 이상 협력 기관", "Africa-wide": "아프리카 전역", "Australia": "호주", "Austria": "오스트리아", "Belgium": "벨기에", "Canada": "캐나다", "China": "중국", "Czechia": "체코", "Denmark": "덴마크", "EU-wide": "EU 전역", "Finland": "핀란드", "France": "프랑스", "Germany": "독일", "Ghana": "가나", "Hong Kong": "홍콩", "Hungary": "헝가리", "Iceland": "아이슬란드", "Ireland": "아일랜드", "Italy": "이탈리아", "Japan": "일본", "Netherlands": "네덜란드", "Norway": "노르웨이", "Romania": "루마니아", "Saudi Arabia": "사우디아라비아", "South Africa": "남아프리카공화국", "South Korea": "한국", "Sweden": "스웨덴", "Switzerland": "스위스", "Türkiye": "튀르키예", "United Arab Emirates": "아랍에미리트", "United Kingdom": "영국", "United States": "미국", "Worldwide": "전 세계"}
+  },
+  "tr": {
+   "name": "Türkçe",
+   "months": ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
+   "date": "{d} {M} {y}",
+   "countries": {
+    "Türkiye": {"country": "Türkiye", "subj": "Türkiye", "people": "Türk öğrenciler", "citizens": "Türk vatandaşları", "from": "Türkiye'den"}
+   },
+   "t": {
+    "title": "{people} için tam burslar",
+    "eyebrow": "{from} başvurulabilen {n} program",
+    "lede": "DegreeStep'teki {total} ücretsiz üniversite ve tam burstan {n} tanesi {from} başvuru kabul ediyor.",
+    "only_line": " Bunların {k} tanesi yalnızca belirli ülkelere açık ve {subj} bunlardan biri.",
+    "board": "Burs panosunda gör →",
+    "only_head": "Yalnızca belirli ülkelere açık, {subj} dahil",
+    "soon_head": "Yakında kapanıyor",
+    "table_head": "Ülke listeli burslar: {citizens} başvurabilir mi?",
+    "th_name": "Burs", "th_ok": "{citizens}", "th_src": "Kimler başvurabilir",
+    "yes": "Evet", "no": "Hayır", "official": "Resmi liste", "africa": "Afrika ülkelerinin vatandaşları",
+    "all_head": "{people} için açık tüm programlar",
+    "shut_head": "{citizens} için açık değil",
+    "check_head": "Önce resmi duyuruyu okuyun",
+    "due": "Son başvuru {date}", "rolling": "Yıl boyunca açık", "tbc": "Sonraki dönem henüz duyurulmadı", "varies": "Tarih değişiyor",
+    "desc": "{from} başvuru kabul eden {n} tam burs ve ücretsiz üniversite; son tarihler ve resmi ülke listeleriyle.",
+    "home": "Ana sayfa", "by_nat": "Uyruğa göre",
+    "note": "Her bursun sayfası İngilizcedir."
+   },
+   "levels": {"Bachelor's": "Lisans", "Master's": "Yüksek lisans", "PhD": "Doktora"},
+   "dest": {"62+ partners worldwide": "Dünya çapında 62'den fazla ortak", "Africa-wide": "Tüm Afrika", "Australia": "Avustralya", "Austria": "Avusturya", "Belgium": "Belçika", "Canada": "Kanada", "China": "Çin", "Czechia": "Çekya", "Denmark": "Danimarka", "EU-wide": "AB geneli", "Finland": "Finlandiya", "France": "Fransa", "Germany": "Almanya", "Ghana": "Gana", "Hong Kong": "Hong Kong", "Hungary": "Macaristan", "Iceland": "İzlanda", "Ireland": "İrlanda", "Italy": "İtalya", "Japan": "Japonya", "Netherlands": "Hollanda", "Norway": "Norveç", "Romania": "Romanya", "Saudi Arabia": "Suudi Arabistan", "South Africa": "Güney Afrika", "South Korea": "Güney Kore", "Sweden": "İsveç", "Switzerland": "İsviçre", "Türkiye": "Türkiye", "United Arab Emirates": "Birleşik Arap Emirlikleri", "United Kingdom": "Birleşik Krallık", "United States": "ABD", "Worldwide": "Dünya geneli"}
+  }
+ }
+}

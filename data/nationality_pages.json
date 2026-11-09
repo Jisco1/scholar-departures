@@ -1,0 +1,270 @@
+{
+ "_help": "One page per nationality at /for/<country>/: what citizens of that country can apply for, built from eligibility.json. 'country' must be a name in eligibility.json's countries; 'demonym' is the adjective (Indian, American); 'region' groups the index page at /for/.",
+ "pages": [
+  {
+   "region": "Asia",
+   "country": "India",
+   "demonym": "Indian"
+  },
+  {
+   "region": "Asia",
+   "country": "Pakistan",
+   "demonym": "Pakistani"
+  },
+  {
+   "region": "Asia",
+   "country": "Bangladesh",
+   "demonym": "Bangladeshi"
+  },
+  {
+   "region": "Asia",
+   "country": "Nepal",
+   "demonym": "Nepali"
+  },
+  {
+   "region": "Asia",
+   "country": "Sri Lanka",
+   "demonym": "Sri Lankan"
+  },
+  {
+   "region": "Asia",
+   "country": "Indonesia",
+   "demonym": "Indonesian"
+  },
+  {
+   "region": "Asia",
+   "country": "Vietnam",
+   "demonym": "Vietnamese"
+  },
+  {
+   "region": "Asia",
+   "country": "Philippines",
+   "demonym": "Filipino"
+  },
+  {
+   "region": "Asia",
+   "country": "Malaysia",
+   "demonym": "Malaysian"
+  },
+  {
+   "region": "Asia",
+   "country": "Thailand",
+   "demonym": "Thai"
+  },
+  {
+   "region": "Asia",
+   "country": "China",
+   "demonym": "Chinese"
+  },
+  {
+   "region": "Asia",
+   "country": "Cambodia",
+   "demonym": "Cambodian"
+  },
+  {
+   "region": "Asia",
+   "country": "Mongolia",
+   "demonym": "Mongolian"
+  },
+  {
+   "region": "Asia",
+   "country": "Uzbekistan",
+   "demonym": "Uzbek"
+  },
+  {
+   "region": "Asia",
+   "country": "Kazakhstan",
+   "demonym": "Kazakh"
+  },
+  {
+   "region": "Asia",
+   "country": "Japan",
+   "demonym": "Japanese"
+  },
+  {
+   "region": "Asia",
+   "country": "South Korea",
+   "demonym": "South Korean"
+  },
+  {
+   "region": "Asia",
+   "country": "Iran",
+   "demonym": "Iranian"
+  },
+  {
+   "region": "Asia",
+   "country": "Türkiye",
+   "demonym": "Turkish"
+  },
+  {
+   "region": "Asia",
+   "country": "Jordan",
+   "demonym": "Jordanian"
+  },
+  {
+   "region": "North America",
+   "country": "United States",
+   "demonym": "American"
+  },
+  {
+   "region": "North America",
+   "country": "Canada",
+   "demonym": "Canadian"
+  },
+  {
+   "region": "North America",
+   "country": "Mexico",
+   "demonym": "Mexican"
+  },
+  {
+   "region": "Europe",
+   "country": "United Kingdom",
+   "demonym": "British"
+  },
+  {
+   "region": "Europe",
+   "country": "Ireland",
+   "demonym": "Irish"
+  },
+  {
+   "region": "Europe",
+   "country": "Germany",
+   "demonym": "German"
+  },
+  {
+   "region": "Europe",
+   "country": "France",
+   "demonym": "French"
+  },
+  {
+   "region": "Europe",
+   "country": "Italy",
+   "demonym": "Italian"
+  },
+  {
+   "region": "Europe",
+   "country": "Spain",
+   "demonym": "Spanish"
+  },
+  {
+   "region": "Europe",
+   "country": "Portugal",
+   "demonym": "Portuguese"
+  },
+  {
+   "region": "Europe",
+   "country": "Netherlands",
+   "demonym": "Dutch"
+  },
+  {
+   "region": "Europe",
+   "country": "Poland",
+   "demonym": "Polish"
+  },
+  {
+   "region": "Europe",
+   "country": "Ukraine",
+   "demonym": "Ukrainian"
+  },
+  {
+   "region": "Oceania",
+   "country": "Australia",
+   "demonym": "Australian"
+  },
+  {
+   "region": "South America",
+   "country": "Brazil",
+   "demonym": "Brazilian"
+  },
+  {
+   "region": "South America",
+   "country": "Colombia",
+   "demonym": "Colombian"
+  },
+  {
+   "region": "South America",
+   "country": "Peru",
+   "demonym": "Peruvian"
+  },
+  {
+   "region": "South America",
+   "country": "Argentina",
+   "demonym": "Argentine"
+  },
+  {
+   "region": "South America",
+   "country": "Chile",
+   "demonym": "Chilean"
+  },
+  {
+   "region": "Africa",
+   "country": "Ghana",
+   "demonym": "Ghanaian"
+  },
+  {
+   "region": "Africa",
+   "country": "Nigeria",
+   "demonym": "Nigerian"
+  },
+  {
+   "region": "Africa",
+   "country": "Kenya",
+   "demonym": "Kenyan"
+  },
+  {
+   "region": "Africa",
+   "country": "Ethiopia",
+   "demonym": "Ethiopian"
+  },
+  {
+   "region": "Africa",
+   "country": "Egypt",
+   "demonym": "Egyptian"
+  },
+  {
+   "region": "Africa",
+   "country": "South Africa",
+   "demonym": "South African"
+  },
+  {
+   "region": "Africa",
+   "country": "Uganda",
+   "demonym": "Ugandan"
+  },
+  {
+   "region": "Africa",
+   "country": "Tanzania",
+   "demonym": "Tanzanian"
+  },
+  {
+   "region": "Africa",
+   "country": "Cameroon",
+   "demonym": "Cameroonian"
+  },
+  {
+   "region": "Africa",
+   "country": "Zimbabwe",
+   "demonym": "Zimbabwean"
+  },
+  {
+   "region": "Africa",
+   "country": "Rwanda",
+   "demonym": "Rwandan"
+  },
+  {
+   "region": "Africa",
+   "country": "Zambia",
+   "demonym": "Zambian"
+  },
+  {
+   "region": "Africa",
+   "country": "Morocco",
+   "demonym": "Moroccan"
+  },
+  {
+   "region": "Africa",
+   "country": "Senegal",
+   "demonym": "Senegalese"
+  }
+ ]
+}
