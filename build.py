@@ -790,7 +790,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
       <li><a href="{root}app/">iPhone app</a></li></ul></div>
     <div><h2>About</h2><ul>
       <li><a href="{root}about/">About us</a></li><li><a href="{root}editorial-policy/">How we verify</a></li>
-      <li><a href="{root}contact/">Contact &amp; corrections</a></li></ul></div>
+      <li><a href="{root}contact/">Contact &amp; corrections</a></li><li><a href="{root}advertise/">Advertise</a></li></ul></div>
     <div><h2>Legal</h2><ul>
       <li><a href="{root}privacy/">Privacy policy</a></li><li><a href="{root}terms/">Terms of use</a></li>{privacy_btn}</ul></div>
   </div>
@@ -902,6 +902,51 @@ def route_row(r, root):
             f'</div><div class="row-side">{status_chip(r)}<span class="row-arrow">Details →</span></div></a>')
 
 
+# ---------------------------------------------------------------- sponsored spots
+
+SPONSOR_PLACES = ("home", "board", "country")
+SPONSOR_MAX_DAYS = 31
+SPONSORS = []  # filled by main() from data/sponsored.json
+
+
+def load_sponsored(routes):
+    """data/sponsored.json: paid spots. Only a route that is already listed can be sponsored, so payment buys a
+    labelled box, never a listing; the route page, its order in lists and search stay exactly as they are."""
+    path = DATA / "sponsored.json"
+    if not path.exists():
+        return []
+    by_slug = {r["slug"]: r for r in routes}
+    out = []
+    for i, s in enumerate(json.loads(path.read_text(encoding="utf-8")).get("entries") or []):
+        where = f"data/sponsored.json entry {i + 1}"
+        if s.get("route") not in by_slug:
+            fail(f"{where}: route {s.get('route')!r} is not a live route; only listed routes can be sponsored")
+            continue
+        try:
+            start, end = dt.date.fromisoformat(s["start"]), dt.date.fromisoformat(s["end"])
+        except (KeyError, TypeError, ValueError):
+            fail(f"{where}: 'start' and 'end' must be dates like 2026-12-01")
+            continue
+        if not 0 <= (end - start).days <= SPONSOR_MAX_DAYS:
+            fail(f"{where}: a spot runs for at most {SPONSOR_MAX_DAYS} days and must end on or after its start")
+        places = s.get("placements") or list(SPONSOR_PLACES)
+        if not isinstance(places, list) or any(p not in SPONSOR_PLACES for p in places):
+            fail(f"{where}: 'placements' must list some of {', '.join(SPONSOR_PLACES)}")
+            continue
+        out.append({"route": by_slug[s["route"]], "start": start, "end": end, "placements": places})
+    return out
+
+
+def sponsored_box(place, root, country=None):
+    """The labelled box for one placement, or nothing when no spot is running today."""
+    rs = [s["route"] for s in SPONSORS if s["start"] <= TODAY <= s["end"] and place in s["placements"]
+          and (country is None or slugify(s["route"]["country"]) == country)]
+    if not rs:
+        return ""
+    return ('<aside class="sponsored" aria-label="Sponsored"><p class="sponsored-label">Sponsored</p>'
+            f'<div class="rows">{"".join(route_row(r, root) for r in rs)}</div></aside>')
+
+
 # ---------------------------------------------------------------- pages
 
 def build_board(routes, schools, directory, pages=()):
@@ -934,6 +979,7 @@ def build_board(routes, schools, directory, pages=()):
         for s in dsorted[:PER_PAGE_DIR])
     body = (tpl.replace("{{CONFIG_JSON}}", config_json)
             .replace("{{GRID}}", grid)
+            .replace("{{SPONSORED}}", sponsored_box("board", root))
             .replace("{{DIR_ROWS}}", dir_rows)
             .replace("{{AD_HOME}}", ad_bay("between", wide=True))
             .replace("{{N_ROUTES}}", str(len(routes)))
@@ -1574,7 +1620,7 @@ def build_home(routes, schools, updates, positions, research):
   <div><b>{countries_n}</b><span>Countries</span></div>
   <div><b>{DIRECTORY_SIZE:,}</b><span>Universities indexed</span></div>
   <div><b class="hot">{soon30}</b><span>Closing within 30 days</span></div>
-</section></div>
+</section>{sponsored_box("home", root)}</div>
 
 <section class="lp-section wrap">
   <h2 class="lp-h2">Find funding you can trust</h2>
@@ -1904,7 +1950,7 @@ def build_countries(routes, countries):
 <div class="eyebrow-s">{e(c.get("flag", ""))} {len(rs)} funded route{"s" if len(rs) != 1 else ""}</div>
 <h1>{e(c["title"])}</h1><p class="lede">{e(c["lede"])}</p>
 <div class="byline"><span>By <b>{author_link(root)}</b></span><span>Reviewed <b>{e(fmt_date(dt.date.fromisoformat(c["reviewed"])))}</b></span></div></div>
-<div class="layout has-rail"><div>{glance_html}
+<div class="layout has-rail"><div>{glance_html}{sponsored_box("country", root, slug)}
 <h2 class="group-title">Funded routes in {e(c["name"])}</h2><div class="rows">{"".join(route_row(r, root) for r in rs)}</div>
 <article class="prose" style="margin-top:12px">{sections}{faq_html}
 {"<h2>Sources</h2><ul>" + sources + "</ul>" if sources else ""}</article>
@@ -2886,6 +2932,7 @@ def main():
     countries = sorted(countries_raw.items(), key=lambda kv: kv[1]["name"])
     guides = sorted(load_html_docs("guides"), key=lambda g: g.get("order", 99))
     no_fee = load_no_fee({r["slug"] for r in ROUTES})
+    SPONSORS[:] = load_sponsored(ROUTES)
     for g in guides:  # the application-fee guide's table comes from the same list as the no-application-fee/ page
         g["body"] = g["body"].replace("{{NO_FEE_TABLE}}", no_fee_table(no_fee))
     static_pages = load_html_docs("pages")

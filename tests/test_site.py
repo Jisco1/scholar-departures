@@ -631,6 +631,21 @@ class BuiltSite(unittest.TestCase):
         self.assertIn('href="no-application-fee/"', self.pages[self.site / "index.html"])
         self.assertIn("no-application-fee/</loc>", (self.site / "sitemap.xml").read_text(encoding="utf-8"))
 
+    def test_advertise_page_sets_the_rules_for_sponsored_spots(self):
+        # 9 Nov 2026: sponsored university spots, piloted. The page that sells them states the rules, How we verify
+        # points to it, every footer links it, and with no spot booked nothing labelled Sponsored appears anywhere
+        page = self.pages[self.site / "advertise" / "index.html"]
+        for rule in ("already meets our", "Sponsored", "does not change what it says", "do not sell visitor data",
+                     "mailto:hello@degreestep.com?subject=Sponsored%20spot%20on%20DegreeStep"):
+            self.assertIn(rule, page)
+        self.assertIn('href="../advertise/"', self.pages[self.site / "editorial-policy" / "index.html"])
+        self.assertIn('href="advertise/">Advertise</a>', self.pages[self.site / "index.html"])
+        self.assertIn("advertise/</loc>", (self.site / "sitemap.xml").read_text(encoding="utf-8"))
+        if not json.loads((ROOT / "data" / "sponsored.json").read_text(encoding="utf-8"))["entries"]:
+            for p, text in self.pages.items():
+                if p.parent.name != "advertise":
+                    self.assertNotIn('class="sponsored"', text, p)
+
     def test_country_guides_answer_application_fees(self):
         # Search Console (9 Oct 2026) showed people finding us for "netherlands universities without application fee"
         # and leaving: every country guide now answers what applying costs, and points to the cross-country guide
@@ -1215,6 +1230,18 @@ class PoisonedData(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0, "poisoned data was accepted")
         self.assertIn(needle, result.stderr)
 
+    def test_sponsored_spot_needs_a_listed_route(self):
+        # paying never buys a listing: a spot for a route we do not list stops the build
+        tmp = make_copy()
+        try:
+            (tmp / "data" / "sponsored.json").write_text(json.dumps({"entries": [
+                {"route": "no-such-route", "start": "2026-12-01", "end": "2026-12-30"}]}), encoding="utf-8")
+            result = build(tmp)
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+        self.assertNotEqual(result.returncode, 0, "a spot for an unlisted route was accepted")
+        self.assertIn("only listed routes can be sponsored", result.stderr)
+
     def test_javascript_link_rejected(self):
         self.assertRejected(lambda d: d[0].__setitem__("link", "javascript:alert(1)"), "plain https:// URL")
 
@@ -1432,6 +1459,51 @@ class PoisonedData(unittest.TestCase):
 
     def test_unknown_funding_type_rejected(self):
         self.assertRejected(lambda d: d[0].__setitem__("types", ["Free Money"]), "'types'")
+
+
+class SponsoredSpots(unittest.TestCase):
+    """A running spot shows, labelled, on the home page, the board and its own country's page, and nowhere else;
+    a spot whose dates have passed is gone at the next daily build."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.dir = make_copy()
+        routes = source_routes(cls.dir)
+        cls.live = next(r for r in routes if r["country"] == "Germany")
+        cls.gone = next(r for r in routes if r["country"] != "Germany")
+        today = dt.date.today()
+        (cls.dir / "data" / "sponsored.json").write_text(json.dumps({"entries": [
+            {"route": cls.live["slug"], "start": (today - dt.timedelta(days=1)).isoformat(),
+             "end": (today + dt.timedelta(days=20)).isoformat()},
+            {"route": cls.gone["slug"], "start": (today - dt.timedelta(days=30)).isoformat(),
+             "end": (today - dt.timedelta(days=1)).isoformat()}]}), encoding="utf-8")
+        cls.result = build(cls.dir)
+        cls.site = cls.dir / "_site"
+
+    @classmethod
+    def tearDownClass(cls):
+        shutil.rmtree(cls.dir, ignore_errors=True)
+
+    def box(self, *path):
+        text = self.site.joinpath(*path, "index.html").read_text(encoding="utf-8")
+        found = re.findall(r'<aside class="sponsored".*?</aside>', text, re.S)
+        return found[0] if found else ""
+
+    def test_build_passes(self):
+        self.assertEqual(self.result.returncode, 0, self.result.stderr)
+
+    def test_running_spot_shows_labelled_where_booked(self):
+        for path in ((), ("scholarships",), ("countries", "germany")):
+            box = self.box(*path)
+            self.assertIn('<p class="sponsored-label">Sponsored</p>', box, path)
+            self.assertIn(f'routes/{self.live["slug"]}/', box, path)
+            self.assertNotIn(f'routes/{self.gone["slug"]}/', box, path)
+
+    def test_spot_stays_off_other_countries_and_route_pages(self):
+        other = re.sub(r"[^a-z0-9]+", "-", self.gone["country"].lower()).strip("-")
+        if (self.site / "countries" / other / "index.html").exists():
+            self.assertEqual(self.box("countries", other), "")
+        self.assertEqual(self.box("routes", self.live["slug"]), "")
 
 
 class PageScript(unittest.TestCase):

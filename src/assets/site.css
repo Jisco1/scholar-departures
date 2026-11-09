@@ -225,6 +225,10 @@ img, svg { max-width: 100%; }
 .group-title { font-family: var(--mono); font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: var(--faint); margin: 36px 0 12px; display: flex; align-items: center; gap: 12px; }
 .group-title::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 .group-title a { color: var(--brass); text-decoration: none; }
+/* a paid spot: always labelled, always a route that is listed anyway */
+.sponsored { margin: 24px 0 8px; }
+.sponsored .sponsored-label { font-family: var(--mono); font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--faint); margin: 0 0 8px; }
+.sponsored .rows { border-color: var(--brass); }
 
 /* -  -  - Tile grid (guides, countries) -  -  - */
 .tiles { display: grid; grid-template-columns: 1fr; gap: 14px; }

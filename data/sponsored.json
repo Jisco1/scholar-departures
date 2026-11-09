@@ -1,0 +1,4 @@
+{
+  "_help": "Paid sponsored spots. Each entry: route (the slug of a route that is already listed), start and end (dates like 2026-12-01, at most 31 days apart) and, optionally, placements (any of home, board, country; all three if left out). A spot shows only between its dates and always carries the Sponsored label. It never changes the route page, its place in lists or in search.",
+  "entries": []
+}
