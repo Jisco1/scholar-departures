@@ -650,6 +650,22 @@ class BuiltSite(unittest.TestCase):
                 if p.parent.name != "advertise":
                     self.assertNotIn('class="sponsored"', text, p)
 
+    def test_ezoic_scripts_load_first_on_ad_pages_only(self):
+        # 9 Nov 2026, Ezoic Incubator: its consent scripts must load first and not be delayed, then the header script.
+        # Each carries the build's nonce or the CSP blocks it. Pages without ads (privacy, 404) carry none of it, and
+        # local builds never fetch Ezoic's ads.txt, so ads.txt stays the AdSense line alone
+        home = self.pages[self.site / "index.html"]
+        nonce = re.search(r"'nonce-([^']+)'", home).group(1)
+        order = [home.index(f'<script data-cfasync="false" nonce="{nonce}" src="https://cmp.gatekeeperconsent.com/min.js">'),
+                 home.index(f'<script data-cfasync="false" nonce="{nonce}" src="https://the.gatekeeperconsent.com/cmp.min.js">'),
+                 home.index(f'<script async nonce="{nonce}" src="https://www.ezojs.com/ezoic/sa.min.js">'),
+                 home.index("<title>")]
+        self.assertEqual(order, sorted(order))
+        self.assertNotIn("gatekeeperconsent", self.pages[self.site / "privacy" / "index.html"])
+        self.assertNotIn("gatekeeperconsent", self.pages[self.site / "404.html"])
+        self.assertEqual((self.site / "ads.txt").read_text(encoding="utf-8"),
+                         "google.com, pub-6851724780839114, DIRECT, f08c47fec0942fa0\n")
+
     def test_us_uk_guide_cites_official_sources(self):
         # 9 Nov 2026: "study in Europe for free" for American and British readers, the higher-paying audience. Every
         # claim that differs for them rests on an official page, and the page keeps its ad spaces and FAQ

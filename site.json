@@ -10,6 +10,12 @@
     "id": "G-P2Q3FGWGCY"
   },
 
+  "ezoic": {
+    "_help": "Ezoic (Incubator application, 9 Nov 2026). enabled adds Ezoic's consent and header scripts to the pages that carry ads. ads_txt is Ezoic's list for this domain; the deploy build merges it into ads.txt once Ezoic serves it.",
+    "enabled": true,
+    "ads_txt": "https://srv.adstxtmanager.com/19390/degreestep.com"
+  },
+
   "adsense": {
     "_help": "Leave client empty until AdSense gives you a publisher ID (ca-pub-...). With a client set, the build adds the AdSense tag, the site-verification meta tag and ads.txt. Slots are the numeric ad-unit IDs you create in AdSense > Ads > By ad unit; a bay whose slot is empty is not rendered.",
     "client": "ca-pub-6851724780839114",

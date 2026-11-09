@@ -35,6 +35,8 @@ jobs:
         run: python -m unittest discover -s tests -v
 
       - name: Build
+        env:
+          DEGREESTEP_DEPLOY: "1"  # lets the build fetch Ezoic's ads.txt list; tests and local builds stay offline
         run: python build.py
 
       - name: Report route write-ups that mention past dates (free, never fails the build)

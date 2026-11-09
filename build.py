@@ -18,10 +18,12 @@ import datetime as dt
 import hashlib
 import html
 import json
+import os
 import re
 import secrets
 import shutil
 import sys
+import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import quote, urlsplit
@@ -719,12 +721,45 @@ def ad_bay(kind, wide=False):
     return ""
 
 
+def ezoic_head():
+    """Ezoic's scripts, top of <head> as its docs require: the consent scripts first and not delayed, then the
+    header script. Early connections cut the wait for the two consent scripts; analytics loads async."""
+    if not (CONFIG.get("ezoic") or {}).get("enabled"):
+        return ""
+    n = NONCE
+    return ('<link rel="preconnect" href="https://cmp.gatekeeperconsent.com">\n'
+            '<link rel="preconnect" href="https://the.gatekeeperconsent.com">\n'
+            f'<script data-cfasync="false" nonce="{n}" src="https://cmp.gatekeeperconsent.com/min.js"></script>\n'
+            f'<script data-cfasync="false" nonce="{n}" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>\n'
+            f'<script async nonce="{n}" src="https://www.ezojs.com/ezoic/sa.min.js"></script>\n'
+            f'<script nonce="{n}">window.ezstandalone=window.ezstandalone||{{}};ezstandalone.cmd=ezstandalone.cmd||[];</script>\n'
+            f'<script async nonce="{n}" src="https://ezoicanalytics.com/analytics.js"></script>\n')
+
+
+def ezoic_ads_txt():
+    """Ezoic's ads.txt lines for this domain, fetched by the deploy build only (never by local builds or tests, so
+    they stay offline). Ezoic answers 404 until it has set the site up; then ads.txt simply carries no Ezoic lines."""
+    url = (CONFIG.get("ezoic") or {}).get("ads_txt", "")
+    if not (CONFIG.get("ezoic") or {}).get("enabled") or not url or not os.environ.get("DEGREESTEP_DEPLOY"):
+        return []
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "DegreeStepBuild/1.0 (https://degreestep.com)"})
+        with urllib.request.urlopen(req, timeout=20) as r:
+            text = r.read(500_000).decode("utf-8", "replace")
+    except Exception as err:  # a missing or slow list must never stop a deploy
+        print(f"note: no Ezoic ads.txt list yet ({err})")
+        return []
+    ok = re.compile(r"^([a-z0-9.-]+\.[a-z]{2,}, *[A-Za-z0-9._-]+, *(DIRECT|RESELLER)(, *[A-Za-z0-9]+)?|[A-Z]+=[^<>\s]+)$", re.I)
+    return [ln.strip() for ln in text.splitlines() if ok.match(ln.strip())]
+
+
 def page(path, title, description, body, *, root, nav=None, body_class="", jsonld=None, extra_head="",
          scripts=(), og_type="website", noindex=False, ads=True, og_image=None, og_photo=None):
     canonical = BASE + path
     branded = f"{title} · {SITE}"
     full_title = title if title.endswith(SITE) or title.startswith(SITE) or len(branded) > TITLE_MAX else branded
     client = adsense_client() if ads else ""
+    head_ezoic = ezoic_head() if ads else ""
     head_ads = ""
     if client:
         head_ads = (f'<meta name="google-adsense-account" content="{e(client)}">\n'
@@ -745,7 +780,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="{CSP}">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>{e(full_title)}</title>
+{head_ezoic}<title>{e(full_title)}</title>
 <meta name="description" content="{e(description)}">
 <link rel="canonical" href="{e(canonical)}">
 {'<meta name="robots" content="noindex">' if noindex else ''}{f'<meta name="msvalidate.01" content="{BING_SITE_AUTH}">' if path == "" else ''}
@@ -2901,7 +2936,10 @@ def write_meta_files(routes):
     if client:
         # AdSense reads ads.txt; AdMob reads app-ads.txt for the DegreeStep app. Same account, same Google line.
         line = f"google.com, {client.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n"
-        (OUT / "ads.txt").write_text(line, encoding="utf-8")
+        # Ezoic's sellers join ours once Ezoic serves a list for the site (GitHub Pages cannot redirect ads.txt,
+        # so the daily deploy copies it, the method Ezoic's docs give for automated updates)
+        ezoic = [ln for ln in ezoic_ads_txt() if ln.lower() != line.strip().lower()]
+        (OUT / "ads.txt").write_text(line + "".join(ln + "\n" for ln in dict.fromkeys(ezoic)), encoding="utf-8")
         # the app's AdMob bidding partners (OpenX since 4 Nov 2026) only buy when app-ads.txt names them
         sellers = [s.strip() for s in (CONFIG.get("app_ads_txt") or {}).get("sellers", [])]
         for s in sellers:
