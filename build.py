@@ -904,11 +904,11 @@ def route_row(r, root):
 
 # ---------------------------------------------------------------- pages
 
-def build_board(routes, schools, directory):
+def build_board(routes, schools, directory, pages=()):
     """The live board: search, filters, the departures board and the schools directory."""
     root = "../"
     tpl = (SRC / "board.html").read_text(encoding="utf-8")
-    config_json = json.dumps({"root": root, "directorySize": DIRECTORY_SIZE, "premium": {
+    config_json = json.dumps({"root": root, "directorySize": DIRECTORY_SIZE, "pages": list(pages), "premium": {
         "gumroadProductId": (CONFIG.get("premium") or {}).get("gumroad_product_id", ""),
         "purchaseUrl": (CONFIG.get("premium") or {}).get("purchase_url", "")}}).replace("</", "<\\/")
 
@@ -1525,8 +1525,15 @@ def build_home(routes, schools, updates, positions, research):
   <div class="rows lp-pos">{pos_rows}</div>
   <p class="lp-more center"><a href="positions/">All {len(live_pos)} open positions →</a><span class="lp-dot" aria-hidden="true">·</span><a href="positions/#post">Post a position</a></p>
 </section>""" if live_pos else "")
+    # 9 Nov 2026: all 54 programmes as pills made a long wall on phones ("listed programs also make the site bulky").
+    # The best-known ones show; the rest fold into one "Show all" so every link stays on the page.
     programmes = sorted((r for r in routes if r["kind"] == "program"), key=lambda r: r["name"])
-    prog_html = "".join(f'<li><a href="routes/{r["slug"]}/">{e(r["name"])}</a></li>' for r in programmes)
+    shown = [r for r in programmes if r["slug"] in HOME_PROGRAMMES]
+    folded = [r for r in programmes if r["slug"] not in HOME_PROGRAMMES]
+    pill = lambda r: f'<li><a href="routes/{r["slug"]}/">{e(r["name"])}</a></li>'
+    prog_html = (f'<ul class="lp-progs">{"".join(pill(r) for r in shown)}</ul>'
+                 + (f'<details class="lp-progs-more"><summary>Show all {len(programmes)} programmes</summary>'
+                    f'<ul class="lp-progs">{"".join(pill(r) for r in folded)}</ul></details>' if folded else ""))
 
     faq = [("Can students from any country use it?",
             "Yes. DegreeStep is for international students from anywhere. Most routes are open to every nationality; "
@@ -1606,7 +1613,7 @@ def build_home(routes, schools, updates, positions, research):
 
 <section class="lp-section wrap">
   <h2 class="lp-h2">Programmes on DegreeStep</h2>
-  <ul class="lp-progs">{prog_html}</ul>
+  {prog_html}
 </section>
 
 <section class="lp-section wrap lp-faqs">
@@ -2492,6 +2499,29 @@ def add_heading_ids(body):
 
 NO_FEE_LEVELS = ("Bachelor's", "Master's", "PhD")
 
+# The programmes the home page shows by name; the others sit behind "Show all".
+HOME_PROGRAMMES = {"chevening-scholarships", "daad-scholarships", "erasmus-mundus-joint-masters", "commonwealth-masters-scholarships",
+                   "fulbright-foreign-student-program", "gates-cambridge-scholarship", "rhodes-scholarship",
+                   "mastercard-foundation-scholars-program", "turkiye-burslari", "mext-japanese-government-scholarship"}
+
+
+def search_pages(no_fee, guides, countries, subjects):
+    """The pages the board's search can suggest above the routes: lists, guides, country and subject guides. A search
+    like "free application fee" is about a topic, not a scholarship, and these pages answer it."""
+    pages = [{"t": "Universities with no application fee", "u": "no-application-fee/",
+              "d": f"{len(no_fee['entries'])} universities and colleges where international students can apply without a fee.",
+              "k": "free application apply for free no fee application fee waiver"},
+             {"t": "Funded PhD and research positions", "u": "positions/",
+              "d": "Salaried PhD, postdoc and research assistant positions with a deadline ahead.",
+              "k": "phd position positions job jobs salary paid postdoc research assistant"},
+             {"t": "Deadline calendar", "u": "deadlines/", "d": "Every scholarship deadline in date order, soonest first.",
+              "k": "deadline deadlines closing soon calendar dates"}]
+    pages += [{"t": g["title"], "u": f"guides/{g['slug']}/", "d": g["description"], "k": g.get("meta_title", "")} for g in guides]
+    pages += [{"t": c.get("title") or c["name"], "u": f"countries/{slug}/", "d": c.get("description", ""), "k": c["name"]}
+              for slug, c in countries]
+    pages += [{"t": s["title"], "u": f"subjects/{s['slug']}/", "d": s["description"], "k": s.get("field", "")} for s in subjects]
+    return pages
+
 
 def load_no_fee(route_slugs):
     """data/no_application_fee.json: the universities whose own pages say applying is free. One list feeds both the
@@ -2893,7 +2923,7 @@ def main():
     build_app_page()
     build_positions(positions)
     build_news(news, {p["id"] for p in open_positions(positions)})
-    build_board(ROUTES, SCHOOLS, directory)
+    build_board(ROUTES, SCHOOLS, directory, search_pages(no_fee, guides, countries, subjects))
     build_school_page(dict(countries))
     build_updates(updates)
     build_route_pages(ROUTES, notes, dict(countries))

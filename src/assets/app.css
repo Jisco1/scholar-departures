@@ -176,6 +176,16 @@ select {
   .fsel { min-height: 44px; font-size: 16px; }
 }
 .countline { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; font-size: 14px; color: var(--faint); }
+/* guides and lists that answer a search, shown above the routes */
+.page-hits { margin-top: 16px; }
+.page-hits-head { margin: 0 0 8px; font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
+.page-hits-list { display: grid; gap: 10px; }
+@media (min-width: 720px) { .page-hits-list { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.page-hit { display: block; padding: 14px 16px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; color: inherit; text-decoration: none; }
+.page-hit:hover, .page-hit:focus-visible { border-color: var(--brass); }
+.page-hit b { display: block; font-family: var(--serif); font-weight: 400; font-size: 17px; line-height: 1.25; color: var(--text); }
+.page-hit span { display: -webkit-box; margin-top: 6px; font-size: 13px; line-height: 1.45; color: var(--dim);
+  -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .countline .clear { color: var(--brass); text-decoration: underline; text-underline-offset: 3px; font-size: 14px; }
 .approaching-count { color: var(--approaching); }
 

@@ -596,6 +596,21 @@ class BuiltSite(unittest.TestCase):
         self.assertIn("<title>Netherlands university fees and costs for international students</title>", nl)
         self.assertIn("<h1>The Netherlands: tuition, application fees and the scholarships that cover them</h1>", nl)
 
+    def test_home_programme_list_folds_away(self):
+        # 9 Nov 2026: "listed programs also make the site bulky": the best-known programmes show, the rest fold behind
+        # one "Show all" so the links stay on the page; the board's search can suggest guides and lists
+        home = self.pages[self.site / "index.html"]
+        section = re.search(r'<h2 class="lp-h2">Programmes on DegreeStep</h2>(.*?)</section>', home, re.S).group(1)
+        visible, folded = section.split('<details class="lp-progs-more">')
+        self.assertLessEqual(visible.count("<li>"), 12)
+        programmes = [r for r in source_routes(self.dir) if r["kind"] == "program"]
+        self.assertIn(f"Show all {len(programmes)} programmes", folded)
+        for r in programmes:
+            self.assertIn(f'href="routes/{r["slug"]}/"', section, r["slug"])
+        board = self.pages[self.site / "scholarships" / "index.html"]
+        self.assertIn('id="pageHits"', board)
+        self.assertIn('"u": "no-application-fee/"', board)
+
     def test_no_application_fee_list_has_its_own_page(self):
         # 9 Nov 2026, the owner: "where did you put the free application, can you list it independently". One data file
         # feeds both the page and the guide's table, every university opens our own page first, and the menu links it
@@ -1435,6 +1450,45 @@ const cases = {"https://ok.example/a": true, "javascript:alert(1)": false, "JAVA
 for (const [u, ok] of Object.entries(cases)) {
   if ((safeUrl(u) !== "#") !== ok) { console.error("wrong for " + u); process.exit(1); }
 }"""
+        r = subprocess.run([node, "-e", script], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stderr)
+
+    def test_search_matches_words_not_whole_phrases(self):
+        # 9 Nov 2026: the owner searched "Free application fee" and got "No matching routes": the board looked for the
+        # whole phrase. Words now count one by one, generic words only rank, names map to the data ("uk", "masters"),
+        # a nationality filters like the menu, and guides that cover the words show above the routes
+        node = shutil.which("node")
+        if not node:
+            self.skipTest("node not installed")
+        src = (ROOT / "src" / "assets" / "app.js").read_text(encoding="utf-8")
+        block = src[src.index("  var SEARCH_STOP"):src.index("  /* search-end */")]
+        pages = re.search(r"  var SEARCH_PAGES = .*?\n  \}\);\n  function pageHitList\(terms\) \{.*?\n  \}", src, re.S)
+        self.assertIsNotNone(pages, "pageHitList missing from app.js")
+        script = block + "\nvar CONFIG = " + json.dumps({"pages": [
+            {"t": "Deadline calendar", "u": "deadlines/", "d": "Every deadline in date order.", "k": "deadline"},
+            {"t": "Studying in Germany for free: application fees", "u": "countries/germany/", "d": "Tuition and fees.", "k": "Germany"},
+            {"t": "Universities with no application fee", "u": "no-application-fee/", "d": "Apply without a fee.",
+             "k": "free application apply for free no fee application fee waiver"},
+            {"t": "How to write a motivation letter", "u": "guides/motivation-letter/", "d": "What wins funding.", "k": ""}]}) + ";\n" + \
+            pages.group(0) + r"""
+const eq = (a, b, what) => { if (JSON.stringify(a) !== JSON.stringify(b)) { console.error(what, JSON.stringify(a), "!=", JSON.stringify(b)); process.exit(1); } };
+const t = searchTerms("Free application fee");
+eq([t.hard, t.soft], [[], ["free", "application", "fee"]], "generic words only");
+eq(searchTerms("scholarships for Ghanaians").nat, "Ghana", "nationality");
+eq(searchTerms("phd for nigerian students").hard, ["phd"], "nationality word leaves the search");
+const uk = searchNorm("Chevening Scholarships United Kingdom Europe Full Scholarship Master's programme scholarship award");
+const de = searchNorm("DAAD Scholarships Germany Europe Full Scholarship Master's PhD");
+const ok = (hay, q) => routeScore(hay, searchTerms(q), "") >= 0;
+eq([ok(uk, "fully funded masters in uk"), ok(de, "fully funded masters in uk")], [true, false], "uk masters");
+eq([ok(de, "phd germany"), ok(uk, "phd germany")], [true, false], "phd germany");
+eq(ok(searchNorm("Kyiv Ukraine"), "uk"), false, "a short word matches whole words only");
+eq(ok(searchNorm("Maastricht University"), "ma"), false, "ma is a degree, not a prefix");
+eq(ok(uk, "free application fee"), false, "needs two of the generic words");
+eq(ok(searchNorm("Berea College tuition free fee waiver"), "free application fee"), true, "two generic words match");
+eq(pageHitList(searchTerms("Free application fee")).map(h => h.p.u)[0], "no-application-fee/", "the no-fee list comes first");
+eq(pageHitList(searchTerms("motivation letter")).map(h => h.p.u), ["guides/motivation-letter/"], "a guide by its words");
+eq(pageHitList(searchTerms("scholarships for ghanaians")), [], "no guides for a nationality search");
+"""
         r = subprocess.run([node, "-e", script], capture_output=True, text=True)
         self.assertEqual(r.returncode, 0, r.stderr)
 

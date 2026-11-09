@@ -186,6 +186,13 @@
 .lp-progs a { display: inline-block; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--tint);
   font-family: var(--mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); text-decoration: none; }
 .lp-progs a:hover { border-color: var(--brass); color: var(--brass); }
+/* the rest of the programmes fold away behind one button, so the list stays short on phones */
+.lp-progs-more { max-width: 960px; margin: 14px auto 0; text-align: center; }
+.lp-progs-more > summary { display: inline-block; list-style: none; cursor: pointer; padding: 8px 16px; border: 1px solid var(--brass);
+  border-radius: 999px; color: var(--brass); font-size: 14px; font-weight: 600; }
+.lp-progs-more > summary::-webkit-details-marker { display: none; }
+.lp-progs-more[open] > summary { display: none; }
+.lp-progs-more .lp-progs { margin-top: 10px; }
 
 /* -  -  - Questions -  -  - */
 .lp-faqs { max-width: 820px; }

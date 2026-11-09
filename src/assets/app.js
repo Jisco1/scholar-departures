@@ -29,6 +29,70 @@
   /* Where the site's root is from this page: the board lives at /scholarships/, so
      its links to route pages go up a level. */
   var ROOT = typeof CONFIG.root === "string" ? CONFIG.root : "";
+  /* search-start: words, not whole phrases.
+     9 Nov 2026: "Free application fee" found nothing, because the board looked for the whole phrase in one route.
+     Now each word counts on its own, small words are ignored, generic words ("free", "scholarship", "university")
+     only rank the results, and common names map to how the data is written ("uk" → United Kingdom, "masters" →
+     Master's). Guides and lists that cover the words show above the routes. */
+  var SEARCH_STOP = " a an and the for in on at of to with from by my i me we you how what which where who is are can do does need want get best top list any all no not or vs 2025 2026 2027 2028 ";
+  var SEARCH_SOFT = " free fully full funded funding fund scholarship scholarships grant grants study studies abroad international student students program programs programme programmes course courses degree degrees apply applying application applications fee fees tuition cost costs cheap low university universities college colleges school schools opportunity opportunities money paid ";
+  var SEARCH_SYN = { uk: ["united kingdom"], britain: ["united kingdom"], england: ["united kingdom"], scotland: ["united kingdom"],
+    us: ["united states", "usa"], usa: ["united states"], america: ["united states", "usa"], american: ["united states", "usa"],
+    holland: ["netherlands"], dutch: ["netherlands"], german: ["germany"], french: ["france"], swiss: ["switzerland"],
+    swedish: ["sweden"], turkey: ["turkiye"], korea: ["south korea"], chinese: ["china"], japanese: ["japan"],
+    masters: ["master"], msc: ["master"], ma: ["master"], mba: ["master", "business"], postgraduate: ["master", "phd"],
+    bachelors: ["bachelor"], undergraduate: ["bachelor"], undergrad: ["bachelor"], bsc: ["bachelor"],
+    doctorate: ["phd"], doctoral: ["phd"], postdoc: ["phd"],
+    nursing: ["medicine"], nurse: ["nursing", "medicine"], medical: ["medicine"], health: ["medicine"],
+    cs: ["computer"], computing: ["computer"], economics: ["business"], finance: ["business"],
+    free: ["tuition free", "waiver", "full scholarship"], fee: ["waiver"], fees: ["fee", "waiver"] };
+  // "scholarships for ghanaians" is about who can apply, so a nationality word applies the nationality filter instead
+  var SEARCH_NAT = { ghanaian: "Ghana", nigerian: "Nigeria", kenyan: "Kenya", ugandan: "Uganda", tanzanian: "Tanzania",
+    rwandan: "Rwanda", ethiopian: "Ethiopia", cameroonian: "Cameroon", zambian: "Zambia", zimbabwean: "Zimbabwe",
+    malawian: "Malawi", egyptian: "Egypt", moroccan: "Morocco", algerian: "Algeria", tunisian: "Tunisia", sudanese: "Sudan",
+    somali: "Somalia", senegalese: "Senegal", ivorian: "Côte d'Ivoire", liberian: "Liberia", gambian: "Gambia",
+    "sierra leonean": "Sierra Leone", "south african": "South Africa", botswanan: "Botswana", motswana: "Botswana",
+    namibian: "Namibia", mozambican: "Mozambique", angolan: "Angola", togolese: "Togo", beninese: "Benin",
+    burkinabe: "Burkina Faso", malian: "Mali", indian: "India", pakistani: "Pakistan", bangladeshi: "Bangladesh",
+    nepali: "Nepal", nepalese: "Nepal", "sri lankan": "Sri Lanka", indonesian: "Indonesia", filipino: "Philippines",
+    vietnamese: "Vietnam", iranian: "Iran", iraqi: "Iraq", syrian: "Syria", jordanian: "Jordan", lebanese: "Lebanon",
+    yemeni: "Yemen", afghan: "Afghanistan", burmese: "Myanmar", cambodian: "Cambodia", brazilian: "Brazil",
+    mexican: "Mexico", colombian: "Colombia", peruvian: "Peru", chilean: "Chile", argentinian: "Argentina",
+    argentine: "Argentina", haitian: "Haiti", jamaican: "Jamaica", ukrainian: "Ukraine" };
+  function searchNorm(t) {  // " word word ": lower case, no accents, words only
+    return " " + String(t || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, " ").trim() + " ";
+  }
+  function searchTerms(q) {  // all: the words that count; hard: the ones a result must match; soft: generic words that only rank;
+    var text = searchNorm(q), nat = "";  // nat: a nationality named in the search ("ghanaians")
+    Object.keys(SEARCH_NAT).forEach(function (k) {
+      var m = text.match(new RegExp(" " + k + "s? "));
+      if (m && !nat) { nat = SEARCH_NAT[k]; text = text.replace(m[0], " "); }
+    });
+    var words = text.split(" ").filter(function (w) { return w && SEARCH_STOP.indexOf(" " + w + " ") === -1; });
+    return { all: words, nat: nat,
+             hard: words.filter(function (w) { return SEARCH_SOFT.indexOf(" " + w + " ") === -1; }),
+             soft: words.filter(function (w) { return SEARCH_SOFT.indexOf(" " + w + " ") !== -1; }) };
+  }
+  function termHits(hay, w) {  // hay is searchNorm() text; a word matches the start of a word, so "usa" never matches "Busan"
+    var forms = [w].concat(SEARCH_SYN[w] || []);
+    if (w.length > 4 && /ies$/.test(w)) forms.push(w.slice(0, -3) + "y");
+    else if (w.length > 3 && /s$/.test(w)) forms.push(w.slice(0, -1));
+    return forms.some(function (f) { return hay.indexOf(" " + f + (f.length <= 2 ? " " : "")) !== -1; });
+  }
+  function routeScore(hay, terms, home) {  // -1: not a match; otherwise a rank: higher is a better match
+    if (!terms.all.length) return 0;
+    if (terms.hard.length && !terms.hard.every(function (w) { return termHits(hay, w); })) return -1;
+    var soft = terms.soft.filter(function (w) { return termHits(hay, w); }).length;
+    // generic words alone: a route needs at least two of them ("free application fee"), or the one if only one was typed
+    if (!terms.hard.length && soft < Math.min(2, terms.soft.length)) return -1;
+    var direct = terms.hard.filter(function (w) { return hay.indexOf(" " + w) !== -1; }).length;  // the word itself, not a synonym
+    var local = home ? terms.hard.filter(function (w) { return termHits(home, w); }).length : 0;  // the route's own country
+    return soft + direct + 2 * local;
+  }
+  function pageScore(hay, terms) {  // guides and lists: how many of the words they cover
+    return terms.all.filter(function (w) { return termHits(hay, w); }).length;
+  }
+  /* search-end */
   var PREMIUM_ENABLED = !!(PREMIUM.gumroadProductId && PREMIUM.purchaseUrl);
   var LIC_KEY = "scholar-departures:license";
   var CHARSET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789·≈ ";
@@ -606,11 +670,57 @@
   }
 
   /* ============ render ============ */
+  function routeHay(s) {
+    return s._hay || (s._hay = searchNorm([s.name, s.country, s.region, s.funding, (s.types || []).join(" "), (s.levels || []).join(" "),
+      (s.fields || []).join(" "), s.kind === "program" ? "programme scholarship award" : "university school institution",
+      DIR_ALIASES[s.country] || ""].join(" ")));
+  }
+  function routeHome(s) {  // the route's country, so "germany" ranks German routes above ones that only mention Germany
+    return s._home || (s._home = searchNorm(s.country + " " + (DIR_ALIASES[s.country] || "")));
+  }
+  var SEARCH_PAGES = (CONFIG.pages || []).map(function (p) {
+    return { t: p.t, d: p.d, u: p.u, hay: searchNorm(p.t + " " + p.d + " " + (p.k || "")), title: searchNorm(p.t),
+             country: p.u.indexOf("countries/") === 0 ? searchNorm(p.k) : "" };
+  });
+  function pageHitList(terms) {  // guides and lists that cover the search, best first
+    // "scholarships for ghanaians" is about the routes open to Ghanaians, not a topic a guide answers
+    if (!terms.all.length || (terms.nat && !terms.hard.length)) return [];
+    return SEARCH_PAGES.map(function (p, i) {
+      var covered = pageScore(p.hay, terms);
+      var hardCovered = terms.hard.filter(function (w) { return termHits(p.hay, w); }).length;
+      var inTitle = terms.all.filter(function (w) { return p.title.indexOf(" " + w) !== -1; }).length;  // the words as typed
+      // a country guide only ranks high when the search names that country
+      var offTopic = p.country && !terms.hard.some(function (w) { return termHits(p.country, w); }) ? 2 : 0;
+      return { p: p, i: i, ok: terms.hard.length ? hardCovered === terms.hard.length : covered >= Math.min(2, terms.soft.length),
+               rank: covered + inTitle - offTopic };
+    }).filter(function (h) { return h.ok; })
+      .sort(function (a, b) { return b.rank - a.rank || a.i - b.i; }).slice(0, 3);
+  }
+  function renderPageHits(terms) {
+    var box = document.getElementById("pageHits");
+    if (!box) return 0;
+    var hits = pageHitList(terms);
+    box.hidden = !hits.length;
+    box.innerHTML = hits.length ? '<p class="page-hits-head">Guides and lists</p><div class="page-hits-list">' +
+      hits.map(function (h) {
+        return '<a class="page-hit" href="' + esc(ROOT + h.p.u) + '"><b>' + esc(h.p.t) + "</b><span>" + esc(h.p.d) + "</span></a>";
+      }).join("") + "</div>" : "";
+    return hits.length;
+  }
+
   function render() {
-    var needle = state.q.trim().toLowerCase();
+    var terms = searchTerms(state.q);
+    var scores = {};
+    var pageHits = renderPageHits(terms);
+    // a nationality typed in the search ("for ghanaians") filters like the nationality menu, unless one is already chosen
+    var natQ = state.nat < 0 && terms.nat ? COUNTRIES.indexOf(terms.nat) : -1;
     var out = enriched.filter(function (s) {
-      var hay = [s.name, s.country, s.region, s.funding, (s.types || []).join(" "), (s.levels || []).join(" "), (s.fields || []).join(" "), s.kind === "program" ? "programme scholarship award" : "university school institution"].join(" ").toLowerCase();
-      if (needle && hay.indexOf(needle) === -1) return false;
+      if (terms.all.length) {
+        var score = routeScore(routeHay(s), terms, routeHome(s));
+        if (score < 0) return false;
+        scores[s.slug] = score;
+      }
+      if (natQ >= 0 && openFor(s, natQ) === "no") return false;
       if (state.region !== "All" && s.region !== state.region) return false;
       if (state.level !== "All levels" && (s.levels || []).indexOf(state.level) === -1) return false;
       if (state.type !== "All funding" && (s.types || []).indexOf(state.type) === -1) return false;
@@ -630,6 +740,11 @@
       });
     } else if (state.dstatus !== "All deadlines") {
       out.sort(function (a, b) { return a.daysUntil - b.daysUntil; });
+    }
+    if (terms.all.length) {  // best matches first: the word itself, the route's own country, the generic words too
+      out = out.map(function (s, i) { return [s, i]; })
+        .sort(function (a, b) { return (scores[b[0].slug] || 0) - (scores[a[0].slug] || 0) || a[1] - b[1]; })
+        .map(function (x) { return x[0]; });
     }
 
     var hasFilters = state.q || state.region !== "All" || state.level !== "All levels" ||
@@ -651,7 +766,9 @@
     if (out.length === 0) {
       var msg = (state.savedOnly && state.saved.size === 0)
         ? "Nothing saved yet. Tap the bookmark on any card to build your shortlist."
-        : (state.field ? "No " + state.field + " routes match the other filters. Try clearing one." : "No matches yet. Clear a filter, or try a country like “Germany” or a word like “tuition”.");
+        : (state.field ? "No " + state.field + " routes match the other filters. Try clearing one."
+          : pageHits ? "No funded routes match all these words. The guides and lists above cover them."
+          : "No matches yet. Clear a filter, or try a country like “Germany” or a word like “tuition”.");
       grid.innerHTML = '<div class="empty"><p>' + msg + '</p><button id="emptyClear">Clear all filters</button></div>';
       document.getElementById("emptyClear").addEventListener("click", clearAll);
     } else {
@@ -687,6 +804,7 @@
 
     var range = rangeText(pg);
     document.getElementById("count").textContent = !out.length ? "No matching routes"
+      : natQ >= 0 ? range + " of " + out.length + " open to citizens of " + COUNTRIES[natQ]
       : hasFilters ? range + " of " + out.length + " matching"
       : state.nat >= 0 ? range + " of " + out.length + " open to you" : range + " of " + SCHOOLS.length + " routes";
     var natNote = document.getElementById("natNote");
@@ -887,8 +1005,10 @@
   }
   function renderDir() {
     var needle = dirState.q.trim().toLowerCase();
-    var words = dirWords(needle).split(" ").filter(Boolean);
-    var out = dirSorted.filter(function (s) {
+    var terms = searchTerms(needle);
+    // generic words alone ("free application fee") name no university: ask for a name, city or country instead
+    var genericOnly = terms.all.length > 0 && !terms.hard.length;
+    var out = genericOnly ? [] : dirSorted.filter(function (s) {
       if (dirState.region !== "All" && s.continent !== dirState.region) return false;
       if (dirState.country && s.country !== dirState.country) return false;
       if (dirState.level || dirState.field) {
@@ -897,7 +1017,7 @@
         var lvls = dirState.level ? [dirState.level] : ["b", "m", "d"];
         if (!lvls.some(function (k) { return s.offers[k] && (f < 0 || s.offers[k].indexOf(f) !== -1); })) return false;
       }
-      return words.every(function (w) { return s.hay.indexOf(" " + w) !== -1; });
+      return terms.hard.every(function (w) { return termHits(s.hay, w); });
     });
     var dirKey = [dirState.region, dirState.country, dirState.level, dirState.field, needle].join("|");
     document.getElementById("dirNote").hidden = !(dirState.level || dirState.field);
@@ -907,11 +1027,12 @@
     var list = document.getElementById("dirList");
     list.innerHTML = out.length
       ? out.slice(pg.start, pg.end).map(dirRowHTML).join("")
-      : '<div class="dir-empty">' + (dirLoading && !dirFull ? "Loading every university…"
+      : '<div class="dir-empty">' + (genericOnly ? "Type a university, city or country to search the directory, like “Ghana” or “Harvard”."
+        : dirLoading && !dirFull ? "Loading every university…"
         : "No universities match. Try a country name like “Ghana”.") + "</div>";
     list.querySelectorAll(".dir-row").forEach(function (r) { revealIO.observe(r); });
     var range = rangeText(pg);
-    document.getElementById("dirCount").textContent = !out.length ? (dirLoading && !dirFull ? "" : "No matching universities")
+    document.getElementById("dirCount").textContent = !out.length ? (genericOnly || (dirLoading && !dirFull) ? "" : "No matching universities")
       : (needle || dirState.region !== "All" || dirState.country || dirState.level || dirState.field) ? range + " of " + out.length.toLocaleString("en-US") + " matching"
       : range + " of " + dirSorted.length.toLocaleString("en-US") + " universities";
     renderPager(document.getElementById("dirPager"), pg, function (p) {
