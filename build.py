@@ -617,7 +617,8 @@ def menu_html(root, here):
             '<div class="menu-panel"><nav aria-label="Main"><ul class="menu-list">'
             + link("", "Home") + link("scholarships/", "Scholarship board") + link("routes/", "Funded routes")
             + link("deadlines/", "Deadlines") + link("positions/", "Funded positions") + link("news/", "Research news")
-            + link("scholarships/#directory", "Schools directory") + link("subjects/", "Funding by subject") + link("app/", "iPhone app")
+            + link("scholarships/#directory", "Schools directory") + link("subjects/", "Funding by subject")
+            + link("no-application-fee/", "No application fee") + link("app/", "iPhone app")
             + drop("Countries", countries) + drop("Guides", guides) + drop("About", about)
             + "</ul></nav></div></details>")
 
@@ -2489,6 +2490,100 @@ def add_heading_ids(body):
     return re.sub(r"<h2>(.*?)</h2>", repl, body), toc
 
 
+NO_FEE_LEVELS = ("Bachelor's", "Master's", "PhD")
+
+
+def load_no_fee(route_slugs):
+    """data/no_application_fee.json: the universities whose own pages say applying is free. One list feeds both the
+    no-application-fee/ page and the table in the application-fee guide, so the two can never disagree."""
+    doc = json.loads((DATA / "no_application_fee.json").read_text(encoding="utf-8"))
+    try:
+        dt.date.fromisoformat(doc.get("updated", ""))
+    except ValueError:
+        fail("data/no_application_fee.json: 'updated' must be a date like 2026-11-09")
+    seen = set()
+    for i, x in enumerate(doc.get("entries") or []):
+        where = f"data/no_application_fee.json entry {i + 1} ({x.get('name')!r})"
+        for key in ("name", "country", "note", "source"):
+            if not isinstance(x.get(key), str) or not x[key].strip():
+                fail(f"{where}: needs '{key}'")
+        if not str(x.get("source", "")).startswith("https://"):
+            fail(f"{where}: 'source' must be the official https:// page that says there is no fee")
+        if not x.get("levels") or any(lv not in NO_FEE_LEVELS for lv in x["levels"]):
+            fail(f"{where}: 'levels' must list some of {', '.join(NO_FEE_LEVELS)}")
+        if bool(x.get("route")) == bool(x.get("school")):
+            fail(f"{where}: give either 'route' or 'school', not both or neither")
+        if x.get("route") and x["route"] not in route_slugs:
+            fail(f"{where}: route {x['route']!r} does not exist")
+        more = x.get("more")
+        if more and (not isinstance(more.get("href"), str) or not isinstance(more.get("label"), str)
+                     or more["href"].startswith(("http", "/")) or not more["href"].endswith("/")):
+            fail(f"{where}: 'more' needs a label and an href to a page on this site, like guides/slug/")
+        if x.get("name") in seen:
+            fail(f"{where}: listed twice")
+        seen.add(x.get("name"))
+    return doc
+
+
+def no_fee_path(x):
+    """Each university opens our own page first: its route when we have one, otherwise its directory page."""
+    return f'routes/{x["route"]}/' if x.get("route") else f'school/?s={quote(x["school"])}'
+
+
+def no_fee_table(doc):
+    """The guide's table, with {{root}} links that build_guides fills in."""
+    rows = []
+    for x in doc["entries"]:
+        more = f' <a href="{{{{root}}}}{e(x["more"]["href"])}">{e(x["more"]["label"])}</a>' if x.get("more") else ""
+        rows.append(f'<tr><td><a href="{{{{root}}}}{no_fee_path(x)}">{e(x["name"])}</a></td><td>{e(x["country"])}</td>'
+                    f'<td>{e(", ".join(x["levels"]))}</td><td>{e(x["note"])}{more}</td></tr>')
+    return ('<div class="table-wrap"><table>\n<tr><th>University</th><th>Country</th><th>Level</th><th>What to know</th></tr>\n'
+            + "\n".join(rows) + "\n</table></div>")
+
+
+def build_no_fee_page(doc, directory_slugs):
+    """no-application-fee/: the same universities as the guide's table, on a page of their own, grouped by country."""
+    for x in doc["entries"]:
+        if x.get("school") and x["school"] not in directory_slugs:
+            fail(f"data/no_application_fee.json: school {x['school']!r} ({x['name']}) is not in the schools directory")
+    root = "../"
+    groups = {}
+    for x in doc["entries"]:
+        groups.setdefault(x["country"], []).append(x)
+    n = len(doc["entries"])
+    per_level = {lv: sum(lv in x["levels"] for x in doc["entries"]) for lv in NO_FEE_LEVELS}
+    jump = ('<p class="jump">' + " · ".join(f'<a href="#{slugify(c)}">{e(c)} ({len(xs)})</a>' for c, xs in groups.items()) + "</p>")
+    sections = []
+    for i, (country, xs) in enumerate(groups.items()):
+        tiles = "".join(f'<a class="tile" href="{root}{no_fee_path(x)}"><span class="tile-kicker">{e(" · ".join(x["levels"]))}</span>'
+                        f'<h3>{e(x["name"])}</h3><p>{e(x["note"])}</p></a>' for x in xs)
+        mores = "".join(f'<p><a href="{root}{e(x["more"]["href"])}">{e(x["more"]["label"])} →</a></p>' for x in xs if x.get("more"))
+        sections.append(f'<h2 id="{slugify(country)}">{e(country)}</h2><div class="tiles">{tiles}</div>{mores}')
+        if i == 1:
+            sections.append(ad_bay("between", wide=True))
+    sources = ('<h2 id="sources">Sources</h2><ul>' + "".join(
+        f'<li><a href="{e(x["source"])}" target="_blank" rel="noopener">{e(x["name"])}: admissions page</a></li>' for x in doc["entries"])
+        + "</ul>")
+    levels = " · ".join(f"{lv}: {per_level[lv]}" for lv in NO_FEE_LEVELS)
+    body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("", "No application fee")])}
+<div class="eyebrow-s">Apply for free</div><h1>Universities with no application fee</h1>
+<p class="lede">{n} universities and colleges in {len(groups)} countries where international students can apply without paying an application fee.</p>
+<p>{e(levels)}</p></div>
+<div class="layout has-rail"><div><div class="prose">{jump}{"".join(sections)}
+<h2 id="more">Waivers and what everyone else charges</h2>
+<p>Some universities refund the fee when you enrol, many waive it for applicants who cannot pay, and the rest charge between €50 and £90. Read <a href="{root}guides/universities-with-no-application-fee/">the full guide to application fees</a>.</p>
+{sources}</div></div><aside class="rail" aria-label="Advertisements">{ad_bay("rail")}</aside></div></div>"""
+    path = "no-application-fee/"
+    ld = [breadcrumb_ld([("", "Home"), (path, "No application fee")]),
+          {"@context": "https://schema.org", "@type": "ItemList", "name": "Universities with no application fee",
+           "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": x["name"], "url": BASE + no_fee_path(x)}
+                               for i, x in enumerate(doc["entries"])]}]
+    LASTMOD[path] = doc["updated"]
+    write(path, page(path, f"Apply for free: {n} universities with no application fee",
+                     f"{n} universities and colleges where international students can apply without a fee, country by country, and what each one offers.",
+                     body, root=root, nav=path, jsonld=ld))
+
+
 def build_guides(guides, routes):
     for g in guides:
         root = "../../"
@@ -2760,6 +2855,9 @@ def main():
     countries_raw = load_json_docs("countries")
     countries = sorted(countries_raw.items(), key=lambda kv: kv[1]["name"])
     guides = sorted(load_html_docs("guides"), key=lambda g: g.get("order", 99))
+    no_fee = load_no_fee({r["slug"] for r in ROUTES})
+    for g in guides:  # the application-fee guide's table comes from the same list as the no-application-fee/ page
+        g["body"] = g["body"].replace("{{NO_FEE_TABLE}}", no_fee_table(no_fee))
     static_pages = load_html_docs("pages")
     subjects = load_html_docs("subjects")
     AUTHOR.update(load_author())
@@ -2805,6 +2903,7 @@ def main():
     build_subjects(subjects, ROUTES, positions)
     build_guides(guides, ROUTES)
     build_deadlines(ROUTES)
+    build_no_fee_page(no_fee, {d["slug"] for d in directory})
     build_static_pages(static_pages)
     build_author(guides, countries)
     build_404()

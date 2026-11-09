@@ -596,6 +596,26 @@ class BuiltSite(unittest.TestCase):
         self.assertIn("<title>Netherlands university fees and costs for international students</title>", nl)
         self.assertIn("<h1>The Netherlands: tuition, application fees and the scholarships that cover them</h1>", nl)
 
+    def test_no_application_fee_list_has_its_own_page(self):
+        # 9 Nov 2026, the owner: "where did you put the free application, can you list it independently". One data file
+        # feeds both the page and the guide's table, every university opens our own page first, and the menu links it
+        doc = json.loads((ROOT / "data" / "no_application_fee.json").read_text(encoding="utf-8"))
+        entries = doc["entries"]
+        self.assertGreaterEqual(len(entries), 21)
+        page = self.pages[self.site / "no-application-fee" / "index.html"]
+        guide = self.pages[self.site / "guides" / "universities-with-no-application-fee" / "index.html"]
+        self.assertNotIn("{{NO_FEE_TABLE}}", guide)
+        self.assertIn('href="../../no-application-fee/"', guide)
+        self.assertEqual(page.count('class="tile"'), len(entries))
+        for x in entries:
+            name = html_mod.escape(x["name"], quote=False)
+            own = f'routes/{x["route"]}/' if x.get("route") else f'school/?s={x["school"]}'
+            self.assertIn(f'href="../{own}"', page, x["name"])
+            self.assertIn(f'href="../../{own}">{name}</a>', guide, x["name"])
+            self.assertIn(f'href="{x["source"]}"', page, x["name"])
+        self.assertIn('href="no-application-fee/"', self.pages[self.site / "index.html"])
+        self.assertIn("no-application-fee/</loc>", (self.site / "sitemap.xml").read_text(encoding="utf-8"))
+
     def test_country_guides_answer_application_fees(self):
         # Search Console (9 Oct 2026) showed people finding us for "netherlands universities without application fee"
         # and leaving: every country guide now answers what applying costs, and points to the cross-country guide
