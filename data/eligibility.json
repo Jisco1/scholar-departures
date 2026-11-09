@@ -1604,6 +1604,31 @@
         "South Africa",
         "Zimbabwe"
       ]
+    },
+    "csc_phd": {
+      "name": "Commonwealth PhD Scholarships countries",
+      "source": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-phd-scholarships-for-least-developed-countries-and-fragile-states/",
+      "as_of": "2026-11-09",
+      "note": "Eligible countries for Commonwealth PhD Scholarships for least developed countries and fragile states, 2027–28 round.",
+      "countries": [
+        "Bangladesh",
+        "Gambia",
+        "Kiribati",
+        "Lesotho",
+        "Malawi",
+        "Mozambique",
+        "Nigeria",
+        "Pakistan",
+        "Rwanda",
+        "Sierra Leone",
+        "Solomon Islands",
+        "Sri Lanka",
+        "Tanzania",
+        "Togo",
+        "Tuvalu",
+        "Uganda",
+        "Zambia"
+      ]
     }
   },
   "routes": {
@@ -2148,6 +2173,30 @@
     },
     "manchester-global-futures-scholarships-africa": {
       "list": "manchester_global_futures_africa"
+    },
+    "curtis-institute-of-music": {
+      "all": true
+    },
+    "deep-springs-college": {
+      "all": true
+    },
+    "geneva-graduate-institute-scholarships": {
+      "all": true
+    },
+    "unige-excellence-master-fellowships": {
+      "all": true
+    },
+    "unil-masters-scholarship": {
+      "all": true
+    },
+    "ista-phd-program": {
+      "all": true
+    },
+    "commonwealth-phd-scholarships": {
+      "list": "csc_phd"
+    },
+    "anso-cas-twas-phd-scholarship": {
+      "check": "Open to nationals of developing countries on TWAS's list of developing countries in the South, so check your country there."
     }
   }
 }

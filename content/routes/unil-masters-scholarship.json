@@ -1,0 +1,76 @@
+{
+  "summary": "Each year the University of Lausanne awards around ten Master's Scholarships to graduates of foreign universities with excellent results: CHF 1,600 a month for the minimum length of the master's, with standard registration fees waived. The scholarship application also counts as the master's application. Applications for 2027–28 closed on 1 November 2026, and the 2028–29 round opens in September 2027.",
+  "meta_title": "Unil Master's Scholarship, Lausanne: CHF 1,600 a month",
+  "meta_description": "The University of Lausanne gives about ten graduates of foreign universities CHF 1,600 a month for a master's, fees waived. Rules, documents, dates.",
+  "covers": [
+    "CHF 1,600 a month for the minimum statutory length of the master's.",
+    "Exemption from the standard registration fees; only the CHF 80 semester fee remains."
+  ],
+  "eligibility": [
+    "Graduates of a foreign university whose degree is recognised as equivalent to a Swiss bachelor's, with outstanding results.",
+    "C1 level in the language of the programme, French or English.",
+    "Not currently enrolled at Unil. Most master's programmes qualify; Medicine, most Law tracks, Health Sciences and a few others are excluded."
+  ],
+  "how_to_apply": [
+    "Register online and upload a single PDF application by 1 November (for 2027–28 this closed on 1 November 2026).",
+    "Have two recommendation letters sent from professional email addresses to mastergrants@unil.ch by the same date.",
+    "If your diplomas come from a state that has not ratified the Lisbon Convention, post certified true copies by 1 November.",
+    "The scholarship application is also your master's application; decisions come in early April."
+  ],
+  "watch_out": [
+    "Unil says CHF 1,600 a month does not cover the full cost of living in Switzerland, so it is not full funding.",
+    "Incomplete applications and applications sent by email are not considered.",
+    "A CHF 200 administrative fee applies.",
+    "Decisions cannot be appealed."
+  ],
+  "costs": [
+    [
+      "Standard registration fees",
+      "Waived for scholarship holders"
+    ],
+    [
+      "Semester fee (CHF 80)",
+      "You"
+    ],
+    [
+      "Living costs in Lausanne",
+      "You, helped by CHF 1,600 a month"
+    ],
+    [
+      "Administrative fee (CHF 200)",
+      "You, with the application"
+    ]
+  ],
+  "documents": [
+    "A single PDF with the documents Unil lists",
+    "Two letters of recommendation sent directly by their authors",
+    "Certified true copies of diplomas and transcripts, if your country has not ratified the Lisbon Convention"
+  ],
+  "faq": [
+    {
+      "q": "How much is the Unil Master's Scholarship?",
+      "a": "CHF 1,600 a month for the minimum length of the master's, plus exemption from the standard registration fees."
+    },
+    {
+      "q": "Can I still apply for 2027?",
+      "a": "No. The 2027–28 deadline was 1 November 2026. The application for 2028–29 opens in September 2027."
+    },
+    {
+      "q": "Who can apply?",
+      "a": "Graduates of foreign universities with very high results and C1 level in the programme's language."
+    }
+  ],
+  "related": [
+    "unige-excellence-master-fellowships",
+    "epfl-excellence-fellowships",
+    "eth-zurich-excellence-scholarship",
+    "swiss-government-excellence-scholarships"
+  ],
+  "sources": [
+    {
+      "title": "University of Lausanne: Unil Master's Scholarship",
+      "url": "https://www.unil.ch/unil/en/home/menuinst/etudier/mobilite-et-echange/etudiantes-et-etudiants-internationaux/etudiantes-internationaux-reguliers/bourse-de-master.html"
+    }
+  ],
+  "reviewed": "2026-11-09"
+}

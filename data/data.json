@@ -4972,5 +4972,278 @@
       }
     ],
     "approx": false
+  },
+  {
+    "last_verified": "2026-11-09",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "kind": "school",
+    "scope": "all",
+    "slug": "curtis-institute-of-music",
+    "name": "Curtis Institute of Music",
+    "fields": [
+      "Arts & Humanities"
+    ],
+    "types": [
+      "Tuition-Free",
+      "Need-Based Aid"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's"
+    ],
+    "funding": "Free tuition for every student, international students included: $55,995 a year for undergraduates in 2026–27. Need-based aid can cover living costs.",
+    "deadline": "Dec 10 for fall 2027 entry (Curtis gives no year; live auditions run Feb to Apr 2027)",
+    "tbc": true,
+    "link": "https://www.curtis.edu/admissions/",
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-09",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇺🇸",
+    "country": "United States",
+    "region": "USA",
+    "kind": "school",
+    "scope": "all",
+    "slug": "deep-springs-college",
+    "name": "Deep Springs College",
+    "fields": [
+      "Arts & Humanities",
+      "Social Sciences & Law",
+      "Natural Sciences"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Bachelor's"
+    ],
+    "funding": "A full scholarship worth over $50,000 covering tuition, room and board for every admitted student, whatever their country, at a two-year college on a desert ranch.",
+    "deadline": "2027 entry: first-round applications closed Nov 1, 2026; the 2028 round is not yet announced",
+    "link": "https://www.deepsprings.edu/apply-information/",
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 11,
+        "d": 1,
+        "for": "first-round application for 2027 entry"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-09",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇨🇭",
+    "country": "Switzerland",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "all",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "geneva-graduate-institute-scholarships",
+    "name": "Geneva Graduate Institute: master's scholarships",
+    "fields": [
+      "Social Sciences & Law",
+      "Business & Economics"
+    ],
+    "types": [
+      "Need-Based Aid",
+      "Merit"
+    ],
+    "funding": "Full or partial scholarships (CHF 20,000 at most), awarded for two years, and tuition reductions for master's students of any nationality, on merit and need.",
+    "deadline": "Jan 14, 2027, midnight Geneva time: the only round in which master's applicants can ask for aid, for September 2027",
+    "link": "https://www.graduateinstitute.ch/scholarships",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 14,
+        "for": "application with financial aid request, midnight Geneva time"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-09",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇨🇭",
+    "country": "Switzerland",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "all",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "unige-excellence-master-fellowships",
+    "name": "University of Geneva: Excellence Master Fellowships",
+    "fields": [
+      "Natural Sciences",
+      "Computer Science"
+    ],
+    "types": [
+      "Merit"
+    ],
+    "funding": "CHF 10,000 to 15,000 a year for the length of a Master of Science in the Faculty of Science, for outstanding students from any university.",
+    "deadline": "2027 round not yet announced: the online application opens in early January (the 2026 deadline was Feb 28, 2026)",
+    "tbc": true,
+    "link": "https://www.unige.ch/sciences/en/enseignements/formations/masters/excellencemasterfellowships/",
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-09",
+    "content_hash": null,
+    "needs_review": false,
+    "flag": "🇨🇭",
+    "country": "Switzerland",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "all",
+    "levels": [
+      "Master's"
+    ],
+    "slug": "unil-masters-scholarship",
+    "name": "University of Lausanne: Unil Master's Scholarship",
+    "fields": [
+      "Agriculture & Environment",
+      "Arts & Humanities",
+      "Business & Economics",
+      "Computer Science",
+      "Medicine & Health",
+      "Natural Sciences",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Merit"
+    ],
+    "funding": "About ten scholarships a year of CHF 1,600 a month for the full length of a master's, with registration fees waived, for graduates of foreign universities with excellent results.",
+    "deadline": "2027–28 applications closed Nov 1, 2026; the 2028–29 application opens in September 2027",
+    "link": "https://www.unil.ch/unil/en/home/menuinst/etudier/mobilite-et-echange/etudiantes-et-etudiants-internationaux/etudiantes-internationaux-reguliers/bourse-de-master.html",
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 11,
+        "d": 1,
+        "for": "application, letters and certified copies for 2027–28"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-09",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "ista-phd-program",
+    "name": "ISTA (Institute of Science and Technology Austria): PhD programme",
+    "flag": "🇦🇹",
+    "country": "Austria",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Natural Sciences",
+      "Computer Science"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "PhD"
+    ],
+    "funding": "A salaried PhD position with full social security, no tuition and no application fee, for science, mathematics and computer science graduates from any country.",
+    "deadline": "Jan 8, 2027, 3:00 PM CET (referee letters by Jan 12, 2027, 11:59 PM CET)",
+    "link": "https://phd.pages.ista.ac.at/phd-application-admission/",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 8,
+        "for": "application, 3:00 PM CET"
+      },
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 12,
+        "for": "referee letters, 11:59 PM CET"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-09",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "commonwealth-phd-scholarships",
+    "name": "Commonwealth PhD Scholarships (least developed countries and fragile states)",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "limited",
+    "fields": [
+      "Agriculture & Environment",
+      "Arts & Humanities",
+      "Business & Economics",
+      "Computer Science",
+      "Engineering & Tech",
+      "Medicine & Health",
+      "Natural Sciences",
+      "Social Sciences & Law"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "PhD"
+    ],
+    "funding": "Full UK PhD fees, £1,712 a month (£2,000 in London) for 36 months, flights and allowances, for citizens of 17 Commonwealth countries, Nigeria among them.",
+    "deadline": "2027–28 applications closed Oct 20, 2026, 16:00 BST; the 2028–29 round is not yet announced",
+    "link": "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-phd-scholarships-for-least-developed-countries-and-fragile-states/",
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 10,
+        "d": 20,
+        "for": "application, 16:00 BST"
+      }
+    ],
+    "approx": false
+  },
+  {
+    "last_verified": "2026-11-09",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "anso-cas-twas-phd-scholarship",
+    "name": "ANSO-CAS-TWAS/UNESCO PhD Scholarship (China)",
+    "flag": "🇨🇳",
+    "country": "China",
+    "region": "Asia",
+    "kind": "program",
+    "scope": "limited",
+    "fields": [
+      "Natural Sciences",
+      "Engineering & Tech",
+      "Computer Science",
+      "Agriculture & Environment"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "PhD"
+    ],
+    "funding": "Tuition waived, 6,000 or 7,000 CNY a month for up to four years, health insurance and a flight to China, for PhD students from developing countries at USTC or UCAS.",
+    "deadline": "The 2026 call closed Jan 31, 2026; the next call is not yet announced",
+    "tbc": true,
+    "link": "https://twas.org/opportunity/anso-cas-twasunesco-phd-scholarship",
+    "approx": false
   }
 ]

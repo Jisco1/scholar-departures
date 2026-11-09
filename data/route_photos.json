@@ -901,5 +901,61 @@
   "license": "CC BY 4.0",
   "license_url": "https://creativecommons.org/licenses/by/4.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:The_Queen%27s_Arch,_University_of_Manchester.jpg"
+ },
+ "curtis-institute-of-music": {
+  "file": "route-curtis-institute-of-music.jpg",
+  "credit": "Daderot",
+  "license": "Public domain",
+  "license_url": "https://creativecommons.org/licenses/",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Curtis_Institute_of_Music_-_IMG_6559.JPG"
+ },
+ "deep-springs-college": {
+  "file": "route-deep-springs-college.jpg",
+  "credit": "Jim Morefield",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Deep_Springs_College_and_ranch,_on_the_occasion_of_its_100th_birthday.jpg"
+ },
+ "geneva-graduate-institute-scholarships": {
+  "file": "route-geneva-graduate-institute-scholarships.jpg",
+  "credit": "Marmolada48",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Geneva_Graduate_Institute.jpg"
+ },
+ "unige-excellence-master-fellowships": {
+  "file": "route-unige-excellence-master-fellowships.jpg",
+  "credit": "Shev123",
+  "license": "CC0",
+  "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Uni_Bastions_01.jpg"
+ },
+ "unil-masters-scholarship": {
+  "file": "route-unil-masters-scholarship.jpg",
+  "credit": "SlvrKy",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Anthropole_UNIL.jpg"
+ },
+ "ista-phd-program": {
+  "file": "route-ista-phd-program.jpg",
+  "credit": "C.Stadler/Bwag",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Institute_of_Science_and_Technology_Austria.JPG"
+ },
+ "commonwealth-phd-scholarships": {
+  "file": "route-commonwealth-phd-scholarships.jpg",
+  "credit": "John H Darch",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:University_of_London_Senate_House_-_geograph.org.uk_-_3209917.jpg"
+ },
+ "anso-cas-twas-phd-scholarship": {
+  "file": "route-anso-cas-twas-phd-scholarship.jpg",
+  "credit": "Leiem",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Lake_in_University_of_Science_and_Technology_of_China_(180405).jpg"
  }
 }
