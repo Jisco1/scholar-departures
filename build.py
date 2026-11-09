@@ -909,19 +909,35 @@ SPONSOR_MAX_DAYS = 31
 SPONSORS = []  # filled by main() from data/sponsored.json
 
 
-def load_sponsored(routes):
-    """data/sponsored.json: paid spots. Only a route that is already listed can be sponsored, so payment buys a
-    labelled box, never a listing; the route page, its order in lists and search stay exactly as they are."""
+def load_sponsored(routes, directory):
+    """data/sponsored.json: paid spots, always in a box marked Sponsored. Any advertiser can book one: a funded route
+    we list ('route'), a school in the directory ('school'), or anyone else by 'name' and 'url'."""
     path = DATA / "sponsored.json"
     if not path.exists():
         return []
-    by_slug = {r["slug"]: r for r in routes}
+    by_route = {r["slug"]: r for r in routes}
+    by_school = {d["slug"]: d for d in directory}
     out = []
     for i, s in enumerate(json.loads(path.read_text(encoding="utf-8")).get("entries") or []):
         where = f"data/sponsored.json entry {i + 1}"
-        if s.get("route") not in by_slug:
-            fail(f"{where}: route {s.get('route')!r} is not a live route; only listed routes can be sponsored")
+        given = [k for k in ("route", "school", "url") if s.get(k)]
+        if len(given) != 1:
+            fail(f"{where}: give one of 'route', 'school' or 'url'")
             continue
+        if given == ["route"] and s["route"] not in by_route:
+            fail(f"{where}: route {s['route']!r} is not a live route")
+            continue
+        if given == ["school"] and s["school"] not in by_school:
+            fail(f"{where}: school {s['school']!r} is not in the schools directory")
+            continue
+        if given == ["url"]:
+            if not URL_RE.match(s["url"]) or not s["url"].startswith("https://"):
+                fail(f"{where}: 'url' must be a plain https:// address")
+                continue
+            if any(not isinstance(s.get(k, ""), str) or re.search(r"[<>]", s.get(k, "")) for k in ("name", "text", "country")) \
+                    or not str(s.get("name", "")).strip():
+                fail(f"{where}: an advert by 'url' needs a plain-text 'name' ('text' and 'country' optional)")
+                continue
         try:
             start, end = dt.date.fromisoformat(s["start"]), dt.date.fromisoformat(s["end"])
         except (KeyError, TypeError, ValueError):
@@ -933,18 +949,39 @@ def load_sponsored(routes):
         if not isinstance(places, list) or any(p not in SPONSOR_PLACES for p in places):
             fail(f"{where}: 'placements' must list some of {', '.join(SPONSOR_PLACES)}")
             continue
-        out.append({"route": by_slug[s["route"]], "start": start, "end": end, "placements": places})
+        if given == ["route"]:
+            item = {"route": by_route[s["route"]], "country": by_route[s["route"]]["country"]}
+        elif given == ["school"]:
+            item = {"school": by_school[s["school"]], "country": by_school[s["school"]]["country"]}
+        else:
+            item = {"url": s["url"], "name": s["name"].strip(), "text": s.get("text", "").strip(), "country": s.get("country", "")}
+        out.append(dict(item, start=start, end=end, placements=places))
     return out
+
+
+def sponsored_row(s, root):
+    if "route" in s:
+        return route_row(s["route"], root)
+    if "school" in s:
+        d = s["school"]
+        where = " · ".join(x for x in (d.get("city", ""), d["country"]) if x)
+        return (f'<a class="row" href="{root}school/?s={quote(d["slug"])}"><div><div class="row-name">{e(d["name"])}</div>'
+                f'<div class="row-meta">{e(d.get("flag", ""))} {e(where)}</div></div>'
+                f'<div class="row-side"><span class="row-arrow">Details →</span></div></a>')
+    meta = s["text"] or s["country"]
+    return (f'<a class="row" href="{e(s["url"])}" target="_blank" rel="sponsored noopener"><div><div class="row-name">{e(s["name"])}</div>'
+            + (f'<div class="row-meta">{e(meta)}</div>' if meta else "") +
+            '</div><div class="row-side"><span class="row-arrow">Visit →</span></div></a>')
 
 
 def sponsored_box(place, root, country=None):
     """The labelled box for one placement, or nothing when no spot is running today."""
-    rs = [s["route"] for s in SPONSORS if s["start"] <= TODAY <= s["end"] and place in s["placements"]
-          and (country is None or slugify(s["route"]["country"]) == country)]
-    if not rs:
+    live = [s for s in SPONSORS if s["start"] <= TODAY <= s["end"] and place in s["placements"]
+            and (country is None or (s["country"] and slugify(s["country"]) == country))]
+    if not live:
         return ""
     return ('<aside class="sponsored" aria-label="Sponsored"><p class="sponsored-label">Sponsored</p>'
-            f'<div class="rows">{"".join(route_row(r, root) for r in rs)}</div></aside>')
+            f'<div class="rows">{"".join(sponsored_row(s, root) for s in live)}</div></aside>')
 
 
 # ---------------------------------------------------------------- pages
@@ -2932,7 +2969,6 @@ def main():
     countries = sorted(countries_raw.items(), key=lambda kv: kv[1]["name"])
     guides = sorted(load_html_docs("guides"), key=lambda g: g.get("order", 99))
     no_fee = load_no_fee({r["slug"] for r in ROUTES})
-    SPONSORS[:] = load_sponsored(ROUTES)
     for g in guides:  # the application-fee guide's table comes from the same list as the no-application-fee/ page
         g["body"] = g["body"].replace("{{NO_FEE_TABLE}}", no_fee_table(no_fee))
     static_pages = load_html_docs("pages")
@@ -2962,6 +2998,7 @@ def main():
     global DIRECTORY_SIZE
     programs = load_us_programs()
     directory = make_directory(SCHOOLS, ROUTES, load_world_universities(), programs)
+    SPONSORS[:] = load_sponsored(ROUTES, directory)
     DIRECTORY_SIZE = len(directory)  # the schools directory on the site and in the app: curated + world list
     page_of = {(d["name"], d["country"]): d["slug"] for d in directory}
     for s in SCHOOLS:  # the board's built-in directory rows open the same university pages
