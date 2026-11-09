@@ -351,8 +351,9 @@ img, svg { max-width: 100%; }
 .top-actions { display: flex; align-items: center; gap: 8px; }
 .adv-btn { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; flex: none; border: 1px solid var(--brass);
   border-radius: 999px; font-family: var(--mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--brass); text-decoration: none; transition: background .15s; }
-.adv-btn:hover { background: var(--wash); }
+  font-weight: 700; background: var(--brass); color: var(--bg); text-decoration: none;
+  box-shadow: 0 0 0 3px var(--brass-soft), 0 6px 18px -6px var(--brass); transition: filter .15s; }
+.adv-btn:hover { filter: brightness(1.1); }
 /* phones: the Menu button keeps its icon (its word stays for screen readers) so Advertise fits beside it */
 @media (max-width: 480px) {
   .topbar .wrap { gap: 8px; }
