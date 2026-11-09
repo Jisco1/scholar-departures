@@ -349,6 +349,20 @@ img, svg { max-width: 100%; }
 .menu-sub ul a { min-height: 40px; padding: 8px 12px; font-size: 14.5px; color: var(--dim); }
 /* the theme button sits beside Menu: a moon in the light theme, a sun in the dark one */
 .top-actions { display: flex; align-items: center; gap: 8px; }
+.adv-btn { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; flex: none; border: 1px solid var(--brass);
+  border-radius: 999px; font-family: var(--mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--brass); text-decoration: none; transition: background .15s; }
+.adv-btn:hover { background: var(--wash); }
+/* phones: the Menu button keeps its icon (its word stays for screen readers) so Advertise fits beside it */
+@media (max-width: 480px) {
+  .topbar .wrap { gap: 8px; }
+  .top-actions { gap: 6px; }
+  .theme-toggle { width: 36px; height: 36px; }
+  .menu > summary { padding: 0 11px; }
+  .menu-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .adv-btn { min-height: 36px; padding: 0 9px; font-size: 10px; letter-spacing: .06em; }
+}
+@media (max-width: 340px) { .top-actions { gap: 4px; } .adv-btn { padding: 0 7px; letter-spacing: 0; } }
 .theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; flex: none;
   border: 1px solid var(--line); border-radius: 999px; color: var(--text); cursor: pointer; transition: border-color .15s, color .15s; }
 .theme-toggle:hover { border-color: var(--brass); color: var(--brass); }

@@ -640,6 +640,10 @@ class BuiltSite(unittest.TestCase):
             self.assertIn(text, page)
         self.assertIn('href="../advertise/"', self.pages[self.site / "editorial-policy" / "index.html"])
         self.assertIn('href="advertise/">Advertise</a>', self.pages[self.site / "index.html"])
+        # and a button beside Menu on every page, so it is seen on arrival
+        for p, text in self.pages.items():
+            if '<header class="topbar">' in text:
+                self.assertRegex(text, r'</details><a class="adv-btn" href="(https://degreestep\.com/|(\.\./)*)advertise/">Advertise</a></div>', p)
         self.assertIn("advertise/</loc>", (self.site / "sitemap.xml").read_text(encoding="utf-8"))
         if not json.loads((ROOT / "data" / "sponsored.json").read_text(encoding="utf-8"))["entries"]:
             for p, text in self.pages.items():

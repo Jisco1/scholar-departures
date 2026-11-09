@@ -770,7 +770,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
 <a class="skip" href="#main">Skip to content</a>
 <header class="topbar"><div class="wrap">
   <a class="brand" href="{root or './'}" aria-label="{e(SITE)} home">{BRAND_LOGO}</a>
-  <div class="top-actions">{THEME_TOGGLE}{nav_html}</div>
+  <div class="top-actions">{THEME_TOGGLE}{nav_html}<a class="adv-btn" href="{root}advertise/">Advertise</a></div>
 </div></header>
 <main id="main">
 {body}
