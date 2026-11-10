@@ -466,8 +466,6 @@ img, svg { max-width: 100%; }
 .nat-index li { break-inside: avoid; margin-bottom: 6px; }
 .lang-links { margin-top: 12px; font-size: 14px; }
 .lang-links a { color: var(--brass); }
-.partner-tag { display: inline-block; margin-left: 6px; padding: 1px 8px; border: 1px solid var(--line); border-radius: 999px;
-  font-size: 11px; letter-spacing: .06em; color: var(--faint); vertical-align: middle; }
 
 /* partners: the small card on the home page and the panels on /partners/ */
 .partner-strip { padding-top: 36px; }
@@ -492,7 +490,8 @@ img, svg { max-width: 100%; }
 .partner-points li { margin-bottom: 10px; }
 .partner-points .src { font-size: 12.5px; color: var(--faint); }
 .partner-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
-.partner-cta .partner-tag { margin: 0; }
 .partner-code { font-size: 14px; color: var(--dim); }
 .prose .partner-cta .btn-primary { color: var(--bg); text-decoration: none; }
 .prose .partner-points { margin-top: 14px; }
+.partner-cta { margin: 16px 0; }
+.partner-cta .share { margin-left: auto; }

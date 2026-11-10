@@ -3457,16 +3457,15 @@ def build_partners():
     root = "../"
     panels = ""
     for p in PARTNERS:
-        points = "".join(f'<li><b>{e(x["h"])}.</b> {e(x["text"])} <a class="src" href="{e(x["source"])}" target="_blank" '
-                         f'rel="noopener">Source</a></li>' for x in p.get("points", []))
+        # each point keeps its source in partners.json; on the page every way into the partner's site is our partner link
+        points = "".join(f'<li><b>{e(x["h"])}.</b> {e(x["text"])}</li>' for x in p.get("points", []))
         code = (f'<p class="partner-code">Voucher code: <strong>{e(p["code"])}</strong>. {e(p.get("code_note", ""))}</p>'
                 if p.get("code") else "")
         panels += f"""<article class="partner-panel" id="{e(p["slug"])}">
 <div class="partner-head">{partner_logo(p, root, big=True)}<div><h2>{e(p["name"])}</h2><p class="muted">{e(p["tagline"])}</p></div></div>
 <p>{e(p["intro"])}</p>
 <ul class="partner-points">{points}</ul>
-<p class="partner-cta"><a class="btn btn-primary" href="{e(p["link"])}" target="_blank" rel="sponsored noopener">{e(p["cta"])} →</a>
-<small class="partner-tag">Partner link</small></p>
+<div class="partner-cta"><a class="btn btn-primary" href="{e(p["link"])}" target="_blank" rel="sponsored noopener">{e(p["cta"])} →</a>{share_box(f"partners/#{p['slug']}", f"{p['name']}: {p['tagline']}", f"{p['name']}: {p['tagline']}", "offer")}</div>
 {code}
 </article>"""
     body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("", "Partners")])}

@@ -775,17 +775,23 @@ class BuiltSite(unittest.TestCase):
 
     def test_fintiba_partner_links_are_labelled(self):
         # 10 Nov 2026: Fintiba accepted us as a partner. Every link to it is marked sponsored and carries a short
-        # "Partner link" label (advertising rules require it; he asked for no longer sentence), and the privacy and
-        # editorial policies explain it
+        # rel="sponsored" (he asked, 10 Nov, for no visible label beside the links), and the privacy and editorial
+        # policies name the partnership
         found = 0
         for path, html in self.pages.items():
             for m in re.finditer(r'<a [^>]*href="https://partner\.fintiba\.com/degreestep"[^>]*>', html):
                 found += 1
                 self.assertIn('rel="sponsored noopener"', m.group(0), path)
-                self.assertIn('<small class="partner-tag">Partner link</small>', html[m.end():m.end() + 400], path)
         self.assertGreaterEqual(found, 3)
         self.assertIn("https://www.fintiba.com/data-protection", self.pages[self.site / "privacy" / "index.html"])
-        self.assertIn('Links marked "Partner link" go to Fintiba', self.pages[self.site / "editorial-policy" / "index.html"])
+        self.assertIn('Fintiba is a DegreeStep <a href="../partners/">partner</a>', self.pages[self.site / "editorial-policy" / "index.html"])
+        partners = self.pages[self.site / "partners" / "index.html"]  # the offer has its own Share button
+        self.assertEqual(partners.count('<details class="share"'), 1)
+        self.assertIn('data-url="https://degreestep.com/partners/#fintiba"', partners)
+        # every link a reader can follow into Fintiba carries our code, except its privacy policy on our privacy page
+        for path, html in self.pages.items():
+            for href in re.findall(r'href="(https://[a-z.]*fintiba\.com[^"]*)"', html):
+                self.assertTrue(href == "https://partner.fintiba.com/degreestep" or path.parent.name == "privacy", (path, href))
         for path, html in self.pages.items():  # he asked that no page talks about partners paying us
             self.assertNotRegex(html, r"\b[Pp]ays? us\b", path)
 

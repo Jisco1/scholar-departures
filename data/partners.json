@@ -1,5 +1,5 @@
 {
- "_help": "Companies we have a partner agreement with, shown at /partners/ and as a small card on the home page. 'link' is our partner link, 'logo' a file in src/assets. 'points' are plain-text facts from the partner's own pages, each with its 'source'. Every partner link carries rel=\"sponsored\" and a short \"Partner link\" label.",
+ "_help": "Companies we have a partner agreement with, shown at /partners/ and as a small card on the home page. 'link' is our partner link, 'logo' a file in src/assets. 'points' are plain-text facts from the partner's own pages, each with its 'source'. Every partner link carries rel=\"sponsored\" (invisible to readers; Google asks for it on paid links).",
  "partners": [
   {
    "slug": "fintiba",
