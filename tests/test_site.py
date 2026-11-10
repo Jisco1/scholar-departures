@@ -752,6 +752,19 @@ class BuiltSite(unittest.TestCase):
         self.assertIn('src="../embed/deadlines/"', tool)
         self.assertIn('<a href="../embed/">Add to your website</a>', self.pages[self.site / "guides" / "index.html"])
 
+    def test_fintiba_partner_links_are_labelled(self):
+        # 10 Nov 2026: Fintiba accepted us as a partner. Every link to it is marked sponsored and says beside it that
+        # Fintiba pays us, and the privacy and editorial policies explain it
+        found = 0
+        for path, html in self.pages.items():
+            for m in re.finditer(r'<a [^>]*href="https://partner\.fintiba\.com/degreestep"[^>]*>', html):
+                found += 1
+                self.assertIn('rel="sponsored noopener"', m.group(0), path)
+                self.assertIn("Partner link: Fintiba pays us", html[m.end():m.end() + 400], path)
+        self.assertGreaterEqual(found, 3)
+        self.assertIn("https://www.fintiba.com/data-protection", self.pages[self.site / "privacy" / "index.html"])
+        self.assertIn('Links marked "Partner link" go to Fintiba', self.pages[self.site / "editorial-policy" / "index.html"])
+
     def test_pages_allow_large_image_previews(self):
         # Google Discover shows a story with a big picture only when the page allows large previews and offers an
         # image at least 1200 px wide; noindex pages keep their noindex
