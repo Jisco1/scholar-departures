@@ -1,5 +1,5 @@
 {
- "_help": "Companies we have a partner agreement with, shown at /partners/ and as a small card on the home page. 'link' is our partner link, 'logo' a file in src/assets. 'points' are plain-text facts from the partner's own pages, each with its 'source'. Every partner link carries rel=\"sponsored\" (invisible to readers; Google asks for it on paid links).",
+ "_help": "Companies we have a partner agreement with. Each offer has its own page at /<page>/ (no word partner in it: the address shows when the page is shared) with 'title', 'description', 'eyebrow', 'share_image' (in src/assets) and 'photo' (a route_photos.json key, credited on the page). /partners/ lists them and the home page shows a small card under What's new. 'link' is our partner link, 'logo' a file in src/assets. 'points' are plain-text facts from the partner's own pages, each with its 'source'. Partner links carry rel=\"sponsored\".",
  "partners": [
   {
    "slug": "fintiba",
@@ -40,7 +40,13 @@
      "text": "Fintiba charges a one-time set-up fee and a monthly fee once the money arrives. Its blocked-account page shows the current amounts.",
      "source": "https://www.fintiba.com/blocked-account-germany"
     }
-   ]
+   ],
+   "page": "blocked-account-germany",
+   "eyebrow": "Germany · student visa",
+   "title": "Your German blocked account, opened before you fly",
+   "description": "Open your German blocked account online before you travel: €11,904 for 12 months, released at €992 a month, with health insurance in the same package.",
+   "share_image": "share-fintiba.jpg",
+   "photo": "daad-scholarships"
   }
  ]
 }

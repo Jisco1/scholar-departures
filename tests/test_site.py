@@ -785,9 +785,18 @@ class BuiltSite(unittest.TestCase):
         self.assertGreaterEqual(found, 3)
         self.assertIn("https://www.fintiba.com/data-protection", self.pages[self.site / "privacy" / "index.html"])
         self.assertIn('Fintiba is a DegreeStep <a href="../partners/">partner</a>', self.pages[self.site / "editorial-policy" / "index.html"])
-        partners = self.pages[self.site / "partners" / "index.html"]  # the offer has its own Share button
-        self.assertEqual(partners.count('<details class="share"'), 1)
-        self.assertIn('data-url="https://degreestep.com/partners/#fintiba"', partners)
+        # the offer has its own page and Share button; a share shows the offer, never the word partner
+        offer = self.pages[self.site / "blocked-account-germany" / "index.html"]
+        self.assertEqual(offer.count('<details class="share"'), 1)
+        self.assertIn('data-url="https://degreestep.com/blocked-account-germany/"', offer)
+        self.assertIn('<meta property="og:image" content="https://degreestep.com/assets/share-fintiba.jpg">', offer)
+        for tag in re.findall(r'<meta property="og:[a-z]+" content="([^"]*)"', offer) + re.findall(r'<title>(.*?)</title>', offer):
+            self.assertNotIn("partner", tag.lower())
+        self.assertIn('href="../blocked-account-germany/"', self.pages[self.site / "partners" / "index.html"])
+        home = self.pages[self.site / "index.html"]
+        strip = home.index('<p class="partner-strip-h" id="partners-h"><a href="partners/">Partners</a></p>')
+        self.assertLess(home.index("What’s new"), strip)  # the card sits under What's new, below a small Partners heading
+        self.assertLess(strip, home.index('<a class="partner-card" href="blocked-account-germany/">'))
         # every link a reader can follow into Fintiba carries our code, except its privacy policy on our privacy page
         for path, html in self.pages.items():
             for href in re.findall(r'href="(https://[a-z.]*fintiba\.com[^"]*)"', html):

@@ -495,3 +495,9 @@ img, svg { max-width: 100%; }
 .prose .partner-points { margin-top: 14px; }
 .partner-cta { margin: 16px 0; }
 .partner-cta .share { margin-left: auto; }
+.partner-strip-h { max-width: 640px; margin: 0 auto 10px; font-family: var(--mono); font-size: 11px; letter-spacing: .16em;
+  text-transform: uppercase; }
+.partner-strip-h a { color: var(--faint); text-decoration: none; }
+.partner-strip-h a:hover { color: var(--brass); }
+.partner-list { display: grid; gap: 14px; margin: 8px 0 56px; }
+.partner-list .partner-card { margin: 0; }

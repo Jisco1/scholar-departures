@@ -3419,7 +3419,8 @@ def load_partners():
     out = []
     for p in doc.get("partners", []):
         where = f"partners.json: {p.get('slug')}"
-        missing = [f for f in ("slug", "name", "logo", "tagline", "link", "cta", "intro") if not p.get(f)]
+        missing = [f for f in ("slug", "name", "logo", "tagline", "link", "cta", "intro", "page", "title", "eyebrow",
+                                "description") if not p.get(f)]
         if missing:
             fail(f"{where} needs {', '.join(missing)}")
             continue
@@ -3430,7 +3431,11 @@ def load_partners():
         for x in p.get("points", []):
             if not (x.get("h") and x.get("text") and URL_RE.match(x.get("source") or "")):
                 fail(f"{where}: each point needs h, text and a plain https:// source")
-        texts = [p.get(f) or "" for f in ("name", "tagline", "cta", "intro", "code", "code_note")]
+        if not re.fullmatch(r"[a-z0-9-]+", p["page"]) or "partner" in p["page"]:
+            fail(f"{where}: page is a plain slug, without the word partner (it shows when the page is shared)")
+        if p.get("share_image") and not (SRC / "assets" / p["share_image"]).exists():
+            fail(f"{where}: src/assets/{p['share_image']} is missing")
+        texts = [p.get(f) or "" for f in ("name", "tagline", "cta", "intro", "title", "eyebrow", "description")]
         texts += [x.get(f) or "" for x in p.get("points", []) for f in ("h", "text")]
         if any("<" in t or ">" in t for t in texts):
             fail(f"{where}: text may not contain markup")
@@ -3443,39 +3448,54 @@ def partner_logo(p, root, big=False):
             f'width="{160 if big else 110}" height="{36 if big else 25}" loading="lazy"></span>')
 
 
+def partner_card(p, root):
+    return (f'<a class="partner-card" href="{root}{p["page"]}/">{partner_logo(p, root)}'
+            f'<span class="partner-text"><b>{e(p["tagline"])}</b></span><span class="partner-go">See the offer →</span></a>')
+
+
 def partner_strip(root):
-    """The home page's small card for each partner, below What's new."""
+    """The home page's small card for each partner, below What's new, under a small Partners heading."""
     if not PARTNERS:
         return ""
-    return ('<section class="lp-section wrap partner-strip" aria-label="Partners">' + "".join(
-        f'<a class="partner-card" href="{root}partners/#{p["slug"]}">{partner_logo(p, root)}'
-        f'<span class="partner-text"><span class="partner-kicker">Partner</span><b>{e(p["tagline"])}</b></span>'
-        f'<span class="partner-go">See the offer →</span></a>' for p in PARTNERS) + "</section>")
+    return ('<section class="lp-section wrap partner-strip" aria-labelledby="partners-h">'
+            f'<p class="partner-strip-h" id="partners-h"><a href="{root}partners/">Partners</a></p>'
+            + "".join(partner_card(p, root) for p in PARTNERS) + "</section>")
 
 
 def build_partners():
-    root = "../"
-    panels = ""
+    """Each partner's offer has its own page (shared without the word partner in its address or preview);
+    /partners/ lists them."""
+    photos = json.loads((DATA / "route_photos.json").read_text(encoding="utf-8"))
     for p in PARTNERS:
+        root = "../"
+        path = f"{p['page']}/"
         # each point keeps its source in partners.json; on the page every way into the partner's site is our partner link
         points = "".join(f'<li><b>{e(x["h"])}.</b> {e(x["text"])}</li>' for x in p.get("points", []))
-        code = (f'<p class="partner-code">Voucher code: <strong>{e(p["code"])}</strong>. {e(p.get("code_note", ""))}</p>'
-                if p.get("code") else "")
-        panels += f"""<article class="partner-panel" id="{e(p["slug"])}">
+        body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("", p["name"])])}
+<div class="eyebrow-s">{e(p["eyebrow"])}</div>
+<h1>{e(p["title"])}</h1>
+<p class="lede">{e(p["intro"])}</p></div>
+<div class="prose"><article class="partner-panel" id="{e(p["slug"])}">
 <div class="partner-head">{partner_logo(p, root, big=True)}<div><h2>{e(p["name"])}</h2><p class="muted">{e(p["tagline"])}</p></div></div>
-<p>{e(p["intro"])}</p>
 <ul class="partner-points">{points}</ul>
-<div class="partner-cta"><a class="btn btn-primary" href="{e(p["link"])}" target="_blank" rel="sponsored noopener">{e(p["cta"])} →</a>{share_box(f"partners/#{p['slug']}", f"{p['name']}: {p['tagline']}", f"{p['name']}: {p['tagline']}", "offer")}</div>
-{code}
-</article>"""
+<div class="partner-cta"><a class="btn btn-primary" href="{e(p["link"])}" target="_blank" rel="sponsored noopener">{e(p["cta"])} →</a>{share_box(path, p["title"], p["title"], "page")}</div>
+</article></div></div>"""
+        og_image = BASE + "assets/" + p["share_image"] if p.get("share_image") else None
+        og_photo = photos.get(p.get("photo", ""))
+        LASTMOD[path] = DATES.get("routes")
+        write(path, page(path, search_title(None, p["title"], f"partners.json: {p['slug']}"),
+                         search_description(None, p["description"], f"partners.json: {p['slug']}"), body, root=root,
+                         og_image=og_image, og_photo=og_photo,
+                         jsonld=[breadcrumb_ld([("", "Home"), (path, p["name"])])]))
+    root = "../"
     body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("", "Partners")])}
 <div class="eyebrow-s">Partners</div>
 <h1>Partners</h1>
 <p class="lede">Services for the step after your admission letter.</p></div>
-<div class="prose">{panels}</div></div>"""
+<div class="partner-list">{"".join(partner_card(p, root) for p in PARTNERS)}</div></div>"""
     LASTMOD["partners/"] = DATES.get("routes")
-    write("partners/", page("partners/", "Partners: blocked account and health insurance for Germany",
-                            "DegreeStep's partners for students going abroad: Fintiba's blocked account and health insurance for Germany.",
+    write("partners/", page("partners/", "Partners for students going abroad",
+                            "Services for international students after the admission letter: Fintiba's blocked account and health insurance for Germany.",
                             body, root=root, nav="partners/",
                             jsonld=[breadcrumb_ld([("", "Home"), ("partners/", "Partners")])]))
 
