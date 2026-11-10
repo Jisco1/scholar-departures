@@ -59,7 +59,8 @@
     "min_read": "{n} phút đọc",
     "on_page": "Trong bài này",
     "faq_head": "Câu hỏi thường gặp",
-    "translated": "Bản dịch từ hướng dẫn tiếng Anh."
+    "translated": "Bản dịch từ hướng dẫn tiếng Anh.",
+    "index_lede": "Học bổng toàn phần và trường miễn học phí cho sinh viên quốc tế, bằng tiếng Việt."
    },
    "levels": {
     "Bachelor's": "Cử nhân",
@@ -160,7 +161,8 @@
     "min_read": "{n} menit baca",
     "on_page": "Di halaman ini",
     "faq_head": "Pertanyaan umum",
-    "translated": "Diterjemahkan dari panduan berbahasa Inggris."
+    "translated": "Diterjemahkan dari panduan berbahasa Inggris.",
+    "index_lede": "Beasiswa penuh dan universitas bebas biaya kuliah untuk mahasiswa internasional, dalam bahasa Indonesia."
    },
    "levels": {
     "Bachelor's": "S1",
@@ -296,7 +298,8 @@
     "min_read": "{n} min de lectura",
     "on_page": "En esta página",
     "faq_head": "Preguntas frecuentes",
-    "translated": "Traducido de la guía en inglés."
+    "translated": "Traducido de la guía en inglés.",
+    "index_lede": "Becas completas y universidades sin matrícula para estudiantes internacionales, en español."
    },
    "levels": {
     "Bachelor's": "Grado",
@@ -404,7 +407,8 @@
     "min_read": "{n} min de leitura",
     "on_page": "Nesta página",
     "faq_head": "Perguntas frequentes",
-    "translated": "Traduzido do guia em inglês."
+    "translated": "Traduzido do guia em inglês.",
+    "index_lede": "Bolsas integrais e universidades gratuitas para estudantes internacionais, em português."
    },
    "levels": {
     "Bachelor's": "Graduação",
@@ -526,7 +530,8 @@
     "min_read": "{n} min de lecture",
     "on_page": "Sur cette page",
     "faq_head": "Questions fréquentes",
-    "translated": "Traduit du guide en anglais."
+    "translated": "Traduit du guide en anglais.",
+    "index_lede": "Bourses complètes et universités sans frais de scolarité pour les étudiants internationaux, en français."
    },
    "levels": {
     "Bachelor's": "Licence",
@@ -627,7 +632,8 @@
     "min_read": "{n} Min. Lesezeit",
     "on_page": "Auf dieser Seite",
     "faq_head": "Häufige Fragen",
-    "translated": "Übersetzt aus dem englischen Ratgeber."
+    "translated": "Übersetzt aus dem englischen Ratgeber.",
+    "index_lede": "Vollstipendien und gebührenfreie Universitäten für internationale Studierende, auf Deutsch."
    },
    "levels": {
     "Bachelor's": "Bachelor",
@@ -728,7 +734,8 @@
     "min_read": "{n}分で読めます",
     "on_page": "このページの内容",
     "faq_head": "よくある質問",
-    "translated": "英語版ガイドの翻訳です。"
+    "translated": "英語版ガイドの翻訳です。",
+    "index_lede": "留学生向けの全額給付奨学金と授業料無料の大学、そして出願のためのガイドを日本語でまとめて紹介しています。"
    },
    "levels": {
     "Bachelor's": "学士",
@@ -829,7 +836,8 @@
     "min_read": "{n}분 분량",
     "on_page": "이 페이지의 내용",
     "faq_head": "자주 묻는 질문",
-    "translated": "영어 가이드를 번역했습니다."
+    "translated": "영어 가이드를 번역했습니다.",
+    "index_lede": "유학생을 위한 전액 장학금과 등록금 무료 대학, 그리고 지원 가이드를 한국어로 소개합니다."
    },
    "levels": {
     "Bachelor's": "학사",
@@ -930,7 +938,8 @@
     "min_read": "{n} dk okuma",
     "on_page": "Bu sayfada",
     "faq_head": "Sık sorulan sorular",
-    "translated": "İngilizce rehberden çevrilmiştir."
+    "translated": "İngilizce rehberden çevrilmiştir.",
+    "index_lede": "Uluslararası öğrenciler için tam burslar ve ücretsiz üniversiteler, Türkçe."
    },
    "levels": {
     "Bachelor's": "Lisans",
@@ -1031,7 +1040,8 @@
     "min_read": "อ่าน {n} นาที",
     "on_page": "ในหน้านี้",
     "faq_head": "คำถามที่พบบ่อย",
-    "translated": "แปลจากคู่มือภาษาอังกฤษ"
+    "translated": "แปลจากคู่มือภาษาอังกฤษ",
+    "index_lede": "ทุนการศึกษาเต็มจำนวนและมหาวิทยาลัยที่ไม่เก็บค่าเล่าเรียนสำหรับนักศึกษาต่างชาติ เป็นภาษาไทย"
    },
    "levels": {
     "Bachelor's": "ปริญญาตรี",
@@ -1132,7 +1142,8 @@
     "min_read": "{n} min czytania",
     "on_page": "Na tej stronie",
     "faq_head": "Częste pytania",
-    "translated": "Tłumaczenie poradnika z języka angielskiego."
+    "translated": "Tłumaczenie poradnika z języka angielskiego.",
+    "index_lede": "Pełne stypendia i uczelnie bez czesnego dla studentów zagranicznych, po polsku."
    },
    "levels": {
     "Bachelor's": "Licencjat",
@@ -1233,7 +1244,8 @@
     "min_read": "{n} min di lettura",
     "on_page": "In questa pagina",
     "faq_head": "Domande frequenti",
-    "translated": "Tradotto dalla guida in inglese."
+    "translated": "Tradotto dalla guida in inglese.",
+    "index_lede": "Borse di studio complete e università senza tasse per studenti internazionali, in italiano."
    },
    "levels": {
     "Bachelor's": "Laurea triennale",
@@ -1334,7 +1346,8 @@
     "min_read": "{n} хв читання",
     "on_page": "На цій сторінці",
     "faq_head": "Часті запитання",
-    "translated": "Переклад англійського посібника."
+    "translated": "Переклад англійського посібника.",
+    "index_lede": "Повні стипендії та безкоштовні університети для іноземних студентів українською мовою."
    },
    "levels": {
     "Bachelor's": "Бакалаврат",
@@ -1435,7 +1448,8 @@
     "min_read": "阅读约 {n} 分钟",
     "on_page": "本页内容",
     "faq_head": "常见问题",
-    "translated": "译自英文指南。"
+    "translated": "译自英文指南。",
+    "index_lede": "为国际学生介绍全额奖学金、免学费大学和申请指南的中文页面，包括各国籍可申请的项目和截止日期。"
    },
    "levels": {
     "Bachelor's": "本科",

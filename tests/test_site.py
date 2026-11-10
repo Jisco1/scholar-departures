@@ -730,7 +730,7 @@ class BuiltSite(unittest.TestCase):
             page = self.pages[self.site / path / "index.html"]
             self.assertIn(f'<html lang="{path[:2]}"', page)
             self.assertIn("pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=", page)
-        self.assertNotIn("hreflang", self.pages[self.site / "for" / "india" / "index.html"])
+        self.assertNotIn('<link rel="alternate" hreflang', self.pages[self.site / "for" / "india" / "index.html"])
         sitemap = (self.site / "sitemap.xml").read_text(encoding="utf-8")
         self.assertIn("https://degreestep.com/ja/for/japan/", sitemap)
 
@@ -754,6 +754,28 @@ class BuiltSite(unittest.TestCase):
         self.assertIn('href="../../../vi/guides/motivation-letter/"', self.pages[self.site / "vi" / "for" / "vietnam" / "index.html"])
         ja = self.pages[self.site / "ja" / "guides" / "motivation-letter" / "index.html"]
         self.assertNotIn("1分で読めます", ja)
+
+    def test_language_button_on_every_page(self):
+        # 10 Nov 2026: "where is the button for that ... to select the language". A globe beside the theme button lists
+        # every language; it opens the page's own translation when there is one, otherwise that language's page
+        langs = json.loads((self.dir / "data" / "nationality_i18n.json").read_text(encoding="utf-8"))["languages"]
+        for path, html in self.pages.items():
+            if path.as_posix().endswith(WIDGET):
+                continue
+            self.assertEqual(html.count('<details class="lang-menu">'), 1, path)
+            panel = html[html.index('<details class="lang-menu">'):html.index('</details>', html.index('<details class="lang-menu">'))]
+            self.assertEqual(panel.count("<li>"), len(langs) + 1, path)
+        en = self.pages[self.site / "for" / "vietnam" / "index.html"]
+        self.assertIn('<a href="../../vi/for/vietnam/" hreflang="vi" lang="vi">Tiếng Việt</a>', en)
+        self.assertIn('<a href="../../id/" hreflang="id" lang="id">Bahasa Indonesia</a>', en)
+        vi = self.pages[self.site / "vi" / "for" / "vietnam" / "index.html"]
+        self.assertIn('<a href="../../../for/vietnam/" hreflang="en" lang="en">English</a>', vi)
+        self.assertIn('lang="vi" aria-current="true">Tiếng Việt</a>', vi)
+        index = self.pages[self.site / "vi" / "index.html"]
+        self.assertIn('<meta name="robots" content="noindex">', index)
+        self.assertIn('href="for/vietnam/"', index)
+        self.assertIn('href="guides/motivation-letter/"', index)
+        self.assertNotIn("https://degreestep.com/vi/<", (self.site / "sitemap.xml").read_text(encoding="utf-8"))
 
     def test_deadlines_widget_for_other_websites(self):
         # 9 Nov 2026: a free widget schools, universities and blogs put on their own sites. It stays out of search and

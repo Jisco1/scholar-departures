@@ -119,6 +119,15 @@
     menu.addEventListener("click", function (e) { if (e.target.closest(".menu-panel a")) menu.open = false; });
   }
 
+  /* ---- language button: close on a tap outside it or on Escape ---- */
+  var langMenu = document.querySelector("details.lang-menu");
+  if (langMenu) {
+    document.addEventListener("click", function (e) { if (langMenu.open && !langMenu.contains(e.target)) langMenu.open = false; });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && langMenu.open) { langMenu.open = false; langMenu.querySelector("summary").focus(); }
+    });
+  }
+
   /* ---- theme: follows the phone or computer's light or dark mode until the visitor picks one with the button
      beside Menu, which is remembered on this device (the head script applies it before first paint) ---- */
   var toggle = document.querySelector(".theme-toggle");

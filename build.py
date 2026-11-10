@@ -806,7 +806,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
 <a class="skip" href="#main">Skip to content</a>
 <header class="topbar"><div class="wrap">
   <a class="brand" href="{root or './'}" aria-label="{e(SITE)} home">{BRAND_LOGO}</a>
-  <div class="top-actions">{THEME_TOGGLE}{nav_html}<a class="adv-btn" href="{root}advertise/">Advertise</a></div>
+  <div class="top-actions">{THEME_TOGGLE}{lang_button(path, root, lang)}{nav_html}<a class="adv-btn" href="{root}advertise/">Advertise</a></div>
 </div></header>
 <main id="main">
 {body}
@@ -3500,6 +3500,69 @@ def build_partners():
                             jsonld=[breadcrumb_ld([("", "Home"), ("partners/", "Partners")])]))
 
 
+# ---------------------------------------------------------------- language button
+
+LANG_GROUPS = {}  # path -> {language code: path} for every page that exists in more than one language, filled in main()
+GLOBE = ('<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" '
+         'stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/>'
+         '<path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18z"/></svg>')
+
+
+def link_language_groups(nat_pages):
+    groups = []
+    for p in nat_pages:
+        langs = nat_languages(p["country"])
+        if langs:
+            groups.append({"en": f"for/{p['slug']}/", **{lang: f"{lang}/for/{p['slug']}/" for lang, _ in langs}})
+    slugs = {s for docs in GUIDE_TRANSLATIONS.values() for s in docs}
+    for s in slugs:
+        groups.append({"en": f"guides/{s}/", **{lang: f"{lang}/guides/{s}/" for lang, _, _ in guide_languages(s)}})
+    for g in groups:
+        for path in g.values():
+            LANG_GROUPS[path] = g
+
+
+def lang_button(path, root, lang):
+    """The globe beside the theme button: every language, opening this page's own translation when it has one and
+    otherwise the page that lists what exists in that language."""
+    if not NAT_I18N:
+        return ""
+    group = LANG_GROUPS.get(path, {})
+    names = [("en", "English")] + [(code, L["name"]) for code, L in NAT_I18N.items()]
+    items = ""
+    for code, name in names:
+        href = root + (group.get(code) or ("" if code == "en" else f"{code}/"))
+        cur = ' aria-current="true"' if code == lang else ""
+        items += f'<li><a href="{href or "./"}" hreflang="{code}" lang="{code}"{cur}>{e(name)}</a></li>'
+    return (f'<details class="lang-menu"><summary class="lang-btn" aria-label="Language" title="Language">{GLOBE}'
+            f'<span class="lang-code">{lang.upper()}</span></summary>'
+            f'<div class="lang-panel"><ul>{items}</ul></div></details>')
+
+
+def build_language_indexes(nat_pages):
+    """/<lang>/: what exists in that language, for the language button to open."""
+    for lang, L in NAT_I18N.items():
+        t = L["t"]
+        if not t.get("index_lede"):
+            fail(f"nationality_i18n.json: {lang} has no index_lede")
+            continue
+        root = "../"
+        nat = "".join(f'<li><a href="for/{p["slug"]}/">{e(i18n_fill(t["title"], **L["countries"][p["country"]]))}</a></li>'
+                      for p in nat_pages if p["country"] in (L.get("countries") or {}))
+        guides = "".join(f'<li><a href="guides/{s}/">{e(g["title"])}</a></li>'
+                         for s, g in sorted(GUIDE_TRANSLATIONS.get(lang, {}).items()))
+        body = f"""<div class="wrap" lang="{lang}"><div class="page-head">
+<div class="eyebrow-s">DegreeStep</div>
+<h1>{e(L["name"])}</h1>
+<p class="lede">{e(t["index_lede"])}</p>
+<p class="muted lang-links"><a href="{root}" hreflang="en" lang="en">English</a></p></div>
+<div class="prose">{f'<h2>{e(t["by_nat"])}</h2><ul>{nat}</ul>' if nat else ''}{f'<h2>{e(t["guides"])}</h2><ul>{guides}</ul>' if guides else ''}</div></div>"""
+        path = f"{lang}/"
+        NOINDEX.add(path)
+        write(path, page(path, f"DegreeStep: {L['name']}", search_description(None, t["index_lede"], path), body,
+                         root=root, lang=lang, noindex=True))
+
+
 def build_static_pages(pages):
     for p in pages:
         root = "../"
@@ -3679,6 +3742,7 @@ def main():
     PARTNERS[:] = load_partners()
     NAT_I18N.update(load_nationality_i18n(NAT_PAGES, ROUTES))
     GUIDE_TRANSLATIONS.update(load_guide_translations(guides))
+    link_language_groups(NAT_PAGES)
     subjects = load_html_docs("subjects")
     AUTHOR.update(load_author())
     MENU_GUIDES[:] = [g for g in guides if g.get("featured")][:6] or guides[:6]
@@ -3728,6 +3792,7 @@ def main():
     build_no_fee_page(no_fee, {d["slug"] for d in directory})
     build_nationality_pages(ROUTES, NAT_PAGES, dict(countries))
     build_localized_nationality_pages(ROUTES, NAT_PAGES)
+    build_language_indexes(NAT_PAGES)
     build_widget(ROUTES)
     build_static_pages(static_pages)
     build_partners()
