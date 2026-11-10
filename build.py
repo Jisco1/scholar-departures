@@ -2762,7 +2762,7 @@ def build_guides(guides, routes):
         html_body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("guides/", "Guides"), ("", g["title"])])}
 <div class="eyebrow-s">{e(g.get("kicker", "Guide"))}</div><h1>{e(g["title"])}</h1><p class="lede">{e(g["description"])}</p>
 <div class="byline"><span>By <b>{author_link(root)}</b></span><span>Updated {e(fmt_date(dt.date.fromisoformat(g["updated"])))}</span><span>{mins} min read</span></div>
-<div class="head-share">{share_box(f"guides/{g['slug']}/", g["title"], g["title"], "guide")}</div></div>
+<div class="head-share">{share_box(f"guides/{g['slug']}/", g["title"], g["title"], "guide")}</div>{guide_lang_links(g["slug"], root)}</div>
 <div class="layout has-rail"><div><article class="prose">{toc_html}{body}</article>
 <div class="prose" style="margin-top:8px">{more}</div></div><aside class="rail" aria-label="Advertisements">{ad_bay("rail")}</aside></div></div>"""
         ld = [breadcrumb_ld([("", "Home"), ("guides/", "Guides"), (f"guides/{g['slug']}/", g["title"])]),
@@ -2780,7 +2780,7 @@ def build_guides(guides, routes):
         write(f"guides/{g['slug']}/", page(f"guides/{g['slug']}/", search_title(g.get("meta_title"), g["title"], where),
                                             search_description(g.get("meta_description"), g["description"], where), html_body, root=root,
                                             nav="guides/", jsonld=ld, og_type="article",
-                                            og_image=og_image, og_photo=og_photo))
+                                            og_image=og_image, og_photo=og_photo, extra_head=guide_alternates(g["slug"])))
     root = "../"
     tiles = "".join(
         f'<a class="tile" href="{g["slug"]}/"><span class="tile-kicker">{e(g.get("kicker", "Guide"))}</span><h2>{e(g["title"])}</h2>'
@@ -3257,6 +3257,10 @@ def build_localized_nationality_pages(routes, nat_pages):
             soon_html = (f'<h2 class="section-title">{e(t["soon_head"])}</h2><div class="rows">'
                          + "".join(i18n_row(r, root, L) for r in soon) + "</div>") if soon else ""
             title = i18n_fill(t["title"], **words)
+            tr_guides = GUIDE_TRANSLATIONS.get(lang, {})
+            guides_html = (f"<h2>{e(t['guides'])}</h2><ul>" + "".join(
+                f'<li><a href="{root}{lang}/guides/{s}/">{e(x["title"])}</a></li>' for s, x in sorted(tr_guides.items()))
+                + "</ul>") if tr_guides else ""
             lede = i18n_fill(t["lede"], n=n, total=len(routes), **words) + (i18n_fill(t["only_line"], k=k, **words) if only else "")
             board = f'{root}scholarships/?nat={quote(p["country"])}'
             path = f"{lang}/for/{p['slug']}/"
@@ -3280,12 +3284,127 @@ def build_localized_nationality_pages(routes, nat_pages):
 {dest_html}
 {shut_html}
 {check_html}
+{guides_html}
 </div></div></div>"""
             desc = search_description(None, i18n_fill(t["desc"], n=n, **words), path)
             LASTMOD[path] = DATES.get("routes")
             write(path, page(path, search_title(None, title, path), desc, body, root=root, nav="for/", lang=lang,
                              extra_head=nat_alternates(p),
                              jsonld=[breadcrumb_ld([("", t["home"]), ("for/", t["by_nat"]), (path, title)])]))
+
+
+# ---------------------------------------------------------------- guides in other languages
+
+GUIDE_I18N_KEYS = ("guides", "updated", "min_read", "on_page", "faq_head", "translated")
+GUIDE_TRANSLATIONS = {}  # filled in main(): language code -> {slug: translated guide}
+
+
+def load_guide_translations(guides):
+    """content/guides/<lang>/<slug>.html: a translation of the English guide with the same slug. Its front matter
+    says which English edition it translates ('source_updated'); when the English guide is updated after that, the
+    build stops until the translation is brought up to date, so a translation never keeps a fact the English page
+    has corrected."""
+    english = {g["slug"]: g for g in guides}
+    out = {}
+    for folder in sorted(p for p in (CONTENT / "guides").iterdir() if p.is_dir()):
+        lang = folder.name
+        where = f"content/guides/{lang}"
+        if lang not in NAT_I18N:
+            fail(f"{where}: {lang} is not a language in nationality_i18n.json")
+            continue
+        gaps = [k for k in GUIDE_I18N_KEYS if not NAT_I18N[lang]["t"].get(k)]
+        if gaps:
+            fail(f"nationality_i18n.json: {lang} has no text for {', '.join(gaps)}")
+            continue
+        for g in load_html_docs(f"guides/{lang}"):
+            src = english.get(g["slug"])
+            if not src:
+                fail(f"{where}/{g['slug']}.html matches no English guide")
+                continue
+            if g.get("source_updated") != src.get("updated"):
+                fail(f"{where}/{g['slug']}.html translates the English guide of {g.get('source_updated')}, but the English "
+                     f"guide was updated {src.get('updated')}; update the translation and its source_updated")
+            if not g.get("updated"):
+                fail(f"{where}/{g['slug']}.html: front matter needs 'updated'")
+            out.setdefault(lang, {})[g["slug"]] = g
+    return out
+
+
+def guide_languages(slug):
+    return [(lang, NAT_I18N[lang], docs[slug]) for lang, docs in GUIDE_TRANSLATIONS.items() if slug in docs]
+
+
+def guide_alternates(slug):
+    langs = guide_languages(slug)
+    if not langs:
+        return ""
+    links = [("en", f"{BASE}guides/{slug}/"), ("x-default", f"{BASE}guides/{slug}/")]
+    links += [(lang, f"{BASE}{lang}/guides/{slug}/") for lang, _, _ in langs]
+    return "".join(f'<link rel="alternate" hreflang="{h}" href="{e(u)}">\n' for h, u in links)
+
+
+def guide_lang_links(slug, root):
+    langs = guide_languages(slug)
+    return ('<p class="muted lang-links">' + " · ".join(
+        f'<a href="{root}{lang}/guides/{slug}/" hreflang="{lang}" lang="{lang}">{e(L["name"])}</a>' for lang, L, _ in langs)
+        + "</p>") if langs else ""
+
+
+def build_guide_translations(guides):
+    english = {g["slug"]: g for g in guides}
+    for lang, docs in GUIDE_TRANSLATIONS.items():
+        L = NAT_I18N[lang]
+        t = L["t"]
+        for slug, g in docs.items():
+            root = "../../../"
+            path = f"{lang}/guides/{slug}/"
+            body, toc = add_heading_ids(g["body"].replace("{{root}}", root))
+            body = body.replace("<!--ad-->", ad_bay("article"))
+            faq = g.get("faq") or []
+            if not all(isinstance(q, dict) and isinstance(q.get("q"), str) and isinstance(q.get("a"), str)
+                       and q["q"].strip() and q["a"].strip() for q in faq):
+                fail(f"content/guides/{lang}/{slug}.html: each 'faq' item needs plain-text 'q' and 'a'")
+                faq = []
+            if faq:
+                body += (f'<h2 id="faq">{e(t["faq_head"])}</h2>'
+                         + "".join(f"<h3>{e(q['q'])}</h3><p>{e(q['a'])}</p>" for q in faq))
+                toc.append(("faq", t["faq_head"]))
+            # Japanese and Chinese have no spaces between words: about 500 characters a minute
+            mins = max(1, round(len(re.sub(r"\s+", "", re.sub(r"<[^>]+>", "", body))) / 500) if lang in ("ja", "zh")
+                       else round(words(body) / 220))
+            toc_html = (f'<nav class="toc" aria-label="{e(t["on_page"])}"><p>{e(t["on_page"])}</p><ol>' +
+                        "".join(f'<li><a href="#{hid}">{e(x)}</a></li>' for hid, x in toc) + "</ol></nav>") if len(toc) >= 4 else ""
+            crumbs_html = (f'<nav class="crumbs" aria-label="Breadcrumb"><a href="{root}">{e(t["home"])}</a>'
+                           f'<span aria-hidden="true">›</span><a href="{root}guides/">{e(t["guides"])}</a>'
+                           f'<span aria-hidden="true">›</span><span>{e(g["title"])}</span></nav>')
+            others = [(s, x) for s, x in sorted(docs.items(), key=lambda kv: english[kv[0]].get("order", 99)) if s != slug]
+            more = ('<div class="tiles">' + "".join(
+                f'<a class="tile" href="{root}{lang}/guides/{s}/"><span class="tile-kicker">{e(x.get("kicker", ""))}</span>'
+                f'<h3>{e(x["title"])}</h3><p>{e(x["description"])}</p></a>' for s, x in others) + "</div>") if others else ""
+            updated = i18n_fill(t["updated"], date=i18n_date(L, dt.date.fromisoformat(g["updated"])))
+            html_body = f"""<div class="wrap" lang="{lang}"><div class="page-head">{crumbs_html}
+<div class="eyebrow-s">{e(g.get("kicker", ""))}</div><h1>{e(g["title"])}</h1><p class="lede">{e(g["description"])}</p>
+<div class="byline"><span><b>{SITE}</b></span><span>{e(updated)}</span><span>{e(i18n_fill(t["min_read"], n=mins))}</span></div>
+<div class="head-share">{share_box(path, g["title"], g["title"], "guide")}</div>
+<p class="muted lang-links">{e(t["translated"])} <a href="{root}guides/{slug}/" hreflang="en" lang="en">English</a></p></div>
+<div class="layout has-rail"><div><article class="prose">{toc_html}{body}</article>
+<div class="prose" style="margin-top:8px">{more}</div></div><aside class="rail" aria-label="Advertisements">{ad_bay("rail")}</aside></div></div>"""
+            ld = [breadcrumb_ld([("", t["home"]), ("guides/", t["guides"]), (path, g["title"])]),
+                  {"@context": "https://schema.org", "@type": "Article", "headline": g["title"], "description": g["description"],
+                   "inLanguage": lang, "dateModified": g["updated"], "datePublished": g["updated"],
+                   "author": author_ld(), "publisher": {"@type": "Organization", "name": SITE, "url": BASE},
+                   "mainEntityOfPage": BASE + path, "translationOfWork": {"@id": BASE + f"guides/{slug}/"}}]
+            if faq:
+                ld.append({"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": lang,
+                           "mainEntity": [{"@type": "Question", "name": q["q"], "acceptedAnswer": {"@type": "Answer", "text": q["a"]}}
+                                          for q in faq]})
+            LASTMOD[path] = g["updated"]
+            where = f"content/guides/{lang}/{slug}.html"
+            og_image, og_photo = share_photo("guide", slug)
+            write(path, page(path, search_title(g.get("meta_title"), g["title"], where),
+                             search_description(g.get("meta_description"), g["description"], where), html_body, root=root,
+                             nav="guides/", jsonld=ld, og_type="article", og_image=og_image, og_photo=og_photo, lang=lang,
+                             extra_head=guide_alternates(slug)))
 
 
 def build_static_pages(pages):
@@ -3465,6 +3584,7 @@ def main():
     static_pages = load_html_docs("pages")
     NAT_PAGES[:] = load_nationality_pages()
     NAT_I18N.update(load_nationality_i18n(NAT_PAGES, ROUTES))
+    GUIDE_TRANSLATIONS.update(load_guide_translations(guides))
     subjects = load_html_docs("subjects")
     AUTHOR.update(load_author())
     MENU_GUIDES[:] = [g for g in guides if g.get("featured")][:6] or guides[:6]
@@ -3509,6 +3629,7 @@ def main():
     build_countries(ROUTES, countries)
     build_subjects(subjects, ROUTES, positions)
     build_guides(guides, ROUTES)
+    build_guide_translations(guides)
     build_deadlines(ROUTES)
     build_no_fee_page(no_fee, {d["slug"] for d in directory})
     build_nationality_pages(ROUTES, NAT_PAGES, dict(countries))

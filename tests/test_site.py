@@ -734,6 +734,27 @@ class BuiltSite(unittest.TestCase):
         sitemap = (self.site / "sitemap.xml").read_text(encoding="utf-8")
         self.assertIn("https://degreestep.com/ja/for/japan/", sitemap)
 
+    def test_guides_in_the_readers_language(self):
+        # 10 Nov 2026: the motivation-letter guide in nine languages. Each translation names the English edition it
+        # translates, the English guide and its translations point at each other, and the translated nationality page
+        # links the guides in its language
+        en = self.pages[self.site / "guides" / "motivation-letter" / "index.html"]
+        vi = self.pages[self.site / "vi" / "guides" / "motivation-letter" / "index.html"]
+        self.assertIn('<html lang="vi"', vi)
+        self.assertIn("<h1>Cách viết thư động lực giành được học bổng</h1>", vi)
+        for lang in ("vi", "id", "es", "pt", "fr", "de", "ja", "ko", "tr"):
+            alt = f'<link rel="alternate" hreflang="{lang}" href="https://degreestep.com/{lang}/guides/motivation-letter/">'
+            self.assertIn(alt, en)
+            self.assertIn(alt, vi)
+            page = self.pages[self.site / lang / "guides" / "motivation-letter" / "index.html"]
+            self.assertIn("pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=", page)
+            article = lambda h: re.search(r'<article class="prose">(.*?)</article>', h, re.S).group(1)
+            self.assertEqual(article(page).count("<h2"), article(en).count("<h2"), lang)
+        self.assertIn('href="../../vi/guides/motivation-letter/" hreflang="vi" lang="vi">Tiếng Việt</a>', en)
+        self.assertIn('href="../../../vi/guides/motivation-letter/"', self.pages[self.site / "vi" / "for" / "vietnam" / "index.html"])
+        ja = self.pages[self.site / "ja" / "guides" / "motivation-letter" / "index.html"]
+        self.assertNotIn("1分で読めます", ja)
+
     def test_deadlines_widget_for_other_websites(self):
         # 9 Nov 2026: a free widget schools, universities and blogs put on their own sites. It stays out of search and
         # carries no ads or trackers; it links back with utm tags; the page that hands out the code is in the footer
@@ -1373,6 +1394,19 @@ class PoisonedData(unittest.TestCase):
                 shutil.rmtree(tmp, ignore_errors=True)
             self.assertNotEqual(result.returncode, 0, f"{entry} was accepted")
             self.assertIn(needle, result.stderr)
+
+    def test_stale_guide_translation_rejected(self):
+        # a translation must be brought up to date when its English guide changes
+        tmp = make_copy()
+        try:
+            path = tmp / "content" / "guides" / "motivation-letter.html"
+            path.write_text(path.read_text(encoding="utf-8").replace('"updated": "2026-09-24"', '"updated": "2026-12-01"'),
+                            encoding="utf-8")
+            result = build(tmp)
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("update the translation and its source_updated", result.stderr)
 
     def test_translation_missing_a_destination_rejected(self):
         tmp = make_copy()
