@@ -1,0 +1,46 @@
+{
+ "_help": "Companies we have a partner agreement with, shown at /partners/ and as a small card on the home page. 'link' is our partner link, 'logo' a file in src/assets. 'points' are plain-text facts from the partner's own pages, each with its 'source'. Every partner link carries rel=\"sponsored\" and a short \"Partner link\" label.",
+ "partners": [
+  {
+   "slug": "fintiba",
+   "name": "Fintiba",
+   "logo": "partner-fintiba.svg",
+   "tagline": "Blocked account and health insurance for Germany",
+   "link": "https://partner.fintiba.com/degreestep",
+   "cta": "Open a Fintiba blocked account",
+   "intro": "Most international students need a blocked account (Sperrkonto) for a German student visa: proof that you can pay your living costs. Fintiba opens it online before you travel.",
+   "points": [
+    {
+     "h": "The blocked account",
+     "text": "For most students in 2026 the required amount is €11,904 for 12 months. The money stays blocked until you arrive, then €992 is paid each month into your German bank account.",
+     "source": "https://www.fintiba.com/blocked-account-germany"
+    },
+    {
+     "h": "Fintiba Plus for students under 30",
+     "text": "The blocked account, Mawista Visum travel health insurance at no extra cost, and Barmer public health insurance from the start of your semester.",
+     "source": "https://www.fintiba.com/health-insurance-germany/students"
+    },
+    {
+     "h": "Fintiba Plus for students over 30",
+     "text": "The blocked account, Mawista Visum travel health insurance and Mawista Student private health insurance.",
+     "source": "https://www.fintiba.com/health-insurance-germany/students"
+    },
+    {
+     "h": "Paying in your own currency",
+     "text": "Fintiba Transfer, run with TransferMate, lets you fund the account in more than 140 currencies by bank transfer or card. An ordinary international transfer can take up to two weeks.",
+     "source": "https://www.fintiba.com/blocked-account-germany"
+    },
+    {
+     "h": "If your visa is refused",
+     "text": "Fintiba refunds the blocked amount, minus the account opening fee and any transfer fees.",
+     "source": "https://www.fintiba.com/blocked-account-germany"
+    },
+    {
+     "h": "Fees",
+     "text": "Fintiba charges a one-time set-up fee and a monthly fee once the money arrives. Its blocked-account page shows the current amounts.",
+     "source": "https://www.fintiba.com/blocked-account-germany"
+    }
+   ]
+  }
+ ]
+}

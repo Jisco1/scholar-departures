@@ -2,6 +2,7 @@
    The home app adds app.css on top of this. */
 :root {
   --bg: #0B1322;
+  --plate: #FFFFFF;                  /* the white plate behind partner logos, in both themes */
   --bg-2: #0D1730;
   --card: #121F35;
   --line: #243450;
@@ -49,6 +50,7 @@
 /* Light theme: chosen from the menu, remembered on this device */
 :root[data-theme="light"] {
   --bg: #F3F5F9;
+  --plate: #FFFFFF;
   --bg-2: #E9EDF4;
   --card: #FFFFFF;
   --line: #D3DAE5;
@@ -464,4 +466,33 @@ img, svg { max-width: 100%; }
 .nat-index li { break-inside: avoid; margin-bottom: 6px; }
 .lang-links { margin-top: 12px; font-size: 14px; }
 .lang-links a { color: var(--brass); }
-.partner-tag { display: block; margin-top: 4px; font-size: 12.5px; color: var(--faint); }
+.partner-tag { display: inline-block; margin-left: 6px; padding: 1px 8px; border: 1px solid var(--line); border-radius: 999px;
+  font-size: 11px; letter-spacing: .06em; color: var(--faint); vertical-align: middle; }
+
+/* partners: the small card on the home page and the panels on /partners/ */
+.partner-strip { padding-top: 36px; }
+.partner-card { display: flex; align-items: center; gap: 16px; max-width: 640px; margin: 0 auto; padding: 14px 18px;
+  border: 1px solid var(--line); border-radius: 14px; background: var(--card); color: var(--text); text-decoration: none;
+  transition: border-color .15s; }
+.partner-card:hover, .partner-card:focus-visible { border-color: var(--brass); }
+.partner-logo { flex: none; display: inline-flex; align-items: center; background: var(--plate); border-radius: 10px; padding: 8px 12px;
+  border: 1px solid var(--line); }
+.partner-logo img { display: block; height: 22px; width: auto; }
+.partner-logo.big img { height: 32px; }
+.partner-text { display: grid; gap: 2px; flex: 1; min-width: 0; }
+.partner-kicker { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--faint); }
+.partner-text b { font-weight: 600; font-size: 15px; line-height: 1.35; }
+.partner-go { flex: none; color: var(--brass); font-weight: 600; font-size: 14px; }
+@media (max-width: 560px) { .partner-card { flex-wrap: wrap; } .partner-go { width: 100%; } }
+.partner-panel { border: 1px solid var(--line); border-radius: 16px; padding: 24px; background: var(--card); margin: 8px 0 48px; }
+.partner-head { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 12px; }
+.prose .partner-head h2 { margin: 0; }
+.partner-head p { margin: 0; }
+.prose .partner-points { list-style: none; padding-left: 0; }
+.partner-points li { margin-bottom: 10px; }
+.partner-points .src { font-size: 12.5px; color: var(--faint); }
+.partner-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.partner-cta .partner-tag { margin: 0; }
+.partner-code { font-size: 14px; color: var(--dim); }
+.prose .partner-cta .btn-primary { color: var(--bg); text-decoration: none; }
+.prose .partner-points { margin-top: 14px; }

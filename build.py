@@ -615,7 +615,7 @@ def menu_html(root, here):
 
     countries = [(f"countries/{slug}/", name) for slug, name in MENU_COUNTRIES] + [("countries/", "All countries \u2192")]
     guides = [(f"guides/{g['slug']}/", g.get("menu") or g["title"]) for g in MENU_GUIDES] + [("guides/", "All guides \u2192")]
-    about = [("about/", "About us"), ("editorial-policy/", "How we verify"), ("updates/", "What's new"), ("contact/", "Contact")]
+    about = [("about/", "About us"), ("editorial-policy/", "How we verify"), ("updates/", "What's new"), ("partners/", "Partners"), ("contact/", "Contact")]
     return ('<details class="menu"><summary class="menu-btn">' + MENU_ICON + '<span class="menu-label">Menu</span></summary>'
             '<div class="menu-panel"><nav aria-label="Main"><ul class="menu-list">'
             + link("", "Home") + link("scholarships/", "Scholarship board") + link("routes/", "Funded routes")
@@ -821,7 +821,7 @@ def page(path, title, description, body, *, root, nav=None, body_class="", jsonl
       <li><a href="{root}scholarships/">Scholarship board</a></li><li><a href="{root}routes/">All funded routes</a></li>
       <li><a href="{root}deadlines/">Deadline calendar</a></li><li><a href="{root}positions/">Funded positions</a></li>
       <li><a href="{root}news/">Research news</a></li>
-      <li><a href="{root}updates/">What's new</a></li>
+      <li><a href="{root}updates/">What's new</a></li><li><a href="{root}partners/">Partners</a></li>
       <li><a href="{root}countries/">Countries</a></li><li><a href="{root}for/">By nationality</a></li><li><a href="{root}guides/">Guides</a></li>
       <li><a href="{root}app/">iPhone app</a></li></ul></div>
     <div><h2>About</h2><ul>
@@ -1731,6 +1731,8 @@ def build_home(routes, schools, updates, positions, research):
   <ul class="lp-news">{news}</ul>
   <p class="lp-more center"><a href="updates/">All updates →</a></p>
 </section>
+
+{partner_strip(root)}
 
 <section class="lp-section wrap">
   <h2 class="lp-h2">Programmes on DegreeStep</h2>
@@ -3407,6 +3409,78 @@ def build_guide_translations(guides):
                              extra_head=guide_alternates(slug)))
 
 
+# ---------------------------------------------------------------- partners
+
+PARTNERS = []  # filled in main(): data/partners.json
+
+
+def load_partners():
+    doc = json.loads((DATA / "partners.json").read_text(encoding="utf-8"))
+    out = []
+    for p in doc.get("partners", []):
+        where = f"partners.json: {p.get('slug')}"
+        missing = [f for f in ("slug", "name", "logo", "tagline", "link", "cta", "intro") if not p.get(f)]
+        if missing:
+            fail(f"{where} needs {', '.join(missing)}")
+            continue
+        if not URL_RE.match(p["link"]):
+            fail(f"{where}: link must be a plain https:// URL")
+        if not (SRC / "assets" / p["logo"]).exists():
+            fail(f"{where}: src/assets/{p['logo']} is missing")
+        for x in p.get("points", []):
+            if not (x.get("h") and x.get("text") and URL_RE.match(x.get("source") or "")):
+                fail(f"{where}: each point needs h, text and a plain https:// source")
+        texts = [p.get(f) or "" for f in ("name", "tagline", "cta", "intro", "code", "code_note")]
+        texts += [x.get(f) or "" for x in p.get("points", []) for f in ("h", "text")]
+        if any("<" in t or ">" in t for t in texts):
+            fail(f"{where}: text may not contain markup")
+        out.append(p)
+    return out
+
+
+def partner_logo(p, root, big=False):
+    return (f'<span class="partner-logo{" big" if big else ""}"><img src="{asset(root, p["logo"])}" alt="{e(p["name"])}" '
+            f'width="{160 if big else 110}" height="{36 if big else 25}" loading="lazy"></span>')
+
+
+def partner_strip(root):
+    """The home page's small card for each partner, below What's new."""
+    if not PARTNERS:
+        return ""
+    return ('<section class="lp-section wrap partner-strip" aria-label="Partners">' + "".join(
+        f'<a class="partner-card" href="{root}partners/#{p["slug"]}">{partner_logo(p, root)}'
+        f'<span class="partner-text"><span class="partner-kicker">Partner</span><b>{e(p["tagline"])}</b></span>'
+        f'<span class="partner-go">See the offer →</span></a>' for p in PARTNERS) + "</section>")
+
+
+def build_partners():
+    root = "../"
+    panels = ""
+    for p in PARTNERS:
+        points = "".join(f'<li><b>{e(x["h"])}.</b> {e(x["text"])} <a class="src" href="{e(x["source"])}" target="_blank" '
+                         f'rel="noopener">Source</a></li>' for x in p.get("points", []))
+        code = (f'<p class="partner-code">Voucher code: <strong>{e(p["code"])}</strong>. {e(p.get("code_note", ""))}</p>'
+                if p.get("code") else "")
+        panels += f"""<article class="partner-panel" id="{e(p["slug"])}">
+<div class="partner-head">{partner_logo(p, root, big=True)}<div><h2>{e(p["name"])}</h2><p class="muted">{e(p["tagline"])}</p></div></div>
+<p>{e(p["intro"])}</p>
+<ul class="partner-points">{points}</ul>
+<p class="partner-cta"><a class="btn btn-primary" href="{e(p["link"])}" target="_blank" rel="sponsored noopener">{e(p["cta"])} →</a>
+<small class="partner-tag">Partner link</small></p>
+{code}
+</article>"""
+    body = f"""<div class="wrap"><div class="page-head">{crumbs(root, [("", "Partners")])}
+<div class="eyebrow-s">Partners</div>
+<h1>Partners</h1>
+<p class="lede">Services for the step after your admission letter.</p></div>
+<div class="prose">{panels}</div></div>"""
+    LASTMOD["partners/"] = DATES.get("routes")
+    write("partners/", page("partners/", "Partners: blocked account and health insurance for Germany",
+                            "DegreeStep's partners for students going abroad: Fintiba's blocked account and health insurance for Germany.",
+                            body, root=root, nav="partners/",
+                            jsonld=[breadcrumb_ld([("", "Home"), ("partners/", "Partners")])]))
+
+
 def build_static_pages(pages):
     for p in pages:
         root = "../"
@@ -3583,6 +3657,7 @@ def main():
         g["body"] = g["body"].replace("{{NO_FEE_TABLE}}", no_fee_table(no_fee))
     static_pages = load_html_docs("pages")
     NAT_PAGES[:] = load_nationality_pages()
+    PARTNERS[:] = load_partners()
     NAT_I18N.update(load_nationality_i18n(NAT_PAGES, ROUTES))
     GUIDE_TRANSLATIONS.update(load_guide_translations(guides))
     subjects = load_html_docs("subjects")
@@ -3636,6 +3711,7 @@ def main():
     build_localized_nationality_pages(ROUTES, NAT_PAGES)
     build_widget(ROUTES)
     build_static_pages(static_pages)
+    build_partners()
     build_author(guides, countries)
     build_404()
     write_meta_files(ROUTES)
