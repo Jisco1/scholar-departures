@@ -1,5 +1,35 @@
 [
   {
+    "id": "holland-scholarship-now-nl-scholarship-2027-28",
+    "date": "2026-11-20",
+    "category": "Funding",
+    "art": "scholarship",
+    "title": "The Holland Scholarship is now the NL Scholarship, and 2027-28 applications are open",
+    "summary": "Study in NL has renamed the Holland Scholarship the NL Scholarship. It still gives €5,000 in the first year to non-EEA students starting a full-time bachelor's or master's at one of 33 Dutch institutions, and applications for 2027-28 are open.",
+    "meta_title": "Holland Scholarship renamed NL Scholarship: 2027-28 open",
+    "meta_description": "The Holland Scholarship is now the NL Scholarship: €5,000 for non-EEA students at 33 Dutch universities and universities of applied sciences in 2027-28.",
+    "why": "Anyone searching for the Holland Scholarship may not find it under its old name. Deadlines are set by each institution, so check yours early.",
+    "source_title": "Study in NL: NL Scholarship",
+    "source_url": "https://www.studyinnl.org/finances/holland-scholarship",
+    "images": [
+      {
+        "file": "news-amsterdam-herengracht-blue-hour.jpg",
+        "kind": "wide",
+        "name": "The Herengracht in Amsterdam at dusk",
+        "credit": "Anne Dirkse (www.annedirkse.com)",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Herengracht,_Amsterdam_in_the_Blue_Hour.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
+    ],
+    "body": [
+      "Study in NL, the Dutch government's portal for international students, now calls the Holland Scholarship the NL Scholarship. The page says the application period for the 2027-28 academic year is open.",
+      "The scholarship is €5,000, paid in the first year of study, and Study in NL says plainly that it is not a full-tuition scholarship. It is for students with a nationality from outside the EEA who apply for a full-time bachelor's or master's at a participating institution and do not already hold a Dutch degree.",
+      "For 2027-28, 33 institutions take part: 10 research universities, including Groningen, Radboud, Twente, Utrecht, VU Amsterdam and Wageningen, and 23 universities of applied sciences and arts schools. Study in NL gives no single deadline; each institution publishes its own dates for the 2027-28 rounds.",
+      "Our [NL Scholarship page]({{root}}routes/nl-scholarship/) explains who can apply, and our [Netherlands guide]({{root}}countries/netherlands/) lists tuition fees at each Dutch university."
+    ]
+  },
+  {
     "id": "oist-phd-program-deadline-15-november-2026",
     "date": "2026-11-03",
     "category": "Funding",

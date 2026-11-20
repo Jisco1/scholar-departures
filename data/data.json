@@ -5245,5 +5245,86 @@
     "tbc": true,
     "link": "https://twas.org/opportunity/anso-cas-twasunesco-phd-scholarship",
     "approx": false
+  },
+  {
+    "last_verified": "2026-11-20",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "nl-scholarship",
+    "name": "NL Scholarship (formerly Holland Scholarship)",
+    "flag": "🇳🇱",
+    "country": "Netherlands",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Social Sciences & Law",
+      "Agriculture & Environment",
+      "Medicine & Health"
+    ],
+    "types": [
+      "Merit"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's"
+    ],
+    "funding": "€5,000 in your first year for non-EEA students starting a full-time bachelor's or master's at one of 33 Dutch universities and universities of applied sciences; not a full-tuition scholarship.",
+    "deadline": "Set by each participating institution for 2027-28: check its NL Scholarship page",
+    "link": "https://www.studyinnl.org/finances/holland-scholarship",
+    "deadlines": null,
+    "approx": false,
+    "opens": null,
+    "varies": true
+  },
+  {
+    "last_verified": "2026-11-20",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "heinrich-boll-foundation-scholarships",
+    "name": "Heinrich Böll Foundation scholarships (Germany)",
+    "flag": "🇩🇪",
+    "country": "Germany",
+    "region": "Europe",
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Social Sciences & Law",
+      "Agriculture & Environment",
+      "Medicine & Health"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "funding": "€992 a month for a master's or €1,500 for a PhD in Germany, plus health insurance and up to €10,000 a year towards tuition, for international students with civic commitment.",
+    "deadline": "Spring 2027 round: portal open Jan 15 to Mar 1, 2027; the next round closes Sep 1, 2027",
+    "link": "https://www.boell.de/en/scholarships",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 3,
+        "d": 1,
+        "for": "Spring 2027 round (portal opens Jan 15, 2027)"
+      },
+      {
+        "y": 2027,
+        "m": 9,
+        "d": 1,
+        "for": "Fall 2027 round"
+      }
+    ],
+    "approx": false,
+    "opens": {
+      "y": 2027,
+      "m": 1,
+      "d": 15
+    },
+    "varies": null
   }
 ]

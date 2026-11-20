@@ -139,6 +139,9 @@
     },
     "netherlands-universities-no-application-fee": {
       "route": "leiden-excellence-scholarship"
+    },
+    "fully-funded-masters-switzerland": {
+      "route": "eth-zurich-excellence-scholarship"
     }
   },
   "countries": {

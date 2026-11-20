@@ -957,5 +957,19 @@
   "license": "CC BY-SA 4.0",
   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "source_url": "https://commons.wikimedia.org/wiki/File:Lake_in_University_of_Science_and_Technology_of_China_(180405).jpg"
+ },
+ "nl-scholarship": {
+  "file": "route-nl-scholarship.jpg",
+  "credit": "Anne Dirkse (www.annedirkse.com)",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Herengracht,_Amsterdam_in_the_Blue_Hour.jpg"
+ },
+ "heinrich-boll-foundation-scholarships": {
+  "file": "route-heinrich-boll-foundation-scholarships.jpg",
+  "credit": "Leonhard Lenz",
+  "license": "CC0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Heinrich-B%C3%B6ll-Stiftung_building_Berlin_2024-05-09_02.jpg"
  }
 }
