@@ -5344,7 +5344,7 @@
     "country": "China",
     "region": "Asia",
     "kind": "program",
-    "scope": "all",
+    "scope": "limited",
     "fields": [
       "Natural Sciences",
       "Engineering & Tech",
@@ -5383,7 +5383,7 @@
     "country": "Belgium",
     "region": "Europe",
     "kind": "school",
-    "scope": "all",
+    "scope": "limited",
     "fields": [
       "Natural Sciences",
       "Agriculture & Environment"
@@ -5420,7 +5420,7 @@
     "country": "France",
     "region": "Europe",
     "kind": "school",
-    "scope": "all",
+    "scope": "limited",
     "fields": [
       "Social Sciences & Law",
       "Business & Economics",
@@ -5473,7 +5473,8 @@
       "Medicine & Health",
       "Business & Economics",
       "Social Sciences & Law",
-      "Arts & Humanities"
+      "Arts & Humanities",
+      "Agriculture & Environment"
     ],
     "types": [
       "Full Scholarship",
