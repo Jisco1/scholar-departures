@@ -1,5 +1,65 @@
 [
   {
+    "id": "cas-anso-scholarship-2027-call-open",
+    "date": "2026-11-26",
+    "category": "Funding",
+    "art": "scholarship",
+    "title": "The CAS-ANSO Scholarship 2027 is open: a funded master's or PhD in China, until 28 February",
+    "summary": "The Alliance of International Science Organizations has opened the 2027 CAS-ANSO Scholarship. It waives tuition and pays 3,000 CNY a month for a master's or 6,000 to 7,000 CNY for a PhD at USTC or UCAS, and applications close on 28 February 2027.",
+    "meta_title": "CAS-ANSO Scholarship 2027 open: master's and PhD in China",
+    "meta_description": "The 2027 CAS-ANSO Scholarship opened on 17 November 2026: tuition waived and a monthly stipend at USTC or UCAS. Deadline 28 February 2027.",
+    "why": "It is one of the few fully funded science routes into China open to every nationality except Chinese, but the age limits rule many people out, so check yours before you start.",
+    "source_title": "ANSO: CAS-ANSO Scholarship 2027 call for applications",
+    "source_url": "https://www.anso.org.cn/programmes/talent/scholarship/",
+    "images": [
+      {
+        "file": "news-ucas-yanqihu-campus-dusk.jpg",
+        "kind": "wide",
+        "name": "The Yanqi Lake campus of the University of Chinese Academy of Sciences at dusk",
+        "credit": "N509FZ",
+        "license": "CC BY-SA 4.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:UCAS_Yanqihu_Campus_(20160209163544).jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
+    ],
+    "body": [
+      "The Alliance of International Science Organizations (ANSO) says the 2027 CAS-ANSO Scholarship opened on 17 November 2026. Applicants and their referees have until 28 February 2027, Beijing time.",
+      "The scholarship pays for a master's or PhD at the University of Science and Technology of China or the University of Chinese Academy of Sciences. Tuition and the application fee are waived, master's students receive 3,000 CNY a month for up to 36 months, and PhD students 6,000 or 7,000 CNY a month for up to 48 months. Health insurance, one trip to China and a visa allowance are included. Each year ANSO funds 100 to 200 master's and 300 PhD students.",
+      "Anyone without Chinese citizenship can apply, but the age limits are strict: born on or after 1 January 1997 for a master's and 1 January 1992 for a PhD. You apply to USTC or UCAS, not both, and choose the scholarship in the application.",
+      "PhD applicants from developing countries can also tick the ANSO-CAS-TWAS/UNESCO option, which has up to 40 places, 10 of them with priority for climate research. Our [CAS-ANSO page]({{root}}routes/cas-anso-scholarship/) and [ANSO-CAS-TWAS page]({{root}}routes/anso-cas-twas-phd-scholarship/) explain both."
+    ]
+  },
+  {
+    "id": "warwick-80-phd-scholarships-2027",
+    "date": "2026-11-26",
+    "category": "Funding",
+    "art": "scholarship",
+    "title": "Warwick offers up to 80 funded PhD scholarships for 2027, and the deadline is 10 December",
+    "summary": "The University of Warwick has opened its 2027 PhD scholarship competition. Its Chancellor's streams, open to any nationality, pay full international fees, a UKRI-rate stipend for 3.5 years and a £5,000 research grant.",
+    "meta_title": "Warwick PhD scholarships 2027: 80 places, 10 December deadline",
+    "meta_description": "Warwick's 2027 PhD scholarships: full fees for any nationality, a UKRI-rate stipend and £5,000 for research. PhD application by 7 December 2026.",
+    "why": "Fully funded PhD places open to international students are rare in the UK, and Warwick's course deadline comes before the scholarship deadline, so applicants have less time than the headline date suggests.",
+    "source_title": "University of Warwick: Postgraduate research scholarships 2027",
+    "source_url": "https://warwick.ac.uk/services/dc/schols_fund/applicants/competitions/",
+    "images": [
+      {
+        "file": "news-warwick-central-campus.jpg",
+        "kind": "wide",
+        "name": "The central campus of the University of Warwick",
+        "credit": "David P Howard",
+        "license": "CC BY-SA 2.0",
+        "source_url": "https://commons.wikimedia.org/wiki/File:University_of_Warwick_Campus_-_geograph.org.uk_-_3281772.jpg",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+      }
+    ],
+    "body": [
+      "The University of Warwick is offering up to 80 postgraduate research scholarships for autumn 2027, across six streams with one application. The two Chancellor's streams, up to 30 Faculty places and 12 Interdisciplinary places, are open to any nationality or fee status.",
+      "A Chancellor's scholarship pays full academic fees at the UK or international rate, a tax-free stipend at the UKRI rate for three and a half years and a £5,000 research grant. UKRI's minimum stipend for 2026-27 is £21,805; the 2027-28 rate is not yet confirmed.",
+      "The deadlines are close together and all at 16:59 GMT: the PhD course application by 7 December 2026, the scholarship application by 10 December 2026 and references by 21 December 2026. Offers go out by 5 March 2027.",
+      "Our [Warwick Chancellor's page]({{root}}routes/warwick-chancellors-phd-scholarships/) sets out the steps, and our [funded PhD guide]({{root}}guides/funded-phd-europe/) lists other fully funded doctorates."
+    ]
+  },
+  {
     "id": "holland-scholarship-now-nl-scholarship-2027-28",
     "date": "2026-11-20",
     "category": "Funding",

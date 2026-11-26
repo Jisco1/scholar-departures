@@ -342,9 +342,9 @@
       "PhD"
     ],
     "funding": "The Hungarian state covers tuition, a monthly stipend, a dorm place or housing contribution and insurance across thousands of places each year.",
-    "deadline": "2027/28 call not yet published (the 2026/27 deadline was Jan 15, 2026)",
+    "deadline": "2027/28 call not yet published; on Nov 26, 2026 Stipendium Hungaricum said applications will open soon (the 2026/27 deadline was Jan 15, 2026)",
     "link": "https://stipendiumhungaricum.hu/",
-    "last_verified": "2026-10-12",
+    "last_verified": "2026-11-26",
     "content_hash": "1c48a6e4d260eb8df98a1fe74580d228a53aa02f24cf5d30e9026b2d94d1befa",
     "needs_review": false,
     "kind": "program",
@@ -360,7 +360,7 @@
       "Agriculture & Environment"
     ],
     "slug": "stipendium-hungaricum",
-    "last_checked": "2026-11-01",
+    "last_checked": "2026-11-26",
     "tbc": true,
     "approx": false
   },
@@ -5218,7 +5218,7 @@
     "approx": false
   },
   {
-    "last_verified": "2026-11-09",
+    "last_verified": "2026-11-26",
     "content_hash": null,
     "needs_review": false,
     "slug": "anso-cas-twas-phd-scholarship",
@@ -5241,10 +5241,17 @@
       "PhD"
     ],
     "funding": "Tuition waived, 6,000 or 7,000 CNY a month for up to four years, health insurance and a flight to China, for PhD students from developing countries at USTC or UCAS.",
-    "deadline": "The 2026 call closed Jan 31, 2026; the next call is not yet announced",
-    "tbc": true,
-    "link": "https://twas.org/opportunity/anso-cas-twasunesco-phd-scholarship",
-    "approx": false
+    "deadline": "2027 call open since Nov 17, 2026; applicants and referees by Feb 28, 2027 (Beijing time)",
+    "link": "https://www.anso.org.cn/programmes/talent/scholarship/",
+    "approx": false,
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 2,
+        "d": 28,
+        "for": "Applications and references (Beijing time)"
+      }
+    ]
   },
   {
     "last_verified": "2026-11-20",
@@ -5325,6 +5332,181 @@
       "m": 1,
       "d": 15
     },
+    "varies": null
+  },
+  {
+    "last_verified": "2026-11-26",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "cas-anso-scholarship",
+    "name": "CAS-ANSO Scholarship (China)",
+    "flag": "🇨🇳",
+    "country": "China",
+    "region": "Asia",
+    "kind": "program",
+    "scope": "all",
+    "fields": [
+      "Natural Sciences",
+      "Engineering & Tech",
+      "Computer Science",
+      "Agriculture & Environment"
+    ],
+    "types": [
+      "Full Scholarship"
+    ],
+    "levels": [
+      "Master's",
+      "PhD"
+    ],
+    "funding": "Tuition waived, 3,000 CNY a month for a master's (up to 36 months) or 6,000 or 7,000 CNY for a PhD (up to 48 months), health insurance and one flight to China; 100 to 200 master's and 300 PhD places a year.",
+    "deadline": "2027 call open since Nov 17, 2026; applicants and referees by Feb 28, 2027 (Beijing time)",
+    "link": "https://www.anso.org.cn/programmes/talent/scholarship/",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 2,
+        "d": 28,
+        "for": "Applications and references (Beijing time)"
+      }
+    ],
+    "approx": false,
+    "opens": null,
+    "varies": null
+  },
+  {
+    "last_verified": "2026-11-26",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "science-leuven-scholarship",
+    "name": "KU Leuven Science@Leuven Scholarship",
+    "flag": "🇧🇪",
+    "country": "Belgium",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Natural Sciences",
+      "Agriculture & Environment"
+    ],
+    "types": [
+      "Merit",
+      "Tuition Waiver"
+    ],
+    "levels": [
+      "Master's"
+    ],
+    "funding": "€12,000 a year for up to two years, and non-EEA students pay a reduced tuition fee (€3,252.72 in 2026-27), for top students in nine Faculty of Science master's programmes.",
+    "deadline": "Feb 15, 2027, for a September 2027 start (applications opened Oct 1, 2026)",
+    "link": "https://www.kuleuven.be/scholarships/year/2027-2028/science-leuven-scholarship",
+    "deadlines": [
+      {
+        "y": 2027,
+        "m": 2,
+        "d": 15,
+        "for": "Programme and scholarship applications"
+      }
+    ],
+    "approx": false,
+    "opens": null,
+    "varies": null
+  },
+  {
+    "last_verified": "2026-11-26",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "sciences-po-emile-boutmy-scholarship",
+    "name": "Sciences Po Émile Boutmy Scholarship",
+    "flag": "🇫🇷",
+    "country": "France",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Social Sciences & Law",
+      "Business & Economics",
+      "Arts & Humanities"
+    ],
+    "types": [
+      "Merit",
+      "Tuition Waiver"
+    ],
+    "levels": [
+      "Bachelor's",
+      "Master's"
+    ],
+    "funding": "A tuition exemption for top students from outside the EU: a full exemption or €9,500 off for the bachelor's, and €18,500 off in each of the two master's years. It does not pay living costs.",
+    "deadline": "Master's: Nov 29, 2026 (last Boutmy round); bachelor's, applicants from foreign secondary schools: Jan 13, 2027",
+    "link": "https://www.sciencespo.fr/students/en/fees-funding/bursaries-financial-aid/emile-boutmy-scholarship/",
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 11,
+        "d": 29,
+        "for": "Master's, second and last Boutmy round"
+      },
+      {
+        "y": 2027,
+        "m": 1,
+        "d": 13,
+        "for": "Bachelor's, applicants from foreign secondary schools"
+      }
+    ],
+    "approx": false,
+    "opens": null,
+    "varies": null
+  },
+  {
+    "last_verified": "2026-11-26",
+    "content_hash": null,
+    "needs_review": false,
+    "slug": "warwick-chancellors-phd-scholarships",
+    "name": "University of Warwick Chancellor's PhD Scholarships",
+    "flag": "🇬🇧",
+    "country": "United Kingdom",
+    "region": "Europe",
+    "kind": "school",
+    "scope": "all",
+    "fields": [
+      "Engineering & Tech",
+      "Computer Science",
+      "Natural Sciences",
+      "Medicine & Health",
+      "Business & Economics",
+      "Social Sciences & Law",
+      "Arts & Humanities"
+    ],
+    "types": [
+      "Full Scholarship",
+      "Merit"
+    ],
+    "levels": [
+      "PhD"
+    ],
+    "funding": "Up to 42 Chancellor's places for autumn 2027, open to any nationality: full UK or international fees, a UKRI-rate stipend for 3.5 years (£21,805 in 2026-27) and a £5,000 research grant.",
+    "deadline": "PhD application Dec 7, 2026; scholarship application Dec 10, 2026; references Dec 21, 2026 (all 16:59 GMT)",
+    "link": "https://warwick.ac.uk/services/dc/schols_fund/applicants/competitions/",
+    "deadlines": [
+      {
+        "y": 2026,
+        "m": 12,
+        "d": 7,
+        "for": "PhD course application"
+      },
+      {
+        "y": 2026,
+        "m": 12,
+        "d": 10,
+        "for": "Scholarship application"
+      },
+      {
+        "y": 2026,
+        "m": 12,
+        "d": 21,
+        "for": "References"
+      }
+    ],
+    "approx": false,
+    "opens": null,
     "varies": null
   }
 ]

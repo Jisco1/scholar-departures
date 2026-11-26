@@ -1,0 +1,82 @@
+{
+  "summary": "Sciences Po's Émile Boutmy Scholarship cuts tuition for its best students from outside the European Union: a full exemption or €9,500 off for the bachelor's, and €18,500 off in each of the two years of a master's. It covers tuition only, not living costs. Master's applicants have until 29 November 2026, and bachelor's applicants from foreign secondary schools until 13 January 2027.",
+  "meta_title": "Émile Boutmy Scholarship 2027: Sciences Po tuition for non-EU",
+  "meta_description": "Sciences Po's Émile Boutmy Scholarship: €18,500 off master's tuition a year, or up to full bachelor's tuition, for non-EU students entering in 2027.",
+  "covers": [
+    "Bachelor's: a total exemption from tuition fees, or an exemption of €9,500.",
+    "Master's: €18,500 off tuition fees in each of the two years.",
+    "Sciences Po may recalculate the amount each year in line with tuition increases.",
+    "No living allowance, so rent and living costs in Paris are yours to cover. You can combine it with outside scholarships."
+  ],
+  "eligibility": [
+    "Citizens of a country outside the European Union applying to Sciences Po for the first time.",
+    "Parents whose tax residence is outside the EU. Sciences Po looks at your parents' tax residence, not yours.",
+    "Admission to the undergraduate programme or a two-year master's.",
+    "Awarded on merit and on the profile each programme looks for."
+  ],
+  "how_to_apply": [
+    "Apply to Sciences Po online and pay the application fee. Only complete files are considered.",
+    "Tick the Émile Boutmy Scholarship in the 'Financial information' section of the same application. You cannot ask for it after you submit, or after admission.",
+    "Master's: have your complete application in by 29 November 2026, the second and last Boutmy round. The first closed on 18 October 2026.",
+    "Bachelor's, applying from a foreign secondary school: apply by 13 January 2027. Results come in April."
+  ],
+  "watch_out": [
+    "Not eligible: Swiss and Norwegian applicants, dual citizens with an EU nationality, one-year master's and PhD students, exchange students and Quebec master's candidates.",
+    "You lose the scholarship if you do not validate your academic year, or if you defer.",
+    "It cannot be combined with other Sciences Po scholarships."
+  ],
+  "costs": [
+    [
+      "Tuition fee",
+      "You, less the Boutmy exemption"
+    ],
+    [
+      "Application fee",
+      "You (€150 for the bachelor's)"
+    ],
+    [
+      "Living costs in Paris",
+      "You"
+    ]
+  ],
+  "documents": [
+    "The Sciences Po online application, with the Émile Boutmy Scholarship ticked under 'Financial information'.",
+    "Language test results, if your programme asks for them.",
+    "The application fee."
+  ],
+  "faq": [
+    {
+      "q": "How much is the Émile Boutmy Scholarship?",
+      "a": "For the bachelor's, a full tuition exemption or €9,500 off; for a master's, €18,500 off tuition in each of the two years. It does not pay living costs."
+    },
+    {
+      "q": "What is the Émile Boutmy deadline for 2027 entry?",
+      "a": "29 November 2026 for master's applicants, the last Boutmy round, and 13 January 2027 for bachelor's applicants from foreign secondary schools."
+    },
+    {
+      "q": "Who can get the Émile Boutmy Scholarship?",
+      "a": "First-time applicants from outside the European Union whose parents do not pay tax in the EU, once admitted to the bachelor's or a two-year master's."
+    }
+  ],
+  "related": [
+    "eiffel-excellence-scholarship",
+    "bocconi-tuition-waivers",
+    "geneva-graduate-institute-scholarships",
+    "chevening-scholarships"
+  ],
+  "sources": [
+    {
+      "title": "Sciences Po: The Émile Boutmy scholarship",
+      "url": "https://www.sciencespo.fr/students/en/fees-funding/bursaries-financial-aid/emile-boutmy-scholarship/"
+    },
+    {
+      "title": "Sciences Po: Deadlines for international graduate admissions",
+      "url": "https://www.sciencespo.fr/admissions/en/graduate/international-admissions/deadlines/"
+    },
+    {
+      "title": "Sciences Po: Applicants from foreign secondary schools",
+      "url": "https://www.sciencespo.fr/admissions/en/undergraduate/foreign-secondary-schools/"
+    }
+  ],
+  "reviewed": "2026-11-26"
+}

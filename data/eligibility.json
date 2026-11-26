@@ -2207,6 +2207,31 @@
     },
     "heinrich-boll-foundation-scholarships": {
       "check": "Open to international students; the foundation gives priority to applicants from DAC (development aid) countries who do not yet live in Germany."
+    },
+    "cas-anso-scholarship": {
+      "all": true,
+      "except": [
+        "China"
+      ]
+    },
+    "science-leuven-scholarship": {
+      "all": true,
+      "except": [
+        "Belgium"
+      ]
+    },
+    "sciences-po-emile-boutmy-scholarship": {
+      "all": true,
+      "except_groups": [
+        "eu"
+      ],
+      "except": [
+        "Switzerland",
+        "Norway"
+      ]
+    },
+    "warwick-chancellors-phd-scholarships": {
+      "all": true
     }
   }
 }

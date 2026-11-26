@@ -971,5 +971,33 @@
   "license": "CC0",
   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
   "source_url": "https://commons.wikimedia.org/wiki/File:Heinrich-B%C3%B6ll-Stiftung_building_Berlin_2024-05-09_02.jpg"
+ },
+ "cas-anso-scholarship": {
+  "file": "route-cas-anso-scholarship.jpg",
+  "credit": "N509FZ",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:UCAS_Yanqihu_Campus_(20160209163544).jpg"
+ },
+ "science-leuven-scholarship": {
+  "file": "route-science-leuven-scholarship.jpg",
+  "credit": "Ad Meskens",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Heverlee_Leuven_Kasteel_van_Arenberg_02.jpg"
+ },
+ "sciences-po-emile-boutmy-scholarship": {
+  "file": "route-sciences-po-emile-boutmy-scholarship.jpg",
+  "credit": "Celette",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:IEP_de_Paris,_27_rue_Saint-Guillaume,_Paris_7e.jpg"
+ },
+ "warwick-chancellors-phd-scholarships": {
+  "file": "route-warwick-chancellors-phd-scholarships.jpg",
+  "credit": "David P Howard",
+  "license": "CC BY-SA 2.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "source_url": "https://commons.wikimedia.org/wiki/File:University_of_Warwick_Campus_-_geograph.org.uk_-_3281772.jpg"
  }
 }
